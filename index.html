@@ -376,9 +376,9 @@
 <body>
   <div class="shell">
     <aside>
-      <div class="stamp">Beibei Lexicon / Jun 11</div>
+      <div class="stamp">Beibei Lexicon / Daily</div>
       <p class="dek">
-        这是一份从《马斯克冲向1万亿》精读笔记里抽出的难点词汇清单。适合先筛词，再按“财富、政治、批判表达、心理状态、短语”复习。
+        这是一份从贝贝外刊每日精读里抽出的难点词汇清单。现在合并展示 6 月 11 日与 6 月 12 日两篇文章，可按文章、分类、难度筛选复习。
       </p>
 
       <div class="controls">
@@ -394,6 +394,15 @@
             <option value="5">5 星：核心硬词</option>
             <option value="4">4 星：外刊高频</option>
             <option value="3">3 星：表达迁移</option>
+          </select>
+        </label>
+
+        <label>
+          Article
+          <select id="article">
+            <option value="all">全部文章</option>
+            <option value="20260612">今日：特朗普80岁与UFC</option>
+            <option value="20260611">6/11：马斯克万亿富翁</option>
           </select>
         </label>
       </div>
@@ -414,10 +423,10 @@
       <section class="hero">
         <h1>今天的难点词汇 <span>Word List</span></h1>
         <div class="hero-meta">
-          <span class="tag red">Musk the trillionaire</span>
-          <span class="tag">1021 words</span>
+          <span class="tag red">Daily Beibei Archive</span>
+          <span class="tag">2 articles</span>
           <span class="tag gold">★★★★ 外刊精读</span>
-          <span class="tag">politics / wealth / democracy</span>
+          <span class="tag">politics / age / wealth / rhetoric</span>
         </div>
       </section>
 
@@ -432,7 +441,7 @@
   </div>
 
   <script>
-    const words = [
+    const muskWords = [
       { term: "impunity", phonetic: "/ɪmˈpjuːnɪti/", cn: "不受惩罚；逍遥法外", example: "A trillion dollars could give him a new level of impunity.", category: "政治与制度", difficulty: 5 },
       { term: "oligarchy", phonetic: "/ˈɑːlərɡɑːrki/", cn: "寡头政治；少数人统治", example: "Extreme wealth can bring society closer to full-blown oligarchy.", category: "政治与制度", difficulty: 5 },
       { term: "obscene", phonetic: "/əbˈsiːn/", cn: "大得惊人的；令人反感的；荒谬的", example: "It is worth pausing to take in just how obscene this sum is.", category: "批判表达", difficulty: 5 },
@@ -469,11 +478,75 @@
       { term: "tag along", phonetic: "/tæɡ əˈlɔːŋ/", cn: "跟随；随同", example: "He tagged along with Trump on state visits.", category: "短语表达", difficulty: 3 },
       { term: "cut a deal", phonetic: "/kʌt ə diːl/", cn: "达成交易；达成协议", example: "He cut deals for his companies overseas.", category: "短语表达", difficulty: 3 },
       { term: "open the door to", phonetic: "/ˈoʊpən ðə dɔːr tuː/", cn: "为……打开大门；创造机会", example: "The decision opened the door to unlimited election spending.", category: "短语表达", difficulty: 3 }
-    ];
+    ].map(word => ({
+      ...word,
+      article: "20260611",
+      articleTitle: "马斯克冲向1万亿"
+    }));
+
+    const trumpWords = [
+      { term: "act one's age", phonetic: "/ækt wʌnz eɪdʒ/", cn: "举止与年龄相称；成熟点", example: "Trump at 80 raises the question of whether he will act his age.", category: "短语表达", difficulty: 4 },
+      { term: "shift", phonetic: "/ʃɪft/", cn: "轮班；轮班工作时间", example: "The staff take it in shifts so they can get a nap.", category: "人物状态", difficulty: 3 },
+      { term: "unleash", phonetic: "/ʌnˈliːʃ/", cn: "释放；使爆发；放开约束", example: "The second term is framed as Trump Unleashed.", category: "批判表达", difficulty: 4 },
+      { term: "aide", phonetic: "/eɪd/", cn: "助手；助理，尤指政界助手", example: "A former aide says the best times to call are early morning or late evening.", category: "政治与制度", difficulty: 3 },
+      { term: "night owl", phonetic: "/ˌnaɪt ˈaʊl/", cn: "夜猫子；习惯熬夜的人", example: "He is such a night owl that some journalists get through at 3am.", category: "人物状态", difficulty: 3 },
+      { term: "enterprising", phonetic: "/ˈentərpraɪzɪŋ/", cn: "有进取心的；敢尝试的", example: "Some enterprising hacks have got through to him late at night.", category: "人物状态", difficulty: 4 },
+      { term: "hack", phonetic: "/hæk/", cn: "平庸记者；政客；雇佣文人", example: "The word carries a dismissive tone when used for journalists.", category: "媒体表达", difficulty: 4 },
+      { term: "meme", phonetic: "/miːm/", cn: "网络迷因；表情包；传播梗", example: "His posts are often a mix of AI memes and criticism of enemies.", category: "媒体表达", difficulty: 3 },
+      { term: "fallout", phonetic: "/ˈfɔːlaʊt/", cn: "后果；余波；核辐射尘", example: "His team checks Truth Social for any likely fallout.", category: "批判表达", difficulty: 4 },
+      { term: "in one's prime", phonetic: "/praɪm/", cn: "处于盛年；处于巅峰期", example: "Is this the behaviour of a man in his prime?", category: "年龄与健康", difficulty: 4 },
+      { term: "zest for life", phonetic: "/zest/", cn: "生活热情；生命活力", example: "The article asks whether he is full of energy and zest for life.", category: "人物状态", difficulty: 4 },
+      { term: "lie-down", phonetic: "/ˈlaɪ daʊn/", cn: "躺下休息；小睡", example: "Or is he desperately in need of a lie-down?", category: "年龄与健康", difficulty: 3 },
+      { term: "hit the milestone", phonetic: "/hɪt ðə ˈmaɪlstoʊn/", cn: "达到里程碑；跨过重要节点", example: "Trump and Biden are the only presidents to hit the milestone in office.", category: "短语表达", difficulty: 4 },
+      { term: "revel in", phonetic: "/ˈrevəl ɪn/", cn: "陶醉于；纵情享受", example: "This is not an association the president revels in.", category: "短语表达", difficulty: 4 },
+      { term: "give sb a bad name", phonetic: "/ɡɪv ə bæd neɪm/", cn: "败坏某人/群体名声", example: "Trump has said Biden gave old people a bad name.", category: "短语表达", difficulty: 4 },
+      { term: "UFC", phonetic: "/ˌjuː ef ˈsiː/", cn: "终极格斗冠军赛", example: "One birthday event is intended to project strength: a UFC fight.", category: "政治与形象", difficulty: 3 },
+      { term: "showdown", phonetic: "/ˈʃoʊdaʊn/", cn: "摊牌；决战；最后对决", example: "A structure was installed for Saturday's showdown.", category: "政治与形象", difficulty: 4 },
+      { term: "military parade", phonetic: "/ˈmɪləteri pəˈreɪd/", cn: "阅兵式；军事游行", example: "The birthday spectacle is paired with patriotic display.", category: "政治与形象", difficulty: 3 },
+      { term: "outing", phonetic: "/ˈaʊtɪŋ/", cn: "短途外出；公开露面", example: "The article contrasts rare outings with constant online activity.", category: "人物状态", difficulty: 3 },
+      { term: "Oval Office", phonetic: "/ˌoʊvəl ˈɑːfɪs/", cn: "白宫椭圆形办公室；美国总统办公室", example: "The Oval Office becomes part of the ageing-president debate.", category: "政治与制度", difficulty: 4 },
+      { term: "rumour mill", phonetic: "/ˈruːmər mɪl/", cn: "流言传播渠道；小道消息圈", example: "The rumour mill goes into overdrive around presidential health.", category: "媒体表达", difficulty: 4 },
+      { term: "go into overdrive", phonetic: "/ˈoʊvərdraɪv/", cn: "加速运转；进入高度活跃状态", example: "Speculation can go into overdrive when health questions appear.", category: "短语表达", difficulty: 4 },
+      { term: "unsubstantiated", phonetic: "/ˌʌnsəbˈstænʃieɪtɪd/", cn: "未经证实的；没有证据支持的", example: "The article distinguishes rumours from unsubstantiated claims.", category: "媒体表达", difficulty: 5 },
+      { term: "stroke", phonetic: "/stroʊk/", cn: "中风；脑卒中", example: "Age and health questions invite speculation about strokes or decline.", category: "年龄与健康", difficulty: 4 },
+      { term: "dismiss", phonetic: "/dɪsˈmɪs/", cn: "不予考虑；驳回；轻视", example: "His allies dismiss concerns about his age.", category: "批判表达", difficulty: 4 },
+      { term: "invoke", phonetic: "/ɪnˈvoʊk/", cn: "援引；调用法律或规则", example: "Critics may invoke constitutional mechanisms in age debates.", category: "政治与制度", difficulty: 5 },
+      { term: "amendment", phonetic: "/əˈmendmənt/", cn: "修正案；修改条款", example: "The 25th Amendment is mentioned in relation to fitness for office.", category: "政治与制度", difficulty: 5 },
+      { term: "cognitive", phonetic: "/ˈkɑːɡnətɪv/", cn: "认知的；思维能力相关的", example: "Public scrutiny often turns to cognitive stamina.", category: "年龄与健康", difficulty: 4 },
+      { term: "stamina", phonetic: "/ˈstæmɪnə/", cn: "耐力；持久精力", example: "A presidency requires unusual physical and mental stamina.", category: "年龄与健康", difficulty: 4 },
+      { term: "cardiac", phonetic: "/ˈkɑːrdiæk/", cn: "心脏的；心脏病相关的", example: "Medical reports often mention cardiac risks.", category: "年龄与健康", difficulty: 4 },
+      { term: "pulmonary", phonetic: "/ˈpʌlməneri/", cn: "肺部的；肺病相关的", example: "Pulmonary health is part of the broader fitness discussion.", category: "年龄与健康", difficulty: 4 },
+      { term: "neurological", phonetic: "/ˌnʊrəˈlɑːdʒɪkl/", cn: "神经系统的；神经病学的", example: "Neurological health becomes politically sensitive in old age.", category: "年龄与健康", difficulty: 5 },
+      { term: "cholesterol", phonetic: "/kəˈlestərɔːl/", cn: "胆固醇", example: "Cholesterol levels are a staple of presidential health reports.", category: "年龄与健康", difficulty: 4 },
+      { term: "Ozempic", phonetic: "/ˈoʊzempɪk/", cn: "奥泽匹克；司美格鲁肽品牌药", example: "The article notes he has refused Ozempic.", category: "年龄与健康", difficulty: 4 },
+      { term: "indulge", phonetic: "/ɪnˈdʌldʒ/", cn: "纵容自己；沉溺于", example: "He is portrayed as still indulging in familiar foods.", category: "人物状态", difficulty: 4 },
+      { term: "teetotal", phonetic: "/ˌtiːˈtoʊtl/", cn: "滴酒不沾的；完全戒酒的", example: "Being teetotal is one point in his favour.", category: "人物状态", difficulty: 4 },
+      { term: "drowsiness", phonetic: "/ˈdraʊzinəs/", cn: "困倦；嗜睡", example: "Aides attribute occasional drowsiness to boring speakers.", category: "年龄与健康", difficulty: 4 },
+      { term: "rambling", phonetic: "/ˈræmblɪŋ/", cn: "冗长杂乱的话；语无伦次", example: "Rambling remarks can feed age-related criticism.", category: "媒体表达", difficulty: 4 },
+      { term: "attribute A to B", phonetic: "/əˈtrɪbjuːt/", cn: "把 A 归因于 B", example: "They attribute reduced appearances to time in the situation room.", category: "短语表达", difficulty: 4 },
+      { term: "situation room", phonetic: "/ˌsɪtʃuˈeɪʃən ruːm/", cn: "战情室；危机指挥室", example: "Officials say he spends more time in the situation room.", category: "政治与制度", difficulty: 4 },
+      { term: "wisecrack", phonetic: "/ˈwaɪzkræk/", cn: "俏皮话；机智讽刺语", example: "Old acquaintances say his wisecracks remain intact.", category: "人物状态", difficulty: 4 },
+      { term: "vengeance", phonetic: "/ˈvendʒəns/", cn: "复仇；报复", example: "The article frames vengeance as part of his unchanged temperament.", category: "批判表达", difficulty: 5 },
+      { term: "appetite", phonetic: "/ˈæpɪtaɪt/", cn: "食欲；强烈欲望", example: "He has an appetite for coverage and attention.", category: "人物状态", difficulty: 3 },
+      { term: "clipping", phonetic: "/ˈklɪpɪŋ/", cn: "剪报；片段；剪下物", example: "He still scans clippings about himself.", category: "媒体表达", difficulty: 4 },
+      { term: "legacy", phonetic: "/ˈleɡəsi/", cn: "遗产；政治遗产；后遗影响", example: "He is focused on stamping his legacy on Washington.", category: "政治与形象", difficulty: 4 },
+      { term: "temperamental", phonetic: "/ˌtemprəˈmentl/", cn: "喜怒无常的；性情多变的", example: "His temperamental style remains part of his image.", category: "人物状态", difficulty: 4 },
+      { term: "grievance", phonetic: "/ˈɡriːvəns/", cn: "不满；委屈；积怨", example: "Old grievances continue to shape his politics.", category: "批判表达", difficulty: 5 },
+      { term: "showmanship", phonetic: "/ˈʃoʊmənʃɪp/", cn: "吸引注意的表演技巧；作秀能力", example: "The UFC event is a classic act of political showmanship.", category: "政治与形象", difficulty: 5 },
+      { term: "intact", phonetic: "/ɪnˈtækt/", cn: "完整无损的；未受影响的", example: "His basic instincts appear intact.", category: "批判表达", difficulty: 4 },
+      { term: "intensify", phonetic: "/ɪnˈtensɪfaɪ/", cn: "加强；加剧；增强", example: "Questions about age will intensify as he turns 80.", category: "批判表达", difficulty: 4 }
+    ].map(word => ({
+      ...word,
+      article: "20260612",
+      articleTitle: "特朗普80岁与UFC"
+    }));
+
+    const words = [...trumpWords, ...muskWords];
 
     const grid = document.querySelector("#wordGrid");
     const search = document.querySelector("#search");
     const difficulty = document.querySelector("#difficulty");
+    const articleSelect = document.querySelector("#article");
     const chips = document.querySelector("#chips");
     const shownCount = document.querySelector("#shownCount");
     const totalCount = document.querySelector("#totalCount");
@@ -503,15 +576,17 @@
       renderChips();
       const query = search.value.trim().toLowerCase();
       const level = difficulty.value;
+      const article = articleSelect.value;
       const filtered = words.filter(word => {
-        const text = `${word.term} ${word.cn} ${word.example} ${word.category}`.toLowerCase();
+        const text = `${word.term} ${word.cn} ${word.example} ${word.category} ${word.articleTitle}`.toLowerCase();
         const categoryOk = activeCategory === "全部" || word.category === activeCategory;
         const difficultyOk = level === "all" || String(word.difficulty) === level;
-        return categoryOk && difficultyOk && text.includes(query);
+        const articleOk = article === "all" || word.article === article;
+        return categoryOk && difficultyOk && articleOk && text.includes(query);
       });
 
       grid.innerHTML = filtered.map((word, index) => {
-        const id = word.term;
+        const id = `${word.article}:${word.term}`;
         return `
           <article class="word-card ${mastered.has(id) ? "mastered" : ""}" style="animation-delay:${Math.min(index * 24, 420)}ms">
             <div class="word-top">
@@ -524,7 +599,7 @@
             <p class="meaning">${word.cn}</p>
             <p class="example">${word.example}</p>
             <div class="card-foot">
-              <span class="category">${word.category} · ${stars(word.difficulty)}</span>
+              <span class="category">${word.articleTitle} · ${word.category} · ${stars(word.difficulty)}</span>
               <button class="mark" data-term="${id}">${mastered.has(id) ? "RESET" : "KNOW"}</button>
             </div>
           </article>
@@ -549,6 +624,7 @@
 
     search.addEventListener("input", render);
     difficulty.addEventListener("change", render);
+    articleSelect.addEventListener("change", render);
     render();
   </script>
 </body>
