@@ -1,10 +1,11 @@
 services:
   - type: web
     name: beibei-word-site
-    runtime: static
-    buildCommand: echo "Static site ready"
-    staticPublishPath: .
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+    runtime: python
+    plan: free
+    buildCommand: "python3 --version"
+    startCommand: "python3 -B server.py"
+    healthCheckPath: /api/health
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
