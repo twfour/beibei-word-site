@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beibei 外刊词汇索引</title>
+  <style>
+    :root {
+      --paper: #f6f0e4;
+      --ink: #1f201c;
+      --muted: #6f6659;
+      --line: #26231e;
+      --card: #fffaf0;
+      --accent: #c63d1f;
+      --gold: #b28b3a;
+      --sage: #60705d;
+      --blue: #304b64;
+      --shadow: 0 18px 44px rgba(31, 32, 28, .14);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(31,32,28,.035) 1px, transparent 1px) 0 0 / 28px 28px,
+        linear-gradient(rgba(31,32,28,.025) 1px, transparent 1px) 0 0 / 28px 28px,
+        radial-gradient(circle at 18% 14%, rgba(198, 61, 31, .12), transparent 30%),
+        radial-gradient(circle at 86% 6%, rgba(178, 139, 58, .16), transparent 28%),
+        var(--paper);
+      font-family: "Iowan Old Style", "Palatino Linotype", "Songti SC", serif;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .45;
+      background-image:
+        repeating-linear-gradient(112deg, transparent 0 9px, rgba(31,32,28,.026) 10px 11px);
+      mix-blend-mode: multiply;
+    }
+
+    .shell {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 28px;
+      width: min(1440px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 28px 0 42px;
+    }
+
+    aside {
+      position: sticky;
+      top: 20px;
+      align-self: start;
+      min-height: calc(100vh - 40px);
+      padding: 22px;
+      border: 2px solid var(--line);
+      background: rgba(255, 250, 240, .82);
+      box-shadow: 8px 8px 0 var(--line);
+    }
+
+    .stamp {
+      width: fit-content;
+      margin-bottom: 18px;
+      padding: 6px 10px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font: 700 12px/1.1 "Courier New", monospace;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transform: rotate(-2deg);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(36px, 5vw, 70px);
+      line-height: .88;
+      letter-spacing: 0;
+      max-width: 980px;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .dek {
+      margin: 18px 0 24px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    .controls {
+      display: grid;
+      gap: 14px;
+      margin: 20px 0 24px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      font: 700 12px/1 "Courier New", monospace;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    input, select {
+      width: 100%;
+      border: 2px solid var(--line);
+      border-radius: 0;
+      background: #fffdf7;
+      color: var(--ink);
+      padding: 12px 13px;
+      font: 700 15px/1.2 "Courier New", monospace;
+      outline: none;
+      box-shadow: 4px 4px 0 rgba(31,32,28,.18);
+    }
+
+    input:focus, select:focus {
+      border-color: var(--accent);
+      box-shadow: 4px 4px 0 rgba(198,61,31,.28);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .chip {
+      border: 1.5px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      padding: 8px 10px;
+      cursor: pointer;
+      font: 700 12px/1 "Courier New", monospace;
+      transition: transform .18s ease, background .18s ease, color .18s ease;
+    }
+
+    .chip:hover { transform: translateY(-2px); }
+    .chip.active { background: var(--line); color: var(--paper); }
+
+    .scoreboard {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 2px solid var(--line);
+      border-bottom: 2px solid var(--line);
+      margin-top: 22px;
+    }
+
+    .score {
+      padding: 13px 8px;
+      text-align: center;
+      border-right: 2px solid var(--line);
+    }
+
+    .score:last-child { border-right: 0; }
+    .score b {
+      display: block;
+      font: 800 26px/1 "Courier New", monospace;
+      color: var(--accent);
+    }
+    .score small {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    main {
+      min-width: 0;
+    }
+
+    .hero {
+      position: relative;
+      padding: 18px 0 20px;
+      border-bottom: 3px solid var(--line);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      padding: 7px 10px;
+      border: 1.5px solid var(--line);
+      background: rgba(255,255,255,.42);
+      font: 700 12px/1 "Courier New", monospace;
+    }
+
+    .tag.red { background: var(--accent); color: #fffaf0; }
+    .tag.gold { background: rgba(178,139,58,.22); }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin: 26px 0 15px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .hint {
+      color: var(--muted);
+      font: 700 12px/1.4 "Courier New", monospace;
+      text-align: right;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .word-card {
+      position: relative;
+      min-height: 238px;
+      padding: 18px;
+      border: 2px solid var(--line);
+      background: var(--card);
+      box-shadow: 7px 7px 0 rgba(31,32,28,.86);
+      animation: rise .56s ease both;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .word-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 11px 11px 0 rgba(31,32,28,.9);
+    }
+
+    .word-card.mastered {
+      background: #eef2df;
+    }
+
+    .word-card.mastered::after {
+      content: "MASTERED";
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      color: var(--sage);
+      border: 1px solid var(--sage);
+      padding: 4px 6px;
+      font: 800 10px/1 "Courier New", monospace;
+      transform: rotate(4deg);
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .word-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding-bottom: 12px;
+      border-bottom: 1.5px dashed rgba(31,32,28,.45);
+    }
+
+    .term {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1;
+    }
+
+    .phonetic {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font: 700 12px/1.2 "Courier New", monospace;
+    }
+
+    .level {
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--line);
+      background: var(--ink);
+      color: var(--paper);
+      font: 900 14px/1 "Courier New", monospace;
+    }
+
+    .meaning {
+      margin: 14px 0 10px;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .example {
+      margin: 0;
+      color: var(--blue);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .card-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .category {
+      color: var(--muted);
+      font: 800 11px/1 "Courier New", monospace;
+      text-transform: uppercase;
+    }
+
+    .mark {
+      border: 1.5px solid var(--line);
+      background: transparent;
+      cursor: pointer;
+      padding: 7px 9px;
+      font: 800 11px/1 "Courier New", monospace;
+    }
+
+    .mark:hover { background: var(--line); color: var(--paper); }
+
+    .empty {
+      display: none;
+      border: 2px dashed var(--line);
+      padding: 30px;
+      background: rgba(255,250,240,.72);
+      color: var(--muted);
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .empty.show { display: block; }
+
+    @media (max-width: 1040px) {
+      .shell { grid-template-columns: 1fr; }
+      aside {
+        position: relative;
+        top: auto;
+        min-height: 0;
+      }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hint { text-align: left; }
+      .section-title { align-items: start; flex-direction: column; }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        width: min(100% - 24px, 1440px);
+        padding-top: 12px;
+      }
+      aside { padding: 16px; box-shadow: 5px 5px 0 var(--line); }
+      .grid { grid-template-columns: 1fr; }
+      .word-card { min-height: 0; }
+      .scoreboard { grid-template-columns: 1fr; }
+      .score { border-right: 0; border-bottom: 2px solid var(--line); }
+      .score:last-child { border-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside>
+      <div class="stamp">Beibei Lexicon / Jun 11</div>
+      <p class="dek">
+        这是一份从《马斯克冲向1万亿》精读笔记里抽出的难点词汇清单。适合先筛词，再按“财富、政治、批判表达、心理状态、短语”复习。
+      </p>
+
+      <div class="controls">
+        <label>
+          Search
+          <input id="search" type="search" placeholder="输入 impunity / 寡头 / IPO">
+        </label>
+
+        <label>
+          Difficulty
+          <select id="difficulty">
+            <option value="all">全部难度</option>
+            <option value="5">5 星：核心硬词</option>
+            <option value="4">4 星：外刊高频</option>
+            <option value="3">3 星：表达迁移</option>
+          </select>
+        </label>
+      </div>
+
+      <div>
+        <label>Category</label>
+        <div class="chips" id="chips"></div>
+      </div>
+
+      <div class="scoreboard">
+        <div class="score"><b id="shownCount">0</b><small>shown</small></div>
+        <div class="score"><b id="totalCount">0</b><small>total</small></div>
+        <div class="score"><b id="masteredCount">0</b><small>known</small></div>
+      </div>
+    </aside>
+
+    <main>
+      <section class="hero">
+        <h1>今天的难点词汇 <span>Word List</span></h1>
+        <div class="hero-meta">
+          <span class="tag red">Musk the trillionaire</span>
+          <span class="tag">1021 words</span>
+          <span class="tag gold">★★★★ 外刊精读</span>
+          <span class="tag">politics / wealth / democracy</span>
+        </div>
+      </section>
+
+      <div class="section-title">
+        <h2>词汇卡片</h2>
+        <div class="hint">点击 “KNOW” 标记已掌握，本页会记住你的状态。</div>
+      </div>
+
+      <section class="grid" id="wordGrid" aria-live="polite"></section>
+      <div class="empty" id="empty">没有匹配的词。换个关键词或分类试试。</div>
+    </main>
+  </div>
+
+  <script>
+    const words = [
+      { term: "impunity", phonetic: "/ɪmˈpjuːnɪti/", cn: "不受惩罚；逍遥法外", example: "A trillion dollars could give him a new level of impunity.", category: "政治与制度", difficulty: 5 },
+      { term: "oligarchy", phonetic: "/ˈɑːlərɡɑːrki/", cn: "寡头政治；少数人统治", example: "Extreme wealth can bring society closer to full-blown oligarchy.", category: "政治与制度", difficulty: 5 },
+      { term: "obscene", phonetic: "/əbˈsiːn/", cn: "大得惊人的；令人反感的；荒谬的", example: "It is worth pausing to take in just how obscene this sum is.", category: "批判表达", difficulty: 5 },
+      { term: "collateral damage", phonetic: "/kəˈlætərəl ˈdæmɪdʒ/", cn: "附带伤害；间接损害", example: "He acts without regard for how much collateral damage he causes.", category: "批判表达", difficulty: 5 },
+      { term: "weaponize", phonetic: "/ˈwepənaɪz/", cn: "武器化；把某事当作攻击工具", example: "He weaponized a murder case to stir political anger.", category: "批判表达", difficulty: 5 },
+      { term: "shadow president", phonetic: "/ˈʃædoʊ ˈprezɪdənt/", cn: "影子总统；幕后实际施加影响者", example: "The article describes Musk as a sort of shadow president.", category: "政治与制度", difficulty: 5 },
+      { term: "outsized influence", phonetic: "/ˌaʊtˈsaɪzd ˈɪnfluəns/", cn: "过大的影响力；不成比例的影响", example: "Many Americans say billionaires wield outsized influence.", category: "政治与制度", difficulty: 5 },
+      { term: "wield", phonetic: "/wiːld/", cn: "行使、运用、支配权力", example: "Billionaires wield enormous power over politics.", category: "政治与制度", difficulty: 4 },
+      { term: "trillionaire", phonetic: "/ˌtrɪljəˈner/", cn: "万亿富翁", example: "Musk may become the world's first trillionaire.", category: "财富与权力", difficulty: 4 },
+      { term: "net worth", phonetic: "/net wɜːrθ/", cn: "净资产；身家", example: "His net worth has jumped by more than $500bn.", category: "财富与权力", difficulty: 4 },
+      { term: "liquid", phonetic: "/ˈlɪkwɪd/", cn: "流动性的；易变现的", example: "His wealth is not fully liquid and can fluctuate wildly.", category: "财富与权力", difficulty: 4 },
+      { term: "initial public offering", phonetic: "/ɪˈnɪʃəl ˈpʌblɪk ˈɔːfərɪŋ/", cn: "首次公开募股；IPO", example: "SpaceX's initial public offering could make Musk richer.", category: "财富与权力", difficulty: 4 },
+      { term: "mogul", phonetic: "/ˈmoʊɡl/", cn: "大亨；有权势的人", example: "The tech mogul got a healthy return on his investment.", category: "财富与权力", difficulty: 4 },
+      { term: "lucrative", phonetic: "/ˈluːkrətɪv/", cn: "利润丰厚的；赚钱的", example: "He cut lucrative deals for his companies.", category: "财富与权力", difficulty: 4 },
+      { term: "poised to", phonetic: "/pɔɪzd tuː/", cn: "准备好；即将", example: "He is poised to become a trillionaire.", category: "财富与权力", difficulty: 4 },
+      { term: "funnel money into", phonetic: "/ˈfʌnəl ˈmʌni ˈɪntuː/", cn: "向……输送资金", example: "The ultra-rich have been funneling money into Super PACs.", category: "政治与制度", difficulty: 5 },
+      { term: "channel money into", phonetic: "/ˈtʃænəl ˈmʌni ˈɪntuː/", cn: "把资金导入/输送到……", example: "He explored loopholes to channel money into right-wing groups.", category: "政治与制度", difficulty: 4 },
+      { term: "Super PACs", phonetic: "/ˈsuːpər pæks/", cn: "超级政治行动委员会", example: "Super PACs can spend huge sums to influence elections.", category: "政治与制度", difficulty: 5 },
+      { term: "special interest groups", phonetic: "/ˈspeʃəl ˈɪntrəst ɡruːps/", cn: "特殊利益集团", example: "Special interest groups gained more room to spend on elections.", category: "政治与制度", difficulty: 4 },
+      { term: "Gilded Age", phonetic: "/ˈɡɪldɪd eɪdʒ/", cn: "镀金时代", example: "Wealth is now more concentrated than during the Gilded Age.", category: "政治与制度", difficulty: 4 },
+      { term: "meddle in", phonetic: "/ˈmedəl ɪn/", cn: "干涉；插手", example: "He has not restricted his meddling to US politics.", category: "政治与制度", difficulty: 4 },
+      { term: "interfere in", phonetic: "/ˌɪntərˈfɪr ɪn/", cn: "干预；介入", example: "Starmer accused him of interfering in British politics.", category: "政治与制度", difficulty: 4 },
+      { term: "right-wing", phonetic: "/ˌraɪt ˈwɪŋ/", cn: "右翼的；保守派的", example: "Money could be channeled into right-wing groups.", category: "政治与制度", difficulty: 3 },
+      { term: "overlord", phonetic: "/ˈoʊvərlɔːrd/", cn: "统治者；领主；掌控者", example: "The article warns about unelected trillionaire overlords.", category: "政治与制度", difficulty: 4 },
+      { term: "existential angst", phonetic: "/ˌeɡzɪˈstenʃəl æŋst/", cn: "存在主义焦虑", example: "Perhaps more money could fix his existential angst.", category: "心理状态", difficulty: 4 },
+      { term: "contentment", phonetic: "/kənˈtentmənt/", cn: "满足；知足", example: "The richest person does not radiate contentment.", category: "心理状态", difficulty: 3 },
+      { term: "psyche", phonetic: "/ˈsaɪki/", cn: "心灵；精神；内心", example: "The issue is not what wealth will do to his inner psyche.", category: "心理状态", difficulty: 4 },
+      { term: "brace oneself for", phonetic: "/breɪs wʌnˈself fɔːr/", cn: "做好准备应对", example: "Brace yourself for Musk the trillionaire.", category: "短语表达", difficulty: 3 },
+      { term: "wrap your head around", phonetic: "/ræp jɔːr hed əˈraʊnd/", cn: "理解；想明白", example: "It is hard to wrap your head around how big a trillion is.", category: "短语表达", difficulty: 4 },
+      { term: "bottom line", phonetic: "/ˈbɑːtəm laɪn/", cn: "关键是；底线是", example: "But the bottom line is this: one person has too many resources.", category: "短语表达", difficulty: 4 },
+      { term: "quibble with", phonetic: "/ˈkwɪbəl wɪð/", cn: "对……斤斤计较；吹毛求疵", example: "You can quibble with the figures, but the point remains.", category: "短语表达", difficulty: 4 },
+      { term: "let alone", phonetic: "/let əˈloʊn/", cn: "更不用说；何况", example: "It is hard to understand a billion, let alone a trillion.", category: "短语表达", difficulty: 3 },
+      { term: "take in", phonetic: "/teɪk ɪn/", cn: "理解；消化信息", example: "Pause to take in how enormous the number is.", category: "短语表达", difficulty: 3 },
+      { term: "tag along", phonetic: "/tæɡ əˈlɔːŋ/", cn: "跟随；随同", example: "He tagged along with Trump on state visits.", category: "短语表达", difficulty: 3 },
+      { term: "cut a deal", phonetic: "/kʌt ə diːl/", cn: "达成交易；达成协议", example: "He cut deals for his companies overseas.", category: "短语表达", difficulty: 3 },
+      { term: "open the door to", phonetic: "/ˈoʊpən ðə dɔːr tuː/", cn: "为……打开大门；创造机会", example: "The decision opened the door to unlimited election spending.", category: "短语表达", difficulty: 3 }
+    ];
+
+    const grid = document.querySelector("#wordGrid");
+    const search = document.querySelector("#search");
+    const difficulty = document.querySelector("#difficulty");
+    const chips = document.querySelector("#chips");
+    const shownCount = document.querySelector("#shownCount");
+    const totalCount = document.querySelector("#totalCount");
+    const masteredCount = document.querySelector("#masteredCount");
+    const empty = document.querySelector("#empty");
+    const categories = ["全部", ...new Set(words.map(word => word.category))];
+    let activeCategory = "全部";
+    const mastered = new Set(JSON.parse(localStorage.getItem("beibei-mastered") || "[]"));
+
+    function renderChips() {
+      chips.innerHTML = categories.map(category => (
+        `<button class="chip ${category === activeCategory ? "active" : ""}" data-category="${category}">${category}</button>`
+      )).join("");
+      chips.querySelectorAll(".chip").forEach(button => {
+        button.addEventListener("click", () => {
+          activeCategory = button.dataset.category;
+          render();
+        });
+      });
+    }
+
+    function stars(n) {
+      return "★★★★★".slice(0, n);
+    }
+
+    function render() {
+      renderChips();
+      const query = search.value.trim().toLowerCase();
+      const level = difficulty.value;
+      const filtered = words.filter(word => {
+        const text = `${word.term} ${word.cn} ${word.example} ${word.category}`.toLowerCase();
+        const categoryOk = activeCategory === "全部" || word.category === activeCategory;
+        const difficultyOk = level === "all" || String(word.difficulty) === level;
+        return categoryOk && difficultyOk && text.includes(query);
+      });
+
+      grid.innerHTML = filtered.map((word, index) => {
+        const id = word.term;
+        return `
+          <article class="word-card ${mastered.has(id) ? "mastered" : ""}" style="animation-delay:${Math.min(index * 24, 420)}ms">
+            <div class="word-top">
+              <div>
+                <h3 class="term">${word.term}</h3>
+                <span class="phonetic">${word.phonetic}</span>
+              </div>
+              <div class="level">${word.difficulty}</div>
+            </div>
+            <p class="meaning">${word.cn}</p>
+            <p class="example">${word.example}</p>
+            <div class="card-foot">
+              <span class="category">${word.category} · ${stars(word.difficulty)}</span>
+              <button class="mark" data-term="${id}">${mastered.has(id) ? "RESET" : "KNOW"}</button>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      grid.querySelectorAll(".mark").forEach(button => {
+        button.addEventListener("click", () => {
+          const term = button.dataset.term;
+          if (mastered.has(term)) mastered.delete(term);
+          else mastered.add(term);
+          localStorage.setItem("beibei-mastered", JSON.stringify([...mastered]));
+          render();
+        });
+      });
+
+      shownCount.textContent = filtered.length;
+      totalCount.textContent = words.length;
+      masteredCount.textContent = mastered.size;
+      empty.classList.toggle("show", filtered.length === 0);
+    }
+
+    search.addEventListener("input", render);
+    difficulty.addEventListener("change", render);
+    render();
+  </script>
+</body>
+</html>
