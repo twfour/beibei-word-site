@@ -3,33 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Beibei 外刊词汇索引</title>
+  <meta name="description" content="贝贝外刊阅读档案：新闻脉络、专有名词、因果链、语言笔记与讨论题。">
+  <title>贝贝外刊｜Reading Desk</title>
   <style>
     :root {
-      --paper: #f6f0e4;
-      --ink: #1f201c;
-      --muted: #6f6659;
-      --line: #26231e;
-      --card: #fffaf0;
-      --accent: #c63d1f;
-      --gold: #b28b3a;
-      --sage: #60705d;
-      --blue: #304b64;
-      --shadow: 0 18px 44px rgba(31, 32, 28, .14);
+      --paper: #efe9dc;
+      --paper-light: #f9f5eb;
+      --ink: #18231e;
+      --muted: #6f7067;
+      --line: rgba(24, 35, 30, .22);
+      --orange: #e24b2d;
+      --green: #173f35;
+      --acid: #d8e45b;
+      --blue: #315c78;
+      --shadow: 0 24px 70px rgba(20, 34, 28, .14);
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       color: var(--ink);
       background:
-        linear-gradient(90deg, rgba(31,32,28,.035) 1px, transparent 1px) 0 0 / 28px 28px,
-        linear-gradient(rgba(31,32,28,.025) 1px, transparent 1px) 0 0 / 28px 28px,
-        radial-gradient(circle at 18% 14%, rgba(198, 61, 31, .12), transparent 30%),
-        radial-gradient(circle at 86% 6%, rgba(178, 139, 58, .16), transparent 28%),
+        radial-gradient(circle at 12% 2%, rgba(226, 75, 45, .11), transparent 26rem),
+        linear-gradient(rgba(24, 35, 30, .035) 1px, transparent 1px) 0 0 / 100% 27px,
         var(--paper);
-      font-family: "Iowan Old Style", "Palatino Linotype", "Songti SC", serif;
+      font-family: Georgia, "Noto Serif SC", "Songti SC", serif;
       min-height: 100vh;
     }
 
@@ -38,594 +38,700 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: .45;
-      background-image:
-        repeating-linear-gradient(112deg, transparent 0 9px, rgba(31,32,28,.026) 10px 11px);
+      opacity: .19;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
       mix-blend-mode: multiply;
+      z-index: 10;
     }
 
-    .shell {
+    button, input { font: inherit; }
+    button { color: inherit; }
+    a { color: inherit; }
+
+    .masthead {
       display: grid;
-      grid-template-columns: 320px minmax(0, 1fr);
-      gap: 28px;
-      width: min(1440px, calc(100% - 40px));
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 20px;
+      width: min(1500px, calc(100% - 48px));
       margin: 0 auto;
-      padding: 28px 0 42px;
+      padding: 22px 0 17px;
+      border-bottom: 1px solid var(--ink);
+      font-family: "Courier New", monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
     }
 
-    aside {
+    .masthead-brand {
+      font-family: Georgia, "Songti SC", serif;
+      font-size: 22px;
+      letter-spacing: -.02em;
+      text-transform: none;
+    }
+
+    .masthead-right { text-align: right; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 42px;
+      width: min(1500px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 36px 0 70px;
+    }
+
+    .rail {
       position: sticky;
-      top: 20px;
+      top: 22px;
       align-self: start;
-      min-height: calc(100vh - 40px);
-      padding: 22px;
-      border: 2px solid var(--line);
-      background: rgba(255, 250, 240, .82);
-      box-shadow: 8px 8px 0 var(--line);
     }
 
-    .stamp {
-      width: fit-content;
-      margin-bottom: 18px;
-      padding: 6px 10px;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      font: 700 12px/1.1 "Courier New", monospace;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      transform: rotate(-2deg);
-    }
-
-    h1 {
+    .kicker, .eyebrow {
       margin: 0;
-      font-size: clamp(36px, 5vw, 70px);
-      line-height: .88;
-      letter-spacing: 0;
-      max-width: 980px;
-    }
-
-    h1 span {
-      display: block;
-      color: var(--accent);
-      font-style: italic;
-    }
-
-    .dek {
-      margin: 18px 0 24px;
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.65;
-    }
-
-    .controls {
-      display: grid;
-      gap: 14px;
-      margin: 20px 0 24px;
-    }
-
-    label {
-      display: grid;
-      gap: 7px;
-      font: 700 12px/1 "Courier New", monospace;
-      letter-spacing: .1em;
+      color: var(--orange);
+      font: 800 11px/1.2 "Courier New", monospace;
+      letter-spacing: .16em;
       text-transform: uppercase;
+    }
+
+    .rail h2 {
+      margin: 10px 0 8px;
+      font-size: 31px;
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    .rail-intro {
+      margin: 0 0 24px;
       color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
     }
 
-    input, select {
-      width: 100%;
-      border: 2px solid var(--line);
-      border-radius: 0;
-      background: #fffdf7;
-      color: var(--ink);
-      padding: 12px 13px;
-      font: 700 15px/1.2 "Courier New", monospace;
-      outline: none;
-      box-shadow: 4px 4px 0 rgba(31,32,28,.18);
-    }
-
-    input:focus, select:focus {
-      border-color: var(--accent);
-      box-shadow: 4px 4px 0 rgba(198,61,31,.28);
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .chip {
-      border: 1.5px solid var(--line);
-      background: transparent;
-      color: var(--ink);
-      padding: 8px 10px;
-      cursor: pointer;
-      font: 700 12px/1 "Courier New", monospace;
-      transition: transform .18s ease, background .18s ease, color .18s ease;
-    }
-
-    .chip:hover { transform: translateY(-2px); }
-    .chip.active { background: var(--line); color: var(--paper); }
-
-    .scoreboard {
+    .issue-list {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 2px solid var(--line);
-      border-bottom: 2px solid var(--line);
-      margin-top: 22px;
+      gap: 0;
+      border-top: 1px solid var(--ink);
     }
 
-    .score {
-      padding: 13px 8px;
-      text-align: center;
-      border-right: 2px solid var(--line);
+    .issue-button {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 11px;
+      width: 100%;
+      padding: 16px 0;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+      transition: color .2s ease, padding .2s ease;
     }
 
-    .score:last-child { border-right: 0; }
-    .score b {
+    .issue-button:hover, .issue-button.active { color: var(--orange); padding-left: 7px; }
+    .issue-button.active .issue-no { background: var(--orange); color: white; }
+
+    .issue-no {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      font: 800 11px/1 "Courier New", monospace;
+    }
+
+    .issue-date {
       display: block;
-      font: 800 26px/1 "Courier New", monospace;
-      color: var(--accent);
-    }
-    .score small {
-      display: block;
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: 12px;
+      margin-bottom: 5px;
+      font: 700 10px/1 "Courier New", monospace;
+      letter-spacing: .08em;
     }
 
-    main {
-      min-width: 0;
+    .issue-short { font-size: 14px; line-height: 1.35; }
+
+    .rail-note {
+      margin-top: 24px;
+      padding: 14px;
+      border: 1px solid var(--ink);
+      background: var(--acid);
+      box-shadow: 5px 5px 0 var(--ink);
+      font-size: 13px;
+      line-height: 1.55;
+      transform: rotate(-1deg);
     }
+
+    main { min-width: 0; }
 
     .hero {
       position: relative;
-      padding: 18px 0 20px;
-      border-bottom: 3px solid var(--line);
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 20px;
-    }
-
-    .tag {
-      padding: 7px 10px;
-      border: 1.5px solid var(--line);
-      background: rgba(255,255,255,.42);
-      font: 700 12px/1 "Courier New", monospace;
-    }
-
-    .tag.red { background: var(--accent); color: #fffaf0; }
-    .tag.gold { background: rgba(178,139,58,.22); }
-
-    .section-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 18px;
-      margin: 26px 0 15px;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: 28px;
-    }
-
-    .hint {
-      color: var(--muted);
-      font: 700 12px/1.4 "Courier New", monospace;
-      text-align: right;
-    }
-
-    .grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
+      grid-template-columns: minmax(0, 1.35fr) minmax(250px, .65fr);
+      gap: 30px;
+      min-height: 400px;
+      padding: 38px;
+      overflow: hidden;
+      color: #f8f3e9;
+      background: var(--green);
+      box-shadow: var(--shadow);
     }
 
-    .word-card {
-      position: relative;
-      min-height: 238px;
-      padding: 18px;
-      border: 2px solid var(--line);
-      background: var(--card);
-      box-shadow: 7px 7px 0 rgba(31,32,28,.86);
-      animation: rise .56s ease both;
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-    }
-
-    .word-card:hover {
-      transform: translate(-3px, -3px);
-      box-shadow: 11px 11px 0 rgba(31,32,28,.9);
-    }
-
-    .word-card.mastered {
-      background: #eef2df;
-    }
-
-    .word-card.mastered::after {
-      content: "MASTERED";
+    .hero::after {
+      content: attr(data-number);
       position: absolute;
-      right: 12px;
-      top: 12px;
-      color: var(--sage);
-      border: 1px solid var(--sage);
-      padding: 4px 6px;
-      font: 800 10px/1 "Courier New", monospace;
-      transform: rotate(4deg);
+      right: -28px;
+      bottom: -54px;
+      color: rgba(255,255,255,.055);
+      font: 900 260px/.8 Georgia, serif;
+      letter-spacing: -.11em;
     }
 
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
+    .hero-copy { position: relative; z-index: 1; }
+    .hero .eyebrow { color: var(--acid); }
+
+    h1 {
+      max-width: 900px;
+      margin: 20px 0 24px;
+      font-size: clamp(43px, 5.2vw, 78px);
+      line-height: .98;
+      letter-spacing: -.055em;
+      text-wrap: balance;
     }
 
-    .word-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      padding-bottom: 12px;
-      border-bottom: 1.5px dashed rgba(31,32,28,.45);
-    }
-
-    .term {
+    .hero-summary {
+      max-width: 760px;
       margin: 0;
-      font-size: 25px;
-      line-height: 1;
+      color: rgba(248, 243, 233, .76);
+      font-size: 17px;
+      line-height: 1.75;
     }
 
-    .phonetic {
+    .hero-folio {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-left: 26px;
+      border-left: 1px solid rgba(255,255,255,.28);
+    }
+
+    .folio-date {
+      font: 800 clamp(54px, 7vw, 96px)/.8 Georgia, serif;
+      letter-spacing: -.08em;
+    }
+
+    .folio-date small {
       display: block;
-      margin-top: 8px;
-      color: var(--muted);
-      font: 700 12px/1.2 "Courier New", monospace;
+      margin: 15px 0 0 6px;
+      font: 700 11px/1 "Courier New", monospace;
+      letter-spacing: .16em;
     }
 
-    .level {
-      flex: 0 0 auto;
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      border: 2px solid var(--line);
-      background: var(--ink);
-      color: var(--paper);
-      font: 900 14px/1 "Courier New", monospace;
-    }
-
-    .meaning {
-      margin: 14px 0 10px;
-      font-size: 16px;
-      line-height: 1.55;
-    }
-
-    .example {
-      margin: 0;
-      color: var(--blue);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .card-foot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .category {
-      color: var(--muted);
-      font: 800 11px/1 "Courier New", monospace;
+    .topic-row { display: flex; flex-wrap: wrap; gap: 7px; }
+    .topic {
+      padding: 7px 9px;
+      border: 1px solid rgba(255,255,255,.38);
+      font: 700 10px/1 "Courier New", monospace;
+      letter-spacing: .08em;
       text-transform: uppercase;
     }
 
-    .mark {
-      border: 1.5px solid var(--line);
+    .section-nav {
+      display: flex;
+      gap: 6px;
+      margin: 27px 0 18px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-pill {
+      flex: 0 0 auto;
+      padding: 10px 13px;
+      border: 1px solid var(--ink);
       background: transparent;
       cursor: pointer;
-      padding: 7px 9px;
       font: 800 11px/1 "Courier New", monospace;
+      letter-spacing: .05em;
+      text-transform: uppercase;
     }
 
-    .mark:hover { background: var(--line); color: var(--paper); }
+    .nav-pill:hover, .nav-pill.active { background: var(--ink); color: var(--paper-light); }
 
-    .empty {
-      display: none;
-      border: 2px dashed var(--line);
-      padding: 30px;
-      background: rgba(255,250,240,.72);
-      color: var(--muted);
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .panel {
+      position: relative;
+      padding: 25px;
+      border: 1px solid var(--ink);
+      background: rgba(249, 245, 235, .76);
+      box-shadow: 7px 7px 0 rgba(24,35,30,.1);
+      animation: reveal .45s ease both;
+    }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .panel h2 {
+      margin: 8px 0 17px;
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: -.035em;
+    }
+
+    .panel p { font-size: 15px; line-height: 1.75; }
+    .hook-panel { grid-column: span 7; }
+    .noun-panel { grid-column: span 5; }
+    .chain-panel { grid-column: 1 / -1; padding-bottom: 29px; }
+    .language-panel { grid-column: 1 / -1; }
+    .prompt-panel { grid-column: span 7; background: var(--orange); color: white; border-color: var(--orange); }
+    .source-panel { grid-column: span 5; background: var(--acid); }
+    .prompt-panel .eyebrow { color: var(--acid); }
+
+    .pullquote {
+      margin: 21px 0 0;
+      padding: 15px 0 0 18px;
+      border-top: 1px solid var(--line);
+      border-left: 4px solid var(--orange);
+      color: var(--blue);
       font-size: 18px;
-      text-align: center;
+      font-style: italic;
+      line-height: 1.55;
     }
 
+    .noun-list { display: grid; gap: 0; margin: 0; }
+    .noun-item {
+      display: grid;
+      grid-template-columns: minmax(100px, .8fr) 1.2fr;
+      gap: 14px;
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+    }
+    .noun-item dt { font-weight: 800; }
+    .noun-item dd { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+
+    .chain {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      margin-top: 24px;
+      counter-reset: chain;
+    }
+
+    .chain-step { position: relative; counter-increment: chain; }
+    .chain-step::before {
+      content: "0" counter(chain);
+      display: block;
+      margin-bottom: 12px;
+      color: var(--orange);
+      font: 900 27px/1 "Courier New", monospace;
+    }
+    .chain-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      top: 4px;
+      right: -23px;
+      color: var(--muted);
+      font: 20px/1 Georgia, serif;
+    }
+    .chain-step b { display: block; margin-bottom: 6px; }
+    .chain-step span { color: var(--muted); font-size: 13px; line-height: 1.55; }
+
+    .language-tools {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .search {
+      width: min(100%, 360px);
+      padding: 10px 12px;
+      border: 1px solid var(--ink);
+      border-radius: 0;
+      outline: none;
+      background: var(--paper-light);
+      font: 700 13px/1.2 "Courier New", monospace;
+    }
+    .search:focus { box-shadow: 4px 4px 0 var(--orange); }
+
+    .word-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .word-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 210px;
+      padding: 17px;
+      border: 1px solid var(--ink);
+      background: var(--paper-light);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .word-card:hover { transform: translateY(-3px); box-shadow: 5px 5px 0 var(--ink); }
+    .word-card.mastered { background: #e7efc7; }
+    .word-term { margin: 0; font-size: 22px; line-height: 1.05; }
+    .phonetic { margin-top: 6px; color: var(--muted); font: 700 11px/1.2 "Courier New", monospace; }
+    .meaning { margin: 15px 0 8px !important; font-weight: 700; }
+    .example { margin: 0 !important; color: var(--blue); font-size: 13px !important; line-height: 1.55 !important; }
+    .word-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 14px; }
+    .word-tag { color: var(--muted); font: 700 10px/1 "Courier New", monospace; text-transform: uppercase; }
+    .know {
+      padding: 6px 8px;
+      border: 1px solid var(--ink);
+      background: transparent;
+      cursor: pointer;
+      font: 800 10px/1 "Courier New", monospace;
+    }
+    .know:hover { background: var(--ink); color: white; }
+
+    .prompt-list { margin: 0; padding-left: 22px; }
+    .prompt-list li { margin: 0 0 14px; padding-left: 5px; font-size: 16px; line-height: 1.6; }
+
+    .source-meta {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+      font: 700 12px/1.5 "Courier New", monospace;
+    }
+    .source-meta span { padding-top: 10px; border-top: 1px solid rgba(24,35,30,.3); }
+
+    .empty { display: none; padding: 22px; border: 1px dashed var(--muted); text-align: center; color: var(--muted); }
     .empty.show { display: block; }
 
-    @media (max-width: 1040px) {
-      .shell { grid-template-columns: 1fr; }
-      aside {
-        position: relative;
-        top: auto;
-        min-height: 0;
-      }
-      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .hint { text-align: left; }
-      .section-title { align-items: start; flex-direction: column; }
+    footer {
+      width: min(1500px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 22px 0 36px;
+      border-top: 1px solid var(--ink);
+      color: var(--muted);
+      font: 700 10px/1.5 "Courier New", monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
 
-    @media (max-width: 640px) {
-      .shell {
-        width: min(100% - 24px, 1440px);
-        padding-top: 12px;
-      }
-      aside { padding: 16px; box-shadow: 5px 5px 0 var(--line); }
-      .grid { grid-template-columns: 1fr; }
-      .word-card { min-height: 0; }
-      .scoreboard { grid-template-columns: 1fr; }
-      .score { border-right: 0; border-bottom: 2px solid var(--line); }
-      .score:last-child { border-bottom: 0; }
+    @media (max-width: 1050px) {
+      .layout { grid-template-columns: 1fr; }
+      .rail { position: static; }
+      .issue-list { grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--ink); }
+      .issue-button { padding-right: 14px; border-right: 1px solid var(--line); }
+      .rail-note { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-folio { flex-direction: row; align-items: end; padding: 22px 0 0; border-left: 0; border-top: 1px solid rgba(255,255,255,.28); }
+    }
+
+    @media (max-width: 760px) {
+      .masthead, .layout, footer { width: min(100% - 24px, 1500px); }
+      .masthead { grid-template-columns: 1fr auto; }
+      .masthead-center { display: none; }
+      .layout { gap: 24px; padding-top: 22px; }
+      .issue-list { grid-template-columns: 1fr; }
+      .issue-button { border-right: 0; }
+      .hero { min-height: 0; padding: 25px 20px; }
+      h1 { font-size: 42px; }
+      .folio-date { font-size: 54px; }
+      .hook-panel, .noun-panel, .prompt-panel, .source-panel { grid-column: 1 / -1; }
+      .chain { grid-template-columns: 1fr; gap: 18px; }
+      .chain-step { padding-left: 50px; }
+      .chain-step::before { position: absolute; left: 0; top: 0; }
+      .chain-step:not(:last-child)::after { content: "↓"; left: 12px; right: auto; top: 38px; }
+      .word-grid { grid-template-columns: 1fr; }
+      .panel { padding: 20px; }
     }
   </style>
 </head>
 <body>
-  <div class="shell">
-    <aside>
-      <div class="stamp">Beibei Lexicon / Daily</div>
-      <p class="dek">
-        这是一份从贝贝外刊每日精读里抽出的难点词汇清单。现在合并展示 6 月 11 日与 6 月 12 日两篇文章，可按文章、分类、难度筛选复习。
-      </p>
+  <header class="masthead">
+    <div class="masthead-brand">贝贝外刊 · Reading Desk</div>
+    <div class="masthead-center">News → Context → Language</div>
+    <div class="masthead-right">Archive No. 03 / 2026</div>
+  </header>
 
-      <div class="controls">
-        <label>
-          Search
-          <input id="search" type="search" placeholder="输入 impunity / 寡头 / IPO">
-        </label>
-
-        <label>
-          Difficulty
-          <select id="difficulty">
-            <option value="all">全部难度</option>
-            <option value="5">5 星：核心硬词</option>
-            <option value="4">4 星：外刊高频</option>
-            <option value="3">3 星：表达迁移</option>
-          </select>
-        </label>
-
-        <label>
-          Article
-          <select id="article">
-            <option value="all">全部文章</option>
-            <option value="20260612">今日：特朗普80岁与UFC</option>
-            <option value="20260611">6/11：马斯克万亿富翁</option>
-          </select>
-        </label>
-      </div>
-
-      <div>
-        <label>Category</label>
-        <div class="chips" id="chips"></div>
-      </div>
-
-      <div class="scoreboard">
-        <div class="score"><b id="shownCount">0</b><small>shown</small></div>
-        <div class="score"><b id="totalCount">0</b><small>total</small></div>
-        <div class="score"><b id="masteredCount">0</b><small>known</small></div>
-      </div>
+  <div class="layout">
+    <aside class="rail">
+      <p class="kicker">Daily archive</p>
+      <h2>三期外刊，一张阅读地图</h2>
+      <p class="rail-intro">不只背单词。先看事件，再拆逻辑，最后把表达带走。</p>
+      <nav class="issue-list" id="issueList" aria-label="文章列表"></nav>
+      <div class="rail-note">阅读顺序建议：先读 News Hook，再沿着 Causal Chain 复述文章，最后用 Discussion Prompt 输出观点。</div>
     </aside>
 
     <main>
-      <section class="hero">
-        <h1>今天的难点词汇 <span>Word List</span></h1>
-        <div class="hero-meta">
-          <span class="tag red">Daily Beibei Archive</span>
-          <span class="tag">2 articles</span>
-          <span class="tag gold">★★★★ 外刊精读</span>
-          <span class="tag">politics / age / wealth / rhetoric</span>
+      <section class="hero" id="hero" data-number="03">
+        <div class="hero-copy">
+          <p class="eyebrow" id="heroEyebrow"></p>
+          <h1 id="heroTitle"></h1>
+          <p class="hero-summary" id="heroSummary"></p>
+        </div>
+        <div class="hero-folio">
+          <div class="folio-date" id="heroDay"></div>
+          <div class="topic-row" id="topicRow"></div>
         </div>
       </section>
 
-      <div class="section-title">
-        <h2>词汇卡片</h2>
-        <div class="hint">点击 “KNOW” 标记已掌握，本页会记住你的状态。</div>
-      </div>
+      <nav class="section-nav" aria-label="内容导航">
+        <button class="nav-pill active" data-target="hook">News Hook</button>
+        <button class="nav-pill" data-target="nouns">Proper Nouns</button>
+        <button class="nav-pill" data-target="chain">Causal Chain</button>
+        <button class="nav-pill" data-target="language">Language Notes</button>
+        <button class="nav-pill" data-target="prompts">Discussion</button>
+      </nav>
 
-      <section class="grid" id="wordGrid" aria-live="polite"></section>
-      <div class="empty" id="empty">没有匹配的词。换个关键词或分类试试。</div>
+      <div class="content-grid">
+        <section class="panel hook-panel" id="hook">
+          <p class="eyebrow">01 / What happened</p>
+          <h2>新闻切入点</h2>
+          <p id="hookText"></p>
+          <blockquote class="pullquote" id="hookQuote"></blockquote>
+        </section>
+
+        <section class="panel noun-panel" id="nouns">
+          <p class="eyebrow">02 / Know the names</p>
+          <h2>专有名词</h2>
+          <dl class="noun-list" id="nounList"></dl>
+        </section>
+
+        <section class="panel chain-panel" id="chain">
+          <p class="eyebrow">03 / Because, therefore, however</p>
+          <h2>因果链</h2>
+          <div class="chain" id="chainList"></div>
+        </section>
+
+        <section class="panel language-panel" id="language">
+          <p class="eyebrow">04 / Take the language away</p>
+          <h2>语言笔记</h2>
+          <div class="language-tools">
+            <span id="wordCount"></span>
+            <input class="search" id="search" type="search" placeholder="搜索词汇 / 中文释义" aria-label="搜索词汇">
+          </div>
+          <div class="word-grid" id="wordGrid"></div>
+          <div class="empty" id="empty">没有匹配的表达，换个关键词试试。</div>
+        </section>
+
+        <section class="panel prompt-panel" id="prompts">
+          <p class="eyebrow">05 / Speak or write</p>
+          <h2>讨论题</h2>
+          <ol class="prompt-list" id="promptList"></ol>
+        </section>
+
+        <section class="panel source-panel">
+          <p class="eyebrow">Source note</p>
+          <h2>资料说明</h2>
+          <p>本页依据贝贝外刊讲义整理。摘要用于建立阅读地图，重要事实、原句和复杂版式仍以原始 PDF 为准。</p>
+          <div class="source-meta" id="sourceMeta"></div>
+        </section>
+      </div>
     </main>
   </div>
 
+  <footer>Beibei Foreign Press Archive · Updated 2026.06.19 · Built for close reading</footer>
+
   <script>
-    const muskWords = [
-      { term: "impunity", phonetic: "/ɪmˈpjuːnɪti/", cn: "不受惩罚；逍遥法外", example: "A trillion dollars could give him a new level of impunity.", category: "政治与制度", difficulty: 5 },
-      { term: "oligarchy", phonetic: "/ˈɑːlərɡɑːrki/", cn: "寡头政治；少数人统治", example: "Extreme wealth can bring society closer to full-blown oligarchy.", category: "政治与制度", difficulty: 5 },
-      { term: "obscene", phonetic: "/əbˈsiːn/", cn: "大得惊人的；令人反感的；荒谬的", example: "It is worth pausing to take in just how obscene this sum is.", category: "批判表达", difficulty: 5 },
-      { term: "collateral damage", phonetic: "/kəˈlætərəl ˈdæmɪdʒ/", cn: "附带伤害；间接损害", example: "He acts without regard for how much collateral damage he causes.", category: "批判表达", difficulty: 5 },
-      { term: "weaponize", phonetic: "/ˈwepənaɪz/", cn: "武器化；把某事当作攻击工具", example: "He weaponized a murder case to stir political anger.", category: "批判表达", difficulty: 5 },
-      { term: "shadow president", phonetic: "/ˈʃædoʊ ˈprezɪdənt/", cn: "影子总统；幕后实际施加影响者", example: "The article describes Musk as a sort of shadow president.", category: "政治与制度", difficulty: 5 },
-      { term: "outsized influence", phonetic: "/ˌaʊtˈsaɪzd ˈɪnfluəns/", cn: "过大的影响力；不成比例的影响", example: "Many Americans say billionaires wield outsized influence.", category: "政治与制度", difficulty: 5 },
-      { term: "wield", phonetic: "/wiːld/", cn: "行使、运用、支配权力", example: "Billionaires wield enormous power over politics.", category: "政治与制度", difficulty: 4 },
-      { term: "trillionaire", phonetic: "/ˌtrɪljəˈner/", cn: "万亿富翁", example: "Musk may become the world's first trillionaire.", category: "财富与权力", difficulty: 4 },
-      { term: "net worth", phonetic: "/net wɜːrθ/", cn: "净资产；身家", example: "His net worth has jumped by more than $500bn.", category: "财富与权力", difficulty: 4 },
-      { term: "liquid", phonetic: "/ˈlɪkwɪd/", cn: "流动性的；易变现的", example: "His wealth is not fully liquid and can fluctuate wildly.", category: "财富与权力", difficulty: 4 },
-      { term: "initial public offering", phonetic: "/ɪˈnɪʃəl ˈpʌblɪk ˈɔːfərɪŋ/", cn: "首次公开募股；IPO", example: "SpaceX's initial public offering could make Musk richer.", category: "财富与权力", difficulty: 4 },
-      { term: "mogul", phonetic: "/ˈmoʊɡl/", cn: "大亨；有权势的人", example: "The tech mogul got a healthy return on his investment.", category: "财富与权力", difficulty: 4 },
-      { term: "lucrative", phonetic: "/ˈluːkrətɪv/", cn: "利润丰厚的；赚钱的", example: "He cut lucrative deals for his companies.", category: "财富与权力", difficulty: 4 },
-      { term: "poised to", phonetic: "/pɔɪzd tuː/", cn: "准备好；即将", example: "He is poised to become a trillionaire.", category: "财富与权力", difficulty: 4 },
-      { term: "funnel money into", phonetic: "/ˈfʌnəl ˈmʌni ˈɪntuː/", cn: "向……输送资金", example: "The ultra-rich have been funneling money into Super PACs.", category: "政治与制度", difficulty: 5 },
-      { term: "channel money into", phonetic: "/ˈtʃænəl ˈmʌni ˈɪntuː/", cn: "把资金导入/输送到……", example: "He explored loopholes to channel money into right-wing groups.", category: "政治与制度", difficulty: 4 },
-      { term: "Super PACs", phonetic: "/ˈsuːpər pæks/", cn: "超级政治行动委员会", example: "Super PACs can spend huge sums to influence elections.", category: "政治与制度", difficulty: 5 },
-      { term: "special interest groups", phonetic: "/ˈspeʃəl ˈɪntrəst ɡruːps/", cn: "特殊利益集团", example: "Special interest groups gained more room to spend on elections.", category: "政治与制度", difficulty: 4 },
-      { term: "Gilded Age", phonetic: "/ˈɡɪldɪd eɪdʒ/", cn: "镀金时代", example: "Wealth is now more concentrated than during the Gilded Age.", category: "政治与制度", difficulty: 4 },
-      { term: "meddle in", phonetic: "/ˈmedəl ɪn/", cn: "干涉；插手", example: "He has not restricted his meddling to US politics.", category: "政治与制度", difficulty: 4 },
-      { term: "interfere in", phonetic: "/ˌɪntərˈfɪr ɪn/", cn: "干预；介入", example: "Starmer accused him of interfering in British politics.", category: "政治与制度", difficulty: 4 },
-      { term: "right-wing", phonetic: "/ˌraɪt ˈwɪŋ/", cn: "右翼的；保守派的", example: "Money could be channeled into right-wing groups.", category: "政治与制度", difficulty: 3 },
-      { term: "overlord", phonetic: "/ˈoʊvərlɔːrd/", cn: "统治者；领主；掌控者", example: "The article warns about unelected trillionaire overlords.", category: "政治与制度", difficulty: 4 },
-      { term: "existential angst", phonetic: "/ˌeɡzɪˈstenʃəl æŋst/", cn: "存在主义焦虑", example: "Perhaps more money could fix his existential angst.", category: "心理状态", difficulty: 4 },
-      { term: "contentment", phonetic: "/kənˈtentmənt/", cn: "满足；知足", example: "The richest person does not radiate contentment.", category: "心理状态", difficulty: 3 },
-      { term: "psyche", phonetic: "/ˈsaɪki/", cn: "心灵；精神；内心", example: "The issue is not what wealth will do to his inner psyche.", category: "心理状态", difficulty: 4 },
-      { term: "brace oneself for", phonetic: "/breɪs wʌnˈself fɔːr/", cn: "做好准备应对", example: "Brace yourself for Musk the trillionaire.", category: "短语表达", difficulty: 3 },
-      { term: "wrap your head around", phonetic: "/ræp jɔːr hed əˈraʊnd/", cn: "理解；想明白", example: "It is hard to wrap your head around how big a trillion is.", category: "短语表达", difficulty: 4 },
-      { term: "bottom line", phonetic: "/ˈbɑːtəm laɪn/", cn: "关键是；底线是", example: "But the bottom line is this: one person has too many resources.", category: "短语表达", difficulty: 4 },
-      { term: "quibble with", phonetic: "/ˈkwɪbəl wɪð/", cn: "对……斤斤计较；吹毛求疵", example: "You can quibble with the figures, but the point remains.", category: "短语表达", difficulty: 4 },
-      { term: "let alone", phonetic: "/let əˈloʊn/", cn: "更不用说；何况", example: "It is hard to understand a billion, let alone a trillion.", category: "短语表达", difficulty: 3 },
-      { term: "take in", phonetic: "/teɪk ɪn/", cn: "理解；消化信息", example: "Pause to take in how enormous the number is.", category: "短语表达", difficulty: 3 },
-      { term: "tag along", phonetic: "/tæɡ əˈlɔːŋ/", cn: "跟随；随同", example: "He tagged along with Trump on state visits.", category: "短语表达", difficulty: 3 },
-      { term: "cut a deal", phonetic: "/kʌt ə diːl/", cn: "达成交易；达成协议", example: "He cut deals for his companies overseas.", category: "短语表达", difficulty: 3 },
-      { term: "open the door to", phonetic: "/ˈoʊpən ðə dɔːr tuː/", cn: "为……打开大门；创造机会", example: "The decision opened the door to unlimited election spending.", category: "短语表达", difficulty: 3 }
-    ].map(word => ({
-      ...word,
-      article: "20260611",
-      articleTitle: "马斯克冲向1万亿"
-    }));
+    const articles = [
+      {
+        id: "20260618", no: "03", date: "2026.06.18", day: "18", month: "JUN / 2026",
+        short: "伊朗队的世界杯困局",
+        eyebrow: "World Cup · Politics · Travel",
+        title: "一场比赛，如何被战争的阴影越过边线",
+        summary: "伊朗队在世界杯赛场上与新西兰战平，但赛后真正占据话题中心的，是签证、旅行禁令、安全担忧，以及一场远远超出足球本身的地缘政治困局。",
+        topics: ["World Cup", "Iran", "U.S.", "Mobility"],
+        hook: "伊朗前锋迈赫迪·塔雷米在对新西兰的比赛后没有像多数球员一样迅速离开采访区。他想谈的并非只有 2 比 2 的比分，而是伊朗代表团赴美参赛所面对的现实障碍：部分成员无法取得签证，训练基地因安全问题移至墨西哥，球队的每一次移动都比普通参赛队更艰难。",
+        quote: "The meaning of the game stretched far beyond the pitch.",
+        nouns: [
+          ["Mehdi Taremi", "伊朗国家队前锋，效力于希腊俱乐部 Olympiacos。"],
+          ["Iran delegation", "包括足协负责人、媒体官和安保人员在内的世界杯代表团。"],
+          ["Tijuana", "球队因安全考虑选择的墨西哥训练基地。"],
+          ["U.S. travel ban", "文章所述限制伊朗公民赴美的政策背景。"]
+        ],
+        chain: [
+          ["战争与禁令", "美伊冲突及旅行限制构成参赛背景。"],
+          ["签证受阻", "部分代表团成员无法进入美国。"],
+          ["行程被改写", "训练基地迁往墨西哥，通勤与入境更复杂。"],
+          ["足球被遮蔽", "赛果退居其次，政治压力成为报道核心。"]
+        ],
+        prompts: [
+          "大型体育赛事真的能够与政治分开吗？请结合本文说明。",
+          "东道国应如何保障所有参赛队获得公平、可行的入境安排？",
+          "如果你是记者，会如何在体育报道与战争背景之间分配篇幅？"
+        ],
+        source: "20260618【笔记讲义】伊朗队——世界杯最惨球队…pdf", pages: "18 pages · 936 words · ★★★★",
+        words: [
+          ["overshadow", "/ˌoʊvərˈʃædoʊ/", "使黯然失色；给……蒙上阴影", "War overshadowed Iran’s World Cup campaign.", "headline"],
+          ["striker", "/ˈstraɪkər/", "（足球）前锋", "The Iranian striker spoke after the match.", "football"],
+          ["draw with", "/drɔː wɪð/", "与……战平", "Iran drew with New Zealand, 2–2.", "football"],
+          ["wildly", "/ˈwaɪldli/", "极其；非常；失控地", "It was a wildly entertaining game.", "tone"],
+          ["stretch beyond", "/stretʃ bɪˈjɑːnd/", "延伸至……之外", "Its meaning stretched beyond the pitch.", "phrase"],
+          ["pitch", "/pɪtʃ/", "球场；比赛场地", "The story went far beyond the pitch.", "football"],
+          ["vent", "/vent/", "发泄；强烈表达情绪", "He was venting about practical challenges.", "emotion"],
+          ["secure a visa", "/sɪˈkjʊr ə ˈviːzə/", "成功取得签证", "Some officials could not secure visas.", "mobility"]
+        ]
+      },
+      {
+        id: "20260612", no: "02", date: "2026.06.12", day: "12", month: "JUN / 2026",
+        short: "特朗普八十岁与“不服老”",
+        eyebrow: "White House · Age · Political image",
+        title: "八十岁的特朗普，把“不服老”变成政治武器",
+        summary: "白宫工作人员轮班追赶一位几乎不睡觉的总统；Truth Social 的深夜帖子和白宫草坪上的 UFC 赛事，则共同塑造出一种刻意经营的强悍形象。",
+        topics: ["Trump", "Age", "UFC", "Media"],
+        hook: "特朗普迎来 80 岁之际，年龄不只是健康问题，也成为政治形象的一部分。文章从白宫工作人员轮班、凌晨社交媒体发帖写起，追问这种旺盛精力究竟是优势，还是需要被重新审视的信号；一场计划在白宫草坪举行的 UFC 比赛，又把“力量感”推到更具戏剧性的层面。",
+        quote: "Is refusing to act his age his secret weapon?",
+        nouns: [
+          ["Donald Trump", "美国总统，文章发表当周迎来 80 岁生日。"],
+          ["Truth Social", "特朗普及其团队密切使用的社交媒体平台。"],
+          ["UFC", "终极格斗冠军赛，被用于营造力量与活力的公共场景。"],
+          ["Freedom 250", "文章提及的美国独立纪念系列活动。"]
+        ],
+        chain: [
+          ["高龄质疑", "80 岁让总统的体力与判断力成为公共议题。"],
+          ["精力叙事", "熬夜、发帖和高强度日程被塑造成活力证明。"],
+          ["视觉表演", "UFC 等场景进一步释放强悍信号。"],
+          ["双重解读", "支持者看到生命力，批评者看到风险与失控。"]
+        ],
+        prompts: [
+          "政治人物的精力与工作时长，能否证明其领导能力？",
+          "年龄应不应该成为选民判断候选人的重要标准？",
+          "UFC 进入白宫这样的政治空间，会传递怎样的国家形象？"
+        ],
+        source: "20260612【笔记讲义】特朗普迎来80大寿…pdf", pages: "20 pages · 1029 words · ★★★★",
+        words: [
+          ["act one’s age", "/ækt wʌnz eɪdʒ/", "举止与年龄相称；成熟点", "Will he ever act his age?", "phrase"],
+          ["take it in shifts", "/teɪk ɪt ɪn ʃɪfts/", "轮班完成某事", "The White House staff take it in shifts.", "work"],
+          ["unleash", "/ʌnˈliːʃ/", "释放；使爆发", "The second term was framed as Trump Unleashed.", "rhetoric"],
+          ["aide", "/eɪd/", "（尤指政治人物的）助手", "A former aide described his schedule.", "politics"],
+          ["night owl", "/ˌnaɪt ˈaʊl/", "夜猫子；习惯熬夜的人", "He is famously a night owl.", "habit"],
+          ["enterprising", "/ˈentərpraɪzɪŋ/", "有开拓精神的；善于想办法的", "Enterprising reporters called at 3 a.m.", "character"],
+          ["fallout", "/ˈfɔːlaʊt/", "不良后果；余波", "Staff checked for any likely fallout.", "news"],
+          ["hit a milestone", "/hɪt ə ˈmaɪlstoʊn/", "到达重要里程碑", "He hit the milestone while in office.", "phrase"]
+        ]
+      },
+      {
+        id: "20260611", no: "01", date: "2026.06.11", day: "11", month: "JUN / 2026",
+        short: "马斯克、万亿与权力",
+        eyebrow: "Wealth · SpaceX · Democracy",
+        title: "当财富抵达万亿，问题不再只是钱",
+        summary: "从“金钱能否买到幸福”出发，文章把镜头转向 SpaceX 上市想象：如果马斯克成为首位万亿富豪，极端财富将如何继续放大个人对政治与公共生活的影响？",
+        topics: ["Musk", "SpaceX", "IPO", "Power"],
+        hook: "马斯克曾用一个沮丧表情评论“金钱买不到幸福”，文章却借研究数据反驳这一说法，并迅速把问题从个人幸福推向公共权力：一旦 SpaceX 的首次公开募股进一步推高其财富，真正值得警惕的不是他的内心状态，而是万亿美元能够购买何种影响力。",
+        quote: "Brace yourself for Musk the trillionaire.",
+        nouns: [
+          ["Elon Musk", "企业家，文章讨论其财富与政治影响力。"],
+          ["SpaceX", "航天公司；其潜在 IPO 是万亿身家叙事的关键。"],
+          ["X", "马斯克收购的社交网络与公共发声平台。"],
+          ["Super PACs", "可筹集巨额资金影响美国选举的政治行动组织。"]
+        ],
+        chain: [
+          ["财富增长", "SpaceX IPO 可能显著推高马斯克的净资产。"],
+          ["控制感增强", "巨额财富带来资源、平台与行动空间。"],
+          ["影响力外溢", "商业权力进入选举、政策和国际政治。"],
+          ["民主风险", "个人资源与公共问责之间出现巨大落差。"]
+        ],
+        prompts: [
+          "极端财富在什么时刻会从个人成功转变为公共问题？",
+          "亿万富豪参与政治，应接受哪些透明度与问责规则？",
+          "社交平台所有权会如何放大一个人的政治影响力？"
+        ],
+        source: "20260611【笔记讲义】马斯克冲向1万亿…pdf", pages: "20 pages · 1021 words · ★★★★",
+        words: [
+          ["brace oneself for", "/breɪs wʌnˈself fɔːr/", "做好准备应对；严阵以待", "Brace yourself for a trillionaire.", "phrase"],
+          ["cap with", "/kæp wɪð/", "以……收尾或点缀", "He capped the post with a sad emoji.", "writing"],
+          ["outdated", "/ˌaʊtˈdeɪtɪd/", "过时的；陈旧的", "The assumption may be outdated.", "argument"],
+          ["substantial", "/səbˈstænʃl/", "大量的；重大的", "The study found a substantial difference.", "academic"],
+          ["radiate", "/ˈreɪdieɪt/", "流露；显出；辐射", "He does not exactly radiate contentment.", "description"],
+          ["contentment", "/kənˈtentmənt/", "满足；知足", "Extreme wealth did not bring contentment.", "emotion"],
+          ["initial public offering", "/ɪˈnɪʃəl ˈpʌblɪk ˈɔːfərɪŋ/", "首次公开募股；IPO", "The company is preparing an initial public offering.", "finance"],
+          ["impunity", "/ɪmˈpjuːnɪti/", "不受惩罚；逍遥法外", "More power can create a sense of impunity.", "politics"]
+        ]
+      }
+    ];
 
-    const trumpWords = [
-      { term: "act one's age", phonetic: "/ækt wʌnz eɪdʒ/", cn: "举止与年龄相称；成熟点", example: "Trump at 80 raises the question of whether he will act his age.", category: "短语表达", difficulty: 4 },
-      { term: "shift", phonetic: "/ʃɪft/", cn: "轮班；轮班工作时间", example: "The staff take it in shifts so they can get a nap.", category: "人物状态", difficulty: 3 },
-      { term: "unleash", phonetic: "/ʌnˈliːʃ/", cn: "释放；使爆发；放开约束", example: "The second term is framed as Trump Unleashed.", category: "批判表达", difficulty: 4 },
-      { term: "aide", phonetic: "/eɪd/", cn: "助手；助理，尤指政界助手", example: "A former aide says the best times to call are early morning or late evening.", category: "政治与制度", difficulty: 3 },
-      { term: "night owl", phonetic: "/ˌnaɪt ˈaʊl/", cn: "夜猫子；习惯熬夜的人", example: "He is such a night owl that some journalists get through at 3am.", category: "人物状态", difficulty: 3 },
-      { term: "enterprising", phonetic: "/ˈentərpraɪzɪŋ/", cn: "有进取心的；敢尝试的", example: "Some enterprising hacks have got through to him late at night.", category: "人物状态", difficulty: 4 },
-      { term: "hack", phonetic: "/hæk/", cn: "平庸记者；政客；雇佣文人", example: "The word carries a dismissive tone when used for journalists.", category: "媒体表达", difficulty: 4 },
-      { term: "meme", phonetic: "/miːm/", cn: "网络迷因；表情包；传播梗", example: "His posts are often a mix of AI memes and criticism of enemies.", category: "媒体表达", difficulty: 3 },
-      { term: "fallout", phonetic: "/ˈfɔːlaʊt/", cn: "后果；余波；核辐射尘", example: "His team checks Truth Social for any likely fallout.", category: "批判表达", difficulty: 4 },
-      { term: "in one's prime", phonetic: "/praɪm/", cn: "处于盛年；处于巅峰期", example: "Is this the behaviour of a man in his prime?", category: "年龄与健康", difficulty: 4 },
-      { term: "zest for life", phonetic: "/zest/", cn: "生活热情；生命活力", example: "The article asks whether he is full of energy and zest for life.", category: "人物状态", difficulty: 4 },
-      { term: "lie-down", phonetic: "/ˈlaɪ daʊn/", cn: "躺下休息；小睡", example: "Or is he desperately in need of a lie-down?", category: "年龄与健康", difficulty: 3 },
-      { term: "hit the milestone", phonetic: "/hɪt ðə ˈmaɪlstoʊn/", cn: "达到里程碑；跨过重要节点", example: "Trump and Biden are the only presidents to hit the milestone in office.", category: "短语表达", difficulty: 4 },
-      { term: "revel in", phonetic: "/ˈrevəl ɪn/", cn: "陶醉于；纵情享受", example: "This is not an association the president revels in.", category: "短语表达", difficulty: 4 },
-      { term: "give sb a bad name", phonetic: "/ɡɪv ə bæd neɪm/", cn: "败坏某人/群体名声", example: "Trump has said Biden gave old people a bad name.", category: "短语表达", difficulty: 4 },
-      { term: "UFC", phonetic: "/ˌjuː ef ˈsiː/", cn: "终极格斗冠军赛", example: "One birthday event is intended to project strength: a UFC fight.", category: "政治与形象", difficulty: 3 },
-      { term: "showdown", phonetic: "/ˈʃoʊdaʊn/", cn: "摊牌；决战；最后对决", example: "A structure was installed for Saturday's showdown.", category: "政治与形象", difficulty: 4 },
-      { term: "military parade", phonetic: "/ˈmɪləteri pəˈreɪd/", cn: "阅兵式；军事游行", example: "The birthday spectacle is paired with patriotic display.", category: "政治与形象", difficulty: 3 },
-      { term: "outing", phonetic: "/ˈaʊtɪŋ/", cn: "短途外出；公开露面", example: "The article contrasts rare outings with constant online activity.", category: "人物状态", difficulty: 3 },
-      { term: "Oval Office", phonetic: "/ˌoʊvəl ˈɑːfɪs/", cn: "白宫椭圆形办公室；美国总统办公室", example: "The Oval Office becomes part of the ageing-president debate.", category: "政治与制度", difficulty: 4 },
-      { term: "rumour mill", phonetic: "/ˈruːmər mɪl/", cn: "流言传播渠道；小道消息圈", example: "The rumour mill goes into overdrive around presidential health.", category: "媒体表达", difficulty: 4 },
-      { term: "go into overdrive", phonetic: "/ˈoʊvərdraɪv/", cn: "加速运转；进入高度活跃状态", example: "Speculation can go into overdrive when health questions appear.", category: "短语表达", difficulty: 4 },
-      { term: "unsubstantiated", phonetic: "/ˌʌnsəbˈstænʃieɪtɪd/", cn: "未经证实的；没有证据支持的", example: "The article distinguishes rumours from unsubstantiated claims.", category: "媒体表达", difficulty: 5 },
-      { term: "stroke", phonetic: "/stroʊk/", cn: "中风；脑卒中", example: "Age and health questions invite speculation about strokes or decline.", category: "年龄与健康", difficulty: 4 },
-      { term: "dismiss", phonetic: "/dɪsˈmɪs/", cn: "不予考虑；驳回；轻视", example: "His allies dismiss concerns about his age.", category: "批判表达", difficulty: 4 },
-      { term: "invoke", phonetic: "/ɪnˈvoʊk/", cn: "援引；调用法律或规则", example: "Critics may invoke constitutional mechanisms in age debates.", category: "政治与制度", difficulty: 5 },
-      { term: "amendment", phonetic: "/əˈmendmənt/", cn: "修正案；修改条款", example: "The 25th Amendment is mentioned in relation to fitness for office.", category: "政治与制度", difficulty: 5 },
-      { term: "cognitive", phonetic: "/ˈkɑːɡnətɪv/", cn: "认知的；思维能力相关的", example: "Public scrutiny often turns to cognitive stamina.", category: "年龄与健康", difficulty: 4 },
-      { term: "stamina", phonetic: "/ˈstæmɪnə/", cn: "耐力；持久精力", example: "A presidency requires unusual physical and mental stamina.", category: "年龄与健康", difficulty: 4 },
-      { term: "cardiac", phonetic: "/ˈkɑːrdiæk/", cn: "心脏的；心脏病相关的", example: "Medical reports often mention cardiac risks.", category: "年龄与健康", difficulty: 4 },
-      { term: "pulmonary", phonetic: "/ˈpʌlməneri/", cn: "肺部的；肺病相关的", example: "Pulmonary health is part of the broader fitness discussion.", category: "年龄与健康", difficulty: 4 },
-      { term: "neurological", phonetic: "/ˌnʊrəˈlɑːdʒɪkl/", cn: "神经系统的；神经病学的", example: "Neurological health becomes politically sensitive in old age.", category: "年龄与健康", difficulty: 5 },
-      { term: "cholesterol", phonetic: "/kəˈlestərɔːl/", cn: "胆固醇", example: "Cholesterol levels are a staple of presidential health reports.", category: "年龄与健康", difficulty: 4 },
-      { term: "Ozempic", phonetic: "/ˈoʊzempɪk/", cn: "奥泽匹克；司美格鲁肽品牌药", example: "The article notes he has refused Ozempic.", category: "年龄与健康", difficulty: 4 },
-      { term: "indulge", phonetic: "/ɪnˈdʌldʒ/", cn: "纵容自己；沉溺于", example: "He is portrayed as still indulging in familiar foods.", category: "人物状态", difficulty: 4 },
-      { term: "teetotal", phonetic: "/ˌtiːˈtoʊtl/", cn: "滴酒不沾的；完全戒酒的", example: "Being teetotal is one point in his favour.", category: "人物状态", difficulty: 4 },
-      { term: "drowsiness", phonetic: "/ˈdraʊzinəs/", cn: "困倦；嗜睡", example: "Aides attribute occasional drowsiness to boring speakers.", category: "年龄与健康", difficulty: 4 },
-      { term: "rambling", phonetic: "/ˈræmblɪŋ/", cn: "冗长杂乱的话；语无伦次", example: "Rambling remarks can feed age-related criticism.", category: "媒体表达", difficulty: 4 },
-      { term: "attribute A to B", phonetic: "/əˈtrɪbjuːt/", cn: "把 A 归因于 B", example: "They attribute reduced appearances to time in the situation room.", category: "短语表达", difficulty: 4 },
-      { term: "situation room", phonetic: "/ˌsɪtʃuˈeɪʃən ruːm/", cn: "战情室；危机指挥室", example: "Officials say he spends more time in the situation room.", category: "政治与制度", difficulty: 4 },
-      { term: "wisecrack", phonetic: "/ˈwaɪzkræk/", cn: "俏皮话；机智讽刺语", example: "Old acquaintances say his wisecracks remain intact.", category: "人物状态", difficulty: 4 },
-      { term: "vengeance", phonetic: "/ˈvendʒəns/", cn: "复仇；报复", example: "The article frames vengeance as part of his unchanged temperament.", category: "批判表达", difficulty: 5 },
-      { term: "appetite", phonetic: "/ˈæpɪtaɪt/", cn: "食欲；强烈欲望", example: "He has an appetite for coverage and attention.", category: "人物状态", difficulty: 3 },
-      { term: "clipping", phonetic: "/ˈklɪpɪŋ/", cn: "剪报；片段；剪下物", example: "He still scans clippings about himself.", category: "媒体表达", difficulty: 4 },
-      { term: "legacy", phonetic: "/ˈleɡəsi/", cn: "遗产；政治遗产；后遗影响", example: "He is focused on stamping his legacy on Washington.", category: "政治与形象", difficulty: 4 },
-      { term: "temperamental", phonetic: "/ˌtemprəˈmentl/", cn: "喜怒无常的；性情多变的", example: "His temperamental style remains part of his image.", category: "人物状态", difficulty: 4 },
-      { term: "grievance", phonetic: "/ˈɡriːvəns/", cn: "不满；委屈；积怨", example: "Old grievances continue to shape his politics.", category: "批判表达", difficulty: 5 },
-      { term: "showmanship", phonetic: "/ˈʃoʊmənʃɪp/", cn: "吸引注意的表演技巧；作秀能力", example: "The UFC event is a classic act of political showmanship.", category: "政治与形象", difficulty: 5 },
-      { term: "intact", phonetic: "/ɪnˈtækt/", cn: "完整无损的；未受影响的", example: "His basic instincts appear intact.", category: "批判表达", difficulty: 4 },
-      { term: "intensify", phonetic: "/ɪnˈtensɪfaɪ/", cn: "加强；加剧；增强", example: "Questions about age will intensify as he turns 80.", category: "批判表达", difficulty: 4 }
-    ].map(word => ({
-      ...word,
-      article: "20260612",
-      articleTitle: "特朗普80岁与UFC"
-    }));
+    let currentId = articles[0].id;
+    let mastered = new Set(JSON.parse(localStorage.getItem("beibei-mastered-v2") || "[]"));
 
-    const words = [...trumpWords, ...muskWords];
+    const $ = selector => document.querySelector(selector);
 
-    const grid = document.querySelector("#wordGrid");
-    const search = document.querySelector("#search");
-    const difficulty = document.querySelector("#difficulty");
-    const articleSelect = document.querySelector("#article");
-    const chips = document.querySelector("#chips");
-    const shownCount = document.querySelector("#shownCount");
-    const totalCount = document.querySelector("#totalCount");
-    const masteredCount = document.querySelector("#masteredCount");
-    const empty = document.querySelector("#empty");
-    const categories = ["全部", ...new Set(words.map(word => word.category))];
-    let activeCategory = "全部";
-    const mastered = new Set(JSON.parse(localStorage.getItem("beibei-mastered") || "[]"));
-
-    function renderChips() {
-      chips.innerHTML = categories.map(category => (
-        `<button class="chip ${category === activeCategory ? "active" : ""}" data-category="${category}">${category}</button>`
-      )).join("");
-      chips.querySelectorAll(".chip").forEach(button => {
-        button.addEventListener("click", () => {
-          activeCategory = button.dataset.category;
-          render();
-        });
-      });
+    function renderIssueList() {
+      $("#issueList").innerHTML = articles.map(article => `
+        <button class="issue-button ${article.id === currentId ? "active" : ""}" data-id="${article.id}" aria-pressed="${article.id === currentId}">
+          <span class="issue-no">${article.no}</span>
+          <span><span class="issue-date">${article.date}</span><span class="issue-short">${article.short}</span></span>
+        </button>`).join("");
     }
 
-    function stars(n) {
-      return "★★★★★".slice(0, n);
+    function renderArticle(id) {
+      const article = articles.find(item => item.id === id) || articles[0];
+      currentId = article.id;
+      $("#hero").dataset.number = article.no;
+      $("#heroEyebrow").textContent = article.eyebrow;
+      $("#heroTitle").textContent = article.title;
+      $("#heroSummary").textContent = article.summary;
+      $("#heroDay").innerHTML = `${article.day}<small>${article.month}</small>`;
+      $("#topicRow").innerHTML = article.topics.map(topic => `<span class="topic">${topic}</span>`).join("");
+      $("#hookText").textContent = article.hook;
+      $("#hookQuote").textContent = article.quote;
+      $("#nounList").innerHTML = article.nouns.map(([name, note]) => `<div class="noun-item"><dt>${name}</dt><dd>${note}</dd></div>`).join("");
+      $("#chainList").innerHTML = article.chain.map(([title, text]) => `<div class="chain-step"><b>${title}</b><span>${text}</span></div>`).join("");
+      $("#promptList").innerHTML = article.prompts.map(prompt => `<li>${prompt}</li>`).join("");
+      $("#sourceMeta").innerHTML = `<span>${article.date}</span><span>${article.pages}</span><span>${article.source}</span>`;
+      $("#search").value = "";
+      renderWords(article);
+      renderIssueList();
+      document.title = `${article.short}｜贝贝外刊`;
     }
 
-    function render() {
-      renderChips();
-      const query = search.value.trim().toLowerCase();
-      const level = difficulty.value;
-      const article = articleSelect.value;
-      const filtered = words.filter(word => {
-        const text = `${word.term} ${word.cn} ${word.example} ${word.category} ${word.articleTitle}`.toLowerCase();
-        const categoryOk = activeCategory === "全部" || word.category === activeCategory;
-        const difficultyOk = level === "all" || String(word.difficulty) === level;
-        const articleOk = article === "all" || word.article === article;
-        return categoryOk && difficultyOk && articleOk && text.includes(query);
-      });
-
-      grid.innerHTML = filtered.map((word, index) => {
-        const id = `${word.article}:${word.term}`;
-        return `
-          <article class="word-card ${mastered.has(id) ? "mastered" : ""}" style="animation-delay:${Math.min(index * 24, 420)}ms">
-            <div class="word-top">
-              <div>
-                <h3 class="term">${word.term}</h3>
-                <span class="phonetic">${word.phonetic}</span>
-              </div>
-              <div class="level">${word.difficulty}</div>
-            </div>
-            <p class="meaning">${word.cn}</p>
-            <p class="example">${word.example}</p>
-            <div class="card-foot">
-              <span class="category">${word.articleTitle} · ${word.category} · ${stars(word.difficulty)}</span>
-              <button class="mark" data-term="${id}">${mastered.has(id) ? "RESET" : "KNOW"}</button>
-            </div>
-          </article>
-        `;
+    function renderWords(article = articles.find(item => item.id === currentId)) {
+      const query = $("#search").value.trim().toLowerCase();
+      const words = article.words.filter(word => word.join(" ").toLowerCase().includes(query));
+      $("#wordCount").textContent = `${words.length} / ${article.words.length} expressions`;
+      $("#wordGrid").innerHTML = words.map(([term, phonetic, cn, example, tag]) => {
+        const key = `${article.id}:${term}`;
+        const known = mastered.has(key);
+        return `<article class="word-card ${known ? "mastered" : ""}" data-key="${key}">
+          <h3 class="word-term">${term}</h3><span class="phonetic">${phonetic}</span>
+          <p class="meaning">${cn}</p><p class="example">${example}</p>
+          <div class="word-foot"><span class="word-tag">${tag}</span><button class="know" data-key="${key}">${known ? "KNOWN ✓" : "MARK AS KNOWN"}</button></div>
+        </article>`;
       }).join("");
-
-      grid.querySelectorAll(".mark").forEach(button => {
-        button.addEventListener("click", () => {
-          const term = button.dataset.term;
-          if (mastered.has(term)) mastered.delete(term);
-          else mastered.add(term);
-          localStorage.setItem("beibei-mastered", JSON.stringify([...mastered]));
-          render();
-        });
-      });
-
-      shownCount.textContent = filtered.length;
-      totalCount.textContent = words.length;
-      masteredCount.textContent = mastered.size;
-      empty.classList.toggle("show", filtered.length === 0);
+      $("#empty").classList.toggle("show", words.length === 0);
     }
 
-    search.addEventListener("input", render);
-    difficulty.addEventListener("change", render);
-    articleSelect.addEventListener("change", render);
-    render();
+    $("#issueList").addEventListener("click", event => {
+      const button = event.target.closest(".issue-button");
+      if (!button) return;
+      renderArticle(button.dataset.id);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    $("#search").addEventListener("input", () => renderWords());
+
+    $("#wordGrid").addEventListener("click", event => {
+      const button = event.target.closest(".know");
+      if (!button) return;
+      const key = button.dataset.key;
+      mastered.has(key) ? mastered.delete(key) : mastered.add(key);
+      localStorage.setItem("beibei-mastered-v2", JSON.stringify([...mastered]));
+      renderWords();
+    });
+
+    document.querySelectorAll(".nav-pill").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".nav-pill").forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+        document.getElementById(button.dataset.target).scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    renderArticle(currentId);
   </script>
 </body>
 </html>
