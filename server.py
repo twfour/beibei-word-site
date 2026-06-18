@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import mimetypes
 import os
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -33,7 +34,15 @@ class Handler(BaseHTTPRequestHandler):
 
         candidate = (ROOT / path.lstrip("/")).resolve()
         if ROOT in candidate.parents and candidate.is_file():
-            self.send_file(candidate, "application/octet-stream", send_body)
+            content_type, _ = mimetypes.guess_type(candidate.name)
+            if content_type is None:
+                content_type = "application/octet-stream"
+            elif content_type.startswith("text/") or content_type in {
+                "application/javascript",
+                "application/json",
+            }:
+                content_type += "; charset=utf-8"
+            self.send_file(candidate, content_type, send_body)
             return
 
         self.send_response(404)
