@@ -27,3 +27,5 @@ python3 scripts/build_beibei_daily_site.py
 ```
 
 生成器从下载目录读取 `*笔记讲义*.pdf`，并更新首页、每日页面、样式、交互脚本和清单文件。
+
+已知 PDF 解析失败模式与防回归要求见 [`docs/PARSER_GUARDRAILS.md`](docs/PARSER_GUARDRAILS.md)。

@@ -28,6 +28,70 @@ class Article:
     analyses: list[dict[str, str]]
 
 
+ARTICLE_GUIDES: dict[str, dict[str, str]] = {
+    "20260611": {
+        "background": (
+            "埃隆·马斯克已经凭借特斯拉、SpaceX 和社交平台 X 成为全球最富有、也最具公共影响力的企业家之一。"
+            "文章以 SpaceX 可能进行首次公开募股为背景，设想他的个人财富进一步跨入“万亿美元”量级。"
+            "这不只是商业新闻：当一位私人企业家同时掌握巨额资本、传播平台、政府合同和政治捐款能力时，"
+            "财富与民主权力之间的界线就成为值得讨论的问题。"
+        ),
+        "overview": (
+            "文章从马斯克关于“金钱买不到幸福”的帖子写起，先用研究说明财富与幸福感、生活控制感之间的关系，"
+            "再把焦点从他的个人心理转向公共生活。作者通过数字比较解释一万亿美元究竟有多大，并回顾富豪通过"
+            "政治捐款、超级政治行动委员会、商业交易和社交平台影响国内外政治的方式。文章的核心观点是："
+            "真正需要警惕的并非一个人有多富，而是如此集中的资源可能带来不受选举约束、也难以问责的政治影响力。"
+        ),
+        "pet": (
+            "Elon Musk is already one of the richest people in the world. According to the article, a possible SpaceX IPO could make him the first trillionaire. "
+            "At first, the writer talks about money and happiness. Musk once joked online that money could not make him happy. However, a study found that rich people often feel happier because they have more control over their lives. "
+            "The article then asks a more important question: what could so much money do to democracy? A trillion dollars is difficult to imagine. It could give one person great power over companies, the media and politics. "
+            "Very rich people can give large amounts of money to political groups. They can also use their businesses and online platforms to influence public debate. Musk has already taken part in political discussions in the United States and other countries. "
+            "The writer is not mainly worried about Musk’s private life. The main concern is that one unelected person may have more influence than millions of ordinary voters. The article argues that extreme wealth needs public attention because money can become political power."
+        ),
+    },
+    "20260612": {
+        "background": (
+            "文章发表于唐纳德·特朗普迎来 80 岁生日之际。高龄领导人的体力、判断力和工作方式一直是美国政治中的敏感议题，"
+            "特朗普则长期用少睡、密集发帖和高强度公开活动塑造“精力旺盛”的形象。与此同时，美国独立 250 周年相关活动"
+            "把终极格斗冠军赛带到白宫草坪，使年龄、力量、媒体表演与总统形象被放进同一个新闻场景。"
+        ),
+        "overview": (
+            "文章先描写白宫工作人员为配合特朗普的作息而轮班，以及团队每天查看 Truth Social 深夜帖文和舆论后果的工作。"
+            "随后，作者围绕“他是在拒绝服老，还是确实需要休息”展开讨论，并把白宫 UFC 赛事视为一种精心设计的力量展示。"
+            "文章一方面承认特朗普的活力、政治直觉和舞台控制力，另一方面也追问持续制造冲突、缺乏休息和拒绝年龄限制"
+            "是否会给决策带来风险。全文借 80 岁生日观察一种独特的政治品牌：把不按年龄行事本身变成优势。"
+        ),
+        "pet": (
+            "Donald Trump is turning 80, but he does not want people to see him as old. He sleeps very little and often posts on Truth Social late at night. Because of this, White House staff work in shifts. Every morning, his team checks his messages and thinks about the problems they may cause. "
+            "Some people see Trump’s energy as a strength. He can work for long hours, speak to supporters and stay at the centre of the news. Others wonder if a president of his age needs more rest. They also worry that quick online posts can create political trouble. "
+            "For his birthday week, a UFC event is planned on the White House lawn. The fight is part of America’s 250th birthday celebrations, but it also sends a clear message about strength. Trump wants to show that age has not made him weak. "
+            "The article compares this image with the usual idea of how an 80-year-old should behave. Trump’s refusal to act his age may help his political brand. However, the same behaviour can also raise questions about good judgement, health and responsible leadership."
+        ),
+    },
+    "20260618": {
+        "background": (
+            "伊朗队赴美国参加世界杯时，体育赛事正与紧张的美伊关系、战争阴影和旅行限制重叠。文章所述背景中，"
+            "部分伊朗代表团成员未能取得美国签证，球队也因安全考虑把训练基地从亚利桑那州改到墨西哥蒂华纳。"
+            "因此，伊朗队每次赴洛杉矶比赛都要面对额外的飞行、入境检查和恢复时间压力；对球员和在美伊朗社群而言，"
+            "比赛也承载了远超比分的政治与身份意义。"
+        ),
+        "overview": (
+            "文章以伊朗队 2 比 2 战平新西兰后的采访开场。前锋迈赫迪·塔雷米没有回避媒体，而是公开抱怨签证、通勤、"
+            "安全和缺乏支持等现实困难。报道随后把视线从球场扩展到洛杉矶的伊朗侨民：有人支持国家队，有人把球队视为"
+            "伊朗政权的象征，也有人试图把足球与政治分开。文章通过球员、官员、球迷和抗议者的不同声音说明，"
+            "这场世界杯之旅既是体育竞赛，也是战争、移民身份、国家认同与外交关系交织的公共事件。"
+        ),
+        "pet": (
+            "Iran began its World Cup in the United States with a 2–2 draw against New Zealand. After the game, Iranian striker Mehdi Taremi wanted to talk about more than football. He said the situation was a disaster for his team. "
+            "The United States had strict travel rules for Iranians, and eleven members of Iran’s football group could not get visas. The team first planned to train in Arizona, but it moved its base to Tijuana in Mexico because of safety worries. Before the match, the players flew to Los Angeles. The journey and immigration checks took a long time. They had to return to Mexico soon after the game, so they had less time to rest. "
+            "The match was also emotional for Iranian people living in Los Angeles. Many came to support the team, while some protesters said the team represented the Iranian government. Other fans wanted to keep football separate from politics. "
+            "For Iran, this World Cup is not only about winning matches. The players must deal with travel problems, political tension and pressure from different groups. Their experience shows how war and international relations can affect sport."
+        ),
+    },
+}
+
+
 def sha256(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as source:
@@ -291,6 +355,16 @@ def clean_analysis_layout(text: str) -> str:
     return cleaned.strip()
 
 
+ANALYSIS_BODY_START = re.compile(
+    r"^(?:"
+    r"1[.、]\s*"
+    r"|第[一二三四五六七八九十]+部分\s*[:：]"
+    r"|主句(?:部分)?\s*[:：]"
+    r"|整体(?:结构|分析)\s*[:：]"
+    r")"
+)
+
+
 def extract_analyses(path: Path) -> list[dict[str, str]]:
     page_sections: list[str] = []
     collecting = False
@@ -318,15 +392,25 @@ def extract_analyses(path: Path) -> list[dict[str, str]]:
         chunk = section[marker.start():chunk_end].strip()
         lines = chunk.splitlines()
         analysis_start = next(
-            (line_index for line_index, line in enumerate(lines[1:], 1) if re.match(r"^1[.、]\s*", line)),
+            (
+                line_index
+                for line_index, line in enumerate(lines[1:], 1)
+                if ANALYSIS_BODY_START.match(line.strip())
+            ),
             len(lines),
         )
         sentence_lines = [re.sub(r"^\d+\.\s*", "", lines[0]).strip()]
         sentence_lines.extend(line.strip() for line in lines[1:analysis_start] if line.strip())
+        sentence = " ".join(sentence_lines)[:1800]
         analysis = "\n".join(lines[analysis_start:]).strip()
+        if not analysis or len(sentence) > 1200:
+            raise ValueError(
+                f"Could not split sentence {marker.group(1)} from its analysis in {path.name}; "
+                "the handout may use an unrecognized analysis heading"
+            )
         results.append({
             "number": marker.group(1),
-            "sentence": " ".join(sentence_lines)[:1800],
+            "sentence": sentence,
             "analysis": analysis[:9000],
         })
     return results[:4]
@@ -388,6 +472,31 @@ def index_html(articles: list[Article]) -> str:
 
 
 def daily_html(article: Article, all_articles: list[Article]) -> str:
+    guide = ARTICLE_GUIDES.get(article.date, {
+        "background": "本期文章的背景介绍正在整理中。",
+        "overview": "本期文章内容简介正在整理中。",
+        "pet": "A PET-level version of this article is being prepared.",
+    })
+    introduction_html = f"""
+      <section class="reading-introduction" id="introduction">
+        <div class="section-heading introduction-heading"><div><span>00</span><h2>阅读导入</h2></div><p>先建立语境，再进入原文。</p></div>
+        <div class="introduction-grid">
+          <article class="intro-card background-card">
+            <div class="intro-label"><span>01</span> CONTEXT / 背景介绍</div>
+            <h3>读前先知道</h3>
+            <p>{html.escape(guide['background'])}</p>
+          </article>
+          <article class="intro-card overview-card">
+            <div class="intro-label"><span>02</span> ROADMAP / 内容简介</div>
+            <h3>文章会讲什么</h3>
+            <p>{html.escape(guide['overview'])}</p>
+          </article>
+          <article class="intro-card pet-card">
+            <div class="pet-side"><span>PET</span><strong>B1</strong><small>ADAPTED READING</small></div>
+            <div class="pet-copy"><div class="intro-label"><span>03</span> EASIER ENGLISH / 简明改写</div><h3>Read the story in easier English</h3><p lang="en">{html.escape(guide['pet'])}</p><div class="pet-note">基于原文核心信息改写 · 使用 PET / CEFR B1 难度的常用词与较短句式</div></div>
+          </article>
+        </div>
+      </section>"""
     seen_terms: set[str] = set()
     paragraph_rows: list[str] = []
     for paragraph in article.paragraphs:
@@ -431,8 +540,9 @@ def daily_html(article: Article, all_articles: list[Article]) -> str:
     <div class="reader-hero"><div><div class="date-block"><strong>{article.date[6:]}</strong><span>{article.date[4:6]} / {article.date[:4]}</span></div></div><div><div class="eyebrow">DAILY FOREIGN PRESS · ISSUE {article.date}</div><h1>{html.escape(article.title)}</h1><div class="reader-meta"><span>{article.pages} 页</span><span>{len(article.paragraphs)} 段原文</span><span>{len(article.vocabulary)} 个词条</span><span>{len(article.analyses)} 组长难句</span></div></div></div>
   </header>
   <div class="reader-shell">
-    <aside class="reader-toc"><div class="toc-title">ON THIS PAGE</div><a href="#reading">01 原文与翻译</a><a href="#vocabulary">02 单词解释</a><a href="#analysis">03 长难句分析</a><div class="progress"><span id="progress-bar"></span></div></aside>
+    <aside class="reader-toc"><div class="toc-title">ON THIS PAGE</div><a href="#introduction">00 阅读导入</a><a href="#reading">01 原文与翻译</a><a href="#vocabulary">02 单词解释</a><a href="#analysis">03 长难句分析</a><div class="progress"><span id="progress-bar"></span></div></aside>
     <main class="reader-main">
+{introduction_html}
       <section id="reading"><div class="section-heading"><div><span>01</span><h2>原文与翻译</h2></div><p>左右对照阅读，保留文章论证节奏。</p></div>{paragraph_html}</section>
       <section id="vocabulary"><div class="section-heading"><div><span>02</span><h2>单词解释</h2></div><label class="vocab-search">SEARCH <input id="vocab-search" placeholder="输入单词或中文释义"></label></div><div class="vocab-grid" id="vocab-grid">{vocab_html}</div></section>
       <section id="analysis"><div class="section-heading"><div><span>03</span><h2>长难句分析</h2></div><p>从主干到修饰层级，拆开再读。</p></div><div class="analysis-list">{analysis_html or '<p class="empty-note">本期未识别到长难句分析。</p>'}</div></section>
@@ -475,6 +585,7 @@ STYLES = r"""
 :root{--paper:#f4f5f1;--white:#fff;--ink:#111713;--muted:#647067;--line:#c9d0c9;--red:#e3422b;--green:#164b3b;--head:#e8ede9;--lime:#d8ff5e;--blue:#dcecff;--shadow:0 18px 60px rgba(17,23,19,.1)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Iowan Old Style","Noto Serif SC","Songti SC",serif}a{color:inherit;text-decoration:none}nav{display:flex;align-items:center;justify-content:space-between;gap:24px;font-family:"Courier New",monospace;font-size:12px;font-weight:700;letter-spacing:.08em}.brand{font-weight:900}.archive-hero,.reader-header{background:var(--head);color:var(--ink);border-bottom:1px solid var(--line);padding:24px max(24px,calc((100vw - 1240px)/2)) 42px}.hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:60px;align-items:end;padding:80px 0 55px}.kicker,.eyebrow,.label,.toc-title,.analysis-index{font:800 11px/1.2 "Courier New",monospace;letter-spacing:.13em;text-transform:uppercase}.archive-hero h1{font-size:clamp(64px,9vw,132px);line-height:.78;letter-spacing:0;margin:18px 0 0}.archive-hero h1 em{color:var(--red);font-weight:400}.hero-note{max-width:420px;font-size:20px;line-height:1.7;color:var(--muted);margin:0}.archive-stats{display:flex;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:18px}.archive-stats span{border:1px solid var(--line);padding:10px 14px;font:700 12px "Courier New",monospace}.archive-stats b{color:var(--red);font-size:18px}.archive-main{max-width:1240px;margin:0 auto;padding:56px 24px 90px}.section-line{display:flex;justify-content:space-between;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:18px;font:800 11px "Courier New",monospace;letter-spacing:.1em}.issue-card{display:grid;grid-template-columns:145px 1fr 46px;gap:32px;align-items:center;padding:30px 10px;border-bottom:1px solid var(--line);transition:.25s ease}.issue-card:hover{background:var(--white);padding-left:22px;box-shadow:var(--shadow)}.issue-date{font:700 13px "Courier New",monospace;color:var(--muted)}.issue-date span{display:block;font:900 64px/1 "Iowan Old Style",serif;color:var(--red)}.issue-copy h2{font-size:clamp(26px,3vw,42px);line-height:1.14;margin:7px 0 10px;max-width:900px}.issue-copy p{color:var(--muted);line-height:1.7;margin:0;max-width:800px}.issue-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.issue-meta span,.reader-meta span{padding:6px 9px;background:#e4e8e3;font:700 11px "Courier New",monospace}.issue-arrow{font-size:30px}.reader-header nav select{background:var(--white);color:var(--ink);border:1px solid var(--line);padding:9px 12px;max-width:390px}.reader-hero{display:grid;grid-template-columns:170px 1fr;gap:38px;align-items:end;padding-top:65px}.date-block strong{display:block;font-size:96px;line-height:.8;color:var(--red)}.date-block span{font:700 13px "Courier New",monospace;color:var(--muted)}.reader-hero h1{font-size:clamp(38px,5.2vw,75px);line-height:1.04;margin:12px 0 22px;max-width:980px}.reader-meta{display:flex;gap:8px;flex-wrap:wrap}.reader-meta span{background:var(--white);color:var(--ink);border:1px solid var(--line)}.reader-shell{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:190px minmax(0,1fr);gap:46px;padding:54px 24px 100px}.reader-toc{position:sticky;top:24px;align-self:start;display:grid;gap:5px;font:700 13px "Courier New",monospace}.reader-toc .toc-title{border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:10px}.reader-toc a{padding:10px 0;color:var(--muted)}.reader-toc a:hover{color:var(--red)}.progress{height:3px;background:#d7ddd7;margin-top:16px}.progress span{display:block;width:0;height:100%;background:var(--red)}.reader-main{min-width:0}.reader-main section{scroll-margin-top:24px;margin-bottom:100px}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:30px;border-bottom:3px solid var(--ink);padding-bottom:14px;margin-bottom:24px}.section-heading>div{display:flex;align-items:baseline;gap:14px}.section-heading span{font:900 13px "Courier New",monospace;color:var(--red)}.section-heading h2{font-size:38px;margin:0}.section-heading>p{max-width:330px;color:var(--muted);margin:0;text-align:right}.parallel-row{display:grid;grid-template-columns:54px 1fr 1fr;border-bottom:1px solid var(--line);background:rgba(255,255,255,.45)}.parallel-row:nth-child(odd){background:var(--white)}.para-no{padding:24px 12px;font:900 13px "Courier New",monospace;color:var(--red)}.original,.translation{padding:24px 26px}.original{border-right:1px solid var(--line)}.original p,.translation p{font-size:17px;line-height:1.85;margin:12px 0 0}.translation{background:rgba(220,236,255,.25)}.word-tip{position:relative;text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:1.5px;text-underline-offset:4px;cursor:help}.word-tooltip{position:absolute;z-index:20;left:0;bottom:calc(100% + 9px);width:280px;max-width:70vw;padding:12px 14px;background:var(--ink);color:white;font:13px/1.55 "Courier New",monospace;box-shadow:6px 6px 0 var(--red);opacity:0;visibility:hidden;transform:translateY(5px);transition:.16s ease;pointer-events:none}.word-tip:hover .word-tooltip,.word-tip:focus .word-tooltip{opacity:1;visibility:visible;transform:translateY(0)}.label{color:var(--muted)}.vocab-search{font:800 11px "Courier New",monospace;letter-spacing:.1em}.vocab-search input{display:block;margin-top:7px;width:min(300px,75vw);padding:11px 12px;border:1px solid var(--ink);background:white;font:14px "Courier New",monospace}.vocab-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.vocab-card{background:var(--white);border:1px solid var(--line);padding:20px;min-height:230px;transition:.2s ease}.vocab-card:hover{border-color:var(--ink);transform:translateY(-3px);box-shadow:8px 8px 0 var(--ink)}.vocab-card.known{background:#ecffd0}.vocab-head{display:flex;justify-content:space-between;gap:12px}.vocab-head h3{font-size:24px;line-height:1.05;margin:0}.vocab-head span{display:block;color:var(--muted);font:12px "Courier New",monospace;margin-top:7px}.mark-word{width:32px;height:32px;border:1px solid var(--ink);background:transparent;cursor:pointer}.known .mark-word{background:var(--green);color:white}.definition{font-weight:700;line-height:1.5}.definition-en,.example{font-size:13px;line-height:1.55;color:var(--muted)}.example{border-top:1px dashed var(--line);padding-top:10px}.analysis-list{display:grid;gap:18px}.analysis-card{background:var(--white);color:var(--ink);padding:30px 34px;border:2px solid var(--ink);box-shadow:10px 10px 0 var(--red)}.analysis-index{color:var(--red)}.analysis-card blockquote{font-size:22px;line-height:1.55;margin:14px 0 20px;padding-left:20px;border-left:4px solid var(--red)}.analysis-body{color:var(--ink);line-height:1.75;font-size:15px}.analysis-step{margin:0;padding:12px 0;border-top:1px solid var(--line)}.analysis-step:first-child{border-top:0}.empty-note{padding:30px;border:1px dashed var(--line)}footer{padding:24px;text-align:center;border-top:1px solid var(--line);font:11px "Courier New",monospace;color:var(--muted)}@media(max-width:960px){.hero-grid{grid-template-columns:1fr;padding-top:55px}.reader-shell{grid-template-columns:1fr}.reader-toc{position:relative;top:0;display:flex;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:16px}.reader-toc .toc-title,.progress{display:none}.vocab-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:680px){.reader-header nav{flex-direction:column;align-items:stretch}.reader-header nav select{width:100%;max-width:100%}.archive-hero h1{font-size:62px}.hero-note{font-size:17px}.issue-card{grid-template-columns:76px 1fr;gap:16px}.issue-date span{font-size:42px}.issue-arrow{display:none}.reader-hero{grid-template-columns:1fr;padding-top:45px}.date-block strong{font-size:64px}.parallel-row{grid-template-columns:38px 1fr}.original,.translation{grid-column:2;padding:20px}.original{border-right:0;border-bottom:1px dashed var(--line)}.para-no{grid-row:1/3}.vocab-grid{grid-template-columns:1fr}.section-heading{align-items:start;flex-direction:column}.section-heading>p{text-align:left}.analysis-card{padding:24px 20px;box-shadow:6px 6px 0 var(--red)}}
 .nav-tools{display:flex;align-items:center;gap:10px}.favorites-open{border:1px solid var(--ink);background:var(--white);padding:9px 12px;font:800 11px "Courier New",monospace;letter-spacing:.05em;cursor:pointer}.favorites-open span{display:inline-grid;place-items:center;min-width:20px;height:20px;margin-left:5px;background:var(--red);color:white}.vocab-head{display:flex;justify-content:space-between;align-items:start;gap:14px}.favorite-word{flex:0 0 auto;width:38px;height:38px;border:1px solid var(--ink);background:transparent;color:var(--red);font:26px/1 serif;cursor:pointer}.favorite-word[aria-pressed="true"]{background:var(--red);color:white}.definition-en{font-size:15px;line-height:1.72;color:#46534a}.example{font-size:13px;line-height:1.6}.vocab-card{cursor:zoom-in}.vocab-card:focus-visible{outline:3px solid var(--red);outline-offset:3px}.zoomable-paragraph{position:relative;cursor:zoom-in;transition:background-color .18s ease,box-shadow .18s ease}.zoomable-paragraph::after{content:"↗ 放大";position:absolute;right:14px;top:12px;opacity:0;color:var(--red);font:800 10px/1 "Courier New",monospace;letter-spacing:.08em;transition:opacity .18s ease}.zoomable-paragraph:hover,.zoomable-paragraph:focus-visible{background:#fffaf1;box-shadow:inset 0 0 0 2px var(--red);outline:0}.zoomable-paragraph:hover::after,.zoomable-paragraph:focus-visible::after{opacity:1}.reading-modal[hidden],.word-modal[hidden],.favorites-modal[hidden]{display:none}.reading-modal,.word-modal,.favorites-modal{position:fixed;z-index:100;inset:0;display:grid;place-items:center;padding:28px;background:rgba(17,23,19,.72);backdrop-filter:blur(8px);animation:modal-fade .18s ease}.reading-modal-card,.word-modal-card{width:min(900px,100%);max-height:min(82vh,820px);overflow:auto;background:#fffdf7;border:2px solid var(--ink);box-shadow:14px 14px 0 var(--red);padding:clamp(26px,5vw,58px);animation:modal-rise .22s ease}.reading-modal-head,.word-modal-head,.favorites-head{display:flex;justify-content:space-between;gap:24px;align-items:start;border-bottom:2px solid var(--ink);padding-bottom:18px}.reading-modal-head span,.word-modal-head span,.favorites-head span{color:var(--red);font:800 11px/1.2 "Courier New",monospace;letter-spacing:.13em}.reading-modal-head h2,.word-modal-head h2,.favorites-head h2{font-size:clamp(28px,4vw,46px);margin:8px 0 0}.reading-modal-close,.word-modal-close,.favorites-close{flex:0 0 auto;width:44px;height:44px;border:1px solid var(--ink);background:transparent;color:var(--ink);font:32px/1 "Iowan Old Style",serif;cursor:pointer}.reading-modal-close:hover,.reading-modal-close:focus-visible,.word-modal-close:hover,.word-modal-close:focus-visible,.favorites-close:hover,.favorites-close:focus-visible{background:var(--ink);color:white;outline:0}.reading-modal-card>p{font-size:clamp(20px,2.3vw,28px);line-height:1.9;margin:30px 0 0;white-space:pre-wrap}.word-modal-definition{font-size:clamp(24px,3vw,36px);font-weight:700;line-height:1.5;margin:30px 0 0}.word-modal-english{font-size:clamp(18px,2vw,24px);line-height:1.75;color:#46534a}.word-modal-example{border-top:1px dashed var(--line);padding-top:20px;font-size:17px;line-height:1.7;color:var(--muted)}.favorites-modal{place-items:stretch end;padding:0}.favorites-panel{width:min(620px,100%);height:100%;overflow:auto;background:var(--paper);padding:clamp(24px,5vw,48px);box-shadow:-16px 0 0 var(--red);animation:drawer-in .22s ease}.favorites-list{display:grid;gap:12px;margin-top:24px}.favorite-item{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;background:white;border:1px solid var(--line);padding:18px}.favorite-item-main{cursor:zoom-in}.favorite-item h3{font-size:22px;margin:0}.favorite-item p{margin:7px 0 0;color:var(--muted);line-height:1.5}.favorite-remove{width:34px;height:34px;border:1px solid var(--ink);background:transparent;cursor:pointer}.favorites-empty{padding:42px 20px;text-align:center;border:1px dashed var(--line);color:var(--muted)}.modal-open{overflow:hidden}@keyframes modal-fade{from{opacity:0}to{opacity:1}}@keyframes modal-rise{from{transform:translateY(14px);opacity:.6}to{transform:translateY(0);opacity:1}}@keyframes drawer-in{from{transform:translateX(30px);opacity:.7}to{transform:translateX(0);opacity:1}}@media(max-width:680px){.reader-header nav{align-items:stretch}.nav-tools{display:grid;grid-template-columns:1fr}.favorites-open{width:100%}.word-tooltip{position:fixed;left:20px;right:20px;bottom:20px;width:auto;max-width:none}.zoomable-paragraph::after{opacity:.7}.reading-modal,.word-modal{padding:14px}.reading-modal-card,.word-modal-card{max-height:88vh;padding:24px;box-shadow:7px 7px 0 var(--red)}.reading-modal-card>p{font-size:20px;line-height:1.8}.favorites-panel{box-shadow:none}}
 .vocab-actions{display:flex;gap:6px}.expand-word{flex:0 0 auto;width:38px;height:38px;border:1px solid var(--ink);background:transparent;color:var(--ink);font:18px/1 "Courier New",monospace;cursor:pointer}.expand-word:hover,.expand-word:focus-visible{background:var(--ink);color:white;outline:0}.analysis-source-block{margin:0;padding:16px 0;border-top:1px solid var(--line);font-size:16px;line-height:1.85;white-space:pre-line}.analysis-source-block:first-child{border-top:0;padding-top:0}
+.reading-introduction{position:relative}.introduction-heading{border-bottom-color:var(--red)}.introduction-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.intro-card{position:relative;min-height:250px;padding:28px 30px;border:1px solid var(--ink);background:var(--white);overflow:hidden}.intro-card::after{content:"";position:absolute;right:-28px;bottom:-28px;width:110px;height:110px;border:1px solid rgba(17,23,19,.13);border-radius:50%}.intro-label{display:flex;align-items:center;gap:9px;color:var(--muted);font:800 10px/1.2 "Courier New",monospace;letter-spacing:.1em}.intro-label span{display:inline-grid;width:25px;height:25px;place-items:center;border-radius:50%;background:var(--ink);color:white}.intro-card h3{font-size:clamp(25px,3vw,37px);line-height:1.1;margin:22px 0 14px}.intro-card>p,.pet-copy>p{position:relative;z-index:1;font-size:17px;line-height:1.9;margin:0}.background-card{background:#fff9e9;box-shadow:7px 7px 0 #efc95d}.overview-card{background:#edf4f0;box-shadow:7px 7px 0 #87aa9d}.pet-card{grid-column:1/-1;display:grid;grid-template-columns:150px 1fr;gap:0;padding:0;background:var(--white);color:var(--ink);border-color:var(--ink);box-shadow:7px 7px 0 #b8c1b9}.pet-card::after{width:240px;height:240px;right:-70px;bottom:-100px;border-color:rgba(17,23,19,.1)}.pet-side{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 20px;border-right:1px solid var(--line);background:#eef1ec;font-family:"Courier New",monospace}.pet-side span{color:var(--red);font-size:31px;font-weight:900;letter-spacing:.08em}.pet-side strong{color:var(--ink);font:400 76px/.9 "Iowan Old Style",serif}.pet-side small{margin-top:16px;text-align:center;color:var(--muted);font-size:9px;line-height:1.4;letter-spacing:.12em}.pet-copy{position:relative;z-index:1;padding:34px 38px}.pet-copy .intro-label{color:var(--muted)}.pet-copy .intro-label span{background:var(--ink);color:white}.pet-copy h3{max-width:700px;color:var(--ink)}.pet-copy>p{max-width:900px;color:#46534a;font-family:"Iowan Old Style",Georgia,serif;font-size:18px;line-height:1.9}.pet-note{margin-top:24px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font:700 10px/1.5 "Courier New",monospace;letter-spacing:.07em}.reader-main .reading-introduction{margin-bottom:90px}@media(max-width:760px){.introduction-grid{grid-template-columns:1fr}.intro-card{min-height:0;padding:24px 22px}.pet-card{grid-column:auto;grid-template-columns:1fr}.pet-side{align-items:flex-start;border-right:0;border-bottom:1px solid var(--line);padding:20px 24px}.pet-side strong{font-size:54px}.pet-side small{margin-top:7px;text-align:left}.pet-copy{padding:25px 22px}.pet-copy>p{font-size:17px;line-height:1.82}}
 """
 
 
