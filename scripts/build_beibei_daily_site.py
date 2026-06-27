@@ -5,7 +5,10 @@ import hashlib
 import html
 import json
 import re
+import time
+import argparse
 from dataclasses import dataclass
+from dataclasses import asdict
 from pathlib import Path
 
 import pdfplumber
@@ -14,6 +17,8 @@ from pypdf import PdfReader
 
 SOURCE_DIR = Path("/Users/apple/Downloads/贝贝外刊")
 OUTPUT_DIR = Path(__file__).resolve().parents[1]
+SITE_CONFIG_PATH = OUTPUT_DIR / "site_config.json"
+CACHE_DIR = OUTPUT_DIR / ".beibei-cache" / "articles"
 
 
 @dataclass
@@ -26,6 +31,7 @@ class Article:
     paragraphs: list[dict[str, str]]
     vocabulary: list[dict[str, str]]
     analyses: list[dict[str, str]]
+    source_digest: str = ""
 
 
 ARTICLE_GUIDES: dict[str, dict[str, str]] = {
@@ -89,6 +95,26 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "For Iran, this World Cup is not only about winning matches. The players must deal with travel problems, political tension and pressure from different groups. Their experience shows how war and international relations can affect sport."
         ),
     },
+    "20260626": {
+        "background": (
+            "生成式人工智能快速发展后，很多学生曾被建议“学编程”以增强就业竞争力。如今形势出现反转："
+            "程序员开始担心被 AI 取代，而大型 AI 实验室反而大量招聘哲学家。原因在于，先进模型不只需要更强的代码能力，"
+            "还要处理真理、谦逊、伦理边界、规则选择、责任和风险权衡等问题；这些恰好是哲学长期训练人思考的领域。"
+        ),
+        "overview": (
+            "文章以“为什么大型 AI 实验室疯狂招聘哲学家”为主线，先指出哲学专业毕业生的就业表现甚至优于计算机专业，"
+            "再解释哲学能为 AI 研究带来的几类能力：用苏格拉底式提问减少模型迎合用户、用“知道自己无知”的谦逊降低幻觉和过度自信、"
+            "用宪政主义和伦理学框架约束模型行为。后半部分比较义务论与后果主义在 AI 宪章、自动驾驶和武器系统中的作用，"
+            "最后提出担忧：如果道德判断越来越多交给机器，人类自身的判断能力会不会退化。"
+        ),
+        "pet": (
+            "Many people once told arts and humanities students to learn coding if they wanted good jobs. The article says this advice may now look less certain. As AI becomes stronger, many programmers are worried that machines may take their work. At the same time, big AI companies are hiring many philosophers. "
+            "Philosophy can help AI researchers because AI creates difficult questions. One example is the Socratic method. It uses careful questions to find problems in an idea. AI models trained in this way may be less eager to please people and more willing to search for the truth. "
+            "Another useful idea is humility. Socrates said that he was wise because he knew he did not know everything. If AI models can learn this kind of humility, they may make fewer false claims and become less overconfident. "
+            "Philosophy is also important for AI safety. Developers need rules to stop models from behaving badly. Some rules come from deontology, which says some actions are always wrong. Other systems use consequentialism, which compares costs and benefits. "
+            "The article ends with a warning. If machines make more moral decisions for us, people may become less able to make their own judgments. In the age of AI, philosophers may have more work than ever."
+        ),
+    },
 }
 
 
@@ -100,19 +126,52 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def select_note_pdfs() -> list[Path]:
-    selected: dict[str, Path] = {}
-    checksums: set[str] = set()
+def discover_note_pdfs() -> tuple[list[tuple[Path, str]], list[dict[str, str]]]:
+    """Return one source per date and report byte-identical duplicate files.
+
+    A date with different PDF contents is treated as an explicit conflict.  The
+    old implementation silently let the last filename win, which could replace
+    a published issue with an unrelated revision.
+    """
+    by_date: dict[str, tuple[Path, str]] = {}
+    digest_owner: dict[str, Path] = {}
+    duplicates: list[dict[str, str]] = []
     for path in sorted(SOURCE_DIR.glob("*笔记讲义*.pdf")):
         date_match = re.search(r"(20\d{6})", path.name)
         if not date_match:
             continue
+        date = date_match.group(1)
         digest = sha256(path)
-        if digest in checksums:
+        if digest in digest_owner:
+            duplicates.append({"file": path.name, "same_as": digest_owner[digest].name})
             continue
-        checksums.add(digest)
-        selected[date_match.group(1)] = path
-    return [selected[key] for key in sorted(selected)]
+        digest_owner[digest] = path
+        if date in by_date and by_date[date][1] != digest:
+            previous = by_date[date][0]
+            raise ValueError(
+                f"Conflicting PDFs for {date}: {previous.name!r} and {path.name!r}. "
+                "Keep one authoritative version or rename the intended issue date."
+            )
+        by_date[date] = (path, digest)
+    return [by_date[key] for key in sorted(by_date)], duplicates
+
+
+def load_site_config() -> dict:
+    defaults = {
+        "display": {
+            "introduction": True,
+            "reading": True,
+            "vocabulary": True,
+            "analysis": True,
+        },
+        "article_guides": {},
+    }
+    if not SITE_CONFIG_PATH.exists():
+        return defaults
+    configured = json.loads(SITE_CONFIG_PATH.read_text(encoding="utf-8"))
+    defaults["display"].update(configured.get("display", {}))
+    defaults["article_guides"].update(configured.get("article_guides", {}))
+    return defaults
 
 
 def clean_text(value: str) -> str:
@@ -187,6 +246,53 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition": "（代表国家或组织的）徽章、标记、图案；象征、标志",
         "definition_en": "a design or picture that represents a country or an organization; a symbol of an idea or principle",
     },
+    "symptom": {
+        "example": "flu symptoms 流感症状",
+    },
+    "unsubstantiated": {
+        "example": "an unsubstantiated claim/rumour 未经证实的说法、传言",
+    },
+    "teetotal": {
+        "example": "He's strictly teetotal. 他绝对是滴酒不沾。",
+    },
+    "situation room": {
+        "example": "Top officials met in the White House situation room. 高层官员在白宫战情室会面。",
+    },
+    "immigrate": {
+        "example": "A Russian-born professor had immigrated to the United States. 一位生于俄罗斯、后来移居美国的教授。",
+    },
+    "philosophise": {
+        "example": "He spent the evening philosophising on the meaning of life. 他整个晚上大谈人生的意义。",
+    },
+    "feign": {
+        "definition": "佯作；假装；装作",
+        "definition_en": "to make other people think that you have a feeling, attitude, or physical condition, although this is not true",
+    },
+    "overconfidence": {
+        "definition": "过度自信；盲目自信",
+        "definition_en": "excessive confidence in oneself or one's abilities; confidence that is greater than is justified",
+        "example": "Overconfidence can lead to poor decisions. 过度自信可能导致错误决策。 · Investors should be wary of overconfidence in rising markets. 投资者应警惕牛市中的盲目自信。",
+    },
+    "discourage": {
+        "definition": "阻拦；阻止；劝阻",
+        "definition_en": "to try to prevent something or prevent somebody from doing something, especially by making it difficult or showing that you do not approve",
+        "example": "A campaign to discourage smoking among teenagers. 劝阻青少年吸烟的运动。 · I leave a light on when I'm out to discourage burglars. 我出门时开着灯以防夜盗闯入。",
+    },
+    "prohibit": {
+        "definition": "（尤指以法令）禁止",
+        "definition_en": "to stop something from being done or used, especially by law",
+        "example": "A law prohibiting the sale of alcohol. 禁止售酒的法令。",
+    },
+    "foreseeable": {
+        "definition": "可预料的；可预见的；可预知的",
+        "definition_en": "that you can predict will happen; that can be foreseen",
+        "example": "Foreseeable risks/consequences. 可预料的危险/后果。",
+    },
+    "variable": {
+        "definition": "多变的；易变的；变化无常的",
+        "definition_en": "often changing; likely to change",
+        "example": "Variable temperatures. 变化不定的气温。 · The acting is of variable quality. 表演时好时坏。",
+    },
 }
 
 
@@ -195,6 +301,13 @@ def suspicious_definition(value: str) -> bool:
     han_count = len(re.findall(r"[\u4e00-\u9fff]", value))
     sentence_count = len(re.findall(r"[。！？]", value))
     return han_count > 80 or (len(value) > 140 and sentence_count >= 2)
+
+
+def suspicious_example(value: str) -> bool:
+    """Reject article translations accidentally captured as vocabulary examples."""
+    han_count = len(re.findall(r"[\u4e00-\u9fff]", value))
+    sentence_count = len(re.findall(r"[。！？]", value))
+    return han_count > 55 or (len(value) > 180 and sentence_count >= 2)
 
 
 def extract_vocabulary(text: str) -> list[dict[str, str]]:
@@ -227,6 +340,11 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
         if suspicious_definition(item["definition"]):
             raise ValueError(
                 f"Suspicious vocabulary definition for {term!r}; "
+                "the PDF paragraph translation may have crossed the vocabulary boundary"
+            )
+        if suspicious_example(item["example"]):
+            raise ValueError(
+                f"Suspicious vocabulary example for {term!r}; "
                 "the PDF paragraph translation may have crossed the vocabulary boundary"
             )
         items.append(item)
@@ -277,7 +395,18 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
             "number": match.group(1),
             "original": english_source[:2600],
         })
-    translations = translation_candidates(raw)
+    translation_source = full_raw
+    first_para = re.search(r"Para\.\s*1", translation_source)
+    if first_para:
+        translation_source = translation_source[first_para.start():]
+    stop_positions = [
+        translation_source.find(marker)
+        for marker in ("长难句分析", "文章结构", "课后作业")
+    ]
+    stop_positions = [position for position in stop_positions if position >= 0]
+    if stop_positions:
+        translation_source = translation_source[:min(stop_positions)]
+    translations = translation_candidates(translation_source)
     if len(translations) < len(originals):
         analysis_start = full_raw.find("长难句分析")
         if analysis_start >= 0:
@@ -416,7 +545,7 @@ def extract_analyses(path: Path) -> list[dict[str, str]]:
     return results[:4]
 
 
-def read_article(path: Path) -> Article:
+def read_article(path: Path, digest: str | None = None) -> Article:
     reader = PdfReader(str(path))
     pages = [(page.extract_text() or "").replace("\x00", " ") for page in reader.pages]
     raw = "\n".join(pages)
@@ -430,7 +559,26 @@ def read_article(path: Path) -> Article:
         paragraphs=extract_paragraphs(raw),
         vocabulary=extract_vocabulary(raw),
         analyses=extract_analyses(path),
+        source_digest=digest or sha256(path),
     )
+
+
+def cached_article(path: Path, digest: str, force: bool = False) -> tuple[Article, bool]:
+    """Load an unchanged parsed issue from cache; return (article, was_reused)."""
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    cache_path = CACHE_DIR / f"{digest}.json"
+    if cache_path.exists() and not force:
+        payload = json.loads(cache_path.read_text(encoding="utf-8"))
+        article = Article(**payload)
+        # Preserve the currently selected source filename when duplicate copies
+        # have identical bytes but different names.
+        article.filename = path.name
+        return article, True
+    article = read_article(path, digest)
+    cache_path.write_text(
+        json.dumps(asdict(article), ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    return article, False
 
 
 def date_label(date: str) -> str:
@@ -471,12 +619,24 @@ def index_html(articles: list[Article]) -> str:
 </body></html>"""
 
 
-def daily_html(article: Article, all_articles: list[Article]) -> str:
+def daily_html(article: Article, all_articles: list[Article], config: dict) -> str:
+    display = config["display"]
     guide = ARTICLE_GUIDES.get(article.date, {
         "background": "本期文章的背景介绍正在整理中。",
-        "overview": "本期文章内容简介正在整理中。",
-        "pet": "A PET-level version of this article is being prepared.",
+        "overview": (
+            article.paragraphs[0]["translation"][:360]
+            if article.paragraphs else "本期文章内容简介正在整理中。"
+        ),
+        "pet": "",
     })
+    guide = {**guide, **config.get("article_guides", {}).get(article.date, {})}
+    pet_html = ""
+    if guide.get("pet"):
+        pet_html = f"""
+          <article class="intro-card pet-card">
+            <div class="pet-side"><span>PET</span><strong>B1</strong><small>ADAPTED READING</small></div>
+            <div class="pet-copy"><div class="intro-label"><span>03</span> EASIER ENGLISH / 简明改写</div><h3>Read the story in easier English</h3><p lang="en">{html.escape(guide['pet'])}</p><div class="pet-note">基于原文核心信息改写 · 使用 PET / CEFR B1 难度的常用词与较短句式</div></div>
+          </article>"""
     introduction_html = f"""
       <section class="reading-introduction" id="introduction">
         <div class="section-heading introduction-heading"><div><span>00</span><h2>阅读导入</h2></div><p>先建立语境，再进入原文。</p></div>
@@ -491,12 +651,11 @@ def daily_html(article: Article, all_articles: list[Article]) -> str:
             <h3>文章会讲什么</h3>
             <p>{html.escape(guide['overview'])}</p>
           </article>
-          <article class="intro-card pet-card">
-            <div class="pet-side"><span>PET</span><strong>B1</strong><small>ADAPTED READING</small></div>
-            <div class="pet-copy"><div class="intro-label"><span>03</span> EASIER ENGLISH / 简明改写</div><h3>Read the story in easier English</h3><p lang="en">{html.escape(guide['pet'])}</p><div class="pet-note">基于原文核心信息改写 · 使用 PET / CEFR B1 难度的常用词与较短句式</div></div>
-          </article>
+{pet_html}
         </div>
       </section>"""
+    if not display.get("introduction", True):
+        introduction_html = ""
     seen_terms: set[str] = set()
     paragraph_rows: list[str] = []
     for paragraph in article.paragraphs:
@@ -532,6 +691,29 @@ def daily_html(article: Article, all_articles: list[Article]) -> str:
         f'<option value="{item.date}.html" {"selected" if item.date == article.date else ""}>{date_label(item.date)} · {html.escape(item.title[:24])}</option>'
         for item in reversed(all_articles)
     )
+    section_specs = [
+        ("introduction", "00 阅读导入"),
+        ("reading", "01 原文与翻译"),
+        ("vocabulary", "02 单词解释"),
+        ("analysis", "03 长难句分析"),
+    ]
+    toc_html = "".join(
+        f'<a href="#{key}">{label}</a>'
+        for key, label in section_specs if display.get(key, True)
+    )
+    reading_html = (
+        f'<section id="reading"><div class="section-heading"><div><span>01</span><h2>原文与翻译</h2></div><p>左右对照阅读，保留文章论证节奏。</p></div>{paragraph_html}</section>'
+        if display.get("reading", True) else ""
+    )
+    vocabulary_html = (
+        f'<section id="vocabulary"><div class="section-heading"><div><span>02</span><h2>单词解释</h2></div><label class="vocab-search">SEARCH <input id="vocab-search" placeholder="输入单词或中文释义"></label></div><div class="vocab-grid" id="vocab-grid">{vocab_html}</div></section>'
+        if display.get("vocabulary", True) else ""
+    )
+    rendered_analysis = analysis_html or '<p class="empty-note">本期未识别到长难句分析。</p>'
+    sentence_html = (
+        f'<section id="analysis"><div class="section-heading"><div><span>03</span><h2>长难句分析</h2></div><p>从主干到修饰层级，拆开再读。</p></div><div class="analysis-list">{rendered_analysis}</div></section>'
+        if display.get("analysis", True) else ""
+    )
     return f"""<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(article.title)} · 贝贝外刊</title><link rel="stylesheet" href="../styles.css"></head>
 <body class="reader-page" data-issue="{article.date}">
@@ -540,12 +722,12 @@ def daily_html(article: Article, all_articles: list[Article]) -> str:
     <div class="reader-hero"><div><div class="date-block"><strong>{article.date[6:]}</strong><span>{article.date[4:6]} / {article.date[:4]}</span></div></div><div><div class="eyebrow">DAILY FOREIGN PRESS · ISSUE {article.date}</div><h1>{html.escape(article.title)}</h1><div class="reader-meta"><span>{article.pages} 页</span><span>{len(article.paragraphs)} 段原文</span><span>{len(article.vocabulary)} 个词条</span><span>{len(article.analyses)} 组长难句</span></div></div></div>
   </header>
   <div class="reader-shell">
-    <aside class="reader-toc"><div class="toc-title">ON THIS PAGE</div><a href="#introduction">00 阅读导入</a><a href="#reading">01 原文与翻译</a><a href="#vocabulary">02 单词解释</a><a href="#analysis">03 长难句分析</a><div class="progress"><span id="progress-bar"></span></div></aside>
+    <aside class="reader-toc"><div class="toc-title">ON THIS PAGE</div>{toc_html}<div class="progress"><span id="progress-bar"></span></div></aside>
     <main class="reader-main">
 {introduction_html}
-      <section id="reading"><div class="section-heading"><div><span>01</span><h2>原文与翻译</h2></div><p>左右对照阅读，保留文章论证节奏。</p></div>{paragraph_html}</section>
-      <section id="vocabulary"><div class="section-heading"><div><span>02</span><h2>单词解释</h2></div><label class="vocab-search">SEARCH <input id="vocab-search" placeholder="输入单词或中文释义"></label></div><div class="vocab-grid" id="vocab-grid">{vocab_html}</div></section>
-      <section id="analysis"><div class="section-heading"><div><span>03</span><h2>长难句分析</h2></div><p>从主干到修饰层级，拆开再读。</p></div><div class="analysis-list">{analysis_html or '<p class="empty-note">本期未识别到长难句分析。</p>'}</div></section>
+{reading_html}
+{vocabulary_html}
+{sentence_html}
     </main>
   </div>
   <div class="reading-modal" id="reading-modal" role="dialog" aria-modal="true" aria-labelledby="reading-modal-title" hidden>
@@ -567,18 +749,97 @@ def daily_html(article: Article, all_articles: list[Article]) -> str:
 </body></html>"""
 
 
-def build() -> list[Article]:
-    articles = [read_article(path) for path in select_note_pdfs()]
+def build(force: bool = False) -> tuple[list[Article], dict]:
+    sources, duplicates = discover_note_pdfs()
+    articles: list[Article] = []
+    reused = 0
+    for path, digest in sources:
+        article, was_reused = cached_article(path, digest, force=force)
+        articles.append(article)
+        reused += int(was_reused)
+    config = load_site_config()
     write_assets()
     (OUTPUT_DIR / "index.html").write_text(index_html(articles), encoding="utf-8")
     for article in articles:
-        (OUTPUT_DIR / "days" / f"{article.date}.html").write_text(daily_html(article, articles), encoding="utf-8")
+        (OUTPUT_DIR / "days" / f"{article.date}.html").write_text(
+            daily_html(article, articles, config), encoding="utf-8"
+        )
+    expected_pages = {f"{article.date}.html" for article in articles}
+    for stale_page in (OUTPUT_DIR / "days").glob("20??????.html"):
+        if stale_page.name not in expected_pages:
+            stale_page.unlink()
     manifest = [
-        {"date": a.date, "title": a.title, "pages": a.pages, "paragraphs": len(a.paragraphs), "vocabulary": len(a.vocabulary), "analyses": len(a.analyses)}
+        {"date": a.date, "title": a.title, "filename": a.filename,
+         "sha256": a.source_digest, "pages": a.pages,
+         "paragraphs": len(a.paragraphs), "vocabulary": len(a.vocabulary),
+         "analyses": len(a.analyses)}
         for a in articles
     ]
     (OUTPUT_DIR / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
-    return articles
+    report = {
+        "issues": len(articles),
+        "parsed": len(articles) - reused,
+        "reused": reused,
+        "duplicates_ignored": duplicates,
+    }
+    return articles, report
+
+
+def source_snapshot() -> tuple[tuple[str, int, int], ...]:
+    files = tuple(
+        (str(path), path.stat().st_size, path.stat().st_mtime_ns)
+        for path in sorted(SOURCE_DIR.glob("*笔记讲义*.pdf"))
+    )
+    if SITE_CONFIG_PATH.exists():
+        stat = SITE_CONFIG_PATH.stat()
+        files += ((str(SITE_CONFIG_PATH), stat.st_size, stat.st_mtime_ns),)
+    return files
+
+
+def print_result(articles: list[Article], report: dict) -> None:
+    print(json.dumps({
+        **report,
+        "articles": [
+            {"date": article.date, "title": article.title,
+             "paragraphs": len(article.paragraphs),
+             "vocabulary": len(article.vocabulary),
+             "analyses": len(article.analyses)}
+            for article in articles
+        ],
+    }, ensure_ascii=False, indent=2))
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="增量生成并可持续监控贝贝外刊网页")
+    parser.add_argument("--force", action="store_true", help="忽略解析缓存并全量重建")
+    parser.add_argument("--watch", action="store_true", help="持续监控下载目录中的新讲义")
+    parser.add_argument("--interval", type=float, default=15.0, help="监控轮询秒数（默认 15）")
+    args = parser.parse_args()
+    articles, report = build(force=args.force)
+    print_result(articles, report)
+    if not args.watch:
+        return
+    print(f"Watching {SOURCE_DIR} every {args.interval:g}s; press Ctrl-C to stop.", flush=True)
+    last_built = source_snapshot()
+    pending: tuple[tuple[str, int, int], ...] | None = None
+    while True:
+        time.sleep(max(args.interval, 1.0))
+        current = source_snapshot()
+        if current == last_built:
+            pending = None
+            continue
+        # Require the same changed snapshot twice so a PDF still being copied is
+        # never parsed halfway through.
+        if pending != current:
+            pending = current
+            continue
+        try:
+            articles, report = build()
+            print_result(articles, report)
+            last_built = current
+            pending = None
+        except Exception as error:
+            print(f"Update failed: {error}", flush=True)
 
 
 STYLES = r"""
@@ -695,8 +956,4 @@ syncFavoriteButtons();renderFavorites();
 
 
 if __name__ == "__main__":
-    built = build()
-    print(json.dumps([
-        {"date": article.date, "title": article.title, "paragraphs": len(article.paragraphs), "vocabulary": len(article.vocabulary), "analyses": len(article.analyses)}
-        for article in built
-    ], ensure_ascii=False, indent=2))
+    main()

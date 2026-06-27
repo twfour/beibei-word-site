@@ -1,3 +1,7 @@
 __pycache__/
 *.py[cod]
 tmp/
+.beibei-cache/
+state/
+outputs/launchd-*.log
+outputs/*.tmp

@@ -1,0 +1,9 @@
+{
+  "display": {
+    "introduction": true,
+    "reading": true,
+    "vocabulary": true,
+    "analysis": true
+  },
+  "article_guides": {}
+}

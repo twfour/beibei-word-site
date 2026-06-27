@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "python3 -B server.py"
+    "start": "python3 -B server.py",
+    "update": "python3 scripts/build_beibei_daily_site.py",
+    "update:force": "python3 scripts/build_beibei_daily_site.py --force",
+    "watch": "python3 scripts/build_beibei_daily_site.py --watch",
+    "verify": "python3 scripts/verify_generated_site.py"
   }
 }
