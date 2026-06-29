@@ -115,6 +115,26 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The article ends with a warning. If machines make more moral decisions for us, people may become less able to make their own judgments. In the age of AI, philosophers may have more work than ever."
         ),
     },
+    "20260629": {
+        "background": (
+            "这篇文章讨论美国大学教育中的一个尖锐问题：不少大学生进入高校后，基础读写和计算能力并没有达到大学学习应有的水平。"
+            "疫情造成的学习损失、标准化考试要求下降、大学招生压力、成绩膨胀和 AI 作弊等因素叠加，使“顶尖高校是否还守得住学术标准”成为公共议题。"
+            "文章也把美国与新加坡、英国、密西西比州等改革案例作比较，提醒读者不要把教育公平简单理解为降低门槛。"
+        ),
+        "overview": (
+            "文章先从大学教师长期抱怨学生水平下降写起，但很快指出这次并不只是主观感受：OECD 测试显示，美国相当一部分大学生的读写或计算能力接近儿童水平。"
+            "随后，作者分析原因，包括疫情冲击、入学门槛降低、SAT 等考试被取消，以及大学为招满学生而放松要求。"
+            "后半部分提出三条解决方向：中小学阶段恢复扎实标准，大学重新坚持入学与考核要求，并为年轻人提供更多大学之外的学习路径。"
+            "文章的核心观点是：真正的机会平等不是把学生推上更高台阶，而是先给他们攀登所需的能力。"
+        ),
+        "pet": (
+            "The article says that many university teachers in America are worried about their students’ basic skills. Some maths teachers must send first-year students to extra classes before real university work can begin. Some humanities teachers say students now find texts difficult that students ten years ago could understand easily. "
+            "Tests by the OECD show a serious problem. About one in seven American college students reads no better than a typical ten-year-old. For maths skills, the number is almost one in five. The best students are still very strong, but more students are arriving at university without the skills they need. "
+            "The article gives several reasons. The pandemic hurt schooling, but standards were already falling before Covid-19. Many universities also made entry easier and stopped requiring tests such as the SAT. Some people wanted fairer admissions, while some universities needed enough students. "
+            "The writer says the cost is high. Universities spend time teaching basic material again, so they have less time to help excellent students. Weak students may drop out, and universities may lower standards even more. AI cheating may make this problem worse. "
+            "The article suggests three solutions. Schools should keep stronger standards. Universities should bring back serious tests and control grade inflation. Governments should also offer more paths besides university, such as apprenticeships. The main message is that education should give everyone a real chance, but lowering standards without teaching skills helps nobody."
+        ),
+    },
 }
 
 
@@ -292,6 +312,36 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition": "多变的；易变的；变化无常的",
         "definition_en": "often changing; likely to change",
         "example": "Variable temperatures. 变化不定的气温。 · The acting is of variable quality. 表演时好时坏。",
+    },
+    "literate": {
+        "definition": "能读会写的",
+        "definition_en": "able to read and write",
+        "example": "Over one-quarter of the adult population are not fully literate. 四分之一以上的成年人是半文盲。",
+    },
+    "numerical": {
+        "definition": "数字的；用数字表示的",
+        "definition_en": "relating to numbers; expressed in numbers",
+        "example": "Numerical data. 数字数据。 · The results are expressed in descending numerical order. 结果按数字降序列出。",
+    },
+    "slide": {
+        "definition": "降低；跌落；衰落",
+        "definition_en": "a change to a lower or worse condition",
+        "example": "A downward slide in the price of oil. 石油价格的下跌。 · The team's slide down the table. 球队排名的下降。",
+    },
+    "radical": {
+        "definition": "根本的；彻底的；完全的",
+        "definition_en": "concerning the most basic and important parts of something; thorough and complete",
+        "example": "The need for radical changes in education. 对教育进行彻底变革的需要。 · Demands for radical reform of the law. 彻底改变法律的要求。",
+    },
+    "apprentice": {
+        "definition": "学徒；徒弟",
+        "definition_en": "a young person who works for an employer for a fixed period of time in order to learn the skills needed in their job",
+        "example": "An apprentice electrician/chef. 电工/厨师学徒。",
+    },
+    "tier": {
+        "definition": "级；阶；层；阶层；等级",
+        "definition_en": "a row or layer; one of several levels in an organization or system",
+        "example": "A wedding cake with three tiers. 三层的结婚蛋糕。 · The seating is arranged in tiers. 座位是一级级排列的。",
     },
 }
 
