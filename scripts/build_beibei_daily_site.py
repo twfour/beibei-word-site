@@ -135,6 +135,26 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The article suggests three solutions. Schools should keep stronger standards. Universities should bring back serious tests and control grade inflation. Governments should also offer more paths besides university, such as apprenticeships. The main message is that education should give everyone a real chance, but lowering standards without teaching skills helps nobody."
         ),
     },
+    "20260630": {
+        "background": (
+            "这篇文章把中美人工智能竞争放在日常生活、国家战略和地缘政治三个层面来观察。"
+            "美国舆论常把 AI 竞赛理解为谁先创造出超级智能，关注芯片、算力、人才和尖端模型。"
+            "文章中的中国视角则更强调“人工智能作为基础设施”：它不是一个遥远的神话目标，而是被嵌入外卖、交通、教育、医疗、城市治理和供应链中的实用系统。"
+        ),
+        "overview": (
+            "文章先用作者在中国生活中的 AI 场景开篇：幼儿园照片识别、外卖系统、刷脸进站和无人驾驶出租车。"
+            "随后，作者对比中美两种 AI 路线：美国追求最强大的超级智能，中国则在严格监管下推动 A.I.+，把 AI 扩散到公共服务和产业体系。"
+            "后半部分进一步说明，中国希望用 AI 改善农村教育、医疗、养老、极端天气应对和绿色能源转型，同时把整套 AI 管理方案输出到全球市场。"
+            "文章的核心判断是：美国也许会率先发射“超级智能飞船”，但中国可能先把 AI 变成地球上可运行的基础设施。"
+        ),
+        "pet": (
+            "The article compares the way China and the United States think about artificial intelligence. In the United States, many leaders believe the country must win the AI race against China. They often focus on chips, talent, power grids and the dream of building superintelligence. "
+            "The writer says China is moving in a different direction. In China, AI is already part of daily life. It helps identify children in school photos, supports food delivery, and appears in trains, taxis and city systems. This can feel uncomfortable because it includes surveillance, but it is also convenient. "
+            "China’s strategy is called A.I.+. It treats AI like infrastructure. The government wants cheap and useful AI tools to spread through public services. AI may help rural students learn, help doctors diagnose diseases, support elderly care, predict extreme weather and improve green energy systems. "
+            "The article also says China can export this approach. Instead of selling only one product, China may sell whole systems: energy, transport, telecoms, surveillance and AI management. Other countries may buy these solutions because they are practical and good enough. "
+            "The main message is that America may still build the most powerful AI first. But China may use AI more deeply in ordinary life, hospitals, schools and roads. This difference matters for the future of global power."
+        ),
+    },
 }
 
 
@@ -343,6 +363,26 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition_en": "a row or layer; one of several levels in an organization or system",
         "example": "A wedding cake with three tiers. 三层的结婚蛋糕。 · The seating is arranged in tiers. 座位是一级级排列的。",
     },
+    "grocery": {
+        "definition": "食品杂货；日用品（通常用复数 groceries）",
+        "definition_en": "food and other everyday items sold in a supermarket or grocery store",
+        "example": "I need to buy some groceries after work. 我下班后需要买些食品杂货。 · Grocery prices have risen sharply this year. 食品杂货价格今年大幅上涨。",
+    },
+    "terror": {
+        "definition": "惊恐；恐惧；惊骇",
+        "definition_en": "a feeling of extreme fear",
+        "example": "A feeling of sheer/pure terror. 胆战心惊。 · Her eyes were wild with terror. 她的眼睛里充满了恐惧。",
+    },
+    "embed": {
+        "definition": "把……牢牢地嵌入（或插入、埋入）",
+        "definition_en": "to fix something firmly into a substance or solid object",
+        "example": "An operation to remove glass that was embedded in his leg. 取出扎入他腿部玻璃的手术。 · The bullet embedded itself in the wall. 子弹射进了墙里。",
+    },
+    "subsidy": {
+        "definition": "补贴；补助金；津贴",
+        "definition_en": "money paid by a government or an organization to reduce costs so prices can be kept low",
+        "example": "Agricultural subsidies. 农业补贴。 · To reduce the level of subsidy. 降低补贴标准。",
+    },
 }
 
 
@@ -412,6 +452,14 @@ def translation_candidates(segment: str) -> list[str]:
             "背景补充", "长难句分析", "文章结构", "课后作业", "固定搭配", "语法点",
             "主句", "从句", "主语", "谓语", "宾语", "后置定语", "句式拆解",
         )):
+            continue
+        if re.search(r"\bPara\.\s*\d+", line):
+            continue
+        if re.match(r"^\d+[.、]\s*", line):
+            continue
+        if re.search(r"^[\u4e00-\u9fff]{2,12}\s*[（(][A-Za-z .+-]+[）)]\s*[A-Za-z]", line):
+            continue
+        if len(line) > 520 and len(re.findall(r"\s\d+[.、]\s*", line)) >= 2:
             continue
         if line.count("•") >= 2:
             continue
@@ -564,7 +612,11 @@ def extract_analyses(path: Path) -> list[dict[str, str]]:
             if should_stop:
                 break
     section = clean_analysis_layout("\n\n".join(page_sections))
-    markers = list(re.finditer(r"(?m)^(\d+)\.\s+([A-Z].*)$", section))
+    markers = [
+        marker
+        for marker in re.finditer(r"(?m)^(\d+)\.\s+([A-Z].*)$", section)
+        if "【" not in marker.group(2)
+    ]
     results: list[dict[str, str]] = []
     for index, marker in enumerate(markers):
         chunk_end = markers[index + 1].start() if index + 1 < len(markers) else len(section)
