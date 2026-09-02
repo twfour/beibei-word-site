@@ -5,7 +5,7 @@
     "filename": "20260611【笔记讲义】马斯克冲向1万亿！史上最大IPO背后，一个“影子总统”的恐怖诞生.pdf",
     "sha256": "840432003aba241283f5f6d8f0e0d6dbb5a78c5b4baff28da3d0991c2803c0b3",
     "pages": 20,
-    "paragraphs": 10,
+    "paragraphs": 11,
     "vocabulary": 66,
     "analyses": 2
   },
@@ -15,7 +15,7 @@
     "filename": "20260612-20260612【笔记讲义】特朗普迎来80大寿,白宫搭八角笼办终极格斗冠军赛,愿望是世界和平-.pdf",
     "sha256": "c5c7ee0b55d7594ec67614fe012b36c119e83fe87c13212ff3a82968ce575817",
     "pages": 21,
-    "paragraphs": 10,
+    "paragraphs": 11,
     "vocabulary": 67,
     "analyses": 2
   },
@@ -58,5 +58,15 @@
     "paragraphs": 9,
     "vocabulary": 51,
     "analyses": 2
+  },
+  {
+    "date": "20260902",
+    "title": "执掌苹果15年，正式卸任CEO，为何说库克才是苹果真正的救世主？",
+    "filename": "20260902【笔记讲义】执掌苹果15年，正式卸任CEO，为何说库克才是苹果真正的救世主？.pdf",
+    "sha256": "b017e9c7767810ce2d841b9730def7e42f8c1fe25d2e1477b40ac7ce9cde1803",
+    "pages": 18,
+    "paragraphs": 11,
+    "vocabulary": 51,
+    "analyses": 0
   }
 ]

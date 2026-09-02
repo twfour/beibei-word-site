@@ -155,6 +155,27 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The main message is that America may still build the most powerful AI first. But China may use AI more deeply in ordinary life, hospitals, schools and roads. This difference matters for the future of global power."
         ),
     },
+    "20260902": {
+        "background": (
+            "这篇文章把蒂姆·库克卸任苹果 CEO 放在“创始人之后，公司如何继续伟大”的问题中观察。"
+            "乔布斯代表产品神话、个人魅力和颠覆性创新，而库克代表供应链、运营、资本回报和政治谈判能力。"
+            "文章要学生先意识到：一家科技公司的长期成功不只靠天才产品，也靠可复制的系统、稳定的管理和穿越政治风险的能力。"
+        ),
+        "overview": (
+            "文章开头承认库克长期活在乔布斯阴影下，没有黑色高领衫、传奇气质和英雄叙事。"
+            "随后作者反转这一常见看法：库克任内苹果市值增长十倍，营收和利润增长四倍，并成为全球资本主义中的超级巨头。"
+            "中段通过道格拉斯飞机、宝丽来和数字设备公司等案例说明，很多创始人离开后企业都会衰落，库克让苹果避开了这种命运。"
+            "后半部分强调库克的真正能力在于运营、供应链、谈判和制度化管理，尤其是在关税压力下保护苹果核心业务。"
+            "结尾认为，苹果能从乔布斯式直觉转向可传承的商业系统，正是库克更深层的成就。"
+        ),
+        "pet": (
+            "The article says that many people still see Steve Jobs as the hero of Apple. Jobs had a strong personal style, big ideas and a dramatic life story. Tim Cook never had the same image. He looked quieter and less exciting. "
+            "However, the writer argues that Cook may have been the real genius at Apple. During his time as CEO, Apple’s market value grew ten times. Its revenue and profits also grew strongly. Cook did not only sell old products. He turned Apple into one of the most powerful companies in the world. "
+            "The article compares Apple with other famous companies. Some companies were successful when their founders were in charge, but they became weaker after the founders left. This shows that keeping a company strong after a great founder is very difficult. "
+            "Cook’s strengths were different from Jobs’s. He understood operations, supply chains and negotiation. He also handled political pressure, including high tariffs from the Trump administration. Instead of fighting loudly, he made promises to invest in the United States and protected Apple’s business. "
+            "The main message is that a company needs more than one visionary leader. It also needs systems that can continue for many years. Jobs made Apple famous. Cook helped make Apple last."
+        ),
+    },
 }
 
 
@@ -216,7 +237,8 @@ def load_site_config() -> dict:
 
 def clean_text(value: str) -> str:
     value = value.replace("\x00", " ")
-    value = re.sub(r"-\s*\d+\s*-\s*视频号：贝贝外刊\s*公众号：一起贝英语", " ", value)
+    value = re.sub(r"(?:-\s*)?\d+\s*-\s*视频号：贝贝外刊\s*公众号：一起贝英语", " ", value)
+    value = re.sub(r"(?<=[a-z])\s+\d{1,2}\s*-\s+(?=[a-z])", " ", value)
     value = re.sub(r"视频号：贝贝外刊|公众号：一起贝英语", " ", value)
     value = re.sub(r"扫码听音频|领课程资料", " ", value)
     value = re.sub(r"\s+", " ", value)
@@ -383,6 +405,26 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition_en": "money paid by a government or an organization to reduce costs so prices can be kept low",
         "example": "Agricultural subsidies. 农业补贴。 · To reduce the level of subsidy. 降低补贴标准。",
     },
+    "triumph": {
+        "definition": "巨大成功；重大成就；伟大胜利；凯旋",
+        "definition_en": "a great success, achievement or victory; the feeling of joy from success",
+        "example": "One of the greatest triumphs of modern science. 现代科学最重大的成就之一。 · The winning team returned home in triumph. 球队凯旋而归。",
+    },
+    "practically": {
+        "definition": "几乎；实际上；实际地",
+        "definition_en": "almost, but not completely or exactly; in a practical way",
+        "example": "He had known the old man practically all his life. 他几乎从小就认识那位老人。 · The course is more practically based. 这门课程更注重实际。",
+    },
+    "dodge": {
+        "definition": "闪开；躲开；避开",
+        "definition_en": "to move quickly to avoid someone or something; to avoid a problem",
+        "example": "He ran across the road, dodging the traffic. 他躲开来往车辆跑过马路。 · Apple helped dodge the tariffs. 苹果帮助避开了关税。",
+    },
+    "subunit": {
+        "definition": "子单位；分支机构；组成部分",
+        "definition_en": "a smaller unit that forms part of a larger organization, system, or structure",
+        "example": "Each subunit operates independently but reports to the main office. 每个子单位独立运营，但向总部汇报。",
+    },
 }
 
 
@@ -467,6 +509,17 @@ def translation_candidates(segment: str) -> list[str]:
     return [value for _, value in candidates]
 
 
+def recover_english_after_leading_translation(value: str) -> str:
+    """Some handouts put the Chinese translation before the English paragraph."""
+    if not re.match(r"^[\u4e00-\u9fff]", value):
+        return value
+    for candidate in re.finditer(r"\b[A-Z][A-Za-z0-9$%’'(),;:\-–—\s]{20,}[.!?]", value):
+        tail = value[candidate.start():].strip()
+        if len(re.findall(r"[\u4e00-\u9fff]", tail[:260])) <= 8:
+            return tail
+    return value
+
+
 def extract_paragraphs(raw: str) -> list[dict[str, str]]:
     full_raw = raw
     raw = lesson_body(raw)
@@ -483,6 +536,7 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
         english_source = clean_text(segment)
         if vocab:
             english_source = english_source[:vocab.start()]
+        english_source = recover_english_after_leading_translation(english_source)
         first_han = re.search(r"[\u4e00-\u9fff]", english_source)
         if first_han:
             english_source = english_source[:first_han.start()]
@@ -783,7 +837,6 @@ def daily_html(article: Article, all_articles: list[Article], config: dict) -> s
           </article>
           <article class="intro-card overview-card">
             <div class="intro-label"><span>02</span> ROADMAP / 内容简介</div>
-            <h3>文章会讲什么</h3>
             {intro_paragraph_html(guide['overview'], sentences_per_paragraph=1)}
           </article>
 {pet_html}
@@ -868,7 +921,6 @@ def daily_html(article: Article, all_articles: list[Article], config: dict) -> s
         <div class="introduction-grid">
           <article class="intro-card overview-card">
             <div class="intro-label"><span>01</span> ROADMAP / 内容简介</div>
-            <h3>文章会讲什么</h3>
             {intro_paragraph_html(guide['overview'], sentences_per_paragraph=1)}
           </article>
         </div>
@@ -1053,6 +1105,8 @@ STYLES = r"""
 @media (min-width:900px){.reader-page.book-mode .book-intro-page .introduction-grid{grid-template-columns:minmax(0,1fr);height:calc(100% - 34px)}.reader-page.book-mode .book-intro-page .intro-card,.reader-page.book-mode .book-intro-page .pet-card{height:100%;display:flex;flex-direction:column;justify-content:center;padding:clamp(36px,5vw,78px)}.reader-page.book-mode .book-intro-page .intro-card h3{font-size:clamp(42px,5vw,72px)}.reader-page.book-mode .book-intro-page .intro-copy p,.reader-page.book-mode .book-intro-page .pet-copy .intro-copy p{font-size:clamp(20px,2vw,30px);line-height:1.78}.reader-page.book-mode .book-intro-page .pet-copy{padding:0}.reader-page.book-mode .book-intro-page .pet-side{display:none}}
 @media (min-width:900px){.reader-page.book-mode .book-intro-page{overflow:hidden}.reader-page.book-mode .book-intro-page .introduction-grid{height:calc(100% - 30px)}.reader-page.book-mode .book-intro-page .intro-card,.reader-page.book-mode .book-intro-page .pet-card{justify-content:flex-start;padding:28px 36px;overflow:auto}.reader-page.book-mode .book-intro-page .intro-card h3{font-size:clamp(30px,3.2vw,46px);margin:10px 0 18px}.reader-page.book-mode .book-intro-page .intro-copy,.reader-page.book-mode .book-intro-page .pet-copy .intro-copy{gap:10px}.reader-page.book-mode .book-intro-page .intro-copy p,.reader-page.book-mode .book-intro-page .pet-copy .intro-copy p{font-size:clamp(16px,1.35vw,20px);line-height:1.7}.reader-page.book-mode .book-intro-page .pet-note{margin-top:14px;padding-top:10px}.reader-page.book-mode .book-intro-page .intro-label{font-size:9px}}
 @media (min-width:900px){.reader-page.book-mode .reader-header{position:relative;top:auto;left:auto;right:auto;height:68px;margin:10px 16px 0;padding:9px 16px;border-radius:18px}.reader-page.book-mode .reader-header nav{height:28px}.reader-page.book-mode .reader-hero{display:block;padding-top:3px}.reader-page.book-mode .reader-hero>div:first-child,.reader-page.book-mode .reader-hero .eyebrow,.reader-page.book-mode .reader-meta{display:none}.reader-page.book-mode .reader-hero h1{max-width:none;margin:0;font-size:clamp(16px,1.55vw,22px);line-height:1.15;white-space:nowrap;text-overflow:ellipsis;display:block;overflow:hidden}.reader-page.book-mode .reader-shell{height:calc(100vh - 78px);padding:10px 18px 14px}.reader-page.book-mode .reader-toc{position:relative;top:auto;height:100%}.reader-page.book-mode .reader-main.book-main{height:100%}}
+.archive-hero h1{font-size:clamp(56px,8vw,116px);line-height:.94}
+@media (min-width:900px){.reader-page.book-mode .book-reading-page .original,.reader-page.book-mode .book-reading-page .translation{min-width:0;overflow-x:hidden;overflow-y:auto;overflow-wrap:anywhere;word-break:normal}.reader-page.book-mode .book-reading-page .original p,.reader-page.book-mode .book-reading-page .translation p{max-width:100%;overflow-wrap:anywhere}.reader-page.book-mode .book-reading-page .word-tip{overflow-wrap:anywhere}.reader-page.book-mode .book-reading-page .word-tooltip{max-width:min(280px,calc(100vw - 80px))}}
 """
 
 
