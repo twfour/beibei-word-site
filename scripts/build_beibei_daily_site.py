@@ -754,8 +754,8 @@ def intro_paragraph_html(value: str, *, lang: str | None = None, sentences_per_p
 
 def daily_html(article: Article, all_articles: list[Article], config: dict) -> str:
     display = config["display"]
-    is_book_mode = article.date == "20260630"
-    body_class = "reader-page eagle-style book-mode" if is_book_mode else "reader-page"
+    is_book_mode = True
+    body_class = "reader-page eagle-style book-mode"
     guide = ARTICLE_GUIDES.get(article.date, {
         "background": "本期文章的背景介绍正在整理中。",
         "overview": (
