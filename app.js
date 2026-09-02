@@ -4,7 +4,15 @@ if(switcher){switcher.addEventListener('change',()=>location.href=switcher.value
 const search=document.querySelector('#vocab-search');
 if(search){search.addEventListener('input',()=>{const query=search.value.trim().toLowerCase();document.querySelectorAll('.vocab-card').forEach(card=>{card.hidden=!card.dataset.search.includes(query)})})}
 const progress=document.querySelector('#progress-bar');
-if(progress){addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=`${max?scrollY/max*100:0}%`},{passive:true})}
+const bookMain=document.querySelector('.book-main');
+if(progress&&bookMain){
+  const syncBookProgress=()=>{const max=bookMain.scrollWidth-bookMain.clientWidth;progress.style.width=`${max?bookMain.scrollLeft/max*100:0}%`};
+  bookMain.addEventListener('scroll',syncBookProgress,{passive:true});syncBookProgress();
+  document.addEventListener('keydown',event=>{
+    if(event.key==='ArrowRight'){bookMain.scrollBy({left:bookMain.clientWidth,behavior:'smooth'})}
+    if(event.key==='ArrowLeft'){bookMain.scrollBy({left:-bookMain.clientWidth,behavior:'smooth'})}
+  });
+}else if(progress){addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=`${max?scrollY/max*100:0}%`},{passive:true})}
 
 const readingModal=document.querySelector('#reading-modal');
 if(readingModal){
