@@ -19,6 +19,8 @@ SOURCE_DIR = Path("/Users/apple/Downloads/贝贝外刊")
 OUTPUT_DIR = Path(__file__).resolve().parents[1]
 SITE_CONFIG_PATH = OUTPUT_DIR / "site_config.json"
 CACHE_DIR = OUTPUT_DIR / ".beibei-cache" / "articles"
+ANALYSIS_HEADINGS = ("长难句分析", "中英文互译")
+POST_READING_HEADINGS = (*ANALYSIS_HEADINGS, "文章结构", "课后作业")
 
 
 @dataclass
@@ -246,11 +248,11 @@ def clean_text(value: str) -> str:
 
 
 def lesson_body(raw: str) -> str:
-    stop_positions = [raw.find(marker) for marker in ("长难句分析", "文章结构", "课后作业")]
+    stop_positions = [raw.find(marker) for marker in POST_READING_HEADINGS]
     stop_positions = [position for position in stop_positions if position >= 0]
     body = raw[:min(stop_positions)] if stop_positions else raw
     return re.sub(
-        r"背景补充[:：]?.*?(?=Para\.\s*\d+|长难句分析|文章结构|课后作业|$)",
+        r"背景补充[:：]?.*?(?=Para\.\s*\d+|长难句分析|中英文互译|文章结构|课后作业|$)",
         " ",
         body,
         flags=re.S,
@@ -270,7 +272,7 @@ VOCAB_PATTERN = re.compile(
     r"(n|v|adj|adv|phr|conj|exclamation)\.\s*/([^/]{1,90})/\s*"
     r"(.*?)(?=\s+[A-Za-z][A-Za-z’' /-]{1,52}?\s+"
     r"(?:n|v|adj|adv|phr|conj|exclamation)\.\s*/|\s+Para\.\s*\d+|"
-    r"\s+长难句分析|\s+文章结构|\s+课后作业|$)",
+    r"\s+长难句分析|\s+中英文互译|\s+文章结构|\s+课后作业|$)",
     re.S,
 )
 
@@ -491,7 +493,7 @@ def translation_candidates(segment: str) -> list[str]:
         if han_count < 35:
             continue
         if any(token in line for token in (
-            "背景补充", "长难句分析", "文章结构", "课后作业", "固定搭配", "语法点",
+            "背景补充", "长难句分析", "中英文互译", "文章结构", "课后作业", "固定搭配", "语法点",
             "主句", "从句", "主语", "谓语", "宾语", "后置定语", "句式拆解",
         )):
             continue
@@ -528,7 +530,7 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
     for index, match in enumerate(matches):
         end = matches[index + 1].start() if index + 1 < len(matches) else len(raw)
         segment = raw[match.end():end]
-        for marker in ("背景补充", "长难句分析", "文章结构", "课后作业"):
+        for marker in ("背景补充", *POST_READING_HEADINGS):
             marker_pos = segment.find(marker)
             if marker_pos >= 0:
                 segment = segment[:marker_pos]
@@ -553,14 +555,17 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
         translation_source = translation_source[first_para.start():]
     stop_positions = [
         translation_source.find(marker)
-        for marker in ("长难句分析", "文章结构", "课后作业")
+        for marker in POST_READING_HEADINGS
     ]
     stop_positions = [position for position in stop_positions if position >= 0]
     if stop_positions:
         translation_source = translation_source[:min(stop_positions)]
     translations = translation_candidates(translation_source)
     if len(translations) < len(originals):
-        analysis_start = full_raw.find("长难句分析")
+        analysis_start = next(
+            (position for position in (full_raw.find(marker) for marker in ANALYSIS_HEADINGS) if position >= 0),
+            -1,
+        )
         if analysis_start >= 0:
             analysis_end = full_raw.find("主句翻译", analysis_start)
             if analysis_end < 0:
@@ -653,11 +658,17 @@ def extract_analyses(path: Path) -> list[dict[str, str]]:
         for page in pdf.pages:
             text = page.extract_text(layout=True) or ""
             if not collecting:
-                start = text.find("长难句分析")
-                if start < 0:
+                starts = [
+                    (position, heading)
+                    for heading in ANALYSIS_HEADINGS
+                    for position in [text.find(heading)]
+                    if position >= 0
+                ]
+                if not starts:
                     continue
+                start, heading = min(starts)
                 collecting = True
-                text = text[start + len("长难句分析"):]
+                text = text[start + len(heading):]
             stop_positions = [position for position in (text.find("文章结构"), text.find("课后作业")) if position >= 0]
             should_stop = bool(stop_positions)
             if should_stop:
@@ -669,7 +680,7 @@ def extract_analyses(path: Path) -> list[dict[str, str]]:
     markers = [
         marker
         for marker in re.finditer(r"(?m)^(\d+)\.\s+([A-Z].*)$", section)
-        if "【" not in marker.group(2)
+        if "【" not in marker.group(2) and not re.search(r"[\u4e00-\u9fff]", marker.group(2))
     ]
     results: list[dict[str, str]] = []
     for index, marker in enumerate(markers):
@@ -968,7 +979,7 @@ def daily_html(article: Article, all_articles: list[Article], config: dict) -> s
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(article.title)} · 贝贝外刊</title><link rel="stylesheet" href="../styles.css"></head>
 <body class="{body_class}" data-issue="{article.date}">
   <header class="reader-header">
-    <nav><a class="brand" href="../index.html">← BEIBEI ARCHIVE</a><div class="nav-tools"><button class="favorites-open" type="button">我的收藏 <span id="favorite-count">0</span></button><select id="issue-switch" aria-label="切换日期">{issue_options}</select></div></nav>
+    <nav><a class="brand" href="../index.html">← BEIBEI ARCHIVE</a><h1 class="reader-nav-title">{html.escape(article.title)}</h1><div class="nav-tools"><button class="favorites-open" type="button">我的收藏 <span id="favorite-count">0</span></button><select id="issue-switch" aria-label="切换日期">{issue_options}</select></div></nav>
     <div class="reader-hero"><div><div class="date-block"><strong>{article.date[6:]}</strong><span>{article.date[4:6]} / {article.date[:4]}</span></div></div><div><div class="eyebrow">DAILY FOREIGN PRESS · ISSUE {article.date}</div><h1>{html.escape(article.title)}</h1><div class="reader-meta"><span>{article.pages} 页</span><span>{len(article.paragraphs)} 段原文</span><span>{len(article.vocabulary)} 个词条</span><span>{len(article.analyses)} 组长难句</span></div></div></div>
   </header>
   <div class="reader-shell">
@@ -1108,6 +1119,8 @@ STYLES = r"""
 .archive-hero h1{font-size:clamp(56px,8vw,116px);line-height:.94}
 @media (min-width:900px){.reader-page.book-mode .book-reading-page .original,.reader-page.book-mode .book-reading-page .translation{min-width:0;overflow-x:hidden;overflow-y:auto;overflow-wrap:anywhere;word-break:normal}.reader-page.book-mode .book-reading-page .original p,.reader-page.book-mode .book-reading-page .translation p{max-width:100%;overflow-wrap:anywhere}.reader-page.book-mode .book-reading-page .word-tip{overflow-wrap:anywhere}.reader-page.book-mode .book-reading-page .word-tooltip{max-width:min(280px,calc(100vw - 80px))}}
 @media (min-width:900px){.reader-page.book-mode .reader-header{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px;height:56px;padding:8px 14px}.reader-page.book-mode .reader-header nav{display:contents}.reader-page.book-mode .reader-header .brand{grid-column:1;white-space:nowrap}.reader-page.book-mode .reader-header .nav-tools{grid-column:3;min-width:0}.reader-page.book-mode .reader-hero{display:contents}.reader-page.book-mode .reader-hero>div:first-child,.reader-page.book-mode .reader-hero .eyebrow,.reader-page.book-mode .reader-meta{display:none}.reader-page.book-mode .reader-hero>div:last-child{display:contents}.reader-page.book-mode .reader-hero h1{grid-column:2;max-width:none;margin:0;font-size:clamp(15px,1.45vw,20px);line-height:1.18;white-space:nowrap;text-overflow:ellipsis;display:block;overflow:hidden;text-align:left}.reader-page.book-mode .reader-shell{height:calc(100vh - 66px);padding-top:10px}.reader-page.book-mode .reader-toc,.reader-page.book-mode .reader-main.book-main{height:100%}}
+.reader-nav-title{display:none}
+@media (min-width:900px){.reader-page.book-mode .reader-header{display:block;height:56px;padding:8px 14px}.reader-page.book-mode .reader-header nav{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px;height:100%;width:100%}.reader-page.book-mode .reader-header .brand{grid-column:1;white-space:nowrap;align-self:center}.reader-page.book-mode .reader-nav-title{display:block;grid-column:2;min-width:0;margin:0;color:#223027;font:600 clamp(15px,1.45vw,20px)/1.18 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Serif SC",sans-serif;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;align-self:center}.reader-page.book-mode .reader-header .nav-tools{grid-column:3;min-width:0;align-self:center}.reader-page.book-mode .reader-hero{display:none}.reader-page.book-mode .reader-shell{height:calc(100vh - 66px);padding-top:10px}.reader-page.book-mode .reader-toc,.reader-page.book-mode .reader-main.book-main{height:100%}}
 """
 
 
