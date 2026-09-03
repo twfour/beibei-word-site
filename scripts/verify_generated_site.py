@@ -43,8 +43,8 @@ def main() -> None:
         if f'days/{date}.html' not in index:
             fail(f"homepage does not link to {date}")
         page = (ROOT / "days" / f"{date}.html").read_text(encoding="utf-8")
-        originals = len(re.findall(r'class="original zoomable-paragraph"', page))
-        translations = len(re.findall(r'class="translation zoomable-paragraph"', page))
+        originals = len(re.findall(r'class="original"', page))
+        translations = len(re.findall(r'class="translation"', page))
         vocab = len(re.findall(r'class="vocab-card"', page))
         analyses = len(re.findall(r'class="analysis-card"', page))
         observed = {
