@@ -21,6 +21,7 @@ SITE_CONFIG_PATH = OUTPUT_DIR / "site_config.json"
 CACHE_DIR = OUTPUT_DIR / ".beibei-cache" / "articles"
 ANALYSIS_HEADINGS = ("长难句分析", "中英文互译")
 POST_READING_HEADINGS = (*ANALYSIS_HEADINGS, "文章结构", "课后作业")
+POS_PATTERN = r"(?:n|v|adj|adv|phr|conj|exclamation)(?:\.,\s*(?:n|v|adj|adv|phr|conj|exclamation))*"
 
 
 @dataclass
@@ -290,9 +291,9 @@ def title_from_path(path: Path) -> str:
 
 VOCAB_PATTERN = re.compile(
     r"\b([A-Za-z][A-Za-z’' /-]{1,52}?)\s+"
-    r"(n|v|adj|adv|phr|conj|exclamation)\.\s*/([^/]{1,90})/\s*"
+    rf"({POS_PATTERN})\.\s*/([^/]{{1,90}})/\s*"
     r"(.*?)(?=\s+[A-Za-z][A-Za-z’' /-]{1,52}?\s+"
-    r"(?:n|v|adj|adv|phr|conj|exclamation)\.\s*/|\s+Para\.\s*\d+|"
+    rf"{POS_PATTERN}\.\s*/|\s+Para\.\s*\d+|"
     r"\s+长难句分析|\s+中英文互译|\s+文章结构|\s+课后作业|$)",
     re.S,
 )
@@ -494,6 +495,11 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition_en": "to suffer the negative consequences of something, especially something done in the past",
         "example": "The company is now paying the price for years of poor management. 这家公司如今正在为多年的糟糕管理付出代价。",
     },
+    "off-track": {
+        "definition": "偏离轨道的；脱离正轨地；进展不顺的",
+        "definition_en": "not making progress in the expected or correct way; no longer following the planned course",
+        "example": "The project has gone off-track due to budget problems. 由于预算问题，这个项目已经偏离了原定计划。",
+    },
     "grasp": {
         "definition": "抓紧；理解；领会",
         "definition_en": "to take a firm hold of something; to understand something completely",
@@ -679,6 +685,41 @@ def analysis_blocks(value: str) -> str:
     return "".join(f'<p class="analysis-source-block">{html.escape(block)}</p>' for block in blocks)
 
 
+def vocabulary_aliases(term: str) -> set[str]:
+    """Return conservative surface forms that should point to one vocab item.
+
+    The PDF vocabulary usually lists the base form, while the article often uses
+    inflected forms such as appointees/circumlocutions/banished/careening.  Keep
+    this intentionally small so we do not turn unrelated words into tooltips.
+    """
+    normalized = re.sub(r"\s+", " ", term.strip())
+    lower = normalized.lower()
+    aliases = {lower}
+    if "-" in lower:
+        aliases.add(lower.replace("-", ""))
+        aliases.add(lower.replace("-", " "))
+    if " " in lower or "/" in lower or "..." in lower:
+        return aliases
+    if len(lower) < 4:
+        return aliases
+    aliases.add(f"{lower}s")
+    if lower.endswith(("s", "sh", "ch", "x", "z")):
+        aliases.add(f"{lower}es")
+    if lower.endswith("y") and len(lower) > 4 and lower[-2] not in "aeiou":
+        aliases.add(f"{lower[:-1]}ies")
+        aliases.add(f"{lower[:-1]}ied")
+    elif lower.endswith("e"):
+        aliases.add(f"{lower}d")
+        aliases.add(f"{lower[:-1]}ing")
+    else:
+        aliases.add(f"{lower}ed")
+        aliases.add(f"{lower}ing")
+    if re.search(r"[^aeiou][aeiou][^aeiouwxy]$", lower):
+        aliases.add(f"{lower}{lower[-1]}ed")
+        aliases.add(f"{lower}{lower[-1]}ing")
+    return aliases
+
+
 def annotate_original(value: str, vocabulary: list[dict[str, str]], seen_terms: set[str]) -> str:
     lookup: dict[str, dict[str, str]] = {}
     terms: list[str] = []
@@ -686,8 +727,9 @@ def annotate_original(value: str, vocabulary: list[dict[str, str]], seen_terms: 
         term = item["term"].strip()
         if len(term) < 3 or any(token in term for token in ("/", "...")):
             continue
-        lookup[term.lower()] = item
-        terms.append(term)
+        for alias in vocabulary_aliases(term):
+            lookup.setdefault(alias, item)
+            terms.append(alias)
     if not terms:
         return html.escape(value)
     pattern = re.compile(
