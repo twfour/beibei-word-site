@@ -178,6 +178,27 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The main message is that a company needs more than one visionary leader. It also needs systems that can continue for many years. Jobs made Apple famous. Cook helped make Apple last."
         ),
     },
+    "20260903": {
+        "background": (
+            "这篇文章围绕美国国防部长皮特·赫格塞思执掌五角大楼后的争议展开。"
+            "赫格塞思曾是电视主持人，军事和国防政策履历有限，却因对特朗普的忠诚获得重用。"
+            "文章要求读者先理解一个核心背景：国防部不是普通行政部门，它牵涉军队战备、联盟体系、国会政治、地区战争和全球战略；"
+            "一旦领导者把个人忠诚置于专业能力之上，组织失灵就可能迅速变成国家安全风险。"
+        ),
+        "overview": (
+            "文章开头把任命赫格塞思称为一场“豪赌”，指出他正在以忠诚度为标准清洗军官和文职高官，陆军部长丹·德里斯科尔也因此辞职。"
+            "随后作者批评赫格塞思缺乏管理庞大国防体系所需的专业能力，并在特朗普对伊朗动武问题上迎合“快速胜利”的幻想。"
+            "中段进一步列举五角大楼的乱象：军方警告伊朗行动无法无限期维持、国防部暗中招募网络红人、战略资源被中东战事牵扯。"
+            "结尾把赫格塞思塑造成只会保住职位、却无法真正领导军队的人，认为美国军队和民众正在为这种无能付出代价。"
+        ),
+        "pet": (
+            "The article says that choosing Pete Hegseth as U.S. secretary of defense was a very risky decision. Hegseth used to be a television host and did not have much experience in national security or defense policy. The writer says he got the job mainly because he was loyal to Donald Trump. "
+            "After taking office, Hegseth began removing officers and civilian officials from the Pentagon. The article says these people were not removed because they were bad at their jobs. They were removed because Hegseth thought they were not loyal enough to him. One important official, Army Secretary Dan Driscoll, resigned after disagreements with him. "
+            "The writer argues that the Defense Department is a huge and complicated organization. A good defense secretary must understand the defense industry, alliances, Congress and military planning. Hegseth, in the writer’s view, does not understand these things well enough. "
+            "The article also criticizes his support for Trump’s attack on Iran. Other senior officials warned that the war could cause serious problems, but Hegseth supported the idea of a quick victory. Later, the U.S. military had trouble keeping up with the conflict. "
+            "The main message is that loyalty is not enough for such an important job. If a leader cares more about personal loyalty than professional advice, the army and the country may pay a serious price."
+        ),
+    },
 }
 
 
@@ -305,6 +326,7 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
     "ayatollah": {
         "definition": "阿亚图拉（伊朗伊斯兰教什叶派宗教领袖）",
         "definition_en": "a religious leader of Shiite Muslims in Iran",
+        "example": "The ayatollah issued a statement on the political crisis. 这位阿亚图拉就这场政治危机发表了声明。",
     },
     "emblem": {
         "definition": "（代表国家或组织的）徽章、标记、图案；象征、标志",
@@ -426,6 +448,71 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition": "子单位；分支机构；组成部分",
         "definition_en": "a smaller unit that forms part of a larger organization, system, or structure",
         "example": "Each subunit operates independently but reports to the main office. 每个子单位独立运营，但向总部汇报。",
+    },
+    "careen": {
+        "definition": "失控地疾驶；向前猛冲",
+        "definition_en": "to rush forward in an uncontrollable way",
+        "example": "He stood to one side as they careened past him. 他们在他身边猛冲而过，他赶紧让到一边。",
+    },
+    "casualty": {
+        "definition": "死伤者；受害者",
+        "definition_en": "a person injured or killed in war or an accident; a person or thing that suffers because of an event",
+        "example": "Troops fired on the demonstrators causing many casualties. 军队向示威的人群开火，造成不少伤亡。",
+    },
+    "mechanic": {
+        "definition": "运作方式",
+        "definition_en": "the way in which a process, system, or activity works or is done",
+        "example": "What are the mechanics of this new process? 这一新工序的运作方式是什么？",
+    },
+    "fantasy": {
+        "definition": "幻想；想象",
+        "definition_en": "a pleasant situation that you imagine but that is unlikely to happen",
+        "example": "His childhood fantasies about becoming a famous football player. 他儿时想成为著名足球运动员的幻想。",
+    },
+    "dysfunction": {
+        "definition": "异常；机能障碍；功能不良",
+        "definition_en": "abnormal behaviour or relationships; a physical problem in which part of the body does not work properly",
+        "example": "His severe emotional dysfunction was very clearly apparent. 他情绪的严重异常是显而易见的。",
+    },
+    "reorientation": {
+        "definition": "重新定位；重新调整方向；重新规划",
+        "definition_en": "the process of changing the direction, focus, or priorities of something",
+        "example": "The company is undergoing a major reorientation of its business strategy. 这家公司正在对其经营战略进行重大调整。",
+    },
+    "strain": {
+        "definition": "压力；重负；重压之下出现的问题或担忧",
+        "definition_en": "pressure on someone or something because there is too much to do or manage",
+        "example": "Their marriage is under great strain at the moment. 眼下他们的婚姻关系非常紧张。",
+    },
+    "strip": {
+        "definition": "剥离；除去；剥夺",
+        "definition_en": "to remove something that covers something; to take something away",
+        "example": "After Mike left for work I stripped the beds and vacuumed the carpets. 迈克去上班后，我揭下了床罩并吸了地毯。",
+    },
+    "pay the price": {
+        "definition": "付出代价；承担后果",
+        "definition_en": "to suffer the negative consequences of something, especially something done in the past",
+        "example": "The company is now paying the price for years of poor management. 这家公司如今正在为多年的糟糕管理付出代价。",
+    },
+    "grasp": {
+        "definition": "抓紧；理解；领会",
+        "definition_en": "to take a firm hold of something; to understand something completely",
+        "example": "He grasped my hand and shook it warmly. 他热情地抓住我的手握了起来。",
+    },
+    "hard-line": {
+        "definition": "强硬的；坚定的；不妥协的",
+        "definition_en": "having very fixed beliefs and being unlikely or unwilling to change them",
+        "example": "A hard-line conservative. 坚定的保守派。",
+    },
+    "banish": {
+        "definition": "放逐；驱逐；赶走；消除",
+        "definition_en": "to order someone to leave a place as a punishment; to make someone or something go away",
+        "example": "He was banished to Australia, where he died five years later. 他被流放到澳大利亚，五年后在那里去世。",
+    },
+    "kremlin": {
+        "definition": "克里姆林宫；俄罗斯中央政府",
+        "definition_en": "the government buildings in Moscow; the central government of Russia",
+        "example": "A two-hour meeting in the Kremlin. 一场在克里姆林宫召开的两小时会议。",
     },
 }
 
