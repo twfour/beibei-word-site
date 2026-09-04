@@ -19,3 +19,9 @@
 .vocab-card,.reader-page.book-mode .book-vocab-page .vocab-card,.favorite-item-main{cursor:default}
 .word-tooltip-floating{position:fixed;z-index:1000;width:min(320px,calc(100vw - 28px));padding:12px 14px;border-radius:16px;background:#223027;color:white;font:13px/1.55 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;box-shadow:0 14px 30px rgba(31,42,36,.22);pointer-events:none;opacity:0;transform:translateY(5px);transition:opacity .12s ease,transform .12s ease}
 .word-tooltip-floating.is-visible{opacity:1;transform:translateY(0)}
+.source-context{margin-top:14px;padding-top:13px;border-top:1px dashed var(--line);display:grid;gap:8px}
+.source-context-label{color:#9b6149;font:700 10px/1.2 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.source-sentence,.source-translation{margin:0;font-size:13px;line-height:1.58}
+.source-sentence{color:#29352f;font-style:italic}
+.source-translation{color:#667166}
+@media (min-width:900px){.reader-page.book-mode .book-vocab-page .vocab-card{justify-content:flex-start;overflow:auto}.reader-page.book-mode .book-vocab-page .source-context{margin-top:clamp(18px,2vw,30px);padding-top:clamp(16px,2vw,24px)}.reader-page.book-mode .book-vocab-page .source-context-label{font-size:clamp(11px,1vw,14px)}.reader-page.book-mode .book-vocab-page .source-sentence{font-size:clamp(17px,1.45vw,23px);line-height:1.72}.reader-page.book-mode .book-vocab-page .source-translation{font-size:clamp(15px,1.25vw,20px);line-height:1.7}}

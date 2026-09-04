@@ -603,6 +603,78 @@ def split_definition_languages(definition: str) -> tuple[str, str]:
     return chinese, english_definition
 
 
+def tooltip_definition(definition: str, max_length: int = 42) -> str:
+    """Return a compact gloss for inline reading tooltips."""
+    compact = re.split(r"\s+\d+\.\s+", definition, 1)[0].strip()
+    compact = re.sub(r"\s+", " ", compact)
+    if len(compact) <= max_length:
+        return compact
+    separators = ["；", ";", "，", "、"]
+    for separator in separators:
+        candidate = compact.split(separator, 1)[0].strip()
+        if 4 <= len(candidate) <= max_length:
+            return candidate
+    return compact[:max_length].rstrip("；;，、 ") + "…"
+
+
+def split_english_sentences(value: str) -> list[str]:
+    protected = {
+        "Mr.": "Mr<DOT>",
+        "Mrs.": "Mrs<DOT>",
+        "Ms.": "Ms<DOT>",
+        "Dr.": "Dr<DOT>",
+        "Prof.": "Prof<DOT>",
+        "U.S.": "U<DOT>S<DOT>",
+        "U.K.": "U<DOT>K<DOT>",
+        "D.C.": "D<DOT>C<DOT>",
+        "A.I.": "A<DOT>I<DOT>",
+        "i.e.": "i<DOT>e<DOT>",
+        "e.g.": "e<DOT>g<DOT>",
+    }
+    text = value
+    for source, target in protected.items():
+        text = text.replace(source, target)
+    text = re.sub(r"([.!?][\"”’']?)\s+", r"\1<SENTENCE_SPLIT>", text)
+    parts = text.split("<SENTENCE_SPLIT>")
+    return [part.replace("<DOT>", ".").strip() for part in parts if part.strip()]
+
+
+def split_chinese_sentences(value: str) -> list[str]:
+    return [part.strip() for part in re.findall(r"[^。！？]+[。！？]?", value) if part.strip()]
+
+
+def shorten_context(value: str, max_length: int = 220) -> str:
+    compact = re.sub(r"\s+", " ", value).strip()
+    return compact if len(compact) <= max_length else compact[:max_length].rstrip() + "…"
+
+
+def vocabulary_context(vocab: dict[str, str], paragraphs: list[dict[str, str]]) -> dict[str, str]:
+    aliases = vocabulary_aliases(vocab["term"])
+    aliases = {alias for alias in aliases if len(alias) >= 3 and not any(token in alias for token in ("/", "..."))}
+    if not aliases:
+        return {}
+    pattern = re.compile(
+        r"(?<![A-Za-z])(" + "|".join(re.escape(alias) for alias in sorted(aliases, key=len, reverse=True)) + r")(?![A-Za-z])",
+        re.I,
+    )
+    for paragraph in paragraphs:
+        english_sentences = split_english_sentences(paragraph["original"])
+        for index, sentence in enumerate(english_sentences):
+            if pattern.search(sentence):
+                return {
+                    "sentence": shorten_context(sentence, 260),
+                    "translation": shorten_context(paragraph["translation"], 220),
+                    "paragraph": str(paragraph["number"]),
+                }
+        if pattern.search(paragraph["original"]):
+            return {
+                "sentence": shorten_context(paragraph["original"], 260),
+                "translation": shorten_context(paragraph["translation"], 220),
+                "paragraph": str(paragraph["number"]),
+            }
+    return {}
+
+
 def extract_vocabulary(text: str) -> list[dict[str, str]]:
     normalized = clean_text(lesson_body(text))
     items: list[dict[str, str]] = []
@@ -764,6 +836,18 @@ def vocabulary_aliases(term: str) -> set[str]:
     if "-" in lower:
         aliases.add(lower.replace("-", ""))
         aliases.add(lower.replace("-", " "))
+    irregular_aliases = {
+        "build into": {"built into"},
+        "come to one's aid": {"come to my aid", "come to our aid", "come to his aid", "come to her aid", "come to their aid", "came to my aid", "came to our aid", "came to his aid", "came to her aid", "came to their aid"},
+        "go to plan": {"goes to plan", "went to plan", "gone to plan"},
+        "make the best of": {"made the best of"},
+        "overtake": {"overtook", "overtaken"},
+        "pay the price": {"paid the price", "paying the price", "pays the price"},
+        "speak up": {"speaks up", "spoke up", "spoken up", "speaking up"},
+        "sweep": {"swept"},
+        "take into account": {"takes into account", "took into account", "taken into account", "taking into account"},
+    }
+    aliases.update(irregular_aliases.get(lower, set()))
     if " " in lower or "/" in lower or "..." in lower:
         return aliases
     if len(lower) < 4:
@@ -812,7 +896,7 @@ def annotate_original(value: str, vocabulary: list[dict[str, str]], seen_terms: 
             output.append(html.escape(match.group(0)))
         else:
             seen_terms.add(item_key)
-            tooltip = f"{item['term']} {item['phonetic']} · {item['definition']}"
+            tooltip = f"{item['term']} {item['phonetic']} · {tooltip_definition(item['definition'])}"
             output.append(
                 f'<span class="word-tip" tabindex="0">{html.escape(match.group(0))}'
                 f'<span class="word-tooltip">{html.escape(tooltip)}</span></span>'
@@ -1061,7 +1145,18 @@ def daily_html(article: Article, all_articles: list[Article], config: dict) -> s
       </article>""")
     paragraph_html = "".join(paragraph_rows)
 
-    vocab_cards = [f"""
+    vocab_cards: list[str] = []
+    for v in article.vocabulary:
+        context = vocabulary_context(v, article.paragraphs)
+        context_html = ""
+        if context:
+            context_html = f"""
+        <div class="source-context">
+          <div class="source-context-label">原文语境 · PARA {html.escape(context['paragraph'])}</div>
+          <p class="source-sentence">{html.escape(context['sentence'])}</p>
+          <p class="source-translation">{html.escape(context['translation'])}</p>
+        </div>"""
+        vocab_cards.append(f"""
       <article class="vocab-card"
         data-search="{html.escape((v['term'] + ' ' + v['definition']).lower())}"
         data-word-key="{html.escape(v['term'].lower())}" data-term="{html.escape(v['term'])}"
@@ -1072,7 +1167,8 @@ def daily_html(article: Article, all_articles: list[Article], config: dict) -> s
         <p class="definition">{html.escape(v['definition'])}</p>
         {f'<p class="definition-en">{html.escape(v["definition_en"])}</p>' if v['definition_en'] else ''}
         {f'<p class="example">{html.escape(v["example"])}</p>' if v['example'] else ''}
-      </article>""" for v in article.vocabulary]
+{context_html}
+      </article>""")
     vocab_html = "".join(vocab_cards)
 
     analysis_cards = [f"""
@@ -1307,6 +1403,12 @@ STYLES = r"""
 .vocab-card,.reader-page.book-mode .book-vocab-page .vocab-card,.favorite-item-main{cursor:default}
 .word-tooltip-floating{position:fixed;z-index:1000;width:min(320px,calc(100vw - 28px));padding:12px 14px;border-radius:16px;background:#223027;color:white;font:13px/1.55 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;box-shadow:0 14px 30px rgba(31,42,36,.22);pointer-events:none;opacity:0;transform:translateY(5px);transition:opacity .12s ease,transform .12s ease}
 .word-tooltip-floating.is-visible{opacity:1;transform:translateY(0)}
+.source-context{margin-top:14px;padding-top:13px;border-top:1px dashed var(--line);display:grid;gap:8px}
+.source-context-label{color:#9b6149;font:700 10px/1.2 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.source-sentence,.source-translation{margin:0;font-size:13px;line-height:1.58}
+.source-sentence{color:#29352f;font-style:italic}
+.source-translation{color:#667166}
+@media (min-width:900px){.reader-page.book-mode .book-vocab-page .vocab-card{justify-content:flex-start;overflow:auto}.reader-page.book-mode .book-vocab-page .source-context{margin-top:clamp(18px,2vw,30px);padding-top:clamp(16px,2vw,24px)}.reader-page.book-mode .book-vocab-page .source-context-label{font-size:clamp(11px,1vw,14px)}.reader-page.book-mode .book-vocab-page .source-sentence{font-size:clamp(17px,1.45vw,23px);line-height:1.72}.reader-page.book-mode .book-vocab-page .source-translation{font-size:clamp(15px,1.25vw,20px);line-height:1.7}}
 """
 
 
