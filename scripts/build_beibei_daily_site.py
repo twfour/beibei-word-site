@@ -590,6 +590,19 @@ def strip_embedded_paragraph_translation_from_example(example: str) -> str:
     return match.group(1).strip() if match else example
 
 
+def split_definition_languages(definition: str) -> tuple[str, str]:
+    """Split English and Chinese glosses without dropping Chinese parentheses."""
+    han = re.search(r"[\u4e00-\u9fff]", definition)
+    if not han:
+        return definition, ""
+    chinese_start = han.start()
+    if chinese_start > 0 and definition[chinese_start - 1] in "（(":
+        chinese_start -= 1
+    chinese = definition[chinese_start:].strip()
+    english_definition = definition[:chinese_start].strip()
+    return chinese, english_definition
+
+
 def extract_vocabulary(text: str) -> list[dict[str, str]]:
     normalized = clean_text(lesson_body(text))
     items: list[dict[str, str]] = []
@@ -602,9 +615,7 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
         seen.add(key)
         body = match.group(4).strip()
         definition = strip_leading_paragraph_translation(body.split("•", 1)[0].strip())
-        han = re.search(r"[\u4e00-\u9fff]", definition)
-        chinese = definition[han.start():] if han else definition
-        english_definition = definition[:han.start()].strip() if han else ""
+        chinese, english_definition = split_definition_languages(definition)
         example = ""
         if "•" in body:
             example = strip_embedded_paragraph_translation_from_example(
@@ -1294,6 +1305,8 @@ STYLES = r"""
 .reader-nav-title{display:none}
 @media (min-width:900px){.reader-page.book-mode .reader-header{display:block;height:56px;padding:8px 14px}.reader-page.book-mode .reader-header nav{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px;height:100%;width:100%}.reader-page.book-mode .reader-header .brand{grid-column:1;white-space:nowrap;align-self:center}.reader-page.book-mode .reader-nav-title{display:block;grid-column:2;min-width:0;margin:0;color:#223027;font:600 clamp(15px,1.45vw,20px)/1.18 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Serif SC",sans-serif;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;align-self:center}.reader-page.book-mode .reader-header .nav-tools{grid-column:3;min-width:0;align-self:center}.reader-page.book-mode .reader-hero{display:none}.reader-page.book-mode .reader-shell{height:calc(100vh - 66px);padding-top:10px}.reader-page.book-mode .reader-toc,.reader-page.book-mode .reader-main.book-main{height:100%}}
 .vocab-card,.reader-page.book-mode .book-vocab-page .vocab-card,.favorite-item-main{cursor:default}
+.word-tooltip-floating{position:fixed;z-index:1000;width:min(320px,calc(100vw - 28px));padding:12px 14px;border-radius:16px;background:#223027;color:white;font:13px/1.55 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;box-shadow:0 14px 30px rgba(31,42,36,.22);pointer-events:none;opacity:0;transform:translateY(5px);transition:opacity .12s ease,transform .12s ease}
+.word-tooltip-floating.is-visible{opacity:1;transform:translateY(0)}
 """
 
 
@@ -1330,6 +1343,39 @@ if(progress&&bookMain){
     if(event.key==='ArrowLeft'){bookMain.scrollBy({left:-bookMain.clientWidth,behavior:'smooth'})}
   });
 }else if(progress){addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=`${max?scrollY/max*100:0}%`},{passive:true})}
+
+const floatingTooltip=document.createElement('div');
+floatingTooltip.className='word-tooltip-floating';
+floatingTooltip.setAttribute('role','tooltip');
+document.body.append(floatingTooltip);
+let activeWordTip=null;
+function hideFloatingTooltip(){floatingTooltip.classList.remove('is-visible');activeWordTip=null}
+function showFloatingTooltip(tip){
+  const tooltip=tip.querySelector('.word-tooltip');
+  if(!tooltip)return;
+  activeWordTip=tip;
+  floatingTooltip.textContent=tooltip.textContent.trim();
+  floatingTooltip.classList.add('is-visible');
+  const tipRect=tip.getBoundingClientRect();
+  const tooltipRect=floatingTooltip.getBoundingClientRect();
+  const gap=10;
+  let left=tipRect.left+tipRect.width/2-tooltipRect.width/2;
+  left=Math.max(14,Math.min(left,window.innerWidth-tooltipRect.width-14));
+  let top=tipRect.top-tooltipRect.height-gap;
+  if(top<14){top=tipRect.bottom+gap}
+  if(top+tooltipRect.height>window.innerHeight-14){top=window.innerHeight-tooltipRect.height-14}
+  floatingTooltip.style.left=`${left}px`;
+  floatingTooltip.style.top=`${top}px`;
+}
+document.querySelectorAll('.word-tip').forEach(tip=>{
+  tip.addEventListener('mouseenter',()=>showFloatingTooltip(tip));
+  tip.addEventListener('mouseleave',hideFloatingTooltip);
+  tip.addEventListener('focus',()=>showFloatingTooltip(tip));
+  tip.addEventListener('blur',hideFloatingTooltip);
+});
+['scroll','resize'].forEach(type=>{
+  window.addEventListener(type,()=>{if(activeWordTip)showFloatingTooltip(activeWordTip)},{passive:true,capture:true});
+});
 
 const favoriteStorageKey='beibei-favorites-v1';
 let favorites={};

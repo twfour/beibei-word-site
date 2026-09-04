@@ -32,6 +32,39 @@ if(progress&&bookMain){
   });
 }else if(progress){addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=`${max?scrollY/max*100:0}%`},{passive:true})}
 
+const floatingTooltip=document.createElement('div');
+floatingTooltip.className='word-tooltip-floating';
+floatingTooltip.setAttribute('role','tooltip');
+document.body.append(floatingTooltip);
+let activeWordTip=null;
+function hideFloatingTooltip(){floatingTooltip.classList.remove('is-visible');activeWordTip=null}
+function showFloatingTooltip(tip){
+  const tooltip=tip.querySelector('.word-tooltip');
+  if(!tooltip)return;
+  activeWordTip=tip;
+  floatingTooltip.textContent=tooltip.textContent.trim();
+  floatingTooltip.classList.add('is-visible');
+  const tipRect=tip.getBoundingClientRect();
+  const tooltipRect=floatingTooltip.getBoundingClientRect();
+  const gap=10;
+  let left=tipRect.left+tipRect.width/2-tooltipRect.width/2;
+  left=Math.max(14,Math.min(left,window.innerWidth-tooltipRect.width-14));
+  let top=tipRect.top-tooltipRect.height-gap;
+  if(top<14){top=tipRect.bottom+gap}
+  if(top+tooltipRect.height>window.innerHeight-14){top=window.innerHeight-tooltipRect.height-14}
+  floatingTooltip.style.left=`${left}px`;
+  floatingTooltip.style.top=`${top}px`;
+}
+document.querySelectorAll('.word-tip').forEach(tip=>{
+  tip.addEventListener('mouseenter',()=>showFloatingTooltip(tip));
+  tip.addEventListener('mouseleave',hideFloatingTooltip);
+  tip.addEventListener('focus',()=>showFloatingTooltip(tip));
+  tip.addEventListener('blur',hideFloatingTooltip);
+});
+['scroll','resize'].forEach(type=>{
+  window.addEventListener(type,()=>{if(activeWordTip)showFloatingTooltip(activeWordTip)},{passive:true,capture:true});
+});
+
 const favoriteStorageKey='beibei-favorites-v1';
 let favorites={};
 try{favorites=JSON.parse(localStorage.getItem(favoriteStorageKey)||'{}')||{}}catch(error){favorites={}}
