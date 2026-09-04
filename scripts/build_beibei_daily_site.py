@@ -200,6 +200,26 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The main message is that loyalty is not enough for such an important job. If a leader cares more about personal loyalty than professional advice, the army and the country may pay a serious price."
         ),
     },
+    "20260904": {
+        "background": (
+            "这篇文章围绕“成功人士是否真的靠单打独斗”展开。作者安吉拉·达克沃思以自己和母亲在海上遇险的经历开场，"
+            "把“求助”从软弱、依赖或丢脸的行为，重新解释为一种关键能力。文章也借用了美国文化中常见的 rugged individualism，"
+            "也就是“强悍个人主义”背景：许多人习惯把成功讲成个人意志、天赋和坚持的胜利，却忽略背后的教练、同事、助理、家人和救援者。"
+        ),
+        "overview": (
+            "文章先讲作者和 86 岁母亲在大西洋浮潜时被海流冲走，真正救命的不是独自对抗洋流，而是及时呼救和接受专业救援。"
+            "随后作者把这一经验转向个人成长和职业成功：在生死危机中人们懂得求助，但在学习、工作和事业中，很多人反而把求助视为羞耻。"
+            "中段通过尼古拉·坦根、柯南·奥布莱恩、史蒂芬·柯维等例子说明，高成就者往往会把成功归功于一群支持者。"
+            "文章的核心观点是：真正厉害的人并不是不需要帮助，而是知道何时、如何向合适的人求助，并愿意承认自己站在很多人的支持之上。"
+        ),
+        "pet": (
+            "The article begins with a dangerous story. The writer and her 86-year-old mother were snorkeling near Miami when the ocean current carried them away from the boat. Her mother breathed in water and lost consciousness. The writer tried hard to pull her mother back, but she could not fight the sea alone. "
+            "Then she changed her plan. She kept her mother’s head above water and shouted for help. Rescuers came and saved them. This experience taught her that asking for help can be a smart and brave action. "
+            "The writer then talks about success in ordinary life. Many people in America admire strong individualism. They like stories about one person working hard and winning alone. But the writer says this story is often false. Successful people usually have many people behind them. "
+            "She gives examples of leaders, writers and speakers who depended on assistants, colleagues, teachers and friends. These helpers may not be famous, but their work is very important. "
+            "The main message is simple: strong people do not do everything alone. They know when they need help, and they are not afraid to ask for it. If we want to grow, we should learn to build good support around us."
+        ),
+    },
 }
 
 
@@ -537,6 +557,39 @@ def suspicious_example(value: str) -> bool:
     return han_count > 55 or (len(value) > 180 and sentence_count >= 2)
 
 
+def strip_leading_paragraph_translation(definition: str) -> str:
+    """Drop a paragraph translation accidentally mixed into a dictionary definition.
+
+    Some PDFs extract text in visual rather than reading order. A vocabulary heading
+    can therefore be followed by the previous paragraph's Chinese translation, then
+    by the real English+Chinese dictionary definition. In other cases the paragraph
+    translation lands in the middle of a Chinese gloss.
+    """
+    if not suspicious_definition(definition):
+        return definition
+    match = re.search(
+        r"(?:^|[。！？][”’\"']?\s+)([A-Za-z][^。！？•]{8,220}[\u4e00-\u9fff][^。！？•]{0,80})\s*$",
+        definition,
+    )
+    if match:
+        return match.group(1).strip()
+    stripped = re.sub(
+        r"(?<=[\u4e00-\u9fff；;])\s+[\u4e00-\u9fff][^•]{40,}[。！？]\s+(?=[\u4e00-\u9fff])",
+        "",
+        definition,
+    )
+    stripped = re.sub(r"(?<=[\u4e00-\u9fff])\s+(?=[\u4e00-\u9fff])", "", stripped)
+    return stripped.strip()
+
+
+def strip_embedded_paragraph_translation_from_example(example: str) -> str:
+    """Keep the first real bilingual example when a paragraph translation follows it."""
+    if not suspicious_example(example):
+        return example
+    match = re.match(r"(.{20,180}?[\u4e00-\u9fff][。！？])\s+[\u4e00-\u9fff].*", example)
+    return match.group(1).strip() if match else example
+
+
 def extract_vocabulary(text: str) -> list[dict[str, str]]:
     normalized = clean_text(lesson_body(text))
     items: list[dict[str, str]] = []
@@ -548,13 +601,15 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
             continue
         seen.add(key)
         body = match.group(4).strip()
-        definition = body.split("•", 1)[0].strip()
+        definition = strip_leading_paragraph_translation(body.split("•", 1)[0].strip())
         han = re.search(r"[\u4e00-\u9fff]", definition)
         chinese = definition[han.start():] if han else definition
         english_definition = definition[:han.start()].strip() if han else ""
         example = ""
         if "•" in body:
-            example = body.split("•", 1)[1].split("•", 1)[0].strip()
+            example = strip_embedded_paragraph_translation_from_example(
+                body.split("•", 1)[1].split("•", 1)[0].strip()
+            )
         item = {
             "term": term,
             "pos": match.group(2),
