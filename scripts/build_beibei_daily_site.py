@@ -684,18 +684,22 @@ def split_definition_languages(definition: str) -> tuple[str, str]:
     return chinese, english_definition
 
 
-def tooltip_definition(definition: str, max_length: int = 42) -> str:
-    """Return a compact gloss for inline reading tooltips."""
+def tooltip_definition(definition: str, max_length: int = 18) -> str:
+    """Return the shortest useful Chinese gloss for inline reading tooltips.
+
+    The vocabulary cards carry the full explanation, phonetic spelling, source
+    sentence, and example. Inline tooltips should stay out of the reader's way:
+    one quick Chinese meaning, no headword, no phonetic text, no examples.
+    """
     compact = re.split(r"\s+\d+\.\s+", definition, 1)[0].strip()
     compact = re.sub(r"\s+", " ", compact)
+    compact = re.sub(r"[（(][^）)]*[）)]", "", compact).strip()
+    candidate = re.split(r"[；;，、/／]", compact, 1)[0].strip()
+    if candidate:
+        return candidate if len(candidate) <= max_length else candidate[:max_length].rstrip() + "…"
     if len(compact) <= max_length:
         return compact
-    separators = ["；", ";", "，", "、"]
-    for separator in separators:
-        candidate = compact.split(separator, 1)[0].strip()
-        if 4 <= len(candidate) <= max_length:
-            return candidate
-    return compact[:max_length].rstrip("；;，、 ") + "…"
+    return compact[:max_length].rstrip("；;，、/／ ") + "…"
 
 
 def split_english_sentences(value: str) -> list[str]:
@@ -983,7 +987,7 @@ def annotate_original(value: str, vocabulary: list[dict[str, str]], seen_terms: 
             output.append(html.escape(match.group(0)))
         else:
             seen_terms.add(item_key)
-            tooltip = f"{item['term']} {item['phonetic']} · {tooltip_definition(item['definition'])}"
+            tooltip = tooltip_definition(item["definition"])
             output.append(
                 f'<span class="word-tip" tabindex="0">{html.escape(match.group(0))}'
                 f'<span class="word-tooltip">{html.escape(tooltip)}</span></span>'
@@ -1678,7 +1682,7 @@ STYLES = r"""
 .reader-nav-title{display:none}
 @media (min-width:900px){.reader-page.book-mode .reader-header{display:block;height:56px;padding:8px 14px}.reader-page.book-mode .reader-header nav{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px;height:100%;width:100%}.reader-page.book-mode .reader-header .brand{grid-column:1;white-space:nowrap;align-self:center}.reader-page.book-mode .reader-nav-title{display:block;grid-column:2;min-width:0;margin:0;color:#223027;font:600 clamp(15px,1.45vw,20px)/1.18 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Serif SC",sans-serif;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;align-self:center}.reader-page.book-mode .reader-header .nav-tools{grid-column:3;min-width:0;align-self:center}.reader-page.book-mode .reader-hero{display:none}.reader-page.book-mode .reader-shell{height:calc(100vh - 66px);padding-top:10px}.reader-page.book-mode .reader-toc,.reader-page.book-mode .reader-main.book-main{height:100%}}
 .vocab-card,.reader-page.book-mode .book-vocab-page .vocab-card,.favorite-item-main{cursor:default}
-.word-tooltip-floating{position:fixed;z-index:1000;width:min(320px,calc(100vw - 28px));padding:12px 14px;border-radius:16px;background:#223027;color:white;font:13px/1.55 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;box-shadow:0 14px 30px rgba(31,42,36,.22);pointer-events:none;opacity:0;transform:translateY(5px);transition:opacity .12s ease,transform .12s ease}
+.word-tooltip-floating{position:fixed;z-index:1000;width:max-content;max-width:min(220px,calc(100vw - 28px));padding:9px 12px;border-radius:999px;background:#223027;color:white;font:13px/1.45 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;box-shadow:0 10px 24px rgba(31,42,36,.2);pointer-events:none;opacity:0;transform:translateY(5px);transition:opacity .12s ease,transform .12s ease}
 .word-tooltip-floating.is-visible{opacity:1;transform:translateY(0)}
 .source-context{margin-top:14px;padding-top:13px;border-top:1px dashed var(--line);display:grid;gap:8px}
 .source-context-label{color:#9b6149;font:700 10px/1.2 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.12em;text-transform:uppercase}
