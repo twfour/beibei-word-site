@@ -282,6 +282,7 @@ def load_site_config() -> dict:
 def clean_text(value: str) -> str:
     value = value.replace("\x00", " ")
     value = re.sub(r"(?:-\s*)?\d+\s*-\s*视频号：贝贝外刊\s*公众号：一起贝英语", " ", value)
+    value = re.sub(r"视频号：贝贝外刊\s*\d+\s*-\s*公众号：一起贝英语", " ", value)
     value = re.sub(r"(?<=[a-z])\s+\d{1,2}\s*-\s+(?=[a-z])", " ", value)
     value = re.sub(r"视频号：贝贝外刊|公众号：一起贝英语", " ", value)
     value = re.sub(r"扫码听音频|领课程资料", " ", value)
@@ -573,6 +574,18 @@ def strip_leading_paragraph_translation(definition: str) -> str:
     )
     if match:
         return match.group(1).strip()
+    match = re.match(
+        r"([A-Za-z][^。！？]{20,260}?)\s+[\u4e00-\u9fff][^。！？]{20,}[。！？].*\s+([\u4e00-\u9fff][^。！？]{2,90})$",
+        definition,
+    )
+    if match:
+        return f"{match.group(1).strip()}{match.group(2).strip()}"
+    match = re.match(
+        r"(.{8,220}?[\u4e00-\u9fff][^。！？]{0,50}?)(?:\s+[\u4e00-\u9fff][^。！？]{20,}[。！？].*)$",
+        definition,
+    )
+    if match:
+        return re.sub(r"\s+", " ", match.group(1)).strip()
     stripped = re.sub(
         r"(?<=[\u4e00-\u9fff；;])\s+[\u4e00-\u9fff][^•]{40,}[。！？]\s+(?=[\u4e00-\u9fff])",
         "",
@@ -584,6 +597,7 @@ def strip_leading_paragraph_translation(definition: str) -> str:
 
 def strip_embedded_paragraph_translation_from_example(example: str) -> str:
     """Keep the first real bilingual example when a paragraph translation follows it."""
+    example = re.split(r"\s+\*\s+", example, 1)[0].strip()
     if not suspicious_example(example):
         return example
     match = re.match(r"(.{20,180}?[\u4e00-\u9fff][。！？])\s+[\u4e00-\u9fff].*", example)
@@ -837,12 +851,18 @@ def vocabulary_aliases(term: str) -> set[str]:
         aliases.add(lower.replace("-", ""))
         aliases.add(lower.replace("-", " "))
     irregular_aliases = {
+        "be supposed to": {"is supposed to", "are supposed to", "was supposed to", "were supposed to"},
         "build into": {"built into"},
+        "bring about": {"brings about", "brought about", "bringing about"},
+        "churn out": {"churns out", "churned out", "churning out"},
         "come to one's aid": {"come to my aid", "come to our aid", "come to his aid", "come to her aid", "come to their aid", "came to my aid", "came to our aid", "came to his aid", "came to her aid", "came to their aid"},
         "go to plan": {"goes to plan", "went to plan", "gone to plan"},
+        "graphics-processing unit": {"graphics-processing units", "graphics processing unit", "graphics processing units", "gpu", "gpus"},
         "make the best of": {"made the best of"},
         "overtake": {"overtook", "overtaken"},
         "pay the price": {"paid the price", "paying the price", "pays the price"},
+        "pump up": {"pumps up", "pumped up", "pumping up"},
+        "smack of sth": {"smack of", "smacks of", "smacked of", "smacking of"},
         "speak up": {"speaks up", "spoke up", "spoken up", "speaking up"},
         "sweep": {"swept"},
         "take into account": {"takes into account", "took into account", "taken into account", "taking into account"},
