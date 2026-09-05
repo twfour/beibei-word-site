@@ -220,6 +220,60 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The main message is simple: strong people do not do everything alone. They know when they need help, and they are not afraid to ask for it. If we want to grow, we should learn to build good support around us."
         ),
     },
+    "20260905": {
+        "cover_image": "../assets/covers/20260905-cover.png",
+        "background": (
+            "这篇文章来自 The Economist 对英伟达与 AI 投资热潮的评论。背景是英伟达凭借 GPU 成为 AI 基础设施的核心供应商，"
+            "市值和利润预期快速膨胀，同时又通过融资、担保和生态绑定帮助客户购买自己的芯片。文章把这种做法放在 2000 年互联网泡沫和思科案例旁边比较，"
+            "追问它到底是危险泡沫，还是资本主义中企业承担风险、推动技术扩散的正常机制。"
+        ),
+        "title_explanation": (
+            "Nvidia is driving the AI boom. Good\n"
+            "英伟达正在推动 AI 热潮，很好\n\n"
+            "The chipmaker’s enormous bets are how capitalism is supposed to work\n"
+            "这家芯片制造商正在押下惊人的赌注，而这恰恰是资本主义应有的运作方式"
+        ),
+        "title_vocab_terms": "capitalism, be supposed to",
+        "pet_index": "04",
+        "overview": (
+            "文章讨论英伟达在 AI 热潮中的极端重要性，以及市场对它是否正在制造“下一场互联网泡沫”的争论。开头先写英伟达因 GPU 需求暴涨而成为全球市值最高公司，"
+            "黄仁勋也像 AI 时代的魔术师一样站在舞台中央。随后文章转入批评者的担忧：英伟达通过现金、担保和融资安排帮助客户购买自己的芯片，"
+            "这种做法容易让人想起 2000 年前后思科等科技公司用 vendor financing 推高收入、最终引发泡沫破裂的历史。"
+            "中段作者承认两轮热潮确有相似之处，比如新技术叙事、股价狂飙和明星 CEO，但也指出英伟达面临的核心风险主要在 AI 普及速度："
+            "如果 AI 应用不能迅速扩大，客户可能要求兑现担保，而二手 GPU 也可能快速贬值。文章同时分析英伟达的防御性动机：云计算巨头开始自研芯片，非英伟达 AI 芯片份额上升，"
+            "因此英伟达需要用资金和生态绑定来维持领先。最后，作者用资产负债表、现金流、利润率和真实 AI 收入反驳“系统性泡沫”判断："
+            "英伟达确实在豪赌，但它不是用空壳故事骗市场，而是用强劲现金流承担企业家风险。全文结论是，这场赌局很大，也可能失败；"
+            "但在资本主义逻辑中，公司本来就应该把集中的风险交给愿意承担的投资者，而不是把所有创新风险平均摊给社会。"
+        ),
+        "pet": (
+            "Nvidia is now one of the most important companies in the world. It makes powerful chips called GPUs. These chips are used to run artificial intelligence, so many companies want to buy them. Because of this demand, Nvidia has become the world’s most valuable company. "
+            "Some people are worried. They think Nvidia may be creating a dangerous bubble. Nvidia is giving money or guarantees to some customers, so those customers can buy more Nvidia chips. Critics say this looks like what happened during the dotcom boom, when companies such as Cisco helped customers buy their products and later the market crashed. "
+            "The article says the risk is real, but the situation is not exactly the same. Nvidia has a very strong business. It has a lot of cash, high profits and real customers. Demand for AI is also not just an illusion. Big technology companies are already earning money from AI products. "
+            "The biggest question is timing. If AI spreads slowly, Nvidia’s customers may have problems, and Nvidia may lose money. But if AI spreads quickly, Nvidia’s big bets could help build the infrastructure that the new technology needs. "
+            "The writer’s main point is that this is how capitalism should work. Companies make risky bets. If the bet fails, investors lose money. If it succeeds, society may get better technology and higher productivity."
+        ),
+        "structure": (
+            "英伟达崛起与 AI 泡沫之争（Para 1-3）\n"
+            "├─ 商业奇迹：登顶全球市值最高企业，深度绑定 AI 浪潮\n"
+            "├─ 争议标签：被称作“AI 银行”，类比互联网泡沫时期思科\n"
+            "└─ 初步辩护：风险主要由英伟达股东承担\n\n"
+            "泡沫相似性与现实隐患（Para 4-6）\n"
+            "├─ 历史对照：和科网泡沫存在诸多相似特征\n"
+            "├─ 业务风险：AI 需求不及预期，回购芯片或大幅贬值\n"
+            "└─ 外部压力：竞品自研芯片崛起，研发投入占比下滑\n\n"
+            "巨额信贷敞口的警报（Para 7-8）\n"
+            "├─ 规模预警：潜在信贷规模逼近头部银行债务体量\n"
+            "└─ 市场担忧：财务杠杆扩张，埋下行业震荡隐患\n\n"
+            "驳斥泡沫论：硬核基本面支撑（Para 9-11）\n"
+            "├─ 财务底气：巨额现金储备，高毛利，现金流强劲\n"
+            "├─ 盈利韧性：利润大幅下滑才会危及信用评级\n"
+            "└─ 真实需求：AI 企业营收快速增长，并非虚假繁荣\n\n"
+            "逻辑闭环与未来展望（Para 12-13）\n"
+            "├─ 动机解读：弥补市场资本缺口，主动承担行业风险\n"
+            "├─ 多方共赌：云厂商、华尔街、股东一同押注 AI\n"
+            "└─ 结局推演：输则投资人买单，赢则加速 AI 时代到来"
+        ),
+    },
 }
 
 
@@ -1116,6 +1170,49 @@ def intro_paragraph_html(value: str, *, lang: str | None = None, sentences_per_p
     return f'<div class="intro-copy"{lang_attr}>{paragraphs}</div>'
 
 
+def title_vocab_preview_html(article: Article, terms: str) -> str:
+    wanted = [term.strip().lower() for term in terms.split(",") if term.strip()]
+    if not wanted:
+        return ""
+    cards: list[str] = []
+    by_term = {item["term"].lower(): item for item in article.vocabulary}
+    for key in wanted:
+        item = by_term.get(key)
+        if not item:
+            continue
+        cards.append(f"""
+          <article class="title-vocab-card">
+            <h3>{html.escape(item['term'])}</h3>
+            <p class="title-vocab-meta">{html.escape(item['phonetic'])} · {html.escape(item['pos'])}.</p>
+            <p>{html.escape(item['definition'])}</p>
+            {f'<small>{html.escape(item["definition_en"])}</small>' if item['definition_en'] else ''}
+          </article>""")
+    if not cards:
+        return ""
+    return f'<div class="title-vocab-grid">{"".join(cards)}</div>'
+
+
+def structure_tree_html(value: str) -> str:
+    lines = [line.rstrip() for line in value.splitlines()]
+    return '<pre class="structure-tree">' + html.escape("\n".join(lines)) + '</pre>'
+
+
+def title_lines_html(value: str) -> str:
+    groups = [
+        [line.strip() for line in group.splitlines() if line.strip()]
+        for group in re.split(r"\n\s*\n", value.strip())
+        if group.strip()
+    ]
+    blocks = []
+    for group in groups:
+        blocks.append(
+            '<div class="title-line-group">'
+            + "".join(f"<p>{html.escape(line)}</p>" for line in group)
+            + "</div>"
+        )
+    return '<div class="intro-copy title-copy">' + "".join(blocks) + "</div>"
+
+
 def daily_html(article: Article, all_articles: list[Article], config: dict) -> str:
     display = config["display"]
     is_book_mode = True
@@ -1134,7 +1231,7 @@ def daily_html(article: Article, all_articles: list[Article], config: dict) -> s
         pet_html = f"""
           <article class="intro-card pet-card">
             <div class="pet-side"><span>PET</span><strong>B1</strong><small>ADAPTED READING</small></div>
-            <div class="pet-copy"><div class="intro-label"><span>03</span> EASIER ENGLISH / 简明改写</div>{intro_paragraph_html(guide['pet'], lang='en', sentences_per_paragraph=2)}<div class="pet-note">基于原文核心信息改写 · 使用 PET / CEFR B1 难度的常用词与较短句式</div></div>
+            <div class="pet-copy"><div class="intro-label"><span>{html.escape(guide.get('pet_index', '03'))}</span> EASIER ENGLISH / 简明改写</div>{intro_paragraph_html(guide['pet'], lang='en', sentences_per_paragraph=2)}<div class="pet-note">基于原文核心信息改写 · 使用 PET / CEFR B1 难度的常用词与较短句式</div></div>
           </article>"""
     introduction_html = f"""
       <section class="reading-introduction" id="introduction">
@@ -1234,10 +1331,56 @@ def daily_html(article: Article, all_articles: list[Article], config: dict) -> s
     main_class = "reader-main"
     if is_book_mode:
         main_class = "reader-main book-main"
-        book_toc_links = ['<a href="#introduction">封面导入</a>']
+        book_toc_links = []
         book_pages = []
         if display.get("introduction", True):
-            book_pages.append(f"""
+            if guide.get("cover_image"):
+                book_toc_links.append('<a href="#introduction">文章简介</a>')
+                book_pages.append(f"""
+      <section class="book-page pdf-cover-page" id="introduction">
+        <figure class="pdf-cover-frame"><img src="{html.escape(guide['cover_image'])}" alt="{html.escape(article.title)} PDF 首页"></figure>
+      </section>""")
+                if guide.get("title_explanation"):
+                    title_vocab_html = title_vocab_preview_html(article, guide.get("title_vocab_terms", ""))
+                    book_pages.append(f"""
+      <section class="book-page title-study-page book-intro-page reading-introduction" id="title-explanation">
+        <div class="book-page-kicker">文章简介 02 / 05 · 标题解释</div>
+        <article class="intro-card title-study-card">
+          <div class="intro-label"><span>02</span> HEADLINE / 标题中英文解释</div>
+          {title_lines_html(guide['title_explanation'])}
+          {title_vocab_html}
+        </article>
+      </section>""")
+                book_pages.append(f"""
+      <section class="book-page book-cover book-intro-page reading-introduction" id="overview">
+        <div class="book-page-kicker">文章简介 03 / 05 · 内容简介</div>
+        <div class="introduction-grid">
+          <article class="intro-card overview-card">
+            <div class="intro-label"><span>03</span> ROADMAP / 内容简介</div>
+            {intro_paragraph_html(guide['overview'], sentences_per_paragraph=1)}
+          </article>
+        </div>
+      </section>""")
+                if guide.get("pet"):
+                    book_pages.append(f"""
+      <section class="book-page book-cover book-intro-page reading-introduction" id="introduction-pet">
+        <div class="book-page-kicker">文章简介 04 / 05 · PET 简写</div>
+        <div class="introduction-grid">
+{pet_html}
+        </div>
+      </section>""")
+                if guide.get("structure"):
+                    book_pages.append(f"""
+      <section class="book-page structure-page book-intro-page reading-introduction" id="article-structure">
+        <div class="book-page-kicker">文章简介 05 / 05 · 文章结构</div>
+        <article class="intro-card structure-card">
+          <div class="intro-label"><span>05</span> STRUCTURE / 文章结构</div>
+          {structure_tree_html(guide['structure'])}
+        </article>
+      </section>""")
+            else:
+                book_toc_links.append('<a href="#introduction">封面导入</a>')
+                book_pages.append(f"""
       <section class="book-page book-cover book-intro-page reading-introduction" id="introduction">
         <div class="book-page-kicker">OPENING 01 / 02</div>
         <div class="introduction-grid">
@@ -1247,8 +1390,8 @@ def daily_html(article: Article, all_articles: list[Article], config: dict) -> s
           </article>
         </div>
       </section>""")
-            if guide.get("pet"):
-                book_pages.append(f"""
+                if guide.get("pet"):
+                    book_pages.append(f"""
       <section class="book-page book-cover book-intro-page reading-introduction" id="introduction-pet">
         <div class="book-page-kicker">OPENING 02 / 02</div>
         <div class="introduction-grid">
@@ -1428,6 +1571,7 @@ STYLES = r"""
 .source-sentence,.source-translation{margin:0;font-size:13px;line-height:1.58}
 .source-sentence{color:#29352f;font-style:italic}
 .source-translation{color:#667166}
+.pdf-cover-page{display:grid;grid-template-rows:minmax(0,1fr);overflow:hidden;padding:0!important}.pdf-cover-frame{margin:0;height:100%;min-height:0;display:grid;place-items:center}.pdf-cover-frame img{display:block;max-width:100%;max-height:100%;object-fit:contain;border-radius:18px;box-shadow:0 18px 50px rgba(63,49,32,.13);background:white}.title-study-card,.structure-card{height:100%;overflow:auto}.title-copy{gap:18px}.title-line-group{padding:16px 0;border-bottom:1px solid var(--line)}.title-line-group p:first-child{font-size:clamp(25px,2.8vw,42px);line-height:1.18;color:#223027}.title-line-group p:last-child{color:#4b5a50}.title-vocab-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}.title-vocab-card{padding:16px 18px;border:1px solid var(--line);border-radius:18px;background:#fffaf1}.title-vocab-card h3{margin:0 0 8px;font-size:clamp(24px,3vw,38px);line-height:1}.title-vocab-card p{margin:0;color:#29352f;font-weight:700}.title-vocab-card small{display:block;margin-top:8px;color:var(--muted);font:13px/1.45 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.title-vocab-meta{color:#9b6149!important;font:700 12px/1.2 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;letter-spacing:.06em}.structure-tree{margin:20px 0 0;padding:0;white-space:pre-wrap;color:#2d3b33;font:clamp(15px,1.25vw,19px)/1.8 "Noto Serif SC","Songti SC",serif}
 @media (min-width:900px){.reader-page.book-mode .book-vocab-page .vocab-card{justify-content:flex-start;overflow:auto}.reader-page.book-mode .book-vocab-page .source-context{margin-top:clamp(18px,2vw,30px);padding-top:clamp(16px,2vw,24px)}.reader-page.book-mode .book-vocab-page .source-context-label{font-size:clamp(11px,1vw,14px)}.reader-page.book-mode .book-vocab-page .source-sentence{font-size:clamp(17px,1.45vw,23px);line-height:1.72}.reader-page.book-mode .book-vocab-page .source-translation{font-size:clamp(15px,1.25vw,20px);line-height:1.7}}
 """
 
