@@ -35,6 +35,10 @@ class Article:
     vocabulary: list[dict[str, str]]
     analyses: list[dict[str, str]]
     source_digest: str = ""
+    cover_image: str = ""
+    title_explanation: str = ""
+    title_vocab_terms: str = ""
+    structure: str = ""
 
 
 ARTICLE_GUIDES: dict[str, dict[str, str]] = {
@@ -344,6 +348,10 @@ def clean_text(value: str) -> str:
     return value.strip()
 
 
+def compact_pdf_line(value: str) -> str:
+    return re.sub(r"\s+", " ", value.replace("\x00", " ")).strip()
+
+
 def lesson_body(raw: str) -> str:
     stop_positions = [raw.find(marker) for marker in POST_READING_HEADINGS]
     stop_positions = [position for position in stop_positions if position >= 0]
@@ -362,6 +370,11 @@ def title_from_path(path: Path) -> str:
     title = re.sub(r"^\d{8}", "", title)
     title = re.sub(r"^【笔记讲义】", "", title)
     return title.strip("- _,")
+
+
+def cover_image_ref(date: str) -> str:
+    cover = OUTPUT_DIR / "assets" / "covers" / f"{date}-cover.png"
+    return f"../assets/covers/{date}-cover.png" if cover.exists() else ""
 
 
 VOCAB_PATTERN = re.compile(
@@ -994,6 +1007,84 @@ def clean_analysis_layout(text: str) -> str:
     return cleaned.strip()
 
 
+def extract_title_explanation(path: Path) -> str:
+    """Return the headline/subheadline lines from the PDF cover page."""
+    with pdfplumber.open(path) as pdf:
+        page_text = pdf.pages[0].extract_text(layout=True) or pdf.pages[0].extract_text() or ""
+    raw_lines = [compact_pdf_line(line) for line in page_text.splitlines()]
+    lines: list[str] = []
+    collecting = False
+    for line in raw_lines:
+        if not line:
+            continue
+        if re.search(r"\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\.\s+\d{1,2},\s+20\d{2}", line):
+            collecting = True
+            continue
+        if not collecting:
+            continue
+        if re.search(rf"\b[A-Za-z][A-Za-z’' /-]{{1,52}}?\s+{POS_PATTERN}\.\s*/", line):
+            break
+        if line.startswith(("背景补充", "Para.")):
+            break
+        if any(token in line for token in ("扫码", "领课程资料", "视频号", "公众号")):
+            continue
+        lines.append(line)
+    if not lines:
+        return ""
+    groups: list[tuple[str, str]] = []
+    for line in lines:
+        lang = "zh" if re.search(r"[\u4e00-\u9fff]", line) else "en"
+        if groups and groups[-1][0] == lang:
+            groups[-1] = (lang, groups[-1][1] + " " + line)
+        else:
+            groups.append((lang, line))
+    return "\n".join(value.strip() for _, value in groups if value.strip())
+
+
+def extract_title_vocab_terms(raw: str) -> str:
+    first_para = re.search(r"\bPara\.\s*1\b", raw)
+    if not first_para:
+        return ""
+    prefix = clean_text(raw[:first_para.start()])
+    terms: list[str] = []
+    seen: set[str] = set()
+    for match in VOCAB_PATTERN.finditer(prefix):
+        term = re.sub(r"\s+", " ", match.group(1)).strip()
+        key = term.lower()
+        if term and key not in seen:
+            terms.append(term)
+            seen.add(key)
+    return ", ".join(terms)
+
+
+def extract_article_structure(path: Path) -> str:
+    page_sections: list[str] = []
+    collecting = False
+    with pdfplumber.open(path) as pdf:
+        for page in pdf.pages:
+            text = page.extract_text(layout=True) or page.extract_text() or ""
+            if not collecting:
+                start = text.find("文章结构")
+                if start < 0:
+                    continue
+                collecting = True
+                text = text[start + len("文章结构"):]
+            stop_positions = [
+                position
+                for position in (text.find("课后作业"), text.find("中英文互译"))
+                if position >= 0
+            ]
+            should_stop = bool(stop_positions)
+            if should_stop:
+                text = text[:min(stop_positions)]
+            page_sections.append(clean_analysis_layout(text))
+            if should_stop:
+                break
+    section = clean_analysis_layout("\n\n".join(page_sections))
+    section = re.sub(r"\n\s*\d+\s*-\s*\n", "\n", section)
+    return section[:4000]
+
+
 ANALYSIS_BODY_START = re.compile(
     r"^(?:"
     r"1[.、]\s*"
@@ -1080,6 +1171,10 @@ def read_article(path: Path, digest: str | None = None) -> Article:
         vocabulary=extract_vocabulary(raw),
         analyses=extract_analyses(path),
         source_digest=digest or sha256(path),
+        cover_image=cover_image_ref(date),
+        title_explanation=extract_title_explanation(path),
+        title_vocab_terms=extract_title_vocab_terms(raw),
+        structure=extract_article_structure(path),
     )
 
 
@@ -1198,11 +1293,21 @@ def structure_tree_html(value: str) -> str:
 
 
 def title_lines_html(value: str) -> str:
-    groups = [
-        [line.strip() for line in group.splitlines() if line.strip()]
-        for group in re.split(r"\n\s*\n", value.strip())
-        if group.strip()
-    ]
+    lines = [line.strip() for line in value.splitlines() if line.strip()]
+    groups: list[list[str]] = []
+    index = 0
+    while index < len(lines):
+        current = lines[index]
+        current_is_zh = bool(re.search(r"[\u4e00-\u9fff]", current))
+        group = [current]
+        if index + 1 < len(lines):
+            following = lines[index + 1]
+            following_is_zh = bool(re.search(r"[\u4e00-\u9fff]", following))
+            if following_is_zh != current_is_zh:
+                group.append(following)
+                index += 1
+        groups.append(group)
+        index += 1
     blocks = []
     for group in groups:
         blocks.append(
@@ -1217,14 +1322,23 @@ def daily_html(article: Article, all_articles: list[Article], config: dict) -> s
     display = config["display"]
     is_book_mode = True
     body_class = "reader-page eagle-style book-mode"
-    guide = ARTICLE_GUIDES.get(article.date, {
+    guide = {
+        "cover_image": article.cover_image,
+        "title_explanation": article.title_explanation,
+        "title_vocab_terms": article.title_vocab_terms,
+        "structure": article.structure,
+        "pet_index": "04",
         "background": "本期文章的背景介绍正在整理中。",
         "overview": (
             article.paragraphs[0]["translation"][:360]
             if article.paragraphs else "本期文章内容简介正在整理中。"
         ),
         "pet": "",
-    })
+    }
+    guide.update(ARTICLE_GUIDES.get(article.date, {}))
+    for key in ("cover_image", "title_explanation", "title_vocab_terms", "structure"):
+        if getattr(article, key) and not config.get("article_guides", {}).get(article.date, {}).get(key):
+            guide[key] = getattr(article, key)
     guide = {**guide, **config.get("article_guides", {}).get(article.date, {})}
     pet_html = ""
     if guide.get("pet"):
