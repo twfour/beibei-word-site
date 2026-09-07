@@ -37,11 +37,20 @@ floatingTooltip.className='word-tooltip-floating';
 floatingTooltip.setAttribute('role','tooltip');
 document.body.append(floatingTooltip);
 let activeWordTip=null;
-function hideFloatingTooltip(){floatingTooltip.classList.remove('is-visible');activeWordTip=null}
+function hideFloatingTooltip(){
+  if(activeWordTip){
+    activeWordTip.setAttribute('aria-expanded','false');
+    activeWordTip.dataset.tooltipPinned='false';
+  }
+  floatingTooltip.classList.remove('is-visible');
+  activeWordTip=null;
+}
 function showFloatingTooltip(tip){
   const tooltip=tip.querySelector('.word-tooltip');
   if(!tooltip)return;
+  if(activeWordTip&&activeWordTip!==tip){activeWordTip.setAttribute('aria-expanded','false')}
   activeWordTip=tip;
+  tip.setAttribute('aria-expanded','true');
   floatingTooltip.textContent=tooltip.textContent.trim();
   floatingTooltip.classList.add('is-visible');
   const tipRect=tip.getBoundingClientRect();
@@ -56,10 +65,24 @@ function showFloatingTooltip(tip){
   floatingTooltip.style.top=`${top}px`;
 }
 document.querySelectorAll('.word-tip').forEach(tip=>{
+  tip.setAttribute('role','button');
+  tip.setAttribute('aria-expanded','false');
   tip.addEventListener('mouseenter',()=>showFloatingTooltip(tip));
   tip.addEventListener('mouseleave',hideFloatingTooltip);
   tip.addEventListener('focus',()=>showFloatingTooltip(tip));
   tip.addEventListener('blur',hideFloatingTooltip);
+  tip.addEventListener('click',event=>{
+    event.preventDefault();
+    event.stopPropagation();
+    if(activeWordTip===tip&&floatingTooltip.classList.contains('is-visible')&&tip.dataset.tooltipPinned==='true'){hideFloatingTooltip()}
+    else{
+      showFloatingTooltip(tip);
+      tip.dataset.tooltipPinned='true';
+    }
+  });
+});
+document.addEventListener('click',event=>{
+  if(!event.target.closest('.word-tip')){hideFloatingTooltip()}
 });
 ['scroll','resize'].forEach(type=>{
   window.addEventListener(type,()=>{if(activeWordTip)showFloatingTooltip(activeWordTip)},{passive:true,capture:true});
@@ -108,5 +131,10 @@ if(favoritesModal&&favoritesOpen){
   favoritesModal.querySelector('.favorites-close').addEventListener('click',closeFavoritesModal);
   favoritesModal.addEventListener('click',event=>{if(event.target===favoritesModal)closeFavoritesModal()});
 }
-document.addEventListener('keydown',event=>{if(event.key==='Escape'&&favoritesModal&&!favoritesModal.hidden){closeFavoritesModal()}});
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'){
+    hideFloatingTooltip();
+    if(favoritesModal&&!favoritesModal.hidden){closeFavoritesModal()}
+  }
+});
 syncFavoriteButtons();renderFavorites();

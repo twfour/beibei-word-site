@@ -405,6 +405,11 @@ VOCAB_PATTERN = re.compile(
     r"\s+长难句分析|\s+中英文互译|\s+文章结构|\s+课后作业|$)",
     re.S,
 )
+VOCAB_HEADING_PATTERN = re.compile(
+    r"\b[A-Za-z][A-Za-z’' /-]{1,52}?(?:\s+\.\.\.\s+[A-Za-z][A-Za-z’' /-]{0,24})?\s+"
+    rf"{POS_PATTERN}\.\s*/[^/]{{1,90}}/",
+    re.S,
+)
 
 
 # Some PDF pages place the paragraph translation between a vocabulary heading
@@ -868,6 +873,46 @@ def recover_english_after_leading_translation(value: str) -> str:
     return value
 
 
+def incomplete_english_fragment(value: str) -> bool:
+    """Return True when a PDF page break likely split an English paragraph."""
+    compact = re.sub(r"\s+", " ", value).strip()
+    if not compact:
+        return False
+    if re.search(r"[.!?][\"”’']?$", compact):
+        return False
+    return bool(re.search(r"\b(?:be|been|being|is|are|was|were)$", compact, re.I))
+
+
+def recover_english_split_by_translation(value: str) -> str:
+    """Reconnect English paragraphs interrupted by inserted Chinese translations.
+
+    Some PDFs extract a page-spanning paragraph as:
+    English first half -> Chinese translation -> English continuation -> vocab.
+    The Chinese translation is useful elsewhere, but the original paragraph
+    should keep both English halves.
+    """
+    value = recover_english_after_leading_translation(value)
+    first_han = re.search(r"[\u4e00-\u9fff]", value)
+    if not first_han:
+        return value
+    first = value[:first_han.start()].strip()
+    if not incomplete_english_fragment(first):
+        return first
+    tail = value[first_han.start():]
+    continuation = next(
+        (
+            re.sub(r"\s+", " ", match.group(1)).strip()
+            for match in re.finditer(
+                r"(?<![A-Za-z])([a-z][A-Za-z0-9$%’'\"“”().,;:\-–—\s]{35,}[.!?][\"”’']?)",
+                tail,
+            )
+            if len(match.group(1).split()) >= 6
+        ),
+        "",
+    )
+    return f"{first} {continuation}".strip() if continuation else first
+
+
 def extract_paragraphs(raw: str) -> list[dict[str, str]]:
     full_raw = raw
     raw = lesson_body(raw)
@@ -880,14 +925,17 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
             marker_pos = segment.find(marker)
             if marker_pos >= 0:
                 segment = segment[:marker_pos]
-        vocab = VOCAB_PATTERN.search(clean_text(segment))
         english_source = clean_text(segment)
-        if vocab:
-            english_source = english_source[:vocab.start()]
-        english_source = recover_english_after_leading_translation(english_source)
-        first_han = re.search(r"[\u4e00-\u9fff]", english_source)
-        if first_han:
-            english_source = english_source[:first_han.start()]
+        vocab = VOCAB_PATTERN.search(english_source)
+        vocab_heading = VOCAB_HEADING_PATTERN.search(english_source)
+        cut_positions = [
+            match.start()
+            for match in (vocab, vocab_heading)
+            if match is not None
+        ]
+        if cut_positions:
+            english_source = english_source[:min(cut_positions)]
+        english_source = recover_english_split_by_translation(english_source)
         english_source = re.sub(r"^\W+", "", english_source).strip()
         if not english_source:
             continue
@@ -1770,11 +1818,20 @@ floatingTooltip.className='word-tooltip-floating';
 floatingTooltip.setAttribute('role','tooltip');
 document.body.append(floatingTooltip);
 let activeWordTip=null;
-function hideFloatingTooltip(){floatingTooltip.classList.remove('is-visible');activeWordTip=null}
+function hideFloatingTooltip(){
+  if(activeWordTip){
+    activeWordTip.setAttribute('aria-expanded','false');
+    activeWordTip.dataset.tooltipPinned='false';
+  }
+  floatingTooltip.classList.remove('is-visible');
+  activeWordTip=null;
+}
 function showFloatingTooltip(tip){
   const tooltip=tip.querySelector('.word-tooltip');
   if(!tooltip)return;
+  if(activeWordTip&&activeWordTip!==tip){activeWordTip.setAttribute('aria-expanded','false')}
   activeWordTip=tip;
+  tip.setAttribute('aria-expanded','true');
   floatingTooltip.textContent=tooltip.textContent.trim();
   floatingTooltip.classList.add('is-visible');
   const tipRect=tip.getBoundingClientRect();
@@ -1789,10 +1846,24 @@ function showFloatingTooltip(tip){
   floatingTooltip.style.top=`${top}px`;
 }
 document.querySelectorAll('.word-tip').forEach(tip=>{
+  tip.setAttribute('role','button');
+  tip.setAttribute('aria-expanded','false');
   tip.addEventListener('mouseenter',()=>showFloatingTooltip(tip));
   tip.addEventListener('mouseleave',hideFloatingTooltip);
   tip.addEventListener('focus',()=>showFloatingTooltip(tip));
   tip.addEventListener('blur',hideFloatingTooltip);
+  tip.addEventListener('click',event=>{
+    event.preventDefault();
+    event.stopPropagation();
+    if(activeWordTip===tip&&floatingTooltip.classList.contains('is-visible')&&tip.dataset.tooltipPinned==='true'){hideFloatingTooltip()}
+    else{
+      showFloatingTooltip(tip);
+      tip.dataset.tooltipPinned='true';
+    }
+  });
+});
+document.addEventListener('click',event=>{
+  if(!event.target.closest('.word-tip')){hideFloatingTooltip()}
 });
 ['scroll','resize'].forEach(type=>{
   window.addEventListener(type,()=>{if(activeWordTip)showFloatingTooltip(activeWordTip)},{passive:true,capture:true});
@@ -1841,7 +1912,12 @@ if(favoritesModal&&favoritesOpen){
   favoritesModal.querySelector('.favorites-close').addEventListener('click',closeFavoritesModal);
   favoritesModal.addEventListener('click',event=>{if(event.target===favoritesModal)closeFavoritesModal()});
 }
-document.addEventListener('keydown',event=>{if(event.key==='Escape'&&favoritesModal&&!favoritesModal.hidden){closeFavoritesModal()}});
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'){
+    hideFloatingTooltip();
+    if(favoritesModal&&!favoritesModal.hidden){closeFavoritesModal()}
+  }
+});
 syncFavoriteButtons();renderFavorites();
 """
 
