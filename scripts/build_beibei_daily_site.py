@@ -278,6 +278,26 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "└─ 结局推演：输则投资人买单，赢则加速 AI 时代到来"
         ),
     },
+    "20260907": {
+        "pet_index": "04",
+        "overview": (
+            "文章讨论许多国家女性无法自由外出工作所带来的经济与社会代价。开头先用埃及已婚母亲的托育实验说明："
+            "即使外部条件被改善，丈夫反对、传统压力和家庭控制仍可能让女性无法进入职场。随后文章把问题扩展到中东、北非、南亚等地区，"
+            "指出女性被要求深居简出，不只是个人不公平，也会让整个国家更贫穷。数据部分显示，女性劳动收入占比在不同国家差距巨大；"
+            "世界银行估算，消除女性就业障碍能显著提高许多国家的人均收入，收益甚至超过避免一场典型内战。"
+            "文章中段进一步说明，有偿工作会改变家庭内部权力结构：女性有收入后，在家庭预算、外出探友等日常决策中会拥有更多话语权。"
+            "后半部分提出四把“钥匙”：第一是法律改革，例如沙特放宽女性工作和驾驶限制；第二是改变社会规范，先行者和示范效应能让保守社群逐渐接受女性工作；"
+            "第三是学校、NGO、公共安全措施和数字技术的助推，让家庭看到女性工作并非危险；最后是金钱本身，当女性收入足够有吸引力时，"
+            "保守男性也可能重新权衡所谓荣誉与家庭收益。全文结论是，解放女性劳动力不只是女性权益问题，也是国家繁荣、家庭平等和社会现代化的关键。"
+        ),
+        "pet": (
+            "The article says that in many countries, women are still not free to work outside the home. Around the world, women have fought for equal treatment at work. But in some places, the first problem is even more basic: women are not allowed to enter the workplace at all. "
+            "The writer gives an example from Egypt. Married mothers were offered free or cheap child care near their homes. This should have made it easier for them to look for jobs. However, only a small number accepted the offer. For many women, the real problem was not child care. It was husbands who believed women should stay at home. "
+            "The article explains that these ideas make whole countries poorer. In South Asia, only about one third of women are in the labour force. In the Middle East and north Africa, only about one fifth are. The World Bank estimates that if barriers to women working were removed, income per person could rise by a fifth in many countries. "
+            "Paid work also gives women more power at home. When women earn money, they often have more say in family decisions, such as how to use the family budget or whether they can visit a friend. In this way, work can make families more equal. "
+            "The article then gives several ways to change the situation. Laws can be changed, as Saudi Arabia has shown. Social norms can also change when people see women working safely and successfully. Schools, NGOs, public transport and digital technology can all help. Finally, money can change minds too. If a wife's income helps the family, even conservative husbands may begin to accept her work."
+        ),
+    },
 }
 
 
@@ -667,6 +687,12 @@ def strip_embedded_paragraph_translation_from_example(example: str) -> str:
     example = re.split(r"\s+\*\s+", example, 1)[0].strip()
     if not suspicious_example(example):
         return example
+    match = re.match(
+        r"(.{20,180}?[\u4e00-\u9fff][^。！？]{0,60}?)(?:\s+[\u4e00-\u9fff][^•]{30,}[。！？].*)$",
+        example,
+    )
+    if match:
+        return match.group(1).strip()
     match = re.match(r"(.{20,180}?[\u4e00-\u9fff][。！？])\s+[\u4e00-\u9fff].*", example)
     return match.group(1).strip() if match else example
 
@@ -811,6 +837,10 @@ def translation_candidates(segment: str) -> list[str]:
         if any(token in line for token in (
             "背景补充", "长难句分析", "中英文互译", "文章结构", "课后作业", "固定搭配", "语法点",
             "主句", "从句", "主语", "谓语", "宾语", "后置定语", "句式拆解",
+        )):
+            continue
+        if any(token in line for token in (
+            "面积：", "首都：", "货币：", "支柱产业：", "人类发展指数", "正式独立",
         )):
             continue
         if re.search(r"\bPara\.\s*\d+", line):
@@ -1091,7 +1121,7 @@ def extract_article_structure(path: Path) -> str:
 
 ANALYSIS_BODY_START = re.compile(
     r"^(?:"
-    r"1[.、]\s*"
+    r"1[.、:：]\s*"
     r"|第[一二三四五六七八九十]+部分\s*[:：]"
     r"|主句(?:部分)?\s*[:：]"
     r"|整体(?:结构|分析)\s*[:：]"
@@ -1125,6 +1155,12 @@ def extract_analyses(path: Path) -> list[dict[str, str]]:
             if should_stop:
                 break
     section = clean_analysis_layout("\n\n".join(page_sections))
+    section = re.sub(r"(?<!^)(?<!\n)\s+(\d+\.\s+(?=[A-Z]))", r"\n\n\1", section)
+    section = re.sub(
+        r"\s+(1[.、:：]\s*(?=(?:主句|整体|宾语|that\b|if\b)))",
+        r"\n\1",
+        section,
+    )
     markers = [
         marker
         for marker in re.finditer(r"(?m)^(\d+)\.\s+([A-Z].*)$", section)
