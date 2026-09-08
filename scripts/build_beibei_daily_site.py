@@ -298,6 +298,24 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The article then gives several ways to change the situation. Laws can be changed, as Saudi Arabia has shown. Social norms can also change when people see women working safely and successfully. Schools, NGOs, public transport and digital technology can all help. Finally, money can change minds too. If a wife's income helps the family, even conservative husbands may begin to accept her work."
         ),
     },
+    "20260908": {
+        "pet_index": "04",
+        "overview": (
+            "文章讲述月之暗面创始人杨植麟从中国赴美求学、再回国创业的经历，并借他的选择观察中美 AI 人才与技术文化的双向流动。"
+            "开头先写许多中国优秀计算机学生会留在美国发展，但杨植麟在卡内基梅隆博士阶段放弃苹果等机会，坚持回国创办公司。"
+            "中段转向月之暗面本身：公司估值快速上升、递交港股上市申请，Kimi 模型在全球工程师群体中获得关注；同时，公司文化吸收了硅谷式直接沟通、去层级和摇滚气质。"
+            "随后文章把月之暗面的成功放进更大的 AI 竞争格局：美国公司借鉴中国 996，中国开源权重模型则以更低成本、更强定制性冲击 Anthropic 和 OpenAI 等闭源巨头，引发美国关于禁令和“蒸馏”的争议。"
+            "后半部分回到杨植麟个人成长线：他从广东、清华、摇滚乐队到卡内基梅隆和 Google Brain，一路展现出强研究能力与创业野心。"
+            "全文核心不是简单写一个年轻 CEO，而是说明：AI 时代的竞争正在围绕人才流动、开源模型、公司文化和国家技术生态重新展开。"
+        ),
+        "pet": (
+            "The article is about Yang Zhilin, the young founder and CEO of Moonshot AI. Many talented Chinese computer science students go to the United States to study. Some of them stay there and work at famous universities or technology companies. Yang made a different choice. He wanted to return to China and build his own company. "
+            "His Ph.D. adviser at Carnegie Mellon thought this was a bad idea. Apple wanted to hire Yang, and his career in America was moving upward. But Yang was determined to go home. Today, his decision looks more successful. Moonshot AI has become one of China’s top AI labs, and its Kimi models are popular with many software engineers. "
+            "Moonshot also has a special company culture. It borrows some ideas from Silicon Valley. The company has fewer titles and less hierarchy. Employees can communicate directly, and some meeting rooms are named after rock bands. Yang believes this helps people work faster and avoid red tape. "
+            "The article also explains why Moonshot matters in the global AI race. Chinese open-weight models are cheaper and easier to change than many closed models from American companies. This worries some U.S. executives and officials. They say Chinese models may have improved by using outputs from advanced U.S. models, a method called distillation. "
+            "Finally, the article looks at Yang’s early life. He studied at Tsinghua University, published important research papers, and later interned at Google Brain. His teachers and classmates remember him as very smart and confident. The main idea is that AI competition is not only about machines. It is also about people, culture and the choices talented engineers make."
+        ),
+    },
 }
 
 
@@ -408,6 +426,11 @@ VOCAB_PATTERN = re.compile(
 VOCAB_HEADING_PATTERN = re.compile(
     r"\b[A-Za-z][A-Za-z’' /-]{1,52}?(?:\s+\.\.\.\s+[A-Za-z][A-Za-z’' /-]{0,24})?\s+"
     rf"{POS_PATTERN}\.\s*/[^/]{{1,90}}/",
+    re.S,
+)
+VOCAB_BARE_HEADING_PATTERN = re.compile(
+    r"\b[A-Za-z][A-Za-z’' /-]{1,80}?\s+"
+    rf"{POS_PATTERN}\.\s+(?=(?:\d+[.、]|to\b|if\b|If\b|Someone\b|A\b|An\b|The\b))",
     re.S,
 )
 
@@ -660,6 +683,16 @@ def strip_leading_paragraph_translation(definition: str) -> str:
     """
     if not suspicious_definition(definition):
         return definition
+    # Normal dictionary definitions often look like:
+    #   English definition中文短释义 2015年，整段中文翻译……
+    # The Chinese paragraph is PDF extraction noise and must not enter cards/tooltips.
+    match = re.match(
+        r"^([A-Za-z][^。！？•]{8,260}?[\u4e00-\u9fff][^。！？•]{0,90}?)"
+        r"\s+(?=(?:19|20)\d{2}年|[一-龥]{2,}[，。])",
+        definition,
+    )
+    if match:
+        return re.sub(r"\s+", " ", match.group(1)).strip()
     match = re.search(
         r"(?:^|[。！？][”’\"']?\s+)([A-Za-z][^。！？•]{8,220}[\u4e00-\u9fff][^。！？•]{0,80})\s*$",
         definition,
@@ -880,7 +913,11 @@ def incomplete_english_fragment(value: str) -> bool:
         return False
     if re.search(r"[.!?][\"”’']?$", compact):
         return False
-    return bool(re.search(r"\b(?:be|been|being|is|are|was|were)$", compact, re.I))
+    # A line that stops after a determiner or subordinator is too ambiguous:
+    # older PDFs can then accidentally pick up a vocabulary/analysis fragment.
+    if re.search(r"\b(?:when|if|whether|that|while|although|because)\s+(?:the|a|an)?$", compact, re.I):
+        return False
+    return True
 
 
 def recover_english_split_by_translation(value: str) -> str:
@@ -928,9 +965,10 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
         english_source = clean_text(segment)
         vocab = VOCAB_PATTERN.search(english_source)
         vocab_heading = VOCAB_HEADING_PATTERN.search(english_source)
+        bare_vocab_heading = VOCAB_BARE_HEADING_PATTERN.search(english_source)
         cut_positions = [
             match.start()
-            for match in (vocab, vocab_heading)
+            for match in (vocab, vocab_heading, bare_vocab_heading)
             if match is not None
         ]
         if cut_positions:
@@ -1209,11 +1247,17 @@ def extract_analyses(path: Path) -> list[dict[str, str]]:
         r"\n\1",
         section,
     )
-    markers = [
-        marker
-        for marker in re.finditer(r"(?m)^(\d+)\.\s+([A-Z].*)$", section)
-        if "【" not in marker.group(2) and not re.search(r"[\u4e00-\u9fff]", marker.group(2))
-    ]
+    markers = []
+    expected_number = 1
+    for marker in re.finditer(r"(?m)^(\d+)\.\s+([A-Z].*)$", section):
+        if "【" in marker.group(2) or re.search(r"[\u4e00-\u9fff]", marker.group(2)):
+            continue
+        # Nested analysis bullets can also begin with English words, such as
+        # "1. Of all ...". Only accept the outer sentence sequence 1, 2, 3...
+        if marker.group(1) != str(expected_number):
+            continue
+        markers.append(marker)
+        expected_number += 1
     results: list[dict[str, str]] = []
     for index, marker in enumerate(markers):
         chunk_end = markers[index + 1].start() if index + 1 < len(markers) else len(section)
