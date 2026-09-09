@@ -316,6 +316,27 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "Finally, the article looks at Yang’s early life. He studied at Tsinghua University, published important research papers, and later interned at Google Brain. His teachers and classmates remember him as very smart and confident. The main idea is that AI competition is not only about machines. It is also about people, culture and the choices talented engineers make."
         ),
     },
+    "20260909": {
+        "pet_index": "04",
+        "overview": (
+            "文章讨论中国汽车企业如何从出口汽车走向海外建厂，并把“中国速度”带到全球市场。"
+            "开头以福特 1911 年在曼彻斯特建立海外据点作历史参照，说明汽车公司从本土冠军变成全球巨头，往往需要跨出国门、贴近海外消费者。"
+            "随后文章解释中国车企出海的压力来源：国内市场竞争激烈、价格战持续、外国品牌份额下降，中国品牌出口快速增长。"
+            "中段重点写本地化生产的好处，包括降低运输成本、避开关税、适配当地需求、满足法规并争取政府补贴；欧洲因为市场庞大、政策门槛高，成为中国车企尤其重视的目标。"
+            "文章还分析了不同建厂路径：比亚迪等企业自建工厂，有些企业可能先收购或租用欧洲闲置产能，再逐步建立自己的生产体系。"
+            "后半部分指出，中国车企真正难以被复制的优势，是更简单的平台架构、垂直整合、规模效应、软件能力和更快研发节奏。"
+            "即使进入海外后会面对销售网络、人力、能源和供应链成本，中国企业仍可通过东欧低成本地区、自动化黑灯工厂和国内研发体系保持速度。"
+            "全文核心判断是：中国汽车出海不只是卖便宜车，而是把一整套高效率制造与研发系统推向全球，欧洲传统车企因此面临长期压力。"
+        ),
+        "pet": (
+            "The article explains how Chinese carmakers are moving from exporting cars to building factories around the world. More than one hundred years ago, Ford opened an overseas base in Manchester. This showed one way for a car company to become global. Today, Chinese carmakers are following a similar path. "
+            "China’s car companies are very strong at home, but competition in China is also very hard. The market is expected to shrink, and price wars are pushing companies to sell more cars abroad. In only a few years, Chinese car exports have grown quickly, while foreign brands have lost market share inside China. "
+            "Building cars near foreign customers has many advantages. It can reduce shipping costs, avoid tariffs and help companies understand local tastes. It can also help them meet local rules and receive government support. Europe is especially important because it is a large and valuable market. "
+            "Chinese companies may use different methods. Some will build new factories. Others may buy or rent old European factories first, so they can start production faster. Later, they may build their own complete production lines. "
+            "The writer says China’s real advantage is not only cheap labour. Chinese carmakers often have simpler vehicle platforms, more control over suppliers, strong software teams and very fast product development. They can often create a new model in about two years, while foreign competitors may need twice as long. This is called China speed. "
+            "Chinese companies will still face new costs abroad, such as sales networks, after-sales service, labour and energy. But they can choose cheaper countries and use more automation. The main idea is that China speed will not disappear soon. It may continue to put pressure on European carmakers."
+        ),
+    },
 }
 
 
@@ -431,6 +452,28 @@ VOCAB_HEADING_PATTERN = re.compile(
 VOCAB_BARE_HEADING_PATTERN = re.compile(
     r"\b[A-Za-z][A-Za-z’' /-]{1,80}?\s+"
     rf"{POS_PATTERN}\.\s+(?=(?:\d+[.、]|to\b|if\b|If\b|Someone\b|A\b|An\b|The\b))",
+    re.S,
+)
+VOCAB_PHONETIC_HEADING_PATTERN = re.compile(
+    r"\b[A-Za-z][A-Za-z’' /-]{1,80}?\s*/[^/]{1,90}/\s+(?=\d+[.、])",
+    re.S,
+)
+VOCAB_NUMBERED_HEADING_PATTERN = re.compile(
+    r"\b[A-Za-z][A-Za-z’' /-]{1,80}?\s+(?=\d+[.、]\s+(?:during\b|to\b|when\b|if\b|If\b|A\b|An\b|The\b))",
+    re.S,
+)
+VOCAB_NO_POS_PATTERN = re.compile(
+    r"\b([A-Za-z][A-Za-z’' /-]{1,52}?)\s*/([^/]{1,90})/\s*"
+    r"(.*?)(?=\s+[A-Za-z][A-Za-z’' /-]{1,52}?\s+"
+    rf"{POS_PATTERN}\.\s*/|\s+[A-Za-z][A-Za-z’' /-]{{1,80}}?\s*/[^/]{{1,90}}/\s+\d+[.、]|"
+    r"\s+Para\.\s*\d+|\s+长难句分析|\s+中英文互译|\s+文章结构|\s+课后作业|$)",
+    re.S,
+)
+VOCAB_NO_POS_PHRASE_PATTERN = re.compile(
+    r"\b([A-Za-z][A-Za-z’' /-]{0,52}?(?:sb|sth|one’s|one's)[A-Za-z’' /-]{0,52}?)\s+"
+    r"(\d+[.、].*?)(?=\s+[A-Za-z][A-Za-z’' /-]{1,52}?\s+"
+    rf"{POS_PATTERN}\.\s*/|\s+[A-Za-z][A-Za-z’' /-]{{1,80}}?\s*/[^/]{{1,90}}/\s+\d+[.、]|"
+    r"\s+Para\.\s*\d+|\s+长难句分析|\s+中英文互译|\s+文章结构|\s+课后作业|$)",
     re.S,
 )
 
@@ -656,6 +699,8 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition_en": "the government buildings in Moscow; the central government of Russia",
         "example": "A two-hour meeting in the Kremlin. 一场在克里姆林宫召开的两小时会议。",
     },
+    "mighty": {"pos": "adj"},
+    "in sb's day": {"pos": "phr"},
 }
 
 
@@ -687,8 +732,8 @@ def strip_leading_paragraph_translation(definition: str) -> str:
     #   English definition中文短释义 2015年，整段中文翻译……
     # The Chinese paragraph is PDF extraction noise and must not enter cards/tooltips.
     match = re.match(
-        r"^([A-Za-z][^。！？•]{8,260}?[\u4e00-\u9fff][^。！？•]{0,90}?)"
-        r"\s+(?=(?:19|20)\d{2}年|[一-龥]{2,}[，。])",
+        r"^((?:\d+[.、]\s*)?[A-Za-z][^。！？•]{8,260}?[\u4e00-\u9fff][^。！？•]{0,90}?)"
+        r"\s+(?=(?:19|20)\d{2}年|[\u4e00-\u9fff]{2,}(?:[，。]|.{8,}[。！？]))",
         definition,
     )
     if match:
@@ -862,6 +907,74 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
                 "the PDF paragraph translation may have crossed the vocabulary boundary"
             )
         items.append(item)
+    for match in VOCAB_NO_POS_PATTERN.finditer(normalized):
+        term = re.sub(r"\s+", " ", match.group(1)).strip()
+        key = term.lower()
+        if key in seen or key.startswith(("page ", "para ")) or len(term) < 2:
+            continue
+        seen.add(key)
+        body = match.group(3).strip()
+        definition = strip_leading_paragraph_translation(body.split("•", 1)[0].strip())
+        chinese, english_definition = split_definition_languages(definition)
+        example = ""
+        if "•" in body:
+            example = strip_embedded_paragraph_translation_from_example(
+                body.split("•", 1)[1].split("•", 1)[0].strip()
+            )
+        item = {
+            "term": term,
+            "pos": "",
+            "phonetic": f"/{match.group(2).strip()}/",
+            "definition": chinese[:180],
+            "definition_en": english_definition[:220],
+            "example": example[:280],
+        }
+        item.update(VOCAB_CORRECTIONS.get(key, {}))
+        if suspicious_definition(item["definition"]):
+            raise ValueError(
+                f"Suspicious vocabulary definition for {term!r}; "
+                "the PDF paragraph translation may have crossed the vocabulary boundary"
+            )
+        if suspicious_example(item["example"]):
+            raise ValueError(
+                f"Suspicious vocabulary example for {term!r}; "
+                "the PDF paragraph translation may have crossed the vocabulary boundary"
+            )
+        items.append(item)
+    for match in VOCAB_NO_POS_PHRASE_PATTERN.finditer(normalized):
+        term = re.sub(r"\s+", " ", match.group(1)).strip()
+        key = term.lower()
+        if key in seen or key.startswith(("page ", "para ")) or len(term) < 2:
+            continue
+        seen.add(key)
+        body = match.group(2).strip()
+        definition = strip_leading_paragraph_translation(body.split("•", 1)[0].strip())
+        chinese, english_definition = split_definition_languages(definition)
+        example = ""
+        if "•" in body:
+            example = strip_embedded_paragraph_translation_from_example(
+                body.split("•", 1)[1].split("•", 1)[0].strip()
+            )
+        item = {
+            "term": term,
+            "pos": "",
+            "phonetic": "",
+            "definition": chinese[:180],
+            "definition_en": english_definition[:220],
+            "example": example[:280],
+        }
+        item.update(VOCAB_CORRECTIONS.get(key, {}))
+        if suspicious_definition(item["definition"]):
+            raise ValueError(
+                f"Suspicious vocabulary definition for {term!r}; "
+                "the PDF paragraph translation may have crossed the vocabulary boundary"
+            )
+        if suspicious_example(item["example"]):
+            raise ValueError(
+                f"Suspicious vocabulary example for {term!r}; "
+                "the PDF paragraph translation may have crossed the vocabulary boundary"
+            )
+        items.append(item)
     return items
 
 
@@ -966,9 +1079,17 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
         vocab = VOCAB_PATTERN.search(english_source)
         vocab_heading = VOCAB_HEADING_PATTERN.search(english_source)
         bare_vocab_heading = VOCAB_BARE_HEADING_PATTERN.search(english_source)
+        phonetic_vocab_heading = VOCAB_PHONETIC_HEADING_PATTERN.search(english_source)
+        numbered_vocab_heading = VOCAB_NUMBERED_HEADING_PATTERN.search(english_source)
         cut_positions = [
             match.start()
-            for match in (vocab, vocab_heading, bare_vocab_heading)
+            for match in (
+                vocab,
+                vocab_heading,
+                bare_vocab_heading,
+                phonetic_vocab_heading,
+                numbered_vocab_heading,
+            )
             if match is not None
         ]
         if cut_positions:
