@@ -337,6 +337,27 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "Chinese companies will still face new costs abroad, such as sales networks, after-sales service, labour and energy. But they can choose cheaper countries and use more automation. The main idea is that China speed will not disappear soon. It may continue to put pressure on European carmakers."
         ),
     },
+    "20260910": {
+        "pet_index": "04",
+        "overview": (
+            "文章讲述美国患者蒂姆·安德鲁斯接受基因编辑猪肾移植、靠它维持生命九个月，随后又成功等到人类供体肾脏的医学案例。"
+            "开头先呈现他的绝境：糖尿病和高血压摧毁肾脏，透析让身体极度虚弱，而罕见血型又让匹配人类肾源的机会非常渺茫。"
+            "当他得知医生正在尝试猪肾移植时，选择主动参与实验，希望即使自己可能失败，也能为医学进步留下数据。"
+            "中段解释这项案例的意义：猪肾目前还不是永久替代方案，但可能成为等待人类肾脏期间的“桥梁”，既维持生命，也让患者暂时摆脱透析。"
+            "文章进一步说明这些猪肾经过多重基因编辑，以降低排异反应、灭活猪基因组中的病毒；更关键的是，安德鲁斯的经历显示猪肾不会破坏后续人类肾移植的免疫匹配。"
+            "后半部分把个案放入异种移植的发展背景：基因工程、克隆和抗排异药物推动该领域快速进步，eGenesis 和其他公司正准备更大规模的人体临床试验。"
+            "结尾回到患者本人：猪肾最终因血栓受损被摘除，但他随后成功移植人肾，身体状况改善，重新游泳、划皮艇、骑车，并以更珍惜生命的方式生活。"
+            "全文核心是：猪肾移植还未彻底改写器官短缺问题，但它已经证明，异种器官或许能成为肾病患者通向真正移植机会的一座桥。"
+        ),
+        "pet": (
+            "The article tells the story of Tim Andrews, a man with serious kidney disease. Diabetes and high blood pressure had destroyed his kidneys. Dialysis kept him alive, but it made him very tired and weak. He also had a rare blood type, so it was very hard for him to get a matching human kidney. "
+            "Then Andrews heard about doctors who were transplanting kidneys from genetically modified pigs. He contacted them and agreed to take part. He said that if he was going to die, he wanted to do something useful for humanity. In January 2025, he received a pig kidney and lived with it for nine months. "
+            "This case is important because the pig kidney worked as a bridge. It was not a permanent solution, but it helped Andrews stay alive while he waited for a human kidney. It also gave him a break from dialysis. Doctors hope this kind of treatment can help many patients who are waiting for organs. "
+            "The pig kidneys come from pigs with many genetic changes. Some changes are meant to reduce rejection by the human body. Other changes are meant to stop viruses in the pig genome. The case also suggests that using a pig kidney does not make a later human kidney transplant more difficult. "
+            "Research in this field is moving quickly. Companies are planning more clinical trials with pig kidneys and even pig hearts. Scientists hope that one day pig kidneys may last as long as human kidneys. For now, the goal may be simpler: to help patients survive until a human organ is available. "
+            "Andrews later received a human kidney. He still has some health problems, but he feels much better than before. He swims, kayaks and rides his bike. The experience changed how he sees life. He now tries to slow down and enjoy the world around him."
+        ),
+    },
 }
 
 
@@ -466,6 +487,15 @@ VOCAB_NO_POS_PATTERN = re.compile(
     r"\b([A-Za-z][A-Za-z’' /-]{1,52}?)\s*/([^/]{1,90})/\s*"
     r"(.*?)(?=\s+[A-Za-z][A-Za-z’' /-]{1,52}?\s+"
     rf"{POS_PATTERN}\.\s*/|\s+[A-Za-z][A-Za-z’' /-]{{1,80}}?\s*/[^/]{{1,90}}/\s+\d+[.、]|"
+    r"\s+Para\.\s*\d+|\s+长难句分析|\s+中英文互译|\s+文章结构|\s+课后作业|$)",
+    re.S,
+)
+VOCAB_POS_NO_PHONETIC_PATTERN = re.compile(
+    r"\b([A-Za-z][A-Za-z’' /-]{1,80}?)\s+"
+    rf"({POS_PATTERN})\.\s+"
+    r"(.*?)(?=\s+[A-Za-z][A-Za-z’' /-]{1,52}?\s+"
+    rf"{POS_PATTERN}\.\s*/|\s+[A-Za-z][A-Za-z’' /-]{{1,80}}?\s+{POS_PATTERN}\.\s+"
+    r"|\s+[A-Za-z][A-Za-z’' /-]{1,80}?\s*/[^/]{1,90}/\s+\d+[.、]|"
     r"\s+Para\.\s*\d+|\s+长难句分析|\s+中英文互译|\s+文章结构|\s+课后作业|$)",
     re.S,
 )
@@ -701,6 +731,11 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
     },
     "mighty": {"pos": "adj"},
     "in sb's day": {"pos": "phr"},
+    "lancet": {
+        "definition": "柳叶刀；《柳叶刀》医学期刊",
+        "definition_en": "a small sharp surgical knife; The Lancet is a leading peer-reviewed medical journal",
+        "example": "The milestone was described in a paper published in The Lancet. 这一里程碑式案例发表在《柳叶刀》上。",
+    },
 }
 
 
@@ -891,6 +926,40 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
             "term": term,
             "pos": match.group(2),
             "phonetic": f"/{match.group(3).strip()}/",
+            "definition": chinese[:180],
+            "definition_en": english_definition[:220],
+            "example": example[:280],
+        }
+        item.update(VOCAB_CORRECTIONS.get(key, {}))
+        if suspicious_definition(item["definition"]):
+            raise ValueError(
+                f"Suspicious vocabulary definition for {term!r}; "
+                "the PDF paragraph translation may have crossed the vocabulary boundary"
+            )
+        if suspicious_example(item["example"]):
+            raise ValueError(
+                f"Suspicious vocabulary example for {term!r}; "
+                "the PDF paragraph translation may have crossed the vocabulary boundary"
+            )
+        items.append(item)
+    for match in VOCAB_POS_NO_PHONETIC_PATTERN.finditer(normalized):
+        term = re.sub(r"\s+", " ", match.group(1)).strip()
+        key = term.lower()
+        if key in seen or key.startswith(("page ", "para ")) or len(term) < 2:
+            continue
+        seen.add(key)
+        body = match.group(3).strip()
+        definition = strip_leading_paragraph_translation(body.split("•", 1)[0].strip())
+        chinese, english_definition = split_definition_languages(definition)
+        example = ""
+        if "•" in body:
+            example = strip_embedded_paragraph_translation_from_example(
+                body.split("•", 1)[1].split("•", 1)[0].strip()
+            )
+        item = {
+            "term": term,
+            "pos": match.group(2),
+            "phonetic": "",
             "definition": chinese[:180],
             "definition_en": english_definition[:220],
             "example": example[:280],
