@@ -1188,6 +1188,7 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
         bare_vocab_heading = VOCAB_BARE_HEADING_PATTERN.search(english_source)
         phonetic_vocab_heading = VOCAB_PHONETIC_HEADING_PATTERN.search(english_source)
         numbered_vocab_heading = VOCAB_NUMBERED_HEADING_PATTERN.search(english_source)
+        no_pos_phrase_vocab_heading = VOCAB_NO_POS_PHRASE_PATTERN.search(english_source)
         cut_positions = [
             match.start()
             for match in (
@@ -1196,6 +1197,7 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
                 bare_vocab_heading,
                 phonetic_vocab_heading,
                 numbered_vocab_heading,
+                no_pos_phrase_vocab_heading,
             )
             if match is not None
         ]
@@ -1273,6 +1275,7 @@ def vocabulary_aliases(term: str) -> set[str]:
         "come to one's aid": {"come to my aid", "come to our aid", "come to his aid", "come to her aid", "come to their aid", "came to my aid", "came to our aid", "came to his aid", "came to her aid", "came to their aid"},
         "go to plan": {"goes to plan", "went to plan", "gone to plan"},
         "graphics-processing unit": {"graphics-processing units", "graphics processing unit", "graphics processing units", "gpu", "gpus"},
+        "irk": {"irks", "irked", "irking"},
         "make the best of": {"made the best of"},
         "overtake": {"overtook", "overtaken"},
         "pay the price": {"paid the price", "paying the price", "pays the price"},
