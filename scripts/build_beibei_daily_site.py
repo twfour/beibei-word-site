@@ -358,6 +358,24 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "Andrews later received a human kidney. He still has some health problems, but he feels much better than before. He swims, kayaks and rides his bike. The experience changed how he sees life. He now tries to slow down and enjoy the world around him."
         ),
     },
+    "20260911": {
+        "pet_index": "04",
+        "overview": (
+            "文章用一场假想的苹果新品发布会观察苹果的创新困境。开头先借“one more thing”制造期待：新任 CEO 约翰·特努斯上任九天后，"
+            "推出售价 2000 美元的折叠屏 iPhone Duo，但作者很快指出，这款产品的核心卖点只是铰链和折叠屏，三星等竞争对手早已进入这一市场。"
+            "随后文章梳理苹果同时发布的 Apple Watch、AirPods 和 iPhone 18 Pro 等硬件，认为苹果越来越擅长用高价硬件和订阅服务从存量用户身上继续获利。"
+            "中段把真正威胁转向 AI：用户未来的数字入口可能从 iPhone 变成 ChatGPT、Claude 或 AI-first 设备，而苹果在 Siri、Apple Intelligence 和开发者生态上仍显落后。"
+            "后半部分承认苹果的保守也有好处：它没有像其他科技巨头一样疯狂烧钱建数据中心，隐私保护仍是差异化优势。"
+            "但文章结论是，苹果不能只靠庞大的硬件基本盘和隐私口碑拖延时间；如果想继续定义未来，就必须重新学会冒险。"
+        ),
+        "pet": (
+            "The article imagines a new Apple launch event. John Ternus has just become Apple’s CEO, and he uses the famous words “one more thing.” Apple then introduces a $2,000 folding iPhone called the iPhone Duo. For Apple fans, this sounds exciting at first. "
+            "However, the writer is not very impressed. Folding phones are not new. Samsung and other companies have sold them for years. The iPhone Duo may have a clever hinge and a large screen, but it does not feel like a real breakthrough. "
+            "Apple also announces other products, including new Apple Watches, AirPods and iPhone 18 Pro models. The writer says Apple is still very good at making money from hardware, higher prices and services such as iCloud and Apple TV. But this also makes the company look careful and boring. "
+            "The biggest problem is artificial intelligence. Today, the iPhone is the main door to people’s digital lives. In the future, AI assistants such as ChatGPT or Claude may become that door. Other companies are already trying to build AI-first devices. Apple wants Siri and Apple Intelligence to become a private AI hub, but Siri is still weak and Apple may need help from Google. "
+            "The article says Apple still has advantages. It has many users, strong products and a reputation for protecting privacy. It is also not spending money as wildly as some AI companies. But if Apple wants to lead the next era of technology, it cannot only protect its old business. It must take risks again."
+        ),
+    },
 }
 
 
@@ -803,6 +821,23 @@ def strip_leading_paragraph_translation(definition: str) -> str:
 def strip_embedded_paragraph_translation_from_example(example: str) -> str:
     """Keep the first real bilingual example when a paragraph translation follows it."""
     example = re.split(r"\s+\*\s+", example, 1)[0].strip()
+    example = re.split(
+        r"\s+(?=-?[A-Za-z][A-Za-z’' /-]{1,80}?\s+(?:"
+        rf"{POS_PATTERN}|comb"
+        r")\.\s*/)",
+        example,
+        1,
+    )[0].strip()
+    # PDF extraction can put a full paragraph translation immediately after a
+    # one-sentence bilingual vocabulary example, with no bullet/heading between
+    # them. Once the first Chinese example sentence has ended and the next token
+    # is another Chinese sentence, keep only the example.
+    match = re.match(r"([A-Z][^。！？•]{10,200}?[.!?])\s+[\u4e00-\u9fff].{80,}", example)
+    if match:
+        return match.group(1).strip()
+    match = re.match(r"(.{10,220}?[\u4e00-\u9fff][。！？])\s+(?=[\u4e00-\u9fff])", example)
+    if match:
+        return match.group(1).strip()
     if not suspicious_example(example):
         return example
     match = re.match(
@@ -981,6 +1016,9 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
         key = term.lower()
         if key in seen or key.startswith(("page ", "para ")) or len(term) < 2:
             continue
+        phonetic = match.group(2).strip()
+        if re.search(r"[\u4e00-\u9fff]", phonetic):
+            continue
         seen.add(key)
         body = match.group(3).strip()
         definition = strip_leading_paragraph_translation(body.split("•", 1)[0].strip())
@@ -993,7 +1031,7 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
         item = {
             "term": term,
             "pos": "",
-            "phonetic": f"/{match.group(2).strip()}/",
+            "phonetic": f"/{phonetic}/",
             "definition": chinese[:180],
             "definition_en": english_definition[:220],
             "example": example[:280],
