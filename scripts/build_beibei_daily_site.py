@@ -376,6 +376,24 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The article says Apple still has advantages. It has many users, strong products and a reputation for protecting privacy. It is also not spending money as wildly as some AI companies. But if Apple wants to lead the next era of technology, it cannot only protect its old business. It must take risks again."
         ),
     },
+    "20260912": {
+        "pet_index": "04",
+        "overview": (
+            "文章讨论富裕国家学生成绩持续下滑的问题。开头引用 9 月 8 日公布的最新 PISA 测试结果，指出阅读、数学和科学成绩已经跌至经合组织 2000 年开展测试以来的最低水平，"
+            "而且不能再简单归咎于疫情封锁，因为疫情结束后分数仍在继续下降。第二段说明考试分数虽不能衡量孩子的一切，却能预示收入、健康、寿命、犯罪率和国家经济增长等长期结果。"
+            "中段回应一个常见误区：既然 AI 越来越强，孩子不会思考是否已经不重要？作者认为恰恰相反，AI 时代更需要敏捷思维；越容易把认知任务外包给机器，学校越必须训练学生的大脑。"
+            "随后文章分析成绩下滑的原因：手机和平板分散注意力，校园限屏有必要；但更深层的问题是教育者降低学术要求、缺课增多、评分宽松，以及把阅读、计算和事实知识训练视为过时。"
+            "后半部分指出，单纯增加教育经费并不能自动解决问题，改革需要证据、严格课程和真正的考核。英国近年的课程和考试改革显示，恢复知识、语法和标准化要求可以带来改善。"
+            "全文结论是：教育改革见效慢、政治激励弱，但如果富裕国家继续放任青少年认知能力退步，那么在机器越来越聪明的时代，社会将付出长期代价。"
+        ),
+        "pet": (
+            "The article says that schools in rich countries are in trouble. New PISA results were released on September 8th. They show that scores in reading, maths and science are the worst since the tests began in 2000. During the pandemic, school closures hurt learning. But the pandemic is now over, and scores are still falling. "
+            "Test scores do not show everything about a child. However, they are important. Students who do well at school often earn more money, live healthier lives and commit fewer crimes. Better test scores can also help a country’s economy grow faster. "
+            "Some people may think this problem matters less because artificial intelligence is becoming stronger. In the future, adults may ask machines to do much of their thinking. The writer strongly disagrees. AI does not make human thinking useless. Just as cars did not remove the need for exercise, AI will not remove the need to train the brain. In fact, people will need more mental agility in a fast-changing world. "
+            "The article gives several reasons for the decline. Phones and tablets distract pupils, so schools should limit screens. But the bigger problem is weak thinking among educators. Some teachers and officials have lowered expectations. In some places, pupils miss more school, marks are too generous, and basic knowledge is not valued enough. "
+            "More money alone will not fix the problem. Governments should look at evidence, improve curriculums and keep serious exams. The writer gives Britain as an example of reforms that helped improve results. The main message is clear: machines are getting smarter, but teenagers must not become less able to think. Schools need to act now."
+        ),
+    },
 }
 
 
@@ -753,6 +771,11 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition": "柳叶刀；《柳叶刀》医学期刊",
         "definition_en": "a small sharp surgical knife; The Lancet is a leading peer-reviewed medical journal",
         "example": "The milestone was described in a paper published in The Lancet. 这一里程碑式案例发表在《柳叶刀》上。",
+    },
+    "sweat": {
+        "definition": "出汗；流汗；担心；焦虑",
+        "definition_en": "to produce sweat on the skin; to worry or feel anxious about something",
+        "example": "to sweat heavily 汗流浃背。 · They really made me sweat during the interview. 面试过程中，他们的确使我忐忑不安。",
     },
 }
 
@@ -1196,11 +1219,15 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
                 vocab_heading,
                 bare_vocab_heading,
                 phonetic_vocab_heading,
-                numbered_vocab_heading,
                 no_pos_phrase_vocab_heading,
             )
             if match is not None
         ]
+        # Numbered vocabulary headings have no phonetic/POS marker, so the
+        # pattern is deliberately broad. Do not let it fire at the start of a
+        # real paragraph such as "PISA scores began ... around 2012. The ...".
+        if numbered_vocab_heading is not None and numbered_vocab_heading.start() >= 80:
+            cut_positions.append(numbered_vocab_heading.start())
         if cut_positions:
             english_source = english_source[:min(cut_positions)]
         english_source = recover_english_split_by_translation(english_source)
