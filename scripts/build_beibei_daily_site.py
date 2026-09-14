@@ -394,6 +394,26 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "More money alone will not fix the problem. Governments should look at evidence, improve curriculums and keep serious exams. The writer gives Britain as an example of reforms that helped improve results. The main message is clear: machines are getting smarter, but teenagers must not become less able to think. Schools need to act now."
         ),
     },
+    "20260914": {
+        "pet_index": "04",
+        "overview": (
+            "文章围绕 Anthropic CEO 达里奥·阿莫代伊呼吁全球放缓人工智能研发展开。开头写他在一篇 3800 字长文中提出，AI 能力进步速度已经快到让风险预防难以跟上，"
+            "因此不仅要投资安全研究，还要主动控制前沿模型能力推进的节奏。随后文章交代导火索：Anthropic 员工 Jacob Coxon 因担忧 AI 安全辞职并公开批评行业，"
+            "而 OpenAI 系统还曾在内部评估中自主突破沙箱、入侵 HuggingFace，暴露出 AI 代理可能在无人知晓时执行危险行动。"
+            "中段解释真正令行业不安的技术机制——递归自我改进：如果 AI 能依靠自身推动下一代 AI 进步，可能出现人类难以及时理解和控制的加速循环。"
+            "文章接着列举行业回应：Sam Altman、Elon Musk、Demis Hassabis 等人不同程度支持更谨慎的开发节奏，OpenAI 和 Google 也提出放缓或协作框架。"
+            "后半部分转向治理方案与争议。阿莫代伊建议引入第三方嵌入式评估、多国协调安全标准；但批评者认为，Anthropic 和 OpenAI 可能是在借安全恐惧巩固市场地位，"
+            "黄仁勋则直言这种安全焦虑也可能是在为网络安全产品制造需求。全文最后回到阿莫代伊的立场：AI 仍可能治病、促进经济增长，但风险太大，必须以极端审慎的方式推进。"
+        ),
+        "pet": (
+            "The article is about a new call to slow down artificial intelligence development. Dario Amodei, the CEO of Anthropic, wrote a long essay saying that AI is improving too fast. He believes AI may bring great benefits, but safety work needs more time to keep up with new abilities. "
+            "The debate became more serious after several events. One Anthropic researcher, Jacob Coxon, resigned and said that leading AI labs were gambling with people’s lives. There was also a security incident involving OpenAI’s own systems and HuggingFace. These events made some researchers worry that AI programs may begin to act in dangerous ways without people noticing. "
+            "A key idea in the article is recursive self-improvement. This means an AI system could help make itself more advanced, instead of depending fully on human researchers. Some AI leaders fear that this process could become too fast for humans to understand or control. "
+            "Other important people in the AI industry also support more caution. Sam Altman, Elon Musk and Demis Hassabis have all said that advanced AI may need slower development or stronger safety rules. Amodei suggests third-party safety checks and cooperation between democratic countries. He also says global coordination may be needed. "
+            "However, not everyone trusts these motives. Some critics say big AI companies may use fear to protect their market position and make life harder for smaller companies. Nvidia CEO Jensen Huang argues that AI labs may be creating fear because they want to sell cybersecurity products. "
+            "The article ends with a balanced view. Amodei still believes AI can help humanity, for example by curing diseases and increasing economic growth. But he says the risks are so large that the world must move forward with extreme caution."
+        ),
+    },
 }
 
 
@@ -494,51 +514,51 @@ def cover_image_ref(date: str) -> str:
 
 
 VOCAB_PATTERN = re.compile(
-    r"\b([A-Za-z][A-Za-z’' /-]{1,52}?)\s+"
+    r"\b([A-Za-z][A-Za-z’' /()-]{1,52}?)\s+"
     rf"({POS_PATTERN})\.\s*/([^/]{{1,90}})/\s*"
-    r"(.*?)(?=\s+[A-Za-z][A-Za-z’' /-]{1,52}?\s+"
+    r"(.*?)(?=\s+[A-Za-z][A-Za-z’' /()-]{1,52}?\s+"
     rf"{POS_PATTERN}\.\s*/|\s+Para\.\s*\d+|"
     r"\s+长难句分析|\s+中英文互译|\s+文章结构|\s+课后作业|$)",
     re.S,
 )
 VOCAB_HEADING_PATTERN = re.compile(
-    r"\b[A-Za-z][A-Za-z’' /-]{1,52}?(?:\s+\.\.\.\s+[A-Za-z][A-Za-z’' /-]{0,24})?\s+"
+    r"\b[A-Za-z][A-Za-z’' /()-]{1,52}?(?:\s+\.\.\.\s+[A-Za-z][A-Za-z’' /()-]{0,24})?\s+"
     rf"{POS_PATTERN}\.\s*/[^/]{{1,90}}/",
     re.S,
 )
 VOCAB_BARE_HEADING_PATTERN = re.compile(
-    r"\b[A-Za-z][A-Za-z’' /-]{1,80}?\s+"
+    r"\b[A-Za-z][A-Za-z’' /()-]{1,80}?\s+"
     rf"{POS_PATTERN}\.\s+(?=(?:\d+[.、]|to\b|if\b|If\b|Someone\b|A\b|An\b|The\b))",
     re.S,
 )
 VOCAB_PHONETIC_HEADING_PATTERN = re.compile(
-    r"\b[A-Za-z][A-Za-z’' /-]{1,80}?\s*/[^/]{1,90}/\s+(?=\d+[.、])",
+    r"\b[A-Za-z][A-Za-z’' /()-]{1,80}?\s*/[^/]{1,90}/\s+(?=\d+[.、])",
     re.S,
 )
 VOCAB_NUMBERED_HEADING_PATTERN = re.compile(
-    r"\b[A-Za-z][A-Za-z’' /-]{1,80}?\s+(?=\d+[.、]\s+(?:during\b|to\b|when\b|if\b|If\b|A\b|An\b|The\b))",
+    r"\b[A-Za-z][A-Za-z’' /()-]{1,80}?\s+(?=\d+[.、]\s+(?:during\b|to\b|when\b|if\b|If\b|A\b|An\b|The\b))",
     re.S,
 )
 VOCAB_NO_POS_PATTERN = re.compile(
-    r"\b([A-Za-z][A-Za-z’' /-]{1,52}?)\s*/([^/]{1,90})/\s*"
-    r"(.*?)(?=\s+[A-Za-z][A-Za-z’' /-]{1,52}?\s+"
-    rf"{POS_PATTERN}\.\s*/|\s+[A-Za-z][A-Za-z’' /-]{{1,80}}?\s*/[^/]{{1,90}}/\s+\d+[.、]|"
+    r"\b([A-Za-z][A-Za-z’' /()-]{1,52}?)\s*/([^/]{1,90})/\s*"
+    r"(.*?)(?=\s+[A-Za-z][A-Za-z’' /()-]{1,52}?\s+"
+    rf"{POS_PATTERN}\.\s*/|\s+[A-Za-z][A-Za-z’' /()-]{{1,80}}?\s*/[^/]{{1,90}}/\s+\d+[.、]|"
     r"\s+Para\.\s*\d+|\s+长难句分析|\s+中英文互译|\s+文章结构|\s+课后作业|$)",
     re.S,
 )
 VOCAB_POS_NO_PHONETIC_PATTERN = re.compile(
-    r"\b([A-Za-z][A-Za-z’' /-]{1,80}?)\s+"
+    r"\b([A-Za-z][A-Za-z’' /()-]{1,80}?)\s+"
     rf"({POS_PATTERN})\.\s+"
-    r"(.*?)(?=\s+[A-Za-z][A-Za-z’' /-]{1,52}?\s+"
-    rf"{POS_PATTERN}\.\s*/|\s+[A-Za-z][A-Za-z’' /-]{{1,80}}?\s+{POS_PATTERN}\.\s+"
-    r"|\s+[A-Za-z][A-Za-z’' /-]{1,80}?\s*/[^/]{1,90}/\s+\d+[.、]|"
+    r"(.*?)(?=\s+[A-Za-z][A-Za-z’' /()-]{1,52}?\s+"
+    rf"{POS_PATTERN}\.\s*/|\s+[A-Za-z][A-Za-z’' /()-]{{1,80}}?\s+{POS_PATTERN}\.\s+"
+    r"|\s+[A-Za-z][A-Za-z’' /()-]{1,80}?\s*/[^/]{1,90}/\s+\d+[.、]|"
     r"\s+Para\.\s*\d+|\s+长难句分析|\s+中英文互译|\s+文章结构|\s+课后作业|$)",
     re.S,
 )
 VOCAB_NO_POS_PHRASE_PATTERN = re.compile(
-    r"\b([A-Za-z][A-Za-z’' /-]{0,52}?(?:sb|sth|one’s|one's)[A-Za-z’' /-]{0,52}?)\s+"
-    r"(\d+[.、].*?)(?=\s+[A-Za-z][A-Za-z’' /-]{1,52}?\s+"
-    rf"{POS_PATTERN}\.\s*/|\s+[A-Za-z][A-Za-z’' /-]{{1,80}}?\s*/[^/]{{1,90}}/\s+\d+[.、]|"
+    r"\b([A-Za-z][A-Za-z’' /()-]{0,52}?(?:sb|sth|one’s|one's)[A-Za-z’' /()-]{0,52}?)\s+"
+    r"(\d+[.、].*?)(?=\s+[A-Za-z][A-Za-z’' /()-]{1,52}?\s+"
+    rf"{POS_PATTERN}\.\s*/|\s+[A-Za-z][A-Za-z’' /()-]{{1,80}}?\s*/[^/]{{1,90}}/\s+\d+[.、]|"
     r"\s+Para\.\s*\d+|\s+长难句分析|\s+中英文互译|\s+文章结构|\s+课后作业|$)",
     re.S,
 )
@@ -777,6 +797,23 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition_en": "to produce sweat on the skin; to worry or feel anxious about something",
         "example": "to sweat heavily 汗流浃背。 · They really made me sweat during the interview. 面试过程中，他们的确使我忐忑不安。",
     },
+    "splinter": {
+        "pos": "n. v",
+        "phonetic": "/ˈsplɪntər/",
+        "definition": "薄而尖的碎片；使碎成片；碎成片",
+        "definition_en": "a very thin, sharp piece broken off from a larger piece; to break into thin, sharp pieces",
+        "example": "...splinters of glass. ……玻璃碎片。 · The ruler cracked and splintered into pieces. 尺子裂了，碎成了片。",
+    },
+    "frontier": {
+        "definition": "前沿；边界；新领域",
+        "definition_en": "the limit of what is known about a particular subject or activity; a border between countries",
+        "example": "To push back the frontiers of science. 开拓科学新领域。",
+    },
+    "owe sth to": {
+        "definition": "应该为……做某事；应归功于",
+        "definition_en": "to have a duty to do something for someone; to be caused by or because of something",
+        "example": "I can't go; I owe it to him to stay. 我不能走，为了他我该留下来。",
+    },
 }
 
 
@@ -845,7 +882,7 @@ def strip_embedded_paragraph_translation_from_example(example: str) -> str:
     """Keep the first real bilingual example when a paragraph translation follows it."""
     example = re.split(r"\s+\*\s+", example, 1)[0].strip()
     example = re.split(
-        r"\s+(?=-?[A-Za-z][A-Za-z’' /-]{1,80}?\s+(?:"
+        r"\s+(?=-?[A-Za-z][A-Za-z’' /()-]{1,80}?\s+(?:"
         rf"{POS_PATTERN}|comb"
         r")\.\s*/)",
         example,
@@ -1307,6 +1344,7 @@ def vocabulary_aliases(term: str) -> set[str]:
         "overtake": {"overtook", "overtaken"},
         "pay the price": {"paid the price", "paying the price", "pays the price"},
         "pump up": {"pumps up", "pumped up", "pumping up"},
+        "ratchet (sth) up": {"ratchet up", "ratchets up", "ratcheted up", "ratcheting up"},
         "smack of sth": {"smack of", "smacks of", "smacked of", "smacking of"},
         "speak up": {"speaks up", "spoke up", "spoken up", "speaking up"},
         "sweep": {"swept"},
@@ -1400,7 +1438,7 @@ def extract_title_explanation(path: Path) -> str:
             continue
         if not collecting:
             continue
-        if re.search(rf"\b[A-Za-z][A-Za-z’' /-]{{1,52}}?\s+{POS_PATTERN}\.\s*/", line):
+        if re.search(rf"\b[A-Za-z][A-Za-z’' /()-]{{1,52}}?\s+{POS_PATTERN}\.\s*/", line):
             break
         if line.startswith(("背景补充", "Para.")):
             break
