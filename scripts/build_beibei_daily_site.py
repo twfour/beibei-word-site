@@ -414,6 +414,26 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The article ends with a balanced view. Amodei still believes AI can help humanity, for example by curing diseases and increasing economic growth. But he says the risks are so large that the world must move forward with extreme caution."
         ),
     },
+    "20260915": {
+        "pet_index": "04",
+        "overview": (
+            "文章围绕凯文·沃什出任美联储主席后的首次重大议息会议展开。开头指出，9 月 15 日至 16 日的利率决策风险极高，"
+            "市场在加息 25 个基点和维持不变之间几乎五五开，而沃什降低央行决策透明度，使局势更难预测。"
+            "作者的核心立场很明确：无论从美国经济基本面，还是从维护央行公信力看，美联储都应该加息。"
+            "文章中段先给出经济理由：通胀和核心通胀仍高于 2% 目标，伊朗战争与关税冲击增加上行风险；同时经济增长稳健、失业率低、职位空缺回升，AI 热潮目前还在创造就业。"
+            "金融环境也偏热，信贷顺畅、股市繁荣、债市波动都显示继续宽松或按兵不动存在风险。"
+            "后半部分转向政治压力：特朗普多次要求降息，甚至用贸易切断相威胁；财长贝森特购债也模糊了财政与货币政策边界。"
+            "在这种背景下，如果沃什因单一 CPI 数据降温而不加息，容易被解读为向白宫屈服，进一步损害他本就摇摆的公信力。"
+            "全文结论是：特朗普越要求降息，加息理由反而越强；为了央行独立和长期政策可信度，沃什几乎别无选择。"
+        ),
+        "pet": (
+            "The article is about Kevin Warsh and his first major interest-rate meeting as chair of the Federal Reserve. The meeting will take place on September 15th and 16th. Markets think there is almost an equal chance of a small rate rise or no change. This is partly because Warsh has made the Fed’s thinking less transparent. "
+            "The writer argues that the Fed should raise interest rates. The first reason is the economy. Inflation is still above the Fed’s 2% target. Core inflation is also high, and food and energy prices have risen since the war with Iran began. Some data suggest inflation may fall later, but the writer says the Fed should not assume this after five years of high prices. "
+            "The second reason is jobs and growth. The American economy is still healthy. Unemployment is only 4.1%, job vacancies are rising, and August brought strong payroll gains. The AI boom has not destroyed jobs so far. It is creating them. If normal economic rules include both inflation and employment, they would point to higher rates than today’s level. "
+            "The third reason is politics. President Trump wants lower interest rates and has tried to pressure the Fed. This makes it dangerous for the central bank to look soft on inflation. If Warsh does not raise rates, people may think the president is calling the shots. That would hurt the Fed’s independence. "
+            "Warsh also has a personal credibility problem. He criticised his predecessor for depending too much on single data releases. If he now changes his decision because of one CPI report, it may look like an excuse for yielding to the White House. The main message is that Trump’s pressure makes the case for rate hikes stronger. Warsh has almost no good choice but to raise rates."
+        ),
+    },
 }
 
 
@@ -813,6 +833,11 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition": "应该为……做某事；应归功于",
         "definition_en": "to have a duty to do something for someone; to be caused by or because of something",
         "example": "I can't go; I owe it to him to stay. 我不能走，为了他我该留下来。",
+    },
+    "payroll": {
+        "definition": "工资名单；工资总支出；就业人数",
+        "definition_en": "a list of employees and their pay; the total amount paid in wages; the number of people employed",
+        "example": "We have 500 people on the payroll. 我们在编员工有500人。",
     },
 }
 
