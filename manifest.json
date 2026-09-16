@@ -6,7 +6,7 @@
     "sha256": "840432003aba241283f5f6d8f0e0d6dbb5a78c5b4baff28da3d0991c2803c0b3",
     "pages": 20,
     "paragraphs": 11,
-    "vocabulary": 66,
+    "vocabulary": 74,
     "analyses": 2
   },
   {
@@ -16,7 +16,7 @@
     "sha256": "c5c7ee0b55d7594ec67614fe012b36c119e83fe87c13212ff3a82968ce575817",
     "pages": 21,
     "paragraphs": 11,
-    "vocabulary": 67,
+    "vocabulary": 77,
     "analyses": 2
   },
   {
@@ -26,7 +26,7 @@
     "sha256": "770040cdef7e349954049591369fb5843f454d8d499de9b562d3081303e737ce",
     "pages": 18,
     "paragraphs": 9,
-    "vocabulary": 50,
+    "vocabulary": 60,
     "analyses": 2
   },
   {
@@ -36,7 +36,7 @@
     "sha256": "5cd603a35cfce3647366af04e285614e25239de964082db505ed43fc2482ca42",
     "pages": 21,
     "paragraphs": 12,
-    "vocabulary": 79,
+    "vocabulary": 87,
     "analyses": 2
   },
   {
@@ -46,8 +46,8 @@
     "sha256": "b4ef046ed953f130bb01002ac3591ba171f1960b973ed76340a5771698857940",
     "pages": 17,
     "paragraphs": 9,
-    "vocabulary": 53,
-    "analyses": 1
+    "vocabulary": 59,
+    "analyses": 0
   },
   {
     "date": "20260630",
@@ -56,7 +56,7 @@
     "sha256": "1d83470c280c54e1e5a8b7d237d81bae70813b5b3690c5dc24b9216fb07166b8",
     "pages": 17,
     "paragraphs": 9,
-    "vocabulary": 51,
+    "vocabulary": 58,
     "analyses": 2
   },
   {
@@ -66,7 +66,7 @@
     "sha256": "b017e9c7767810ce2d841b9730def7e42f8c1fe25d2e1477b40ac7ce9cde1803",
     "pages": 18,
     "paragraphs": 11,
-    "vocabulary": 51,
+    "vocabulary": 58,
     "analyses": 2
   },
   {
@@ -76,7 +76,7 @@
     "sha256": "b371760e8c4042bb56cd42053bd2a5a748853bfe1894e4c4c48b02db254e88f5",
     "pages": 20,
     "paragraphs": 10,
-    "vocabulary": 76,
+    "vocabulary": 83,
     "analyses": 2
   },
   {
@@ -86,7 +86,7 @@
     "sha256": "8b2a572344ab2a395a74626cfe2989f14c16e82b11ebdb4fc840161f6c6d2991",
     "pages": 19,
     "paragraphs": 10,
-    "vocabulary": 65,
+    "vocabulary": 74,
     "analyses": 1
   },
   {
@@ -96,7 +96,7 @@
     "sha256": "f246ef2d3417d66ebafe9c553db02ade96c8ceb24d36cec99da7685579b6e4ec",
     "pages": 21,
     "paragraphs": 13,
-    "vocabulary": 73,
+    "vocabulary": 79,
     "analyses": 2
   },
   {
@@ -106,7 +106,7 @@
     "sha256": "e60b93571d538cf4149ef303f3541867556e540110dbca79423e27b05ba4aaab",
     "pages": 19,
     "paragraphs": 10,
-    "vocabulary": 63,
+    "vocabulary": 68,
     "analyses": 2
   },
   {
@@ -116,7 +116,7 @@
     "sha256": "0b1c5bf95052d71619e670c4fbc0ac5611aed22623e1866ed43498a2842dbd78",
     "pages": 17,
     "paragraphs": 12,
-    "vocabulary": 42,
+    "vocabulary": 47,
     "analyses": 2
   },
   {
@@ -126,7 +126,7 @@
     "sha256": "c919c07f17727ee465b257a5359a0774bf12656f48d6811568771698ffeedc4b",
     "pages": 19,
     "paragraphs": 11,
-    "vocabulary": 60,
+    "vocabulary": 65,
     "analyses": 2
   },
   {
@@ -177,6 +177,16 @@
     "pages": 19,
     "paragraphs": 10,
     "vocabulary": 75,
+    "analyses": 2
+  },
+  {
+    "date": "20260916",
+    "title": "西方大变天：与其当美国第51州，不如成为欧盟第28个成员？加拿大如何加速“脱美入欧”？",
+    "filename": "20260916【笔记讲义】西方大变天：与其当美国第51州，不如成为欧盟第28个成员？加拿大如何加速“脱美入欧”？.pdf",
+    "sha256": "efc1c98c79032d4c9a542d0fde611c1faca00d4dc123e35d8705325c98377f41",
+    "pages": 24,
+    "paragraphs": 13,
+    "vocabulary": 96,
     "analyses": 2
   }
 ]

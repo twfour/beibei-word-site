@@ -434,6 +434,27 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "Warsh also has a personal credibility problem. He criticised his predecessor for depending too much on single data releases. If he now changes his decision because of one CPI report, it may look like an excuse for yielding to the White House. The main message is that Trump’s pressure makes the case for rate hikes stronger. Warsh has almost no good choice but to raise rates."
         ),
     },
+    "20260916": {
+        "pet_index": "04",
+        "overview": (
+            "文章围绕加拿大总理马克·卡尼推动加拿大向欧洲靠拢的战略展开。开头先交代触发因素：美加爆发现代史上最严重的双边贸易战，"
+            "再叠加美国曾扬言让加拿大成为“第 51 个州”，使加拿大开始寻找美国之外的经济和安全依托。"
+            "卡尼因此与欧洲主要领导人密集沟通，提出让加拿大成为欧盟“准成员国”的大胆设想。"
+            "中段具体展示加欧合作蓝图：让加拿大非正式接入欧盟单一市场，在能源、AI、关键矿产、半导体和国防等战略供应链中实现更顺畅流动；"
+            "同时建设海底电缆、数据中心、云存储、卫星网络、能源管道和北极航道，并推动科研机构与留学项目互通。"
+            "文章随后分析现实阻力：白宫认为加拿大最终仍会回到美国经济体系，加拿大国内也有主权、地区利益和政治支持率压力；"
+            "欧洲方面则担心加拿大只是把欧盟当作对美谈判筹码。后半部分把这一变化放入历史脉络：加拿大曾有很强的跨大西洋身份，"
+            "二战后才深度融入美国经济。如今特朗普政策反而把加拿大重新推向欧洲。全文核心是：加拿大的“脱美入欧”并非浪漫转身，"
+            "而是在贸易战、能源安全、科技主权和身份重塑共同作用下的一场战略豪赌。"
+        ),
+        "pet": (
+            "The article is about Canada’s new attempt to move closer to Europe. After Canada and the United States entered a serious trade war, Canadian prime minister Mark Carney began talking privately with many European leaders. He wanted to take Canada’s relationship with the European Union to a much higher level. "
+            "Carney’s idea is bold. He has suggested that Canada could become an “associate member” of the EU. This would not mean full EU membership, but it could allow Canada to connect more deeply with Europe’s single market. The two sides are discussing cooperation in energy, artificial intelligence, critical minerals, semiconductors and defence. Some officials have even discussed whether Canadians could live and work in Europe without visas. "
+            "The plan also includes big infrastructure projects. Europe and Canada may build underwater cables, data centres, cloud storage and satellite networks that are less dependent on American technology companies. Canada may also send more gas and fertilizer to Europe, using pipelines and Arctic shipping routes. "
+            "There are many problems. The United States still believes Canada depends too much on the American economy to leave. Inside Canada, some provinces may not want to give up any sovereignty. European leaders are also careful because they worry Canada may only be using Europe to bargain with Washington. "
+            "The article explains that Canada’s strong ties with America are not ancient. Before the Second World War, Canada was much more connected to Britain and Europe. After the war, it became closely tied to the United States. Now Trump’s policies have shocked Canada and Europe. The main message is that Canada may be trying to become a more transatlantic country again, but this change will be difficult and risky."
+        ),
+    },
 }
 
 
@@ -838,6 +859,21 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition": "工资名单；工资总支出；就业人数",
         "definition_en": "a list of employees and their pay; the total amount paid in wages; the number of people employed",
         "example": "We have 500 people on the payroll. 我们在编员工有500人。",
+    },
+    "caribbean": {
+        "definition": "加勒比海地区",
+        "definition_en": "the region consisting of the Caribbean Sea and its islands, including the West Indies, and the coasts which surround it",
+        "example": "Immigrants arrived from Asia and the Caribbean. 移民来自亚洲和加勒比地区。",
+    },
+    "icebreaker": {
+        "definition": "破冰船；打破僵局的话题或活动",
+        "definition_en": "a ship that breaks ice to make a path; something that helps people start talking",
+        "example": "This exercise can be quite a useful icebreaker for new groups. 这个练习很适合新小组破冰。",
+    },
+    "compel": {
+        "definition": "迫使；使不得不",
+        "definition_en": "to force someone to do something; to make someone feel they must do something",
+        "example": "The law compelled cyclists to wear a helmet. 这项法律强制骑车人戴头盔。",
     },
 }
 
