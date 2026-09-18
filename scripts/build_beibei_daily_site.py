@@ -455,6 +455,26 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The article explains that Canada’s strong ties with America are not ancient. Before the Second World War, Canada was much more connected to Britain and Europe. After the war, it became closely tied to the United States. Now Trump’s policies have shocked Canada and Europe. The main message is that Canada may be trying to become a more transatlantic country again, but this change will be difficult and risky."
         ),
     },
+    "20260918": {
+        "pet_index": "04",
+        "overview": (
+            "文章报道美联储三年多来首次加息 25 个基点。开头先交代核心事件：伊朗冲突推高油价，通胀压力继续向美国经济扩散，"
+            "美联储因此在特朗普持续要求降息的背景下，全票决定上调基准利率。随后文章引用美联储声明说明其判断依据："
+            "经济活动仍在稳健扩张，国内消费有韧性，生产率、资本投资和就业市场表现尚可，但通胀依然偏高。"
+            "中段转向市场反应和政策代价：道指下跌、美股全线走低、10 年期美债收益率维持高位；加息可以压需求、控物价，"
+            "但也可能冷却就业市场、拖累经济增长。文章接着解释更深层通胀来源，包括高油价、AI 数据中心建设带来的能源需求，"
+            "以及美联储可能在年内继续加息。后半部分聚焦新主席凯文·沃什：他在特朗普干预美联储人事、持续施压降息后接任，"
+            "承诺不受政治因素影响，并准备放弃过度前瞻指引，让市场自行判断经济方向。结尾通过就业数据、经济学家观点和沃什回应说明，"
+            "这次加息既是通胀治理，也是央行独立性面对政治压力的一次公开测试。"
+        ),
+        "pet": (
+            "The article is about the Federal Reserve’s first interest-rate increase in more than three years. The Fed raised rates by a quarter point because inflation is still too high. Oil prices have risen because of the Iran conflict, and this has pushed costs through the economy. "
+            "President Donald Trump wanted the Fed to lower interest rates, but Fed officials voted unanimously to raise them. The Fed said the American economy was still growing at a solid pace. Domestic spending was resilient, productivity and business investment were strong, and unemployment was stable. However, inflation remained above the Fed’s 2% target. "
+            "Financial markets reacted badly. The Dow Jones Industrial Average fell sharply after the news, and all major stock indexes moved lower. The yield on the 10-year Treasury stayed near 5%. Higher interest rates can reduce spending and slow price increases, but they can also hurt jobs and economic growth. This is why the Fed does not take such decisions lightly. "
+            "The article also focuses on Kevin Warsh, the new Fed chair. Trump had tried to pressure the Fed and had criticised Jerome Powell many times. Warsh says he will set rates without regard to politics. He also wants to stop giving too many signals about future Fed decisions, because he does not want the central bank to box itself in. "
+            "The final message is that the Fed’s decision was based on economic fundamentals, not on the president’s wishes. Strong job data made officials less worried that a rate rise would badly damage the labour market. For Warsh, the choice is a difficult balancing act: he must fight inflation, protect the economy and show that the Fed remains independent."
+        ),
+    },
 }
 
 
@@ -874,6 +894,11 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition": "迫使；使不得不",
         "definition_en": "to force someone to do something; to make someone feel they must do something",
         "example": "The law compelled cyclists to wear a helmet. 这项法律强制骑车人戴头盔。",
+    },
+    "balancing act": {
+        "definition": "谨慎协调；平衡各方的做法",
+        "definition_en": "the act of trying to deal successfully with two or more opposing needs, people, or situations",
+        "example": "It is a tough balancing act for him right now. 眼下这对他是一场艰难的平衡博弈。",
     },
 }
 
