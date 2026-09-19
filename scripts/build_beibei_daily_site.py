@@ -475,6 +475,27 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The final message is that the Fed’s decision was based on economic fundamentals, not on the president’s wishes. Strong job data made officials less worried that a rate rise would badly damage the labour market. For Warsh, the choice is a difficult balancing act: he must fight inflation, protect the economy and show that the Fed remains independent."
         ),
     },
+    "20260919": {
+        "pet_index": "04",
+        "overview": (
+            "文章围绕“人工智能时代，中国学生还要不要把英语作为核心学科”展开。开头从数学教师汤家凤在社交媒体上呼吁英语改为选修课写起，"
+            "指出这一提议迅速引发全国争论：一方面，AI 翻译工具越来越强，青年就业前景不确定，很多人开始怀疑投入大量时间学英语是否仍然值得；"
+            "另一方面，英语自上世纪 70 年代末以来一直与语文、数学并列为核心学科，被视为中国对外开放的重要能力。"
+            "文章中段梳理支持与反对意见：支持者认为现行英语教育重语法、重考试，却难以形成真实交流能力，还挤占学生精力；反对者则认为弱化英语是倒退，"
+            "“崇洋媚外”等说法还会把教育问题推向民族主义争议。随后，文章把英语争论放到更大的教育改革背景中，提到辽宁中考科目调整、"
+            "部分地区降低英语考试要求、深圳高校拟取消英语必修课，以及中国英语能力排名下滑。"
+            "后半部分给出文章的核心判断：问题不在于学不学英语，而在于当前教学是否只制造“哑巴英语”。"
+            "如果取消英语核心地位，富裕家庭仍可通过私教和国际学校获得英语资源，而普通孩子可能失去通向世界的窗口。"
+            "全文最后把争论提升为两种中国愿景的分歧：是继续成为深度参与全球的国家，还是更多转向内部。"
+        ),
+        "pet": (
+            "The article is about a debate in China over English education. A maths teacher, Tang Jiafeng, wrote online that English should become optional in schools. He said many children were learning English too early and too anxiously, even before they had fully mastered Chinese. He also criticised what he called blind worship of foreign things. "
+            "His post started a large online debate. Some people agree with him. They say English takes too much classroom time and counts heavily in the gaokao. They also argue that many students learn grammar and test skills for years but still cannot use English well. With AI translation tools improving, they wonder if English is still worth so much effort. "
+            "Other people strongly disagree. They think making English less important would be a step backward. They also worry that the phrase “blind worship” turns an education question into a nationalist argument. Hu Xijin, the former editor of Global Times, warned that some people were using the issue to promote nationalism. "
+            "The article explains that the debate is connected to wider worries about the future. Young people face uncertain jobs, and AI may change many industries. Some provinces and universities have already reduced the importance of English or other subjects. China’s English proficiency ranking has also fallen in recent years. "
+            "The writer’s main point is balanced. China’s English teaching has real problems because it often focuses on exams, not real communication. But removing English as a core subject could make inequality worse. Rich families can still pay for tutors and international schools. Poorer children may lose their only window to the wider world. Good English education should show students what the world has to offer."
+        ),
+    },
 }
 
 
@@ -900,6 +921,11 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition_en": "the act of trying to deal successfully with two or more opposing needs, people, or situations",
         "example": "It is a tough balancing act for him right now. 眼下这对他是一场艰难的平衡博弈。",
     },
+    "cut back on": {
+        "definition": "削减；减少",
+        "definition_en": "to reduce something such as time, spending, or the amount of an activity",
+        "example": "Schools may cut back on mandatory English class time. 学校可能会削减英语必修课时。",
+    },
 }
 
 
@@ -1265,7 +1291,7 @@ def recover_english_after_leading_translation(value: str) -> str:
     """Some handouts put the Chinese translation before the English paragraph."""
     if not re.match(r"^[\u4e00-\u9fff]", value):
         return value
-    for candidate in re.finditer(r"\b[A-Z][A-Za-z0-9$%’'(),;:\-–—\s]{20,}[.!?]", value):
+    for candidate in re.finditer(r"\b[A-Z][A-Za-z0-9$%’'().,;:\-–—\s]{20,}[.!?]", value):
         tail = value[candidate.start():].strip()
         if len(re.findall(r"[\u4e00-\u9fff]", tail[:260])) <= 8:
             return tail
