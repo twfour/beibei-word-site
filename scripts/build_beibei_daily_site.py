@@ -496,6 +496,26 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The writer’s main point is balanced. China’s English teaching has real problems because it often focuses on exams, not real communication. But removing English as a core subject could make inequality worse. Rich families can still pay for tutors and international schools. Poorer children may lose their only window to the wider world. Good English education should show students what the world has to offer."
         ),
     },
+    "20260921": {
+        "pet_index": "04",
+        "overview": (
+            "文章评论特朗普放弃强索格陵兰主权、转而与丹麦和格陵兰达成新版防务协议一事。开头先承认协议本身对美国和北约北翼安全有一定积极意义："
+            "它将方便美国扩大在格陵兰的军事存在，并限制中国、俄罗斯等对手在当地的渗透。"
+            "但作者马上反转评价：特朗普不应因此被视为和平功臣，因为格陵兰的战争阴影正是他此前以吞并威胁亲手制造的。"
+            "中段回顾特朗普购岛言论的荒诞逻辑：他用房地产开发商思维看待地缘战略，责怪杜鲁门战后把格陵兰交还丹麦，坚持美国必须拥有岛屿主权，"
+            "并通过 AI 生成的征服图像和扩张言论营造声势。文章随后说明新版协议的实质是务实妥协：美国没有获得格陵兰主权，"
+            "而是放弃最激进要求、改善既有租借和驻军安排。后半部分把重点转向外交过程和后果：相比乌克兰、伊朗、加沙等议题的混乱谈判，"
+            "格陵兰协议之所以能成，靠的是卢比奥团队低调、传统、专业的外交操作。可是特朗普此前的恐吓已经严重伤害丹麦和欧洲对美国的信任，"
+            "让盟友重新考虑对美国安全承诺的依赖。全文结论是：协议缓和了眼前危机，却无法修复跨大西洋关系中被交易化、功利化思维撕开的裂痕。"
+        ),
+        "pet": (
+            "The article is about Donald Trump and Greenland. Trump had once threatened to buy or even annex Greenland if Denmark did not agree. Now he has dropped the demand to own the island. Instead, the United States, Denmark and Greenland have announced a new defence agreement. "
+            "The writer says the agreement has some value. Greenland is very important for Arctic security and for NATO’s northern defences. The new pact will make it easier for America to strengthen its military presence there. It may also help stop China, Russia and other rivals from gaining too much influence on the island. "
+            "However, the writer is still very critical of Trump. The danger of war over Greenland was created by Trump himself. He should not get a peace prize for stopping a crisis that he helped cause. His earlier threats made allies nervous and damaged trust. "
+            "The article then explains Trump’s thinking. He looked at Greenland like a property developer, not like a careful statesman. He criticised Harry Truman for returning Greenland to Denmark after the Second World War. He said America needed to own Greenland outright, not only use it under agreements or leases. "
+            "In the end, the deal was not Trump’s original dream. It was a compromise. The article gives more credit to quiet, professional diplomacy led by Marco Rubio’s team. But the harm has already been done. Denmark and other European countries now see the United States as less predictable and more transactional. The main message is that the new defence pact may improve Arctic security, but Trump’s threats have weakened trust across the Atlantic."
+        ),
+    },
 }
 
 
@@ -925,6 +945,11 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition": "削减；减少",
         "definition_en": "to reduce something such as time, spending, or the amount of an activity",
         "example": "Schools may cut back on mandatory English class time. 学校可能会削减英语必修课时。",
+    },
+    "nazi": {
+        "definition": "纳粹党人；纳粹分子",
+        "definition_en": "a member of the National Socialist party that controlled Germany from 1933 to 1945",
+        "example": "Nazi Germany. 纳粹德国。",
     },
 }
 
@@ -1950,10 +1975,6 @@ def daily_html(article: Article, all_articles: list[Article], config: dict) -> s
       </article>""" for a in article.analyses]
     analysis_html = "".join(analysis_cards)
 
-    issue_options = "".join(
-        f'<option value="{item.date}.html" {"selected" if item.date == article.date else ""}>{date_label(item.date)} · {html.escape(item.title[:24])}</option>'
-        for item in reversed(all_articles)
-    )
     section_specs = [
         ("introduction", "00 阅读导入"),
         ("reading", "01 原文与翻译"),
@@ -2087,7 +2108,7 @@ def daily_html(article: Article, all_articles: list[Article], config: dict) -> s
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(article.title)} · 贝贝外刊</title><link rel="stylesheet" href="../styles.css"></head>
 <body class="{body_class}" data-issue="{article.date}">
   <header class="reader-header">
-    <nav><a class="brand" href="../index.html">← BEIBEI ARCHIVE</a><h1 class="reader-nav-title">{html.escape(article.title)}</h1><div class="nav-tools"><button class="favorites-open" type="button">我的收藏 <span id="favorite-count">0</span></button><select id="issue-switch" aria-label="切换日期">{issue_options}</select></div></nav>
+    <nav><a class="brand" href="../index.html">← BEIBEI ARCHIVE</a><h1 class="reader-nav-title">{html.escape(article.title)}</h1><div class="nav-tools"><button class="favorites-open" type="button">我的收藏 <span id="favorite-count">0</span></button></div></nav>
     <div class="reader-hero"><div><div class="date-block"><strong>{article.date[6:]}</strong><span>{article.date[4:6]} / {article.date[:4]}</span></div></div><div><div class="eyebrow">DAILY FOREIGN PRESS · ISSUE {article.date}</div><h1>{html.escape(article.title)}</h1><div class="reader-meta"><span>{article.pages} 页</span><span>{len(article.paragraphs)} 段原文</span><span>{len(article.vocabulary)} 个词条</span><span>{len(article.analyses)} 组长难句</span></div></div></div>
   </header>
   <div class="reader-shell">
@@ -2232,8 +2253,6 @@ STYLES = r"""
 
 
 APP_JS = r"""
-const switcher=document.querySelector('#issue-switch');
-if(switcher){switcher.addEventListener('change',()=>location.href=switcher.value)}
 const search=document.querySelector('#vocab-search');
 if(search){search.addEventListener('input',()=>{const query=search.value.trim().toLowerCase();document.querySelectorAll('.vocab-card').forEach(card=>{card.hidden=!card.dataset.search.includes(query)})})}
 const progress=document.querySelector('#progress-bar');

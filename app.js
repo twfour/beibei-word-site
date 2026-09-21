@@ -1,6 +1,4 @@
 
-const switcher=document.querySelector('#issue-switch');
-if(switcher){switcher.addEventListener('change',()=>location.href=switcher.value)}
 const search=document.querySelector('#vocab-search');
 if(search){search.addEventListener('input',()=>{const query=search.value.trim().toLowerCase();document.querySelectorAll('.vocab-card').forEach(card=>{card.hidden=!card.dataset.search.includes(query)})})}
 const progress=document.querySelector('#progress-bar');
