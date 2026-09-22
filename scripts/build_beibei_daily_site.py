@@ -516,6 +516,25 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "In the end, the deal was not Trump’s original dream. It was a compromise. The article gives more credit to quiet, professional diplomacy led by Marco Rubio’s team. But the harm has already been done. Denmark and other European countries now see the United States as less predictable and more transactional. The main message is that the new defence pact may improve Arctic security, but Trump’s threats have weakened trust across the Atlantic."
         ),
     },
+    "20260922": {
+        "pet_index": "04",
+        "overview": (
+            "文章讲述中国年轻人在内卷、失业和 AI 工具普及背景下兴起的“一人公司”浪潮。开头用吴颂云从成都外贸工作离职、开发睡眠应用 TideFlow 的故事切入："
+            "创业让她摆脱高压工作，却仍面临用户少、付费低、持续亏损的现实。随后文章解释这一趋势的规模和原因：去年中国新注册一人公司超过 700 万家，"
+            "创业者用 AI 编程、沟通客户、推广产品，试图逃离职场竞争并在低迷就业市场中寻找出口。中段转向政府与产业背景：地方政府提供住房、办公空间、"
+            "算力券和孵化器，希望一人创业既能推广 AI 应用，又能吸纳找不到合适工作的年轻人。文章同时比较中美差异，指出中国创业者有低成本开源模型和密集供应链优势，"
+            "但更多是被裁员、就业压力和企业文化高压推向创业。后半部分以杭州 Honghub 为样本，展示地方政府、投资人和年轻创业者如何共同打造微型创业社区；"
+            "但文章也提醒，融资获客困难、收入微薄、产品同质化和行业内卷让一人公司难以成为解决青年失业的“银弹”。结尾通过刘浩宇和陈阿文的案例说明，"
+            "AI 正降低创业门槛，让非技术背景的人也能独立开发产品；但这种创业更多追求自主和自给自足，而不是复制马云时代的大规模商业帝国。"
+        ),
+        "pet": (
+            "The article is about young people in China starting one-person companies with the help of artificial intelligence. It begins with Wu Songyun, who left a stressful trade job in Chengdu and created TideFlow, a sleep app. Her life feels better than before, but the business is still very small. It has about 1,000 users and only a few paying customers, so it loses money every month. "
+            "Wu is part of a bigger trend. Many young Chinese people want to escape the rat race and find work in a weak job market. AI tools help them code, talk to customers and promote products, so one person can do work that once needed a team. Last year, more than seven million new one-person companies were registered in China. "
+            "The government supports this trend because it may solve two problems. It can help China use AI faster in the race with the United States, and it can give young people another way to work when good jobs are hard to find. Local governments offer office space, housing support, computing vouchers and incubators. "
+            "However, the article is not simply optimistic. Many one-person companies face fierce competition, weak revenue and difficulty finding investors or customers. More than half make less than $1,000 a month. They are not a silver bullet for youth unemployment. "
+            "The article also shows why some founders still like this path. At Honghub in Hangzhou, young entrepreneurs value freedom and autonomy. Some do not want to build huge companies like Jack Ma did. They only want to live cheaply and be self-sustaining. AI has lowered the barrier to starting a company, even for people without coding experience. The main message is that one-person AI startups are both an opportunity and a sign of pressure in today’s job market."
+        ),
+    },
 }
 
 
@@ -731,6 +750,28 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition": "阻拦；阻止；劝阻",
         "definition_en": "to try to prevent something or prevent somebody from doing something, especially by making it difficult or showing that you do not approve",
         "example": "A campaign to discourage smoking among teenagers. 劝阻青少年吸烟的运动。 · I leave a light on when I'm out to discourage burglars. 我出门时开着灯以防夜盗闯入。",
+    },
+    "square feet": {
+        "definition": "平方英尺（面积单位）",
+        "definition_en": "a unit of area equal to a square one foot on each side",
+        "example": "The office occupies more than 10,000 square feet of space. 这间办公室占地超过1万平方英尺。",
+    },
+    "self-sustaining": {
+        "definition": "自我维持的；无需外部支持即可运转的",
+        "definition_en": "able to continue operating, growing, or existing without outside support",
+        "example": "The startup hopes to build a self-sustaining business. 这家初创企业希望建立能自我维持的商业模式。",
+    },
+    "incubator": {
+        "definition": "创业孵化器；帮助新企业成长的机构",
+        "definition_en": "a place or program that helps new businesses develop and grow",
+    },
+    "cog": {
+        "definition": "小齿轮；大机构中的小人物",
+        "definition_en": "a small part of a large organization or system",
+    },
+    "go-go": {
+        "definition": "高速增长的；活跃繁荣的",
+        "definition_en": "characterized by rapid growth, high activity, and strong enthusiasm",
     },
     "prohibit": {
         "definition": "（尤指以法令）禁止",
@@ -2127,14 +2168,28 @@ def daily_html(article: Article, all_articles: list[Article], config: dict) -> s
 </body></html>"""
 
 
-def build(force: bool = False) -> tuple[list[Article], dict]:
+def build(force: bool = False, refresh_dates: set[str] | None = None) -> tuple[list[Article], dict]:
     sources, duplicates = discover_note_pdfs()
+    refresh_dates = refresh_dates or set()
+    available_dates = {
+        re.search(r"(20\d{6})", path.name).group(1)
+        for path, _digest in sources
+    }
+    missing_dates = sorted(refresh_dates - available_dates)
+    if missing_dates:
+        raise ValueError(
+            "No source PDF found for requested date(s): " + ", ".join(missing_dates)
+        )
     articles: list[Article] = []
     reused = 0
+    refreshed = 0
     for path, digest in sources:
-        article, was_reused = cached_article(path, digest, force=force)
+        date = re.search(r"(20\d{6})", path.name).group(1)
+        refresh_issue = force or date in refresh_dates
+        article, was_reused = cached_article(path, digest, force=refresh_issue)
         articles.append(article)
         reused += int(was_reused)
+        refreshed += int(refresh_issue and not was_reused)
     config = load_site_config()
     write_assets()
     (OUTPUT_DIR / "index.html").write_text(index_html(articles), encoding="utf-8")
@@ -2158,6 +2213,8 @@ def build(force: bool = False) -> tuple[list[Article], dict]:
         "issues": len(articles),
         "parsed": len(articles) - reused,
         "reused": reused,
+        "targeted_refresh": sorted(refresh_dates),
+        "refreshed": refreshed,
         "duplicates_ignored": duplicates,
     }
     return articles, report
@@ -2190,10 +2247,20 @@ def print_result(articles: list[Article], report: dict) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="增量生成并可持续监控贝贝外刊网页")
     parser.add_argument("--force", action="store_true", help="忽略解析缓存并全量重建")
+    parser.add_argument(
+        "--date",
+        action="append",
+        default=[],
+        help="只对指定日期忽略解析缓存，可重复使用，例如 --date 20260922",
+    )
     parser.add_argument("--watch", action="store_true", help="持续监控下载目录中的新讲义")
     parser.add_argument("--interval", type=float, default=15.0, help="监控轮询秒数（默认 15）")
     args = parser.parse_args()
-    articles, report = build(force=args.force)
+    refresh_dates = set(args.date)
+    invalid_dates = sorted(date for date in refresh_dates if not re.fullmatch(r"20\d{6}", date))
+    if invalid_dates:
+        parser.error("--date must use YYYYMMDD format: " + ", ".join(invalid_dates))
+    articles, report = build(force=args.force, refresh_dates=refresh_dates)
     print_result(articles, report)
     if not args.watch:
         return
