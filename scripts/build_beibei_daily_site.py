@@ -535,6 +535,28 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The article also shows why some founders still like this path. At Honghub in Hangzhou, young entrepreneurs value freedom and autonomy. Some do not want to build huge companies like Jack Ma did. They only want to live cheaply and be self-sustaining. AI has lowered the barrier to starting a company, even for people without coding experience. The main message is that one-person AI startups are both an opportunity and a sign of pressure in today’s job market."
         ),
     },
+    "20260923": {
+        "pet_index": "04",
+        "overview": (
+            "文章围绕特朗普宣布禁止 CNN、MS NOW 和 Politico 进入白宫采访一事展开，分析这场媒体禁令背后的政治逻辑和反讽后果。开头先交代事件背景："
+            "特朗普在外交、经济、司法和选举前景上都遭遇压力，于是把责任归咎于几家媒体，并以“报道不实和破坏性”为由封杀它们。"
+            "但被禁媒体以及白宫记者协会并未退缩，而是集体抵制相关采访池安排，并把白宫告上法庭，认为这侵犯了新闻自由。"
+            "文章中段指出，特朗普政府给出的辩解非常矛盾：一方面声称只是反击“假新闻”，另一方面又在发言中差点承认这是在“封禁自由媒体”。"
+            "作者认为，特朗普一直迷信媒体报道能塑造现实，认为如果报道更友好，选民就会用不同方式看待他的执政表现；然而如今传统媒体影响力已经下降，"
+            "并不能像他想象的那样决定总统声望。文章随后把这种误判放到更长的政治传统里看：奥巴马、拜登也曾高估叙事和新闻报道的力量，"
+            "而特朗普只是以更激烈、更报复性的方式重复同样错误。后半部分还批评自由派的另一种幻想：他们以为如果媒体标题更尖锐、报道更强硬，"
+            "特朗普就不会当选或连任。作者强调，现实并非媒体没有报道特朗普的问题，而是大量选民在充分知道这些争议后仍然选择了他。"
+            "结尾形成讽刺：特朗普既厌恶敌对报道，又极度渴望曝光；当他把媒体赶走后，自己的讲话也可能无人完整记录。文章的核心判断是，"
+            "把政治失败归咎于媒体是一种逃避，而审查媒体最终也会伤害依赖关注的政治人物本人。"
+        ),
+        "pet": (
+            "The article is about President Trump’s decision to ban CNN, MS NOW and Politico from the White House. Trump is facing problems in foreign policy, the economy, the courts and future elections. He says these media outlets have reported on him unfairly, so he wants to keep them out of the White House press pool. "
+            "The media groups do not accept this. They refuse to take part in the new press pool system, and they sue the White House. They say the ban is an attack on press freedom. The White House says it is only fighting false reporting, but the article argues that the ban is really about punishing critical coverage. "
+            "The writer then explains Trump’s belief about the media. Trump thinks news coverage can change political reality. He believes that if newspapers and TV channels treated him better, voters might see him differently. But the article says this belief is too simple. Traditional media are much weaker than before, and they cannot fully control what voters think. "
+            "The article also says that other presidents have made a similar mistake. Barack Obama and Joe Biden also cared a lot about public messaging and news narratives. Trump is different because he uses harsher and more aggressive methods, but the basic mistake is the same: he gives the media too much power in his own mind. "
+            "The writer also criticises some liberals. They believe stronger headlines or tougher reporting could have stopped Trump. But Trump has already received huge amounts of negative coverage. Many voters knew about his problems and still supported him. The main message is that blaming the media is a way to avoid harder political truths. The ending is ironic: Trump hates hostile coverage, but he also needs attention. If he bans reporters, his own words may no longer be heard clearly."
+        ),
+    },
 }
 
 
@@ -772,6 +794,10 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
     "go-go": {
         "definition": "高速增长的；活跃繁荣的",
         "definition_en": "characterized by rapid growth, high activity, and strong enthusiasm",
+    },
+    "hack": {
+        "definition": "雇佣文人；受雇做杂务的人",
+        "definition_en": "a writer or worker hired to do ordinary, often dull work for an organization",
     },
     "prohibit": {
         "definition": "（尤指以法令）禁止",
