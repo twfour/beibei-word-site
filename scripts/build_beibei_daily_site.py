@@ -557,6 +557,28 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The writer also criticises some liberals. They believe stronger headlines or tougher reporting could have stopped Trump. But Trump has already received huge amounts of negative coverage. Many voters knew about his problems and still supported him. The main message is that blaming the media is a way to avoid harder political truths. The ending is ironic: Trump hates hostile coverage, but he also needs attention. If he bans reporters, his own words may no longer be heard clearly."
         ),
     },
+    "20260924": {
+        "pet_index": "04",
+        "overview": (
+            "文章介绍 Meta 新推出的 AI 智能体 Muse，并分析它为何同时点燃资本市场热情和用户隐私担忧。开头先说明 Muse 的定位："
+            "它不只是聊天机器人，而是能代表用户自主操作应用和网页的个人数字助手，可以发邮件、订旅行、网购，并通过 WhatsApp、Instagram、Facebook "
+            "以及 Spotify、Ticketmaster、Shopify、Gmail、OpenTable 等第三方服务完成更多任务。随后文章解释 Meta 的战略背景：公司投入数十亿美元建设基础大模型和数据中心，"
+            "希望在 Google、OpenAI、Anthropic 等竞争者面前抢占 AI 智能体市场。Muse 采用基础免费、付费提高额度的模式，面向成年人开放，"
+            "还能设置定制名称和虚拟形象，并接入 Stripe 的担保与退货政策，以降低购物出错带来的风险。中段转向市场反应：Muse 发布后热度很高，"
+            "带动 Meta 股价上涨，也让英特尔、Arm、AMD 等芯片股大涨，因为投资者押注智能体会增加推理、数据编排、网络和企业工作负载，进一步拉动芯片与云服务需求。"
+            "但文章后半部分提醒，Muse 的最大障碍不是技术想象力，而是用户信任。要发挥作用，Muse 需要访问邮箱、日历、电商账户甚至银行信息，"
+            "而 Meta 过去因 Cambridge Analytica、用户数据泄露、欧洲数据转移罚款和青少年安全诉讼等事件严重损害了隐私声誉。"
+            "如果智能体在购物、预约或旅行预订中犯错，用户可能直接付出金钱代价。结尾用扎克伯格“快速行动，打破常规”的信条作反讽："
+            "Meta 的确打破了很多东西，其中包括用户信任；而在 AI 时代，这种信任缺口可能让公司付出高昂代价。"
+        ),
+        "pet": (
+            "The article is about Meta’s new AI agent, Muse. Muse is more than a normal chatbot. It can act like a personal digital assistant and use apps and websites for people. Users can ask it to send emails, book travel, buy things online and connect with apps such as WhatsApp, Instagram, Facebook, Spotify, Gmail and OpenTable. "
+            "Meta hopes Muse will become an important product in the next stage of artificial intelligence. The company has spent billions of dollars on AI models and data centers so it can compete with Google, OpenAI, Anthropic and other companies. Muse is free at first, but users must pay $20 or $100 a month if they want higher usage limits. Adults can also give the agent a custom name and avatar. "
+            "The launch has excited investors. Meta’s share price rose, and chip companies such as Intel, Arm and AMD also gained strongly. Investors believe AI agents will need more computing power than ordinary chatbots. They may increase demand for chips, cloud services and data processing. "
+            "However, the article is also cautious. Muse needs access to very private information, such as emails, calendars, shopping accounts and bank accounts. This is a problem because many people do not trust Meta with their data. The company still has a poor reputation because of past privacy scandals, large fines and data leaks. "
+            "There is another risk: AI agents can make mistakes. If Muse buys a product, books a trip or makes an appointment incorrectly, the mistake may cost users money. Meta even warns users that the agent may take unexpected actions. The main message is that Muse may be a powerful new AI product, but its success depends on trust. In the AI era, Meta’s old habit of moving fast and breaking things could become very costly."
+        ),
+    },
 }
 
 
@@ -798,6 +820,11 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
     "hack": {
         "definition": "雇佣文人；受雇做杂务的人",
         "definition_en": "a writer or worker hired to do ordinary, often dull work for an organization",
+    },
+    "custom": {
+        "definition": "定制的；定做的；专用的",
+        "definition_en": "made or designed for a particular person, company, or purpose",
+        "example": "The company built a custom AI system for its largest clients. 这家公司为其最大客户开发了一套定制的人工智能系统。 · Users can create custom settings to match their preferences. 用户可以创建符合自己偏好的定制设置。",
     },
     "prohibit": {
         "definition": "（尤指以法令）禁止",
