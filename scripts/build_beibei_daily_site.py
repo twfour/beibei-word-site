@@ -579,6 +579,29 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "There is another risk: AI agents can make mistakes. If Muse buys a product, books a trip or makes an appointment incorrectly, the mistake may cost users money. Meta even warns users that the agent may take unexpected actions. The main message is that Muse may be a powerful new AI product, but its success depends on trust. In the AI era, Meta’s old habit of moving fast and breaking things could become very costly."
         ),
     },
+    "20260925": {
+        "pet_index": "04",
+        "overview": (
+            "文章讨论中美在白宫会晤所释放的信号，核心观点是两国经历过去一年的贸易、技术和资源对抗后，已经进入一种必须学会长期共处的新阶段。"
+            "开头回顾去年双方互相施压的过程：美国对中国加征关税并实施技术管制，中国则限制稀土和其他关键材料出口，工厂与消费者都受到冲击；"
+            "但结果证明，任何一方都无法迫使另一方彻底让步，最终只能达成一年休战。随着休战期临近结束，文章认为这次会晤是一个关键机会，"
+            "双方应放弃“彻底赢下对方”的幻想，转向更稳定、可持续的缓和关系。中段分析双方实力结构：美国在金融、芯片设计、芯片制造设备和最先进 AI 模型上领先，"
+            "中国则拥有全球最大出口能力、稀土和关键矿产优势，以及快速扩散的低成本开源 AI 模型。正因为双方各有王牌，彻底脱钩既不现实也不可取，"
+            "任何一方武器化某个卡点，都可能招致对方在另一个卡点反击。文章把这种关系称为冷战逻辑的新版：不是核威慑，而是“相互确保经济扰乱”。"
+            "后半部分强调，普通民众并不希望无休止对抗。美国年轻人更倾向于与中国合作，中国民众也厌倦把经济生活完全服务于国家竞争和对美僵局。"
+            "会晤可能只带来有限成果，例如农业贸易姿态，但更重要的是确认长期教训。文章特别指出 AI 应成为中美沟通的重点，因为 AI 系统可能攻击敏感网络、"
+            "劫持账户、威胁政治和社会稳定。双方可以先从勒索软件、关键基础设施漏洞等共同威胁上合作。结尾呼吁中美都接受现实："
+            "极端要求和威胁不符合任何一方利益；建立稳定关系不需要完全互信，只需要足够智慧和克制，让竞争不吞噬其他所有合作空间。"
+        ),
+        "pet": (
+            "The article is about a new stage in the relationship between the United States and China. Last year, the two countries showed that they could hurt each other. The United States used tariffs and technology controls. China answered by limiting exports of rare earths and other important materials. Both factories and consumers felt the pain. But neither side could make the other give up. In the end, they agreed to a one-year truce. "
+            "Now that truce is close to ending, and a meeting at the White House may be important. The article says both countries should stop dreaming that one side can completely win. Instead, they should build a more stable relationship, or détente. "
+            "The writer explains why this is necessary. The United States is very strong in finance, chip design, chip-making equipment and advanced AI models. China is the world’s largest exporter and controls many rare earths, critical minerals and powerful magnets. China is also moving fast in cheap open-weight AI models. Because both sides have important strengths, neither can land a knockout blow. "
+            "The article compares the situation with the Cold War, but there is a key difference. The United States and the Soviet Union traded very little. Today, the American and Chinese economies are deeply connected. Full decoupling is not realistic. If one side uses one choke point as a weapon, the other side may strike back in another area. "
+            "The article also says many ordinary people are tired of confrontation. Young Americans often prefer cooperation with China, and many people in China are also weary of the rat race and constant national competition. The meeting may only bring small trade deals, but it can still help both governments remember the lessons of the past year. "
+            "AI is one important topic. AI systems may attack networks, hijack accounts or threaten social stability. The two countries could begin with shared dangers such as ransomware gangs. The main message is that the United States and China do not need full trust, but they do need wisdom and restraint. They must keep competition from damaging every other part of the relationship."
+        ),
+    },
 }
 
 
@@ -825,6 +848,11 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition": "定制的；定做的；专用的",
         "definition_en": "made or designed for a particular person, company, or purpose",
         "example": "The company built a custom AI system for its largest clients. 这家公司为其最大客户开发了一套定制的人工智能系统。 · Users can create custom settings to match their preferences. 用户可以创建符合自己偏好的定制设置。",
+    },
+    "encounter": {
+        "definition": "相遇；遭遇；冲突",
+        "definition_en": "a meeting, especially one that is sudden, unexpected, or violent",
+        "example": "Three of them were killed in the subsequent encounter with the police. 他们中有三个人在后来与警察的冲突中被杀死。 · a chance encounter 偶然相遇",
     },
     "prohibit": {
         "definition": "（尤指以法令）禁止",
@@ -1480,6 +1508,7 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
         phonetic_vocab_heading = VOCAB_PHONETIC_HEADING_PATTERN.search(english_source)
         numbered_vocab_heading = VOCAB_NUMBERED_HEADING_PATTERN.search(english_source)
         no_pos_phrase_vocab_heading = VOCAB_NO_POS_PHRASE_PATTERN.search(english_source)
+        land_a_blow_heading = re.search(r"\bland a blow / punch, etc\.", english_source)
         cut_positions = [
             match.start()
             for match in (
@@ -1488,6 +1517,7 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
                 bare_vocab_heading,
                 phonetic_vocab_heading,
                 no_pos_phrase_vocab_heading,
+                land_a_blow_heading,
             )
             if match is not None
         ]
