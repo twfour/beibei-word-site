@@ -602,6 +602,29 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "AI is one important topic. AI systems may attack networks, hijack accounts or threaten social stability. The two countries could begin with shared dangers such as ransomware gangs. The main message is that the United States and China do not need full trust, but they do need wisdom and restraint. They must keep competition from damaging every other part of the relationship."
         ),
     },
+    "20260926": {
+        "pet_index": "04",
+        "overview": (
+            "文章以白宫东厅的一场国宴为切入口，观察美国政府、AI 高管和大型企业 CEO 在中美关系中的复杂位置。开头交代，"
+            "这场晚宴是特朗普政府接待中方代表团的一部分，意在通过高规格仪式稳定脆弱的中美关系；但宾客名单本身就揭示了两国经济的深度交织："
+            "双方一边在人工智能等新兴技术上竞争，一边又很难真正脱钩。随后文章转向 AI 圈内部的分歧：OpenAI 的 Sam Altman 和 Elon Musk "
+            "主张放慢 AI 发展、加强政府间监管，以避免技术失控；而白宫 AI 与加密事务负责人 David Sacks 以及英伟达 CEO 黄仁勋则淡化灾难风险，"
+            "认为安全主要应由企业自行处理。英伟达获准向中国出售部分先进 AI 芯片，也引发国家安全专家和民主党人的批评。中段重点展示美国商界对中国的依赖："
+            "苹果仍把中国作为 iPhone 主要组装基地和重要市场，特斯拉高度依赖上海工厂和中国电动车市场，亚马逊平台上超过一半全球卖家来自中国，"
+            "大量自有品牌商品也由中国制造。随后文章讨论中美互联网壁垒：Google 早已退出中国大陆搜索市场，Meta 的 Facebook、Instagram、WhatsApp "
+            "被屏蔽，扎克伯格从早年主动示好中国转向批评 TikTok；而特朗普第二任期则推动 TikTok 美国业务剥离给美国投资者。后半部分回到经贸谈判，"
+            "财长贝森特称双方同意将去年贸易战后的协议延长两个月，但关税、中国采购、稀土供应、技术限制等核心问题并未解决，只是推迟到下一轮谈判。"
+            "结尾描写特朗普把白宫访问变成一场带有个人风格的政治秀：复古仪仗、战机轰鸣、改造成高尔夫俱乐部风格的玫瑰园，都凸显这场外交活动重排场、重形象，"
+            "而实质政策成果仍相当有限。"
+        ),
+        "pet": (
+            "The article is about a state dinner at the White House and what it shows about the relationship between the United States and China. Government officials, AI executives and famous CEOs attended the dinner. The event was meant to help stabilise the fragile relationship between the two countries. But the guest list also showed how closely the two economies are connected, even while they compete in areas such as artificial intelligence. "
+            "The article first looks at the AI industry. Some leaders, such as Sam Altman and Elon Musk, think AI development should slow down and governments should work together to control the risks. Others, such as David Sacks and Nvidia CEO Jensen Huang, believe the risks are not as serious and that companies can handle safety themselves. Nvidia wants access to the Chinese market, but some people in Washington worry that selling advanced chips to China could help China catch up in the AI race. "
+            "The article then explains why many American companies still depend on China. Apple uses China as its main iPhone assembly hub and sells millions of phones there. Tesla relies on its Shanghai factory and on China’s huge electric-vehicle market. Amazon depends heavily on Chinese sellers and Chinese-made goods. "
+            "At the same time, China has blocked or restricted many American internet services. Google left mainland China’s search market years ago. Meta’s Facebook, Instagram and WhatsApp are blocked. Mark Zuckerberg once tried hard to enter China, but later became a public critic of TikTok. Trump has also pushed TikTok’s Chinese owner to spin off its U.S. operations to American investors. "
+            "The trade talks brought only limited progress. The two sides agreed to extend an earlier trade agreement by two months, but the hardest questions remain: tariffs, Chinese purchases, rare-earth supplies and technology restrictions. The ending focuses on Trump’s political performance. The visit gave him a chance to show a Washington remade in his own image, with soldiers, music, fighter jets and a redesigned Rose Garden. The main message is that the dinner looked impressive, but the real policy results were still limited."
+        ),
+    },
 }
 
 
