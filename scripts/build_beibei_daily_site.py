@@ -625,6 +625,66 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The trade talks brought only limited progress. The two sides agreed to extend an earlier trade agreement by two months, but the hardest questions remain: tariffs, Chinese purchases, rare-earth supplies and technology restrictions. The ending focuses on Trump’s political performance. The visit gave him a chance to show a Washington remade in his own image, with soldiers, music, fighter jets and a redesigned Rose Garden. The main message is that the dinner looked impressive, but the real policy results were still limited."
         ),
     },
+    "20260928": {
+        "pet_index": "04",
+        "overview": (
+            "文章讨论美国中东霸权退场后的地区权力真空，以及谁可能接管这片长期动荡的地区。开头指出，美国看似仍被困在中东，尤其深陷与伊朗的战争和冲突，"
+            "但无论这场冲突如何结束，它都标志着一个更深层的变化：美国终于开始放弃在中东的霸权地位。文章把这一变化放入百年历史中观察，"
+            "从一战后英法瓜分奥斯曼帝国遗产，到冷战期间美苏争夺影响力，再到冷战后美国试图主导中东秩序，说明外部大国长期塑造了这片地区的边界和冲突。"
+            "中段列举美国收缩的迹象：美国不愿再无条件为盟友冒险，不愿配合沙特打击胡塞，也计划削减中东驻军，把更多战略资源转向美洲和对华竞争。"
+            "文章认为能源格局变化是重要原因：美国已成为石油出口国，中东石油对美国的重要性下降，而中国才是海湾能源的重要买家；但中国并不愿接手中东霸权，"
+            "因为治理这片地区代价高昂。后半部分分析地区新格局：伊朗、土耳其和以色列都将争夺更大影响力，但三者之间矛盾深重，很难和平共处。"
+            "真正的输家是阿拉伯国家：伊拉克和叙利亚仍未走出内战废墟，埃及沉迷国内镇压和腐败，海湾君主国虽追求繁荣，却仍依赖美国安全保护，内部 rivalries 也在外溢不稳定。"
+            "结尾指出，美国撤退给阿拉伯世界恢复昔日荣光的机会，但每一个离开的霸权者都会留下未竟设计和意外后果；中东仍有深仇旧账，很难平稳告别动荡。"
+        ),
+        "pet": (
+            "The article is about America’s retreat from the Middle East. It says that the United States may still look stuck in the region, especially because of its conflict with Iran. But the deeper change is that America is giving up its role as the main power there. This is a big historical moment because outside powers have shaped the Middle East for more than a century. "
+            "The article explains that America is no longer willing to carry the same costs. It does not want to risk too much for its allies, and it plans to reduce its troops in the region. It also wants to focus more on the Americas and on competition with China. Energy is another reason. The United States now exports oil, so Middle Eastern oil is less important to it than before. China buys a lot of Gulf oil, but China does not want to become the new ruler of the Middle East because the job would be too costly. "
+            "The article then looks at the powers that may fill the gap. Iran, Turkey and Israel all want more influence. Iran may try to use the Strait of Hormuz and pressure the Gulf states. Turkey is building economic and security ties across the region. Israel is a strong military power. But these three countries have deep conflicts, so they are unlikely to create a peaceful order together. "
+            "The biggest losers may be the Arab states. Iraq and Syria are still recovering from civil war. Egypt is no longer the natural leader of the Arab world. The Gulf monarchies are rich and want economic growth, but their security still depends on America. The main message is that America’s retreat gives the region a chance to change, but it also leaves many dangers behind. The Middle East may struggle to find stability after the old hegemon leaves."
+        ),
+    },
+    "20260929": {
+        "pet_index": "04",
+        "overview": (
+            "文章讨论现代医学中的过度手术问题，核心观点是：许多非必要手术并没有经过足够严格的临床验证，效果可能来自自然恢复或安慰剂效应，甚至可能弊大于利。"
+            "开头用世界卫生组织数据说明全球每年有超过 3 亿台手术，富裕国家居民一生中接受手术的概率尤其高。器官移植、紧急剖宫产等手术当然能救命，"
+            "但随着其他类型手术数量持续增长，越来越多医生开始质疑：这些手术真的必要吗？文章随后列举几项颠覆性研究：阑尾炎手术未必总优于抗生素治疗，"
+            "一些骨科手术与假手术相比并无更好效果，常见膝关节手术甚至可能让患者十年后问题更多。中段解释为什么患者术后会感觉变好：一部分是身体自然恢复，"
+            "一部分是安慰剂效应，而手术的仪式感、麻醉和医生权威都可能放大这种心理效果。文章也指出，外科医生容易高估自己手术的作用，因为他们通常看到术后改善，"
+            "却未必能看到不做手术的对照结果。后半部分分析阻力：年长医生不愿承认长期实践无效，按项目收费的医疗体系鼓励更多手术，患者也倾向于用影像异常解释疼痛，"
+            "希望通过手术快速解决问题。相比之下，年轻医生和薪资制医疗体系更容易接受新证据、淘汰无效术式。结尾呼吁更多随机对照试验，让医生有证据拒绝不必要手术，"
+            "真正履行“不伤害”的希波克拉底承诺。"
+        ),
+        "pet": (
+            "The article is about unnecessary surgery. Every year, more than 300 million operations are done around the world. Some operations clearly save lives, such as organ transplants and emergency Caesareans. But many other operations are now being questioned. Doctors and researchers are asking whether some common procedures are really useful. "
+            "The article gives several examples. Some patients with appendicitis may do as well with antibiotics as with surgery. Some orthopaedic operations do not work better than sham surgery. A Finnish study even found that patients who had a real knee operation had more problems ten years later than those who had a fake operation. "
+            "The article explains why surgery can still seem successful. Some patients get better naturally over time. Others feel better because of the placebo effect. Surgery can create a strong feeling that something serious has been done, so patients may believe they are improving. Doctors may also overestimate the value of their own work because they see patients after surgery but do not always see what would have happened without surgery. "
+            "There are many reasons why ineffective surgery continues. Older surgeons may not want to accept that a procedure they have done for years is not useful. Some payment systems reward doctors for doing more operations. Patients may also prefer a quick surgical solution when scans show something abnormal, even if the abnormality is not the real cause of pain. "
+            "The article says more clinical trials are needed. If doctors have stronger evidence, they can refuse unnecessary operations more confidently. The main message is that surgery should not be done simply because it is possible. To keep the promise of doing no harm, surgeons must test procedures carefully and stop using those that do not truly help patients."
+        ),
+    },
+    "20260930": {
+        "pet_index": "04",
+        "overview": (
+            "文章讨论 2026 年诺贝尔和平奖的可能归属，并批评押注市场过度追捧特朗普、泽连斯基等政治名人，忽视了真正建设和平的制度和组织。"
+            "开头指出，诺贝尔和平奖不是名气竞赛。特朗普不符合奖项精神，因为他的政治风格更接近强人交易和破坏国际规则；泽连斯基虽领导乌克兰抵抗侵略，"
+            "但把和平奖授予正在交战一方的国家领导人，可能被视为对战争一方的背书，不符合诺贝尔强调裁军、国际友爱和和平大会的传统。"
+            "文章随后转向更值得关注的候选者：救助战区儿童的组织、国际法院和国际刑事法院、战地记者、人道主义团体，以及国际空间站合作项目。"
+            "中段说明当下背景：全球武装冲突数量创历史新高，从乌克兰、加沙、苏丹到缅甸、刚果、萨赫勒地区，平民承受巨大伤亡和流离失所。"
+            "在这种时代，和平奖更应该奖励那些维护规则、记录罪行、救助平民、追究责任的人，而不是只关注曝光度最高的政治人物。文章逐一分析几类和平建设者："
+            "国际法院和国际刑事法院维护国际法权威，即使强国不愿服从；战地记者冒死保存证据，防止暴行被抹去；人道组织在战火中照护儿童和平民；"
+            "国际空间站则证明，即使地缘政治紧张，敌对阵营也能在共同规则下持续合作。结尾提出全文主旨：和平不是某个领袖个人成就，而是人类共同构建的制度、规则、司法、合作与记忆。"
+            "诺贝尔委员会应把目光从显赫人物身上移开，转向那些默默支撑和平基础的人。"
+        ),
+        "pet": (
+            "The article is about the Nobel Peace Prize and who should win it in 2026. Betting markets are interested in famous political names such as Donald Trump and Volodymyr Zelenskyy. But the writer says the prize should not be a fame contest. It should reward real peace-building work. "
+            "The article argues that Trump is not a good choice because his politics often weaken rules and institutions. Zelenskyy is also unlikely to win, even though he has led Ukraine during Russia’s invasion. Giving the prize to a leader of one side in an active war could look like support for that side, not a prize for peace. "
+            "The writer says the committee should look at less famous candidates. These include organisations that help children in war zones, international courts, journalists, humanitarian groups and the International Space Station partnership. The world has many armed conflicts today, from Ukraine and Gaza to Sudan, Myanmar, Congo and the Sahel. This makes peace-building work even more important. "
+            "International courts help protect international law and hold people responsible for war crimes. Journalists in war zones record evidence so that crimes cannot be erased from history. Humanitarian organisations help children and civilians when governments fail to protect them. The International Space Station shows that countries can cooperate peacefully even when politics on Earth are tense. "
+            "The main message is that peace is not created by fame or speeches. It is built through cooperation, rules, courts, humanitarian work and honest reporting. The Nobel committee has a chance to make people notice these tools of peace. In a violent time, the prize should honour quiet workers who protect peace every day."
+        ),
+    },
 }
 
 
@@ -876,6 +936,11 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition": "相遇；遭遇；冲突",
         "definition_en": "a meeting, especially one that is sudden, unexpected, or violent",
         "example": "Three of them were killed in the subsequent encounter with the police. 他们中有三个人在后来与警察的冲突中被杀死。 · a chance encounter 偶然相遇",
+    },
+    "anaesthetise": {
+        "definition": "使麻醉；施行麻醉；使麻木",
+        "definition_en": "to give someone a drug that makes them unable to feel pain; to make someone less sensitive",
+        "example": "The patient was anaesthetised before the surgery began. 手术开始前，病人接受了麻醉。",
     },
     "prohibit": {
         "definition": "（尤指以法令）禁止",
@@ -1789,7 +1854,7 @@ ANALYSIS_BODY_START = re.compile(
     r"^(?:"
     r"1[.、:：]\s*"
     r"|第[一二三四五六七八九十]+部分\s*[:：]"
-    r"|主句(?:部分)?\s*[:：]"
+    r"|主句(?:\d+|部分)?\s*[:：]"
     r"|整体(?:结构|分析)\s*[:：]"
     r")"
 )
