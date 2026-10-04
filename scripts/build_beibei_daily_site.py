@@ -685,6 +685,69 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The main message is that peace is not created by fame or speeches. It is built through cooperation, rules, courts, humanitarian work and honest reporting. The Nobel committee has a chance to make people notice these tools of peace. In a violent time, the prize should honour quiet workers who protect peace every day."
         ),
     },
+    "20261001": {
+        "pet_index": "04",
+        "overview": (
+            "文章介绍 AMD 以 82 亿美元股票收购李飞飞创办的 World Labs，分析这笔交易为何是 AMD 对抗英伟达、布局“物理 AI”的关键一步。"
+            "开头说明交易概况：AMD 将收购 World Labs，预计年底完成，仍需监管批准；World Labs 由斯坦福计算机科学家、ImageNet 奠基人、"
+            "“AI 教母”李飞飞创办，专注空间智能和世界模型。文章随后回顾李飞飞履历：她在斯坦福任教、曾任谷歌云 AI 首席科学家，"
+            "也通过 AI4ALL 推动 AI 领域多元化。World Labs 的核心技术是把文本、视频、全景图转化为可交互的三维环境，让模型不仅能处理文字，"
+            "还能感知、生成、推理并与三维世界互动。中段转向 AMD 的战略动机：AMD 传统上以芯片设计见长，近年在苏姿丰领导下借数据中心和 AI 芯片快速增长，"
+            "Helios 机架级系统已对标英伟达 Grace Blackwell、Vera Rubin 等系统，并吸引微软、Meta、甲骨文、OpenAI 等客户。"
+            "但在 AI 时代，仅有算力硬件不够，谁掌握前沿模型和完整技术栈，谁就更有可能控制下一轮 AI 生态。收购 World Labs 可以补上 AMD 在模型层、软件层和物理 AI 应用层的短板。"
+            "后半部分解释“物理智能”的意义：现有 LLM 主要训练在文本和数字内容上，不适合驾驶机器人、自动驾驶汽车或完成需要物理精度的任务；"
+            "World Labs 的世界模型有望帮助 AMD 优化芯片，使其适配机器人和实体 AI 应用。结尾指出，人形机器人和物理 AI 正成为硅谷和中国共同押注的赛道，"
+            "李飞飞加入 AMD 担任首席科学家和执行副总裁，目标是搭建覆盖硬件、软件、平台和开放模型的端到端 AI 生态。"
+        ),
+        "pet": (
+            "The article is about AMD buying World Labs, a startup founded by Fei-Fei Li. Li is a famous computer scientist and is often called the “Godmother of AI.” AMD will pay $8.2 billion in stock, and the deal is expected to close by the end of the year if regulators approve it. "
+            "World Labs works on spatial intelligence and world models. These models can create and understand 3D environments from text, videos and panoramas. This is different from ordinary large language models, which mainly work with words and digital content. World Labs wants AI to perceive, generate, reason and interact with the 3D world. "
+            "The article explains why AMD wants this company. AMD is already strong in chips. Under CEO Lisa Su, it has grown quickly in data centers and AI chips. Its rack-scale systems compete with Nvidia’s systems, and big companies such as Microsoft, Meta, Oracle and OpenAI are using AMD chips. But in the AI market, hardware alone is not enough. Companies also need models, software and platforms. "
+            "Buying World Labs can help AMD move toward physical AI. Current LLMs are not designed to pilot robots, drive autonomous cars or do tasks that need physical precision. World models may help AMD build chips and systems for robots and other real-world AI applications. "
+            "The article also says this field is becoming very competitive. Silicon Valley is investing heavily in humanoid robots, and China is also strong in this area. Fei-Fei Li will become AMD’s chief scientist and an executive vice president. The main message is that AMD is trying to build a full AI ecosystem, not just sell chips."
+        ),
+    },
+    "20261002": {
+        "pet_index": "04",
+        "overview": (
+            "文章讲述一架从迪拜飞往特拉维夫的 FlyDubai 航班疑似遭遇劫持/驾驶舱袭击事件，以及乘客和机组人员如何在高空化解灾难。"
+            "开头从乘客感受写起：飞机起初像遇到乱流，随后剧烈上下起伏，乘客听到驾驶舱附近传来尖叫。目击者称，一名飞行员袭击另一名飞行员，"
+            "疑似试图让飞机坠毁。飞机随后急剧下坠，乘客被压在座椅上，1073 号航班在不到两分钟内下降超过 17000 英尺，并先后发出一般紧急、非法干扰、再次紧急信号。"
+            "中段描写危机解除过程：多名乘客冲向驾驶舱，发现一名飞行员重伤，另一名飞行员持刀行凶；乘客合力制服袭击者，受伤机长仍设法打开驾驶舱门，"
+            "使机组和乘客能够控制局面。一名受过牙医训练的乘客在空中为受伤机长处理头部和手指伤口，另一名非执勤飞行员随后接管飞机。"
+            "航班改降沙特塔布克，部分乘客衣服染血，在机场等待替代航班。后半部分说明后续调查和外交互动：涉事动机尚不明确，航司呼吁外界不要过早猜测，"
+            "并暂停往返以色列航班；内塔尼亚胡确认受伤机长为印度公民，称其在被刺伤后仍反击并打开舱门，避免了灾难。事件还引发以色列、沙特、阿联酋之间的微妙互动："
+            "以色列官员感谢沙特协助，外长与阿联酋方面通话，强调共同抵御极端威胁。结尾写乘客安全返回以色列，在机场与家人重逢，幸存者把这场经历称为死里逃生。"
+        ),
+        "pet": (
+            "The article is about a terrifying emergency on a FlyDubai flight from Dubai to Tel Aviv. At first, passengers thought the plane was only hitting turbulence. Then the plane began to move sharply up and down, and people heard screams near the cockpit. Reports said one pilot attacked another pilot and may have tried to crash the plane. "
+            "The plane dropped more than 17,000 feet in less than two minutes. Passengers felt pinned to their seats. The aircraft sent emergency signals and then turned back over northern Saudi Arabia. Many people on board thought they were going to die. "
+            "During the panic, several passengers rushed to the cockpit. They found one pilot badly injured and another pilot holding a knife. The passengers and crew subdued the attacker. The injured captain still managed to open the cockpit door, which helped passengers and crew take control of the situation. A passenger trained as a dentist treated the injured pilot during the flight. Another off-duty pilot then helped fly the plane. "
+            "The plane landed in Tabuk, Saudi Arabia. Some passengers were wearing bloodstained clothing. Later, they took another plane back to Israel. Officials said many details were still unclear, including why the pilot attacked and whether he was trying to crash the plane. FlyDubai asked people not to speculate too early and suspended flights to Israel. "
+            "The incident also had a diplomatic side. Israeli officials thanked Saudi authorities for helping the passengers, even though Israel and Saudi Arabia do not have formal diplomatic relations. The main message is that quick action by passengers and crew prevented a possible disaster."
+        ),
+    },
+    "20261003": {
+        "pet_index": "04",
+        "overview": (
+            "文章围绕田纳西州死囚 Christa Pike 注射死刑失败事件，质疑“致命注射”是否真的比枪决等方式更人道。"
+            "开头交代背景：美国最高法院解除暂缓令后，Pike 被绑在田纳西州死刑室的担架床上，接受戊巴比妥注射。按程序，这种药物应让她迅速失去意识并死亡，"
+            "但她在第一次注射后表现出极度痛苦，喘气、哭喊、身体扭动，甚至说自己“疼得要命”。狱方关闭观察窗，又给了第二剂药物，但她仍未死亡，"
+            "最终被送往医院，情况危急。文章指出，这不是孤例，而是美国注射死刑长期失败模式的一部分。中段解释技术和制度原因：合格医生通常拒绝参与处决，"
+            "因为这违反希波克拉底誓言，导致监狱依赖训练不足的人员执行静脉穿刺。若 IV 线路扎得不好，药物可能渗入组织而不是进入血液，造成类似被火烧的剧痛。"
+            "死囚自身的特殊生理状况、肥胖、疾病、血管问题，也会增加失败风险。文章还指出药物来源本身有问题：正规药企不愿供应处决药物，"
+            "州政府只能转向复方药房，药物可能过期、受污染、浓度不足。后半部分把问题提升到制度层面：为了显得“医学化”和“文明”，"
+            "致命注射把死刑包装成临床程序，但它并不真正安全或无痛。随着更多囚犯在担架床上经历痛苦并在处决尝试中幸存，越来越多州开始重新审查死刑方式，"
+            "有些甚至转向枪决或毒气。结尾指出，田纳西州州长再次暂停处决并启动独立调查；文章的核心判断是，注射死刑这场所谓人道实验已经失败。"
+        ),
+        "pet": (
+            "The article is about a failed lethal injection in Tennessee. Christa Pike had spent 30 years on death row. After the Supreme Court lifted a temporary stay, she was taken to the execution chamber and given pentobarbital, a drug that was supposed to make her lose consciousness and die quickly. "
+            "But the execution did not go as planned. After the first injection, Pike was still awake and in extreme pain. She gasped, cried out and moved her body. Prison officials closed the viewing window and later gave her a second dose, but she still did not die. She was taken to hospital in critical condition. "
+            "The article says this failure is part of a larger problem with lethal injection. Qualified doctors usually refuse to take part in executions because it goes against their medical ethics. As a result, prisons often depend on poorly trained staff. If an IV line is placed badly, the drug may enter the tissue instead of the blood. This can cause terrible burning pain and may fail to kill the prisoner. "
+            "There are also problems with the drugs. Many drug companies do not want their products used in executions, so states may get drugs from less reliable sources. Some drugs may be expired, contaminated or too weak. This makes the process even more uncertain. "
+            "The article argues that lethal injection only looks medical and humane. In reality, it can cause great suffering. Some states have begun to review executions or consider other methods, such as firing squads or gas. The main message is that the experiment with lethal injection has failed, and calling it humane does not make it painless or safe."
+        ),
+    },
 }
 
 
@@ -941,6 +1004,35 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition": "使麻醉；施行麻醉；使麻木",
         "definition_en": "to give someone a drug that makes them unable to feel pain; to make someone less sensitive",
         "example": "The patient was anaesthetised before the surgery began. 手术开始前，病人接受了麻醉。",
+    },
+    "reason": {
+        "definition": "推理；推断；推论",
+        "definition_en": "to form a judgement by thinking about facts in a logical way",
+        "example": "She reasoned that she must have left her bag on the train. 她断定准是把包落在火车上了。",
+    },
+    "stab": {
+        "definition": "刺；戳；捅",
+        "definition_en": "to push a sharp pointed object, especially a knife, into someone",
+        "example": "He was stabbed to death in a racist attack. 他遭到种族主义者的袭击，被刺死了。 · She stabbed him in the arm with a screwdriver. 她用螺丝刀在他胳膊上戳了一下。",
+    },
+    "intravenous": {
+        "definition": "静脉内的；静脉注射的",
+        "definition_en": "going into or connected with a vein",
+        "example": "The patient received intravenous medication. 病人接受了静脉注射药物。",
+    },
+    "grounded": {
+        "definition": "有事实依据的；切合实际的；扎根于现实的",
+        "definition_en": "based on facts, evidence, or reality",
+        "example": "The report offers a grounded analysis of the economic situation. 这份报告对经济形势进行了有事实依据的分析。 · Her conclusions are grounded in years of research and experience. 她的结论建立在多年的研究和经验之上。",
+    },
+    "commit to": {
+        "definition": "承诺；保证；投入",
+        "definition_en": "to promise sincerely to do something or to give time, money, or effort to something",
+        "example": "The President is committed to reforming health care. 总统承诺要改革医疗保健。 · Borrowers should think carefully before committing themselves to taking out a loan. 借款人应当慎重考虑之后再行借贷。",
+    },
+    "cable": {
+        "definition": "电缆；缆绳；有线电视线",
+        "definition_en": "a thick wire or rope used for carrying electricity, signals, or for holding things",
     },
     "prohibit": {
         "definition": "（尤指以法令）禁止",
@@ -1855,6 +1947,7 @@ ANALYSIS_BODY_START = re.compile(
     r"1[.、:：]\s*"
     r"|第[一二三四五六七八九十]+部分\s*[:：]"
     r"|主句(?:\d+|部分)?\s*[:：]"
+    r"|分句[①②③④⑤⑥⑦⑧⑨⑩\d]+拆解\s*"
     r"|整体(?:结构|分析)\s*[:：]"
     r")"
 )
