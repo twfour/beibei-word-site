@@ -748,6 +748,46 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The article argues that lethal injection only looks medical and humane. In reality, it can cause great suffering. Some states have begun to review executions or consider other methods, such as firing squads or gas. The main message is that the experiment with lethal injection has failed, and calling it humane does not make it painless or safe."
         ),
     },
+    "20261005": {
+        "pet_index": "04",
+        "overview": (
+            "文章分析 Anthropic 可能进行 IPO 的反常之处：普通科技公司上市时通常讲述增长、创新和改变世界的乐观故事，"
+            "而 Anthropic 的核心叙事却离不开对 AI 危险性的警告。开头把 Google、SpaceX 等公司上市时的理想化表达与 Anthropic 作对比，"
+            "指出 IPO 本应是企业成熟的里程碑，但 Anthropic 的招股书可能不得不告诉投资者：自己开发的技术既可能创造巨大商业价值，"
+            "也可能带来勒索、失控乃至人类灭绝风险。中段解释这种矛盾的来源：Anthropic 创立时就深受长期主义和存在风险讨论影响，"
+            "公司员工和 CEO Dario Amodei 都曾公开承认先进 AI 的潜在危险；与此同时，公司增长迅速、收入亮眼，却仍面临模型优势能否持续、"
+            "产品质量和安全控制是否成熟的质疑。文章还写到行业内部分歧：一些技术领袖认为“AI 末日论”夸大其词，安全问题最终只是工程、产品和质量控制问题；"
+            "但 Anthropic 自身的文化又使它无法像普通 IPO 公司那样只讲胜利故事。结尾强调，即使白宫协议、内部审计和密集风险披露能部分安抚市场，"
+            "这种 IPO 仍然怪异：它要求投资者相信一家公司会赢，同时接受它反复提醒世界——它正在制造的东西可能极其危险。"
+        ),
+        "pet": (
+            "The article is about why a possible Anthropic IPO would be very unusual. Most fast-growing technology companies tell a positive story when they go public. They say they will grow, change the world and make investors rich. Anthropic’s story is different because the company also warns that powerful AI could be dangerous. "
+            "Anthropic was founded by people who were worried about the long-term risks of artificial intelligence. Some employees have warned that advanced AI could even threaten human survival. CEO Dario Amodei has also said these risks are real. This makes the company’s message strange: it wants investors to believe in its future, but it must also tell them that its technology may create serious problems. "
+            "The article says Anthropic is growing quickly, but there are still business questions. It is not clear whether its models will stay ahead of competitors. The company is also still learning how to control product quality and safety. Some AI leaders think fears about the end of the world are exaggerated. They argue that AI safety is mainly an engineering problem. "
+            "Even so, Anthropic cannot simply use the normal happy language of a tech IPO. It may need to include many risk warnings in its documents. The main message is that Anthropic’s IPO would ask investors to accept two ideas at the same time: the company may become very valuable, but the technology it builds may also be extremely risky."
+        ),
+    },
+    "20261006": {
+        "pet_index": "04",
+        "overview": (
+            "文章讨论巴西总统大选进入关键阶段时的深层困境：巴西拥有石油、亚马孙雨林、水电、农田和稀土等巨大资源禀赋，"
+            "却长期无法把优势转化为稳定增长和有效治理。开头用巴西的自然条件和巴西利亚当年象征“腾飞”的城市规划形成对照，"
+            "指出今天的选举并没有真正提供能让国家走出停滞的方案。中段分析两名主要候选人的问题：卢拉年事已高，环保立场较稳，"
+            "但财政纪律薄弱、改革乏力；小博索纳罗继承其父右翼民粹路线，否认气候风险、质疑选举制度，并可能赦免父亲，"
+            "这会给民主制度带来更大压力。文章同时说明美国因素：如果小博索纳罗获胜，将更符合特朗普政府加强西半球控制、联手压制委内瑞拉等目标，"
+            "但巴西危机的根源并不只是外部干预，而是债务、利率、腐败和精英争夺公共资源形成的恶性循环。后半部分写到，普通巴西人对政治失望，"
+            "司法和金融丑闻削弱信任，改革派第三方候选人虽然提出削减开支、降低关税和开放贸易等主张，却很难突破两大阵营。"
+            "结尾认为，巴西仍有警方、媒体、最高法院等制度韧性，但真正危险的触发点是债务和借贷成本失控，引发货币贬值、通胀和衰退；"
+            "要避免继续在糟糕候选人之间选择，巴西最终必须接受痛苦改革。"
+        ),
+        "pet": (
+            "The article is about Brazil’s coming presidential election and the country’s deeper problems. Brazil has many natural advantages. It has huge oil reserves, the Amazon rainforest, hydropower, farmland and rare earths. However, its economy has been weak for many years, and the election does not seem likely to solve this problem. "
+            "The article looks at the two main candidates. Lula is nearly 81. He supports democracy and is better on the environment, but he has done little to make the economy grow or control public spending. Jair Bolsonaro’s son is the other main candidate. He is a right-wing populist, questions the voting system and may pardon his father if he wins. The writer says this could be dangerous for Brazilian democracy. "
+            "The United States may also care about the result. A Bolsonaro victory would help Donald Trump’s plan to have more influence in the western hemisphere. It could also bring Brazil closer to U.S. pressure on Venezuela. But the article says Brazil’s biggest problems come from inside the country: high debt, high interest rates, corruption and political elites fighting over public money. "
+            "Many ordinary Brazilians feel hopeless. There are also scandals involving banks, courts and politicians. Some reform candidates want lower spending, lower tariffs and more open trade, but they are not strong enough to defeat the two main parties. "
+            "The article says Brazil still has some strong institutions, such as the police, the media and the Supreme Court. But a debt crisis could cause serious trouble, including inflation, recession and a weaker currency. The main message is that Brazil needs painful reforms if it wants to stop choosing between weak and risky leaders."
+        ),
+    },
 }
 
 
@@ -896,6 +936,13 @@ VOCAB_NO_POS_PHRASE_PATTERN = re.compile(
     r"\s+Para\.\s*\d+|\s+长难句分析|\s+中英文互译|\s+文章结构|\s+课后作业|$)",
     re.S,
 )
+
+VOCAB_FALSE_POSITIVES = {
+    # 20261006: "done precious little" is body text, not a vocabulary heading.
+    # The no-phonetic/POS fallback can otherwise treat "precious" as a card
+    # and swallow the following article translation as its definition.
+    "precious",
+}
 
 
 # Some PDF pages place the paragraph translation between a vocabulary heading
@@ -1253,6 +1300,30 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition_en": "a member of the National Socialist party that controlled Germany from 1933 to 1945",
         "example": "Nazi Germany. 纳粹德国。",
     },
+    "hack": {
+        "definition": "非法侵入（计算机系统）；黑入",
+        "definition_en": "to secretly get into a computer system or network without permission",
+        "example": "He hacked into the bank's computer. 他侵入了这家银行的计算机。",
+    },
+    "grapple": {
+        "definition": "努力处理；设法解决",
+        "definition_en": "to try hard to deal with or understand a difficult problem",
+        "example": "Investors still need to grapple with the company’s risk warnings. 投资者仍需努力应对该公司的风险提示。",
+    },
+    "voluminous": {
+        "definition": "大量的；篇幅很长的",
+        "definition_en": "very large in amount or size",
+        "example": "The prospectus contains voluminous warnings. 招股书包含大量风险提示。",
+    },
+    "mutate": {
+        "definition": "变化；转变",
+        "definition_en": "to change and develop into something different",
+        "example": "The start-up is mutating into a mature product company. 这家初创公司正在转变为成熟的产品公司。",
+    },
+    "discipline": {
+        "definition": "专业领域；训练有素的做法；自律约束",
+        "definition_en": "an area of knowledge or practice; controlled and careful behaviour",
+    },
 }
 
 
@@ -1445,7 +1516,7 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
     for match in VOCAB_PATTERN.finditer(normalized):
         term = re.sub(r"\s+", " ", match.group(1)).strip()
         key = term.lower()
-        if key in seen or key.startswith(("page ", "para ")) or len(term) < 2:
+        if key in seen or key in VOCAB_FALSE_POSITIVES or key.startswith(("page ", "para ")) or len(term) < 2:
             continue
         seen.add(key)
         body = match.group(4).strip()
@@ -1479,7 +1550,7 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
     for match in VOCAB_POS_NO_PHONETIC_PATTERN.finditer(normalized):
         term = re.sub(r"\s+", " ", match.group(1)).strip()
         key = term.lower()
-        if key in seen or key.startswith(("page ", "para ")) or len(term) < 2:
+        if key in seen or key in VOCAB_FALSE_POSITIVES or key.startswith(("page ", "para ")) or len(term) < 2:
             continue
         seen.add(key)
         body = match.group(3).strip()
@@ -1513,7 +1584,7 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
     for match in VOCAB_NO_POS_PATTERN.finditer(normalized):
         term = re.sub(r"\s+", " ", match.group(1)).strip()
         key = term.lower()
-        if key in seen or key.startswith(("page ", "para ")) or len(term) < 2:
+        if key in seen or key in VOCAB_FALSE_POSITIVES or key.startswith(("page ", "para ")) or len(term) < 2:
             continue
         phonetic = match.group(2).strip()
         if re.search(r"[\u4e00-\u9fff]", phonetic):
@@ -1550,7 +1621,7 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
     for match in VOCAB_NO_POS_PHRASE_PATTERN.finditer(normalized):
         term = re.sub(r"\s+", " ", match.group(1)).strip()
         key = term.lower()
-        if key in seen or key.startswith(("page ", "para ")) or len(term) < 2:
+        if key in seen or key in VOCAB_FALSE_POSITIVES or key.startswith(("page ", "para ")) or len(term) < 2:
             continue
         seen.add(key)
         body = match.group(2).strip()
@@ -1669,6 +1740,13 @@ def recover_english_split_by_translation(value: str) -> str:
     return f"{first} {continuation}".strip() if continuation else first
 
 
+def clean_original_paragraph(value: str) -> str:
+    """Remove PDF extraction leftovers from the English paragraph body."""
+    value = re.sub(r"([.!?][\"”’']?)\s+[A-Z][A-Z0-9.-]{1,12}=.*$", r"\1", value).strip()
+    value = re.sub(r"\s+[A-Z][A-Z0-9.-]{1,12}=$", "", value).strip()
+    return value
+
+
 def extract_paragraphs(raw: str) -> list[dict[str, str]]:
     full_raw = raw
     raw = lesson_body(raw)
@@ -1708,7 +1786,7 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
             cut_positions.append(numbered_vocab_heading.start())
         if cut_positions:
             english_source = english_source[:min(cut_positions)]
-        english_source = recover_english_split_by_translation(english_source)
+        english_source = clean_original_paragraph(recover_english_split_by_translation(english_source))
         english_source = re.sub(r"^\W+", "", english_source).strip()
         if not english_source:
             continue
