@@ -1,4 +1,20 @@
 /* Compatibility layer for the 2019 App Inventor Companion's old WebView. */
+@font-face {
+  font-family: "Archive Serif";
+  src: url("fonts/archive-serif.woff2") format("woff2"),
+       url("fonts/archive-serif.woff") format("woff");
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Archive Serif", "Noto Serif SC", "Songti SC", "STSong", serif;
+}
 .app-shell {
   width: 100%;
   max-width: 470px;
