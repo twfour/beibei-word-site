@@ -596,6 +596,7 @@ const questions = [
   {id:9,station:'遵义会议',q:'面对已经证明不合适的方法，正确做法是什么？',a:['分析原因并调整','为了面子继续','把问题藏起来'],correct:0,e:'坚定目标与及时调整方法并不矛盾。'},
   {id:10,station:'遵义会议',q:'“独立自主”更接近下面哪种理解？',a:['完全不听建议','结合实际独立思考并解决问题','凡事等待答案'],correct:1,e:'独立自主不是拒绝帮助，而是立足实际作出自己的判断。'},
   {id:11,station:'四渡赤水',q:'四渡赤水主要发生在哪一地区？',a:['川黔滇边境','东北平原','珠江三角洲'],correct:0,e:'中央红军在川黔滇边境灵活机动，四次渡过赤水河。'},
+  {id:12,station:'四渡赤水',q:'四渡赤水的路线为什么看起来曲折？',a:['队伍迷路了','根据敌情灵活改变方向','没有任何目标'],correct:1,e:'曲折路线来自连续的敌情判断和机动调整。'},
   {id:13,station:'四渡赤水',q:'四渡赤水后，红军通过哪条江摆脱围追堵截？',a:['金沙江','钱塘江','黄浦江'],correct:0,e:'红军进军云南并巧渡金沙江，摆脱了敌军围追堵截。'},
   {id:14,station:'四渡赤水',q:'“目标坚定，办法灵活”说明什么？',a:['方法永远不能改变','目标和方法都可随意放弃','可根据实际调整方法'],correct:2,e:'目标可以坚定不移，实现目标的办法应根据实际情况调整。'},
   {id:15,station:'四渡赤水',q:'紧急情况下首先应该怎样做？',a:['沉着分析信息','马上随意行动','放弃判断'],correct:0,e:'沉着判断能帮助我们看清变化，再选择合适行动。'},
@@ -788,6 +789,64 @@ if (!localStorage.getItem('sparkOnboarded')) {
   onboarding.hidden = false;
   showOnboardingPage(0);
 }
+
+const demoSteps = [
+  {time:'00:00',title:'一句话介绍',copy:'首页：面向初中生，把长征历史读成一条可互动的研学路线。',view:'home'},
+  {time:'00:25',title:'历史全景',copy:'路线：说明六站是代表性节点，展开“不只一条路线”。',view:'route'},
+  {time:'00:55',title:'内容深度',copy:'站点：展示史实、人物群像、史料卡和三层思考。',view:'station'},
+  {time:'01:30',title:'核心互动',copy:'任务：演示选择后果、行军指标和完成盖章。',view:'station',panel:'task'},
+  {time:'02:10',title:'学习闭环',copy:'档案：展示徽章、精神行囊、行动计划和纪念卡。',view:'collection'},
+  {time:'02:40',title:'技术与原创',copy:'作品说明：离线、本地保存、AI辅助范围和AIA/APK迁移计划。',view:'about'}
+];
+let demoIndex = 0;
+let demoRemaining = 180;
+let demoTimerId = null;
+
+function renderDemoSteps() {
+  document.querySelector('#demoSteps').innerHTML = demoSteps.map((step,index) => `<li class="${index === demoIndex ? 'is-active' : ''} ${index < demoIndex ? 'is-done' : ''}"><i>${step.time}</i><div><strong>${step.title}</strong><p>${step.copy}</p></div></li>`).join('');
+  document.querySelector('#demoProgress').style.width = `${demoIndex / (demoSteps.length - 1) * 100}%`;
+  document.querySelector('#demoPrompt').textContent = demoSteps[demoIndex].copy;
+}
+
+function openDemoStep() {
+  const step = demoSteps[demoIndex];
+  if (step.view === 'station') { renderStation(stations[Math.max(0,state.currentStation - 1)]); showView('station'); }
+  else showView(step.view);
+  if (step.panel) activatePanel(step.panel);
+}
+
+function startDefenseDemo() {
+  clearInterval(demoTimerId); demoIndex = 0; demoRemaining = 180;
+  document.querySelector('#nextDemo').disabled = false;
+  document.querySelector('#nextDemo').textContent = '下一画面';
+  document.querySelector('#startDemo').textContent = '重新计时';
+  document.querySelector('.demo-console').classList.add('is-running');
+  renderDemoSteps(); openDemoStep();
+  demoTimerId = setInterval(() => {
+    demoRemaining -= 1;
+    const minutes = String(Math.floor(demoRemaining / 60)).padStart(2,'0');
+    const seconds = String(demoRemaining % 60).padStart(2,'0');
+    document.querySelector('#demoTimer').textContent = `${minutes}:${seconds}`;
+    if (demoRemaining <= 0) { clearInterval(demoTimerId); demoTimerId = null; toast('三分钟演示时间到'); }
+  },1000);
+}
+
+document.querySelector('#startDemo').addEventListener('click', startDefenseDemo);
+document.querySelector('#nextDemo').addEventListener('click', () => {
+  if (demoIndex === demoSteps.length - 1) {
+    clearInterval(demoTimerId); demoTimerId = null;
+    document.querySelector('.demo-console').classList.remove('is-running');
+    document.querySelector('#nextDemo').disabled = true;
+    document.querySelector('#nextDemo').textContent = '下一画面';
+    document.querySelector('#startDemo').textContent = '开始计时';
+    showView('help');
+    return;
+  }
+  demoIndex += 1;
+  renderDemoSteps(); openDemoStep();
+  if (demoIndex === demoSteps.length - 1) document.querySelector('#nextDemo').textContent = '结束演示';
+});
+renderDemoSteps();
 
 document.querySelector('#resetProgress').addEventListener('click', () => {
   const confirmed = window.confirm('确定清除本机上的全部研学记录吗？此操作无法撤销。');
