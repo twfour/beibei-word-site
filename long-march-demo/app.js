@@ -185,6 +185,20 @@ const taskImpacts = {
   6:{gain:{belief:10,supply:3,unity:15},summary:'你把分散的历史节点重新排成共同道路，看见不同队伍因共同目标而汇聚。'}
 };
 
+const inquiryLayers = {
+  1:['中央红军为什么要在1934年实行战略转移？','离开熟悉的根据地，为什么仍然是一种主动选择？','面对长期目标受阻时，我怎样判断该坚持目标还是调整方法？'],
+  2:['遵义会议集中解决了哪些紧迫问题？','承认失误并纠正方向，为什么比照旧执行更需要勇气？','学习或合作效果不好时，我怎样依据事实作出调整？'],
+  3:['四渡赤水的路线为什么多次改变？','路线曲折为何不等于目标动摇？','计划突然变化时，我怎样收集信息并保持冷静判断？'],
+  4:['夺取泸定桥需要哪些部队相互配合？','为什么真正的勇气不等于只顾个人向前冲？','集体遇到困难时，我能主动承担哪一项具体责任？'],
+  5:['翻越雪山、穿越草地主要面临哪些困难？','为什么互相搀扶也是战胜自然困难的重要力量？','面对漫长任务时，我怎样坚持自己，也照顾可能掉队的同伴？'],
+  6:['会宁、将台堡会师连接了哪些红军队伍？','不同路线的队伍为什么能够汇聚成共同力量？','团队意见不同时，我怎样找到共同目标并继续合作？']
+};
+
+const historyBoundaries = {
+  4:'本任务只帮助体会时间紧迫与协同配合，不能还原真实战斗中的危险与牺牲。请记住：历史中的胜利来之不易。',
+  5:'物资分配是理解困难的简化模型。真实的严寒、饥饿、缺氧和伤亡远比游戏数值更加严峻。'
+};
+
 const views = [...document.querySelectorAll('.view')];
 const navButtons = [...document.querySelectorAll('.bottom-nav button')];
 const legacyProgress = Number(localStorage.getItem('sparkProgress') || 0);
@@ -195,6 +209,9 @@ const state = {
   favorites: JSON.parse(localStorage.getItem('sparkFavorites') || '[]'),
   spiritKit: JSON.parse(localStorage.getItem('sparkSpiritKit') || '[]'),
   reflection: localStorage.getItem('sparkReflection') || '',
+  reflectionSpirit: localStorage.getItem('sparkReflectionSpirit') || '',
+  reflectionReason: localStorage.getItem('sparkReflectionReason') || localStorage.getItem('sparkReflection') || '',
+  reflectionAction: localStorage.getItem('sparkReflectionAction') || '',
   highScore: Number(localStorage.getItem('sparkHighScore') || 0),
   wrongQuestions: JSON.parse(localStorage.getItem('sparkWrongQuestions') || '[]'),
   soundEnabled: localStorage.getItem('sparkSoundEnabled') !== 'false',
@@ -266,7 +283,7 @@ function renderStation(station) {
   document.querySelector('#stationBackground').textContent = station.background;
   document.querySelector('#stationArchive').textContent = station.archive;
   document.querySelector('#stationExplain').textContent = station.explain;
-  document.querySelector('#stationThink').textContent = station.think;
+  document.querySelector('#inquiryLadder').innerHTML = `<div><span>THINK / 三层思考</span><strong>从史实走向行动</strong></div>${inquiryLayers[station.id].map((question,index) => `<article><i>0${index + 1}</i><div><b>${['看见史实','理解选择','联系今天'][index]}</b><p>${question}</p></div></article>`).join('')}`;
   const profile = archiveProfiles[station.id];
   document.querySelector('#profileCard').innerHTML = `<div class="profile-mark"><span>${profile.type}</span><b>${String(station.id).padStart(2,'0')}</b></div><div class="profile-copy"><small>PEOPLE / 人物与群像</small><h3>${profile.name}</h3><em>${profile.role}</em><dl><div><dt>当时处境</dt><dd>${profile.situation}</dd></div><div><dt>作出行动</dt><dd>${profile.action}</dd></div><div><dt>读懂精神</dt><dd>${profile.meaning}</dd></div></dl></div>`;
   document.querySelector('#evidenceCard').innerHTML = `<div class="evidence-top"><span>EVIDENCE / 史料阅读</span><b>${profile.materialType}</b></div><h3>${profile.material}</h3><p>${profile.materialText}</p><div class="evidence-question"><b>从材料中发现</b><p>${profile.question}</p></div><a href="${profile.source[1]}" target="_blank" rel="noopener">${profile.source[0]} ↗</a>`;
@@ -339,6 +356,9 @@ function renderTask(station, replay = false) {
   document.querySelector('#taskTag').textContent = `${task.type.toUpperCase()} / 站点任务`;
   document.querySelector('#taskTitle').textContent = completed ? `${station.name}站任务完成` : task.title;
   document.querySelector('#taskCopy').textContent = completed ? `你已经获得“${station.spirit}”印记。可以继续下一站，也可以再次挑战。` : task.copy;
+  const boundary = document.querySelector('#historyBoundary');
+  boundary.hidden = !historyBoundaries[station.id];
+  boundary.textContent = historyBoundaries[station.id] || '';
   document.querySelector('#taskFeedback').className = 'task-feedback';
   document.querySelector('#taskFeedback').textContent = '';
   const mount = document.querySelector('#taskMount');
@@ -553,13 +573,14 @@ function renderBadgesAndAchievement() {
     return `<div class="spirit-badge ${earned ? 'earned' : ''}"><i>${earned ? '✦' : '·'}</i><strong>${station.spirit}</strong><small>${earned ? station.name : '尚未获得'}</small></div>`;
   }).join('');
   renderSpiritKit();
-  const achieved = state.completed.length === 6 && Boolean(state.reflection) && state.spiritKit.length === 3;
+  const achieved = state.completed.length === 6 && Boolean(state.reflectionSpirit && state.reflectionReason && state.reflectionAction) && state.spiritKit.length === 3;
   const card = document.querySelector('#achievementCard');
   card.hidden = !achieved;
   if (achieved) {
     document.querySelector('#achievementMarks').innerHTML = stations.map(station => `<i title="${station.spirit}">✦</i>`).join('');
     document.querySelector('#achievementKit').innerHTML = `<span>我的精神行囊</span><strong>${state.spiritKit.join(' · ')}</strong>`;
-    document.querySelector('#achievementReflection').textContent = `“${state.reflection}”`;
+    document.querySelector('#achievementReflection').textContent = `“我选择${state.reflectionSpirit}，因为${state.reflectionReason}”`;
+    document.querySelector('#achievementAction').innerHTML = `<span>我的一个月行动</span><strong>${state.reflectionAction}</strong>`;
   }
 }
 
@@ -680,14 +701,26 @@ document.querySelector('#nextQuestion').addEventListener('click', () => {
   else finishQuiz();
 });
 
-const reflection = document.querySelector('#reflection');
-reflection.value = state.reflection;
+const reflectionSpirit = document.querySelector('#reflectionSpirit');
+const reflectionReason = document.querySelector('#reflectionReason');
+const reflectionAction = document.querySelector('#reflectionAction');
+reflectionSpirit.innerHTML += [...new Set(stations.flatMap(station => [station.spirit,...station.keywords.map(word => word[0])]))].map(item => `<option value="${item}">${item}</option>`).join('');
+reflectionSpirit.value = state.reflectionSpirit;
+reflectionReason.value = state.reflectionReason;
+reflectionAction.value = state.reflectionAction;
 document.querySelector('#saveReflection').addEventListener('click', () => {
-  state.reflection = reflection.value.trim();
-  localStorage.setItem('sparkReflection', state.reflection);
-  document.querySelector('#saveHint').textContent = state.reflection ? '已装入档案' : '已清空';
+  state.reflectionSpirit = reflectionSpirit.value;
+  state.reflectionReason = reflectionReason.value.trim();
+  state.reflectionAction = reflectionAction.value.trim();
+  state.reflection = state.reflectionReason;
+  localStorage.setItem('sparkReflectionSpirit', state.reflectionSpirit);
+  localStorage.setItem('sparkReflectionReason', state.reflectionReason);
+  localStorage.setItem('sparkReflectionAction', state.reflectionAction);
+  localStorage.setItem('sparkReflection', state.reflectionReason);
+  const complete = Boolean(state.reflectionSpirit && state.reflectionReason && state.reflectionAction);
+  document.querySelector('#saveHint').textContent = complete ? '行动计划已装入档案' : '请完成三项内容';
   renderBadgesAndAchievement();
-  toast(state.reflection ? '感悟已保存' : '感悟已清空');
+  toast(complete ? '行动计划已保存' : '还差一项没有完成');
 });
 
 let toastTimer;

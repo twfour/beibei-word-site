@@ -111,7 +111,7 @@
           <span>少年解读</span>
           <p id="stationExplain"></p>
         </article>
-        <div class="think-card"><b>想一想</b><p id="stationThink"></p></div>
+        <section class="inquiry-ladder" id="inquiryLadder" aria-label="三层思考"></section>
         <section class="human-archive" aria-label="人物与史料档案">
           <div class="archive-section-head"><span>PEOPLE &amp; EVIDENCE</span><strong>人，站在历史现场</strong><p>从人物行动与真实材料中，理解精神从何而来。</p></div>
           <article class="profile-card" id="profileCard"></article>
@@ -140,6 +140,7 @@
         <div class="task-card">
           <span class="task-tag" id="taskTag">站点任务</span><h3 id="taskTitle"></h3>
           <p id="taskCopy"></p>
+          <aside class="history-boundary" id="historyBoundary" hidden></aside>
           <div class="journey-meters" id="journeyMeters" aria-label="行军指标"></div>
           <div id="taskMount"></div>
           <div class="task-feedback" id="taskFeedback" aria-live="polite"></div>
@@ -177,9 +178,13 @@
       <div class="collection-list" id="collectionList"></div>
       <div class="reflection-card">
         <span>MY REFLECTION / 我的感悟</span>
-        <label for="reflection">长征精神在今天意味着……</label>
-        <textarea id="reflection" maxlength="120" placeholder="写下一句话，留给未来的自己。"></textarea>
-        <button id="saveReflection">保存感悟</button><small id="saveHint"></small>
+        <label for="reflectionSpirit">把一种精神带到今天</label>
+        <select id="reflectionSpirit"><option value="">请选择一种精神</option></select>
+        <label class="reflection-sub" for="reflectionReason">我为什么选择它？</label>
+        <textarea id="reflectionReason" maxlength="100" placeholder="结合一段历史或自己的经历说明理由。"></textarea>
+        <label class="reflection-sub" for="reflectionAction">未来一个月，我准备……</label>
+        <textarea id="reflectionAction" maxlength="100" placeholder="写下一个具体、可以做到的行动。"></textarea>
+        <button id="saveReflection">保存行动计划</button><small id="saveHint"></small>
       </div>
       <article class="achievement-card" id="achievementCard" hidden>
         <div class="achievement-top"><span>THE LONG MARCH ARCHIVE</span><b>六站完成纪念</b></div>
@@ -188,6 +193,7 @@
         <div class="achievement-marks" id="achievementMarks"></div>
         <div class="achievement-kit" id="achievementKit"></div>
         <blockquote id="achievementReflection"></blockquote>
+        <div class="achievement-action" id="achievementAction"></div>
         <small>坚定理想 · 实事求是 · 机智勇敢<br>不怕牺牲 · 艰苦奋斗 · 团结胜利</small>
       </article>
     </section>
