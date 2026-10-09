@@ -167,6 +167,12 @@
         <div class="subsection-title"><span>SPIRIT MARKS</span><strong>我的精神徽章</strong><small id="badgeCount">0 / 6</small></div>
         <div class="badge-grid" id="badgeGrid"></div>
       </div>
+      <section class="spirit-kit">
+        <div class="subsection-title"><span>MY SPIRIT KIT</span><strong>我的精神行囊</strong><small id="kitCount">0 / 3</small></div>
+        <p>从已完成站点获得的关键词中选出三张，组成你最想带走的精神行囊。</p>
+        <div class="kit-slots" id="kitSlots"></div>
+        <div class="kit-options" id="kitOptions"></div>
+      </section>
       <div class="collection-empty" id="collectionEmpty"><span>✦</span><h3>档案袋还是空的</h3><p>前往站点阅读关键词卡片并收藏。</p><button class="secondary-button" data-go="station">前往当前站</button></div>
       <div class="collection-list" id="collectionList"></div>
       <div class="reflection-card">
@@ -180,6 +186,7 @@
         <div class="achievement-star">✦</div>
         <p>授予称号</p><h3>新时代<br>小小长征者</h3>
         <div class="achievement-marks" id="achievementMarks"></div>
+        <div class="achievement-kit" id="achievementKit"></div>
         <blockquote id="achievementReflection"></blockquote>
         <small>坚定理想 · 实事求是 · 机智勇敢<br>不怕牺牲 · 艰苦奋斗 · 团结胜利</small>
       </article>
@@ -238,6 +245,9 @@
     </div>
   </div>
   <div class="toast" id="toast" role="status"></div>
+  <div class="stamp-ceremony" id="stampCeremony" hidden>
+    <div class="stamp-sheet"><span>STATION COMPLETE</span><p id="stampStation"></p><div id="stampSeal">完成</div><strong id="stampSpirit"></strong><small>一枚精神印记已收入星火档案</small><button id="closeStamp">继续前进 →</button></div>
+  </div>
   <script src="app.js"></script>
 </body>
 </html>

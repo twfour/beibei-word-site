@@ -193,6 +193,7 @@ const state = {
   completed: JSON.parse(localStorage.getItem('sparkCompleted') || '[]'),
   currentStation: Math.min(6, Math.max(1, Number(localStorage.getItem('sparkCurrentStation') || 1))),
   favorites: JSON.parse(localStorage.getItem('sparkFavorites') || '[]'),
+  spiritKit: JSON.parse(localStorage.getItem('sparkSpiritKit') || '[]'),
   reflection: localStorage.getItem('sparkReflection') || '',
   highScore: Number(localStorage.getItem('sparkHighScore') || 0),
   wrongQuestions: JSON.parse(localStorage.getItem('sparkWrongQuestions') || '[]'),
@@ -302,7 +303,26 @@ function finishTask(station) {
   setTaskFeedback(message, 'success');
   toast(id === 6 ? '六站长征路全部完成' : `已点亮${stations[id].name}站`);
   playTone('success');
+  if (newlyCompleted) showStampCeremony(station);
 }
+
+function showStampCeremony(station) {
+  const ceremony = document.querySelector('#stampCeremony');
+  document.querySelector('#stampStation').textContent = `${station.date} · ${station.name}`;
+  document.querySelector('#stampSeal').textContent = station.seal;
+  document.querySelector('#stampSpirit').textContent = station.spirit;
+  ceremony.hidden = false;
+  requestAnimationFrame(() => ceremony.classList.add('is-visible'));
+}
+
+function closeStampCeremony() {
+  const ceremony = document.querySelector('#stampCeremony');
+  ceremony.classList.remove('is-visible');
+  window.setTimeout(() => { ceremony.hidden = true; }, 220);
+}
+
+document.querySelector('#closeStamp').addEventListener('click', closeStampCeremony);
+document.querySelector('#stampCeremony').addEventListener('click', event => { if (event.target.id === 'stampCeremony') closeStampCeremony(); });
 
 function setTaskFeedback(message, type = '') {
   const feedback = document.querySelector('#taskFeedback');
@@ -510,17 +530,35 @@ function renderFavorites() {
   }));
 }
 
+function renderSpiritKit() {
+  const available = stations.filter(station => state.completed.includes(station.id)).flatMap(station => station.keywords.map(word => ({name:word[0],station:station.name})));
+  state.spiritKit = state.spiritKit.filter(name => available.some(item => item.name === name)).slice(0,3);
+  localStorage.setItem('sparkSpiritKit', JSON.stringify(state.spiritKit));
+  document.querySelector('#kitCount').textContent = `${state.spiritKit.length} / 3`;
+  document.querySelector('#kitSlots').innerHTML = Array.from({length:3}, (_,index) => state.spiritKit[index] ? `<button data-kit-remove="${state.spiritKit[index]}"><i>✦</i><strong>${state.spiritKit[index]}</strong><small>点击取出</small></button>` : `<div><i>${index + 1}</i><strong>等待装入</strong><small>选择一张精神卡</small></div>`).join('');
+  document.querySelector('#kitOptions').innerHTML = available.map(item => `<button data-kit-add="${item.name}" ${state.spiritKit.includes(item.name) ? 'disabled' : ''}><span>${item.station}</span><strong>${item.name}</strong></button>`).join('') || '<p>完成第一站后，精神关键词将在这里出现。</p>';
+  document.querySelectorAll('[data-kit-add]').forEach(button => button.addEventListener('click', () => {
+    if (state.spiritKit.length >= 3) return toast('精神行囊最多装入三张卡');
+    state.spiritKit.push(button.dataset.kitAdd); renderSpiritKit(); renderBadgesAndAchievement(); playTone('success');
+  }));
+  document.querySelectorAll('[data-kit-remove]').forEach(button => button.addEventListener('click', () => {
+    state.spiritKit = state.spiritKit.filter(name => name !== button.dataset.kitRemove); renderSpiritKit(); renderBadgesAndAchievement();
+  }));
+}
+
 function renderBadgesAndAchievement() {
   document.querySelector('#badgeCount').textContent = `${state.completed.length} / 6`;
   document.querySelector('#badgeGrid').innerHTML = stations.map(station => {
     const earned = state.completed.includes(station.id);
     return `<div class="spirit-badge ${earned ? 'earned' : ''}"><i>${earned ? '✦' : '·'}</i><strong>${station.spirit}</strong><small>${earned ? station.name : '尚未获得'}</small></div>`;
   }).join('');
-  const achieved = state.completed.length === 6 && Boolean(state.reflection);
+  renderSpiritKit();
+  const achieved = state.completed.length === 6 && Boolean(state.reflection) && state.spiritKit.length === 3;
   const card = document.querySelector('#achievementCard');
   card.hidden = !achieved;
   if (achieved) {
     document.querySelector('#achievementMarks').innerHTML = stations.map(station => `<i title="${station.spirit}">✦</i>`).join('');
+    document.querySelector('#achievementKit').innerHTML = `<span>我的精神行囊</span><strong>${state.spiritKit.join(' · ')}</strong>`;
     document.querySelector('#achievementReflection').textContent = `“${state.reflection}”`;
   }
 }
@@ -537,7 +575,6 @@ const questions = [
   {id:9,station:'遵义会议',q:'面对已经证明不合适的方法，正确做法是什么？',a:['分析原因并调整','为了面子继续','把问题藏起来'],correct:0,e:'坚定目标与及时调整方法并不矛盾。'},
   {id:10,station:'遵义会议',q:'“独立自主”更接近下面哪种理解？',a:['完全不听建议','结合实际独立思考并解决问题','凡事等待答案'],correct:1,e:'独立自主不是拒绝帮助，而是立足实际作出自己的判断。'},
   {id:11,station:'四渡赤水',q:'四渡赤水主要发生在哪一地区？',a:['川黔滇边境','东北平原','珠江三角洲'],correct:0,e:'中央红军在川黔滇边境灵活机动，四次渡过赤水河。'},
-  {id:12,station:'四渡赤水',q:'四渡赤水的路线为什么看起来曲折？',a:['队伍迷路了','根据敌情灵活改变方向','没有任何目标'],correct:1,e:'曲折路线来自连续的敌情判断和机动调整。'},
   {id:13,station:'四渡赤水',q:'四渡赤水后，红军通过哪条江摆脱围追堵截？',a:['金沙江','钱塘江','黄浦江'],correct:0,e:'红军进军云南并巧渡金沙江，摆脱了敌军围追堵截。'},
   {id:14,station:'四渡赤水',q:'“目标坚定，办法灵活”说明什么？',a:['方法永远不能改变','目标和方法都可随意放弃','可根据实际调整方法'],correct:2,e:'目标可以坚定不移，实现目标的办法应根据实际情况调整。'},
   {id:15,station:'四渡赤水',q:'紧急情况下首先应该怎样做？',a:['沉着分析信息','马上随意行动','放弃判断'],correct:0,e:'沉着判断能帮助我们看清变化，再选择合适行动。'},
