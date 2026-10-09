@@ -201,20 +201,42 @@ const historyBoundaries = {
 
 const views = [...document.querySelectorAll('.view')];
 const navButtons = [...document.querySelectorAll('.bottom-nav button')];
-const legacyProgress = Number(localStorage.getItem('sparkProgress') || 0);
+function getSafeStorage() {
+  try {
+    const candidate = window.localStorage;
+    if (candidate) {
+      const testKey = '__spark_storage_test__';
+      candidate.setItem(testKey, '1');
+      candidate.removeItem(testKey);
+      return candidate;
+    }
+  } catch (_) {
+    /* App Inventor 2019 disables DOM storage for local WebViewer pages. */
+  }
+  const memory = {};
+  return {
+    getItem: key => Object.prototype.hasOwnProperty.call(memory, key) ? memory[key] : null,
+    setItem: (key, value) => { memory[key] = String(value); },
+    removeItem: key => { delete memory[key]; },
+    key: index => Object.keys(memory)[index] || null,
+    get length() { return Object.keys(memory).length; }
+  };
+}
+const storage = getSafeStorage();
+const legacyProgress = Number(storage.getItem('sparkProgress') || 0);
 const state = {
-  unlocked: Math.min(6, Math.max(1, Number(localStorage.getItem('sparkUnlocked') || legacyProgress || 1))),
-  completed: JSON.parse(localStorage.getItem('sparkCompleted') || '[]'),
-  currentStation: Math.min(6, Math.max(1, Number(localStorage.getItem('sparkCurrentStation') || 1))),
-  favorites: JSON.parse(localStorage.getItem('sparkFavorites') || '[]'),
-  spiritKit: JSON.parse(localStorage.getItem('sparkSpiritKit') || '[]'),
-  reflection: localStorage.getItem('sparkReflection') || '',
-  reflectionSpirit: localStorage.getItem('sparkReflectionSpirit') || '',
-  reflectionReason: localStorage.getItem('sparkReflectionReason') || localStorage.getItem('sparkReflection') || '',
-  reflectionAction: localStorage.getItem('sparkReflectionAction') || '',
-  highScore: Number(localStorage.getItem('sparkHighScore') || 0),
-  wrongQuestions: JSON.parse(localStorage.getItem('sparkWrongQuestions') || '[]'),
-  soundEnabled: localStorage.getItem('sparkSoundEnabled') !== 'false',
+  unlocked: Math.min(6, Math.max(1, Number(storage.getItem('sparkUnlocked') || legacyProgress || 1))),
+  completed: JSON.parse(storage.getItem('sparkCompleted') || '[]'),
+  currentStation: Math.min(6, Math.max(1, Number(storage.getItem('sparkCurrentStation') || 1))),
+  favorites: JSON.parse(storage.getItem('sparkFavorites') || '[]'),
+  spiritKit: JSON.parse(storage.getItem('sparkSpiritKit') || '[]'),
+  reflection: storage.getItem('sparkReflection') || '',
+  reflectionSpirit: storage.getItem('sparkReflectionSpirit') || '',
+  reflectionReason: storage.getItem('sparkReflectionReason') || storage.getItem('sparkReflection') || '',
+  reflectionAction: storage.getItem('sparkReflectionAction') || '',
+  highScore: Number(storage.getItem('sparkHighScore') || 0),
+  wrongQuestions: JSON.parse(storage.getItem('sparkWrongQuestions') || '[]'),
+  soundEnabled: storage.getItem('sparkSoundEnabled') !== 'false',
 };
 
 function getJourneyMetrics() {
@@ -234,10 +256,10 @@ function renderJourneyMeters() {
 function consequence(message) { setTaskFeedback(`行动后果：${message}`, 'error'); }
 
 function persistJourney() {
-  localStorage.setItem('sparkUnlocked', state.unlocked);
-  localStorage.setItem('sparkCompleted', JSON.stringify(state.completed));
-  localStorage.setItem('sparkCurrentStation', state.currentStation);
-  localStorage.removeItem('sparkProgress');
+  storage.setItem('sparkUnlocked', state.unlocked);
+  storage.setItem('sparkCompleted', JSON.stringify(state.completed));
+  storage.setItem('sparkCurrentStation', state.currentStation);
+  storage.removeItem('sparkProgress');
 }
 
 function showView(id) {
@@ -521,7 +543,7 @@ function bindCollectionButtons() {
       const card = button.dataset.card;
       if (!state.favorites.includes(card)) {
         state.favorites.push(card);
-        localStorage.setItem('sparkFavorites', JSON.stringify(state.favorites));
+        storage.setItem('sparkFavorites', JSON.stringify(state.favorites));
         toast(`“${card}”已收入档案`);
       }
       button.classList.add('is-collected');
@@ -543,7 +565,7 @@ function renderFavorites() {
   document.querySelectorAll('[data-remove-card]').forEach(button => button.addEventListener('click', () => {
     const card = button.dataset.removeCard;
     state.favorites = state.favorites.filter(item => item !== card);
-    localStorage.setItem('sparkFavorites', JSON.stringify(state.favorites));
+    storage.setItem('sparkFavorites', JSON.stringify(state.favorites));
     document.querySelectorAll(`.collect-button[data-card="${card}"]`).forEach(node => { node.classList.remove('is-collected'); node.textContent = '＋ 收进星火档案'; });
     renderFavorites();
     toast(`已移出“${card}”`);
@@ -553,7 +575,7 @@ function renderFavorites() {
 function renderSpiritKit() {
   const available = stations.filter(station => state.completed.includes(station.id)).flatMap(station => station.keywords.map(word => ({name:word[0],station:station.name})));
   state.spiritKit = state.spiritKit.filter(name => available.some(item => item.name === name)).slice(0,3);
-  localStorage.setItem('sparkSpiritKit', JSON.stringify(state.spiritKit));
+  storage.setItem('sparkSpiritKit', JSON.stringify(state.spiritKit));
   document.querySelector('#kitCount').textContent = `${state.spiritKit.length} / 3`;
   document.querySelector('#kitSlots').innerHTML = Array.from({length:3}, (_,index) => state.spiritKit[index] ? `<button data-kit-remove="${state.spiritKit[index]}"><i>✦</i><strong>${state.spiritKit[index]}</strong><small>点击取出</small></button>` : `<div><i>${index + 1}</i><strong>等待装入</strong><small>选择一张精神卡</small></div>`).join('');
   document.querySelector('#kitOptions').innerHTML = available.map(item => `<button data-kit-add="${item.name}" ${state.spiritKit.includes(item.name) ? 'disabled' : ''}><span>${item.station}</span><strong>${item.name}</strong></button>`).join('') || '<p>完成第一站后，精神关键词将在这里出现。</p>';
@@ -671,7 +693,7 @@ function answerQuestion(event) {
     score += 10;
     state.wrongQuestions = state.wrongQuestions.filter(id => id !== item.id);
   }
-  localStorage.setItem('sparkWrongQuestions', JSON.stringify(state.wrongQuestions));
+  storage.setItem('sparkWrongQuestions', JSON.stringify(state.wrongQuestions));
   document.querySelector('#score').textContent = score;
   document.querySelector('#quizExplain').textContent = item.e;
   document.querySelector('#nextQuestion').hidden = false;
@@ -680,7 +702,7 @@ function answerQuestion(event) {
 
 function finishQuiz() {
   state.highScore = Math.max(state.highScore, score);
-  localStorage.setItem('sparkHighScore', state.highScore);
+  storage.setItem('sparkHighScore', state.highScore);
   document.querySelector('#quizProgress').style.width = '100%';
   document.querySelector('#question').hidden = true;
   document.querySelector('#quizOptions').hidden = true;
@@ -714,10 +736,10 @@ document.querySelector('#saveReflection').addEventListener('click', () => {
   state.reflectionReason = reflectionReason.value.trim();
   state.reflectionAction = reflectionAction.value.trim();
   state.reflection = state.reflectionReason;
-  localStorage.setItem('sparkReflectionSpirit', state.reflectionSpirit);
-  localStorage.setItem('sparkReflectionReason', state.reflectionReason);
-  localStorage.setItem('sparkReflectionAction', state.reflectionAction);
-  localStorage.setItem('sparkReflection', state.reflectionReason);
+  storage.setItem('sparkReflectionSpirit', state.reflectionSpirit);
+  storage.setItem('sparkReflectionReason', state.reflectionReason);
+  storage.setItem('sparkReflectionAction', state.reflectionAction);
+  storage.setItem('sparkReflection', state.reflectionReason);
   const complete = Boolean(state.reflectionSpirit && state.reflectionReason && state.reflectionAction);
   document.querySelector('#saveHint').textContent = complete ? '行动计划已装入档案' : '请完成三项内容';
   renderBadgesAndAchievement();
@@ -762,7 +784,7 @@ function updateSoundUI() {
 
 function toggleSound() {
   state.soundEnabled = !state.soundEnabled;
-  localStorage.setItem('sparkSoundEnabled', state.soundEnabled);
+  storage.setItem('sparkSoundEnabled', state.soundEnabled);
   updateSoundUI();
   if (state.soundEnabled) playTone();
   toast(state.soundEnabled ? '操作提示音已开启' : '操作提示音已关闭');
@@ -775,7 +797,7 @@ const onboarding = document.querySelector('#onboarding');
 let onboardingIndex = 0;
 function closeOnboarding() {
   onboarding.hidden = true;
-  localStorage.setItem('sparkOnboarded', 'true');
+  storage.setItem('sparkOnboarded', 'true');
 }
 function showOnboardingPage(index) {
   onboardingIndex = index;
@@ -785,7 +807,7 @@ function showOnboardingPage(index) {
 }
 document.querySelector('#skipOnboarding').addEventListener('click', closeOnboarding);
 document.querySelector('#nextOnboarding').addEventListener('click', () => onboardingIndex === 2 ? closeOnboarding() : showOnboardingPage(onboardingIndex + 1));
-if (!localStorage.getItem('sparkOnboarded')) {
+if (!storage.getItem('sparkOnboarded')) {
   onboarding.hidden = false;
   showOnboardingPage(0);
 }
@@ -851,7 +873,9 @@ renderDemoSteps();
 document.querySelector('#resetProgress').addEventListener('click', () => {
   const confirmed = window.confirm('确定清除本机上的全部研学记录吗？此操作无法撤销。');
   if (!confirmed) return;
-  Object.keys(localStorage).filter(key => key.startsWith('spark')).forEach(key => localStorage.removeItem(key));
+  const keys = [];
+  for (let index = 0; index < storage.length; index += 1) keys.push(storage.key(index));
+  keys.filter(key => key && key.startsWith('spark')).forEach(key => storage.removeItem(key));
   window.location.reload();
 });
 
