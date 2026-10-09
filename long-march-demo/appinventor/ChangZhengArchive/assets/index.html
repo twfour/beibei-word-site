@@ -265,8 +265,15 @@
   <div class="stamp-ceremony" id="stampCeremony" hidden>
     <div class="stamp-sheet"><span>STATION COMPLETE</span><p id="stampStation"></p><div id="stampSeal">完成</div><strong id="stampSpirit"></strong><small>一枚精神印记已收入星火档案</small><button id="closeStamp">继续前进 →</button></div>
   </div>
-  <script type="module" src="app.js"></script>
-  <script nomodule src="vendor/polyfills.min.js"></script>
-  <script nomodule src="app.compat.js"></script>
+  <script>
+    window.onerror = function (message, source, line) {
+      var notice = document.createElement('div');
+      notice.style.cssText = 'position:fixed;z-index:999;left:8px;right:8px;bottom:84px;padding:10px;background:#70201e;color:#fff;font:12px/1.5 sans-serif';
+      notice.innerHTML = '兼容脚本错误：' + message + '（第 ' + line + ' 行）';
+      document.body.appendChild(notice);
+    };
+  </script>
+  <script src="vendor/polyfills.min.js"></script>
+  <script src="app.compat.js"></script>
 </body>
 </html>
