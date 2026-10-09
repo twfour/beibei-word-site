@@ -15,7 +15,8 @@ const stations = [
     sources: [
       ['中共中央党史和文献研究院：《10月10日·党史百年天天读》','https://www.dswxyjy.org.cn/GB/434461/434471/434552/index.html'],
       ['人民网党史频道：《长征记》','https://dangshi.people.com.cn/GB/146570/406330/index.html']
-    ]
+    ],
+    task: {type:'pack', title:'轻装出发：整理行军背包', copy:'背包只能装下3件物品。请选择最有助于基本行军与救护的物资。', items:['粮食','急救药品','雨具','瓷器摆件','留声机','厚重相册'], answer:['粮食','急救药品','雨具']}
   },
   {
     id: 2, slug: 'zunyi', name: '遵义', title: '遵义<br>会议', date: '1935年1月', place: '贵州遵义', spirit: '实事求是', seal: '转折', position: ['28%', '64%'],
@@ -33,7 +34,8 @@ const stations = [
     sources: [
       ['国防部：《遵义1935：早到的春天》','https://www.mod.gov.cn/gfbw/gfjy_index/js_214151/16364674.html'],
       ['财政部河南监管局：《遵义会议的伟大意义和深刻启示》','https://ha.mof.gov.cn/zt/djzc/djzl/201505/t20150513_1231207.htm']
-    ]
+    ],
+    task: {type:'choice', title:'面对失误，怎样作出选择？', copy:'原来的行动方案已经造成较大损失。哪种做法最符合遵义会议体现的方法？', options:['为了面子继续原方案','分析实际情况并及时调整','等待别人替自己决定'], correct:1, explain:'尊重事实、总结经验并及时调整，体现了实事求是。'}
   },
   {
     id: 3, slug: 'chishui', name: '赤水', title: '四渡<br>赤水', date: '1935年1月至3月', place: '川黔滇边境', spirit: '机智勇敢', seal: '巧渡', position: ['53%', '48%'],
@@ -51,7 +53,12 @@ const stations = [
     sources: [
       ['人民网党史频道：《长征记》','https://dangshi.people.com.cn/GB/146570/406330/index.html'],
       ['财政部河南监管局：《遵义会议的伟大意义和深刻启示》','https://ha.mof.gov.cn/zt/djzc/djzl/201505/t20150513_1231207.htm']
-    ]
+    ],
+    task: {type:'route', title:'三步判断：赢得行动主动', copy:'依次作出3个判断。目标不变，但要根据形势灵活选择办法。', steps:[
+      {q:'敌军在正面集中重兵，第一步怎么办？', a:['直接硬拼','先观察敌情与地形'], correct:1},
+      {q:'敌军判断我军将向西行动，接下来怎么办？', a:['灵活改变行进方向','沿原路线不变'], correct:0},
+      {q:'敌军调动后出现空隙，应该怎么办？', a:['抓住时机迅速行动','停在原地等待'], correct:0}
+    ]}
   },
   {
     id: 4, slug: 'luding', name: '泸定', title: '飞夺<br>泸定桥', date: '1935年5月', place: '四川泸定', spirit: '不怕牺牲', seal: '勇进', position: ['77%', '34%'],
@@ -69,7 +76,8 @@ const stations = [
     sources: [
       ['中共中央党史和文献研究院：《四川：三军过后尽开颜》','https://www.dswxyjy.org.cn/n1/2016/1025/c244523-28806146.html'],
       ['人民网党史频道：《长征记》','https://dangshi.people.com.cn/GB/146570/406330/index.html']
-    ]
+    ],
+    task: {type:'bridge', title:'争分夺秒：铺设前进通道', copy:'点击铺设12块桥板，在10秒内完成通道。准备好后开始计时。', target:12, seconds:10}
   },
   {
     id: 5, slug: 'snowland', name: '雪山草地', title: '雪山<br>草地', date: '1935年6月至8月', place: '川西北地区', spirit: '艰苦奋斗', seal: '坚韧', position: ['58%', '18%'],
@@ -87,7 +95,8 @@ const stations = [
     sources: [
       ['国防部：《从月入四百大洋到数过雪山草地》','https://www.mod.gov.cn/gfbw/gfjy_index/4844129.html'],
       ['南京党史：《长征，让我永生难忘》','https://dsb.nanjing.gov.cn/xxcb/201306/t20130626_2084323.html']
-    ]
+    ],
+    task: {type:'supply', title:'有限补给：分配10份物资', copy:'在粮食、御寒用品和药品之间分配10份物资。每项都不可缺少，其中粮食与御寒用品至少各3份，药品至少2份。', total:10, minimums:{'粮食':3,'御寒用品':3,'药品':2}}
   },
   {
     id: 6, slug: 'huining', name: '会宁', title: '会宁<br>会师', date: '1936年10月', place: '甘肃会宁', spirit: '团结胜利', seal: '会师', position: ['76%', '4%'],
@@ -105,7 +114,8 @@ const stations = [
     sources: [
       ['国防部：《红军长征中的会师》','https://www.mod.gov.cn/gfbw/gfjy_index/js_214151/16418521.html'],
       ['中央网信办：《三军大会师——红军长征三大主力会师全纪录》','https://www.cac.gov.cn/2016-08/22/c_1119432029.htm']
-    ]
+    ],
+    task: {type:'order', title:'会师之前：排好历史顺序', copy:'使用上下按钮，将四个事件按先后顺序排列。', items:['瑞金出发','遵义会议','飞夺泸定桥','会宁会师'], start:['会宁会师','遵义会议','瑞金出发','飞夺泸定桥']}
   }
 ];
 
@@ -180,31 +190,160 @@ function renderStation(station) {
       <button class="collect-button" data-card="${word[0]}">＋ 收进星火档案</button>
     </article>`).join('');
   bindCollectionButtons();
-  document.querySelector('#taskTitle').textContent = state.completed.includes(station.id) ? `${station.name}站已经完成` : `确认完成${station.name}站研学`;
-  document.querySelector('#taskCopy').textContent = state.completed.includes(station.id) ? `你已经点亮“${station.spirit}”这份精神力量，可以随时返回复习。` : '本轮先验证完整的解锁与续学流程。专属互动任务将在后续迭代中加入。';
-  const completeButton = document.querySelector('#completeStation');
-  completeButton.disabled = state.completed.includes(station.id);
-  completeButton.textContent = state.completed.includes(station.id) ? '✓ 本站已完成' : station.id === 6 ? '完成最后一站' : '完成本站研学并点亮下一站';
-  document.querySelector('#taskFeedback').textContent = '';
+  renderTask(station);
   activatePanel('facts');
 }
 
-function completeCurrentStation() {
-  const id = state.currentStation;
-  if (!state.completed.includes(id)) state.completed.push(id);
+let activeTaskTimer = null;
+
+function finishTask(station) {
+  const id = station.id;
+  const newlyCompleted = !state.completed.includes(id);
+  if (newlyCompleted) state.completed.push(id);
   state.completed.sort((a,b) => a - b);
-  if (id < stations.length) {
+  if (newlyCompleted && id < stations.length) {
     state.unlocked = Math.max(state.unlocked, id + 1);
-    state.currentStation = id + 1;
+    if (state.currentStation === id) state.currentStation = id + 1;
   }
   persistJourney();
   updateJourneyUI();
-  renderStation(stations[id - 1]);
-  document.querySelector('#taskFeedback').textContent = id === 6 ? '六站研学全部完成！长征路上的六份精神力量已经汇入你的星火档案。' : `${stations[id - 1].name}站已完成，第 ${id + 1} 站“${stations[id].name}”已经点亮。`;
+  renderTask(station);
+  const message = id === 6 ? '六站研学全部完成！六份精神力量已经汇入星火档案。' : `任务成功！获得“${station.spirit}”印记，第 ${id + 1} 站“${stations[id].name}”已点亮。`;
+  setTaskFeedback(message, 'success');
   toast(id === 6 ? '六站长征路全部完成' : `已点亮${stations[id].name}站`);
 }
 
-document.querySelector('#completeStation').addEventListener('click', completeCurrentStation);
+function setTaskFeedback(message, type = '') {
+  const feedback = document.querySelector('#taskFeedback');
+  feedback.textContent = message;
+  feedback.className = `task-feedback ${type}`;
+}
+
+function renderTask(station, replay = false) {
+  if (activeTaskTimer) clearInterval(activeTaskTimer);
+  activeTaskTimer = null;
+  const task = station.task;
+  const completed = state.completed.includes(station.id) && !replay;
+  document.querySelector('#taskTag').textContent = `${task.type.toUpperCase()} / 站点任务`;
+  document.querySelector('#taskTitle').textContent = completed ? `${station.name}站任务完成` : task.title;
+  document.querySelector('#taskCopy').textContent = completed ? `你已经获得“${station.spirit}”印记。可以继续下一站，也可以再次挑战。` : task.copy;
+  document.querySelector('#taskFeedback').className = 'task-feedback';
+  document.querySelector('#taskFeedback').textContent = '';
+  const mount = document.querySelector('#taskMount');
+  if (completed) {
+    mount.innerHTML = `<div class="task-complete"><span>✓</span><div><strong>${station.spirit}</strong><small>SPIRIT MARK ACQUIRED</small></div></div><button class="task-action ghost" id="replayTask">再次挑战</button>`;
+    document.querySelector('#replayTask').addEventListener('click', () => renderTask(station, true));
+    return;
+  }
+  if (task.type === 'pack') renderPackTask(station, mount);
+  if (task.type === 'choice') renderChoiceTask(station, mount);
+  if (task.type === 'route') renderRouteTask(station, mount);
+  if (task.type === 'bridge') renderBridgeTask(station, mount);
+  if (task.type === 'supply') renderSupplyTask(station, mount);
+  if (task.type === 'order') renderOrderTask(station, mount);
+}
+
+function renderPackTask(station, mount) {
+  const selected = new Set();
+  mount.innerHTML = `<div class="task-counter">已选择 <b id="packCount">0</b> / 3</div><div class="task-choice-grid">${station.task.items.map(item => `<button data-item="${item}">${item}</button>`).join('')}</div><button class="task-action" id="checkPack">检查背包</button>`;
+  mount.querySelectorAll('[data-item]').forEach(button => button.addEventListener('click', () => {
+    const item = button.dataset.item;
+    if (selected.has(item)) selected.delete(item);
+    else if (selected.size < 3) selected.add(item);
+    else return setTaskFeedback('背包只能装3件物品，请先取消一件。', 'error');
+    button.classList.toggle('selected', selected.has(item));
+    document.querySelector('#packCount').textContent = selected.size;
+    setTaskFeedback('');
+  }));
+  document.querySelector('#checkPack').addEventListener('click', () => {
+    const correct = station.task.answer.every(item => selected.has(item)) && selected.size === 3;
+    correct ? finishTask(station) : setTaskFeedback('再想想：漫长行军最基本的生存、救护和防护需要什么？', 'error');
+  });
+}
+
+function renderChoiceTask(station, mount) {
+  mount.innerHTML = `<div class="task-options">${station.task.options.map((item,index) => `<button data-choice="${index}"><i>${String.fromCharCode(65 + index)}</i><span>${item}</span></button>`).join('')}</div>`;
+  mount.querySelectorAll('[data-choice]').forEach(button => button.addEventListener('click', () => {
+    const correct = Number(button.dataset.choice) === station.task.correct;
+    button.classList.add(correct ? 'correct' : 'wrong');
+    if (correct) finishTask(station);
+    else setTaskFeedback(`还不准确。${station.task.explain}`, 'error');
+  }));
+}
+
+function renderRouteTask(station, mount) {
+  let step = 0;
+  const draw = () => {
+    const item = station.task.steps[step];
+    mount.innerHTML = `<div class="route-task-progress"><span style="width:${step / station.task.steps.length * 100}%"></span></div><div class="route-question"><small>判断 ${step + 1} / ${station.task.steps.length}</small><strong>${item.q}</strong></div><div class="task-options compact">${item.a.map((answer,index) => `<button data-route-answer="${index}"><i>${index + 1}</i><span>${answer}</span></button>`).join('')}</div>`;
+    mount.querySelectorAll('[data-route-answer]').forEach(button => button.addEventListener('click', () => {
+      if (Number(button.dataset.routeAnswer) !== item.correct) return setTaskFeedback('这个选择可能让队伍陷入被动，请重新判断。', 'error');
+      step += 1;
+      setTaskFeedback(step < station.task.steps.length ? '判断正确，继续观察下一步形势。' : '', 'success');
+      if (step === station.task.steps.length) finishTask(station); else draw();
+    }));
+  };
+  draw();
+}
+
+function renderBridgeTask(station, mount) {
+  let count = 0;
+  let remaining = station.task.seconds * 10;
+  mount.innerHTML = `<div class="bridge-status"><b id="bridgeTime">${station.task.seconds}.0 秒</b><span><i id="bridgeCount">0</i> / ${station.task.target} 块</span></div><div class="bridge-track" id="bridgeTrack"></div><button class="task-action" id="startBridge">开始挑战</button>`;
+  const drawPlanks = () => document.querySelector('#bridgeTrack').innerHTML = Array.from({length:station.task.target}, (_,i) => `<i class="${i < count ? 'laid' : ''}"></i>`).join('');
+  drawPlanks();
+  document.querySelector('#startBridge').addEventListener('click', event => {
+    count = 0; remaining = station.task.seconds * 10; drawPlanks();
+    event.currentTarget.textContent = '点击铺设桥板';
+    event.currentTarget.onclick = null;
+    const tap = () => {
+      count += 1;
+      document.querySelector('#bridgeCount').textContent = count;
+      drawPlanks();
+      if (count >= station.task.target) { clearInterval(activeTaskTimer); activeTaskTimer = null; finishTask(station); }
+    };
+    event.currentTarget.addEventListener('click', tap);
+    activeTaskTimer = setInterval(() => {
+      remaining -= 1;
+      const timeNode = document.querySelector('#bridgeTime');
+      if (timeNode) timeNode.textContent = `${(remaining / 10).toFixed(1)} 秒`;
+      if (remaining <= 0) {
+        clearInterval(activeTaskTimer); activeTaskTimer = null;
+        event.currentTarget.removeEventListener('click', tap);
+        event.currentTarget.textContent = '重新开始';
+        setTaskFeedback('时间到了。保持节奏，再挑战一次！', 'error');
+        event.currentTarget.addEventListener('click', () => renderBridgeTask(station, mount), {once:true});
+      }
+    }, 100);
+  }, {once:true});
+}
+
+function renderSupplyTask(station, mount) {
+  const amounts = Object.fromEntries(Object.keys(station.task.minimums).map(key => [key,0]));
+  const draw = () => {
+    const used = Object.values(amounts).reduce((sum,value) => sum + value,0);
+    mount.innerHTML = `<div class="supply-total">剩余物资 <strong>${station.task.total - used}</strong> / ${station.task.total}</div><div class="supply-list">${Object.entries(amounts).map(([name,value]) => `<div><span>${name}<small>最低 ${station.task.minimums[name]} 份</small></span><button data-minus="${name}">−</button><b>${value}</b><button data-plus="${name}">＋</button></div>`).join('')}</div><button class="task-action" id="checkSupply">确认分配</button>`;
+    mount.querySelectorAll('[data-plus]').forEach(button => button.addEventListener('click', () => { if (used < station.task.total) { amounts[button.dataset.plus] += 1; draw(); } }));
+    mount.querySelectorAll('[data-minus]').forEach(button => button.addEventListener('click', () => { const key=button.dataset.minus; if (amounts[key] > 0) { amounts[key] -= 1; draw(); } }));
+    document.querySelector('#checkSupply').addEventListener('click', () => {
+      const full = Object.values(amounts).reduce((sum,value) => sum + value,0) === station.task.total;
+      const safe = Object.entries(station.task.minimums).every(([key,min]) => amounts[key] >= min);
+      full && safe ? finishTask(station) : setTaskFeedback(full ? '有一类物资不足以应对基本需要，请重新平衡。' : '还有物资没有分配完。', 'error');
+    });
+  };
+  draw();
+}
+
+function renderOrderTask(station, mount) {
+  const order = [...station.task.start];
+  const draw = () => {
+    mount.innerHTML = `<div class="order-list">${order.map((item,index) => `<div><i>${index + 1}</i><strong>${item}</strong><span><button data-up="${index}" ${index === 0 ? 'disabled' : ''}>↑</button><button data-down="${index}" ${index === order.length - 1 ? 'disabled' : ''}>↓</button></span></div>`).join('')}</div><button class="task-action" id="checkOrder">检查顺序</button>`;
+    mount.querySelectorAll('[data-up]').forEach(button => button.addEventListener('click', () => { const i=Number(button.dataset.up); [order[i-1],order[i]]=[order[i],order[i-1]]; draw(); }));
+    mount.querySelectorAll('[data-down]').forEach(button => button.addEventListener('click', () => { const i=Number(button.dataset.down); [order[i+1],order[i]]=[order[i],order[i+1]]; draw(); }));
+    document.querySelector('#checkOrder').addEventListener('click', () => order.every((item,index) => item === station.task.items[index]) ? finishTask(station) : setTaskFeedback('顺序还不正确。留意每一站的年份，再调整一次。', 'error'));
+  };
+  draw();
+}
 
 function activatePanel(id) {
   document.querySelectorAll('.reading-tabs button').forEach(tab => tab.classList.toggle('is-active', tab.dataset.panel === id));
