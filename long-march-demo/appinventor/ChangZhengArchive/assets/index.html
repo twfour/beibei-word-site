@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#a52d29">
+  <meta name="description" content="面向初中生的长征历史互动研学应用">
+  <title>长征研学 · 星火档案</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="paper-grain" aria-hidden="true"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <button class="seal" data-go="home" aria-label="回到首页">星火</button>
+      <div class="top-title"><span>THE LONG MARCH ARCHIVE</span><strong>长征研学 · 星火档案</strong></div>
+      <button class="sound" id="soundButton" aria-label="声音开关">声</button>
+    </header>
+
+    <section class="view is-active" id="home" aria-label="首页">
+      <div class="hero-card">
+        <div class="edition">少年研学档案 · 1934—1936</div>
+        <div class="hero-stamp">六站<br>长征路</div>
+        <p class="hero-kicker">把历史读成一条路</p>
+        <h1>星火<br><em>长征</em></h1>
+        <p class="hero-copy">沿六个关键节点出发，从历史档案、少年解读与互动任务中，理解信念、求实、勇气与团结。</p>
+        <button class="primary-button" id="continueButton">从瑞金出发 <span>→</span></button>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>我的行程</span><strong id="progressText">1 / 6 站</strong></div>
+          <div class="progress-track"><span id="progressBar"></span></div>
+        </div>
+      </div>
+
+      <div class="home-grid">
+        <button class="feature-card red" data-go="route"><span>01</span><strong>长征档案</strong><small>沿路线逐站研学</small></button>
+        <button class="feature-card green" data-go="quiz"><span>02</span><strong>知识挑战</strong><small>检验历史理解</small></button>
+        <button class="feature-card cream" data-go="collection"><span>03</span><strong>星火收藏</strong><small id="favoriteSummary">已收藏 0 张</small></button>
+      </div>
+      <blockquote class="quote"><span>“</span>长征是宣言书，长征是宣传队，长征是播种机。<small>—— 毛泽东</small></blockquote>
+      <div class="utility-links">
+        <button data-go="help"><i>?</i><span>使用帮助</span></button>
+        <button data-go="about"><i>档</i><span>作品说明</span></button>
+        <button data-go="settings"><i>⚙</i><span>设置</span></button>
+      </div>
+    </section>
+
+    <section class="view" id="route" aria-label="长征路线">
+      <div class="section-head">
+        <div><span>ROUTE / 研学路线</span><h2>六站长征路</h2></div>
+        <p>先看长征全景，再沿六个代表性节点打开历史档案。</p>
+      </div>
+      <details class="panorama-card">
+        <summary>
+          <div><span>PANORAMA / 长征全景</span><strong>不只一条路线</strong><small>展开查看四支长征队伍与胜利会师</small></div>
+          <b aria-hidden="true">＋</b>
+        </summary>
+        <div class="panorama-body">
+          <p class="panorama-lead">本应用的六站是为初中生选取的<strong>代表性节点</strong>，主要串联中央红军的重要经历与三大主力胜利会师，不等同于长征的全部路线和全部事件。</p>
+          <div class="route-armies" aria-label="四支红军长征队伍概览">
+            <article><i>01</i><div><strong>红一方面军</strong><span>1934.10—1935.10</span><p>从中央苏区出发，经过遵义、赤水、大渡河、雪山草地等地，到达陕北。</p></div></article>
+            <article><i>02</i><div><strong>红二十五军</strong><span>1934.11—1935.09</span><p>从鄂豫皖根据地出发，率先到达陕甘根据地，为主力红军北上创造条件。</p></div></article>
+            <article><i>03</i><div><strong>红四方面军</strong><span>1935.03—1936.10</span><p>从川陕根据地开始战略转移，历经艰苦征程后北上，与红一方面军会师。</p></div></article>
+            <article><i>04</i><div><strong>红二方面军</strong><span>1935.11—1936.10</span><p>由红二、红六军团等部队发展组成，转战多省后同红一方面军胜利会师。</p></div></article>
+          </div>
+          <div class="meeting-strip">
+            <span>1936.10</span><div><strong>从不同方向走向共同胜利</strong><p>红一、红四方面军在会宁会师；红二方面军随后在将台堡同红一方面军会师。三大主力胜利会合，标志着长征胜利结束。</p></div>
+          </div>
+          <div class="panorama-think"><b>想一想</b><p>路线不同、经历不同的队伍，为什么最终能够走到一起？</p></div>
+          <div class="panorama-sources"><span>资料核对</span><a href="https://www.miit.gov.cn/ztzl/rdzt/dsxxjyzl/xxzl/art/2021/art_a43d76bc5e694806889c07fc36ec6adc.html" target="_blank" rel="noopener">工业和信息化部：遵义会议和红军长征的胜利 ↗</a><a href="https://www.mod.gov.cn/gfbw/gfjy_index/16418522.html" target="_blank" rel="noopener">国防部：红军长征中的会师 ↗</a></div>
+        </div>
+      </details>
+      <div class="route-card">
+        <svg class="route-line" viewBox="0 0 320 590" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M74 528 C 18 460, 122 430, 92 358 S 205 292, 164 222 S 274 148, 231 67" />
+        </svg>
+        <div id="routeStations"></div>
+      </div>
+      <div class="route-note"><b id="routeNoteTitle">路线说明</b><p id="routeNoteText">从瑞金出发，完成当前站研学后，下一站才会点亮。</p></div>
+    </section>
+
+    <section class="view" id="station" aria-label="长征站点档案">
+      <div class="station-cover">
+        <button class="back-button" data-go="route">← 返回路线</button>
+        <span class="station-index" id="stationIndex">STATION 01 / 06</span>
+        <p id="stationMeta">1934年10月 · 江西瑞金</p>
+        <h2 id="stationTitle">瑞金<br>出发</h2>
+        <div class="cover-keyword" id="stationSeal">启程</div>
+      </div>
+
+      <div class="reading-tabs" role="tablist">
+        <button class="is-active" data-panel="facts">历史档案</button>
+        <button data-panel="chain">因果链</button>
+        <button data-panel="words">关键词</button>
+        <button data-panel="task">任务</button>
+      </div>
+
+      <div class="reading-panel is-active" id="facts">
+        <div class="page-kicker">01 / HISTORY FILE</div>
+        <div class="fact-strip" id="factStrip"></div>
+        <article class="background-card">
+          <span>BACKGROUND / 历史背景</span>
+          <p id="stationBackground"></p>
+        </article>
+        <article class="story-card formal">
+          <span>历史档案</span>
+          <p id="stationArchive"></p>
+        </article>
+        <article class="story-card explain">
+          <span>少年解读</span>
+          <p id="stationExplain"></p>
+        </article>
+        <section class="inquiry-ladder" id="inquiryLadder" aria-label="三层思考"></section>
+        <section class="human-archive" aria-label="人物与史料档案">
+          <div class="archive-section-head"><span>PEOPLE &amp; EVIDENCE</span><strong>人，站在历史现场</strong><p>从人物行动与真实材料中，理解精神从何而来。</p></div>
+          <article class="profile-card" id="profileCard"></article>
+          <article class="evidence-card" id="evidenceCard"></article>
+        </section>
+        <aside class="source-card">
+          <span>SOURCES / 资料来源</span>
+          <div id="stationSources"></div>
+          <small>页面文字依据以上公开资料整理，并按初一学生阅读水平进行简明改写。</small>
+        </aside>
+      </div>
+
+      <div class="reading-panel" id="chain">
+        <div class="page-kicker">02 / CAUSAL CHAIN</div>
+        <h3 class="panel-title" id="chainTitle"></h3>
+        <div class="causal-chain" id="causalChain"></div>
+      </div>
+
+      <div class="reading-panel" id="words">
+        <div class="page-kicker">03 / KEYWORD CARDS</div>
+        <div id="keywordCards"></div>
+      </div>
+
+      <div class="reading-panel" id="task">
+        <div class="page-kicker">04 / FIELD TASK</div>
+        <div class="task-card">
+          <span class="task-tag" id="taskTag">站点任务</span><h3 id="taskTitle"></h3>
+          <p id="taskCopy"></p>
+          <aside class="history-boundary" id="historyBoundary" hidden></aside>
+          <div class="journey-meters" id="journeyMeters" aria-label="行军指标"></div>
+          <div id="taskMount"></div>
+          <div class="task-feedback" id="taskFeedback" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="quiz" aria-label="知识挑战">
+      <div class="section-head"><div><span>QUIZ / 知识挑战</span><h2>十题远征</h2></div><p>从30道题中随机抽取10道，不只记时间，更要理解历史选择。</p></div>
+      <div class="quiz-card">
+        <div class="quiz-top"><span>第 <b id="questionNo">1</b> / <b id="questionTotal">10</b> 题</span><span>得分 <b id="score">0</b></span></div>
+        <div class="quiz-progress"><span id="quizProgress"></span></div>
+        <small class="quiz-station" id="quizStation"></small>
+        <h3 id="question"></h3>
+        <div id="quizOptions" class="quiz-options"></div>
+        <p id="quizExplain" class="quiz-explain"></p>
+        <button id="nextQuestion" class="primary-button" hidden>下一题 <span>→</span></button>
+        <div id="quizResult" class="quiz-result" hidden></div>
+      </div>
+    </section>
+
+    <section class="view" id="collection" aria-label="星火收藏">
+      <div class="section-head"><div><span>MY ARCHIVE / 我的档案</span><h2>星火收藏</h2></div><p>把触动你的精神关键词装进行囊。</p></div>
+      <div class="badge-section">
+        <div class="subsection-title"><span>SPIRIT MARKS</span><strong>我的精神徽章</strong><small id="badgeCount">0 / 6</small></div>
+        <div class="badge-grid" id="badgeGrid"></div>
+      </div>
+      <section class="spirit-kit">
+        <div class="subsection-title"><span>MY SPIRIT KIT</span><strong>我的精神行囊</strong><small id="kitCount">0 / 3</small></div>
+        <p>从已完成站点获得的关键词中选出三张，组成你最想带走的精神行囊。</p>
+        <div class="kit-slots" id="kitSlots"></div>
+        <div class="kit-options" id="kitOptions"></div>
+      </section>
+      <div class="collection-empty" id="collectionEmpty"><span>✦</span><h3>档案袋还是空的</h3><p>前往站点阅读关键词卡片并收藏。</p><button class="secondary-button" data-go="station">前往当前站</button></div>
+      <div class="collection-list" id="collectionList"></div>
+      <div class="reflection-card">
+        <span>MY REFLECTION / 我的感悟</span>
+        <label for="reflectionSpirit">把一种精神带到今天</label>
+        <select id="reflectionSpirit"><option value="">请选择一种精神</option></select>
+        <label class="reflection-sub" for="reflectionReason">我为什么选择它？</label>
+        <textarea id="reflectionReason" maxlength="100" placeholder="结合一段历史或自己的经历说明理由。"></textarea>
+        <label class="reflection-sub" for="reflectionAction">未来一个月，我准备……</label>
+        <textarea id="reflectionAction" maxlength="100" placeholder="写下一个具体、可以做到的行动。"></textarea>
+        <button id="saveReflection">保存行动计划</button><small id="saveHint"></small>
+      </div>
+      <article class="achievement-card" id="achievementCard" hidden>
+        <div class="achievement-top"><span>THE LONG MARCH ARCHIVE</span><b>六站完成纪念</b></div>
+        <div class="achievement-star">✦</div>
+        <p>授予称号</p><h3>新时代<br>小小长征者</h3>
+        <div class="achievement-marks" id="achievementMarks"></div>
+        <div class="achievement-kit" id="achievementKit"></div>
+        <blockquote id="achievementReflection"></blockquote>
+        <div class="achievement-action" id="achievementAction"></div>
+        <small>坚定理想 · 实事求是 · 机智勇敢<br>不怕牺牲 · 艰苦奋斗 · 团结胜利</small>
+      </article>
+    </section>
+
+    <section class="view utility-view" id="help" aria-label="使用帮助">
+      <div class="section-head"><div><span>GUIDE / 使用帮助</span><h2>怎样完成研学</h2></div><p>沿路线逐站阅读、思考和挑战，收集六枚精神徽章。</p></div>
+      <div class="guide-steps">
+        <article><i>01</i><div><strong>阅读历史档案</strong><p>先了解事件背景，再阅读史实和少年解读。</p></div></article>
+        <article><i>02</i><div><strong>理解因果关系</strong><p>用五步因果链回答“为什么发生”和“带来什么结果”。</p></div></article>
+        <article><i>03</i><div><strong>完成站点任务</strong><p>任务成功后获得精神徽章，并自动点亮下一站。</p></div></article>
+        <article><i>04</i><div><strong>挑战与回顾</strong><p>随机完成10道题；答错的题目可以集中重练。</p></div></article>
+        <article><i>05</i><div><strong>留下个人感悟</strong><p>完成六站并保存感悟，生成个人研学纪念卡。</p></div></article>
+      </div>
+      <section class="demo-console">
+        <div class="subsection-title"><span>DEFENSE MODE</span><strong>三分钟答辩演示</strong><small id="demoTimer">03:00</small></div>
+        <p id="demoPrompt">按六个关键画面演示作品，避免现场逐页翻找。</p>
+        <div class="demo-progress"><span id="demoProgress"></span></div>
+        <ol id="demoSteps"></ol>
+        <div><button id="startDemo">开始计时</button><button id="nextDemo" disabled>下一画面</button></div>
+      </section>
+      <button class="wide-link" data-go="route">前往长征路线 <span>→</span></button>
+    </section>
+
+    <section class="view utility-view" id="about" aria-label="作品说明">
+      <div class="section-head"><div><span>ABOUT / 作品说明</span><h2>把历史读成一条路</h2></div><p>一款面向初中生的长征历史互动研学应用。</p></div>
+      <article class="about-lead"><span>设计理念</span><p>作品借鉴杂志精读的学习方法，把长征中的关键事件组织成“背景—史实—解读—因果—精神—任务”的学习闭环，让历史不只停留在时间和地点的记忆中。</p></article>
+      <div class="about-grid">
+        <article><span>参赛组别</span><strong>初中组</strong><small>个人作品</small></article>
+        <article><span>技术特点</span><strong>离线优先</strong><small>本地保存</small></article>
+        <article><span>内容规模</span><strong>六站</strong><small>30道题</small></article>
+        <article><span>运行平台</span><strong>移动端</strong><small>Web功能原型</small></article>
+        <article><span>当前版本</span><strong>1.0.0</strong><small>答辩准备版</small></article>
+        <article><span>交付状态</span><strong>待迁移</strong><small>AIA / APK</small></article>
+      </div>
+      <article class="privacy-card"><span>PRIVACY / 隐私说明</span><h3>数据只保存在本机</h3><p>学习进度、成绩、错题、收藏和感悟均保存在当前设备浏览器中，不上传服务器，也不收集姓名、学校、联系方式或定位信息。</p></article>
+      <article class="privacy-card sources-summary"><span>SOURCES / 内容来源</span><h3>公开权威资料整理</h3><p>历史内容主要参考中共中央党史和文献研究院、中华人民共和国国防部、人民网党史频道、中央网信办等公开资料。每个站点均列出对应链接。</p></article>
+      <article class="privacy-card ai-note"><span>ORIGINALITY / 原创与工具说明</span><h3>学生主导，工具辅助</h3><p>开发过程中使用AI辅助生成和调试代码、提出界面建议与优化表达。正式参赛前，学生须逐项理解、修改和测试作品，在开发日志中如实记录辅助范围，并能在答辩中解释主要功能与实现逻辑。</p></article>
+    </section>
+
+    <section class="view utility-view" id="settings" aria-label="设置">
+      <div class="section-head"><div><span>SETTINGS / 设置</span><h2>应用设置</h2></div><p>调整提示音，或清除本机保存的研学记录。</p></div>
+      <div class="settings-list">
+        <article><div><strong>操作提示音</strong><small>任务成功和按钮操作的简短提示</small></div><button class="switch" id="soundToggle" role="switch" aria-checked="true"><span></span></button></article>
+        <article><div><strong>离线使用</strong><small id="offlineStatus">正在检查缓存状态……</small></div><b class="status-dot">PWA</b></article>
+      </div>
+      <div class="danger-zone"><span>重新开始</span><h3>清除全部学习记录</h3><p>将删除进度、徽章、成绩、错题、收藏和个人感悟，但不会删除应用本身。</p><button id="resetProgress">清除记录并重新开始</button></div>
+    </section>
+
+    <nav class="bottom-nav" aria-label="主导航">
+      <button class="is-active" data-go="home"><i>⌂</i><span>首页</span></button>
+      <button data-go="route"><i>⌁</i><span>路线</span></button>
+      <button data-go="quiz"><i>?</i><span>挑战</span></button>
+      <button data-go="collection"><i>✦</i><span>档案</span></button>
+    </nav>
+  </main>
+  <div class="onboarding" id="onboarding" hidden>
+    <div class="onboarding-card">
+      <button class="onboarding-skip" id="skipOnboarding">跳过</button>
+      <div class="onboarding-pages" id="onboardingPages">
+        <article class="is-active"><span>01 / 03</span><div class="onboarding-symbol">路</div><h2>把历史<br>读成一条路</h2><p>沿六个关键节点前进，每到一站，打开一份历史档案。</p></article>
+        <article><span>02 / 03</span><div class="onboarding-symbol">思</div><h2>不只记忆<br>更要理解</h2><p>通过少年解读和因果链，理解每一次选择为什么重要。</p></article>
+        <article><span>03 / 03</span><div class="onboarding-symbol">行</div><h2>完成任务<br>收集精神</h2><p>完成互动任务，获得六枚徽章，写下自己的长征精神感悟。</p></article>
+      </div>
+      <div class="onboarding-actions"><div id="onboardingDots"><i class="is-active"></i><i></i><i></i></div><button id="nextOnboarding">下一步 →</button></div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <div class="stamp-ceremony" id="stampCeremony" hidden>
+    <div class="stamp-sheet"><span>STATION COMPLETE</span><p id="stampStation"></p><div id="stampSeal">完成</div><strong id="stampSpirit"></strong><small>一枚精神印记已收入星火档案</small><button id="closeStamp">继续前进 →</button></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
