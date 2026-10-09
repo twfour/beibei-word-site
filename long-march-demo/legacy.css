@@ -5,10 +5,10 @@
 }
 
 .topbar {
-  left: 50%;
+  left: 0;
   width: 100%;
   max-width: 470px;
-  transform: translateX(-50%);
+  transform: none;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -57,10 +57,10 @@
 }
 
 .bottom-nav {
-  left: 50%;
+  left: 0;
   width: 100%;
   max-width: 470px;
-  transform: translateX(-50%);
+  transform: none;
 }
 
 @supports (display: grid) {
@@ -72,5 +72,11 @@
 
   .home-grid .feature-card {
     width: auto;
+  }
+
+  .topbar,
+  .bottom-nav {
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'spark-archive-v12';
+const CACHE_NAME = 'spark-archive-v13';
 const CORE_FILES = ['./', './index.html', './styles.css', './legacy.css', './app.js', './manifest.webmanifest', './icon.svg'];
 
 self.addEventListener('install', event => {
