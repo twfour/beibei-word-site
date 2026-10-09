@@ -1,0 +1,19 @@
+{
+  "name": "长征研学 · 星火档案",
+  "short_name": "星火档案",
+  "description": "面向初中生的长征历史互动研学应用",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4ecd9",
+  "theme_color": "#a52d29",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

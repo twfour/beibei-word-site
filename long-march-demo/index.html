@@ -4,7 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#a52d29">
+  <meta name="description" content="面向初中生的长征历史互动研学应用">
   <title>长征研学 · 星火档案</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -36,6 +39,11 @@
         <button class="feature-card cream" data-go="collection"><span>03</span><strong>星火收藏</strong><small id="favoriteSummary">已收藏 0 张</small></button>
       </div>
       <blockquote class="quote"><span>“</span>长征是宣言书，长征是宣传队，长征是播种机。<small>—— 毛泽东</small></blockquote>
+      <div class="utility-links">
+        <button data-go="help"><i>?</i><span>使用帮助</span></button>
+        <button data-go="about"><i>档</i><span>作品说明</span></button>
+        <button data-go="settings"><i>⚙</i><span>设置</span></button>
+      </div>
     </section>
 
     <section class="view" id="route" aria-label="长征路线">
@@ -151,6 +159,40 @@
       </article>
     </section>
 
+    <section class="view utility-view" id="help" aria-label="使用帮助">
+      <div class="section-head"><div><span>GUIDE / 使用帮助</span><h2>怎样完成研学</h2></div><p>沿路线逐站阅读、思考和挑战，收集六枚精神徽章。</p></div>
+      <div class="guide-steps">
+        <article><i>01</i><div><strong>阅读历史档案</strong><p>先了解事件背景，再阅读史实和少年解读。</p></div></article>
+        <article><i>02</i><div><strong>理解因果关系</strong><p>用五步因果链回答“为什么发生”和“带来什么结果”。</p></div></article>
+        <article><i>03</i><div><strong>完成站点任务</strong><p>任务成功后获得精神徽章，并自动点亮下一站。</p></div></article>
+        <article><i>04</i><div><strong>挑战与回顾</strong><p>随机完成10道题；答错的题目可以集中重练。</p></div></article>
+        <article><i>05</i><div><strong>留下个人感悟</strong><p>完成六站并保存感悟，生成个人研学纪念卡。</p></div></article>
+      </div>
+      <button class="wide-link" data-go="route">前往长征路线 <span>→</span></button>
+    </section>
+
+    <section class="view utility-view" id="about" aria-label="作品说明">
+      <div class="section-head"><div><span>ABOUT / 作品说明</span><h2>把历史读成一条路</h2></div><p>一款面向初中生的长征历史互动研学应用。</p></div>
+      <article class="about-lead"><span>设计理念</span><p>作品借鉴杂志精读的学习方法，把长征中的关键事件组织成“背景—史实—解读—因果—精神—任务”的学习闭环，让历史不只停留在时间和地点的记忆中。</p></article>
+      <div class="about-grid">
+        <article><span>参赛组别</span><strong>初中组</strong><small>个人作品</small></article>
+        <article><span>技术特点</span><strong>离线优先</strong><small>本地保存</small></article>
+        <article><span>内容规模</span><strong>六站</strong><small>30道题</small></article>
+        <article><span>运行平台</span><strong>移动端</strong><small>APP原型</small></article>
+      </div>
+      <article class="privacy-card"><span>PRIVACY / 隐私说明</span><h3>数据只保存在本机</h3><p>学习进度、成绩、错题、收藏和感悟均保存在当前设备浏览器中，不上传服务器，也不收集姓名、学校、联系方式或定位信息。</p></article>
+      <article class="privacy-card sources-summary"><span>SOURCES / 内容来源</span><h3>公开权威资料整理</h3><p>历史内容主要参考中共中央党史和文献研究院、中华人民共和国国防部、人民网党史频道、中央网信办等公开资料。每个站点均列出对应链接。</p></article>
+    </section>
+
+    <section class="view utility-view" id="settings" aria-label="设置">
+      <div class="section-head"><div><span>SETTINGS / 设置</span><h2>应用设置</h2></div><p>调整提示音，或清除本机保存的研学记录。</p></div>
+      <div class="settings-list">
+        <article><div><strong>操作提示音</strong><small>任务成功和按钮操作的简短提示</small></div><button class="switch" id="soundToggle" role="switch" aria-checked="true"><span></span></button></article>
+        <article><div><strong>离线使用</strong><small id="offlineStatus">正在检查缓存状态……</small></div><b class="status-dot">PWA</b></article>
+      </div>
+      <div class="danger-zone"><span>重新开始</span><h3>清除全部学习记录</h3><p>将删除进度、徽章、成绩、错题、收藏和个人感悟，但不会删除应用本身。</p><button id="resetProgress">清除记录并重新开始</button></div>
+    </section>
+
     <nav class="bottom-nav" aria-label="主导航">
       <button class="is-active" data-go="home"><i>⌂</i><span>首页</span></button>
       <button data-go="route"><i>⌁</i><span>路线</span></button>
@@ -158,6 +200,17 @@
       <button data-go="collection"><i>✦</i><span>档案</span></button>
     </nav>
   </main>
+  <div class="onboarding" id="onboarding" hidden>
+    <div class="onboarding-card">
+      <button class="onboarding-skip" id="skipOnboarding">跳过</button>
+      <div class="onboarding-pages" id="onboardingPages">
+        <article class="is-active"><span>01 / 03</span><div class="onboarding-symbol">路</div><h2>把历史<br>读成一条路</h2><p>沿六个关键节点前进，每到一站，打开一份历史档案。</p></article>
+        <article><span>02 / 03</span><div class="onboarding-symbol">思</div><h2>不只记忆<br>更要理解</h2><p>通过少年解读和因果链，理解每一次选择为什么重要。</p></article>
+        <article><span>03 / 03</span><div class="onboarding-symbol">行</div><h2>完成任务<br>收集精神</h2><p>完成互动任务，获得六枚徽章，写下自己的长征精神感悟。</p></article>
+      </div>
+      <div class="onboarding-actions"><div id="onboardingDots"><i class="is-active"></i><i></i><i></i></div><button id="nextOnboarding">下一步 →</button></div>
+    </div>
+  </div>
   <div class="toast" id="toast" role="status"></div>
   <script src="app.js"></script>
 </body>

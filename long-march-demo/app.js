@@ -130,6 +130,7 @@ const state = {
   reflection: localStorage.getItem('sparkReflection') || '',
   highScore: Number(localStorage.getItem('sparkHighScore') || 0),
   wrongQuestions: JSON.parse(localStorage.getItem('sparkWrongQuestions') || '[]'),
+  soundEnabled: localStorage.getItem('sparkSoundEnabled') !== 'false',
 };
 
 function persistJourney() {
@@ -213,6 +214,7 @@ function finishTask(station) {
   const message = id === 6 ? '六站研学全部完成！六份精神力量已经汇入星火档案。' : `任务成功！获得“${station.spirit}”印记，第 ${id + 1} 站“${stations[id].name}”已点亮。`;
   setTaskFeedback(message, 'success');
   toast(id === 6 ? '六站长征路全部完成' : `已点亮${stations[id].name}站`);
+  playTone('success');
 }
 
 function setTaskFeedback(message, type = '') {
@@ -555,14 +557,87 @@ function toast(message) {
   toastTimer = setTimeout(() => node.classList.remove('show'), 1800);
 }
 
-document.querySelector('#soundButton').addEventListener('click', event => {
-  event.currentTarget.classList.toggle('muted');
-  event.currentTarget.textContent = event.currentTarget.classList.contains('muted') ? '静' : '声';
-  toast(event.currentTarget.classList.contains('muted') ? '声音已关闭' : '声音已开启（原型未配音）');
+function playTone(type = 'tap') {
+  if (!state.soundEnabled) return;
+  try {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) return;
+    const context = new AudioContextClass();
+    const oscillator = context.createOscillator();
+    const gain = context.createGain();
+    oscillator.type = 'sine';
+    oscillator.frequency.value = type === 'success' ? 660 : 440;
+    gain.gain.setValueAtTime(.055, context.currentTime);
+    gain.gain.exponentialRampToValueAtTime(.001, context.currentTime + (type === 'success' ? .28 : .12));
+    oscillator.connect(gain); gain.connect(context.destination);
+    oscillator.start(); oscillator.stop(context.currentTime + (type === 'success' ? .28 : .12));
+    oscillator.addEventListener('ended', () => context.close());
+  } catch (_) { /* Audio is optional; interaction must continue without it. */ }
+}
+
+function updateSoundUI() {
+  const headerButton = document.querySelector('#soundButton');
+  const toggle = document.querySelector('#soundToggle');
+  headerButton.classList.toggle('muted', !state.soundEnabled);
+  headerButton.textContent = state.soundEnabled ? '声' : '静';
+  toggle.classList.toggle('is-on', state.soundEnabled);
+  toggle.setAttribute('aria-checked', String(state.soundEnabled));
+}
+
+function toggleSound() {
+  state.soundEnabled = !state.soundEnabled;
+  localStorage.setItem('sparkSoundEnabled', state.soundEnabled);
+  updateSoundUI();
+  if (state.soundEnabled) playTone();
+  toast(state.soundEnabled ? '操作提示音已开启' : '操作提示音已关闭');
+}
+
+document.querySelector('#soundButton').addEventListener('click', toggleSound);
+document.querySelector('#soundToggle').addEventListener('click', toggleSound);
+
+const onboarding = document.querySelector('#onboarding');
+let onboardingIndex = 0;
+function closeOnboarding() {
+  onboarding.hidden = true;
+  localStorage.setItem('sparkOnboarded', 'true');
+}
+function showOnboardingPage(index) {
+  onboardingIndex = index;
+  document.querySelectorAll('#onboardingPages article').forEach((page, pageIndex) => page.classList.toggle('is-active', pageIndex === index));
+  document.querySelectorAll('#onboardingDots i').forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === index));
+  document.querySelector('#nextOnboarding').textContent = index === 2 ? '开始研学 →' : '下一步 →';
+}
+document.querySelector('#skipOnboarding').addEventListener('click', closeOnboarding);
+document.querySelector('#nextOnboarding').addEventListener('click', () => onboardingIndex === 2 ? closeOnboarding() : showOnboardingPage(onboardingIndex + 1));
+if (!localStorage.getItem('sparkOnboarded')) {
+  onboarding.hidden = false;
+  showOnboardingPage(0);
+}
+
+document.querySelector('#resetProgress').addEventListener('click', () => {
+  const confirmed = window.confirm('确定清除本机上的全部研学记录吗？此操作无法撤销。');
+  if (!confirmed) return;
+  Object.keys(localStorage).filter(key => key.startsWith('spark')).forEach(key => localStorage.removeItem(key));
+  window.location.reload();
 });
 
+function registerOfflineSupport() {
+  const status = document.querySelector('#offlineStatus');
+  if (!('serviceWorker' in navigator)) {
+    status.textContent = '当前浏览器不支持离线缓存';
+    return;
+  }
+  navigator.serviceWorker.register('./service-worker.js').then(() => navigator.serviceWorker.ready).then(() => {
+    status.textContent = '核心页面已可离线打开';
+  }).catch(() => {
+    status.textContent = '首次联网打开后可建立离线缓存';
+  });
+}
+
 persistJourney();
+updateSoundUI();
 updateJourneyUI();
 renderFavorites();
 startQuiz();
 renderStation(stations[state.currentStation - 1]);
+registerOfflineSupport();
