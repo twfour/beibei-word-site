@@ -788,6 +788,63 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The article says Brazil still has some strong institutions, such as the police, the media and the Supreme Court. But a debt crisis could cause serious trouble, including inflation, recession and a weaker currency. The main message is that Brazil needs painful reforms if it wants to stop choosing between weak and risky leaders."
         ),
     },
+    "20261007": {
+        "pet_index": "04",
+        "overview": (
+            "文章介绍 2026 年诺贝尔生理学或医学奖授予 Karl Deisseroth、Georg Nagel 和 Peter Hegemann，表彰他们奠定光遗传学的发现。"
+            "开头先解释光遗传学的基本原理：通过基因技术让特定细胞带上对光敏感的蛋白，再用光像开关一样控制细胞活动；这种方法让科学家能够更精确地研究大脑回路。"
+            "文章随后写 Deisseroth 深夜接到诺奖电话的场景，并说明他的研究目标并非只停留在技术本身，而是希望利用这种工具理解精神疾病、癫痫、帕金森等复杂脑病背后的因果机制。"
+            "中段回到科学史：Francis Crick 曾提出如果能用光控制神经元，神经科学会发生重大变化；Nagel 和 Hegemann 对藻类感光蛋白的研究，"
+            "以及 Deisseroth 将这些工具带入哺乳动物神经系统的工作，使这一设想变成现实。后半部分强调临床前景：早期试验显示，光遗传疗法可能帮助遗传性视网膜退化患者恢复部分视觉，"
+            "也可能为更多神经系统疾病提供新路径。结尾把这次获奖放进诺贝尔医学奖传统中，回顾 mRNA 疫苗、microRNA 和免疫耐受等近年成果，"
+            "说明基础发现如何一步步改变医学。"
+        ),
+        "pet": (
+            "The article is about the 2026 Nobel Prize in Physiology or Medicine. The prize went to Karl Deisseroth, Georg Nagel and Peter Hegemann for their work on optogenetics. Optogenetics is a method that uses light and genes to control cells. It is especially important in brain research. "
+            "The article explains why this discovery matters. The brain is very complex, and scientists need better tools to understand what different cells and circuits are doing. With optogenetics, researchers can turn some cells on or off with light. This helps them study causes, not only connections. "
+            "The idea has a long history. Francis Crick once suggested that controlling brain cells with light could change neuroscience. Later, Nagel and Hegemann studied light-sensitive proteins in algae. Deisseroth helped bring these tools into mammal brain research. Together, their work created a powerful new field. "
+            "The article also looks at possible medical uses. Early clinical trials suggest that optogenetic therapy may help some people with inherited vision loss. In the future, it may also help researchers understand or treat epilepsy, Parkinson’s disease and other brain disorders. "
+            "The main message is that a basic scientific tool can open a new way to study disease. The Nobel Prize honors discoveries that may not become treatments immediately, but can change medicine over time."
+        ),
+    },
+    "20261008": {
+        "pet_index": "04",
+        "overview": (
+            "文章介绍比利时出生的科学家 Francis Halzen 获得 2026 年诺贝尔物理学奖，原因是他推动了高能宇宙中微子研究，"
+            "并把南极冰层变成一台巨大的“望远镜”。开头写 Halzen 接到获奖消息时的反应：他原本觉得自己只是候选名单上的名字之一，"
+            "获奖后仍把重点放在科研坚持和未来项目经费上。中段科普中微子：它们不带电、质量极小，几乎无处不在，却极少与物质发生相互作用，"
+            "因此非常难捕捉；但如果能捕捉到来自宇宙深处的高能中微子，就能获得关于宇宙演化和极端天体的新线索。文章随后解释 IceCube 的核心创意："
+            "在南极冰层深处埋下大量传感器，当中微子撞击冰中的粒子并产生微弱闪光时，传感器就能记录信号。这个想法早期曾被视为不切实际，"
+            "但最终通过国际合作落地，成为中微子天文学的重要突破。后半部分写到，这项研究需要从海量背景粒子中筛选极少数真实信号，"
+            "也依靠 14 个国家数百名科学家的协作。结尾补充诺奖奖金、颁奖安排和上一届物理奖背景，强调 Halzen 的贡献在于为人类打开一种观察宇宙的新方式。"
+        ),
+        "pet": (
+            "The article is about Francis Halzen, who won the 2026 Nobel Prize in Physics. He won for his work on neutrinos, tiny cosmic particles that may help scientists understand how the universe developed. Halzen was born in Belgium and later worked in the United States. He said he was surprised to win because he knew many strong scientists were also possible winners. "
+            "Neutrinos are very hard to study. They have almost no mass and no electric charge. They pass through the Earth and our bodies all the time, but they rarely hit anything. This makes them difficult to detect. However, if scientists can find high-energy neutrinos from space, they can learn about powerful events in the universe. "
+            "Halzen helped create IceCube, a huge detector under the ice in Antarctica. The idea was to use clear Antarctic ice as part of a giant telescope. When a neutrino hits a particle in the ice, it can produce a small flash of light. Sensors deep in the ice can record this flash. "
+            "At first, some people thought the project was too ambitious. But it worked, and it helped prove that neutrino astronomy is possible. The project also shows the value of international teamwork, with hundreds of scientists from many countries. "
+            "The main message is that Halzen turned a difficult idea into a real tool for studying the universe. Instead of using only ordinary telescopes, scientists can now use ghost particles to look at space in a new way."
+        ),
+    },
+    "20261009": {
+        "pet_index": "04",
+        "overview": (
+            "文章介绍 2026 年诺贝尔化学奖授予法国科学家 Henri Kagan 和日本科学家 Kenso Soai，表彰他们对分子几何，尤其是手性和自催化的研究。"
+            "开头说明，两位科学家的工作触及化学和生命起源中的核心谜题：为什么生命使用的很多分子呈现固定的“左手”或“右手”方向。"
+            "文章随后用左右手作类比解释手性：有些分子互为镜像，却无法像同一物体那样重合；在生命体系中，氨基酸和糖类往往呈现特定方向，"
+            "这影响药物、材料和生命过程。中段介绍两位得主的突破：Kagan 证明可以影响手性产物的比例，Soai 发现某些反应产物能够充当催化剂，"
+            "使同一种手性形式不断自我放大，即所谓自催化。文章指出，这些发现帮助科学家理解微小的不对称如何被放大成生命世界中稳定的分子偏向。"
+            "后半部分转向现实意义：手性控制对新药研发和材料合成至关重要，因为同一分子的不同镜像可能产生完全不同的生物效果。"
+            "结尾强调，这次奖项提醒人们基础研究的重要性：看似抽象的分子几何问题，可能为未来医学、材料和生命起源研究铺路。"
+        ),
+        "pet": (
+            "The article is about the 2026 Nobel Prize in Chemistry. It went to Henri Kagan from France and Kenso Soai from Japan. Their work is about the shape of molecules, especially chirality and autocatalysis. These ideas may help scientists understand one of chemistry’s biggest questions: why life uses molecules with a special left-handed or right-handed form. "
+            "Chirality is like our hands. Your left hand and right hand are mirror images, but they are not exactly the same when you place one on the other. Some molecules are like this too. In living things, many amino acids are left-handed, while many sugars are right-handed. This pattern is very important for life. "
+            "Kagan showed that chemists could influence the balance between two mirror-image molecules. Soai discovered reactions where the product can help make more of itself. This is called autocatalysis. It can make a small difference grow much larger. "
+            "The article says these discoveries are useful as well as interesting. Chirality matters in medicine because two mirror-image forms of the same molecule can have very different effects in the body. Better control of chirality can help scientists make safer drugs and new materials. "
+            "The main message is that basic science matters. A question about molecular geometry may sound abstract, but it can lead to important progress in medicine, materials and the study of life’s origins."
+        ),
+    },
 }
 
 
@@ -1323,6 +1380,11 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
     "discipline": {
         "definition": "专业领域；训练有素的做法；自律约束",
         "definition_en": "an area of knowledge or practice; controlled and careful behaviour",
+    },
+    "sequence": {
+        "definition": "测定（基因或分子成分的）序列；按顺序排列",
+        "definition_en": "to identify the order of genes or parts of molecules; to arrange things in order",
+        "example": "The human genome has now been sequenced. 人类基因组的序列现已测定。",
     },
 }
 
@@ -2057,7 +2119,7 @@ def extract_analyses(path: Path) -> list[dict[str, str]]:
             if should_stop:
                 break
     section = clean_analysis_layout("\n\n".join(page_sections))
-    section = re.sub(r"(?<!^)(?<!\n)\s+(\d+\.\s+(?=[A-Z]))", r"\n\n\1", section)
+    section = re.sub(r"(?<!^)(?<!\n)\s+(\d+\.\s+(?=[\"“”‘’']?[A-Z]))", r"\n\n\1", section)
     section = re.sub(
         r"\s+(1[.、:：]\s*(?=(?:主句|整体|宾语|that\b|if\b)))",
         r"\n\1",
@@ -2065,7 +2127,7 @@ def extract_analyses(path: Path) -> list[dict[str, str]]:
     )
     markers = []
     expected_number = 1
-    for marker in re.finditer(r"(?m)^(\d+)\.\s+([A-Z].*)$", section):
+    for marker in re.finditer(r"(?m)^(\d+)\.\s+([\"“”‘’']?[A-Z].*)$", section):
         if "【" in marker.group(2) or re.search(r"[\u4e00-\u9fff]", marker.group(2)):
             continue
         # Nested analysis bullets can also begin with English words, such as
