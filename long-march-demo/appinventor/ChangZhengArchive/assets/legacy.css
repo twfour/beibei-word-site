@@ -299,6 +299,14 @@ textarea {
   right: 0;
   bottom: 0;
   left: 0;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
 .onboarding-card {
@@ -311,10 +319,47 @@ textarea {
   max-width: 370px;
 }
 
+.route-line {
+  top: 0;
+  left: 0;
+}
+
+.spirit-badge {
+  filter: none;
+  background: #e7dfd0;
+  color: #7d817b;
+  opacity: .72;
+}
+
+.spirit-badge i {
+  border-color: #9b9b91;
+  color: #777b76;
+}
+
+.spirit-badge.earned {
+  color: #24342d;
+}
+
+.demo-console.is-running {
+  left: 12px;
+  right: 12px;
+  width: auto;
+  max-width: 446px;
+  transform: none;
+}
+
+.network-note {
+  color: #6f756d;
+  font-size: 9px;
+  line-height: 1.5;
+}
+
 @supports (display: grid) {
   .topbar,
   .home-grid,
   .utility-links,
+  .onboarding,
+  .stamp-ceremony,
   .subsection-title,
   .badge-grid,
   .about-grid,
@@ -385,6 +430,13 @@ textarea {
     top: 18px;
     writing-mode: vertical-rl;
     transform: none;
+  }
+
+  .demo-console.is-running {
+    left: 50%;
+    right: auto;
+    width: min(calc(100% - 24px), 446px);
+    transform: translateX(-50%);
   }
 
   .topbar,
