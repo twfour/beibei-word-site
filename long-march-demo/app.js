@@ -176,6 +176,15 @@ const archiveProfiles = {
   }
 };
 
+const taskImpacts = {
+  1:{gain:{belief:5,supply:12,unity:5},summary:'你优先保留生存、救护和防护物资，让有限负重真正服务于行军。'},
+  2:{gain:{belief:10,supply:0,unity:4},summary:'你选择面对事实、总结失误并调整方法，让队伍重新找到正确方向。'},
+  3:{gain:{belief:8,supply:-4,unity:5},summary:'你根据敌情连续判断，以必要的行军消耗换取行动主动。'},
+  4:{gain:{belief:10,supply:-3,unity:10},summary:'快速铺设通道离不开突击、掩护和后续协同，勇气成为集体力量。'},
+  5:{gain:{belief:8,supply:-8,unity:12},summary:'你在有限补给中守住每一类基本需要，也没有放弃需要帮助的同伴。'},
+  6:{gain:{belief:10,supply:3,unity:15},summary:'你把分散的历史节点重新排成共同道路，看见不同队伍因共同目标而汇聚。'}
+};
+
 const views = [...document.querySelectorAll('.view')];
 const navButtons = [...document.querySelectorAll('.bottom-nav button')];
 const legacyProgress = Number(localStorage.getItem('sparkProgress') || 0);
@@ -189,6 +198,22 @@ const state = {
   wrongQuestions: JSON.parse(localStorage.getItem('sparkWrongQuestions') || '[]'),
   soundEnabled: localStorage.getItem('sparkSoundEnabled') !== 'false',
 };
+
+function getJourneyMetrics() {
+  return state.completed.reduce((total,id) => {
+    const gain = taskImpacts[id].gain;
+    total.belief += gain.belief; total.supply += gain.supply; total.unity += gain.unity;
+    return total;
+  }, {belief:50,supply:50,unity:50});
+}
+
+function renderJourneyMeters() {
+  const metrics = getJourneyMetrics();
+  const data = [['belief','信念',metrics.belief],['supply','补给',metrics.supply],['unity','团结',metrics.unity]];
+  document.querySelector('#journeyMeters').innerHTML = data.map(([key,label,value]) => `<div class="meter ${key}"><span>${label}<b>${value}</b></span><i><em style="width:${Math.max(0,Math.min(100,value))}%"></em></i></div>`).join('');
+}
+
+function consequence(message) { setTaskFeedback(`行动后果：${message}`, 'error'); }
 
 function persistJourney() {
   localStorage.setItem('sparkUnlocked', state.unlocked);
@@ -271,6 +296,7 @@ function finishTask(station) {
   }
   persistJourney();
   updateJourneyUI();
+  renderJourneyMeters();
   renderTask(station);
   const message = id === 6 ? '六站研学全部完成！六份精神力量已经汇入星火档案。' : `任务成功！获得“${station.spirit}”印记，第 ${id + 1} 站“${stations[id].name}”已点亮。`;
   setTaskFeedback(message, 'success');
@@ -289,6 +315,7 @@ function renderTask(station, replay = false) {
   activeTaskTimer = null;
   const task = station.task;
   const completed = state.completed.includes(station.id) && !replay;
+  renderJourneyMeters();
   document.querySelector('#taskTag').textContent = `${task.type.toUpperCase()} / 站点任务`;
   document.querySelector('#taskTitle').textContent = completed ? `${station.name}站任务完成` : task.title;
   document.querySelector('#taskCopy').textContent = completed ? `你已经获得“${station.spirit}”印记。可以继续下一站，也可以再次挑战。` : task.copy;
@@ -296,7 +323,9 @@ function renderTask(station, replay = false) {
   document.querySelector('#taskFeedback').textContent = '';
   const mount = document.querySelector('#taskMount');
   if (completed) {
-    mount.innerHTML = `<div class="task-complete"><span>✓</span><div><strong>${station.spirit}</strong><small>SPIRIT MARK ACQUIRED</small></div></div><button class="task-action ghost" id="replayTask">再次挑战</button>`;
+    const impact = taskImpacts[station.id];
+    const gains = [['信念',impact.gain.belief],['补给',impact.gain.supply],['团结',impact.gain.unity]].filter(item => item[1]);
+    mount.innerHTML = `<div class="task-complete"><span>✓</span><div><strong>${station.spirit}</strong><small>SPIRIT MARK ACQUIRED</small></div></div><div class="decision-summary"><span>本次决策总结</span><p>${impact.summary}</p><div>${gains.map(([label,value]) => `<b>${label} ${value > 0 ? '+' : ''}${value}</b>`).join('')}</div></div><button class="task-action ghost" id="replayTask">再次挑战</button>`;
     document.querySelector('#replayTask').addEventListener('click', () => renderTask(station, true));
     return;
   }
@@ -322,7 +351,7 @@ function renderPackTask(station, mount) {
   }));
   document.querySelector('#checkPack').addEventListener('click', () => {
     const correct = station.task.answer.every(item => selected.has(item)) && selected.size === 3;
-    correct ? finishTask(station) : setTaskFeedback('再想想：漫长行军最基本的生存、救护和防护需要什么？', 'error');
+    correct ? finishTask(station) : consequence('非必要物品占用负重，粮食、救护或防护不足会直接影响队伍继续前进。请重新整理。');
   });
 }
 
@@ -332,7 +361,7 @@ function renderChoiceTask(station, mount) {
     const correct = Number(button.dataset.choice) === station.task.correct;
     button.classList.add(correct ? 'correct' : 'wrong');
     if (correct) finishTask(station);
-    else setTaskFeedback(`还不准确。${station.task.explain}`, 'error');
+    else consequence(Number(button.dataset.choice) === 0 ? '明知方案已造成损失仍照旧执行，队伍可能继续陷入被动。' : '把判断完全交给别人，会错过根据实际情况及时调整的机会。');
   }));
 }
 
@@ -342,7 +371,7 @@ function renderRouteTask(station, mount) {
     const item = station.task.steps[step];
     mount.innerHTML = `<div class="route-task-progress"><span style="width:${step / station.task.steps.length * 100}%"></span></div><div class="route-question"><small>判断 ${step + 1} / ${station.task.steps.length}</small><strong>${item.q}</strong></div><div class="task-options compact">${item.a.map((answer,index) => `<button data-route-answer="${index}"><i>${index + 1}</i><span>${answer}</span></button>`).join('')}</div>`;
     mount.querySelectorAll('[data-route-answer]').forEach(button => button.addEventListener('click', () => {
-      if (Number(button.dataset.routeAnswer) !== item.correct) return setTaskFeedback('这个选择可能让队伍陷入被动，请重新判断。', 'error');
+      if (Number(button.dataset.routeAnswer) !== item.correct) return consequence(['正面敌军兵力集中，直接硬拼会放大兵力劣势。','敌情已经变化，路线不变可能再次进入包围。','机会短暂，停留等待会让敌军重新合围。'][step]);
       step += 1;
       setTaskFeedback(step < station.task.steps.length ? '判断正确，继续观察下一步形势。' : '', 'success');
       if (step === station.task.steps.length) finishTask(station); else draw();
@@ -376,7 +405,7 @@ function renderBridgeTask(station, mount) {
         clearInterval(activeTaskTimer); activeTaskTimer = null;
         event.currentTarget.removeEventListener('click', tap);
         event.currentTarget.textContent = '重新开始';
-        setTaskFeedback('时间到了。保持节奏，再挑战一次！', 'error');
+        consequence('通道未能及时铺通，主力渡河会受到影响。真正的行动还需要突击、铺板和火力掩护共同配合。');
         event.currentTarget.addEventListener('click', () => renderBridgeTask(station, mount), {once:true});
       }
     }, 100);
@@ -384,6 +413,21 @@ function renderBridgeTask(station, mount) {
 }
 
 function renderSupplyTask(station, mount) {
+  const situations = [
+    {title:'寒潮突然来临',copy:'一名体力较弱的同伴御寒用品不足，你会怎样做？',options:['调出一份御寒用品并结伴前进','让他独自加快速度'],result:'共享物资会增加眼前压力，却能保护同伴并保持队伍完整。'},
+    {title:'前方草甸积水',copy:'有人建议各自寻找近路，你会怎样选择？',options:['保持队形，先探路再通过','分散行动，谁快谁先走'],result:'陌生草地中分散行动容易迷失，保持联系与探路更重要。'},
+    {title:'粮食所剩不多',copy:'队伍中有伤员体力下降，你会怎样安排？',options:['共同核算，优先保障基本需要','隐藏自己的粮食，只顾个人'],result:'公开核算和照顾基本需要，才能让有限补给支持更多人前进。'}
+  ];
+  const situation = situations[Math.floor(Math.random() * situations.length)];
+  mount.innerHTML = `<div class="situation-card"><span>随机情境</span><h4>${situation.title}</h4><p>${situation.copy}</p><div class="task-options compact">${situation.options.map((option,index) => `<button data-situation="${index}"><i>${index + 1}</i><span>${option}</span></button>`).join('')}</div></div>`;
+  mount.querySelectorAll('[data-situation]').forEach(button => button.addEventListener('click', () => {
+    if (Number(button.dataset.situation) !== 0) return consequence('队伍失去照应，个人风险和集体风险都会增大。请重新判断。');
+    setTaskFeedback(`情境判断：${situation.result}`, 'success');
+    window.setTimeout(() => drawSupplyAllocation(station, mount), 450);
+  }));
+}
+
+function drawSupplyAllocation(station, mount) {
   const amounts = Object.fromEntries(Object.keys(station.task.minimums).map(key => [key,0]));
   const draw = () => {
     const used = Object.values(amounts).reduce((sum,value) => sum + value,0);
@@ -393,7 +437,7 @@ function renderSupplyTask(station, mount) {
     document.querySelector('#checkSupply').addEventListener('click', () => {
       const full = Object.values(amounts).reduce((sum,value) => sum + value,0) === station.task.total;
       const safe = Object.entries(station.task.minimums).every(([key,min]) => amounts[key] >= min);
-      full && safe ? finishTask(station) : setTaskFeedback(full ? '有一类物资不足以应对基本需要，请重新平衡。' : '还有物资没有分配完。', 'error');
+      full && safe ? finishTask(station) : consequence(full ? '有一类基本物资不足，队伍会在严寒、饥饿或伤病面前失去安全保障。请重新平衡。' : '仍有物资没有分配，有限资源还没有形成完整方案。');
     });
   };
   draw();
@@ -405,7 +449,7 @@ function renderOrderTask(station, mount) {
     mount.innerHTML = `<div class="order-list">${order.map((item,index) => `<div><i>${index + 1}</i><strong>${item}</strong><span><button data-up="${index}" ${index === 0 ? 'disabled' : ''}>↑</button><button data-down="${index}" ${index === order.length - 1 ? 'disabled' : ''}>↓</button></span></div>`).join('')}</div><button class="task-action" id="checkOrder">检查顺序</button>`;
     mount.querySelectorAll('[data-up]').forEach(button => button.addEventListener('click', () => { const i=Number(button.dataset.up); [order[i-1],order[i]]=[order[i],order[i-1]]; draw(); }));
     mount.querySelectorAll('[data-down]').forEach(button => button.addEventListener('click', () => { const i=Number(button.dataset.down); [order[i+1],order[i]]=[order[i],order[i+1]]; draw(); }));
-    document.querySelector('#checkOrder').addEventListener('click', () => order.every((item,index) => item === station.task.items[index]) ? finishTask(station) : setTaskFeedback('顺序还不正确。留意每一站的年份，再调整一次。', 'error'));
+    document.querySelector('#checkOrder').addEventListener('click', () => order.every((item,index) => item === station.task.items[index]) ? finishTask(station) : consequence('事件顺序混乱，就无法看清各阶段如何连接，也难以理解会师为何是共同道路的结果。'));
   };
   draw();
 }
