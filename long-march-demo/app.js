@@ -119,6 +119,63 @@ const stations = [
   }
 ];
 
+const archiveProfiles = {
+  1: {
+    type:'军民群像', name:'于都河畔的架桥军民', role:'红军工兵与于都群众',
+    situation:'中央红军主力需要秘密、迅速渡过水面宽阔的于都河，但当时河上没有可供大部队通行的桥。',
+    action:'群众捐出门板、床板、木料和船只，与红军一起架设浮桥；为躲避敌机侦察，浮桥还要反复夜架昼拆。',
+    meaning:'长征的出发不仅依靠军队的决心，也离不开人民群众的支持。',
+    material:'于都河渡河组织记录', materialType:'纪念馆史料与口述资料整理', materialText:'资料记载，于都群众汇集大量船只和木料，在多处渡口架桥、摆渡，为中央红军主力渡河提供保障。',
+    question:'如果没有沿岸群众的支持，这次大规模秘密渡河会遇到哪些困难？',
+    source:['于都县人民政府：于都河畔，万里长征从这里出发','https://www.yudu.gov.cn/yudu/ydrw/202102/3f856d547c974b18afb023350581f9b0.shtml']
+  },
+  2: {
+    type:'人物档案', name:'陈云', role:'遵义会议参加者、中央政治局常委',
+    situation:'遵义会议召开后，需要把会议讨论的问题、作出的决定和重要意义准确传达给中央纵队。',
+    action:'陈云在长征途中写下传达提纲，记录会议召开目的、参加人员、讨论情况和作出的决议。',
+    meaning:'面对重大转折，既要作出正确判断，也要用可靠记录保存和传达集体决定。',
+    material:'《遵义政治局扩大会议传达提纲》手稿', materialType:'中央档案馆藏档案', materialText:'这份钢笔手稿共4600余字，真实记录了遵义会议前后的历史情况，是研究遵义会议的重要原始材料。',
+    question:'为什么一份形成于行军途中的会议记录，能够成为今天理解遵义会议的重要证据？',
+    source:['中共中央党史和文献研究院：传达提纲手稿','https://www.dswxyjy.org.cn/n1/2024/0129/c427167-40168395.html']
+  },
+  3: {
+    type:'指挥群像', name:'四渡赤水前线指挥集体', role:'毛泽东、周恩来、朱德、刘伯承等',
+    situation:'敌军不断改变部署，中央红军兵力处于劣势，原定行动方案必须根据敌情及时调整。',
+    action:'指挥员连续分析敌情、调整方向、组织渡河，在高度机动中调动敌军并寻找突破机会。',
+    meaning:'灵活不是随意改变，而是依据新信息不断作出更接近目标的判断。',
+    material:'四渡赤水行动部署电报', materialType:'1935年军事电报与行动记录', materialText:'留存资料中有关于渡河行动、部队转移和各军团部署的多份电报，显示路线变化建立在持续判断与协同指挥之上。',
+    question:'从连续调整的电报和路线中，怎样看出“目标坚定”与“办法灵活”并不矛盾？',
+    source:['国防部：四渡赤水，高超指挥艺术的生动体现','https://www.mod.gov.cn/gfbw/gfjy_index/js_214151/4849498.html']
+  },
+  4: {
+    type:'战斗群像', name:'红四团夺桥突击队', role:'22名突击队员及协同部队',
+    situation:'泸定桥关系到红军能否迅速越过大渡河，桥面受损，对岸还有守军阻击。',
+    action:'突击队攀踏铁索向前，后续部队铺设桥板、实施火力掩护，各部分协同夺取通道。',
+    meaning:'飞夺泸定桥并非一个人的冒险，而是勇气、能力、分工与协作共同形成的行动。',
+    material:'红军战士唐进新的回忆', materialType:'亲历者回忆资料', materialText:'唐进新回忆，突击队踏索夺桥，后续连队铺设木板，其他部队实施掩护；不同任务共同构成了夺桥行动。',
+    question:'为什么理解后续铺板和火力掩护，也能帮助我们更准确地认识22名勇士？',
+    source:['国防部：飞夺泸定桥，中国革命史上的不朽篇章','https://www.mod.gov.cn/gfbw/gfjy_index/js_214151/4833421.html']
+  },
+  5: {
+    type:'人物档案', name:'谭发贵与李班长', role:'少年红军战士与他的班长',
+    situation:'不到12岁的谭发贵要背着武器、工具和粮食翻越海拔4000多米、终年积雪的夹金山。',
+    action:'在严寒、缺氧和体力不足的情况下，李班长把仅有的破被单给他御寒，战友们彼此照顾、共同翻山。',
+    meaning:'艰苦奋斗不仅是个人咬牙坚持，也包含困难中不放弃同伴。',
+    material:'谭发贵翻越夹金山回忆', materialType:'亲历者回忆文章', materialText:'回忆记录了单衣、缺粮、缺氧和陡峭雪路等困难，也留下班长和战友关爱、鼓励少年战士的细节。',
+    question:'这份回忆中，哪一种困难最难只靠个人力量克服？为什么？',
+    source:['国防部：班长把仅有的一块破被单给了我','https://www.mod.gov.cn/gfbw/gfjy_index/16037621.html']
+  },
+  6: {
+    type:'会师群像', name:'从不同方向赶来的红军将士', role:'红一、红二、红四方面军',
+    situation:'各路红军出发时间和行军路线不同，都经历了漫长转战，需要在西北实现战略上的汇合。',
+    action:'红一、红四方面军在会宁会师；10月22日，红二方面军总指挥部及红二军团同红一方面军主力在将台堡会师。',
+    meaning:'共同理想把不同经历、不同方向的队伍汇聚起来，团结使保存下来的革命力量形成新的起点。',
+    material:'会宁、将台堡会师经过记录', materialType:'会师史实与亲历资料整理', materialText:'资料记录了会师时间、地点、参加部队和联欢场景；将台堡会师是红军长征中的最后一次会师。',
+    question:'会师的意义为什么不只是“几支队伍终于见面了”？',
+    source:['国防部：红军长征中的会师','https://www.mod.gov.cn/gfbw/gfjy_index/16418522.html']
+  }
+};
+
 const views = [...document.querySelectorAll('.view')];
 const navButtons = [...document.querySelectorAll('.bottom-nav button')];
 const legacyProgress = Number(localStorage.getItem('sparkProgress') || 0);
@@ -184,6 +241,9 @@ function renderStation(station) {
   document.querySelector('#stationArchive').textContent = station.archive;
   document.querySelector('#stationExplain').textContent = station.explain;
   document.querySelector('#stationThink').textContent = station.think;
+  const profile = archiveProfiles[station.id];
+  document.querySelector('#profileCard').innerHTML = `<div class="profile-mark"><span>${profile.type}</span><b>${String(station.id).padStart(2,'0')}</b></div><div class="profile-copy"><small>PEOPLE / 人物与群像</small><h3>${profile.name}</h3><em>${profile.role}</em><dl><div><dt>当时处境</dt><dd>${profile.situation}</dd></div><div><dt>作出行动</dt><dd>${profile.action}</dd></div><div><dt>读懂精神</dt><dd>${profile.meaning}</dd></div></dl></div>`;
+  document.querySelector('#evidenceCard').innerHTML = `<div class="evidence-top"><span>EVIDENCE / 史料阅读</span><b>${profile.materialType}</b></div><h3>${profile.material}</h3><p>${profile.materialText}</p><div class="evidence-question"><b>从材料中发现</b><p>${profile.question}</p></div><a href="${profile.source[1]}" target="_blank" rel="noopener">${profile.source[0]} ↗</a>`;
   document.querySelector('#stationSources').innerHTML = station.sources.map((source, index) => `<a href="${source[1]}" target="_blank" rel="noopener"><i>${String(index + 1).padStart(2,'0')}</i><span>${source[0]}</span><b>↗</b></a>`).join('');
   document.querySelector('#chainTitle').innerHTML = station.chainTitle;
   document.querySelector('#causalChain').innerHTML = station.chain.map((item, index) => `${index ? '<span>↓</span>' : ''}<div class="${index === station.chain.length - 1 ? 'result' : ''}"><i>${item[0]}</i><p>${item[1]}</p></div>`).join('');
