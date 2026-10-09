@@ -249,6 +249,68 @@ textarea {
   top: auto;
 }
 
+/* Flex gap did not work in the 2019 WebView. Use physical spacing. */
+.badge-grid,
+.about-grid,
+.kit-slots,
+.kit-options,
+.journey-meters,
+.quiz-result > div,
+.task-choice-grid {
+  margin-left: -3px;
+  margin-right: -3px;
+}
+
+.spirit-badge,
+.about-grid article,
+.kit-slots > div,
+.kit-slots > button,
+.kit-options button,
+.journey-meters .meter,
+.quiz-result button,
+.task-choice-grid button {
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-bottom: 6px;
+}
+
+/* Simulate the vertical route caption without writing-mode. */
+.route-card:before {
+  left: 30px;
+  right: auto;
+  top: 16px;
+  writing-mode: horizontal-tb;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+/* Older Android WebViews used the prefixed sticky implementation. */
+.reading-tabs {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+/* Explicit edges and widths replace inset() and min(). */
+.onboarding,
+.stamp-ceremony {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.onboarding-card {
+  width: 100%;
+  max-width: 420px;
+}
+
+.stamp-sheet {
+  width: 100%;
+  max-width: 370px;
+}
+
 @supports (display: grid) {
   .topbar,
   .home-grid,
@@ -302,6 +364,27 @@ textarea {
   .task-choice-grid button,
   .quiz-result button {
     width: auto;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+
+  .badge-grid,
+  .about-grid,
+  .kit-slots,
+  .kit-options,
+  .journey-meters,
+  .quiz-result > div,
+  .task-choice-grid {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .route-card:before {
+    left: 8px;
+    top: 18px;
+    writing-mode: vertical-rl;
+    transform: none;
   }
 
   .topbar,

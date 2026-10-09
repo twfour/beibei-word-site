@@ -266,7 +266,7 @@ function showView(id) {
   views.forEach(view => view.classList.toggle('is-active', view.id === id));
   const navId = id === 'station' ? 'route' : id;
   navButtons.forEach(button => button.classList.toggle('is-active', button.dataset.go === navId));
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  window.scrollTo(0, 0);
 }
 
 document.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', () => showView(button.dataset.go)));
