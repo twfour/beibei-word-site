@@ -128,6 +128,8 @@ const state = {
   currentStation: Math.min(6, Math.max(1, Number(localStorage.getItem('sparkCurrentStation') || 1))),
   favorites: JSON.parse(localStorage.getItem('sparkFavorites') || '[]'),
   reflection: localStorage.getItem('sparkReflection') || '',
+  highScore: Number(localStorage.getItem('sparkHighScore') || 0),
+  wrongQuestions: JSON.parse(localStorage.getItem('sparkWrongQuestions') || '[]'),
 };
 
 function persistJourney() {
@@ -360,6 +362,7 @@ function updateJourneyUI() {
   continueButton.innerHTML = completedCount === 6 ? '回看长征路线 <span>→</span>' : `${completedCount ? '继续' : '从'}${current.name}${completedCount ? '研学' : '出发'} <span>→</span>`;
   continueButton.onclick = () => completedCount === 6 ? showView('route') : openStation(current.id);
   renderRoute();
+  renderBadgesAndAchievement();
 }
 
 function bindCollectionButtons() {
@@ -384,40 +387,153 @@ function bindCollectionButtons() {
 function renderFavorites() {
   document.querySelector('#favoriteSummary').textContent = `已收藏 ${state.favorites.length} 张`;
   document.querySelector('#collectionEmpty').hidden = state.favorites.length > 0;
-  document.querySelector('#collectionList').innerHTML = state.favorites.map((item, index) => `<article class="saved-card"><div><span>SPARK CARD ${String(index + 1).padStart(2,'0')}</span><strong>${item}</strong></div><b>✦</b></article>`).join('');
+  const keywordMap = new Map(stations.flatMap(station => station.keywords.map(word => [word[0], {word, station}])));
+  document.querySelector('#collectionList').innerHTML = state.favorites.map((item, index) => {
+    const entry = keywordMap.get(item);
+    if (!entry) return '';
+    return `<details class="saved-card"><summary><div><span>SPARK CARD ${String(index + 1).padStart(2,'0')} · ${entry.station.name}</span><strong>${item}</strong></div><b>＋</b></summary><div class="saved-detail"><p>${entry.word[1]}</p><small><i>在今天</i>${entry.word[2]}</small><button data-remove-card="${item}">移出收藏</button></div></details>`;
+  }).join('');
+  document.querySelectorAll('[data-remove-card]').forEach(button => button.addEventListener('click', () => {
+    const card = button.dataset.removeCard;
+    state.favorites = state.favorites.filter(item => item !== card);
+    localStorage.setItem('sparkFavorites', JSON.stringify(state.favorites));
+    document.querySelectorAll(`.collect-button[data-card="${card}"]`).forEach(node => { node.classList.remove('is-collected'); node.textContent = '＋ 收进星火档案'; });
+    renderFavorites();
+    toast(`已移出“${card}”`);
+  }));
+}
+
+function renderBadgesAndAchievement() {
+  document.querySelector('#badgeCount').textContent = `${state.completed.length} / 6`;
+  document.querySelector('#badgeGrid').innerHTML = stations.map(station => {
+    const earned = state.completed.includes(station.id);
+    return `<div class="spirit-badge ${earned ? 'earned' : ''}"><i>${earned ? '✦' : '·'}</i><strong>${station.spirit}</strong><small>${earned ? station.name : '尚未获得'}</small></div>`;
+  }).join('');
+  const achieved = state.completed.length === 6 && Boolean(state.reflection);
+  const card = document.querySelector('#achievementCard');
+  card.hidden = !achieved;
+  if (achieved) {
+    document.querySelector('#achievementMarks').innerHTML = stations.map(station => `<i title="${station.spirit}">✦</i>`).join('');
+    document.querySelector('#achievementReflection').textContent = `“${state.reflection}”`;
+  }
 }
 
 const questions = [
-  {q:'遵义会议体现得最突出的精神是什么？', a:['盲目坚持','实事求是','等待帮助'], correct:1, e:'遵义会议根据实际情况总结经验、纠正错误，体现了实事求是。'},
-  {q:'面对已经证明不合适的方法，正确做法是什么？', a:['分析原因并调整','为了面子继续','把问题藏起来'], correct:0, e:'坚定目标与及时调整方法并不矛盾。'},
-  {q:'遵义会议为什么被称为重要转折？', a:['改变了行军服装','解决了关键领导和军事问题','增加了物资'], correct:1, e:'会议集中解决了当时具有决定意义的军事和组织问题。'}
+  {id:1,station:'瑞金出发',q:'中央红军主力于哪一年开始长征？',a:['1931年','1934年','1937年'],correct:1,e:'1934年10月中旬，中央红军主力从瑞金、于都等地出发。'},
+  {id:2,station:'瑞金出发',q:'中央红军撤离中央苏区的直接背景是什么？',a:['第五次反“围剿”失败','粮食丰收','会师已经完成'],correct:0,e:'第五次反“围剿”失败后，中央苏区形势严峻，红军开始战略转移。'},
+  {id:3,station:'瑞金出发',q:'长征开始时，“战略转移”主要是为了什么？',a:['举行庆典','保存革命力量并寻找新道路','参观各地'],correct:1,e:'战略转移是在危急形势下保存力量、寻找新道路的选择。'},
+  {id:4,station:'瑞金出发',q:'瑞金出发最能体现哪种精神？',a:['坚定理想','盲目冒险','等待观望'],correct:0,e:'面对未知征途仍为共同目标行动，体现了坚定理想。'},
+  {id:5,station:'瑞金出发',q:'以下哪种做法最符合“责任担当”？',a:['逃避小组任务','只挑最简单的工作','认真完成自己承担的部分'],correct:2,e:'责任担当意味着在集体需要时主动承担并完成自己的任务。'},
+  {id:6,station:'遵义会议',q:'遵义会议召开于哪一年？',a:['1934年','1935年','1936年'],correct:1,e:'遵义会议于1935年1月15日至17日召开。'},
+  {id:7,station:'遵义会议',q:'遵义会议重点解决了什么问题？',a:['军事和组织问题','桥梁建造问题','粮食种植问题'],correct:0,e:'会议集中解决了当时具有决定意义的军事和组织问题。'},
+  {id:8,station:'遵义会议',q:'遵义会议为什么被称为重要转折？',a:['更换了服装','在危急关头挽救了党和红军','增加了交通工具'],correct:1,e:'会议纠正错误领导，在极其危急的关头挽救了党、红军和中国革命。'},
+  {id:9,station:'遵义会议',q:'面对已经证明不合适的方法，正确做法是什么？',a:['分析原因并调整','为了面子继续','把问题藏起来'],correct:0,e:'坚定目标与及时调整方法并不矛盾。'},
+  {id:10,station:'遵义会议',q:'“独立自主”更接近下面哪种理解？',a:['完全不听建议','结合实际独立思考并解决问题','凡事等待答案'],correct:1,e:'独立自主不是拒绝帮助，而是立足实际作出自己的判断。'},
+  {id:11,station:'四渡赤水',q:'四渡赤水主要发生在哪一地区？',a:['川黔滇边境','东北平原','珠江三角洲'],correct:0,e:'中央红军在川黔滇边境灵活机动，四次渡过赤水河。'},
+  {id:12,station:'四渡赤水',q:'四渡赤水的路线为什么看起来曲折？',a:['队伍迷路了','根据敌情灵活改变方向','没有任何目标'],correct:1,e:'曲折路线来自连续的敌情判断和机动调整。'},
+  {id:13,station:'四渡赤水',q:'四渡赤水后，红军通过哪条江摆脱围追堵截？',a:['金沙江','钱塘江','黄浦江'],correct:0,e:'红军进军云南并巧渡金沙江，摆脱了敌军围追堵截。'},
+  {id:14,station:'四渡赤水',q:'“目标坚定，办法灵活”说明什么？',a:['方法永远不能改变','目标和方法都可随意放弃','可根据实际调整方法'],correct:2,e:'目标可以坚定不移，实现目标的办法应根据实际情况调整。'},
+  {id:15,station:'四渡赤水',q:'紧急情况下首先应该怎样做？',a:['沉着分析信息','马上随意行动','放弃判断'],correct:0,e:'沉着判断能帮助我们看清变化，再选择合适行动。'},
+  {id:16,station:'飞夺泸定桥',q:'飞夺泸定桥发生在哪一天？',a:['1935年5月29日','1935年1月15日','1936年10月22日'],correct:0,e:'1935年5月29日，红四团突击队夺取泸定桥。'},
+  {id:17,station:'飞夺泸定桥',q:'夺取泸定桥的主要目的是什么？',a:['修建新城市','打开渡过大渡河的通道','举行运动比赛'],correct:1,e:'夺桥是为了让红军主力越过大渡河并继续北上。'},
+  {id:18,station:'飞夺泸定桥',q:'飞夺泸定桥只依靠突击队员个人行动吗？',a:['是，与其他人无关','不是，还需要急行军、掩护和协同','只需要等待'],correct:1,e:'行动依靠突击、火力掩护和后续部队的共同配合。'},
+  {id:19,station:'飞夺泸定桥',q:'真正的勇气更接近哪种表现？',a:['从来不会害怕','为了表现而冒险','明白责任后仍选择行动'],correct:2,e:'勇气不是感觉不到害怕，而是在责任面前依然行动。'},
+  {id:20,station:'飞夺泸定桥',q:'“集体担当”强调什么？',a:['只依靠一个人','关键时刻相互配合并承担责任','把任务推给别人'],correct:1,e:'集体担当包含主动承担责任和相互协作。'},
+  {id:21,station:'雪山草地',q:'中央红军长征途中翻越的第一座大雪山是？',a:['泰山','夹金山','黄山'],correct:1,e:'1935年6月，中央红军翻越夹金山。'},
+  {id:22,station:'雪山草地',q:'翻越雪山时主要面临哪些困难？',a:['严寒、缺氧和湿滑山路','炎热和沙尘','城市交通拥堵'],correct:0,e:'高海拔雪山带来严寒、缺氧和难行的山路。'},
+  {id:23,station:'雪山草地',q:'穿越草地时为什么补给困难？',a:['商店太多','人烟稀少、食物和燃料缺乏','道路太宽'],correct:1,e:'草地人烟稀少、天气多变，食物和燃料都十分缺乏。'},
+  {id:24,station:'雪山草地',q:'面对漫长困难，下面哪种方法更有效？',a:['把任务拆小并坚持完成','一次失败就放弃','只等待别人完成'],correct:0,e:'把大任务分解并持续行动，是坚韧的现实表现。'},
+  {id:25,station:'雪山草地',q:'“互助友爱”在困难中有什么作用？',a:['让同伴更加孤立','帮助大家共同坚持前进','减少合作'],correct:1,e:'相互搀扶和彼此照顾，是红军克服困难的重要力量。'},
+  {id:26,station:'会宁会师',q:'红军三大主力胜利会师发生在哪一年？',a:['1934年','1935年','1936年'],correct:2,e:'1936年10月，红军三大主力在西北地区胜利会合。'},
+  {id:27,station:'会宁会师',q:'红一方面军和红四方面军主要在哪里会师？',a:['会宁','瑞金','遵义'],correct:0,e:'1936年10月，红一方面军和红四方面军在甘肃会宁会师。'},
+  {id:28,station:'会宁会师',q:'红二方面军后来同红一方面军主力在哪里会师？',a:['将台堡','泸定桥','于都'],correct:0,e:'1936年10月22日，双方在将台堡胜利会师。'},
+  {id:29,station:'会宁会师',q:'三大主力会师标志着什么？',a:['长征胜利结束','长征刚刚开始','遵义会议召开'],correct:0,e:'三大主力胜利会合，标志着具有伟大历史意义的长征胜利结束。'},
+  {id:30,station:'会宁会师',q:'会师最突出体现了哪种力量？',a:['各自行动','团结协作','互不联系'],correct:1,e:'共同理想和相互配合，使分散的力量最终汇聚。'}
 ];
+
+let quizSession = [];
 let quizIndex = 0;
 let score = 0;
+let sessionWrong = [];
+
+function shuffled(items) {
+  const copy = [...items];
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+function startQuiz(pool = questions, limit = 10) {
+  quizSession = shuffled(pool).slice(0, Math.min(limit, pool.length));
+  quizIndex = 0;
+  score = 0;
+  sessionWrong = [];
+  document.querySelector('#score').textContent = '0';
+  document.querySelector('#quizResult').hidden = true;
+  document.querySelector('#question').hidden = false;
+  document.querySelector('#quizOptions').hidden = false;
+  document.querySelector('#quizExplain').hidden = false;
+  renderQuestion();
+}
+
 function renderQuestion() {
-  const item = questions[quizIndex];
+  const item = quizSession[quizIndex];
   document.querySelector('#questionNo').textContent = quizIndex + 1;
+  document.querySelector('#questionTotal').textContent = quizSession.length;
+  document.querySelector('#quizProgress').style.width = `${quizIndex / quizSession.length * 100}%`;
+  document.querySelector('#quizStation').textContent = `${item.station} · QUESTION ${String(item.id).padStart(2,'0')}`;
   document.querySelector('#question').textContent = item.q;
   document.querySelector('#quizExplain').textContent = '';
   document.querySelector('#nextQuestion').hidden = true;
   document.querySelector('#quizOptions').innerHTML = item.a.map((answer, index) => `<button data-index="${index}">${String.fromCharCode(65 + index)}. ${answer}</button>`).join('');
   document.querySelectorAll('#quizOptions button').forEach(button => button.addEventListener('click', answerQuestion));
 }
+
 function answerQuestion(event) {
   const selected = Number(event.currentTarget.dataset.index);
-  const item = questions[quizIndex];
+  const item = quizSession[quizIndex];
+  const correct = selected === item.correct;
   document.querySelectorAll('#quizOptions button').forEach(button => button.disabled = true);
-  event.currentTarget.classList.add(selected === item.correct ? 'correct' : 'wrong');
-  if (selected !== item.correct) document.querySelector(`#quizOptions button[data-index="${item.correct}"]`).classList.add('correct');
-  if (selected === item.correct) score += 10;
+  event.currentTarget.classList.add(correct ? 'correct' : 'wrong');
+  if (!correct) {
+    document.querySelector(`#quizOptions button[data-index="${item.correct}"]`).classList.add('correct');
+    sessionWrong.push(item.id);
+    if (!state.wrongQuestions.includes(item.id)) state.wrongQuestions.push(item.id);
+  } else {
+    score += 10;
+    state.wrongQuestions = state.wrongQuestions.filter(id => id !== item.id);
+  }
+  localStorage.setItem('sparkWrongQuestions', JSON.stringify(state.wrongQuestions));
   document.querySelector('#score').textContent = score;
   document.querySelector('#quizExplain').textContent = item.e;
   document.querySelector('#nextQuestion').hidden = false;
-  document.querySelector('#nextQuestion').innerHTML = quizIndex === questions.length - 1 ? '查看结果 <span>→</span>' : '下一题 <span>→</span>';
+  document.querySelector('#nextQuestion').innerHTML = quizIndex === quizSession.length - 1 ? '查看结果 <span>→</span>' : '下一题 <span>→</span>';
 }
+
+function finishQuiz() {
+  state.highScore = Math.max(state.highScore, score);
+  localStorage.setItem('sparkHighScore', state.highScore);
+  document.querySelector('#quizProgress').style.width = '100%';
+  document.querySelector('#question').hidden = true;
+  document.querySelector('#quizOptions').hidden = true;
+  document.querySelector('#quizExplain').hidden = true;
+  document.querySelector('#nextQuestion').hidden = true;
+  const result = document.querySelector('#quizResult');
+  result.hidden = false;
+  result.innerHTML = `<span>CHALLENGE COMPLETE</span><strong>${score}</strong><p>本次得分 · 满分 ${quizSession.length * 10}<br>历史最高分 ${state.highScore}</p><div><button id="restartQuiz">重新抽取10题</button><button id="retryWrong" ${state.wrongQuestions.length ? '' : 'disabled'}>错题重练 ${state.wrongQuestions.length}</button></div>`;
+  document.querySelector('#restartQuiz').addEventListener('click', () => startQuiz());
+  document.querySelector('#retryWrong').addEventListener('click', () => {
+    const pool = questions.filter(item => state.wrongQuestions.includes(item.id));
+    if (pool.length) startQuiz(pool, pool.length);
+  });
+  toast(`挑战完成：${score} 分`);
+}
+
 document.querySelector('#nextQuestion').addEventListener('click', () => {
-  if (quizIndex < questions.length - 1) { quizIndex += 1; renderQuestion(); }
-  else { toast(`挑战完成：${score} / 30 分`); quizIndex = 0; score = 0; document.querySelector('#score').textContent = 0; renderQuestion(); }
+  if (quizIndex < quizSession.length - 1) { quizIndex += 1; renderQuestion(); }
+  else finishQuiz();
 });
 
 const reflection = document.querySelector('#reflection');
@@ -426,6 +542,7 @@ document.querySelector('#saveReflection').addEventListener('click', () => {
   state.reflection = reflection.value.trim();
   localStorage.setItem('sparkReflection', state.reflection);
   document.querySelector('#saveHint').textContent = state.reflection ? '已装入档案' : '已清空';
+  renderBadgesAndAchievement();
   toast(state.reflection ? '感悟已保存' : '感悟已清空');
 });
 
@@ -447,5 +564,5 @@ document.querySelector('#soundButton').addEventListener('click', event => {
 persistJourney();
 updateJourneyUI();
 renderFavorites();
-renderQuestion();
+startQuiz();
 renderStation(stations[state.currentStation - 1]);

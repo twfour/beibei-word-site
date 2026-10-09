@@ -114,18 +114,25 @@
     </section>
 
     <section class="view" id="quiz" aria-label="知识挑战">
-      <div class="section-head"><div><span>QUIZ / 知识挑战</span><h2>一分钟检验</h2></div><p>不是死记时间，而是理解历史选择。</p></div>
+      <div class="section-head"><div><span>QUIZ / 知识挑战</span><h2>十题远征</h2></div><p>从30道题中随机抽取10道，不只记时间，更要理解历史选择。</p></div>
       <div class="quiz-card">
-        <div class="quiz-top"><span>第 <b id="questionNo">1</b> / 3 题</span><span>得分 <b id="score">0</b></span></div>
-        <h3 id="question">遵义会议体现得最突出的精神是什么？</h3>
+        <div class="quiz-top"><span>第 <b id="questionNo">1</b> / <b id="questionTotal">10</b> 题</span><span>得分 <b id="score">0</b></span></div>
+        <div class="quiz-progress"><span id="quizProgress"></span></div>
+        <small class="quiz-station" id="quizStation"></small>
+        <h3 id="question"></h3>
         <div id="quizOptions" class="quiz-options"></div>
         <p id="quizExplain" class="quiz-explain"></p>
         <button id="nextQuestion" class="primary-button" hidden>下一题 <span>→</span></button>
+        <div id="quizResult" class="quiz-result" hidden></div>
       </div>
     </section>
 
     <section class="view" id="collection" aria-label="星火收藏">
       <div class="section-head"><div><span>MY ARCHIVE / 我的档案</span><h2>星火收藏</h2></div><p>把触动你的精神关键词装进行囊。</p></div>
+      <div class="badge-section">
+        <div class="subsection-title"><span>SPIRIT MARKS</span><strong>我的精神徽章</strong><small id="badgeCount">0 / 6</small></div>
+        <div class="badge-grid" id="badgeGrid"></div>
+      </div>
       <div class="collection-empty" id="collectionEmpty"><span>✦</span><h3>档案袋还是空的</h3><p>前往站点阅读关键词卡片并收藏。</p><button class="secondary-button" data-go="station">前往当前站</button></div>
       <div class="collection-list" id="collectionList"></div>
       <div class="reflection-card">
@@ -134,6 +141,14 @@
         <textarea id="reflection" maxlength="120" placeholder="写下一句话，留给未来的自己。"></textarea>
         <button id="saveReflection">保存感悟</button><small id="saveHint"></small>
       </div>
+      <article class="achievement-card" id="achievementCard" hidden>
+        <div class="achievement-top"><span>THE LONG MARCH ARCHIVE</span><b>六站完成纪念</b></div>
+        <div class="achievement-star">✦</div>
+        <p>授予称号</p><h3>新时代<br>小小长征者</h3>
+        <div class="achievement-marks" id="achievementMarks"></div>
+        <blockquote id="achievementReflection"></blockquote>
+        <small>坚定理想 · 实事求是 · 机智勇敢<br>不怕牺牲 · 艰苦奋斗 · 团结胜利</small>
+      </article>
     </section>
 
     <nav class="bottom-nav" aria-label="主导航">
