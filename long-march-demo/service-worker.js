@@ -1,5 +1,5 @@
-const CACHE_NAME = 'spark-archive-v11';
-const CORE_FILES = ['./', './index.html', './styles.css', './app.js', './manifest.webmanifest', './icon.svg'];
+const CACHE_NAME = 'spark-archive-v12';
+const CORE_FILES = ['./', './index.html', './styles.css', './legacy.css', './app.js', './manifest.webmanifest', './icon.svg'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(CORE_FILES)).then(() => self.skipWaiting()));

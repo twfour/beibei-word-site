@@ -1,0 +1,76 @@
+/* Compatibility layer for the 2019 App Inventor Companion's old WebView. */
+.app-shell {
+  width: 100%;
+  max-width: 470px;
+}
+
+.topbar {
+  left: 50%;
+  width: 100%;
+  max-width: 470px;
+  transform: translateX(-50%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.seal {
+  width: 46px;
+  min-width: 46px;
+}
+
+.top-title {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.sound {
+  min-width: 36px;
+}
+
+.home-grid {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.home-grid .feature-card {
+  width: 48%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 40%;
+  flex: 1 1 40%;
+}
+
+.utility-links {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.utility-links button {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.bottom-nav {
+  left: 50%;
+  width: 100%;
+  max-width: 470px;
+  transform: translateX(-50%);
+}
+
+@supports (display: grid) {
+  .topbar,
+  .home-grid,
+  .utility-links {
+    display: grid;
+  }
+
+  .home-grid .feature-card {
+    width: auto;
+  }
+}
