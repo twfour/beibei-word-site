@@ -7,7 +7,7 @@
 - 原生 App Inventor `Screen1`
 - 原生 `WebViewer` 组件
 - HTML、CSS、JavaScript 和图标全部打包在 AIA 的 assets 中
-- `HomeUrl` 使用 `file:///appinventor_asset/index.html`，不依赖线上网站
+- `HomeUrl` 使用2019版已支持的 `http://localhost/index.html`，同时兼容AI伴侣与编译后的APK，不依赖线上网站
 - 学习进度仍由 WebView 的本地存储保存
 
 ## 必须验证
