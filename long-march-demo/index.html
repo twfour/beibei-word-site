@@ -23,7 +23,7 @@
         <p class="hero-kicker">把历史读成一条路</p>
         <h1>星火<br><em>长征</em></h1>
         <p class="hero-copy">沿六个关键节点出发，从历史档案、少年解读与互动任务中，理解信念、求实、勇气与团结。</p>
-        <button class="primary-button" data-go="route">继续研学 <span>→</span></button>
+        <button class="primary-button" id="continueButton">从瑞金出发 <span>→</span></button>
         <div class="progress-wrap">
           <div class="progress-label"><span>我的行程</span><strong id="progressText">1 / 6 站</strong></div>
           <div class="progress-track"><span id="progressBar"></span></div>
@@ -47,23 +47,18 @@
         <svg class="route-line" viewBox="0 0 320 590" preserveAspectRatio="none" aria-hidden="true">
           <path d="M74 528 C 18 460, 122 430, 92 358 S 205 292, 164 222 S 274 148, 231 67" />
         </svg>
-        <div class="station open" style="--x:20%;--y:88%" data-station="1"><i>01</i><div><strong>瑞金</strong><small>1934.10 · 坚定理想</small></div></div>
-        <div class="station open current" style="--x:28%;--y:64%" data-station="2"><i>02</i><div><strong>遵义</strong><small>1935.01 · 实事求是</small></div></div>
-        <div class="station locked" style="--x:53%;--y:48%" data-station="3"><i>03</i><div><strong>赤水</strong><small>机智勇敢 · 待解锁</small></div></div>
-        <div class="station locked" style="--x:77%;--y:34%" data-station="4"><i>04</i><div><strong>泸定</strong><small>不怕牺牲 · 待解锁</small></div></div>
-        <div class="station locked" style="--x:58%;--y:18%" data-station="5"><i>05</i><div><strong>雪山草地</strong><small>艰苦奋斗 · 待解锁</small></div></div>
-        <div class="station locked" style="--x:76%;--y:4%" data-station="6"><i>06</i><div><strong>会宁</strong><small>团结胜利 · 待解锁</small></div></div>
+        <div id="routeStations"></div>
       </div>
-      <div class="route-note"><b>路线说明</b><p>本原型重点演示第 02 站“遵义会议”。完成站内任务，即可点亮下一站。</p></div>
+      <div class="route-note"><b id="routeNoteTitle">路线说明</b><p id="routeNoteText">从瑞金出发，完成当前站研学后，下一站才会点亮。</p></div>
     </section>
 
-    <section class="view" id="station" aria-label="遵义会议档案">
+    <section class="view" id="station" aria-label="长征站点档案">
       <div class="station-cover">
         <button class="back-button" data-go="route">← 返回路线</button>
-        <span class="station-index">STATION 02 / 06</span>
-        <p>1935年1月 · 贵州遵义</p>
-        <h2>遵义<br>会议</h2>
-        <div class="cover-keyword">转折</div>
+        <span class="station-index" id="stationIndex">STATION 01 / 06</span>
+        <p id="stationMeta">1934年10月 · 江西瑞金</p>
+        <h2 id="stationTitle">瑞金<br>出发</h2>
+        <div class="cover-keyword" id="stationSeal">启程</div>
       </div>
 
       <div class="reading-tabs" role="tablist">
@@ -77,53 +72,32 @@
         <div class="page-kicker">01 / HISTORY FILE</div>
         <article class="story-card formal">
           <span>历史档案</span>
-          <p>1935年1月，中共中央政治局在贵州遵义召开扩大会议。会议集中解决了当时具有决定意义的军事和组织问题，开始形成以毛泽东同志为核心的党的第一代中央领导集体。</p>
+          <p id="stationArchive"></p>
         </article>
         <article class="story-card explain">
           <span>少年解读</span>
-          <p>长征开始后，红军遇到了严重困难。遵义会议的重要之处，是大家没有回避错误，而是根据真实情况总结经验、调整方向。它告诉我们：坚持目标，不等于坚持错误的方法。</p>
+          <p id="stationExplain"></p>
         </article>
-        <div class="think-card"><b>想一想</b><p>当原来的学习方法效果不好时，你会继续照旧，还是分析原因并调整？</p></div>
+        <div class="think-card"><b>想一想</b><p id="stationThink"></p></div>
       </div>
 
       <div class="reading-panel" id="chain">
         <div class="page-kicker">02 / CAUSAL CHAIN</div>
-        <h3 class="panel-title">一次重要转折<br>是怎样发生的？</h3>
-        <div class="causal-chain">
-          <div><i>背景</i><p>第五次反“围剿”失利</p></div><span>↓</span>
-          <div><i>困难</i><p>长征初期损失严重</p></div><span>↓</span>
-          <div><i>选择</i><p>召开会议，总结经验</p></div><span>↓</span>
-          <div><i>改变</i><p>调整军事领导和方向</p></div><span>↓</span>
-          <div class="result"><i>结果</i><p>中国革命实现重要转折</p></div>
-        </div>
+        <h3 class="panel-title" id="chainTitle"></h3>
+        <div class="causal-chain" id="causalChain"></div>
       </div>
 
       <div class="reading-panel" id="words">
         <div class="page-kicker">03 / KEYWORD CARDS</div>
-        <div class="keyword-card">
-          <div class="keyword-no">01</div><small>LONG MARCH SPIRIT</small><h3>实事求是</h3>
-          <p>从实际情况出发，发现问题、分析问题，并勇于调整不合适的方法。</p>
-          <div class="keyword-example"><b>在今天</b>做题连续出错时，先查找原因，再改变学习方法。</div>
-          <button class="collect-button" data-card="实事求是">＋ 收进星火档案</button>
-        </div>
-        <div class="keyword-card alt">
-          <div class="keyword-no">02</div><small>LONG MARCH SPIRIT</small><h3>独立自主</h3>
-          <p>立足自己的实际情况，依靠自身力量作出判断、解决问题。</p>
-          <div class="keyword-example"><b>在今天</b>听取建议，也要经过自己的思考再作决定。</div>
-          <button class="collect-button" data-card="独立自主">＋ 收进星火档案</button>
-        </div>
+        <div id="keywordCards"></div>
       </div>
 
       <div class="reading-panel" id="task">
         <div class="page-kicker">04 / FIELD TASK</div>
         <div class="task-card">
-          <span class="task-tag">站点任务</span><h3>面对困难，应该怎样选择？</h3>
-          <p>队伍发现原来的行动方案造成较大损失。以下哪种做法最能体现遵义会议的精神？</p>
-          <div class="options">
-            <button data-correct="false">A. 为了面子，继续使用原来的方案</button>
-            <button data-correct="true">B. 分析实际情况，及时总结并调整</button>
-            <button data-correct="false">C. 等待别人替自己作出决定</button>
-          </div>
+          <span class="task-tag">本轮研学确认</span><h3 id="taskTitle"></h3>
+          <p id="taskCopy"></p>
+          <button class="complete-station" id="completeStation">完成本站研学并点亮下一站</button>
           <div class="task-feedback" id="taskFeedback" aria-live="polite"></div>
         </div>
       </div>
@@ -142,7 +116,7 @@
 
     <section class="view" id="collection" aria-label="星火收藏">
       <div class="section-head"><div><span>MY ARCHIVE / 我的档案</span><h2>星火收藏</h2></div><p>把触动你的精神关键词装进行囊。</p></div>
-      <div class="collection-empty" id="collectionEmpty"><span>✦</span><h3>档案袋还是空的</h3><p>前往站点阅读关键词卡片并收藏。</p><button class="secondary-button" data-go="station">前往遵义站</button></div>
+      <div class="collection-empty" id="collectionEmpty"><span>✦</span><h3>档案袋还是空的</h3><p>前往站点阅读关键词卡片并收藏。</p><button class="secondary-button" data-go="station">前往当前站</button></div>
       <div class="collection-list" id="collectionList"></div>
       <div class="reflection-card">
         <span>MY REFLECTION / 我的感悟</span>
