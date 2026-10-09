@@ -13,6 +13,7 @@
 - 中文正文使用随包提供的 Noto Serif CJK SC 用字子集，使网页、模拟器和 APK 的字形尽量一致；字体采用 SIL Open Font License 1.1，许可证见 `assets/fonts/OFL.txt`
 - 2019 模拟器使用经 Babel 转换的 `app.compat.js` 与 `polyfills.min.js`，兼容旧 WebView；现代浏览器继续运行原始 `app.js`
 - AIA 内的运行资源另复制到 assets 顶层，避免旧版 Companion 无法同步子目录文件
+- AIA 使用 `styles.compat.css`，其中红、绿、米白、金色和边框等 CSS 变量均已展开为实际色值，适配不支持 CSS 自定义属性的旧 WebView
 
 ## 必须验证
 
