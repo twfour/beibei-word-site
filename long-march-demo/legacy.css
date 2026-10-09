@@ -61,12 +61,38 @@
   width: 100%;
   max-width: 470px;
   transform: none;
+  padding: 8px 11px;
+}
+
+.bottom-nav button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.bottom-nav i,
+.bottom-nav span {
+  display: block;
 }
 
 @supports (display: grid) {
   .topbar,
   .home-grid,
   .utility-links {
+    display: grid;
+  }
+
+  .bottom-nav button {
     display: grid;
   }
 
@@ -78,5 +104,6 @@
   .bottom-nav {
     left: 50%;
     transform: translateX(-50%);
+    padding: 8px 11px max(8px, env(safe-area-inset-bottom));
   }
 }
