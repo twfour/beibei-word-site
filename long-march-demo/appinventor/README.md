@@ -11,6 +11,7 @@
 - 正式编译 APK 前，需在设计界面把 WebViewer1 的首页网址改为 `file:///android_asset/index.html`
 - 学习进度仍由 WebView 的本地存储保存
 - 中文正文使用随包提供的 Noto Serif CJK SC 用字子集，使网页、模拟器和 APK 的字形尽量一致；字体采用 SIL Open Font License 1.1，许可证见 `assets/fonts/OFL.txt`
+- 2019 模拟器使用经 Babel 转换的 `app.compat.js` 与 `vendor/polyfills.min.js`，兼容旧 WebView；现代浏览器继续运行原始 `app.js`
 
 ## 必须验证
 
