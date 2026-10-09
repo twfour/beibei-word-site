@@ -7,7 +7,8 @@
 - 原生 App Inventor `Screen1`
 - 原生 `WebViewer` 组件
 - HTML、CSS、JavaScript 和图标全部打包在 AIA 的 assets 中
-- `HomeUrl` 使用2019版已支持的 `http://localhost/index.html`，同时兼容AI伴侣与编译后的APK，不依赖线上网站
+- 当前调试包的 `HomeUrl` 使用旧版 AI 伴侣路径 `file:///sdcard/AppInventor/assets/index.html`，适配赛事提供的 2019 离线模拟器
+- 正式编译 APK 前，需在设计界面把 WebViewer1 的首页网址改为 `file:///android_asset/index.html`
 - 学习进度仍由 WebView 的本地存储保存
 
 ## 必须验证
