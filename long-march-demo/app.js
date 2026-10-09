@@ -279,7 +279,7 @@ function renderRoute() {
     const current = station.id === state.currentStation;
     const label = unlocked ? `${station.date.replace('年','.') .replace('月','')} · ${station.spirit}` : `${station.spirit} · 待解锁`;
     const edgeClass = parseFloat(station.position[0]) >= 70 ? 'edge-right' : '';
-    return `<button class="station ${edgeClass} ${unlocked ? 'open' : 'locked'} ${completed ? 'completed' : ''} ${current ? 'current' : ''}" style="--x:${station.position[0]};--y:${station.position[1]}" data-station="${station.id}" aria-label="${station.name}${unlocked ? '' : '，尚未解锁'}"><i>${completed ? '✓' : String(station.id).padStart(2,'0')}</i><div><strong>${station.name}</strong><small>${label}</small></div></button>`;
+    return `<button class="station ${edgeClass} ${unlocked ? 'open' : 'locked'} ${completed ? 'completed' : ''} ${current ? 'current' : ''}" style="left:${station.position[0]};top:${station.position[1]}" data-station="${station.id}" aria-label="${station.name}${unlocked ? '' : '，尚未解锁'}"><i>${completed ? '✓' : String(station.id).padStart(2,'0')}</i><div><strong>${station.name}</strong><small>${label}</small></div></button>`;
   }).join('');
   route.querySelectorAll('.station').forEach(button => button.addEventListener('click', () => openStation(Number(button.dataset.station))));
   const current = stations[state.currentStation - 1];

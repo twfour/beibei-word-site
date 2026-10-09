@@ -1,8 +1,8 @@
 /* Compatibility layer for the 2019 App Inventor Companion's old WebView. */
 @font-face {
   font-family: "Archive Serif";
-  src: url("archive-serif.woff2") format("woff2"),
-       url("archive-serif.woff") format("woff");
+  src: url("fonts/archive-serif.woff2") format("woff2"),
+       url("fonts/archive-serif.woff") format("woff");
   font-style: normal;
   font-weight: normal;
   font-display: swap;
@@ -101,10 +101,190 @@ textarea {
   display: block;
 }
 
+/* Interior-page fallbacks for WebViews released before CSS Grid. */
+.subsection-title {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+}
+
+.subsection-title > span {
+  width: 100%;
+}
+
+.subsection-title > strong {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.badge-grid,
+.about-grid,
+.kit-slots,
+.kit-options,
+.journey-meters,
+.fact-strip,
+.quiz-result > div,
+.task-choice-grid {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.spirit-badge {
+  width: 32%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 30%;
+  flex: 1 1 30%;
+}
+
+.about-grid article,
+.kit-options button,
+.task-choice-grid button,
+.quiz-result button {
+  width: 48%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 45%;
+  flex: 1 1 45%;
+}
+
+.kit-slots > div,
+.kit-slots > button,
+.journey-meters .meter,
+.fact-strip > div {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.quiz-options,
+.options,
+.task-options,
+.order-list,
+.supply-list,
+.route-armies,
+.guide-steps,
+.collection-list,
+.panorama-sources,
+#keywordCards,
+#stationSources,
+.causal-chain {
+  display: block;
+}
+
+.quiz-options button,
+.options button,
+.task-options button,
+.order-list > div,
+.supply-list > div,
+.route-armies article,
+.guide-steps article,
+.collection-list > *,
+.causal-chain > div {
+  margin-bottom: 9px;
+}
+
+.profile-card,
+.route-armies article,
+.guide-steps article,
+.meeting-strip,
+.inquiry-ladder article,
+.demo-console li,
+.task-options button,
+.order-list > div,
+.supply-list > div,
+#stationSources a,
+.causal-chain > div {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.profile-copy,
+.route-armies article > div,
+.guide-steps article > div,
+.meeting-strip > div,
+.inquiry-ladder article > div,
+.demo-console li > div,
+.task-options button > span,
+#stationSources a > span,
+.causal-chain > p {
+  min-width: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.quiz-options button {
+  display: block;
+  width: 100%;
+}
+
+.spirit-badge i,
+.station i,
+.cover-keyword,
+.hero-stamp,
+.achievement-star,
+.task-complete > span,
+.task-options button i,
+.guide-steps i,
+.onboarding-symbol,
+.stamp-sheet > div,
+.panorama-card summary > b {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.route-card .station {
+  top: auto;
+}
+
 @supports (display: grid) {
   .topbar,
   .home-grid,
-  .utility-links {
+  .utility-links,
+  .subsection-title,
+  .badge-grid,
+  .about-grid,
+  .kit-slots,
+  .kit-options,
+  .journey-meters,
+  .fact-strip,
+  .quiz-result > div,
+  .task-choice-grid,
+  .quiz-options,
+  .options,
+  .task-options,
+  .order-list,
+  .supply-list,
+  .route-armies,
+  .guide-steps,
+  .collection-list,
+  .panorama-sources,
+  #keywordCards,
+  #stationSources,
+  .causal-chain,
+  .profile-card,
+  .route-armies article,
+  .guide-steps article,
+  .meeting-strip,
+  .inquiry-ladder article,
+  .demo-console li,
+  .task-options button,
+  .order-list > div,
+  .supply-list > div,
+  #stationSources a,
+  .causal-chain > div {
     display: grid;
   }
 
@@ -113,6 +293,14 @@ textarea {
   }
 
   .home-grid .feature-card {
+    width: auto;
+  }
+
+  .spirit-badge,
+  .about-grid article,
+  .kit-options button,
+  .task-choice-grid button,
+  .quiz-result button {
     width: auto;
   }
 
