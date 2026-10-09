@@ -1,8 +1,8 @@
 /* Compatibility layer for the 2019 App Inventor Companion's old WebView. */
 @font-face {
   font-family: "Archive Serif";
-  src: url("fonts/archive-serif.woff2") format("woff2"),
-       url("fonts/archive-serif.woff") format("woff");
+  src: url("archive-serif.woff2") format("woff2"),
+       url("archive-serif.woff") format("woff");
   font-style: normal;
   font-weight: normal;
   font-display: swap;
