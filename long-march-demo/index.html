@@ -59,6 +59,31 @@
         </summary>
         <div class="panorama-body">
           <p class="panorama-lead">本应用的六站是为初中生选取的<strong>代表性节点</strong>，主要串联中央红军的重要经历与三大主力胜利会师，不等同于长征的全部路线和全部事件。</p>
+          <section class="multi-route-atlas" aria-label="四支红军长征路线关系示意">
+            <div class="atlas-head"><div><span>ROUTE RELATIONS / 路线关系示意</span><strong>四路星火，汇向西北</strong></div><small>非精确地理地图</small></div>
+            <div class="atlas-controls" role="group" aria-label="选择查看的长征队伍">
+              <button class="is-active" data-route-filter="all"><i></i>全部</button>
+              <button data-route-filter="first"><i></i>红一</button>
+              <button data-route-filter="twentyfive"><i></i>红二十五</button>
+              <button data-route-filter="fourth"><i></i>红四</button>
+              <button data-route-filter="second"><i></i>红二</button>
+            </div>
+            <div class="atlas-map">
+              <svg class="multi-route-svg" viewBox="0 0 360 360" role="img" aria-labelledby="atlasTitle atlasDesc">
+                <title id="atlasTitle">四支红军长征路线关系示意图</title>
+                <desc id="atlasDesc">红一方面军、红二十五军、红四方面军和红二方面军从不同区域出发，先后向西北汇聚。</desc>
+                <g class="atlas-contours" aria-hidden="true"><path d="M20 73C89 34 131 62 177 42s91-18 163 14"/><path d="M10 146c65-38 109-9 154-32s99-28 183 2"/><path d="M17 238c54-27 99-8 142-30s112-22 180 8"/><path d="M8 316c73-29 120-9 166-28s102-11 177 13"/></g>
+                <g class="atlas-regions" aria-hidden="true"><text x="245" y="35">陕甘地区</text><text x="25" y="337">南方各根据地</text><text x="128" y="185">万水千山</text></g>
+                <g class="expedition-route first" data-route-layer="first" tabindex="0" role="button" aria-label="查看红一方面军路线"><path d="M55 311 C32 271 96 252 68 215 S122 176 104 137 S181 116 173 83 S242 64 283 48"/><circle cx="55" cy="311" r="5"/><circle cx="283" cy="48" r="6"/></g>
+                <g class="expedition-route twentyfive" data-route-layer="twentyfive" tabindex="0" role="button" aria-label="查看红二十五军路线"><path d="M299 300 C257 267 315 234 271 203 S296 158 276 127 S292 88 300 58"/><circle cx="299" cy="300" r="5"/><circle cx="300" cy="58" r="6"/></g>
+                <g class="expedition-route fourth" data-route-layer="fourth" tabindex="0" role="button" aria-label="查看红四方面军路线"><path d="M233 314 C268 283 211 252 245 220 S200 181 231 151 S204 105 260 73"/><circle cx="233" cy="314" r="5"/><circle cx="260" cy="73" r="6"/></g>
+                <g class="expedition-route second" data-route-layer="second" tabindex="0" role="button" aria-label="查看红二方面军路线"><path d="M119 326 C151 290 108 261 151 231 S128 192 167 164 S154 115 221 87 S270 74 276 69"/><circle cx="119" cy="326" r="5"/><circle cx="276" cy="69" r="6"/></g>
+                <g class="atlas-points" aria-hidden="true"><circle cx="282" cy="61" r="17"/><text x="282" y="64">会师</text></g>
+                <g class="atlas-labels" aria-hidden="true"><text x="30" y="329">中央苏区</text><text x="275" y="321">鄂豫皖</text><text x="210" y="336">川陕</text><text x="91" y="350">湘鄂川黔</text><text x="292" y="44">陕北</text></g>
+              </svg>
+            </div>
+            <article class="atlas-caption" id="atlasCaption" aria-live="polite"><span>全部路线</span><strong>不同起点，共同方向</strong><p>四支队伍出发时间、行军区域和经历各不相同，先后向西北汇聚。点击图例可单独查看。</p></article>
+          </section>
           <div class="route-armies" aria-label="四支红军长征队伍概览">
             <article><i>01</i><div><strong>红一方面军</strong><span>1934.10—1935.10</span><p>从中央苏区出发，经过遵义、赤水、大渡河、雪山草地等地，到达陕北。</p></div></article>
             <article><i>02</i><div><strong>红二十五军</strong><span>1934.11—1935.09</span><p>从鄂豫皖根据地出发，率先到达陕甘根据地，为主力红军北上创造条件。</p></div></article>

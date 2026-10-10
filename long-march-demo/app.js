@@ -201,6 +201,36 @@ const historyBoundaries = {
 
 const views = [...document.querySelectorAll('.view')];
 const navButtons = [...document.querySelectorAll('.bottom-nav button')];
+const multiRouteInfo = {
+  all:{eyebrow:'全部路线',title:'不同起点，共同方向',copy:'四支队伍出发时间、行军区域和经历各不相同，先后向西北汇聚。点击图例可单独查看。'},
+  first:{eyebrow:'红一方面军 · 1934.10—1935.10',title:'中央苏区出发，到达陕北',copy:'经过遵义、四渡赤水、巧渡金沙江、强渡大渡河和翻越雪山草地等重要历程，1935年10月到达陕北。'},
+  twentyfive:{eyebrow:'红二十五军 · 1934.11—1935.09',title:'鄂豫皖出发，先期到达陕甘',copy:'从鄂豫皖根据地开始战略转移，1935年9月到达陕甘根据地，为主力红军北上提供了重要条件。'},
+  fourth:{eyebrow:'红四方面军 · 1935.03—1936.10',title:'川陕出发，北上走向会宁',copy:'从川陕根据地开始战略转移，经历雪山草地等艰苦行程，1936年10月与红一方面军在会宁会师。'},
+  second:{eyebrow:'红二方面军 · 1935.11—1936.10',title:'湘鄂川黔出发，走向将台堡',copy:'由红二、红六军团等部队发展组成，转战多省，1936年10月在将台堡同红一方面军主力会师。'}
+};
+
+function selectMultiRoute(key) {
+  const selected = multiRouteInfo[key] ? key : 'all';
+  document.querySelectorAll('[data-route-filter]').forEach(button => button.classList.toggle('is-active', button.dataset.routeFilter === selected));
+  document.querySelectorAll('[data-route-layer]').forEach(layer => {
+    const matches = selected === 'all' || layer.dataset.routeLayer === selected;
+    layer.classList.toggle('is-muted', !matches);
+    layer.classList.toggle('is-selected', selected !== 'all' && matches);
+  });
+  const info = multiRouteInfo[selected];
+  const caption = document.querySelector('#atlasCaption');
+  caption.innerHTML = `<span>${info.eyebrow}</span><strong>${info.title}</strong><p>${info.copy}</p>`;
+}
+
+document.querySelectorAll('[data-route-filter]').forEach(button => button.addEventListener('click', () => selectMultiRoute(button.dataset.routeFilter)));
+document.querySelectorAll('.expedition-route[data-route-layer]').forEach(layer => {
+  const activate = () => selectMultiRoute(layer.dataset.routeLayer);
+  layer.addEventListener('click', activate);
+  layer.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); activate(); }
+  });
+});
+
 function getSafeStorage() {
   try {
     const candidate = window.localStorage;
