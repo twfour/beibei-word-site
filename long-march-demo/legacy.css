@@ -46,18 +46,21 @@ textarea {
 }
 
 .home-grid {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
+  display: block;
+  overflow: hidden;
 }
 
 .home-grid .feature-card {
-  width: 48%;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 1 40%;
-  flex: 1 1 40%;
+  width: 48.5%;
+  min-height: 126px;
+  margin: 0 0 10px;
+  float: right;
+}
+
+.home-grid .feature-card:first-child {
+  width: 48.5%;
+  min-height: 262px;
+  float: left;
 }
 
 .utility-links {
@@ -103,13 +106,9 @@ textarea {
 
 /* Interior-page fallbacks for WebViews released before CSS Grid. */
 .subsection-title {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-align: end;
-  -webkit-align-items: flex-end;
-  align-items: flex-end;
+  display: block;
+  position: relative;
+  padding-right: 48px;
 }
 
 .subsection-title > span {
@@ -117,9 +116,13 @@ textarea {
 }
 
 .subsection-title > strong {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
+  display: block;
+}
+
+.subsection-title > small {
+  position: absolute;
+  right: 0;
+  bottom: 2px;
 }
 
 .badge-grid,
@@ -276,14 +279,71 @@ textarea {
 
 /* Simulate the vertical route caption without writing-mode. */
 .route-card:before {
-  left: 30px;
+  content: "中\A国\A工\A农\A红\A军\A长\A征\A路\A线";
+  left: 10px;
   right: auto;
-  top: 16px;
+  top: 18px;
   writing-mode: horizontal-tb;
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
+  white-space: pre;
+  line-height: 1.4;
+  letter-spacing: 0;
+  -webkit-transform: none;
+  transform: none;
+}
+
+.seal {
+  -webkit-transform: rotate(-2deg);
+}
+
+.hero-card:before {
+  -webkit-transform: rotate(-8deg);
+}
+
+.hero-card:after {
+  -webkit-transform: rotate(-90deg);
+}
+
+.hero-stamp,
+.cover-keyword {
+  -webkit-transform: rotate(8deg);
+}
+
+.panorama-card summary {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.panorama-card summary > div {
+  min-width: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.panorama-card summary > b {
+  margin-left: 14px;
+}
+
+.station {
+  -webkit-transform: translate(-12px, -50%);
+}
+
+.station.edge-right {
+  left: auto;
+  right: 8px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  text-align: right;
+}
+
+.station div {
+  min-width: 96px;
+  max-width: 116px;
 }
 
 /* Older Android WebViews used the prefixed sticky implementation. */
@@ -401,6 +461,33 @@ textarea {
 
   .home-grid .feature-card {
     width: auto;
+    margin: 0;
+    float: none;
+  }
+
+  .home-grid .feature-card:first-child {
+    width: auto;
+    margin: 0;
+    float: none;
+  }
+
+  .subsection-title {
+    position: static;
+    padding-right: 0;
+  }
+
+  .subsection-title > small {
+    position: static;
+  }
+
+  .station.edge-right {
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
+
+  .station div {
+    min-width: 110px;
+    max-width: none;
   }
 
   .spirit-badge,
@@ -426,9 +513,13 @@ textarea {
   }
 
   .route-card:before {
+    content: "中国工农红军长征路线";
     left: 8px;
     top: 18px;
     writing-mode: vertical-rl;
+    white-space: nowrap;
+    line-height: 1;
+    letter-spacing: .3em;
     transform: none;
   }
 
