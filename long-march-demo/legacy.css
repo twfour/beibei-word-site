@@ -352,9 +352,10 @@ textarea {
 
 .hero-card:after {
   left: 18px;
-  right: auto;
+  right: 18px;
   bottom: 112px;
-  font-size: 52px;
+  font-size: 48px;
+  text-align: center;
   white-space: nowrap;
   -webkit-transform: none;
   transform: none;
@@ -640,12 +641,13 @@ textarea {
   }
 
   .hero-card:after {
-    left: auto;
-    right: -31px;
-    bottom: 120px;
-    font-size: 65px;
-    -webkit-transform: rotate(-90deg);
-    transform: rotate(-90deg);
+    left: 18px;
+    right: 18px;
+    bottom: 112px;
+    font-size: 48px;
+    text-align: center;
+    -webkit-transform: none;
+    transform: none;
   }
 
   .demo-console.is-running {
