@@ -270,6 +270,113 @@ textarea {
   margin-right: 12px;
 }
 
+.task-complete > span {
+  min-width: 42px;
+  margin-right: 13px;
+}
+
+.causal-chain > div > i {
+  width: 58px;
+  min-width: 58px;
+}
+
+.profile-card > .profile-mark {
+  width: 66px;
+  min-width: 66px;
+}
+
+.profile-copy dl > div {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.profile-copy dt {
+  width: 57px;
+  min-width: 57px;
+  margin-right: 8px;
+}
+
+.profile-copy dd {
+  min-width: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.supply-list > div > span,
+.order-list > div > strong,
+.settings-list article > div {
+  min-width: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.supply-list > div > button {
+  width: 34px;
+  min-width: 34px;
+  margin-left: 4px;
+}
+
+.supply-list > div > b {
+  width: 30px;
+  min-width: 30px;
+  margin-left: 4px;
+  text-align: center;
+}
+
+.order-list > div > i {
+  width: 28px;
+  min-width: 28px;
+  margin-right: 9px;
+}
+
+.order-list > div > span {
+  margin-left: 9px;
+  white-space: nowrap;
+}
+
+.order-list > div > span button + button {
+  margin-left: 3px;
+}
+
+.settings-list .switch,
+.settings-list .status-dot {
+  margin-left: 12px;
+}
+
+.evidence-top > span {
+  margin-right: 10px;
+}
+
+.route-question > strong {
+  display: block;
+  margin-top: 7px;
+}
+
+.bridge-track > i {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.achievement-marks > * {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.decision-summary > div > b {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.onboarding-actions > div > i {
+  margin-right: 5px;
+}
+
+.bottom-nav button > span {
+  margin-top: 2px;
+}
+
 .demo-console li > i {
   width: 42px;
   min-width: 42px;
