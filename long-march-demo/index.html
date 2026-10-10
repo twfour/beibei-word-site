@@ -190,6 +190,11 @@
 
     <section class="view" id="collection" aria-label="星火收藏">
       <div class="section-head"><div><span>MY ARCHIVE / 我的档案</span><h2>星火收藏</h2></div><p>把触动你的精神关键词装进行囊。</p></div>
+      <section class="score-ledger" aria-label="六站任务成绩档案">
+        <div class="subsection-title"><span>FIELD TASK RECORD</span><strong>六站任务成绩</strong><small id="taskStarTotal">0 / 18 星</small></div>
+        <div class="score-ledger-grid" id="scoreLedger"></div>
+        <p>一次完成得三星，两次得二星，三次及以上得一星。再次挑战可以刷新最佳成绩。</p>
+      </section>
       <div class="badge-section">
         <div class="subsection-title"><span>SPIRIT MARKS</span><strong>我的精神徽章</strong><small id="badgeCount">0 / 6</small></div>
         <div class="badge-grid" id="badgeGrid"></div>
@@ -288,7 +293,7 @@
   </div>
   <div class="toast" id="toast" role="status"></div>
   <div class="stamp-ceremony" id="stampCeremony" hidden>
-    <div class="stamp-sheet"><span>STATION COMPLETE</span><p id="stampStation"></p><div id="stampSeal">完成</div><strong id="stampSpirit"></strong><small>一枚精神印记已收入星火档案</small><button id="closeStamp">继续前进 →</button></div>
+    <div class="stamp-sheet"><span>STATION COMPLETE</span><p id="stampStation"></p><div id="stampSeal">完成</div><strong id="stampSpirit"></strong><b class="stamp-stars" id="stampStars">★★★</b><small id="stampScoreNote">一枚精神印记已收入星火档案</small><button id="closeStamp">继续前进 →</button></div>
   </div>
   <script type="module" src="app.js"></script>
   <script nomodule src="vendor/polyfills.min.js"></script>

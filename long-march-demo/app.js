@@ -266,8 +266,40 @@ const state = {
   reflectionAction: storage.getItem('sparkReflectionAction') || '',
   highScore: Number(storage.getItem('sparkHighScore') || 0),
   wrongQuestions: JSON.parse(storage.getItem('sparkWrongQuestions') || '[]'),
+  taskRecords: JSON.parse(storage.getItem('sparkTaskRecords') || '{}'),
   soundEnabled: storage.getItem('sparkSoundEnabled') !== 'false',
 };
+
+state.completed.forEach(id => {
+  if (!state.taskRecords[id]) state.taskRecords[id] = {attempts:1,runs:1,bestStars:3,completedAt:'历史记录'};
+});
+
+let activeTaskRun = null;
+
+function starText(count = 0) {
+  return `${'★'.repeat(count)}${'☆'.repeat(Math.max(0,3-count))}`;
+}
+
+function beginTaskRun(station) {
+  activeTaskRun = {stationId:station.id,attempts:0};
+}
+
+function recordTaskAttempt(station, successful = false) {
+  if (!activeTaskRun || activeTaskRun.stationId !== station.id) beginTaskRun(station);
+  activeTaskRun.attempts += 1;
+  const previous = state.taskRecords[station.id] || {attempts:0,runs:0,bestStars:0};
+  previous.attempts += 1;
+  if (successful) {
+    const earnedStars = activeTaskRun.attempts === 1 ? 3 : activeTaskRun.attempts === 2 ? 2 : 1;
+    previous.runs += 1;
+    previous.lastStars = earnedStars;
+    previous.bestStars = Math.max(previous.bestStars || 0,earnedStars);
+    previous.completedAt = new Date().toLocaleDateString('zh-CN');
+  }
+  state.taskRecords[station.id] = previous;
+  storage.setItem('sparkTaskRecords', JSON.stringify(state.taskRecords));
+  return previous;
+}
 
 function getJourneyMetrics() {
   return state.completed.reduce((total,id) => {
@@ -283,12 +315,17 @@ function renderJourneyMeters() {
   document.querySelector('#journeyMeters').innerHTML = data.map(([key,label,value]) => `<div class="meter ${key}"><span>${label}<b>${value}</b></span><i><em style="width:${Math.max(0,Math.min(100,value))}%"></em></i></div>`).join('');
 }
 
-function consequence(message) { setTaskFeedback(`行动后果：${message}`, 'error'); }
+function consequence(message) {
+  const station = activeTaskRun ? stations[activeTaskRun.stationId - 1] : null;
+  if (station) recordTaskAttempt(station, false);
+  setTaskFeedback(`判断未通过：${message}`, 'error');
+}
 
 function persistJourney() {
   storage.setItem('sparkUnlocked', state.unlocked);
   storage.setItem('sparkCompleted', JSON.stringify(state.completed));
   storage.setItem('sparkCurrentStation', state.currentStation);
+  storage.setItem('sparkTaskRecords', JSON.stringify(state.taskRecords));
   storage.removeItem('sparkProgress');
 }
 
@@ -307,15 +344,17 @@ function renderRoute() {
     const unlocked = station.id <= state.unlocked;
     const completed = state.completed.includes(station.id);
     const current = station.id === state.currentStation;
-    const label = unlocked ? `${station.date.replace('年','.') .replace('月','')} · ${station.spirit}` : `${station.spirit} · 待解锁`;
+    const record = state.taskRecords[station.id];
+    const label = completed && record ? `${starText(record.bestStars)} · ${station.spirit}` : unlocked ? `${station.date.replace('年','.') .replace('月','')} · ${station.spirit}` : `${station.spirit} · 待解锁`;
     const edgeClass = parseFloat(station.position[0]) >= 70 ? 'edge-right' : '';
     const stationStyle = edgeClass ? `right:8px;top:${station.position[1]}` : `left:${station.position[0]};top:${station.position[1]}`;
     return `<button class="station ${edgeClass} ${unlocked ? 'open' : 'locked'} ${completed ? 'completed' : ''} ${current ? 'current' : ''}" style="${stationStyle}" data-station="${station.id}" aria-label="${station.name}${unlocked ? '' : '，尚未解锁'}"><i>${completed ? '✓' : String(station.id).padStart(2,'0')}</i><div><strong>${station.name}</strong><small>${label}</small></div></button>`;
   }).join('');
   route.querySelectorAll('.station').forEach(button => button.addEventListener('click', () => openStation(Number(button.dataset.station))));
   const current = stations[state.currentStation - 1];
+  const totalStars = stations.reduce((sum,station) => sum + (state.taskRecords[station.id]?.bestStars || 0),0);
   document.querySelector('#routeNoteTitle').textContent = state.completed.length === 6 ? '长征路线已完成' : `当前研学 · 第 ${String(current.id).padStart(2,'0')} 站`;
-  document.querySelector('#routeNoteText').textContent = state.completed.length === 6 ? '六站研学全部完成，你可以返回任意站点复习。' : `继续前往${current.name}。完成本站研学后，下一站将自动点亮。`;
+  document.querySelector('#routeNoteText').textContent = state.completed.length === 6 ? `六站研学全部完成，当前最佳总成绩 ${totalStars}/18 星。你可以返回任意站点刷新成绩。` : `继续前往${current.name}。完成本站后点亮下一站；当前累计 ${totalStars}/18 星。`;
 }
 
 function openStation(id) {
@@ -358,6 +397,8 @@ let activeTaskTimer = null;
 
 function finishTask(station) {
   const id = station.id;
+  const record = recordTaskAttempt(station, true);
+  const earnedStars = record.lastStars || 1;
   const newlyCompleted = !state.completed.includes(id);
   if (newlyCompleted) state.completed.push(id);
   state.completed.sort((a,b) => a - b);
@@ -369,18 +410,20 @@ function finishTask(station) {
   updateJourneyUI();
   renderJourneyMeters();
   renderTask(station);
-  const message = id === 6 ? '六站研学全部完成！六份精神力量已经汇入星火档案。' : `任务成功！获得“${station.spirit}”印记，第 ${id + 1} 站“${stations[id].name}”已点亮。`;
+  const message = id === 6 ? `六站研学全部完成！本次获得${earnedStars}星。` : `任务成功！本次获得${earnedStars}星，第 ${id + 1} 站“${stations[id].name}”已点亮。`;
   setTaskFeedback(message, 'success');
   toast(id === 6 ? '六站长征路全部完成' : `已点亮${stations[id].name}站`);
   playTone('success');
-  if (newlyCompleted) showStampCeremony(station);
+  if (newlyCompleted) showStampCeremony(station,record);
 }
 
-function showStampCeremony(station) {
+function showStampCeremony(station,record) {
   const ceremony = document.querySelector('#stampCeremony');
   document.querySelector('#stampStation').textContent = `${station.date} · ${station.name}`;
   document.querySelector('#stampSeal').textContent = station.seal;
   document.querySelector('#stampSpirit').textContent = station.spirit;
+  document.querySelector('#stampStars').textContent = starText(record.lastStars);
+  document.querySelector('#stampScoreNote').textContent = `本次 ${record.lastStars} 星 · 最佳 ${record.bestStars} 星 · 精神印记已归档`;
   ceremony.hidden = false;
   requestAnimationFrame(() => ceremony.classList.add('is-visible'));
 }
@@ -418,11 +461,13 @@ function renderTask(station, replay = false) {
   const mount = document.querySelector('#taskMount');
   if (completed) {
     const impact = taskImpacts[station.id];
+    const record = state.taskRecords[station.id] || {attempts:1,runs:1,bestStars:3,lastStars:3};
     const gains = [['信念',impact.gain.belief],['补给',impact.gain.supply],['团结',impact.gain.unity]].filter(item => item[1]);
-    mount.innerHTML = `<div class="task-complete"><span>✓</span><div><strong>${station.spirit}</strong><small>SPIRIT MARK ACQUIRED</small></div></div><div class="decision-summary"><span>本次决策总结</span><p>${impact.summary}</p><div>${gains.map(([label,value]) => `<b>${label} ${value > 0 ? '+' : ''}${value}</b>`).join('')}</div></div><button class="task-action ghost" id="replayTask">再次挑战</button>`;
+    mount.innerHTML = `<div class="task-complete"><span>✓</span><div><strong>${station.spirit}</strong><small>SPIRIT MARK ACQUIRED</small></div></div><div class="task-score-slip"><div><span>最佳成绩</span><strong>${starText(record.bestStars)}</strong></div><dl><div><dt>最近一次</dt><dd>${record.lastStars || record.bestStars} 星</dd></div><div><dt>累计作答</dt><dd>${record.attempts} 次</dd></div><div><dt>完成轮次</dt><dd>${record.runs || 1} 次</dd></div></dl></div><div class="decision-summary"><span>本次决策总结</span><p>${impact.summary}</p><div>${gains.map(([label,value]) => `<b>${label} ${value > 0 ? '+' : ''}${value}</b>`).join('')}</div></div><button class="task-action ghost" id="replayTask">再次挑战 · 刷新最佳</button>`;
     document.querySelector('#replayTask').addEventListener('click', () => renderTask(station, true));
     return;
   }
+  beginTaskRun(station);
   if (task.type === 'causal') renderSequenceTask(station, mount, '检查因果链');
   if (task.type === 'deduction') renderDeductionTask(station, mount);
   if (task.type === 'routePuzzle') renderSequenceTask(station, mount, '拼合路线');
@@ -494,7 +539,7 @@ function renderSudokuTask(station, mount) {
     mount.querySelectorAll('[data-cell]:not(:disabled)').forEach(button => button.addEventListener('click', () => { const i=Number(button.dataset.cell); values[i]=(values[i]+1)%5; draw(); }));
     document.querySelector('#clearSudoku').addEventListener('click', () => { station.task.puzzle.forEach((value,index) => { values[index]=value; }); draw(); });
     document.querySelector('#checkSudoku').addEventListener('click', () => {
-      if (values.some(value => !value)) return consequence('还有空格没有填写。每行、每列和每个2×2区域都需要1—4。');
+      if (values.some(value => !value)) return setTaskFeedback('还有空格没有填写。每行、每列和每个2×2区域都需要1—4。', 'error');
       values.every((value,index) => value === station.task.solution[index]) ? finishTask(station) : consequence('目前存在重复数字。分别检查每一行、每一列和四个2×2区域。');
     });
   };
@@ -705,10 +750,18 @@ function renderSpiritKit() {
 }
 
 function renderBadgesAndAchievement() {
+  const totalStars = stations.reduce((sum,station) => sum + (state.taskRecords[station.id]?.bestStars || 0),0);
+  document.querySelector('#taskStarTotal').textContent = `${totalStars} / 18 星`;
+  document.querySelector('#scoreLedger').innerHTML = stations.map(station => {
+    const record = state.taskRecords[station.id];
+    const scored = record && record.bestStars > 0;
+    return `<article class="${scored ? 'scored' : ''}"><i>${String(station.id).padStart(2,'0')}</i><div><strong>${station.name}</strong><span>${scored ? starText(record.bestStars) : record ? '进行中 · ☆☆☆' : '尚未完成'}</span></div><small>${record ? `作答 ${record.attempts} 次` : '等待解锁'}</small></article>`;
+  }).join('');
   document.querySelector('#badgeCount').textContent = `${state.completed.length} / 6`;
   document.querySelector('#badgeGrid').innerHTML = stations.map(station => {
     const earned = state.completed.includes(station.id);
-    return `<div class="spirit-badge ${earned ? 'earned' : ''}"><i>${earned ? '✦' : '·'}</i><strong>${station.spirit}</strong><small>${earned ? station.name : '尚未获得'}</small></div>`;
+    const record = state.taskRecords[station.id];
+    return `<div class="spirit-badge ${earned ? 'earned' : ''}"><i>${earned ? '✦' : '·'}</i><strong>${station.spirit}</strong><small>${earned ? `${station.name} · ${record ? starText(record.bestStars) : ''}` : '尚未获得'}</small></div>`;
   }).join('');
   renderSpiritKit();
   const achieved = state.completed.length === 6 && Boolean(state.reflectionSpirit && state.reflectionReason && state.reflectionAction) && state.spiritKit.length === 3;
