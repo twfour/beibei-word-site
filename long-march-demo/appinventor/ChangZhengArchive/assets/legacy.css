@@ -225,6 +225,53 @@ textarea {
   flex: 1;
 }
 
+/* Old WebViews ignore flex/grid gap. Keep numbered rows visibly separated. */
+.inquiry-ladder article > i {
+  width: 31px;
+  min-width: 31px;
+}
+
+.inquiry-ladder article > div {
+  margin-left: 10px;
+}
+
+.guide-steps article > i {
+  min-width: 42px;
+  margin-right: 13px;
+}
+
+.demo-console li > i {
+  width: 42px;
+  min-width: 42px;
+}
+
+.demo-console li > div {
+  margin-left: 8px;
+}
+
+#stationSources a {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+#stationSources a > i {
+  width: 24px;
+  min-width: 24px;
+  margin-right: 8px;
+}
+
+#stationSources a > b {
+  margin-left: 8px;
+}
+
+.keyword-no {
+  top: 8px;
+  right: 10px;
+  font-size: 72px;
+  line-height: 1;
+}
+
 .quiz-options button {
   display: block;
   width: 100%;
@@ -352,7 +399,14 @@ textarea {
 }
 
 .station {
+  padding: 3px 5px;
+  background: #f4ecd9;
   -webkit-transform: translate(-12px, -50%);
+}
+
+.station > i {
+  min-width: 34px;
+  margin-right: 10px;
 }
 
 .station.edge-right {
@@ -515,6 +569,35 @@ textarea {
   .station.edge-right {
     -webkit-transform: translate(0, -50%);
     transform: translate(0, -50%);
+  }
+
+  .station {
+    padding: 0;
+    background: transparent;
+  }
+
+  .station > i {
+    margin-right: 0;
+  }
+
+  .keyword-no {
+    top: -19px;
+    right: 8px;
+    font-size: 93px;
+  }
+
+  .inquiry-ladder article > div,
+  .demo-console li > div {
+    margin-left: 0;
+  }
+
+  .guide-steps article > i,
+  #stationSources a > i {
+    margin-right: 0;
+  }
+
+  #stationSources a > b {
+    margin-left: 0;
   }
 
   .station div {
