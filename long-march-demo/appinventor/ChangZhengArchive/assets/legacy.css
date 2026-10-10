@@ -16,14 +16,6 @@ textarea {
   font-family: "Archive Serif", "Noto Serif SC", "Songti SC", "STSong", serif;
 }
 
-.quote > .quote-close {
-  left: auto;
-  top: auto;
-  right: 8px;
-  bottom: 25px;
-  font-size: 42px;
-}
-
 .achievement-card:after {
   display: none;
 }
