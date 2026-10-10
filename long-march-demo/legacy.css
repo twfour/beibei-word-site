@@ -588,6 +588,10 @@ textarea {
   stroke-width: 4;
 }
 
+.route-card .station[data-station="6"] {
+  top: 42px !important;
+}
+
 /* Older Android WebViews used the prefixed sticky implementation. */
 .reading-tabs {
   position: -webkit-sticky;
