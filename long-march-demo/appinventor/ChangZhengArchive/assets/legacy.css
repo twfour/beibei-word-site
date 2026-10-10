@@ -23,6 +23,10 @@ textarea {
   bottom: 25px;
   font-size: 42px;
 }
+
+.achievement-card:after {
+  display: none;
+}
 .app-shell {
   width: 100%;
   max-width: 470px;

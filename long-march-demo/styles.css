@@ -19,3 +19,4 @@
 .seal{transform:none}
 .hero-card:after{display:none}
 .quote>.quote-close{left:auto;top:auto;right:8px;bottom:25px;font-size:42px}
+.achievement-card:after{display:none}
