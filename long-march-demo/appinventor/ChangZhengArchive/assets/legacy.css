@@ -240,6 +240,12 @@ textarea {
   margin-right: 13px;
 }
 
+.route-armies article > i {
+  width: 35px;
+  min-width: 35px;
+  margin-right: 10px;
+}
+
 .demo-console li > i {
   width: 42px;
   min-width: 42px;
@@ -594,6 +600,7 @@ textarea {
   }
 
   .guide-steps article > i,
+  .route-armies article > i,
   #stationSources a > i {
     margin-right: 0;
   }
