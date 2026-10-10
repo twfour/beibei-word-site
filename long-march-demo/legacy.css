@@ -266,6 +266,18 @@ textarea {
   width: 64px;
   min-width: 64px;
   margin-right: 12px;
+  line-height: 21px;
+}
+
+.meeting-strip {
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+}
+
+.meeting-strip strong {
+  display: block;
+  line-height: 21px;
 }
 
 .inquiry-ladder article {

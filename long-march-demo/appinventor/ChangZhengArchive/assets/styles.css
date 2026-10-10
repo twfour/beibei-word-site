@@ -22,3 +22,4 @@
 .route-line path{stroke-width:4}
 .route-armies article{align-items:start}.route-armies i{padding-top:0;line-height:21px}.route-armies strong{line-height:21px}
 .route-card .station[data-station="6"]{top:42px!important}
+.meeting-strip{align-items:start}.meeting-strip>span,.meeting-strip strong{line-height:21px}
