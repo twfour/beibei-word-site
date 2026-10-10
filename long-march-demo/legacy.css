@@ -342,7 +342,8 @@ textarea {
 }
 
 .seal {
-  -webkit-transform: rotate(-2deg);
+  -webkit-transform: none;
+  transform: none;
 }
 
 .hero-card:before {
@@ -541,8 +542,8 @@ textarea {
 
   .seal {
     margin-right: 0;
-    -webkit-transform: rotate(-2deg);
-    transform: rotate(-2deg);
+    -webkit-transform: none;
+    transform: none;
   }
 
   .home-grid .feature-card {
