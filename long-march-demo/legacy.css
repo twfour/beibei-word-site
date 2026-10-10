@@ -318,6 +318,8 @@ textarea {
 }
 
 .panorama-card summary {
+  position: relative;
+  padding-right: 64px;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -331,7 +333,22 @@ textarea {
 }
 
 .panorama-card summary > b {
-  margin-left: 14px;
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+  margin: 0;
+  line-height: 32px;
+  white-space: nowrap;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.panorama-card[open] summary > b {
+  -webkit-transform: translateY(-50%) rotate(45deg);
+  transform: translateY(-50%) rotate(45deg);
 }
 
 .station {
