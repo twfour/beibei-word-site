@@ -33,6 +33,9 @@ textarea {
 .seal {
   width: 46px;
   min-width: 46px;
+  margin-right: 14px;
+  -webkit-transform: none;
+  transform: none;
 }
 
 .top-title {
@@ -463,6 +466,12 @@ textarea {
 
   .bottom-nav button {
     display: grid;
+  }
+
+  .seal {
+    margin-right: 0;
+    -webkit-transform: rotate(-2deg);
+    transform: rotate(-2deg);
   }
 
   .home-grid .feature-card {
