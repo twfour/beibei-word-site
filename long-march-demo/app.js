@@ -450,26 +450,31 @@ function renderBridgeTask(station, mount) {
   const drawPlanks = () => document.querySelector('#bridgeTrack').innerHTML = Array.from({length:station.task.target}, (_,i) => `<i class="${i < count ? 'laid' : ''}"></i>`).join('');
   drawPlanks();
   document.querySelector('#startBridge').addEventListener('click', event => {
+    const actionButton = event.currentTarget;
     count = 0; remaining = station.task.seconds * 10; drawPlanks();
-    event.currentTarget.textContent = '点击铺设桥板';
-    event.currentTarget.onclick = null;
+    actionButton.textContent = '点击铺设桥板';
+    actionButton.onclick = null;
     const tap = () => {
       count += 1;
       document.querySelector('#bridgeCount').textContent = count;
       drawPlanks();
       if (count >= station.task.target) { clearInterval(activeTaskTimer); activeTaskTimer = null; finishTask(station); }
     };
-    event.currentTarget.addEventListener('click', tap);
+    actionButton.addEventListener('click', tap);
     activeTaskTimer = setInterval(() => {
+      if (!document.querySelector('#bridgeTime')) {
+        clearInterval(activeTaskTimer); activeTaskTimer = null;
+        return;
+      }
       remaining -= 1;
       const timeNode = document.querySelector('#bridgeTime');
       if (timeNode) timeNode.textContent = `${(remaining / 10).toFixed(1)} 秒`;
       if (remaining <= 0) {
         clearInterval(activeTaskTimer); activeTaskTimer = null;
-        event.currentTarget.removeEventListener('click', tap);
-        event.currentTarget.textContent = '重新开始';
+        actionButton.removeEventListener('click', tap);
+        actionButton.textContent = '重新开始';
         consequence('通道未能及时铺通，主力渡河会受到影响。真正的行动还需要突击、铺板和火力掩护共同配合。');
-        event.currentTarget.addEventListener('click', () => renderBridgeTask(station, mount), {once:true});
+        actionButton.addEventListener('click', () => renderBridgeTask(station, mount), {once:true});
       }
     }, 100);
   }, {once:true});

@@ -246,6 +246,30 @@ textarea {
   margin-right: 10px;
 }
 
+.meeting-strip > span {
+  width: 64px;
+  min-width: 64px;
+  margin-right: 12px;
+}
+
+.inquiry-ladder article {
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+}
+
+.inquiry-ladder article > i,
+.inquiry-ladder article b {
+  display: block;
+  line-height: 1.35;
+}
+
+.task-options button > i {
+  width: 30px;
+  min-width: 30px;
+  margin-right: 12px;
+}
+
 .demo-console li > i {
   width: 42px;
   min-width: 42px;
@@ -357,14 +381,7 @@ textarea {
 }
 
 .hero-card:after {
-  left: 18px;
-  right: 18px;
-  bottom: 178px;
-  font-size: 44px;
-  text-align: center;
-  white-space: nowrap;
-  -webkit-transform: none;
-  transform: none;
+  display: none;
 }
 
 .hero-stamp,
@@ -594,13 +611,11 @@ textarea {
     font-size: 93px;
   }
 
-  .inquiry-ladder article > div,
   .demo-console li > div {
     margin-left: 0;
   }
 
   .guide-steps article > i,
-  .route-armies article > i,
   #stationSources a > i {
     margin-right: 0;
   }
@@ -648,13 +663,7 @@ textarea {
   }
 
   .hero-card:after {
-    left: 18px;
-    right: 18px;
-    bottom: 178px;
-    font-size: 44px;
-    text-align: center;
-    -webkit-transform: none;
-    transform: none;
+    display: none;
   }
 
   .demo-console.is-running {
