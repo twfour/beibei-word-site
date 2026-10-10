@@ -16,7 +16,7 @@ const stations = [
       ['中共中央党史和文献研究院：《10月10日·党史百年天天读》','https://www.dswxyjy.org.cn/GB/434461/434471/434552/index.html'],
       ['人民网党史频道：《长征记》','https://dangshi.people.com.cn/GB/146570/406330/index.html']
     ],
-    task: {type:'pack', title:'轻装出发：整理行军背包', copy:'背包只能装下3件物品。请选择最有助于基本行军与救护的物资。', items:['粮食','急救药品','雨具','瓷器摆件','留声机','厚重相册'], answer:['粮食','急救药品','雨具']}
+    task: {type:'causal', title:'因果档案：复原战略转移', copy:'五张档案卡被打乱了。请根据“形势—决定—行动—结果”的因果关系恢复顺序。', items:['第五次反“围剿”失利','中央苏区形势严峻','决定实行战略转移','中央红军从瑞金、于都等地出发','长征由此拉开序幕'], start:['决定实行战略转移','第五次反“围剿”失利','长征由此拉开序幕','中央苏区形势严峻','中央红军从瑞金、于都等地出发']}
   },
   {
     id: 2, slug: 'zunyi', name: '遵义', title: '遵义<br>会议', date: '1935年1月', place: '贵州遵义', spirit: '实事求是', seal: '转折', position: ['28%', '64%'],
@@ -35,7 +35,7 @@ const stations = [
       ['国防部：《遵义1935：早到的春天》','https://www.mod.gov.cn/gfbw/gfjy_index/js_214151/16364674.html'],
       ['财政部河南监管局：《遵义会议的伟大意义和深刻启示》','https://ha.mof.gov.cn/zt/djzc/djzl/201505/t20150513_1231207.htm']
     ],
-    task: {type:'choice', title:'面对失误，怎样作出选择？', copy:'原来的行动方案已经造成较大损失。哪种做法最符合遵义会议体现的方法？', options:['为了面子继续原方案','分析实际情况并及时调整','等待别人替自己决定'], correct:1, explain:'尊重事实、总结经验并及时调整，体现了实事求是。'}
+    task: {type:'deduction', title:'会议推理：哪些结论成立？', copy:'阅读三条史实线索，从四个结论中选出两项能够得到线索支持的结论。', clues:['长征初期，原有军事指挥造成严重损失。','遵义会议集中讨论军事和组织问题。','会议依据实际情况纠正错误并调整领导。'], options:['目标坚定，不等于方法永远不变','一次失误说明此前所有工作都毫无意义','判断方案要尊重事实和结果','独立思考就是拒绝听取任何意见'], answers:[0,2]}
   },
   {
     id: 3, slug: 'chishui', name: '赤水', title: '四渡<br>赤水', date: '1935年1月至3月', place: '川黔滇边境', spirit: '机智勇敢', seal: '巧渡', position: ['53%', '48%'],
@@ -54,11 +54,7 @@ const stations = [
       ['人民网党史频道：《长征记》','https://dangshi.people.com.cn/GB/146570/406330/index.html'],
       ['财政部河南监管局：《遵义会议的伟大意义和深刻启示》','https://ha.mof.gov.cn/zt/djzc/djzl/201505/t20150513_1231207.htm']
     ],
-    task: {type:'route', title:'三步判断：赢得行动主动', copy:'依次作出3个判断。目标不变，但要根据形势灵活选择办法。', steps:[
-      {q:'敌军在正面集中重兵，第一步怎么办？', a:['直接硬拼','先观察敌情与地形'], correct:1},
-      {q:'敌军判断我军将向西行动，接下来怎么办？', a:['灵活改变行进方向','沿原路线不变'], correct:0},
-      {q:'敌军调动后出现空隙，应该怎么办？', a:['抓住时机迅速行动','停在原地等待'], correct:0}
-    ]}
+    task: {type:'routePuzzle', title:'路线拼图：复原四渡赤水', copy:'根据日期与渡河方向，把四次渡河行动按先后顺序排列。路线曲折，但每一步都有判断依据。', items:['一渡｜1月29日｜向西','二渡｜2月18日至21日｜向东','三渡｜3月16日｜向西','四渡｜3月21日至22日｜向东'], start:['三渡｜3月16日｜向西','一渡｜1月29日｜向西','四渡｜3月21日至22日｜向东','二渡｜2月18日至21日｜向东']}
   },
   {
     id: 4, slug: 'luding', name: '泸定', title: '飞夺<br>泸定桥', date: '1935年5月', place: '四川泸定', spirit: '不怕牺牲', seal: '勇进', position: ['77%', '34%'],
@@ -77,7 +73,7 @@ const stations = [
       ['中共中央党史和文献研究院：《四川：三军过后尽开颜》','https://www.dswxyjy.org.cn/n1/2016/1025/c244523-28806146.html'],
       ['人民网党史频道：《长征记》','https://dangshi.people.com.cn/GB/146570/406330/index.html']
     ],
-    task: {type:'bridge', title:'争分夺秒：铺设前进通道', copy:'点击铺设12块桥板，在10秒内完成通道。准备好后开始计时。', target:12, seconds:10}
+    task: {type:'calculation', title:'急行军计算：时间够不够？', copy:'资料记载先头部队昼夜奔袭约240里。按1里约0.5千米、用时24小时计算，完成两步推理。', stages:[{label:'第一步',q:'240里约等于多少千米？',unit:'千米',answer:120},{label:'第二步',q:'若24小时完成，平均每小时至少前进多少千米？',unit:'千米/小时',answer:5}]}
   },
   {
     id: 5, slug: 'snowland', name: '雪山草地', title: '雪山<br>草地', date: '1935年6月至8月', place: '川西北地区', spirit: '艰苦奋斗', seal: '坚韧', position: ['58%', '18%'],
@@ -96,7 +92,7 @@ const stations = [
       ['国防部：《从月入四百大洋到数过雪山草地》','https://www.mod.gov.cn/gfbw/gfjy_index/4844129.html'],
       ['南京党史：《长征，让我永生难忘》','https://dsb.nanjing.gov.cn/xxcb/201306/t20130626_2084323.html']
     ],
-    task: {type:'supply', title:'有限补给：分配10份物资', copy:'在粮食、御寒用品和药品之间分配10份物资。每项都不可缺少，其中粮食与御寒用品至少各3份，药品至少2份。', total:10, minimums:{'粮食':3,'御寒用品':3,'药品':2}}
+    task: {type:'sudoku', title:'雪山密码：4×4行军数独', copy:'用1—4代表四类行军物资。每行、每列和每个2×2区域都不能出现重复数字。点击空格依次填写。', puzzle:[1,0,3,0,0,4,0,2,2,0,4,0,0,3,0,1], solution:[1,2,3,4,3,4,1,2,2,1,4,3,4,3,2,1]}
   },
   {
     id: 6, slug: 'huining', name: '会宁', title: '会宁<br>会师', date: '1936年10月', place: '甘肃会宁', spirit: '团结胜利', seal: '会师', position: ['76%', '4%'],
@@ -115,7 +111,11 @@ const stations = [
       ['国防部：《红军长征中的会师》','https://www.mod.gov.cn/gfbw/gfjy_index/js_214151/16418521.html'],
       ['中央网信办：《三军大会师——红军长征三大主力会师全纪录》','https://www.cac.gov.cn/2016-08/22/c_1119432029.htm']
     ],
-    task: {type:'order', title:'会师之前：排好历史顺序', copy:'使用上下按钮，将四个事件按先后顺序排列。', items:['瑞金出发','遵义会议','飞夺泸定桥','会宁会师'], start:['会宁会师','遵义会议','瑞金出发','飞夺泸定桥']}
+    task: {type:'matching', title:'会师密码：让队伍正确汇合', copy:'根据三条会师档案，为每条记录选择正确答案。全部匹配后才能点亮会师印记。', rows:[
+      {label:'红一方面军与红四方面军', options:['瑞金','会宁','泸定'], answer:'会宁'},
+      {label:'红二方面军与红一方面军主力', options:['将台堡','遵义','于都'], answer:'将台堡'},
+      {label:'三大主力胜利会合的时间', options:['1934年10月','1935年1月','1936年10月'], answer:'1936年10月'}
+    ]}
   }
 ];
 
@@ -177,12 +177,12 @@ const archiveProfiles = {
 };
 
 const taskImpacts = {
-  1:{gain:{belief:5,supply:12,unity:5},summary:'你优先保留生存、救护和防护物资，让有限负重真正服务于行军。'},
-  2:{gain:{belief:10,supply:0,unity:4},summary:'你选择面对事实、总结失误并调整方法，让队伍重新找到正确方向。'},
-  3:{gain:{belief:8,supply:-4,unity:5},summary:'你根据敌情连续判断，以必要的行军消耗换取行动主动。'},
-  4:{gain:{belief:10,supply:-3,unity:10},summary:'快速铺设通道离不开突击、掩护和后续协同，勇气成为集体力量。'},
-  5:{gain:{belief:8,supply:-8,unity:12},summary:'你在有限补给中守住每一类基本需要，也没有放弃需要帮助的同伴。'},
-  6:{gain:{belief:10,supply:3,unity:15},summary:'你把分散的历史节点重新排成共同道路，看见不同队伍因共同目标而汇聚。'}
+  1:{gain:{belief:10,supply:4,unity:3},summary:'你按因果关系复原了战略转移的历史逻辑，看见艰难出发并非偶然。'},
+  2:{gain:{belief:10,supply:0,unity:5},summary:'你从史实线索推出结论，理解了尊重事实、纠正错误与独立判断的关系。'},
+  3:{gain:{belief:8,supply:-4,unity:6},summary:'你复原了四次渡河的先后与方向，看见曲折路线背后的连续判断。'},
+  4:{gain:{belief:10,supply:-3,unity:8},summary:'你用距离和时间理解了急行军的紧迫，也看见数字背后的艰难与协同。'},
+  5:{gain:{belief:8,supply:-8,unity:10},summary:'你完成了行、列与区域三重约束，在有限条件中保持耐心和整体判断。'},
+  6:{gain:{belief:10,supply:3,unity:15},summary:'你把不同方面军、会师地点和时间准确连接，理解了团结胜利的历史脉络。'}
 };
 
 const inquiryLayers = {
@@ -376,7 +376,8 @@ function renderTask(station, replay = false) {
   const task = station.task;
   const completed = state.completed.includes(station.id) && !replay;
   renderJourneyMeters();
-  document.querySelector('#taskTag').textContent = `${task.type.toUpperCase()} / 站点任务`;
+  const taskLabels = {causal:'因果排序',deduction:'逻辑推理',routePuzzle:'路线拼图',calculation:'行军计算',sudoku:'行军数独',matching:'会师配对'};
+  document.querySelector('#taskTag').textContent = `${taskLabels[task.type] || task.type.toUpperCase()} / 站点任务`;
   document.querySelector('#taskTitle').textContent = completed ? `${station.name}站任务完成` : task.title;
   document.querySelector('#taskCopy').textContent = completed ? `你已经获得“${station.spirit}”印记。可以继续下一站，也可以再次挑战。` : task.copy;
   const boundary = document.querySelector('#historyBoundary');
@@ -392,12 +393,91 @@ function renderTask(station, replay = false) {
     document.querySelector('#replayTask').addEventListener('click', () => renderTask(station, true));
     return;
   }
-  if (task.type === 'pack') renderPackTask(station, mount);
-  if (task.type === 'choice') renderChoiceTask(station, mount);
-  if (task.type === 'route') renderRouteTask(station, mount);
-  if (task.type === 'bridge') renderBridgeTask(station, mount);
-  if (task.type === 'supply') renderSupplyTask(station, mount);
-  if (task.type === 'order') renderOrderTask(station, mount);
+  if (task.type === 'causal') renderSequenceTask(station, mount, '检查因果链');
+  if (task.type === 'deduction') renderDeductionTask(station, mount);
+  if (task.type === 'routePuzzle') renderSequenceTask(station, mount, '拼合路线');
+  if (task.type === 'calculation') renderCalculationTask(station, mount);
+  if (task.type === 'sudoku') renderSudokuTask(station, mount);
+  if (task.type === 'matching') renderMatchingTask(station, mount);
+}
+
+function renderSequenceTask(station, mount, actionLabel) {
+  const order = [...station.task.start];
+  const draw = () => {
+    const routeClass = station.task.type === 'routePuzzle' ? ' route-puzzle-list' : '';
+    mount.innerHTML = `<div class="puzzle-instruction"><span>拖动替代操作</span><b>使用箭头调整卡片顺序</b></div><div class="order-list${routeClass}">${order.map((item,index) => {
+      const parts = item.split('｜');
+      return `<div><i>${String(index + 1).padStart(2,'0')}</i><strong>${parts[0]}${parts.length > 1 ? `<small>${parts.slice(1).join(' · ')}</small>` : ''}</strong><span><button data-up="${index}" ${index === 0 ? 'disabled' : ''} aria-label="上移${parts[0]}">↑</button><button data-down="${index}" ${index === order.length - 1 ? 'disabled' : ''} aria-label="下移${parts[0]}">↓</button></span></div>`;
+    }).join('')}</div><button class="task-action" id="checkSequence">${actionLabel}</button>`;
+    mount.querySelectorAll('[data-up]').forEach(button => button.addEventListener('click', () => { const i=Number(button.dataset.up); [order[i-1],order[i]]=[order[i],order[i-1]]; draw(); }));
+    mount.querySelectorAll('[data-down]').forEach(button => button.addEventListener('click', () => { const i=Number(button.dataset.down); [order[i+1],order[i]]=[order[i],order[i+1]]; draw(); }));
+    document.querySelector('#checkSequence').addEventListener('click', () => {
+      if (order.every((item,index) => item === station.task.items[index])) return finishTask(station);
+      consequence(station.task.type === 'routePuzzle' ? '渡河日期或方向还没有正确衔接。先找最早的一渡，再观察“向西—向东—向西—向东”的变化。' : '因果链还没有接通。先找造成形势变化的原因，再连接决定、行动与结果。');
+    });
+  };
+  draw();
+}
+
+function renderDeductionTask(station, mount) {
+  const selected = new Set();
+  mount.innerHTML = `<div class="clue-board"><span>史实线索</span>${station.task.clues.map((clue,index) => `<p><i>0${index + 1}</i>${clue}</p>`).join('')}</div><div class="deduction-options">${station.task.options.map((option,index) => `<button data-deduction="${index}"><i>${String.fromCharCode(65 + index)}</i><span>${option}</span><b>○</b></button>`).join('')}</div><div class="task-counter">已选择 <b id="deductionCount">0</b> / 2</div><button class="task-action" id="checkDeduction">验证结论</button>`;
+  mount.querySelectorAll('[data-deduction]').forEach(button => button.addEventListener('click', () => {
+    const index = Number(button.dataset.deduction);
+    if (selected.has(index)) selected.delete(index);
+    else if (selected.size < 2) selected.add(index);
+    else return setTaskFeedback('只能选择两项，请先取消一项。', 'error');
+    button.classList.toggle('selected', selected.has(index));
+    button.querySelector('b').textContent = selected.has(index) ? '●' : '○';
+    document.querySelector('#deductionCount').textContent = selected.size;
+    setTaskFeedback('');
+  }));
+  document.querySelector('#checkDeduction').addEventListener('click', () => {
+    const correct = station.task.answers.length === selected.size && station.task.answers.every(index => selected.has(index));
+    correct ? finishTask(station) : consequence('至少有一项结论超出了史实线索。注意：“纠正方法”不等于否定一切，“独立思考”也不等于拒绝意见。');
+  });
+}
+
+function renderCalculationTask(station, mount) {
+  let stage = 0;
+  const draw = () => {
+    const item = station.task.stages[stage];
+    mount.innerHTML = `<div class="calculation-sheet"><div><span>${item.label} · ${stage + 1}/2</span><b>${stage ? '120 ÷ 24 = ?' : '240 × 0.5 = ?'}</b></div><p>${item.q}</p><label><input id="calculationAnswer" type="number" inputmode="decimal" min="0" aria-label="计算答案"><em>${item.unit}</em></label></div><button class="task-action" id="checkCalculation">${stage ? '完成计算' : '提交第一步'}</button>`;
+    const input = document.querySelector('#calculationAnswer');
+    input.focus();
+    document.querySelector('#checkCalculation').addEventListener('click', () => {
+      if (Number(input.value) !== item.answer) return consequence(stage ? '用总路程120千米除以24小时，求平均每小时前进距离。' : '按照题目给出的换算关系，用240乘以0.5。');
+      if (stage === station.task.stages.length - 1) return finishTask(station);
+      stage += 1;
+      setTaskFeedback('第一步正确：240里约为120千米。继续计算平均速度。', 'success');
+      draw();
+    });
+  };
+  draw();
+}
+
+function renderSudokuTask(station, mount) {
+  const values = [...station.task.puzzle];
+  const fixed = station.task.puzzle.map(Boolean);
+  const draw = () => {
+    mount.innerHTML = `<div class="sudoku-key"><span>1 粮食</span><span>2 药品</span><span>3 御寒</span><span>4 向导</span></div><div class="sudoku-grid" role="grid">${values.map((value,index) => `<button class="${fixed[index] ? 'fixed' : ''}" data-cell="${index}" ${fixed[index] ? 'disabled' : ''} aria-label="第${Math.floor(index/4)+1}行第${index%4+1}列">${value || '·'}</button>`).join('')}</div><div class="sudoku-tools"><button id="clearSudoku">清空重填</button><small>点击空格：· → 1 → 2 → 3 → 4</small></div><button class="task-action" id="checkSudoku">检查雪山密码</button>`;
+    mount.querySelectorAll('[data-cell]:not(:disabled)').forEach(button => button.addEventListener('click', () => { const i=Number(button.dataset.cell); values[i]=(values[i]+1)%5; draw(); }));
+    document.querySelector('#clearSudoku').addEventListener('click', () => { station.task.puzzle.forEach((value,index) => { values[index]=value; }); draw(); });
+    document.querySelector('#checkSudoku').addEventListener('click', () => {
+      if (values.some(value => !value)) return consequence('还有空格没有填写。每行、每列和每个2×2区域都需要1—4。');
+      values.every((value,index) => value === station.task.solution[index]) ? finishTask(station) : consequence('目前存在重复数字。分别检查每一行、每一列和四个2×2区域。');
+    });
+  };
+  draw();
+}
+
+function renderMatchingTask(station, mount) {
+  mount.innerHTML = `<div class="matching-board">${station.task.rows.map((row,index) => `<label><span><i>0${index + 1}</i>${row.label}</span><select data-match="${index}"><option value="">选择对应档案</option>${row.options.map(option => `<option value="${option}">${option}</option>`).join('')}</select></label>`).join('')}</div><button class="task-action" id="checkMatching">核对会师档案</button>`;
+  document.querySelector('#checkMatching').addEventListener('click', () => {
+    const answers = [...mount.querySelectorAll('[data-match]')].map(select => select.value);
+    if (answers.some(answer => !answer)) return setTaskFeedback('还有档案没有完成配对。', 'error');
+    answers.every((answer,index) => answer === station.task.rows[index].answer) ? finishTask(station) : consequence('至少有一条会师记录连接错误。注意区分会宁、将台堡以及三大主力胜利会合的月份。');
+  });
 }
 
 function renderPackTask(station, mount) {
