@@ -535,8 +535,8 @@ textarea {
 }
 
 .station {
-  padding: 3px 5px;
-  background: #f4ecd9;
+  padding: 0;
+  background: transparent;
   -webkit-transform: translate(-12px, -50%);
 }
 
@@ -560,6 +560,20 @@ textarea {
 .station div {
   min-width: 96px;
   max-width: 116px;
+  background: transparent;
+}
+
+.station strong,
+.station small {
+  text-shadow: -2px -2px 0 #f4ecd9,
+               2px -2px 0 #f4ecd9,
+              -2px  2px 0 #f4ecd9,
+               2px  2px 0 #f4ecd9,
+               0 0 5px #f4ecd9;
+}
+
+.route-line path {
+  stroke-width: 4;
 }
 
 /* Older Android WebViews used the prefixed sticky implementation. */

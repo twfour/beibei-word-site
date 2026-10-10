@@ -19,3 +19,4 @@
 .seal{transform:none}
 .hero-card:after{display:none}
 .achievement-card:after{display:none}
+.route-line path{stroke-width:4}
