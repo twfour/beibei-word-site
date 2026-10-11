@@ -370,7 +370,7 @@ function renderRoute() {
     const label = completed && record ? `${starText(record.bestStars)} · ${station.spirit}` : unlocked ? `${station.date.replace('年','.') .replace('月','')} · ${station.spirit}` : `${station.spirit} · 待解锁`;
     const edgeClass = parseFloat(station.position[0]) >= 70 ? 'edge-right' : '';
     const stationStyle = edgeClass ? `right:8px;top:${station.position[1]}` : `left:${station.position[0]};top:${station.position[1]}`;
-    return `<button class="station ${edgeClass} ${unlocked ? 'open' : 'locked'} ${completed ? 'completed' : ''} ${current ? 'current' : ''}" style="${stationStyle}" data-station="${station.id}" aria-label="${station.name}${unlocked ? '' : '，尚未解锁'}"><i>${completed ? '✓' : String(station.id).padStart(2,'0')}</i><div><strong>${station.name}</strong><small>${label}</small></div></button>`;
+    return `<button class="station ${edgeClass} ${unlocked ? 'open' : 'locked'} ${completed ? 'completed' : ''} ${current ? 'current' : ''}" style="${stationStyle}" data-station="${station.id}" aria-label="${station.name}${unlocked ? '' : '，尚未解锁'}"><i class="shoe-stop shoe-wear-${station.id}" aria-hidden="true"><b>${String(station.id).padStart(2,'0')}</b></i><div><strong>${station.name}</strong><small>${label}</small></div></button>`;
   }).join('');
   route.querySelectorAll('.station').forEach(button => button.addEventListener('click', () => openStation(Number(button.dataset.station))));
   const current = stations[state.currentStation - 1];
