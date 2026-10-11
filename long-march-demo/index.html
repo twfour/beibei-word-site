@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="progress-feedback.css">
   <link rel="stylesheet" href="data-poster.css">
   <link rel="stylesheet" href="reward-atlas.css">
+  <link rel="stylesheet" href="spirit-clues.css">
 </head>
 <body>
   <div class="paper-grain" aria-hidden="true"></div>
@@ -41,7 +42,7 @@
       <div class="home-grid">
         <button class="feature-card red" data-go="route"><span>01</span><strong>长征档案</strong><small>沿路线逐站研学</small></button>
         <button class="feature-card green" data-go="quiz"><span>02</span><strong>知识挑战</strong><small>检验历史理解</small></button>
-        <button class="feature-card cream" data-go="collection"><span>03</span><strong>星火收藏</strong><small id="favoriteSummary">已收藏 0 张</small></button>
+        <button class="feature-card cream" data-go="collection"><span>03</span><strong>星火收藏</strong><small id="favoriteSummary">已获得 0 条</small></button>
       </div>
       <blockquote class="quote">长征是宣言书，长征是宣传队，长征是播种机。<small>—— 毛泽东</small></blockquote>
       <div class="utility-links">
@@ -140,7 +141,7 @@
       <div class="reading-tabs" role="tablist">
         <button class="is-active" data-panel="facts">历史档案</button>
         <button data-panel="chain">因果链</button>
-        <button data-panel="words">关键词</button>
+        <button data-panel="words">精神线索</button>
         <button data-panel="task">任务</button>
       </div>
 
@@ -179,7 +180,7 @@
       </div>
 
       <div class="reading-panel" id="words">
-        <div class="page-kicker">03 / KEYWORD CARDS</div>
+        <div class="page-kicker">03 / SPIRIT CLUES</div>
         <div id="keywordCards"></div>
       </div>
 
@@ -211,7 +212,7 @@
     </section>
 
     <section class="view" id="collection" aria-label="星火收藏">
-      <div class="section-head"><div><span>MY ARCHIVE / 我的档案</span><h2>星火收藏</h2></div><p>把触动你的精神关键词装进行囊。</p></div>
+      <div class="section-head"><div><span>MY ARCHIVE / 我的档案</span><h2>星火收藏</h2></div><p>每完成一站任务，自动获得两条由史实推导出的精神线索。</p></div>
       <section class="score-ledger" aria-label="六站任务成绩档案">
         <div class="subsection-title"><span>FIELD TASK RECORD</span><strong>六站任务成绩</strong><small id="taskStarTotal">0 / 18 星</small></div>
         <div class="score-ledger-grid" id="scoreLedger"></div>
@@ -229,11 +230,11 @@
       </section>
       <section class="spirit-kit">
         <div class="subsection-title"><span>MY SPIRIT KIT</span><strong>我的精神行囊</strong><small id="kitCount">0 / 3</small></div>
-        <p>从已完成站点获得的关键词中选出三张，组成你最想带走的精神行囊。</p>
+        <p>从已完成站点获得的精神线索中选出三张，组成你最想带走的精神行囊。</p>
         <div class="kit-slots" id="kitSlots"></div>
         <div class="kit-options" id="kitOptions"></div>
       </section>
-      <div class="collection-empty" id="collectionEmpty"><span>✦</span><h3>档案袋还是空的</h3><p>前往站点阅读关键词卡片并收藏。</p><button class="secondary-button" data-go="station">前往当前站</button></div>
+      <div class="collection-empty" id="collectionEmpty"><span>✦</span><h3>档案袋还是空的</h3><p>完成一站研学任务，即可自动收入两条精神线索。</p><button class="secondary-button" data-go="station">前往当前站</button></div>
       <div class="collection-list" id="collectionList"></div>
       <article class="achievement-card" id="achievementCard" hidden>
         <div class="achievement-top"><span>THE LONG MARCH ARCHIVE</span><b>任务挑战最高荣誉</b></div>

@@ -1,0 +1,10 @@
+.spirit-proof{position:relative;margin-top:12px;padding:15px 15px 14px 18px;background:rgba(49,75,60,.07);border-left:3px solid var(--green)}
+.spirit-proof.reasoning{background:rgba(165,45,41,.055);border-left-color:var(--red)}
+.spirit-proof b{display:block;margin-bottom:7px;color:var(--green);font-size:10px;letter-spacing:.12em}
+.spirit-proof.reasoning b{color:var(--red)}
+.spirit-proof p{margin:0;font-size:13px;line-height:1.75}
+.clue-status{margin-top:18px;padding:11px 12px;border:1px dashed rgba(49,75,60,.42);color:var(--muted);font-size:10px;line-height:1.5;text-align:center}
+.clue-status.is-earned{border-style:solid;border-color:var(--green);background:var(--green);color:#fff6e4;font-weight:800}
+.saved-detail>p{display:grid;grid-template-columns:57px 1fr;gap:8px;margin:12px 0;font-size:11px;line-height:1.65}
+.saved-detail>p>i,.saved-detail>small>i{color:#e9cc91;font-style:normal;font-weight:800}
+.saved-detail>small{display:grid;grid-template-columns:57px 1fr;gap:8px;line-height:1.65}

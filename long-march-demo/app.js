@@ -119,6 +119,15 @@ const stations = [
   }
 ];
 
+const spiritEvidence = {
+  1: ['面对中央苏区的严峻形势，中央红军仍为保存革命力量踏上未知征途。','军民共同架桥、摆渡并组织大部队转移，每个人都承担了不可缺少的任务。'],
+  2: ['遵义会议正视长征初期的严重损失，依据实际情况纠正错误、调整方向。','会议立足中国革命的实际作出判断，探索依靠自身力量解决问题的道路。'],
+  3: ['中央红军根据敌军部署连续改变方向，四次渡过赤水河并赢得行动主动。','在敌情不断变化的危急局面中，指挥员持续分析信息后再作出行动选择。'],
+  4: ['突击队员冒着危险攀踏铁索、冲向对岸，为主力渡过大渡河打开通道。','夺桥依靠突击、铺板、火力掩护与后续部队协同完成，不是个人冒险。'],
+  5: ['面对严寒、缺氧、缺粮和湿滑山路，红军仍一步一步翻越雪山、走出草地。','行军途中战友彼此搀扶、节约物资、照顾伤病员，共同克服极端环境。'],
+  6: ['三支主力红军从不同方向转战，最终围绕共同目标在西北地区胜利会合。','漫长征途中屡经困难仍持续向前，三大主力会师标志着长征胜利结束。']
+};
+
 const archiveProfiles = {
   1: {
     type:'军民群像', name:'于都河畔的架桥军民', role:'红军工兵与于都群众',
@@ -266,6 +275,16 @@ const state = {
   soundEnabled: storage.getItem('sparkSoundEnabled') !== 'false',
 };
 
+function syncEarnedSpiritClues() {
+  const earned = stations
+    .filter(station => state.completed.includes(station.id))
+    .flatMap(station => station.keywords.map(word => word[0]));
+  state.favorites = [...new Set(earned)];
+  storage.setItem('sparkFavorites', JSON.stringify(state.favorites));
+}
+
+syncEarnedSpiritClues();
+
 state.completed.forEach(id => {
   if (!state.taskRecords[id]) state.taskRecords[id] = {attempts:1,runs:1,bestStars:3,completedAt:'历史记录'};
 });
@@ -393,11 +412,12 @@ function renderStation(station) {
   document.querySelector('#causalChain').innerHTML = station.chain.map((item, index) => `${index ? '<span>↓</span>' : ''}<div class="${index === station.chain.length - 1 ? 'result' : ''}"><i>${item[0]}</i><p>${item[1]}</p></div>`).join('');
   document.querySelector('#keywordCards').innerHTML = station.keywords.map((word, index) => `
     <article class="keyword-card ${index ? 'alt' : ''}">
-      <div class="keyword-no">0${index + 1}</div><small>LONG MARCH SPIRIT</small><h3>${word[0]}</h3>
-      <p>${word[1]}</p><div class="keyword-example"><b>在今天</b>${word[2]}</div>
-      <button class="collect-button" data-card="${word[0]}">＋ 收进星火档案</button>
+      <div class="keyword-no">0${index + 1}</div><small>SPIRIT CLUE / 精神线索</small><h3>${word[0]}</h3>
+      <div class="spirit-proof"><b>历史证据</b><p>${spiritEvidence[station.id][index]}</p></div>
+      <div class="spirit-proof reasoning"><b>判断依据</b><p>${word[1]}</p></div>
+      <div class="keyword-example"><b>今日行动</b>${word[2]}</div>
+      <div class="clue-status ${state.completed.includes(station.id) ? 'is-earned' : ''}">${state.completed.includes(station.id) ? '✓ 已随本站任务收入星火档案' : '完成本站任务后，自动收入星火档案'}</div>
     </article>`).join('');
-  bindCollectionButtons();
   renderTask(station);
   activatePanel('facts');
 }
@@ -411,18 +431,28 @@ function finishTask(station) {
   const newlyCompleted = !state.completed.includes(id);
   if (newlyCompleted) state.completed.push(id);
   state.completed.sort((a,b) => a - b);
+  syncEarnedSpiritClues();
   if (newlyCompleted && id < stations.length) {
     state.unlocked = Math.max(state.unlocked, id + 1);
     if (state.currentStation === id) state.currentStation = id + 1;
   }
   persistJourney();
   updateJourneyUI();
+  renderFavorites();
+  renderStationClueStatus();
   renderTask(station);
-  const message = id === 6 ? `六站研学全部完成！本次获得${earnedStars}星。` : `任务成功！本次获得${earnedStars}星，第 ${id + 1} 站“${stations[id].name}”已点亮。`;
+  const message = id === 6 ? `六站研学全部完成！本次获得${earnedStars}星，两条精神线索已归档。` : `任务成功！本次获得${earnedStars}星，两条精神线索已归档，第 ${id + 1} 站“${stations[id].name}”已点亮。`;
   setTaskFeedback(message, 'success');
   toast(id === 6 ? '六站长征路全部完成' : `已点亮${stations[id].name}站`);
   playTone('success');
   if (newlyCompleted) showStampCeremony(station,record);
+}
+
+function renderStationClueStatus() {
+  document.querySelectorAll('#keywordCards .clue-status').forEach(node => {
+    node.classList.add('is-earned');
+    node.textContent = '✓ 已随本站任务收入星火档案';
+  });
 }
 
 function showStampCeremony(station,record) {
@@ -431,7 +461,7 @@ function showStampCeremony(station,record) {
   document.querySelector('#stampSeal').textContent = station.seal;
   document.querySelector('#stampSpirit').textContent = station.spirit;
   document.querySelector('#stampStars').textContent = starText(record.lastStars);
-  document.querySelector('#stampScoreNote').textContent = `本次 ${record.lastStars} 星 · 最佳 ${record.bestStars} 星 · 精神印记已归档`;
+  document.querySelector('#stampScoreNote').textContent = `本次 ${record.lastStars} 星 · 最佳 ${record.bestStars} 星 · 两条精神线索已归档`;
   ceremony.hidden = false;
   requestAnimationFrame(() => ceremony.classList.add('is-visible'));
 }
@@ -704,42 +734,16 @@ function updateJourneyUI() {
   renderBadgesAndAchievement();
 }
 
-function bindCollectionButtons() {
-  document.querySelectorAll('.collect-button').forEach(button => {
-    const selected = state.favorites.includes(button.dataset.card);
-    button.classList.toggle('is-collected', selected);
-    button.textContent = selected ? '✓ 已收入星火档案' : '＋ 收进星火档案';
-    button.addEventListener('click', () => {
-      const card = button.dataset.card;
-      if (!state.favorites.includes(card)) {
-        state.favorites.push(card);
-        storage.setItem('sparkFavorites', JSON.stringify(state.favorites));
-        toast(`“${card}”已收入档案`);
-      }
-      button.classList.add('is-collected');
-      button.textContent = '✓ 已收入星火档案';
-      renderFavorites();
-    });
-  });
-}
-
 function renderFavorites() {
-  document.querySelector('#favoriteSummary').textContent = `已收藏 ${state.favorites.length} 张`;
+  document.querySelector('#favoriteSummary').textContent = `已获得 ${state.favorites.length} 条`;
   document.querySelector('#collectionEmpty').hidden = state.favorites.length > 0;
   const keywordMap = new Map(stations.flatMap(station => station.keywords.map(word => [word[0], {word, station}])));
   document.querySelector('#collectionList').innerHTML = state.favorites.map((item, index) => {
     const entry = keywordMap.get(item);
     if (!entry) return '';
-    return `<details class="saved-card"><summary><div><span>SPARK CARD ${String(index + 1).padStart(2,'0')} · ${entry.station.name}</span><strong>${item}</strong></div><b>＋</b></summary><div class="saved-detail"><p>${entry.word[1]}</p><small><i>在今天</i>${entry.word[2]}</small><button data-remove-card="${item}">移出收藏</button></div></details>`;
+    const wordIndex = entry.station.keywords.findIndex(word => word[0] === item);
+    return `<details class="saved-card"><summary><div><span>SPIRIT CLUE ${String(index + 1).padStart(2,'0')} · ${entry.station.name}</span><strong>${item}</strong></div><b>＋</b></summary><div class="saved-detail"><p><i>历史证据</i>${spiritEvidence[entry.station.id][wordIndex]}</p><p><i>判断依据</i>${entry.word[1]}</p><small><i>今日行动</i>${entry.word[2]}</small></div></details>`;
   }).join('');
-  document.querySelectorAll('[data-remove-card]').forEach(button => button.addEventListener('click', () => {
-    const card = button.dataset.removeCard;
-    state.favorites = state.favorites.filter(item => item !== card);
-    storage.setItem('sparkFavorites', JSON.stringify(state.favorites));
-    document.querySelectorAll(`.collect-button[data-card="${card}"]`).forEach(node => { node.classList.remove('is-collected'); node.textContent = '＋ 收进星火档案'; });
-    renderFavorites();
-    toast(`已移出“${card}”`);
-  }));
 }
 
 function renderSpiritKit() {
@@ -748,7 +752,7 @@ function renderSpiritKit() {
   storage.setItem('sparkSpiritKit', JSON.stringify(state.spiritKit));
   document.querySelector('#kitCount').textContent = `${state.spiritKit.length} / 3`;
   document.querySelector('#kitSlots').innerHTML = Array.from({length:3}, (_,index) => state.spiritKit[index] ? `<button data-kit-remove="${state.spiritKit[index]}"><i>✦</i><strong>${state.spiritKit[index]}</strong><small>点击取出</small></button>` : `<div><i>${index + 1}</i><strong>等待装入</strong><small>选择一张精神卡</small></div>`).join('');
-  document.querySelector('#kitOptions').innerHTML = available.map(item => `<button data-kit-add="${item.name}" ${state.spiritKit.includes(item.name) ? 'disabled' : ''}><span>${item.station}</span><strong>${item.name}</strong></button>`).join('') || '<p>完成第一站后，精神关键词将在这里出现。</p>';
+  document.querySelector('#kitOptions').innerHTML = available.map(item => `<button data-kit-add="${item.name}" ${state.spiritKit.includes(item.name) ? 'disabled' : ''}><span>${item.station}</span><strong>${item.name}</strong></button>`).join('') || '<p>完成第一站任务后，精神线索将在这里出现。</p>';
   document.querySelectorAll('[data-kit-add]').forEach(button => button.addEventListener('click', () => {
     if (state.spiritKit.length >= 3) return toast('精神行囊最多装入三张卡');
     state.spiritKit.push(button.dataset.kitAdd); renderSpiritKit(); renderBadgesAndAchievement(); playTone('success');
