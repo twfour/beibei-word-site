@@ -297,20 +297,6 @@ function recordTaskAttempt(station, successful = false) {
   return previous;
 }
 
-function getJourneyMetrics() {
-  return state.completed.reduce((total,id) => {
-    const gain = taskImpacts[id].gain;
-    total.belief += gain.belief; total.supply += gain.supply; total.unity += gain.unity;
-    return total;
-  }, {belief:50,supply:50,unity:50});
-}
-
-function renderJourneyMeters() {
-  const metrics = getJourneyMetrics();
-  const data = [['belief','信念',metrics.belief],['supply','补给',metrics.supply],['unity','团结',metrics.unity]];
-  document.querySelector('#journeyMeters').innerHTML = data.map(([key,label,value]) => `<div class="meter ${key}"><span>${label}<b>${value}</b></span><i><em style="width:${Math.max(0,Math.min(100,value))}%"></em></i></div>`).join('');
-}
-
 function consequence(message) {
   const station = activeTaskRun ? stations[activeTaskRun.stationId - 1] : null;
   if (station) recordTaskAttempt(station, false);
@@ -370,7 +356,7 @@ function renderRoute() {
     const label = completed && record ? `${starText(record.bestStars)} · ${station.spirit}` : unlocked ? `${station.date.replace('年','.') .replace('月','')} · ${station.spirit}` : `${station.spirit} · 待解锁`;
     const edgeClass = parseFloat(station.position[0]) >= 70 ? 'edge-right' : '';
     const stationStyle = edgeClass ? `right:8px;top:${station.position[1]}` : `left:${station.position[0]};top:${station.position[1]}`;
-    return `<button class="station ${edgeClass} ${unlocked ? 'open' : 'locked'} ${completed ? 'completed' : ''} ${current ? 'current' : ''}" style="${stationStyle}" data-station="${station.id}" aria-label="${station.name}${unlocked ? '' : '，尚未解锁'}"><i class="shoe-stop shoe-wear-${station.id}" aria-hidden="true"><b>${String(station.id).padStart(2,'0')}</b></i><div><strong>${station.name}</strong><small>${label}</small></div></button>`;
+    return `<button class="station ${edgeClass} ${unlocked ? 'open' : 'locked'} ${completed ? 'completed' : ''} ${current ? 'current' : ''}" style="${stationStyle}" data-station="${station.id}" aria-label="${station.name}${unlocked ? '' : '，尚未解锁'}"><i class="shoe-stop shoe-wear-${station.id}" aria-hidden="true"><b>草鞋 ${String(station.id).padStart(2,'0')}</b></i><div><strong>${station.name}</strong><small>${label}</small></div></button>`;
   }).join('');
   route.querySelectorAll('.station').forEach(button => button.addEventListener('click', () => openStation(Number(button.dataset.station))));
   const current = stations[state.currentStation - 1];
@@ -431,7 +417,6 @@ function finishTask(station) {
   }
   persistJourney();
   updateJourneyUI();
-  renderJourneyMeters();
   renderTask(station);
   const message = id === 6 ? `六站研学全部完成！本次获得${earnedStars}星。` : `任务成功！本次获得${earnedStars}星，第 ${id + 1} 站“${stations[id].name}”已点亮。`;
   setTaskFeedback(message, 'success');
@@ -474,7 +459,6 @@ function renderTask(station, replay = false) {
   activeTaskTimer = null;
   const task = station.task;
   const completed = state.completed.includes(station.id) && !replay;
-  renderJourneyMeters();
   const taskLabels = {causal:'因果排序',deduction:'逻辑推理',routePuzzle:'路线拼图',calculation:'行军计算',sudoku:'行军数独',matching:'会师配对'};
   document.querySelector('#taskTag').textContent = `${taskLabels[task.type] || task.type.toUpperCase()} / 站点任务`;
   document.querySelector('#taskTitle').textContent = completed ? `${station.name}站任务完成` : task.title;
@@ -488,8 +472,7 @@ function renderTask(station, replay = false) {
   if (completed) {
     const impact = taskImpacts[station.id];
     const record = state.taskRecords[station.id] || {attempts:1,runs:1,bestStars:3,lastStars:3};
-    const gains = [['信念',impact.gain.belief],['补给',impact.gain.supply],['团结',impact.gain.unity]].filter(item => item[1]);
-    mount.innerHTML = `<div class="task-complete"><span>✓</span><div><strong>${station.spirit}</strong><small>SPIRIT MARK ACQUIRED</small></div></div><div class="task-score-slip"><div><span>最佳成绩</span><strong>${starText(record.bestStars)}</strong></div><dl><div><dt>最近一次</dt><dd>${record.lastStars || record.bestStars} 星</dd></div><div><dt>累计作答</dt><dd>${record.attempts} 次</dd></div><div><dt>完成轮次</dt><dd>${record.runs || 1} 次</dd></div></dl></div><div class="decision-summary"><span>本次决策总结</span><p>${impact.summary}</p><div>${gains.map(([label,value]) => `<b>${label} ${value > 0 ? '+' : ''}${value}</b>`).join('')}</div></div><button class="task-action ghost" id="replayTask">再次挑战 · 刷新最佳</button>`;
+    mount.innerHTML = `<div class="task-complete"><span>✓</span><div><strong>${station.spirit}</strong><small>SPIRIT MARK ACQUIRED</small></div></div><div class="task-score-slip"><div><span>最佳成绩</span><strong>${starText(record.bestStars)}</strong></div><dl><div><dt>最近一次</dt><dd>${record.lastStars || record.bestStars} 星</dd></div><div><dt>累计作答</dt><dd>${record.attempts} 次</dd></div><div><dt>完成轮次</dt><dd>${record.runs || 1} 次</dd></div></dl></div><div class="decision-summary"><span>本次决策总结</span><p>${impact.summary}</p></div><button class="task-action ghost" id="replayTask">再次挑战 · 刷新最佳</button>`;
     document.querySelector('#replayTask').addEventListener('click', () => renderTask(station, true));
     return;
   }
@@ -1007,64 +990,6 @@ if (!storage.getItem('sparkOnboarded')) {
   onboarding.hidden = false;
   showOnboardingPage(0);
 }
-
-const demoSteps = [
-  {time:'00:00',title:'一句话介绍',copy:'首页：面向初中生，把长征历史读成一条可互动的研学路线。',view:'home'},
-  {time:'00:25',title:'历史全景',copy:'路线：说明六站是代表性节点，展开“不只一条路线”。',view:'route'},
-  {time:'00:55',title:'内容深度',copy:'站点：展示史实、人物群像、史料卡和三层思考。',view:'station'},
-  {time:'01:30',title:'核心互动',copy:'任务：演示选择后果、行军指标和完成盖章。',view:'station',panel:'task'},
-  {time:'02:10',title:'学习闭环',copy:'档案：展示六站星级、知识挑战奖章和“星火全章”。',view:'collection'},
-  {time:'02:40',title:'技术与原创',copy:'作品说明：离线、本地保存、AI辅助范围和AIA/APK迁移计划。',view:'about'}
-];
-let demoIndex = 0;
-let demoRemaining = 180;
-let demoTimerId = null;
-
-function renderDemoSteps() {
-  document.querySelector('#demoSteps').innerHTML = demoSteps.map((step,index) => `<li class="${index === demoIndex ? 'is-active' : ''} ${index < demoIndex ? 'is-done' : ''}"><i>${step.time}</i><div><strong>${step.title}</strong><p>${step.copy}</p></div></li>`).join('');
-  document.querySelector('#demoProgress').style.width = `${demoIndex / (demoSteps.length - 1) * 100}%`;
-  document.querySelector('#demoPrompt').textContent = demoSteps[demoIndex].copy;
-}
-
-function openDemoStep() {
-  const step = demoSteps[demoIndex];
-  if (step.view === 'station') { renderStation(stations[Math.max(0,state.currentStation - 1)]); showView('station'); }
-  else showView(step.view);
-  if (step.panel) activatePanel(step.panel);
-}
-
-function startDefenseDemo() {
-  clearInterval(demoTimerId); demoIndex = 0; demoRemaining = 180;
-  document.querySelector('#nextDemo').disabled = false;
-  document.querySelector('#nextDemo').textContent = '下一画面';
-  document.querySelector('#startDemo').textContent = '重新计时';
-  document.querySelector('.demo-console').classList.add('is-running');
-  renderDemoSteps(); openDemoStep();
-  demoTimerId = setInterval(() => {
-    demoRemaining -= 1;
-    const minutes = String(Math.floor(demoRemaining / 60)).padStart(2,'0');
-    const seconds = String(demoRemaining % 60).padStart(2,'0');
-    document.querySelector('#demoTimer').textContent = `${minutes}:${seconds}`;
-    if (demoRemaining <= 0) { clearInterval(demoTimerId); demoTimerId = null; toast('三分钟演示时间到'); }
-  },1000);
-}
-
-document.querySelector('#startDemo').addEventListener('click', startDefenseDemo);
-document.querySelector('#nextDemo').addEventListener('click', () => {
-  if (demoIndex === demoSteps.length - 1) {
-    clearInterval(demoTimerId); demoTimerId = null;
-    document.querySelector('.demo-console').classList.remove('is-running');
-    document.querySelector('#nextDemo').disabled = true;
-    document.querySelector('#nextDemo').textContent = '下一画面';
-    document.querySelector('#startDemo').textContent = '开始计时';
-    showView('help');
-    return;
-  }
-  demoIndex += 1;
-  renderDemoSteps(); openDemoStep();
-  if (demoIndex === demoSteps.length - 1) document.querySelector('#nextDemo').textContent = '结束演示';
-});
-renderDemoSteps();
 
 document.querySelector('#resetProgress').addEventListener('click', () => {
   const confirmed = window.confirm('确定清除本机上的全部研学记录吗？此操作无法撤销。');

@@ -177,7 +177,7 @@
           <span class="task-tag" id="taskTag">站点任务</span><h3 id="taskTitle"></h3>
           <p id="taskCopy"></p>
           <aside class="history-boundary" id="historyBoundary" hidden></aside>
-          <div class="journey-meters" id="journeyMeters" aria-label="行军指标"></div>
+          <div id="journeyMeters" hidden aria-hidden="true"></div>
           <div id="taskMount"></div>
           <div class="task-feedback" id="taskFeedback" aria-live="polite"></div>
         </div>
@@ -242,19 +242,12 @@
         <article><i>04</i><div><strong>挑战与回顾</strong><p>随机完成10道题；答错的题目可以集中重练。</p></div></article>
         <article><i>05</i><div><strong>点亮挑战奖章</strong><p>提高站点星级和知识挑战成绩，最终解锁“星火全章”。</p></div></article>
       </div>
-      <section class="demo-console">
-        <div class="subsection-title"><span>DEFENSE MODE</span><strong>三分钟答辩演示</strong><small id="demoTimer">03:00</small></div>
-        <p id="demoPrompt">按六个关键画面演示作品，避免现场逐页翻找。</p>
-        <div class="demo-progress"><span id="demoProgress"></span></div>
-        <ol id="demoSteps"></ol>
-        <div><button id="startDemo">开始计时</button><button id="nextDemo" disabled>下一画面</button></div>
-      </section>
       <button class="wide-link" data-go="route">前往长征路线 <span>→</span></button>
     </section>
 
     <section class="view utility-view" id="about" aria-label="作品说明">
       <div class="section-head"><div><span>ABOUT / 作品说明</span><h2>把历史读成一条路</h2></div><p>一款面向初中生的长征历史互动研学应用。</p></div>
-      <article class="about-lead"><span>设计理念</span><p>作品借鉴杂志精读的学习方法，把长征中的关键事件组织成“背景—史实—解读—因果—精神—任务”的学习闭环，让历史不只停留在时间和地点的记忆中。</p></article>
+      <article class="about-lead"><span>设计理念</span><p>作品采用“历史档案研学＋任务驱动学习”的设计，把长征中的代表性事件组织成“了解背景—阅读史实—分析因果—完成任务—获得反馈”的学习过程，让学生从记住事件进一步走向理解选择、判断依据和精神价值。</p></article>
       <div class="about-grid">
         <article><span>参赛组别</span><strong>初中组</strong><small>个人作品</small></article>
         <article><span>技术特点</span><strong>离线优先</strong><small>本地保存</small></article>
@@ -296,6 +289,7 @@
     </div>
   </div>
   <div class="toast" id="toast" role="status"></div>
+  <div class="demo-console" hidden aria-hidden="true"><span id="demoTimer"></span><p id="demoPrompt"></p><div id="demoProgress"></div><ol id="demoSteps"></ol><button id="startDemo"></button><button id="nextDemo"></button></div>
   <div class="stamp-ceremony" id="stampCeremony" hidden>
     <div class="stamp-sheet"><span>STATION COMPLETE</span><p id="stampStation"></p><div id="stampSeal">完成</div><strong id="stampSpirit"></strong><b class="stamp-stars" id="stampStars">★★★</b><small id="stampScoreNote">一枚精神印记已收入星火档案</small><button id="closeStamp">继续前进 →</button></div>
   </div>
