@@ -260,10 +260,6 @@ const state = {
   currentStation: Math.min(6, Math.max(1, Number(storage.getItem('sparkCurrentStation') || 1))),
   favorites: JSON.parse(storage.getItem('sparkFavorites') || '[]'),
   spiritKit: JSON.parse(storage.getItem('sparkSpiritKit') || '[]'),
-  reflection: storage.getItem('sparkReflection') || '',
-  reflectionSpirit: storage.getItem('sparkReflectionSpirit') || '',
-  reflectionReason: storage.getItem('sparkReflectionReason') || storage.getItem('sparkReflection') || '',
-  reflectionAction: storage.getItem('sparkReflectionAction') || '',
   highScore: Number(storage.getItem('sparkHighScore') || 0),
   wrongQuestions: JSON.parse(storage.getItem('sparkWrongQuestions') || '[]'),
   taskRecords: JSON.parse(storage.getItem('sparkTaskRecords') || '{}'),
@@ -329,10 +325,36 @@ function persistJourney() {
   storage.removeItem('sparkProgress');
 }
 
+const shoeStops = [[11,94],[18,88],[25,70],[45,53],[68,38],[61,22],[71,9]];
+const shoeWearLabels = ['新','启程','沾尘','磨损','补缀','破旧','抵达'];
+const shoeStopNames = ['瑞金出发点','瑞金','遵义','赤水','泸定','雪山草地','会宁'];
+
+function updateRouteShoes(animate = false) {
+  const shoes = document.querySelector('#routeShoes');
+  if (!shoes) return;
+  const stage = Math.min(6,state.completed.length);
+  const targetIndex = stage;
+  const shownStage = Math.max(0,Number(shoes.dataset.shownStage || 0));
+  const start = shoeStops[Math.min(6,shownStage)];
+  const target = shoeStops[targetIndex];
+  shoes.className = `route-shoes wear-${stage}`;
+  shoes.querySelector('small').textContent = shoeWearLabels[stage];
+  shoes.setAttribute('aria-label',`草鞋行至${shoeStopNames[targetIndex]}，磨损程度：${shoeWearLabels[stage]}`);
+  if (animate && shownStage !== stage) {
+    shoes.style.left = `${start[0]}%`; shoes.style.top = `${start[1]}%`;
+    shoes.getBoundingClientRect();
+    requestAnimationFrame(() => { shoes.style.left = `${target[0]}%`; shoes.style.top = `${target[1]}%`; });
+  } else {
+    shoes.style.left = `${target[0]}%`; shoes.style.top = `${target[1]}%`;
+  }
+  shoes.dataset.shownStage = stage;
+}
+
 function showView(id) {
   views.forEach(view => view.classList.toggle('is-active', view.id === id));
   const navId = id === 'station' ? 'route' : id;
   navButtons.forEach(button => button.classList.toggle('is-active', button.dataset.go === navId));
+  if (id === 'route') updateRouteShoes(true);
   window.scrollTo(0, 0);
 }
 
@@ -355,6 +377,7 @@ function renderRoute() {
   const totalStars = stations.reduce((sum,station) => sum + (state.taskRecords[station.id]?.bestStars || 0),0);
   document.querySelector('#routeNoteTitle').textContent = state.completed.length === 6 ? '长征路线已完成' : `当前研学 · 第 ${String(current.id).padStart(2,'0')} 站`;
   document.querySelector('#routeNoteText').textContent = state.completed.length === 6 ? `六站研学全部完成，当前最佳总成绩 ${totalStars}/18 星。你可以返回任意站点刷新成绩。` : `继续前往${current.name}。完成本站后点亮下一站；当前累计 ${totalStars}/18 星。`;
+  if (document.querySelector('#route').classList.contains('is-active')) updateRouteShoes(true);
 }
 
 function openStation(id) {
@@ -763,15 +786,24 @@ function renderBadgesAndAchievement() {
     const record = state.taskRecords[station.id];
     return `<div class="spirit-badge ${earned ? 'earned' : ''}"><i>${earned ? '✦' : '·'}</i><strong>${station.spirit}</strong><small>${earned ? `${station.name} · ${record ? starText(record.bestStars) : ''}` : '尚未获得'}</small></div>`;
   }).join('');
+  const stationStars = id => state.taskRecords[id]?.bestStars || 0;
+  const medals = [
+    {name:'求实之章',mark:'实',earned:state.completed.includes(1) && state.completed.includes(2) && stationStars(1) + stationStars(2) >= 4,rule:'完成瑞金、遵义任务，两站合计至少4星'},
+    {name:'智略之章',mark:'智',earned:state.completed.includes(2) && state.completed.includes(3) && stationStars(2) + stationStars(3) >= 4,rule:'完成遵义、赤水任务，两站合计至少4星'},
+    {name:'勇毅之章',mark:'勇',earned:state.completed.includes(4) && state.completed.includes(5) && stationStars(4) + stationStars(5) >= 4,rule:'完成泸定、雪山草地任务，两站合计至少4星'},
+    {name:'团结之章',mark:'合',earned:state.completed.includes(6) && state.highScore >= 60,rule:'完成会宁任务，十题远征最高达到60分'}
+  ];
+  const allCoreEarned = medals.every(medal => medal.earned);
+  medals.push({name:'星火全章',mark:'星',earned:allCoreEarned && state.completed.length === 6 && state.highScore >= 80,rule:'集齐前四章、完成六站，十题远征最高达到80分'});
+  document.querySelector('#challengeMedalCount').textContent = `${medals.filter(medal => medal.earned).length} / 5`;
+  document.querySelector('#challengeMedals').innerHTML = medals.map((medal,index) => `<article class="${medal.earned ? 'earned' : ''} ${index === medals.length - 1 ? 'final' : ''}"><i>${medal.earned ? medal.mark : '·'}</i><div><strong>${medal.name}</strong><p>${medal.rule}</p></div><span>${medal.earned ? '已获得' : '未解锁'}</span></article>`).join('');
   renderSpiritKit();
-  const achieved = state.completed.length === 6 && Boolean(state.reflectionSpirit && state.reflectionReason && state.reflectionAction) && state.spiritKit.length === 3;
+  const achieved = medals[medals.length - 1].earned;
   const card = document.querySelector('#achievementCard');
   card.hidden = !achieved;
   if (achieved) {
-    document.querySelector('#achievementMarks').innerHTML = stations.map(station => `<i title="${station.spirit}">✦</i>`).join('');
-    document.querySelector('#achievementKit').innerHTML = `<span>我的精神行囊</span><strong>${state.spiritKit.join(' · ')}</strong>`;
-    document.querySelector('#achievementReflection').textContent = `“我选择${state.reflectionSpirit}，因为${state.reflectionReason}”`;
-    document.querySelector('#achievementAction').innerHTML = `<span>我的一个月行动</span><strong>${state.reflectionAction}</strong>`;
+    document.querySelector('#achievementMarks').innerHTML = medals.slice(0,4).map(medal => `<i title="${medal.name}">${medal.mark}</i>`).join('');
+    document.querySelector('#achievementKit').innerHTML = `<span>任务挑战总成绩</span><strong>${totalStars}/18 星 · 十题远征 ${state.highScore}/100 分</strong>`;
   }
 }
 
@@ -870,6 +902,7 @@ function answerQuestion(event) {
 }
 
 function finishQuiz() {
+  const previousHighScore = state.highScore;
   state.highScore = Math.max(state.highScore, score);
   storage.setItem('sparkHighScore', state.highScore);
   document.querySelector('#quizProgress').style.width = '100%';
@@ -885,34 +918,13 @@ function finishQuiz() {
     const pool = questions.filter(item => state.wrongQuestions.includes(item.id));
     if (pool.length) startQuiz(pool, pool.length);
   });
-  toast(`挑战完成：${score} 分`);
+  renderBadgesAndAchievement();
+  toast(state.highScore > previousHighScore ? `挑战完成：刷新最高分 ${state.highScore}` : `挑战完成：${score} 分`);
 }
 
 document.querySelector('#nextQuestion').addEventListener('click', () => {
   if (quizIndex < quizSession.length - 1) { quizIndex += 1; renderQuestion(); }
   else finishQuiz();
-});
-
-const reflectionSpirit = document.querySelector('#reflectionSpirit');
-const reflectionReason = document.querySelector('#reflectionReason');
-const reflectionAction = document.querySelector('#reflectionAction');
-reflectionSpirit.innerHTML += [...new Set(stations.flatMap(station => [station.spirit,...station.keywords.map(word => word[0])]))].map(item => `<option value="${item}">${item}</option>`).join('');
-reflectionSpirit.value = state.reflectionSpirit;
-reflectionReason.value = state.reflectionReason;
-reflectionAction.value = state.reflectionAction;
-document.querySelector('#saveReflection').addEventListener('click', () => {
-  state.reflectionSpirit = reflectionSpirit.value;
-  state.reflectionReason = reflectionReason.value.trim();
-  state.reflectionAction = reflectionAction.value.trim();
-  state.reflection = state.reflectionReason;
-  storage.setItem('sparkReflectionSpirit', state.reflectionSpirit);
-  storage.setItem('sparkReflectionReason', state.reflectionReason);
-  storage.setItem('sparkReflectionAction', state.reflectionAction);
-  storage.setItem('sparkReflection', state.reflectionReason);
-  const complete = Boolean(state.reflectionSpirit && state.reflectionReason && state.reflectionAction);
-  document.querySelector('#saveHint').textContent = complete ? '行动计划已装入档案' : '请完成三项内容';
-  renderBadgesAndAchievement();
-  toast(complete ? '行动计划已保存' : '还差一项没有完成');
 });
 
 let toastTimer;
@@ -986,7 +998,7 @@ const demoSteps = [
   {time:'00:25',title:'历史全景',copy:'路线：说明六站是代表性节点，展开“不只一条路线”。',view:'route'},
   {time:'00:55',title:'内容深度',copy:'站点：展示史实、人物群像、史料卡和三层思考。',view:'station'},
   {time:'01:30',title:'核心互动',copy:'任务：演示选择后果、行军指标和完成盖章。',view:'station',panel:'task'},
-  {time:'02:10',title:'学习闭环',copy:'档案：展示徽章、精神行囊、行动计划和纪念卡。',view:'collection'},
+  {time:'02:10',title:'学习闭环',copy:'档案：展示六站星级、知识挑战奖章和“星火全章”。',view:'collection'},
   {time:'02:40',title:'技术与原创',copy:'作品说明：离线、本地保存、AI辅助范围和AIA/APK迁移计划。',view:'about'}
 ];
 let demoIndex = 0;

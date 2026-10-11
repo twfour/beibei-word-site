@@ -101,6 +101,7 @@
         <svg class="route-line" viewBox="0 0 320 590" preserveAspectRatio="none" aria-hidden="true">
           <path d="M74 528 C 18 460, 122 430, 92 358 S 205 292, 164 222 S 274 148, 243 42" />
         </svg>
+        <div class="route-shoes wear-0" id="routeShoes" role="img" aria-label="一双崭新的草鞋从瑞金出发"><i></i><i></i><small>新</small></div>
         <div id="routeStations"></div>
       </div>
       <div class="route-note"><b id="routeNoteTitle">路线说明</b><p id="routeNoteText">从瑞金出发，完成当前站研学后，下一站才会点亮。</p></div>
@@ -199,6 +200,11 @@
         <div class="subsection-title"><span>SPIRIT MARKS</span><strong>我的精神徽章</strong><small id="badgeCount">0 / 6</small></div>
         <div class="badge-grid" id="badgeGrid"></div>
       </div>
+      <section class="challenge-medals" aria-label="挑战奖章">
+        <div class="subsection-title"><span>CHALLENGE MEDALS</span><strong>任务与挑战奖章</strong><small id="challengeMedalCount">0 / 5</small></div>
+        <p>站点任务、最佳星级和“十题远征”成绩共同决定奖章是否点亮。</p>
+        <div class="challenge-medal-grid" id="challengeMedals"></div>
+      </section>
       <section class="spirit-kit">
         <div class="subsection-title"><span>MY SPIRIT KIT</span><strong>我的精神行囊</strong><small id="kitCount">0 / 3</small></div>
         <p>从已完成站点获得的关键词中选出三张，组成你最想带走的精神行囊。</p>
@@ -207,25 +213,13 @@
       </section>
       <div class="collection-empty" id="collectionEmpty"><span>✦</span><h3>档案袋还是空的</h3><p>前往站点阅读关键词卡片并收藏。</p><button class="secondary-button" data-go="station">前往当前站</button></div>
       <div class="collection-list" id="collectionList"></div>
-      <div class="reflection-card">
-        <span>MY REFLECTION / 我的感悟</span>
-        <label for="reflectionSpirit">把一种精神带到今天</label>
-        <select id="reflectionSpirit"><option value="">请选择一种精神</option></select>
-        <label class="reflection-sub" for="reflectionReason">我为什么选择它？</label>
-        <textarea id="reflectionReason" maxlength="100" placeholder="结合一段历史或自己的经历说明理由。"></textarea>
-        <label class="reflection-sub" for="reflectionAction">未来一个月，我准备……</label>
-        <textarea id="reflectionAction" maxlength="100" placeholder="写下一个具体、可以做到的行动。"></textarea>
-        <button id="saveReflection">保存行动计划</button><small id="saveHint"></small>
-      </div>
       <article class="achievement-card" id="achievementCard" hidden>
-        <div class="achievement-top"><span>THE LONG MARCH ARCHIVE</span><b>六站完成纪念</b></div>
+        <div class="achievement-top"><span>THE LONG MARCH ARCHIVE</span><b>任务挑战最高荣誉</b></div>
         <div class="achievement-star">✦</div>
-        <p>授予称号</p><h3>新时代<br>小小长征者</h3>
+        <p>最终奖章</p><h3>星火<br>全章</h3>
         <div class="achievement-marks" id="achievementMarks"></div>
         <div class="achievement-kit" id="achievementKit"></div>
-        <blockquote id="achievementReflection"></blockquote>
-        <div class="achievement-action" id="achievementAction"></div>
-        <small>坚定理想 · 实事求是 · 机智勇敢<br>不怕牺牲 · 艰苦奋斗 · 团结胜利</small>
+        <small>完成六站 · 集齐四章 · 知识挑战达到80分</small>
       </article>
     </section>
 
@@ -236,7 +230,7 @@
         <article><i>02</i><div><strong>理解因果关系</strong><p>用五步因果链回答“为什么发生”和“带来什么结果”。</p></div></article>
         <article><i>03</i><div><strong>完成站点任务</strong><p>任务成功后获得精神徽章，并自动点亮下一站。</p></div></article>
         <article><i>04</i><div><strong>挑战与回顾</strong><p>随机完成10道题；答错的题目可以集中重练。</p></div></article>
-        <article><i>05</i><div><strong>留下个人感悟</strong><p>完成六站并保存感悟，生成个人研学纪念卡。</p></div></article>
+        <article><i>05</i><div><strong>点亮挑战奖章</strong><p>提高站点星级和知识挑战成绩，最终解锁“星火全章”。</p></div></article>
       </div>
       <section class="demo-console">
         <div class="subsection-title"><span>DEFENSE MODE</span><strong>三分钟答辩演示</strong><small id="demoTimer">03:00</small></div>
@@ -259,7 +253,7 @@
         <article><span>当前版本</span><strong>1.1.0</strong><small>AIA测试版</small></article>
         <article><span>交付状态</span><strong>AIA已生成</strong><small>APK待导出</small></article>
       </div>
-      <article class="privacy-card"><span>PRIVACY / 隐私说明</span><h3>数据只保存在本机</h3><p>学习进度、成绩、错题、收藏和感悟均保存在当前设备浏览器中，不上传服务器，也不收集姓名、学校、联系方式或定位信息。</p></article>
+      <article class="privacy-card"><span>PRIVACY / 隐私说明</span><h3>数据只保存在本机</h3><p>学习进度、任务星级、知识挑战成绩、错题和收藏均保存在当前设备浏览器中，不上传服务器，也不收集姓名、学校、联系方式或定位信息。</p></article>
       <article class="privacy-card sources-summary"><span>SOURCES / 内容来源</span><h3>公开权威资料整理</h3><p>历史内容主要参考中共中央党史和文献研究院、中华人民共和国国防部、人民网党史频道、中央网信办等公开资料。每个站点均列出对应链接。</p></article>
       <article class="privacy-card ai-note"><span>ORIGINALITY / 原创与工具说明</span><h3>学生主导，工具辅助</h3><p>开发过程中使用AI辅助生成和调试代码、提出界面建议与优化表达。正式参赛前，学生须逐项理解、修改和测试作品，在开发日志中如实记录辅助范围，并能在答辩中解释主要功能与实现逻辑。</p></article>
     </section>
@@ -270,7 +264,7 @@
         <article><div><strong>操作提示音</strong><small>任务成功和按钮操作的简短提示</small></div><button class="switch" id="soundToggle" role="switch" aria-checked="true"><span></span></button></article>
         <article><div><strong>离线使用</strong><small id="offlineStatus">正在检查缓存状态……</small></div><b class="status-dot">PWA</b></article>
       </div>
-      <div class="danger-zone"><span>重新开始</span><h3>清除全部学习记录</h3><p>将删除进度、徽章、成绩、错题、收藏和个人感悟，但不会删除应用本身。</p><button id="resetProgress">清除记录并重新开始</button></div>
+      <div class="danger-zone"><span>重新开始</span><h3>清除全部学习记录</h3><p>将删除进度、徽章、任务星级、知识挑战成绩、错题和收藏，但不会删除应用本身。</p><button id="resetProgress">清除记录并重新开始</button></div>
     </section>
 
     <nav class="bottom-nav" aria-label="主导航">
@@ -286,7 +280,7 @@
       <div class="onboarding-pages" id="onboardingPages">
         <article class="is-active"><span>01 / 03</span><div class="onboarding-symbol">路</div><h2>把历史<br>读成一条路</h2><p>沿六个关键节点前进，每到一站，打开一份历史档案。</p></article>
         <article><span>02 / 03</span><div class="onboarding-symbol">思</div><h2>不只记忆<br>更要理解</h2><p>通过少年解读和因果链，理解每一次选择为什么重要。</p></article>
-        <article><span>03 / 03</span><div class="onboarding-symbol">行</div><h2>完成任务<br>收集精神</h2><p>完成互动任务，获得六枚徽章，写下自己的长征精神感悟。</p></article>
+        <article><span>03 / 03</span><div class="onboarding-symbol">行</div><h2>完成任务<br>点亮奖章</h2><p>提高六站任务星级和知识挑战成绩，解锁最终“星火全章”。</p></article>
       </div>
       <div class="onboarding-actions"><div id="onboardingDots"><i class="is-active"></i><i></i><i></i></div><button id="nextOnboarding">下一步 →</button></div>
     </div>
