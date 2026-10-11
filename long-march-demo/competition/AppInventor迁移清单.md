@@ -6,7 +6,7 @@
 - RouteScreen：长征全景、六站路线和锁定状态
 - StationScreen：四个阅读面板和动态站点内容
 - QuizScreen：随机10题、错题集合、最高分
-- ArchiveScreen：徽章、收藏、精神行囊、行动计划
+- ArchiveScreen：任务星级、徽章、挑战奖章、收藏、精神行囊
 - SettingsScreen：声音、说明和清除记录
 
 ## 数据结构

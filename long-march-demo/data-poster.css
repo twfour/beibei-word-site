@@ -1,0 +1,99 @@
+.data-poster-card {
+  margin-top: 14px;
+  border: 1px solid var(--line);
+  background: #a52d29;
+  color: #fff4df;
+  box-shadow: 0 12px 28px rgba(72,34,22,.12);
+}
+
+.data-poster-card summary {
+  min-height: 94px;
+  padding: 16px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.data-poster-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.data-poster-card summary span,
+.data-poster-card summary strong,
+.data-poster-card summary small {
+  display: block;
+}
+
+.data-poster-card summary span {
+  color: #efcf86;
+  font: 700 8px/1 Georgia,serif;
+  letter-spacing: .16em;
+}
+
+.data-poster-card summary strong {
+  margin-top: 7px;
+  font-size: 19px;
+}
+
+.data-poster-card summary small {
+  margin-top: 5px;
+  color: #ecd8bc;
+  font-size: 9px;
+}
+
+.data-poster-card summary>b {
+  flex: 0 0 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,244,223,.55);
+  border-radius: 50%;
+  color: #efcf86;
+  font-size: 22px;
+  font-weight: 400;
+  transition: transform .25s;
+}
+
+.data-poster-card[open] summary>b {
+  transform: rotate(45deg);
+}
+
+.data-poster-card figure {
+  margin: 0;
+  padding: 0 10px 10px;
+}
+
+.data-poster-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #8f241f;
+}
+
+.data-poster-card figcaption {
+  padding: 15px 13px 13px;
+  background: #f4ecd9;
+  color: var(--ink);
+}
+
+.data-poster-card figcaption strong {
+  color: var(--red);
+  font-size: 11px;
+}
+
+.data-poster-card figcaption p {
+  margin: 7px 0 9px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.data-poster-card figcaption a {
+  color: var(--red);
+  font-size: 9px;
+  font-weight: 800;
+  text-decoration: none;
+}

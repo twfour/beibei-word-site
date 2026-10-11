@@ -1,5 +1,5 @@
-const CACHE_NAME = 'spark-archive-v48';
-const CORE_FILES = ['./', './index.html', './styles.css', './legacy.css', './route-markers.css', './progress-feedback.css', './fonts/archive-serif.woff2', './fonts/archive-serif.woff', './app.js', './app.compat.js', './vendor/polyfills.min.js', './manifest.webmanifest', './icon.svg'];
+const CACHE_NAME = 'spark-archive-v49';
+const CORE_FILES = ['./', './index.html', './styles.css', './legacy.css', './route-markers.css', './progress-feedback.css', './data-poster.css', './assets/long-march-data-90.jpg', './fonts/archive-serif.woff2', './fonts/archive-serif.woff', './app.js', './app.compat.js', './vendor/polyfills.min.js', './manifest.webmanifest', './icon.svg'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(CORE_FILES)).then(() => self.skipWaiting()));
