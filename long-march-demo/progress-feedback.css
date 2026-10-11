@@ -1,0 +1,31 @@
+.next-medal-goal {
+  margin: 0 0 12px;
+  padding: 13px 12px;
+  border-left: 3px solid var(--red);
+  background: rgba(255,250,240,.62);
+}
+
+.next-medal-goal span,
+.next-medal-goal strong,
+.next-medal-goal small {
+  display: block;
+}
+
+.next-medal-goal span {
+  color: var(--red);
+  font: 700 8px/1 Georgia,serif;
+  letter-spacing: .14em;
+}
+
+.next-medal-goal strong {
+  margin-top: 6px;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.next-medal-goal small {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.55;
+}

@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="legacy.css">
   <link rel="stylesheet" href="route-markers.css">
+  <link rel="stylesheet" href="progress-feedback.css">
 </head>
 <body>
   <div class="paper-grain" aria-hidden="true"></div>
@@ -203,6 +204,7 @@
       <section class="challenge-medals" aria-label="挑战奖章">
         <div class="subsection-title"><span>CHALLENGE MEDALS</span><strong>任务与挑战奖章</strong><small id="challengeMedalCount">0 / 5</small></div>
         <p>站点任务、最佳星级和“十题远征”成绩共同决定奖章是否点亮。</p>
+        <div class="next-medal-goal" id="nextMedalGoal" aria-live="polite"></div>
         <div class="challenge-medal-grid" id="challengeMedals"></div>
       </section>
       <section class="spirit-kit">

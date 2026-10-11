@@ -457,7 +457,10 @@ function closeStampCeremony() {
   window.setTimeout(() => { ceremony.hidden = true; }, 220);
 }
 
-document.querySelector('#closeStamp').addEventListener('click', closeStampCeremony);
+document.querySelector('#closeStamp').addEventListener('click', () => {
+  closeStampCeremony();
+  window.setTimeout(() => showView('route'), 220);
+});
 document.querySelector('#stampCeremony').addEventListener('click', event => { if (event.target.id === 'stampCeremony') closeStampCeremony(); });
 
 function setTaskFeedback(message, type = '') {
@@ -795,6 +798,16 @@ function renderBadgesAndAchievement() {
   ];
   const allCoreEarned = medals.every(medal => medal.earned);
   medals.push({name:'星火全章',mark:'星',earned:allCoreEarned && state.completed.length === 6 && state.highScore >= 80,rule:'集齐前四章、完成六站，十题远征最高达到80分'});
+  const nextGoal = [
+    {index:0,progress:`瑞金、遵义已完成 ${[1,2].filter(id => state.completed.includes(id)).length}/2 站 · ${stationStars(1) + stationStars(2)}/4 星`},
+    {index:1,progress:`遵义、赤水已完成 ${[2,3].filter(id => state.completed.includes(id)).length}/2 站 · ${stationStars(2) + stationStars(3)}/4 星`},
+    {index:2,progress:`泸定、雪山草地已完成 ${[4,5].filter(id => state.completed.includes(id)).length}/2 站 · ${stationStars(4) + stationStars(5)}/4 星`},
+    {index:3,progress:`会宁任务 ${state.completed.includes(6) ? '已完成' : '未完成'} · 十题远征 ${state.highScore}/60 分`},
+    {index:4,progress:`核心奖章 ${medals.slice(0,4).filter(medal => medal.earned).length}/4 枚 · 十题远征 ${state.highScore}/80 分`}
+  ].find(goal => !medals[goal.index].earned);
+  document.querySelector('#nextMedalGoal').innerHTML = nextGoal
+    ? `<span>NEXT GOAL / 下一目标</span><strong>${medals[nextGoal.index].name}</strong><small>${nextGoal.progress}</small>`
+    : '<span>ALL COMPLETE / 全部达成</span><strong>五枚挑战奖章已全部点亮</strong><small>你可以继续重做任务，刷新自己的最佳成绩。</small>';
   document.querySelector('#challengeMedalCount').textContent = `${medals.filter(medal => medal.earned).length} / 5`;
   document.querySelector('#challengeMedals').innerHTML = medals.map((medal,index) => `<article class="${medal.earned ? 'earned' : ''} ${index === medals.length - 1 ? 'final' : ''}"><i>${medal.earned ? medal.mark : '·'}</i><div><strong>${medal.name}</strong><p>${medal.rule}</p></div><span>${medal.earned ? '已获得' : '未解锁'}</span></article>`).join('');
   renderSpiritKit();
