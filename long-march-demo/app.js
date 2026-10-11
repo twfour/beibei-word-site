@@ -128,6 +128,15 @@ const spiritEvidence = {
   6: ['三支主力红军从不同方向转战，最终围绕共同目标在西北地区胜利会合。','漫长征途中屡经困难仍持续向前，三大主力会师标志着长征胜利结束。']
 };
 
+const spiritJudgmentQuestions = {
+  1: {scene:'渡河前，沿岸群众捐出门板、床板和船只，并与红军一起架设浮桥。这个行动更直接体现哪条线索？',answer:1,explain:'大家在共同需要面前主动承担具体工作，更直接体现“责任担当”。'},
+  2: {scene:'原有指挥方法已经造成严重损失，会议没有回避问题，而是根据实际情况纠正错误。这个选择更直接体现哪条线索？',answer:0,explain:'以事实和结果检验方法、发现错误后及时调整，更直接体现“实事求是”。'},
+  3: {scene:'敌军部署突然改变，指挥员没有立刻冒进，而是重新分析敌情和路线。这个过程更直接体现哪条线索？',answer:1,explain:'紧急情况下先稳定局面、分析信息再行动，更直接体现“沉着判断”。'},
+  4: {scene:'突击队攀索前进，其他部队同时负责铺板、掩护和后续接应。这个整体行动更直接体现哪条线索？',answer:1,explain:'不同成员承担不同任务并相互配合，更直接体现“集体担当”。'},
+  5: {scene:'翻越雪山时，一名战士体力下降，战友分担物资并搀扶他继续前进。这个行动更直接体现哪条线索？',answer:1,explain:'困难中不放弃同伴、彼此支持，更直接体现“互助友爱”。'},
+  6: {scene:'三支主力红军经历不同路线，最终围绕共同目标在西北地区胜利会合。这个结果更直接体现哪条线索？',answer:0,explain:'不同队伍围绕共同目标汇聚力量，更直接体现“团结协作”。'}
+};
+
 const archiveProfiles = {
   1: {
     type:'军民群像', name:'于都河畔的架桥军民', role:'红军工兵与于都群众',
@@ -269,6 +278,7 @@ const state = {
   currentStation: Math.min(6, Math.max(1, Number(storage.getItem('sparkCurrentStation') || 1))),
   favorites: JSON.parse(storage.getItem('sparkFavorites') || '[]'),
   spiritKit: JSON.parse(storage.getItem('sparkSpiritKit') || '[]'),
+  spiritJudgments: JSON.parse(storage.getItem('sparkSpiritJudgments') || '{}'),
   highScore: Number(storage.getItem('sparkHighScore') || 0),
   wrongQuestions: JSON.parse(storage.getItem('sparkWrongQuestions') || '[]'),
   taskRecords: JSON.parse(storage.getItem('sparkTaskRecords') || '{}'),
@@ -417,9 +427,51 @@ function renderStation(station) {
       <div class="spirit-proof reasoning"><b>判断依据</b><p>${word[1]}</p></div>
       <div class="keyword-example"><b>今日行动</b>${word[2]}</div>
       <div class="clue-status ${state.completed.includes(station.id) ? 'is-earned' : ''}">${state.completed.includes(station.id) ? '✓ 已随本站任务收入星火档案' : '完成本站任务后，自动收入星火档案'}</div>
-    </article>`).join('');
+    </article>`).join('') + renderSpiritJudgment(station);
+  bindSpiritJudgment(station);
   renderTask(station);
   activatePanel('facts');
+}
+
+function renderSpiritJudgment(station) {
+  const question = spiritJudgmentQuestions[station.id];
+  const completed = state.completed.includes(station.id);
+  const passed = Boolean(state.spiritJudgments[station.id]);
+  return `<section class="spirit-judgment ${passed ? 'is-passed' : ''}">
+    <div class="judgment-head"><span>CLUE CHECK / 线索辨析</span><b>${passed ? '已通过' : '1 道判断'}</b></div>
+    <h3>哪条精神线索更贴近史实？</h3>
+    <p>${question.scene}</p>
+    <div class="judgment-options">${station.keywords.map((word,index) => `<button data-spirit-answer="${index}" ${!completed || passed ? 'disabled' : ''}><i>${String.fromCharCode(65 + index)}</i><span>${word[0]}</span></button>`).join('')}</div>
+    <div class="judgment-feedback" aria-live="polite">${passed ? `✓ ${question.explain}` : completed ? '选择后要能说出判断依据。' : '完成本站任务后开放辨析。'}</div>
+  </section>`;
+}
+
+function bindSpiritJudgment(station) {
+  document.querySelectorAll('[data-spirit-answer]').forEach(button => button.addEventListener('click', () => {
+    const question = spiritJudgmentQuestions[station.id];
+    const selected = Number(button.dataset.spiritAnswer);
+    const feedback = document.querySelector('.judgment-feedback');
+    document.querySelectorAll('[data-spirit-answer]').forEach(option => option.classList.remove('wrong'));
+    if (selected !== question.answer) {
+      button.classList.add('wrong');
+      feedback.textContent = '再想一想：这段史实中，人物具体做了什么？';
+      return;
+    }
+    state.spiritJudgments[station.id] = true;
+    storage.setItem('sparkSpiritJudgments', JSON.stringify(state.spiritJudgments));
+    document.querySelector('#keywordCards').innerHTML = station.keywords.map((word, index) => `
+      <article class="keyword-card ${index ? 'alt' : ''}">
+        <div class="keyword-no">0${index + 1}</div><small>SPIRIT CLUE / 精神线索</small><h3>${word[0]}</h3>
+        <div class="spirit-proof"><b>历史证据</b><p>${spiritEvidence[station.id][index]}</p></div>
+        <div class="spirit-proof reasoning"><b>判断依据</b><p>${word[1]}</p></div>
+        <div class="keyword-example"><b>今日行动</b>${word[2]}</div>
+        <div class="clue-status is-earned">✓ 已随本站任务收入星火档案</div>
+      </article>`).join('') + renderSpiritJudgment(station);
+    renderFavorites();
+    renderSpiritKit();
+    toast('辨析正确，本站线索已加入精神行囊候选');
+    playTone('success');
+  }));
 }
 
 let activeTaskTimer = null;
@@ -439,7 +491,7 @@ function finishTask(station) {
   persistJourney();
   updateJourneyUI();
   renderFavorites();
-  renderStationClueStatus();
+  renderStationClueStatus(station);
   renderTask(station);
   const message = id === 6 ? `六站研学全部完成！本次获得${earnedStars}星，两条精神线索已归档。` : `任务成功！本次获得${earnedStars}星，两条精神线索已归档，第 ${id + 1} 站“${stations[id].name}”已点亮。`;
   setTaskFeedback(message, 'success');
@@ -448,11 +500,16 @@ function finishTask(station) {
   if (newlyCompleted) showStampCeremony(station,record);
 }
 
-function renderStationClueStatus() {
+function renderStationClueStatus(station) {
   document.querySelectorAll('#keywordCards .clue-status').forEach(node => {
     node.classList.add('is-earned');
     node.textContent = '✓ 已随本站任务收入星火档案';
   });
+  const judgment = document.querySelector('.spirit-judgment');
+  if (judgment && station) {
+    judgment.outerHTML = renderSpiritJudgment(station);
+    bindSpiritJudgment(station);
+  }
 }
 
 function showStampCeremony(station,record) {
@@ -747,12 +804,15 @@ function renderFavorites() {
 }
 
 function renderSpiritKit() {
-  const available = stations.filter(station => state.completed.includes(station.id)).flatMap(station => station.keywords.map(word => ({name:word[0],station:station.name})));
+  const verifiedStations = stations.filter(station => state.completed.includes(station.id) && state.spiritJudgments[station.id]);
+  const available = verifiedStations.flatMap(station => station.keywords.map(word => ({name:word[0],station:station.name})));
   state.spiritKit = state.spiritKit.filter(name => available.some(item => item.name === name)).slice(0,3);
   storage.setItem('sparkSpiritKit', JSON.stringify(state.spiritKit));
+  const judgmentSummary = document.querySelector('#judgmentSummary');
+  if (judgmentSummary) judgmentSummary.textContent = `已辨析 ${Object.keys(state.spiritJudgments).filter(id => state.spiritJudgments[id]).length} / 6 站`;
   document.querySelector('#kitCount').textContent = `${state.spiritKit.length} / 3`;
   document.querySelector('#kitSlots').innerHTML = Array.from({length:3}, (_,index) => state.spiritKit[index] ? `<button data-kit-remove="${state.spiritKit[index]}"><i>✦</i><strong>${state.spiritKit[index]}</strong><small>点击取出</small></button>` : `<div><i>${index + 1}</i><strong>等待装入</strong><small>选择一张精神卡</small></div>`).join('');
-  document.querySelector('#kitOptions').innerHTML = available.map(item => `<button data-kit-add="${item.name}" ${state.spiritKit.includes(item.name) ? 'disabled' : ''}><span>${item.station}</span><strong>${item.name}</strong></button>`).join('') || '<p>完成第一站任务后，精神线索将在这里出现。</p>';
+  document.querySelector('#kitOptions').innerHTML = available.map(item => `<button data-kit-add="${item.name}" ${state.spiritKit.includes(item.name) ? 'disabled' : ''}><span>${item.station}</span><strong>${item.name}</strong></button>`).join('') || '<p>完成站点任务并通过“精神辨析”后，线索将在这里出现。</p>';
   document.querySelectorAll('[data-kit-add]').forEach(button => button.addEventListener('click', () => {
     if (state.spiritKit.length >= 3) return toast('精神行囊最多装入三张卡');
     state.spiritKit.push(button.dataset.kitAdd); renderSpiritKit(); renderBadgesAndAchievement(); playTone('success');
@@ -763,6 +823,7 @@ function renderSpiritKit() {
 }
 
 function renderBadgesAndAchievement() {
+  renderSpiritKit();
   const totalStars = stations.reduce((sum,station) => sum + (state.taskRecords[station.id]?.bestStars || 0),0);
   document.querySelector('#taskStarTotal').textContent = `${totalStars} / 18 星`;
   document.querySelector('#scoreLedger').innerHTML = stations.map(station => {
@@ -784,26 +845,31 @@ function renderBadgesAndAchievement() {
     {name:'团结之章',mark:'合',earned:state.completed.includes(6) && state.highScore >= 60,rule:'完成会宁任务，十题远征最高达到60分'}
   ];
   const allCoreEarned = medals.every(medal => medal.earned);
-  medals.push({name:'星火全章',mark:'星',earned:allCoreEarned && state.completed.length === 6 && state.highScore >= 80,rule:'集齐前四章、完成六站，十题远征最高达到80分'});
+  medals.push({name:'星火全章',mark:'星',earned:allCoreEarned && state.completed.length === 6 && state.highScore >= 80 && state.spiritKit.length === 3,rule:'集齐前四章、完成六站、远征达到80分，并选满三条精神行囊'});
   const nextGoal = [
     {index:0,progress:`瑞金、遵义已完成 ${[1,2].filter(id => state.completed.includes(id)).length}/2 站 · ${stationStars(1) + stationStars(2)}/4 星`},
     {index:1,progress:`遵义、赤水已完成 ${[2,3].filter(id => state.completed.includes(id)).length}/2 站 · ${stationStars(2) + stationStars(3)}/4 星`},
     {index:2,progress:`泸定、雪山草地已完成 ${[4,5].filter(id => state.completed.includes(id)).length}/2 站 · ${stationStars(4) + stationStars(5)}/4 星`},
     {index:3,progress:`会宁任务 ${state.completed.includes(6) ? '已完成' : '未完成'} · 十题远征 ${state.highScore}/60 分`},
-    {index:4,progress:`核心奖章 ${medals.slice(0,4).filter(medal => medal.earned).length}/4 枚 · 十题远征 ${state.highScore}/80 分`}
+    {index:4,progress:`核心奖章 ${medals.slice(0,4).filter(medal => medal.earned).length}/4 枚 · 远征 ${state.highScore}/80 分 · 精神行囊 ${state.spiritKit.length}/3`}
   ].find(goal => !medals[goal.index].earned);
   document.querySelector('#nextMedalGoal').innerHTML = nextGoal
     ? `<span>NEXT GOAL / 下一目标</span><strong>${medals[nextGoal.index].name}</strong><small>${nextGoal.progress}</small>`
     : '<span>ALL COMPLETE / 全部达成</span><strong>五枚挑战奖章已全部点亮</strong><small>你可以继续重做任务，刷新自己的最佳成绩。</small>';
   document.querySelector('#challengeMedalCount').textContent = `${medals.filter(medal => medal.earned).length} / 5`;
   document.querySelector('#challengeMedals').innerHTML = medals.map((medal,index) => `<article class="${medal.earned ? 'earned' : ''} ${index === medals.length - 1 ? 'final' : ''}"><i>${medal.earned ? medal.mark : '·'}</i><div><strong>${medal.name}</strong><p>${medal.rule}</p></div><span>${medal.earned ? '已获得' : '未解锁'}</span></article>`).join('');
-  renderSpiritKit();
   const achieved = medals[medals.length - 1].earned;
   const card = document.querySelector('#achievementCard');
   card.hidden = !achieved;
   if (achieved) {
     document.querySelector('#achievementMarks').innerHTML = medals.slice(0,4).map(medal => `<i title="${medal.name}">${medal.mark}</i>`).join('');
     document.querySelector('#achievementKit').innerHTML = `<span>任务挑战总成绩</span><strong>${totalStars}/18 星 · 十题远征 ${state.highScore}/100 分</strong>`;
+    const selectedEntries = state.spiritKit.map(name => {
+      const station = stations.find(item => item.keywords.some(word => word[0] === name));
+      const word = station?.keywords.find(item => item[0] === name);
+      return word ? `<article><i>✦</i><div><strong>${word[0]}</strong><p>${word[2]}</p></div></article>` : '';
+    }).join('');
+    document.querySelector('#achievementClues').innerHTML = selectedEntries || '<p class="achievement-clues-empty">从“我的精神行囊”选择三条线索后，这里将生成你的专属行动印记。</p>';
   }
 }
 
