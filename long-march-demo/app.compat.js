@@ -1,4 +1,14 @@
-const stations = [{
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+var stations = [{
   id: 1,
   slug: 'ruijin',
   name: '瑞金',
@@ -176,7 +186,7 @@ const stations = [{
     }]
   }
 }];
-const spiritEvidence = {
+var spiritEvidence = {
   1: ['面对中央苏区的严峻形势，中央红军仍为保存革命力量踏上未知征途。', '军民共同架桥、摆渡并组织大部队转移，每个人都承担了不可缺少的任务。'],
   2: ['遵义会议正视长征初期的严重损失，依据实际情况纠正错误、调整方向。', '会议立足中国革命的实际作出判断，探索依靠自身力量解决问题的道路。'],
   3: ['中央红军根据敌军部署连续改变方向，四次渡过赤水河并赢得行动主动。', '在敌情不断变化的危急局面中，指挥员持续分析信息后再作出行动选择。'],
@@ -184,7 +194,7 @@ const spiritEvidence = {
   5: ['面对严寒、缺氧、缺粮和湿滑山路，红军仍一步一步翻越雪山、走出草地。', '行军途中战友彼此搀扶、节约物资、照顾伤病员，共同克服极端环境。'],
   6: ['三支主力红军从不同方向转战，最终围绕共同目标在西北地区胜利会合。', '漫长征途中屡经困难仍持续向前，三大主力会师标志着长征胜利结束。']
 };
-const spiritJudgmentQuestions = {
+var spiritJudgmentQuestions = {
   1: {
     scene: '渡河前，沿岸群众捐出门板、床板和船只，并与红军一起架设浮桥。这个行动更直接体现哪条线索？',
     answer: 1,
@@ -216,7 +226,7 @@ const spiritJudgmentQuestions = {
     explain: '不同队伍围绕共同目标汇聚力量，更直接体现“团结协作”。'
   }
 };
-const archiveProfiles = {
+var archiveProfiles = {
   1: {
     type: '军民群像',
     name: '于都河畔的架桥军民',
@@ -296,7 +306,7 @@ const archiveProfiles = {
     source: ['国防部：红军长征中的会师', 'https://www.mod.gov.cn/gfbw/gfjy_index/16418522.html']
   }
 };
-const taskImpacts = {
+var taskImpacts = {
   1: {
     gain: {
       belief: 10,
@@ -346,7 +356,7 @@ const taskImpacts = {
     summary: '你把不同方面军、会师地点和时间准确连接，理解了团结胜利的历史脉络。'
   }
 };
-const inquiryLayers = {
+var inquiryLayers = {
   1: ['中央红军为什么要在1934年实行战略转移？', '离开熟悉的根据地，为什么仍然是一种主动选择？', '面对长期目标受阻时，我怎样判断该坚持目标还是调整方法？'],
   2: ['遵义会议集中解决了哪些紧迫问题？', '承认失误并纠正方向，为什么比照旧执行更需要勇气？', '学习或合作效果不好时，我怎样依据事实作出调整？'],
   3: ['四渡赤水的路线为什么多次改变？', '路线曲折为何不等于目标动摇？', '计划突然变化时，我怎样收集信息并保持冷静判断？'],
@@ -354,11 +364,11 @@ const inquiryLayers = {
   5: ['翻越雪山、穿越草地主要面临哪些困难？', '为什么互相搀扶也是战胜自然困难的重要力量？', '面对漫长任务时，我怎样坚持自己，也照顾可能掉队的同伴？'],
   6: ['会宁、将台堡会师连接了哪些红军队伍？', '不同路线的队伍为什么能够汇聚成共同力量？', '团队意见不同时，我怎样找到共同目标并继续合作？']
 };
-const historyBoundaries = {
+var historyBoundaries = {
   4: '本任务只帮助体会时间紧迫与协同配合，不能还原真实战斗中的危险与牺牲。请记住：历史中的胜利来之不易。',
   5: '物资分配是理解困难的简化模型。真实的严寒、饥饿、缺氧和伤亡远比游戏数值更加严峻。'
 };
-const taskCompatibilityHints = {
+var taskCompatibilityHints = {
   causal: ['操作', '点击上下箭头调整卡片', '目标', '恢复完整因果链'],
   deduction: ['操作', '先选满两项，再验证', '目标', '只选能由史实支持的结论'],
   routePuzzle: ['操作', '按日期与方向排序', '目标', '复原四次渡河顺序'],
@@ -366,9 +376,9 @@ const taskCompatibilityHints = {
   sudoku: ['操作', '点击空格循环填入1—4', '目标', '行、列、2×2区域均不重复'],
   matching: ['操作', '为三条档案选择对应答案', '目标', '连接队伍、地点与时间']
 };
-const views = [...document.querySelectorAll('.view')];
-const navButtons = [...document.querySelectorAll('.bottom-nav button')];
-const multiRouteInfo = {
+var views = _toConsumableArray(document.querySelectorAll('.view'));
+var navButtons = _toConsumableArray(document.querySelectorAll('.bottom-nav button'));
+var multiRouteInfo = {
   all: {
     eyebrow: '全部路线',
     title: '不同起点，共同方向',
@@ -396,22 +406,30 @@ const multiRouteInfo = {
   }
 };
 function selectMultiRoute(key) {
-  const selected = multiRouteInfo[key] ? key : 'all';
-  document.querySelectorAll('[data-route-filter]').forEach(button => button.classList.toggle('is-active', button.dataset.routeFilter === selected));
-  document.querySelectorAll('[data-route-layer]').forEach(layer => {
-    const matches = selected === 'all' || layer.dataset.routeLayer === selected;
+  var selected = multiRouteInfo[key] ? key : 'all';
+  document.querySelectorAll('[data-route-filter]').forEach(function (button) {
+    return button.classList.toggle('is-active', button.dataset.routeFilter === selected);
+  });
+  document.querySelectorAll('[data-route-layer]').forEach(function (layer) {
+    var matches = selected === 'all' || layer.dataset.routeLayer === selected;
     layer.classList.toggle('is-muted', !matches);
     layer.classList.toggle('is-selected', selected !== 'all' && matches);
   });
-  const info = multiRouteInfo[selected];
-  const caption = document.querySelector('#atlasCaption');
-  caption.innerHTML = `<span>${info.eyebrow}</span><strong>${info.title}</strong><p>${info.copy}</p>`;
+  var info = multiRouteInfo[selected];
+  var caption = document.querySelector('#atlasCaption');
+  caption.innerHTML = "<span>".concat(info.eyebrow, "</span><strong>").concat(info.title, "</strong><p>").concat(info.copy, "</p>");
 }
-document.querySelectorAll('[data-route-filter]').forEach(button => button.addEventListener('click', () => selectMultiRoute(button.dataset.routeFilter)));
-document.querySelectorAll('.expedition-route[data-route-layer]').forEach(layer => {
-  const activate = () => selectMultiRoute(layer.dataset.routeLayer);
+document.querySelectorAll('[data-route-filter]').forEach(function (button) {
+  return button.addEventListener('click', function () {
+    return selectMultiRoute(button.dataset.routeFilter);
+  });
+});
+document.querySelectorAll('.expedition-route[data-route-layer]').forEach(function (layer) {
+  var activate = function activate() {
+    return selectMultiRoute(layer.dataset.routeLayer);
+  };
   layer.addEventListener('click', activate);
-  layer.addEventListener('keydown', event => {
+  layer.addEventListener('keydown', function (event) {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       activate();
@@ -420,9 +438,9 @@ document.querySelectorAll('.expedition-route[data-route-layer]').forEach(layer =
 });
 function getSafeStorage() {
   try {
-    const candidate = window.localStorage;
+    var candidate = window.localStorage;
     if (candidate) {
-      const testKey = '__spark_storage_test__';
+      var testKey = '__spark_storage_test__';
       candidate.setItem(testKey, '1');
       candidate.removeItem(testKey);
       return candidate;
@@ -430,24 +448,28 @@ function getSafeStorage() {
   } catch (_) {
     /* App Inventor 2019 disables DOM storage for local WebViewer pages. */
   }
-  const memory = {};
+  var memory = {};
   return {
-    getItem: key => Object.prototype.hasOwnProperty.call(memory, key) ? memory[key] : null,
-    setItem: (key, value) => {
+    getItem: function getItem(key) {
+      return Object.prototype.hasOwnProperty.call(memory, key) ? memory[key] : null;
+    },
+    setItem: function setItem(key, value) {
       memory[key] = String(value);
     },
-    removeItem: key => {
+    removeItem: function removeItem(key) {
       delete memory[key];
     },
-    key: index => Object.keys(memory)[index] || null,
+    key: function key(index) {
+      return Object.keys(memory)[index] || null;
+    },
     get length() {
       return Object.keys(memory).length;
     }
   };
 }
-const storage = getSafeStorage();
-const legacyProgress = Number(storage.getItem('sparkProgress') || 0);
-const state = {
+var storage = getSafeStorage();
+var legacyProgress = Number(storage.getItem('sparkProgress') || 0);
+var state = {
   unlocked: Math.min(6, Math.max(1, Number(storage.getItem('sparkUnlocked') || legacyProgress || 1))),
   completed: JSON.parse(storage.getItem('sparkCompleted') || '[]'),
   currentStation: Math.min(6, Math.max(1, Number(storage.getItem('sparkCurrentStation') || 1))),
@@ -460,12 +482,18 @@ const state = {
   soundEnabled: storage.getItem('sparkSoundEnabled') !== 'false'
 };
 function syncEarnedSpiritClues() {
-  const earned = stations.filter(station => state.completed.includes(station.id)).flatMap(station => station.keywords.map(word => word[0]));
-  state.favorites = [...new Set(earned)];
+  var earned = stations.filter(function (station) {
+    return state.completed.includes(station.id);
+  }).flatMap(function (station) {
+    return station.keywords.map(function (word) {
+      return word[0];
+    });
+  });
+  state.favorites = _toConsumableArray(new Set(earned));
   storage.setItem('sparkFavorites', JSON.stringify(state.favorites));
 }
 syncEarnedSpiritClues();
-state.completed.forEach(id => {
+state.completed.forEach(function (id) {
   if (!state.taskRecords[id]) state.taskRecords[id] = {
     attempts: 1,
     runs: 1,
@@ -473,9 +501,10 @@ state.completed.forEach(id => {
     completedAt: '历史记录'
   };
 });
-let activeTaskRun = null;
-function starText(count = 0) {
-  return `${'★'.repeat(count)}${'☆'.repeat(Math.max(0, 3 - count))}`;
+var activeTaskRun = null;
+function starText() {
+  var count = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  return "".concat('★'.repeat(count)).concat('☆'.repeat(Math.max(0, 3 - count)));
 }
 function beginTaskRun(station) {
   activeTaskRun = {
@@ -483,17 +512,18 @@ function beginTaskRun(station) {
     attempts: 0
   };
 }
-function recordTaskAttempt(station, successful = false) {
+function recordTaskAttempt(station) {
+  var successful = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
   if (!activeTaskRun || activeTaskRun.stationId !== station.id) beginTaskRun(station);
   activeTaskRun.attempts += 1;
-  const previous = state.taskRecords[station.id] || {
+  var previous = state.taskRecords[station.id] || {
     attempts: 0,
     runs: 0,
     bestStars: 0
   };
   previous.attempts += 1;
   if (successful) {
-    const earnedStars = activeTaskRun.attempts === 1 ? 3 : activeTaskRun.attempts === 2 ? 2 : 1;
+    var earnedStars = activeTaskRun.attempts === 1 ? 3 : activeTaskRun.attempts === 2 ? 2 : 1;
     previous.runs += 1;
     previous.lastStars = earnedStars;
     previous.bestStars = Math.max(previous.bestStars || 0, earnedStars);
@@ -504,9 +534,9 @@ function recordTaskAttempt(station, successful = false) {
   return previous;
 }
 function consequence(message) {
-  const station = activeTaskRun ? stations[activeTaskRun.stationId - 1] : null;
+  var station = activeTaskRun ? stations[activeTaskRun.stationId - 1] : null;
   if (station) recordTaskAttempt(station, false);
-  setTaskFeedback(`判断未通过：${message}`, 'error');
+  setTaskFeedback("\u5224\u65AD\u672A\u901A\u8FC7\uFF1A".concat(message), 'error');
 }
 function persistJourney() {
   storage.setItem('sparkUnlocked', state.unlocked);
@@ -515,64 +545,80 @@ function persistJourney() {
   storage.setItem('sparkTaskRecords', JSON.stringify(state.taskRecords));
   storage.removeItem('sparkProgress');
 }
-const shoeStops = [[11, 94], [18, 88], [25, 70], [45, 53], [68, 38], [61, 22], [71, 9]];
-const shoeWearLabels = ['新', '启程', '沾尘', '磨损', '补缀', '破旧', '抵达'];
-const shoeStopNames = ['瑞金出发点', '瑞金', '遵义', '赤水', '泸定', '雪山草地', '会宁'];
-function updateRouteShoes(animate = false) {
-  const shoes = document.querySelector('#routeShoes');
+var shoeStops = [[11, 94], [18, 88], [25, 70], [45, 53], [68, 38], [61, 22], [71, 9]];
+var shoeWearLabels = ['新', '启程', '沾尘', '磨损', '补缀', '破旧', '抵达'];
+var shoeStopNames = ['瑞金出发点', '瑞金', '遵义', '赤水', '泸定', '雪山草地', '会宁'];
+function updateRouteShoes() {
+  var animate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+  var shoes = document.querySelector('#routeShoes');
   if (!shoes) return;
-  const stage = Math.min(6, state.completed.length);
-  const targetIndex = stage;
-  const shownStage = Math.max(0, Number(shoes.dataset.shownStage || 0));
-  const start = shoeStops[Math.min(6, shownStage)];
-  const target = shoeStops[targetIndex];
-  shoes.className = `route-shoes wear-${stage}`;
+  var stage = Math.min(6, state.completed.length);
+  var targetIndex = stage;
+  var shownStage = Math.max(0, Number(shoes.dataset.shownStage || 0));
+  var start = shoeStops[Math.min(6, shownStage)];
+  var target = shoeStops[targetIndex];
+  shoes.className = "route-shoes wear-".concat(stage);
   shoes.querySelector('small').textContent = shoeWearLabels[stage];
-  shoes.setAttribute('aria-label', `草鞋行至${shoeStopNames[targetIndex]}，磨损程度：${shoeWearLabels[stage]}`);
+  shoes.setAttribute('aria-label', "\u8349\u978B\u884C\u81F3".concat(shoeStopNames[targetIndex], "\uFF0C\u78E8\u635F\u7A0B\u5EA6\uFF1A").concat(shoeWearLabels[stage]));
   if (animate && shownStage !== stage) {
-    shoes.style.left = `${start[0]}%`;
-    shoes.style.top = `${start[1]}%`;
+    shoes.style.left = "".concat(start[0], "%");
+    shoes.style.top = "".concat(start[1], "%");
     shoes.getBoundingClientRect();
-    requestAnimationFrame(() => {
-      shoes.style.left = `${target[0]}%`;
-      shoes.style.top = `${target[1]}%`;
+    requestAnimationFrame(function () {
+      shoes.style.left = "".concat(target[0], "%");
+      shoes.style.top = "".concat(target[1], "%");
     });
   } else {
-    shoes.style.left = `${target[0]}%`;
-    shoes.style.top = `${target[1]}%`;
+    shoes.style.left = "".concat(target[0], "%");
+    shoes.style.top = "".concat(target[1], "%");
   }
   shoes.dataset.shownStage = stage;
 }
 function showView(id) {
-  views.forEach(view => view.classList.toggle('is-active', view.id === id));
-  const navId = id === 'station' ? 'route' : id;
-  navButtons.forEach(button => button.classList.toggle('is-active', button.dataset.go === navId));
+  views.forEach(function (view) {
+    return view.classList.toggle('is-active', view.id === id);
+  });
+  var navId = id === 'station' ? 'route' : id;
+  navButtons.forEach(function (button) {
+    return button.classList.toggle('is-active', button.dataset.go === navId);
+  });
   if (id === 'route') updateRouteShoes(true);
   window.scrollTo(0, 0);
 }
-document.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', () => showView(button.dataset.go)));
+document.querySelectorAll('[data-go]').forEach(function (button) {
+  return button.addEventListener('click', function () {
+    return showView(button.dataset.go);
+  });
+});
 function renderRoute() {
-  const route = document.querySelector('#routeStations');
-  route.innerHTML = stations.map(station => {
-    const unlocked = station.id <= state.unlocked;
-    const completed = state.completed.includes(station.id);
-    const current = station.id === state.currentStation;
-    const record = state.taskRecords[station.id];
-    const label = completed && record ? `${starText(record.bestStars)} · ${station.spirit}` : unlocked ? `${station.date.replace('年', '.').replace('月', '')} · ${station.spirit}` : `${station.spirit} · 待解锁`;
-    const edgeClass = parseFloat(station.position[0]) >= 70 ? 'edge-right' : '';
-    const stationStyle = edgeClass ? `right:8px;top:${station.position[1]}` : `left:${station.position[0]};top:${station.position[1]}`;
-    const shoeSvg = `<svg viewBox="0 0 46 42" focusable="false"><g class="sole sole-left"><path d="M7 4C12 1 18 3 19 9L20 28C20 35 15 39 9 36C5 34 4 29 5 23L4 11C4 8 5 6 7 4Z"/><path class="strap" d="M6 13L19 22M18 12L6 23"/></g><g class="sole sole-right"><path d="M27 7C28 2 34 0 39 3C42 5 43 8 42 12L41 25C42 31 40 36 36 38C30 40 25 36 26 29L26 12C26 10 26 8 27 7Z"/><path class="strap" d="M27 14L41 22M40 12L27 24"/></g></svg>`;
-    return `<button class="station ${edgeClass} ${unlocked ? 'open' : 'locked'} ${completed ? 'completed' : ''} ${current ? 'current' : ''}" style="${stationStyle}" data-station="${station.id}" aria-label="${station.name}${unlocked ? '' : '，尚未解锁'}"><i class="shoe-stop shoe-wear-${station.id}" aria-hidden="true">${shoeSvg}<b>${String(station.id).padStart(2, '0')}</b></i><div><strong>${station.name}</strong><small>${label}</small></div></button>`;
+  var route = document.querySelector('#routeStations');
+  route.innerHTML = stations.map(function (station) {
+    var unlocked = station.id <= state.unlocked;
+    var completed = state.completed.includes(station.id);
+    var current = station.id === state.currentStation;
+    var record = state.taskRecords[station.id];
+    var label = completed && record ? "".concat(starText(record.bestStars), " \xB7 ").concat(station.spirit) : unlocked ? "".concat(station.date.replace('年', '.').replace('月', ''), " \xB7 ").concat(station.spirit) : "".concat(station.spirit, " \xB7 \u5F85\u89E3\u9501");
+    var edgeClass = parseFloat(station.position[0]) >= 70 ? 'edge-right' : '';
+    var stationStyle = edgeClass ? "right:8px;top:".concat(station.position[1]) : "left:".concat(station.position[0], ";top:").concat(station.position[1]);
+    var shoeSvg = "<svg viewBox=\"0 0 46 42\" focusable=\"false\"><g class=\"sole sole-left\"><path d=\"M7 4C12 1 18 3 19 9L20 28C20 35 15 39 9 36C5 34 4 29 5 23L4 11C4 8 5 6 7 4Z\"/><path class=\"strap\" d=\"M6 13L19 22M18 12L6 23\"/></g><g class=\"sole sole-right\"><path d=\"M27 7C28 2 34 0 39 3C42 5 43 8 42 12L41 25C42 31 40 36 36 38C30 40 25 36 26 29L26 12C26 10 26 8 27 7Z\"/><path class=\"strap\" d=\"M27 14L41 22M40 12L27 24\"/></g></svg>";
+    return "<button class=\"station ".concat(edgeClass, " ").concat(unlocked ? 'open' : 'locked', " ").concat(completed ? 'completed' : '', " ").concat(current ? 'current' : '', "\" style=\"").concat(stationStyle, "\" data-station=\"").concat(station.id, "\" aria-label=\"").concat(station.name).concat(unlocked ? '' : '，尚未解锁', "\"><i class=\"shoe-stop shoe-wear-").concat(station.id, "\" aria-hidden=\"true\">").concat(shoeSvg, "<b>").concat(String(station.id).padStart(2, '0'), "</b></i><div><strong>").concat(station.name, "</strong><small>").concat(label, "</small></div></button>");
   }).join('');
-  route.querySelectorAll('.station').forEach(button => button.addEventListener('click', () => openStation(Number(button.dataset.station))));
-  const current = stations[state.currentStation - 1];
-  const totalStars = stations.reduce((sum, station) => sum + (state.taskRecords[station.id]?.bestStars || 0), 0);
-  document.querySelector('#routeNoteTitle').textContent = state.completed.length === 6 ? '长征路线已完成' : `当前研学 · 第 ${String(current.id).padStart(2, '0')} 站`;
-  document.querySelector('#routeNoteText').textContent = state.completed.length === 6 ? `六站研学全部完成，当前最佳总成绩 ${totalStars}/18 星。你可以返回任意站点刷新成绩。` : `继续前往${current.name}。完成本站后点亮下一站；当前累计 ${totalStars}/18 星。`;
+  route.querySelectorAll('.station').forEach(function (button) {
+    return button.addEventListener('click', function () {
+      return openStation(Number(button.dataset.station));
+    });
+  });
+  var current = stations[state.currentStation - 1];
+  var totalStars = stations.reduce(function (sum, station) {
+    var _state$taskRecords$st;
+    return sum + (((_state$taskRecords$st = state.taskRecords[station.id]) === null || _state$taskRecords$st === void 0 ? void 0 : _state$taskRecords$st.bestStars) || 0);
+  }, 0);
+  document.querySelector('#routeNoteTitle').textContent = state.completed.length === 6 ? '长征路线已完成' : "\u5F53\u524D\u7814\u5B66 \xB7 \u7B2C ".concat(String(current.id).padStart(2, '0'), " \u7AD9");
+  document.querySelector('#routeNoteText').textContent = state.completed.length === 6 ? "\u516D\u7AD9\u7814\u5B66\u5168\u90E8\u5B8C\u6210\uFF0C\u5F53\u524D\u6700\u4F73\u603B\u6210\u7EE9 ".concat(totalStars, "/18 \u661F\u3002\u4F60\u53EF\u4EE5\u8FD4\u56DE\u4EFB\u610F\u7AD9\u70B9\u5237\u65B0\u6210\u7EE9\u3002") : "\u7EE7\u7EED\u524D\u5F80".concat(current.name, "\u3002\u5B8C\u6210\u672C\u7AD9\u540E\u70B9\u4EAE\u4E0B\u4E00\u7AD9\uFF1B\u5F53\u524D\u7D2F\u8BA1 ").concat(totalStars, "/18 \u661F\u3002");
   if (document.querySelector('#route').classList.contains('is-active')) updateRouteShoes(true);
 }
 function openStation(id) {
-  if (id > state.unlocked) return toast(`请先完成第 ${id - 1} 站`);
+  if (id > state.unlocked) return toast("\u8BF7\u5148\u5B8C\u6210\u7B2C ".concat(id - 1, " \u7AD9"));
   state.currentStation = id;
   persistJourney();
   renderStation(stations[id - 1]);
@@ -581,80 +627,80 @@ function openStation(id) {
 }
 function renderStation(station) {
   document.querySelector('.station-cover').setAttribute('data-station-no', String(station.id).padStart(2, '0'));
-  document.querySelector('#stationIndex').textContent = `STATION ${String(station.id).padStart(2, '0')} / 06`;
-  document.querySelector('#stationMeta').textContent = `${station.date} · ${station.place}`;
+  document.querySelector('#stationIndex').textContent = "STATION ".concat(String(station.id).padStart(2, '0'), " / 06");
+  document.querySelector('#stationMeta').textContent = "".concat(station.date, " \xB7 ").concat(station.place);
   document.querySelector('#stationTitle').innerHTML = station.title;
   document.querySelector('#stationSeal').textContent = station.seal;
-  document.querySelector('#factStrip').innerHTML = station.facts.map(item => `<div><span>${item[0]}</span><strong>${item[1]}</strong></div>`).join('');
+  document.querySelector('#factStrip').innerHTML = station.facts.map(function (item) {
+    return "<div><span>".concat(item[0], "</span><strong>").concat(item[1], "</strong></div>");
+  }).join('');
   document.querySelector('#stationBackground').textContent = station.background;
   document.querySelector('#stationArchive').textContent = station.archive;
   document.querySelector('#stationExplain').textContent = station.explain;
-  document.querySelector('#inquiryLadder').innerHTML = `<div><span>THINK / 三层思考</span><strong>从史实走向行动</strong></div>${inquiryLayers[station.id].map((question, index) => `<article><i>0${index + 1}</i><div><b>${['看见史实', '理解选择', '联系今天'][index]}</b><p>${question}</p></div></article>`).join('')}`;
-  const profile = archiveProfiles[station.id];
-  document.querySelector('#profileCard').innerHTML = `<div class="profile-mark"><span>${profile.type}</span><b>${String(station.id).padStart(2, '0')}</b></div><div class="profile-copy"><small>PEOPLE / 人物与群像</small><h3>${profile.name}</h3><em>${profile.role}</em><dl><div><dt>当时处境</dt><dd>${profile.situation}</dd></div><div><dt>作出行动</dt><dd>${profile.action}</dd></div><div><dt>读懂精神</dt><dd>${profile.meaning}</dd></div></dl></div>`;
-  document.querySelector('#evidenceCard').innerHTML = `<div class="evidence-top"><span>EVIDENCE / 史料阅读</span><b>${profile.materialType}</b></div><h3>${profile.material}</h3><p>${profile.materialText}</p><div class="evidence-question"><b>从材料中发现</b><p>${profile.question}</p></div><a href="${profile.source[1]}" target="_blank" rel="noopener">${profile.source[0]} ↗</a>`;
-  document.querySelector('#stationSources').innerHTML = station.sources.map((source, index) => `<a href="${source[1]}" target="_blank" rel="noopener"><i>${String(index + 1).padStart(2, '0')}</i><span>${source[0]}</span><b>↗</b></a>`).join('');
+  document.querySelector('#inquiryLadder').innerHTML = "<div><span>THINK / \u4E09\u5C42\u601D\u8003</span><strong>\u4ECE\u53F2\u5B9E\u8D70\u5411\u884C\u52A8</strong></div>".concat(inquiryLayers[station.id].map(function (question, index) {
+    return "<article><i>0".concat(index + 1, "</i><div><b>").concat(['看见史实', '理解选择', '联系今天'][index], "</b><p>").concat(question, "</p></div></article>");
+  }).join(''));
+  var profile = archiveProfiles[station.id];
+  document.querySelector('#profileCard').innerHTML = "<div class=\"profile-mark\"><span>".concat(profile.type, "</span><b>").concat(String(station.id).padStart(2, '0'), "</b></div><div class=\"profile-copy\"><small>PEOPLE / \u4EBA\u7269\u4E0E\u7FA4\u50CF</small><h3>").concat(profile.name, "</h3><em>").concat(profile.role, "</em><dl><div><dt>\u5F53\u65F6\u5904\u5883</dt><dd>").concat(profile.situation, "</dd></div><div><dt>\u4F5C\u51FA\u884C\u52A8</dt><dd>").concat(profile.action, "</dd></div><div><dt>\u8BFB\u61C2\u7CBE\u795E</dt><dd>").concat(profile.meaning, "</dd></div></dl></div>");
+  document.querySelector('#evidenceCard').innerHTML = "<div class=\"evidence-top\"><span>EVIDENCE / \u53F2\u6599\u9605\u8BFB</span><b>".concat(profile.materialType, "</b></div><h3>").concat(profile.material, "</h3><p>").concat(profile.materialText, "</p><div class=\"evidence-question\"><b>\u4ECE\u6750\u6599\u4E2D\u53D1\u73B0</b><p>").concat(profile.question, "</p></div><a href=\"").concat(profile.source[1], "\" target=\"_blank\" rel=\"noopener\">").concat(profile.source[0], " \u2197</a>");
+  document.querySelector('#stationSources').innerHTML = station.sources.map(function (source, index) {
+    return "<a href=\"".concat(source[1], "\" target=\"_blank\" rel=\"noopener\"><i>").concat(String(index + 1).padStart(2, '0'), "</i><span>").concat(source[0], "</span><b>\u2197</b></a>");
+  }).join('');
   document.querySelector('#chainTitle').innerHTML = station.chainTitle;
-  document.querySelector('#causalChain').innerHTML = station.chain.map((item, index) => `${index ? '<span>↓</span>' : ''}<div class="${index === station.chain.length - 1 ? 'result' : ''}"><i>${item[0]}</i><p>${item[1]}</p></div>`).join('');
-  document.querySelector('#keywordCards').innerHTML = station.keywords.map((word, index) => `
-    <article class="keyword-card ${index ? 'alt' : ''}">
-      <div class="keyword-no">0${index + 1}</div><small>SPIRIT CLUE / 精神线索</small><h3>${word[0]}</h3>
-      <div class="spirit-proof"><b>历史证据</b><p>${spiritEvidence[station.id][index]}</p></div>
-      <div class="spirit-proof reasoning"><b>判断依据</b><p>${word[1]}</p></div>
-      <div class="keyword-example"><b>今日行动</b>${word[2]}</div>
-      <div class="clue-status ${state.completed.includes(station.id) ? 'is-earned' : ''}">${state.completed.includes(station.id) ? '✓ 已随本站任务收入星火档案' : '完成本站任务后，自动收入星火档案'}</div>
-    </article>`).join('') + renderSpiritJudgment(station);
+  document.querySelector('#causalChain').innerHTML = station.chain.map(function (item, index) {
+    return "".concat(index ? '<span>↓</span>' : '', "<div class=\"").concat(index === station.chain.length - 1 ? 'result' : '', "\"><i>").concat(item[0], "</i><p>").concat(item[1], "</p></div>");
+  }).join('');
+  document.querySelector('#keywordCards').innerHTML = station.keywords.map(function (word, index) {
+    return "\n    <article class=\"keyword-card ".concat(index ? 'alt' : '', "\">\n      <div class=\"keyword-no\">0").concat(index + 1, "</div><small>SPIRIT CLUE / \u7CBE\u795E\u7EBF\u7D22</small><h3>").concat(word[0], "</h3>\n      <div class=\"spirit-proof\"><b>\u5386\u53F2\u8BC1\u636E</b><p>").concat(spiritEvidence[station.id][index], "</p></div>\n      <div class=\"spirit-proof reasoning\"><b>\u5224\u65AD\u4F9D\u636E</b><p>").concat(word[1], "</p></div>\n      <div class=\"keyword-example\"><b>\u4ECA\u65E5\u884C\u52A8</b>").concat(word[2], "</div>\n      <div class=\"clue-status ").concat(state.completed.includes(station.id) ? 'is-earned' : '', "\">").concat(state.completed.includes(station.id) ? '✓ 已随本站任务收入星火档案' : '完成本站任务后，自动收入星火档案', "</div>\n    </article>");
+  }).join('') + renderSpiritJudgment(station);
   bindSpiritJudgment(station);
   renderTask(station);
   activatePanel('facts');
 }
 function renderSpiritJudgment(station) {
-  const question = spiritJudgmentQuestions[station.id];
-  const completed = state.completed.includes(station.id);
-  const passed = Boolean(state.spiritJudgments[station.id]);
-  return `<section class="spirit-judgment ${passed ? 'is-passed' : ''}">
-    <div class="judgment-head"><span>CLUE CHECK / 线索辨析</span><b>${passed ? '已通过' : '1 道判断'}</b></div>
-    <h3>哪条精神线索更贴近史实？</h3>
-    <p>${question.scene}</p>
-    <div class="judgment-options">${station.keywords.map((word, index) => `<button data-spirit-answer="${index}" ${!completed || passed ? 'disabled' : ''}><i>${String.fromCharCode(65 + index)}</i><span>${word[0]}</span></button>`).join('')}</div>
-    <div class="judgment-feedback" aria-live="polite">${passed ? `✓ ${question.explain}` : completed ? '选择后要能说出判断依据。' : '完成本站任务后开放辨析。'}</div>
-  </section>`;
+  var question = spiritJudgmentQuestions[station.id];
+  var completed = state.completed.includes(station.id);
+  var passed = Boolean(state.spiritJudgments[station.id]);
+  return "<section class=\"spirit-judgment ".concat(passed ? 'is-passed' : '', "\">\n    <div class=\"judgment-head\"><span>CLUE CHECK / \u7EBF\u7D22\u8FA8\u6790</span><b>").concat(passed ? '已通过' : '1 道判断', "</b></div>\n    <h3>\u54EA\u6761\u7CBE\u795E\u7EBF\u7D22\u66F4\u8D34\u8FD1\u53F2\u5B9E\uFF1F</h3>\n    <p>").concat(question.scene, "</p>\n    <div class=\"judgment-options\">").concat(station.keywords.map(function (word, index) {
+    return "<button data-spirit-answer=\"".concat(index, "\" ").concat(!completed || passed ? 'disabled' : '', "><i>").concat(String.fromCharCode(65 + index), "</i><span>").concat(word[0], "</span></button>");
+  }).join(''), "</div>\n    <div class=\"judgment-feedback\" aria-live=\"polite\">").concat(passed ? "\u2713 ".concat(question.explain) : completed ? '选择后要能说出判断依据。' : '完成本站任务后开放辨析。', "</div>\n  </section>");
 }
 function bindSpiritJudgment(station) {
-  document.querySelectorAll('[data-spirit-answer]').forEach(button => button.addEventListener('click', () => {
-    const question = spiritJudgmentQuestions[station.id];
-    const selected = Number(button.dataset.spiritAnswer);
-    const feedback = document.querySelector('.judgment-feedback');
-    document.querySelectorAll('[data-spirit-answer]').forEach(option => option.classList.remove('wrong'));
-    if (selected !== question.answer) {
-      button.classList.add('wrong');
-      feedback.textContent = '再想一想：这段史实中，人物具体做了什么？';
-      return;
-    }
-    state.spiritJudgments[station.id] = true;
-    storage.setItem('sparkSpiritJudgments', JSON.stringify(state.spiritJudgments));
-    document.querySelector('#keywordCards').innerHTML = station.keywords.map((word, index) => `
-      <article class="keyword-card ${index ? 'alt' : ''}">
-        <div class="keyword-no">0${index + 1}</div><small>SPIRIT CLUE / 精神线索</small><h3>${word[0]}</h3>
-        <div class="spirit-proof"><b>历史证据</b><p>${spiritEvidence[station.id][index]}</p></div>
-        <div class="spirit-proof reasoning"><b>判断依据</b><p>${word[1]}</p></div>
-        <div class="keyword-example"><b>今日行动</b>${word[2]}</div>
-        <div class="clue-status is-earned">✓ 已随本站任务收入星火档案</div>
-      </article>`).join('') + renderSpiritJudgment(station);
-    renderFavorites();
-    renderSpiritKit();
-    toast('辨析正确，本站线索已加入精神行囊候选');
-    playTone('success');
-  }));
+  document.querySelectorAll('[data-spirit-answer]').forEach(function (button) {
+    return button.addEventListener('click', function () {
+      var question = spiritJudgmentQuestions[station.id];
+      var selected = Number(button.dataset.spiritAnswer);
+      var feedback = document.querySelector('.judgment-feedback');
+      document.querySelectorAll('[data-spirit-answer]').forEach(function (option) {
+        return option.classList.remove('wrong');
+      });
+      if (selected !== question.answer) {
+        button.classList.add('wrong');
+        feedback.textContent = '再想一想：这段史实中，人物具体做了什么？';
+        return;
+      }
+      state.spiritJudgments[station.id] = true;
+      storage.setItem('sparkSpiritJudgments', JSON.stringify(state.spiritJudgments));
+      document.querySelector('#keywordCards').innerHTML = station.keywords.map(function (word, index) {
+        return "\n      <article class=\"keyword-card ".concat(index ? 'alt' : '', "\">\n        <div class=\"keyword-no\">0").concat(index + 1, "</div><small>SPIRIT CLUE / \u7CBE\u795E\u7EBF\u7D22</small><h3>").concat(word[0], "</h3>\n        <div class=\"spirit-proof\"><b>\u5386\u53F2\u8BC1\u636E</b><p>").concat(spiritEvidence[station.id][index], "</p></div>\n        <div class=\"spirit-proof reasoning\"><b>\u5224\u65AD\u4F9D\u636E</b><p>").concat(word[1], "</p></div>\n        <div class=\"keyword-example\"><b>\u4ECA\u65E5\u884C\u52A8</b>").concat(word[2], "</div>\n        <div class=\"clue-status is-earned\">\u2713 \u5DF2\u968F\u672C\u7AD9\u4EFB\u52A1\u6536\u5165\u661F\u706B\u6863\u6848</div>\n      </article>");
+      }).join('') + renderSpiritJudgment(station);
+      renderFavorites();
+      renderSpiritKit();
+      toast('辨析正确，本站线索已加入精神行囊候选');
+      playTone('success');
+    });
+  });
 }
-let activeTaskTimer = null;
+var activeTaskTimer = null;
 function finishTask(station) {
-  const id = station.id;
-  const record = recordTaskAttempt(station, true);
-  const earnedStars = record.lastStars || 1;
-  const newlyCompleted = !state.completed.includes(id);
+  var id = station.id;
+  var record = recordTaskAttempt(station, true);
+  var earnedStars = record.lastStars || 1;
+  var newlyCompleted = !state.completed.includes(id);
   if (newlyCompleted) state.completed.push(id);
-  state.completed.sort((a, b) => a - b);
+  state.completed.sort(function (a, b) {
+    return a - b;
+  });
   syncEarnedSpiritClues();
   if (newlyCompleted && id < stations.length) {
     state.unlocked = Math.max(state.unlocked, id + 1);
@@ -665,58 +711,64 @@ function finishTask(station) {
   renderFavorites();
   renderStationClueStatus(station);
   renderTask(station);
-  const message = id === 6 ? `六站研学全部完成！本次获得${earnedStars}星，两条精神线索已归档。` : `任务成功！本次获得${earnedStars}星，两条精神线索已归档，第 ${id + 1} 站“${stations[id].name}”已点亮。`;
+  var message = id === 6 ? "\u516D\u7AD9\u7814\u5B66\u5168\u90E8\u5B8C\u6210\uFF01\u672C\u6B21\u83B7\u5F97".concat(earnedStars, "\u661F\uFF0C\u4E24\u6761\u7CBE\u795E\u7EBF\u7D22\u5DF2\u5F52\u6863\u3002") : "\u4EFB\u52A1\u6210\u529F\uFF01\u672C\u6B21\u83B7\u5F97".concat(earnedStars, "\u661F\uFF0C\u4E24\u6761\u7CBE\u795E\u7EBF\u7D22\u5DF2\u5F52\u6863\uFF0C\u7B2C ").concat(id + 1, " \u7AD9\u201C").concat(stations[id].name, "\u201D\u5DF2\u70B9\u4EAE\u3002");
   setTaskFeedback(message, 'success');
-  toast(id === 6 ? '六站长征路全部完成' : `已点亮${stations[id].name}站`);
+  toast(id === 6 ? '六站长征路全部完成' : "\u5DF2\u70B9\u4EAE".concat(stations[id].name, "\u7AD9"));
   playTone('success');
   if (newlyCompleted) showStampCeremony(station, record);
 }
 function renderStationClueStatus(station) {
-  document.querySelectorAll('#keywordCards .clue-status').forEach(node => {
+  document.querySelectorAll('#keywordCards .clue-status').forEach(function (node) {
     node.classList.add('is-earned');
     node.textContent = '✓ 已随本站任务收入星火档案';
   });
-  const judgment = document.querySelector('.spirit-judgment');
+  var judgment = document.querySelector('.spirit-judgment');
   if (judgment && station) {
     judgment.outerHTML = renderSpiritJudgment(station);
     bindSpiritJudgment(station);
   }
 }
 function showStampCeremony(station, record) {
-  const ceremony = document.querySelector('#stampCeremony');
-  document.querySelector('#stampStation').textContent = `${station.date} · ${station.name}`;
+  var ceremony = document.querySelector('#stampCeremony');
+  document.querySelector('#stampStation').textContent = "".concat(station.date, " \xB7 ").concat(station.name);
   document.querySelector('#stampSeal').textContent = station.seal;
   document.querySelector('#stampSpirit').textContent = station.spirit;
   document.querySelector('#stampStars').textContent = starText(record.lastStars);
-  document.querySelector('#stampScoreNote').textContent = `本次 ${record.lastStars} 星 · 最佳 ${record.bestStars} 星 · 两条精神线索已归档`;
+  document.querySelector('#stampScoreNote').textContent = "\u672C\u6B21 ".concat(record.lastStars, " \u661F \xB7 \u6700\u4F73 ").concat(record.bestStars, " \u661F \xB7 \u4E24\u6761\u7CBE\u795E\u7EBF\u7D22\u5DF2\u5F52\u6863");
   ceremony.hidden = false;
-  requestAnimationFrame(() => ceremony.classList.add('is-visible'));
+  requestAnimationFrame(function () {
+    return ceremony.classList.add('is-visible');
+  });
 }
 function closeStampCeremony() {
-  const ceremony = document.querySelector('#stampCeremony');
+  var ceremony = document.querySelector('#stampCeremony');
   ceremony.classList.remove('is-visible');
-  window.setTimeout(() => {
+  window.setTimeout(function () {
     ceremony.hidden = true;
   }, 220);
 }
-document.querySelector('#closeStamp').addEventListener('click', () => {
+document.querySelector('#closeStamp').addEventListener('click', function () {
   closeStampCeremony();
-  window.setTimeout(() => showView('route'), 220);
+  window.setTimeout(function () {
+    return showView('route');
+  }, 220);
 });
-document.querySelector('#stampCeremony').addEventListener('click', event => {
+document.querySelector('#stampCeremony').addEventListener('click', function (event) {
   if (event.target.id === 'stampCeremony') closeStampCeremony();
 });
-function setTaskFeedback(message, type = '') {
-  const feedback = document.querySelector('#taskFeedback');
+function setTaskFeedback(message) {
+  var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+  var feedback = document.querySelector('#taskFeedback');
   feedback.textContent = message;
-  feedback.className = `task-feedback ${type}`;
+  feedback.className = "task-feedback ".concat(type);
 }
-function renderTask(station, replay = false) {
+function renderTask(station) {
+  var replay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
   if (activeTaskTimer) clearInterval(activeTaskTimer);
   activeTaskTimer = null;
-  const task = station.task;
-  const completed = state.completed.includes(station.id) && !replay;
-  const taskLabels = {
+  var task = station.task;
+  var completed = state.completed.includes(station.id) && !replay;
+  var taskLabels = {
     causal: '因果排序',
     deduction: '逻辑推理',
     routePuzzle: '路线拼图',
@@ -724,27 +776,29 @@ function renderTask(station, replay = false) {
     sudoku: '行军数独',
     matching: '会师配对'
   };
-  document.querySelector('#taskTag').textContent = `${taskLabels[task.type] || task.type.toUpperCase()} / 站点任务`;
-  document.querySelector('#taskTitle').textContent = completed ? `${station.name}站任务完成` : task.title;
-  document.querySelector('#taskCopy').textContent = completed ? `你已经获得“${station.spirit}”印记。可以继续下一站，也可以再次挑战。` : task.copy;
-  const taskHints = taskCompatibilityHints[task.type] || ['操作', '完成任务', '目标', '理解历史选择'];
-  document.querySelector('#taskRuleStrip').innerHTML = `<div><span>${taskHints[0]}</span><b>${taskHints[1]}</b></div><div><span>${taskHints[2]}</span><b>${taskHints[3]}</b></div><small>首次通过 3 星 · 第二次 2 星 · 其后 1 星</small>`;
-  const boundary = document.querySelector('#historyBoundary');
+  document.querySelector('#taskTag').textContent = "".concat(taskLabels[task.type] || task.type.toUpperCase(), " / \u7AD9\u70B9\u4EFB\u52A1");
+  document.querySelector('#taskTitle').textContent = completed ? "".concat(station.name, "\u7AD9\u4EFB\u52A1\u5B8C\u6210") : task.title;
+  document.querySelector('#taskCopy').textContent = completed ? "\u4F60\u5DF2\u7ECF\u83B7\u5F97\u201C".concat(station.spirit, "\u201D\u5370\u8BB0\u3002\u53EF\u4EE5\u7EE7\u7EED\u4E0B\u4E00\u7AD9\uFF0C\u4E5F\u53EF\u4EE5\u518D\u6B21\u6311\u6218\u3002") : task.copy;
+  var taskHints = taskCompatibilityHints[task.type] || ['操作', '完成任务', '目标', '理解历史选择'];
+  document.querySelector('#taskRuleStrip').innerHTML = "<div><span>".concat(taskHints[0], "</span><b>").concat(taskHints[1], "</b></div><div><span>").concat(taskHints[2], "</span><b>").concat(taskHints[3], "</b></div><small>\u9996\u6B21\u901A\u8FC7 3 \u661F \xB7 \u7B2C\u4E8C\u6B21 2 \u661F \xB7 \u5176\u540E 1 \u661F</small>");
+  var boundary = document.querySelector('#historyBoundary');
   boundary.hidden = !historyBoundaries[station.id];
   boundary.textContent = historyBoundaries[station.id] || '';
   document.querySelector('#taskFeedback').className = 'task-feedback';
   document.querySelector('#taskFeedback').textContent = '';
-  const mount = document.querySelector('#taskMount');
+  var mount = document.querySelector('#taskMount');
   if (completed) {
-    const impact = taskImpacts[station.id];
-    const record = state.taskRecords[station.id] || {
+    var impact = taskImpacts[station.id];
+    var record = state.taskRecords[station.id] || {
       attempts: 1,
       runs: 1,
       bestStars: 3,
       lastStars: 3
     };
-    mount.innerHTML = `<div class="task-complete"><span>✓</span><div><strong>${station.spirit}</strong><small>SPIRIT MARK ACQUIRED</small></div></div><div class="task-score-slip"><div><span>最佳成绩</span><strong>${starText(record.bestStars)}</strong></div><dl><div><dt>最近一次</dt><dd>${record.lastStars || record.bestStars} 星</dd></div><div><dt>累计作答</dt><dd>${record.attempts} 次</dd></div><div><dt>完成轮次</dt><dd>${record.runs || 1} 次</dd></div></dl></div><div class="decision-summary"><span>本次决策总结</span><p>${impact.summary}</p></div><button class="task-action ghost" id="replayTask">再次挑战 · 刷新最佳</button>`;
-    document.querySelector('#replayTask').addEventListener('click', () => renderTask(station, true));
+    mount.innerHTML = "<div class=\"task-complete\"><span>\u2713</span><div><strong>".concat(station.spirit, "</strong><small>SPIRIT MARK ACQUIRED</small></div></div><div class=\"task-score-slip\"><div><span>\u6700\u4F73\u6210\u7EE9</span><strong>").concat(starText(record.bestStars), "</strong></div><dl><div><dt>\u6700\u8FD1\u4E00\u6B21</dt><dd>").concat(record.lastStars || record.bestStars, " \u661F</dd></div><div><dt>\u7D2F\u8BA1\u4F5C\u7B54</dt><dd>").concat(record.attempts, " \u6B21</dd></div><div><dt>\u5B8C\u6210\u8F6E\u6B21</dt><dd>").concat(record.runs || 1, " \u6B21</dd></div></dl></div><div class=\"decision-summary\"><span>\u672C\u6B21\u51B3\u7B56\u603B\u7ED3</span><p>").concat(impact.summary, "</p></div><button class=\"task-action ghost\" id=\"replayTask\">\u518D\u6B21\u6311\u6218 \xB7 \u5237\u65B0\u6700\u4F73</button>");
+    document.querySelector('#replayTask').addEventListener('click', function () {
+      return renderTask(station, true);
+    });
     return;
   }
   beginTaskRun(station);
@@ -756,156 +810,212 @@ function renderTask(station, replay = false) {
   if (task.type === 'matching') renderMatchingTask(station, mount);
 }
 function renderSequenceTask(station, mount, actionLabel) {
-  const order = [...station.task.start];
-  const draw = () => {
-    const routeClass = station.task.type === 'routePuzzle' ? ' route-puzzle-list' : '';
-    mount.innerHTML = `<div class="puzzle-instruction"><span>拖动替代操作</span><b>使用箭头调整卡片顺序</b></div><div class="order-list${routeClass}">${order.map((item, index) => {
-      const parts = item.split('｜');
-      return `<div><i>${String(index + 1).padStart(2, '0')}</i><strong>${parts[0]}${parts.length > 1 ? `<small>${parts.slice(1).join(' · ')}</small>` : ''}</strong><span><button data-up="${index}" ${index === 0 ? 'disabled' : ''} aria-label="上移${parts[0]}">↑</button><button data-down="${index}" ${index === order.length - 1 ? 'disabled' : ''} aria-label="下移${parts[0]}">↓</button></span></div>`;
-    }).join('')}</div><button class="task-action" id="checkSequence">${actionLabel}</button>`;
-    mount.querySelectorAll('[data-up]').forEach(button => button.addEventListener('click', () => {
-      const i = Number(button.dataset.up);
-      [order[i - 1], order[i]] = [order[i], order[i - 1]];
-      draw();
-    }));
-    mount.querySelectorAll('[data-down]').forEach(button => button.addEventListener('click', () => {
-      const i = Number(button.dataset.down);
-      [order[i + 1], order[i]] = [order[i], order[i + 1]];
-      draw();
-    }));
-    document.querySelector('#checkSequence').addEventListener('click', () => {
-      if (order.every((item, index) => item === station.task.items[index])) return finishTask(station);
+  var order = _toConsumableArray(station.task.start);
+  var _draw = function draw() {
+    var routeClass = station.task.type === 'routePuzzle' ? ' route-puzzle-list' : '';
+    mount.innerHTML = "<div class=\"puzzle-instruction\"><span>\u62D6\u52A8\u66FF\u4EE3\u64CD\u4F5C</span><b>\u4F7F\u7528\u7BAD\u5934\u8C03\u6574\u5361\u7247\u987A\u5E8F</b></div><div class=\"order-list".concat(routeClass, "\">").concat(order.map(function (item, index) {
+      var parts = item.split('｜');
+      return "<div><i>".concat(String(index + 1).padStart(2, '0'), "</i><strong>").concat(parts[0]).concat(parts.length > 1 ? "<small>".concat(parts.slice(1).join(' · '), "</small>") : '', "</strong><span><button data-up=\"").concat(index, "\" ").concat(index === 0 ? 'disabled' : '', " aria-label=\"\u4E0A\u79FB").concat(parts[0], "\">\u2191</button><button data-down=\"").concat(index, "\" ").concat(index === order.length - 1 ? 'disabled' : '', " aria-label=\"\u4E0B\u79FB").concat(parts[0], "\">\u2193</button></span></div>");
+    }).join(''), "</div><button class=\"task-action\" id=\"checkSequence\">").concat(actionLabel, "</button>");
+    mount.querySelectorAll('[data-up]').forEach(function (button) {
+      return button.addEventListener('click', function () {
+        var i = Number(button.dataset.up);
+        var _ref = [order[i], order[i - 1]];
+        order[i - 1] = _ref[0];
+        order[i] = _ref[1];
+        _draw();
+      });
+    });
+    mount.querySelectorAll('[data-down]').forEach(function (button) {
+      return button.addEventListener('click', function () {
+        var i = Number(button.dataset.down);
+        var _ref2 = [order[i], order[i + 1]];
+        order[i + 1] = _ref2[0];
+        order[i] = _ref2[1];
+        _draw();
+      });
+    });
+    document.querySelector('#checkSequence').addEventListener('click', function () {
+      if (order.every(function (item, index) {
+        return item === station.task.items[index];
+      })) return finishTask(station);
       consequence(station.task.type === 'routePuzzle' ? '渡河日期或方向还没有正确衔接。先找最早的一渡，再观察“向西—向东—向西—向东”的变化。' : '因果链还没有接通。先找造成形势变化的原因，再连接决定、行动与结果。');
     });
   };
-  draw();
+  _draw();
 }
 function renderDeductionTask(station, mount) {
-  const selected = new Set();
-  mount.innerHTML = `<div class="clue-board"><span>史实线索</span>${station.task.clues.map((clue, index) => `<p><i>0${index + 1}</i>${clue}</p>`).join('')}</div><div class="deduction-options">${station.task.options.map((option, index) => `<button data-deduction="${index}"><i>${String.fromCharCode(65 + index)}</i><span>${option}</span><b>○</b></button>`).join('')}</div><div class="task-counter">已选择 <b id="deductionCount">0</b> / 2</div><button class="task-action" id="checkDeduction">验证结论</button>`;
-  mount.querySelectorAll('[data-deduction]').forEach(button => button.addEventListener('click', () => {
-    const index = Number(button.dataset.deduction);
-    if (selected.has(index)) selected.delete(index);else if (selected.size < 2) selected.add(index);else return setTaskFeedback('只能选择两项，请先取消一项。', 'error');
-    button.classList.toggle('selected', selected.has(index));
-    button.querySelector('b').textContent = selected.has(index) ? '●' : '○';
-    document.querySelector('#deductionCount').textContent = selected.size;
-    setTaskFeedback('');
-  }));
-  document.querySelector('#checkDeduction').addEventListener('click', () => {
+  var selected = new Set();
+  mount.innerHTML = "<div class=\"clue-board\"><span>\u53F2\u5B9E\u7EBF\u7D22</span>".concat(station.task.clues.map(function (clue, index) {
+    return "<p><i>0".concat(index + 1, "</i>").concat(clue, "</p>");
+  }).join(''), "</div><div class=\"deduction-options\">").concat(station.task.options.map(function (option, index) {
+    return "<button data-deduction=\"".concat(index, "\"><i>").concat(String.fromCharCode(65 + index), "</i><span>").concat(option, "</span><b>\u25CB</b></button>");
+  }).join(''), "</div><div class=\"task-counter\">\u5DF2\u9009\u62E9 <b id=\"deductionCount\">0</b> / 2</div><button class=\"task-action\" id=\"checkDeduction\">\u9A8C\u8BC1\u7ED3\u8BBA</button>");
+  mount.querySelectorAll('[data-deduction]').forEach(function (button) {
+    return button.addEventListener('click', function () {
+      var index = Number(button.dataset.deduction);
+      if (selected.has(index)) selected.delete(index);else if (selected.size < 2) selected.add(index);else return setTaskFeedback('只能选择两项，请先取消一项。', 'error');
+      button.classList.toggle('selected', selected.has(index));
+      button.querySelector('b').textContent = selected.has(index) ? '●' : '○';
+      document.querySelector('#deductionCount').textContent = selected.size;
+      setTaskFeedback('');
+    });
+  });
+  document.querySelector('#checkDeduction').addEventListener('click', function () {
     if (selected.size !== 2) return setTaskFeedback('请先选满两项结论再验证。', 'error');
-    const correct = station.task.answers.length === selected.size && station.task.answers.every(index => selected.has(index));
+    var correct = station.task.answers.length === selected.size && station.task.answers.every(function (index) {
+      return selected.has(index);
+    });
     correct ? finishTask(station) : consequence('至少有一项结论超出了史实线索。注意：“纠正方法”不等于否定一切，“独立思考”也不等于拒绝意见。');
   });
 }
 function renderCalculationTask(station, mount) {
-  let stage = 0;
-  const draw = () => {
-    const item = station.task.stages[stage];
-    mount.innerHTML = `<div class="calculation-sheet"><div><span>${item.label} · ${stage + 1}/2</span><b>${stage ? '120 ÷ 24 = ?' : '240 × 0.5 = ?'}</b></div><p>${item.q}</p><label><input id="calculationAnswer" type="number" inputmode="decimal" min="0" aria-label="计算答案"><em>${item.unit}</em></label></div><button class="task-action" id="checkCalculation">${stage ? '完成计算' : '提交第一步'}</button>`;
-    const input = document.querySelector('#calculationAnswer');
-    const submitCalculation = () => {
+  var stage = 0;
+  var _draw2 = function draw() {
+    var item = station.task.stages[stage];
+    mount.innerHTML = "<div class=\"calculation-sheet\"><div><span>".concat(item.label, " \xB7 ").concat(stage + 1, "/2</span><b>").concat(stage ? '120 ÷ 24 = ?' : '240 × 0.5 = ?', "</b></div><p>").concat(item.q, "</p><label><input id=\"calculationAnswer\" type=\"number\" inputmode=\"decimal\" min=\"0\" aria-label=\"\u8BA1\u7B97\u7B54\u6848\"><em>").concat(item.unit, "</em></label></div><button class=\"task-action\" id=\"checkCalculation\">").concat(stage ? '完成计算' : '提交第一步', "</button>");
+    var input = document.querySelector('#calculationAnswer');
+    var submitCalculation = function submitCalculation() {
       if (input.value.trim() === '') return setTaskFeedback('请先输入计算结果。', 'error');
       if (Number(input.value) !== item.answer) return consequence(stage ? '用总路程120千米除以24小时，求平均每小时前进距离。' : '按照题目给出的换算关系，用240乘以0.5。');
       if (stage === station.task.stages.length - 1) return finishTask(station);
       stage += 1;
       setTaskFeedback('第一步正确：240里约为120千米。继续计算平均速度。', 'success');
-      draw();
+      _draw2();
     };
     document.querySelector('#checkCalculation').addEventListener('click', submitCalculation);
-    input.addEventListener('keydown', event => {
+    input.addEventListener('keydown', function (event) {
       if (event.key === 'Enter') submitCalculation();
     });
   };
-  draw();
+  _draw2();
 }
 function renderSudokuTask(station, mount) {
-  const values = [...station.task.puzzle];
-  const fixed = station.task.puzzle.map(Boolean);
-  const draw = () => {
-    mount.innerHTML = `<div class="sudoku-key"><span>1 粮食</span><span>2 药品</span><span>3 御寒</span><span>4 向导</span></div><div class="sudoku-grid" role="grid">${values.map((value, index) => `<button class="${fixed[index] ? 'fixed' : ''}" data-cell="${index}" ${fixed[index] ? 'disabled' : ''} aria-label="第${Math.floor(index / 4) + 1}行第${index % 4 + 1}列">${value || '·'}</button>`).join('')}</div><div class="sudoku-tools"><button id="clearSudoku">清空重填</button><small>点击空格：· → 1 → 2 → 3 → 4</small></div><button class="task-action" id="checkSudoku">检查雪山密码</button>`;
-    mount.querySelectorAll('[data-cell]:not(:disabled)').forEach(button => button.addEventListener('click', () => {
-      const i = Number(button.dataset.cell);
-      values[i] = (values[i] + 1) % 5;
-      draw();
-    }));
-    document.querySelector('#clearSudoku').addEventListener('click', () => {
-      station.task.puzzle.forEach((value, index) => {
+  var values = _toConsumableArray(station.task.puzzle);
+  var fixed = station.task.puzzle.map(Boolean);
+  var _draw3 = function draw() {
+    mount.innerHTML = "<div class=\"sudoku-key\"><span>1 \u7CAE\u98DF</span><span>2 \u836F\u54C1</span><span>3 \u5FA1\u5BD2</span><span>4 \u5411\u5BFC</span></div><div class=\"sudoku-grid\" role=\"grid\">".concat(values.map(function (value, index) {
+      return "<button class=\"".concat(fixed[index] ? 'fixed' : '', "\" data-cell=\"").concat(index, "\" ").concat(fixed[index] ? 'disabled' : '', " aria-label=\"\u7B2C").concat(Math.floor(index / 4) + 1, "\u884C\u7B2C").concat(index % 4 + 1, "\u5217\">").concat(value || '·', "</button>");
+    }).join(''), "</div><div class=\"sudoku-tools\"><button id=\"clearSudoku\">\u6E05\u7A7A\u91CD\u586B</button><small>\u70B9\u51FB\u7A7A\u683C\uFF1A\xB7 \u2192 1 \u2192 2 \u2192 3 \u2192 4</small></div><button class=\"task-action\" id=\"checkSudoku\">\u68C0\u67E5\u96EA\u5C71\u5BC6\u7801</button>");
+    mount.querySelectorAll('[data-cell]:not(:disabled)').forEach(function (button) {
+      return button.addEventListener('click', function () {
+        var i = Number(button.dataset.cell);
+        values[i] = (values[i] + 1) % 5;
+        _draw3();
+      });
+    });
+    document.querySelector('#clearSudoku').addEventListener('click', function () {
+      station.task.puzzle.forEach(function (value, index) {
         values[index] = value;
       });
-      draw();
+      _draw3();
     });
-    document.querySelector('#checkSudoku').addEventListener('click', () => {
-      if (values.some(value => !value)) return setTaskFeedback('还有空格没有填写。每行、每列和每个2×2区域都需要1—4。', 'error');
-      values.every((value, index) => value === station.task.solution[index]) ? finishTask(station) : consequence('目前存在重复数字。分别检查每一行、每一列和四个2×2区域。');
+    document.querySelector('#checkSudoku').addEventListener('click', function () {
+      if (values.some(function (value) {
+        return !value;
+      })) return setTaskFeedback('还有空格没有填写。每行、每列和每个2×2区域都需要1—4。', 'error');
+      values.every(function (value, index) {
+        return value === station.task.solution[index];
+      }) ? finishTask(station) : consequence('目前存在重复数字。分别检查每一行、每一列和四个2×2区域。');
     });
   };
-  draw();
+  _draw3();
 }
 function renderMatchingTask(station, mount) {
-  mount.innerHTML = `<div class="matching-board">${station.task.rows.map((row, index) => `<label><span><i>0${index + 1}</i>${row.label}</span><select data-match="${index}"><option value="">选择对应档案</option>${row.options.map(option => `<option value="${option}">${option}</option>`).join('')}</select></label>`).join('')}</div><button class="task-action" id="checkMatching">核对会师档案</button>`;
-  document.querySelector('#checkMatching').addEventListener('click', () => {
-    const answers = [...mount.querySelectorAll('[data-match]')].map(select => select.value);
-    if (answers.some(answer => !answer)) return setTaskFeedback('还有档案没有完成配对。', 'error');
-    answers.every((answer, index) => answer === station.task.rows[index].answer) ? finishTask(station) : consequence('至少有一条会师记录连接错误。注意区分会宁、将台堡以及三大主力胜利会合的月份。');
+  mount.innerHTML = "<div class=\"matching-board\">".concat(station.task.rows.map(function (row, index) {
+    return "<label><span><i>0".concat(index + 1, "</i>").concat(row.label, "</span><select data-match=\"").concat(index, "\"><option value=\"\">\u9009\u62E9\u5BF9\u5E94\u6863\u6848</option>").concat(row.options.map(function (option) {
+      return "<option value=\"".concat(option, "\">").concat(option, "</option>");
+    }).join(''), "</select></label>");
+  }).join(''), "</div><button class=\"task-action\" id=\"checkMatching\">\u6838\u5BF9\u4F1A\u5E08\u6863\u6848</button>");
+  document.querySelector('#checkMatching').addEventListener('click', function () {
+    var answers = _toConsumableArray(mount.querySelectorAll('[data-match]')).map(function (select) {
+      return select.value;
+    });
+    if (answers.some(function (answer) {
+      return !answer;
+    })) return setTaskFeedback('还有档案没有完成配对。', 'error');
+    answers.every(function (answer, index) {
+      return answer === station.task.rows[index].answer;
+    }) ? finishTask(station) : consequence('至少有一条会师记录连接错误。注意区分会宁、将台堡以及三大主力胜利会合的月份。');
   });
-  mount.querySelectorAll('[data-match]').forEach(select => select.addEventListener('change', () => {
-    select.classList.toggle('has-value', Boolean(select.value));
-    setTaskFeedback('');
-  }));
+  mount.querySelectorAll('[data-match]').forEach(function (select) {
+    return select.addEventListener('change', function () {
+      select.classList.toggle('has-value', Boolean(select.value));
+      setTaskFeedback('');
+    });
+  });
 }
 function renderPackTask(station, mount) {
-  const selected = new Set();
-  mount.innerHTML = `<div class="task-counter">已选择 <b id="packCount">0</b> / 3</div><div class="task-choice-grid">${station.task.items.map(item => `<button data-item="${item}">${item}</button>`).join('')}</div><button class="task-action" id="checkPack">检查背包</button>`;
-  mount.querySelectorAll('[data-item]').forEach(button => button.addEventListener('click', () => {
-    const item = button.dataset.item;
-    if (selected.has(item)) selected.delete(item);else if (selected.size < 3) selected.add(item);else return setTaskFeedback('背包只能装3件物品，请先取消一件。', 'error');
-    button.classList.toggle('selected', selected.has(item));
-    document.querySelector('#packCount').textContent = selected.size;
-    setTaskFeedback('');
-  }));
-  document.querySelector('#checkPack').addEventListener('click', () => {
-    const correct = station.task.answer.every(item => selected.has(item)) && selected.size === 3;
+  var selected = new Set();
+  mount.innerHTML = "<div class=\"task-counter\">\u5DF2\u9009\u62E9 <b id=\"packCount\">0</b> / 3</div><div class=\"task-choice-grid\">".concat(station.task.items.map(function (item) {
+    return "<button data-item=\"".concat(item, "\">").concat(item, "</button>");
+  }).join(''), "</div><button class=\"task-action\" id=\"checkPack\">\u68C0\u67E5\u80CC\u5305</button>");
+  mount.querySelectorAll('[data-item]').forEach(function (button) {
+    return button.addEventListener('click', function () {
+      var item = button.dataset.item;
+      if (selected.has(item)) selected.delete(item);else if (selected.size < 3) selected.add(item);else return setTaskFeedback('背包只能装3件物品，请先取消一件。', 'error');
+      button.classList.toggle('selected', selected.has(item));
+      document.querySelector('#packCount').textContent = selected.size;
+      setTaskFeedback('');
+    });
+  });
+  document.querySelector('#checkPack').addEventListener('click', function () {
+    var correct = station.task.answer.every(function (item) {
+      return selected.has(item);
+    }) && selected.size === 3;
     correct ? finishTask(station) : consequence('非必要物品占用负重，粮食、救护或防护不足会直接影响队伍继续前进。请重新整理。');
   });
 }
 function renderChoiceTask(station, mount) {
-  mount.innerHTML = `<div class="task-options">${station.task.options.map((item, index) => `<button data-choice="${index}"><i>${String.fromCharCode(65 + index)}</i><span>${item}</span></button>`).join('')}</div>`;
-  mount.querySelectorAll('[data-choice]').forEach(button => button.addEventListener('click', () => {
-    const correct = Number(button.dataset.choice) === station.task.correct;
-    button.classList.add(correct ? 'correct' : 'wrong');
-    if (correct) finishTask(station);else consequence(Number(button.dataset.choice) === 0 ? '明知方案已造成损失仍照旧执行，队伍可能继续陷入被动。' : '把判断完全交给别人，会错过根据实际情况及时调整的机会。');
-  }));
+  mount.innerHTML = "<div class=\"task-options\">".concat(station.task.options.map(function (item, index) {
+    return "<button data-choice=\"".concat(index, "\"><i>").concat(String.fromCharCode(65 + index), "</i><span>").concat(item, "</span></button>");
+  }).join(''), "</div>");
+  mount.querySelectorAll('[data-choice]').forEach(function (button) {
+    return button.addEventListener('click', function () {
+      var correct = Number(button.dataset.choice) === station.task.correct;
+      button.classList.add(correct ? 'correct' : 'wrong');
+      if (correct) finishTask(station);else consequence(Number(button.dataset.choice) === 0 ? '明知方案已造成损失仍照旧执行，队伍可能继续陷入被动。' : '把判断完全交给别人，会错过根据实际情况及时调整的机会。');
+    });
+  });
 }
 function renderRouteTask(station, mount) {
-  let step = 0;
-  const draw = () => {
-    const item = station.task.steps[step];
-    mount.innerHTML = `<div class="route-task-progress"><span style="width:${step / station.task.steps.length * 100}%"></span></div><div class="route-question"><small>判断 ${step + 1} / ${station.task.steps.length}</small><strong>${item.q}</strong></div><div class="task-options compact">${item.a.map((answer, index) => `<button data-route-answer="${index}"><i>${index + 1}</i><span>${answer}</span></button>`).join('')}</div>`;
-    mount.querySelectorAll('[data-route-answer]').forEach(button => button.addEventListener('click', () => {
-      if (Number(button.dataset.routeAnswer) !== item.correct) return consequence(['正面敌军兵力集中，直接硬拼会放大兵力劣势。', '敌情已经变化，路线不变可能再次进入包围。', '机会短暂，停留等待会让敌军重新合围。'][step]);
-      step += 1;
-      setTaskFeedback(step < station.task.steps.length ? '判断正确，继续观察下一步形势。' : '', 'success');
-      if (step === station.task.steps.length) finishTask(station);else draw();
-    }));
+  var step = 0;
+  var _draw4 = function draw() {
+    var item = station.task.steps[step];
+    mount.innerHTML = "<div class=\"route-task-progress\"><span style=\"width:".concat(step / station.task.steps.length * 100, "%\"></span></div><div class=\"route-question\"><small>\u5224\u65AD ").concat(step + 1, " / ").concat(station.task.steps.length, "</small><strong>").concat(item.q, "</strong></div><div class=\"task-options compact\">").concat(item.a.map(function (answer, index) {
+      return "<button data-route-answer=\"".concat(index, "\"><i>").concat(index + 1, "</i><span>").concat(answer, "</span></button>");
+    }).join(''), "</div>");
+    mount.querySelectorAll('[data-route-answer]').forEach(function (button) {
+      return button.addEventListener('click', function () {
+        if (Number(button.dataset.routeAnswer) !== item.correct) return consequence(['正面敌军兵力集中，直接硬拼会放大兵力劣势。', '敌情已经变化，路线不变可能再次进入包围。', '机会短暂，停留等待会让敌军重新合围。'][step]);
+        step += 1;
+        setTaskFeedback(step < station.task.steps.length ? '判断正确，继续观察下一步形势。' : '', 'success');
+        if (step === station.task.steps.length) finishTask(station);else _draw4();
+      });
+    });
   };
-  draw();
+  _draw4();
 }
 function renderBridgeTask(station, mount) {
-  let count = 0;
-  let remaining = station.task.seconds * 10;
-  mount.innerHTML = `<div class="bridge-status"><b id="bridgeTime">${station.task.seconds}.0 秒</b><span><i id="bridgeCount">0</i> / ${station.task.target} 块</span></div><div class="bridge-track" id="bridgeTrack"></div><button class="task-action" id="startBridge">开始挑战</button>`;
-  const drawPlanks = () => document.querySelector('#bridgeTrack').innerHTML = Array.from({
-    length: station.task.target
-  }, (_, i) => `<i class="${i < count ? 'laid' : ''}"></i>`).join('');
+  var count = 0;
+  var remaining = station.task.seconds * 10;
+  mount.innerHTML = "<div class=\"bridge-status\"><b id=\"bridgeTime\">".concat(station.task.seconds, ".0 \u79D2</b><span><i id=\"bridgeCount\">0</i> / ").concat(station.task.target, " \u5757</span></div><div class=\"bridge-track\" id=\"bridgeTrack\"></div><button class=\"task-action\" id=\"startBridge\">\u5F00\u59CB\u6311\u6218</button>");
+  var drawPlanks = function drawPlanks() {
+    return document.querySelector('#bridgeTrack').innerHTML = Array.from({
+      length: station.task.target
+    }, function (_, i) {
+      return "<i class=\"".concat(i < count ? 'laid' : '', "\"></i>");
+    }).join('');
+  };
   drawPlanks();
-  document.querySelector('#startBridge').addEventListener('click', event => {
-    const actionButton = event.currentTarget;
+  document.querySelector('#startBridge').addEventListener('click', function (event) {
+    var actionButton = event.currentTarget;
     count = 0;
     remaining = station.task.seconds * 10;
     drawPlanks();
     actionButton.textContent = '点击铺设桥板';
     actionButton.onclick = null;
-    const tap = () => {
+    var tap = function tap() {
       count += 1;
       document.querySelector('#bridgeCount').textContent = count;
       drawPlanks();
@@ -916,22 +1026,24 @@ function renderBridgeTask(station, mount) {
       }
     };
     actionButton.addEventListener('click', tap);
-    activeTaskTimer = setInterval(() => {
+    activeTaskTimer = setInterval(function () {
       if (!document.querySelector('#bridgeTime')) {
         clearInterval(activeTaskTimer);
         activeTaskTimer = null;
         return;
       }
       remaining -= 1;
-      const timeNode = document.querySelector('#bridgeTime');
-      if (timeNode) timeNode.textContent = `${(remaining / 10).toFixed(1)} 秒`;
+      var timeNode = document.querySelector('#bridgeTime');
+      if (timeNode) timeNode.textContent = "".concat((remaining / 10).toFixed(1), " \u79D2");
       if (remaining <= 0) {
         clearInterval(activeTaskTimer);
         activeTaskTimer = null;
         actionButton.removeEventListener('click', tap);
         actionButton.textContent = '重新开始';
         consequence('通道未能及时铺通，主力渡河会受到影响。真正的行动还需要突击、铺板和火力掩护共同配合。');
-        actionButton.addEventListener('click', () => renderBridgeTask(station, mount), {
+        actionButton.addEventListener('click', function () {
+          return renderBridgeTask(station, mount);
+        }, {
           once: true
         });
       }
@@ -941,7 +1053,7 @@ function renderBridgeTask(station, mount) {
   });
 }
 function renderSupplyTask(station, mount) {
-  const situations = [{
+  var situations = [{
     title: '寒潮突然来临',
     copy: '一名体力较弱的同伴御寒用品不足，你会怎样做？',
     options: ['调出一份御寒用品并结伴前进', '让他独自加快速度'],
@@ -957,153 +1069,243 @@ function renderSupplyTask(station, mount) {
     options: ['共同核算，优先保障基本需要', '隐藏自己的粮食，只顾个人'],
     result: '公开核算和照顾基本需要，才能让有限补给支持更多人前进。'
   }];
-  const situation = situations[Math.floor(Math.random() * situations.length)];
-  mount.innerHTML = `<div class="situation-card"><span>随机情境</span><h4>${situation.title}</h4><p>${situation.copy}</p><div class="task-options compact">${situation.options.map((option, index) => `<button data-situation="${index}"><i>${index + 1}</i><span>${option}</span></button>`).join('')}</div></div>`;
-  mount.querySelectorAll('[data-situation]').forEach(button => button.addEventListener('click', () => {
-    if (Number(button.dataset.situation) !== 0) return consequence('队伍失去照应，个人风险和集体风险都会增大。请重新判断。');
-    setTaskFeedback(`情境判断：${situation.result}`, 'success');
-    window.setTimeout(() => drawSupplyAllocation(station, mount), 450);
-  }));
+  var situation = situations[Math.floor(Math.random() * situations.length)];
+  mount.innerHTML = "<div class=\"situation-card\"><span>\u968F\u673A\u60C5\u5883</span><h4>".concat(situation.title, "</h4><p>").concat(situation.copy, "</p><div class=\"task-options compact\">").concat(situation.options.map(function (option, index) {
+    return "<button data-situation=\"".concat(index, "\"><i>").concat(index + 1, "</i><span>").concat(option, "</span></button>");
+  }).join(''), "</div></div>");
+  mount.querySelectorAll('[data-situation]').forEach(function (button) {
+    return button.addEventListener('click', function () {
+      if (Number(button.dataset.situation) !== 0) return consequence('队伍失去照应，个人风险和集体风险都会增大。请重新判断。');
+      setTaskFeedback("\u60C5\u5883\u5224\u65AD\uFF1A".concat(situation.result), 'success');
+      window.setTimeout(function () {
+        return drawSupplyAllocation(station, mount);
+      }, 450);
+    });
+  });
 }
 function drawSupplyAllocation(station, mount) {
-  const amounts = Object.fromEntries(Object.keys(station.task.minimums).map(key => [key, 0]));
-  const draw = () => {
-    const used = Object.values(amounts).reduce((sum, value) => sum + value, 0);
-    mount.innerHTML = `<div class="supply-total">剩余物资 <strong>${station.task.total - used}</strong> / ${station.task.total}</div><div class="supply-list">${Object.entries(amounts).map(([name, value]) => `<div><span>${name}<small>最低 ${station.task.minimums[name]} 份</small></span><button data-minus="${name}">−</button><b>${value}</b><button data-plus="${name}">＋</button></div>`).join('')}</div><button class="task-action" id="checkSupply">确认分配</button>`;
-    mount.querySelectorAll('[data-plus]').forEach(button => button.addEventListener('click', () => {
-      if (used < station.task.total) {
-        amounts[button.dataset.plus] += 1;
-        draw();
-      }
-    }));
-    mount.querySelectorAll('[data-minus]').forEach(button => button.addEventListener('click', () => {
-      const key = button.dataset.minus;
-      if (amounts[key] > 0) {
-        amounts[key] -= 1;
-        draw();
-      }
-    }));
-    document.querySelector('#checkSupply').addEventListener('click', () => {
-      const full = Object.values(amounts).reduce((sum, value) => sum + value, 0) === station.task.total;
-      const safe = Object.entries(station.task.minimums).every(([key, min]) => amounts[key] >= min);
+  var amounts = Object.fromEntries(Object.keys(station.task.minimums).map(function (key) {
+    return [key, 0];
+  }));
+  var _draw5 = function draw() {
+    var used = Object.values(amounts).reduce(function (sum, value) {
+      return sum + value;
+    }, 0);
+    mount.innerHTML = "<div class=\"supply-total\">\u5269\u4F59\u7269\u8D44 <strong>".concat(station.task.total - used, "</strong> / ").concat(station.task.total, "</div><div class=\"supply-list\">").concat(Object.entries(amounts).map(function (_ref3) {
+      var _ref4 = _slicedToArray(_ref3, 2),
+        name = _ref4[0],
+        value = _ref4[1];
+      return "<div><span>".concat(name, "<small>\u6700\u4F4E ").concat(station.task.minimums[name], " \u4EFD</small></span><button data-minus=\"").concat(name, "\">\u2212</button><b>").concat(value, "</b><button data-plus=\"").concat(name, "\">\uFF0B</button></div>");
+    }).join(''), "</div><button class=\"task-action\" id=\"checkSupply\">\u786E\u8BA4\u5206\u914D</button>");
+    mount.querySelectorAll('[data-plus]').forEach(function (button) {
+      return button.addEventListener('click', function () {
+        if (used < station.task.total) {
+          amounts[button.dataset.plus] += 1;
+          _draw5();
+        }
+      });
+    });
+    mount.querySelectorAll('[data-minus]').forEach(function (button) {
+      return button.addEventListener('click', function () {
+        var key = button.dataset.minus;
+        if (amounts[key] > 0) {
+          amounts[key] -= 1;
+          _draw5();
+        }
+      });
+    });
+    document.querySelector('#checkSupply').addEventListener('click', function () {
+      var full = Object.values(amounts).reduce(function (sum, value) {
+        return sum + value;
+      }, 0) === station.task.total;
+      var safe = Object.entries(station.task.minimums).every(function (_ref5) {
+        var _ref6 = _slicedToArray(_ref5, 2),
+          key = _ref6[0],
+          min = _ref6[1];
+        return amounts[key] >= min;
+      });
       full && safe ? finishTask(station) : consequence(full ? '有一类基本物资不足，队伍会在严寒、饥饿或伤病面前失去安全保障。请重新平衡。' : '仍有物资没有分配，有限资源还没有形成完整方案。');
     });
   };
-  draw();
+  _draw5();
 }
 function renderOrderTask(station, mount) {
-  const order = [...station.task.start];
-  const draw = () => {
-    mount.innerHTML = `<div class="order-list">${order.map((item, index) => `<div><i>${index + 1}</i><strong>${item}</strong><span><button data-up="${index}" ${index === 0 ? 'disabled' : ''}>↑</button><button data-down="${index}" ${index === order.length - 1 ? 'disabled' : ''}>↓</button></span></div>`).join('')}</div><button class="task-action" id="checkOrder">检查顺序</button>`;
-    mount.querySelectorAll('[data-up]').forEach(button => button.addEventListener('click', () => {
-      const i = Number(button.dataset.up);
-      [order[i - 1], order[i]] = [order[i], order[i - 1]];
-      draw();
-    }));
-    mount.querySelectorAll('[data-down]').forEach(button => button.addEventListener('click', () => {
-      const i = Number(button.dataset.down);
-      [order[i + 1], order[i]] = [order[i], order[i + 1]];
-      draw();
-    }));
-    document.querySelector('#checkOrder').addEventListener('click', () => order.every((item, index) => item === station.task.items[index]) ? finishTask(station) : consequence('事件顺序混乱，就无法看清各阶段如何连接，也难以理解会师为何是共同道路的结果。'));
+  var order = _toConsumableArray(station.task.start);
+  var _draw6 = function draw() {
+    mount.innerHTML = "<div class=\"order-list\">".concat(order.map(function (item, index) {
+      return "<div><i>".concat(index + 1, "</i><strong>").concat(item, "</strong><span><button data-up=\"").concat(index, "\" ").concat(index === 0 ? 'disabled' : '', ">\u2191</button><button data-down=\"").concat(index, "\" ").concat(index === order.length - 1 ? 'disabled' : '', ">\u2193</button></span></div>");
+    }).join(''), "</div><button class=\"task-action\" id=\"checkOrder\">\u68C0\u67E5\u987A\u5E8F</button>");
+    mount.querySelectorAll('[data-up]').forEach(function (button) {
+      return button.addEventListener('click', function () {
+        var i = Number(button.dataset.up);
+        var _ref7 = [order[i], order[i - 1]];
+        order[i - 1] = _ref7[0];
+        order[i] = _ref7[1];
+        _draw6();
+      });
+    });
+    mount.querySelectorAll('[data-down]').forEach(function (button) {
+      return button.addEventListener('click', function () {
+        var i = Number(button.dataset.down);
+        var _ref8 = [order[i], order[i + 1]];
+        order[i + 1] = _ref8[0];
+        order[i] = _ref8[1];
+        _draw6();
+      });
+    });
+    document.querySelector('#checkOrder').addEventListener('click', function () {
+      return order.every(function (item, index) {
+        return item === station.task.items[index];
+      }) ? finishTask(station) : consequence('事件顺序混乱，就无法看清各阶段如何连接，也难以理解会师为何是共同道路的结果。');
+    });
   };
-  draw();
+  _draw6();
 }
 function activatePanel(id) {
-  const panelOrder = ['facts', 'chain', 'words', 'task'];
-  const panelNames = ['历史档案', '因果链', '精神线索', '互动任务'];
-  const panelIndex = Math.max(0, panelOrder.indexOf(id));
-  document.querySelectorAll('.reading-tabs button').forEach(tab => tab.classList.toggle('is-active', tab.dataset.panel === id));
-  document.querySelectorAll('.reading-panel').forEach(panel => panel.classList.toggle('is-active', panel.id === id));
-  document.querySelector('#readingPanelCount').textContent = `${panelIndex + 1} / ${panelOrder.length}`;
+  var panelOrder = ['facts', 'chain', 'words', 'task'];
+  var panelNames = ['历史档案', '因果链', '精神线索', '互动任务'];
+  var panelIndex = Math.max(0, panelOrder.indexOf(id));
+  document.querySelectorAll('.reading-tabs button').forEach(function (tab) {
+    return tab.classList.toggle('is-active', tab.dataset.panel === id);
+  });
+  document.querySelectorAll('.reading-panel').forEach(function (panel) {
+    return panel.classList.toggle('is-active', panel.id === id);
+  });
+  document.querySelector('#readingPanelCount').textContent = "".concat(panelIndex + 1, " / ").concat(panelOrder.length);
   document.querySelector('#readingPanelName').textContent = panelNames[panelIndex];
   document.querySelector('#previousReadingPanel').disabled = panelIndex === 0;
   document.querySelector('#nextReadingPanel').textContent = panelIndex === panelOrder.length - 1 ? '返回路线 →' : '下一页 →';
 }
-document.querySelectorAll('.reading-tabs button').forEach(tab => tab.addEventListener('click', () => activatePanel(tab.dataset.panel)));
-document.querySelector('#previousReadingPanel').addEventListener('click', () => {
-  const order = ['facts', 'chain', 'words', 'task'];
-  const current = order.findIndex(id => document.querySelector(`#${id}`).classList.contains('is-active'));
+document.querySelectorAll('.reading-tabs button').forEach(function (tab) {
+  return tab.addEventListener('click', function () {
+    return activatePanel(tab.dataset.panel);
+  });
+});
+document.querySelector('#previousReadingPanel').addEventListener('click', function () {
+  var order = ['facts', 'chain', 'words', 'task'];
+  var current = order.findIndex(function (id) {
+    return document.querySelector("#".concat(id)).classList.contains('is-active');
+  });
   if (current > 0) activatePanel(order[current - 1]);
   window.scrollTo(0, 0);
 });
-document.querySelector('#nextReadingPanel').addEventListener('click', () => {
-  const order = ['facts', 'chain', 'words', 'task'];
-  const current = order.findIndex(id => document.querySelector(`#${id}`).classList.contains('is-active'));
+document.querySelector('#nextReadingPanel').addEventListener('click', function () {
+  var order = ['facts', 'chain', 'words', 'task'];
+  var current = order.findIndex(function (id) {
+    return document.querySelector("#".concat(id)).classList.contains('is-active');
+  });
   if (current < order.length - 1) activatePanel(order[current + 1]);else showView('route');
   window.scrollTo(0, 0);
 });
 function updateJourneyUI() {
-  const completedCount = state.completed.length;
-  document.querySelector('#progressText').textContent = `${completedCount} / 6 站完成`;
-  document.querySelector('#progressBar').style.width = `${completedCount / 6 * 100}%`;
-  const current = stations[state.currentStation - 1];
-  const continueButton = document.querySelector('#continueButton');
-  continueButton.innerHTML = completedCount === 6 ? '回看长征路线 <span>→</span>' : `${completedCount ? '继续' : '从'}${current.name}${completedCount ? '研学' : '出发'} <span>→</span>`;
-  continueButton.onclick = () => completedCount === 6 ? showView('route') : openStation(current.id);
+  var completedCount = state.completed.length;
+  document.querySelector('#progressText').textContent = "".concat(completedCount, " / 6 \u7AD9\u5B8C\u6210");
+  document.querySelector('#progressBar').style.width = "".concat(completedCount / 6 * 100, "%");
+  var current = stations[state.currentStation - 1];
+  var continueButton = document.querySelector('#continueButton');
+  continueButton.innerHTML = completedCount === 6 ? '回看长征路线 <span>→</span>' : "".concat(completedCount ? '继续' : '从').concat(current.name).concat(completedCount ? '研学' : '出发', " <span>\u2192</span>");
+  continueButton.onclick = function () {
+    return completedCount === 6 ? showView('route') : openStation(current.id);
+  };
   renderRoute();
   renderBadgesAndAchievement();
 }
 function renderFavorites() {
-  document.querySelector('#favoriteSummary').textContent = `已获得 ${state.favorites.length} 条`;
+  document.querySelector('#favoriteSummary').textContent = "\u5DF2\u83B7\u5F97 ".concat(state.favorites.length, " \u6761");
   document.querySelector('#collectionEmpty').hidden = state.favorites.length > 0;
-  const keywordMap = new Map(stations.flatMap(station => station.keywords.map(word => [word[0], {
-    word,
-    station
-  }])));
-  document.querySelector('#collectionList').innerHTML = state.favorites.map((item, index) => {
-    const entry = keywordMap.get(item);
+  var keywordMap = new Map(stations.flatMap(function (station) {
+    return station.keywords.map(function (word) {
+      return [word[0], {
+        word: word,
+        station: station
+      }];
+    });
+  }));
+  document.querySelector('#collectionList').innerHTML = state.favorites.map(function (item, index) {
+    var entry = keywordMap.get(item);
     if (!entry) return '';
-    const wordIndex = entry.station.keywords.findIndex(word => word[0] === item);
-    return `<details class="saved-card"><summary><div><span>SPIRIT CLUE ${String(index + 1).padStart(2, '0')} · ${entry.station.name}</span><strong>${item}</strong></div><b>＋</b></summary><div class="saved-detail"><p><i>历史证据</i>${spiritEvidence[entry.station.id][wordIndex]}</p><p><i>判断依据</i>${entry.word[1]}</p><small><i>今日行动</i>${entry.word[2]}</small></div></details>`;
+    var wordIndex = entry.station.keywords.findIndex(function (word) {
+      return word[0] === item;
+    });
+    return "<details class=\"saved-card\"><summary><div><span>SPIRIT CLUE ".concat(String(index + 1).padStart(2, '0'), " \xB7 ").concat(entry.station.name, "</span><strong>").concat(item, "</strong></div><b>\uFF0B</b></summary><div class=\"saved-detail\"><p><i>\u5386\u53F2\u8BC1\u636E</i>").concat(spiritEvidence[entry.station.id][wordIndex], "</p><p><i>\u5224\u65AD\u4F9D\u636E</i>").concat(entry.word[1], "</p><small><i>\u4ECA\u65E5\u884C\u52A8</i>").concat(entry.word[2], "</small></div></details>");
   }).join('');
 }
 function renderSpiritKit() {
-  const verifiedStations = stations.filter(station => state.completed.includes(station.id) && state.spiritJudgments[station.id]);
-  const available = verifiedStations.flatMap(station => station.keywords.map(word => ({
-    name: word[0],
-    station: station.name
-  })));
-  state.spiritKit = state.spiritKit.filter(name => available.some(item => item.name === name)).slice(0, 3);
+  var verifiedStations = stations.filter(function (station) {
+    return state.completed.includes(station.id) && state.spiritJudgments[station.id];
+  });
+  var available = verifiedStations.flatMap(function (station) {
+    return station.keywords.map(function (word) {
+      return {
+        name: word[0],
+        station: station.name
+      };
+    });
+  });
+  state.spiritKit = state.spiritKit.filter(function (name) {
+    return available.some(function (item) {
+      return item.name === name;
+    });
+  }).slice(0, 3);
   storage.setItem('sparkSpiritKit', JSON.stringify(state.spiritKit));
-  const judgmentSummary = document.querySelector('#judgmentSummary');
-  if (judgmentSummary) judgmentSummary.textContent = `已辨析 ${Object.keys(state.spiritJudgments).filter(id => state.spiritJudgments[id]).length} / 6 站`;
-  document.querySelector('#kitCount').textContent = `${state.spiritKit.length} / 3`;
+  var judgmentSummary = document.querySelector('#judgmentSummary');
+  if (judgmentSummary) judgmentSummary.textContent = "\u5DF2\u8FA8\u6790 ".concat(Object.keys(state.spiritJudgments).filter(function (id) {
+    return state.spiritJudgments[id];
+  }).length, " / 6 \u7AD9");
+  document.querySelector('#kitCount').textContent = "".concat(state.spiritKit.length, " / 3");
   document.querySelector('#kitSlots').innerHTML = Array.from({
     length: 3
-  }, (_, index) => state.spiritKit[index] ? `<button data-kit-remove="${state.spiritKit[index]}"><i>✦</i><strong>${state.spiritKit[index]}</strong><small>点击取出</small></button>` : `<div><i>${index + 1}</i><strong>等待装入</strong><small>选择一张精神卡</small></div>`).join('');
-  document.querySelector('#kitOptions').innerHTML = available.map(item => `<button data-kit-add="${item.name}" ${state.spiritKit.includes(item.name) ? 'disabled' : ''}><span>${item.station}</span><strong>${item.name}</strong></button>`).join('') || '<p>完成站点任务并通过“精神辨析”后，线索将在这里出现。</p>';
-  document.querySelectorAll('[data-kit-add]').forEach(button => button.addEventListener('click', () => {
-    if (state.spiritKit.length >= 3) return toast('精神行囊最多装入三张卡');
-    state.spiritKit.push(button.dataset.kitAdd);
-    renderSpiritKit();
-    renderBadgesAndAchievement();
-    playTone('success');
-  }));
-  document.querySelectorAll('[data-kit-remove]').forEach(button => button.addEventListener('click', () => {
-    state.spiritKit = state.spiritKit.filter(name => name !== button.dataset.kitRemove);
-    renderSpiritKit();
-    renderBadgesAndAchievement();
-  }));
+  }, function (_, index) {
+    return state.spiritKit[index] ? "<button data-kit-remove=\"".concat(state.spiritKit[index], "\"><i>\u2726</i><strong>").concat(state.spiritKit[index], "</strong><small>\u70B9\u51FB\u53D6\u51FA</small></button>") : "<div><i>".concat(index + 1, "</i><strong>\u7B49\u5F85\u88C5\u5165</strong><small>\u9009\u62E9\u4E00\u5F20\u7CBE\u795E\u5361</small></div>");
+  }).join('');
+  document.querySelector('#kitOptions').innerHTML = available.map(function (item) {
+    return "<button data-kit-add=\"".concat(item.name, "\" ").concat(state.spiritKit.includes(item.name) ? 'disabled' : '', "><span>").concat(item.station, "</span><strong>").concat(item.name, "</strong></button>");
+  }).join('') || '<p>完成站点任务并通过“精神辨析”后，线索将在这里出现。</p>';
+  document.querySelectorAll('[data-kit-add]').forEach(function (button) {
+    return button.addEventListener('click', function () {
+      if (state.spiritKit.length >= 3) return toast('精神行囊最多装入三张卡');
+      state.spiritKit.push(button.dataset.kitAdd);
+      renderSpiritKit();
+      renderBadgesAndAchievement();
+      playTone('success');
+    });
+  });
+  document.querySelectorAll('[data-kit-remove]').forEach(function (button) {
+    return button.addEventListener('click', function () {
+      state.spiritKit = state.spiritKit.filter(function (name) {
+        return name !== button.dataset.kitRemove;
+      });
+      renderSpiritKit();
+      renderBadgesAndAchievement();
+    });
+  });
 }
 function renderBadgesAndAchievement() {
   renderSpiritKit();
-  const totalStars = stations.reduce((sum, station) => sum + (state.taskRecords[station.id]?.bestStars || 0), 0);
-  document.querySelector('#taskStarTotal').textContent = `${totalStars} / 18 星`;
-  document.querySelector('#scoreLedger').innerHTML = stations.map(station => {
-    const record = state.taskRecords[station.id];
-    const scored = record && record.bestStars > 0;
-    return `<article class="${scored ? 'scored' : ''}"><i>${String(station.id).padStart(2, '0')}</i><div><strong>${station.name}</strong><span>${scored ? starText(record.bestStars) : record ? '进行中 · ☆☆☆' : '尚未完成'}</span></div><small>${record ? `作答 ${record.attempts} 次` : '等待解锁'}</small></article>`;
+  var totalStars = stations.reduce(function (sum, station) {
+    var _state$taskRecords$st2;
+    return sum + (((_state$taskRecords$st2 = state.taskRecords[station.id]) === null || _state$taskRecords$st2 === void 0 ? void 0 : _state$taskRecords$st2.bestStars) || 0);
+  }, 0);
+  document.querySelector('#taskStarTotal').textContent = "".concat(totalStars, " / 18 \u661F");
+  document.querySelector('#scoreLedger').innerHTML = stations.map(function (station) {
+    var record = state.taskRecords[station.id];
+    var scored = record && record.bestStars > 0;
+    return "<article class=\"".concat(scored ? 'scored' : '', "\"><i>").concat(String(station.id).padStart(2, '0'), "</i><div><strong>").concat(station.name, "</strong><span>").concat(scored ? starText(record.bestStars) : record ? '进行中 · ☆☆☆' : '尚未完成', "</span></div><small>").concat(record ? "\u4F5C\u7B54 ".concat(record.attempts, " \u6B21") : '等待解锁', "</small></article>");
   }).join('');
-  document.querySelector('#badgeCount').textContent = `${state.completed.length} / 6`;
-  document.querySelector('#badgeGrid').innerHTML = stations.map(station => {
-    const earned = state.completed.includes(station.id);
-    const record = state.taskRecords[station.id];
-    return `<div class="spirit-badge ${earned ? 'earned' : ''}"><i>${earned ? '✦' : '·'}</i><strong>${station.spirit}</strong><small>${earned ? `${station.name} · ${record ? starText(record.bestStars) : ''}` : '尚未获得'}</small></div>`;
+  document.querySelector('#badgeCount').textContent = "".concat(state.completed.length, " / 6");
+  document.querySelector('#badgeGrid').innerHTML = stations.map(function (station) {
+    var earned = state.completed.includes(station.id);
+    var record = state.taskRecords[station.id];
+    return "<div class=\"spirit-badge ".concat(earned ? 'earned' : '', "\"><i>").concat(earned ? '✦' : '·', "</i><strong>").concat(station.spirit, "</strong><small>").concat(earned ? "".concat(station.name, " \xB7 ").concat(record ? starText(record.bestStars) : '') : '尚未获得', "</small></div>");
   }).join('');
-  const stationStars = id => state.taskRecords[id]?.bestStars || 0;
-  const judgmentCount = stations.filter(station => state.spiritJudgments[station.id]).length;
-  const medals = [{
+  var stationStars = function stationStars(id) {
+    var _state$taskRecords$id;
+    return ((_state$taskRecords$id = state.taskRecords[id]) === null || _state$taskRecords$id === void 0 ? void 0 : _state$taskRecords$id.bestStars) || 0;
+  };
+  var judgmentCount = stations.filter(function (station) {
+    return state.spiritJudgments[station.id];
+  }).length;
+  var medals = [{
     name: '求实之章',
     mark: '实',
     earned: state.completed.includes(1) && state.completed.includes(2) && stationStars(1) + stationStars(2) >= 4,
@@ -1124,47 +1326,71 @@ function renderBadgesAndAchievement() {
     earned: state.completed.includes(6) && state.highScore >= 60,
     rule: '完成会宁任务，十题远征最高达到60分'
   }];
-  const allCoreEarned = medals.every(medal => medal.earned);
+  var allCoreEarned = medals.every(function (medal) {
+    return medal.earned;
+  });
   medals.push({
     name: '星火全章',
     mark: '星',
     earned: allCoreEarned && state.completed.length === 6 && state.highScore >= 80 && judgmentCount === 6 && state.spiritKit.length === 3,
     rule: '集齐前四章、完成六站辨析、远征达到80分，并选满三条精神行囊'
   });
-  const nextGoal = [{
+  var nextGoal = [{
     index: 0,
-    progress: `瑞金、遵义已完成 ${[1, 2].filter(id => state.completed.includes(id)).length}/2 站 · ${stationStars(1) + stationStars(2)}/4 星`
+    progress: "\u745E\u91D1\u3001\u9075\u4E49\u5DF2\u5B8C\u6210 ".concat([1, 2].filter(function (id) {
+      return state.completed.includes(id);
+    }).length, "/2 \u7AD9 \xB7 ").concat(stationStars(1) + stationStars(2), "/4 \u661F")
   }, {
     index: 1,
-    progress: `遵义、赤水已完成 ${[2, 3].filter(id => state.completed.includes(id)).length}/2 站 · ${stationStars(2) + stationStars(3)}/4 星`
+    progress: "\u9075\u4E49\u3001\u8D64\u6C34\u5DF2\u5B8C\u6210 ".concat([2, 3].filter(function (id) {
+      return state.completed.includes(id);
+    }).length, "/2 \u7AD9 \xB7 ").concat(stationStars(2) + stationStars(3), "/4 \u661F")
   }, {
     index: 2,
-    progress: `泸定、雪山草地已完成 ${[4, 5].filter(id => state.completed.includes(id)).length}/2 站 · ${stationStars(4) + stationStars(5)}/4 星`
+    progress: "\u6CF8\u5B9A\u3001\u96EA\u5C71\u8349\u5730\u5DF2\u5B8C\u6210 ".concat([4, 5].filter(function (id) {
+      return state.completed.includes(id);
+    }).length, "/2 \u7AD9 \xB7 ").concat(stationStars(4) + stationStars(5), "/4 \u661F")
   }, {
     index: 3,
-    progress: `会宁任务 ${state.completed.includes(6) ? '已完成' : '未完成'} · 十题远征 ${state.highScore}/60 分`
+    progress: "\u4F1A\u5B81\u4EFB\u52A1 ".concat(state.completed.includes(6) ? '已完成' : '未完成', " \xB7 \u5341\u9898\u8FDC\u5F81 ").concat(state.highScore, "/60 \u5206")
   }, {
     index: 4,
-    progress: `核心奖章 ${medals.slice(0, 4).filter(medal => medal.earned).length}/4 枚 · 辨析 ${judgmentCount}/6 站 · 远征 ${state.highScore}/80 分 · 行囊 ${state.spiritKit.length}/3`
-  }].find(goal => !medals[goal.index].earned);
-  document.querySelector('#nextMedalGoal').innerHTML = nextGoal ? `<span>NEXT GOAL / 下一目标</span><strong>${medals[nextGoal.index].name}</strong><small>${nextGoal.progress}</small>` : '<span>ALL COMPLETE / 全部达成</span><strong>五枚挑战奖章已全部点亮</strong><small>你可以继续重做任务，刷新自己的最佳成绩。</small>';
-  document.querySelector('#challengeMedalCount').textContent = `${medals.filter(medal => medal.earned).length} / 5`;
-  document.querySelector('#challengeMedals').innerHTML = medals.map((medal, index) => `<article class="${medal.earned ? 'earned' : ''} ${index === medals.length - 1 ? 'final' : ''}"><i>${medal.earned ? medal.mark : '·'}</i><div><strong>${medal.name}</strong><p>${medal.rule}</p></div><span>${medal.earned ? '已获得' : '未解锁'}</span></article>`).join('');
-  const achieved = medals[medals.length - 1].earned;
-  const card = document.querySelector('#achievementCard');
+    progress: "\u6838\u5FC3\u5956\u7AE0 ".concat(medals.slice(0, 4).filter(function (medal) {
+      return medal.earned;
+    }).length, "/4 \u679A \xB7 \u8FA8\u6790 ").concat(judgmentCount, "/6 \u7AD9 \xB7 \u8FDC\u5F81 ").concat(state.highScore, "/80 \u5206 \xB7 \u884C\u56CA ").concat(state.spiritKit.length, "/3")
+  }].find(function (goal) {
+    return !medals[goal.index].earned;
+  });
+  document.querySelector('#nextMedalGoal').innerHTML = nextGoal ? "<span>NEXT GOAL / \u4E0B\u4E00\u76EE\u6807</span><strong>".concat(medals[nextGoal.index].name, "</strong><small>").concat(nextGoal.progress, "</small>") : '<span>ALL COMPLETE / 全部达成</span><strong>五枚挑战奖章已全部点亮</strong><small>你可以继续重做任务，刷新自己的最佳成绩。</small>';
+  document.querySelector('#challengeMedalCount').textContent = "".concat(medals.filter(function (medal) {
+    return medal.earned;
+  }).length, " / 5");
+  document.querySelector('#challengeMedals').innerHTML = medals.map(function (medal, index) {
+    return "<article class=\"".concat(medal.earned ? 'earned' : '', " ").concat(index === medals.length - 1 ? 'final' : '', "\"><i>").concat(medal.earned ? medal.mark : '·', "</i><div><strong>").concat(medal.name, "</strong><p>").concat(medal.rule, "</p></div><span>").concat(medal.earned ? '已获得' : '未解锁', "</span></article>");
+  }).join('');
+  var achieved = medals[medals.length - 1].earned;
+  var card = document.querySelector('#achievementCard');
   card.hidden = !achieved;
   if (achieved) {
-    document.querySelector('#achievementMarks').innerHTML = medals.slice(0, 4).map(medal => `<i title="${medal.name}">${medal.mark}</i>`).join('');
-    document.querySelector('#achievementKit').innerHTML = `<span>任务挑战总成绩</span><strong>${totalStars}/18 星 · 十题远征 ${state.highScore}/100 分</strong>`;
-    const selectedEntries = state.spiritKit.map(name => {
-      const station = stations.find(item => item.keywords.some(word => word[0] === name));
-      const word = station?.keywords.find(item => item[0] === name);
-      return word ? `<article><i>✦</i><div><strong>${word[0]}</strong><p>${word[2]}</p></div></article>` : '';
+    document.querySelector('#achievementMarks').innerHTML = medals.slice(0, 4).map(function (medal) {
+      return "<i title=\"".concat(medal.name, "\">").concat(medal.mark, "</i>");
+    }).join('');
+    document.querySelector('#achievementKit').innerHTML = "<span>\u4EFB\u52A1\u6311\u6218\u603B\u6210\u7EE9</span><strong>".concat(totalStars, "/18 \u661F \xB7 \u5341\u9898\u8FDC\u5F81 ").concat(state.highScore, "/100 \u5206</strong>");
+    var selectedEntries = state.spiritKit.map(function (name) {
+      var station = stations.find(function (item) {
+        return item.keywords.some(function (word) {
+          return word[0] === name;
+        });
+      });
+      var word = station === null || station === void 0 ? void 0 : station.keywords.find(function (item) {
+        return item[0] === name;
+      });
+      return word ? "<article><i>\u2726</i><div><strong>".concat(word[0], "</strong><p>").concat(word[2], "</p></div></article>") : '';
     }).join('');
     document.querySelector('#achievementClues').innerHTML = selectedEntries || '<p class="achievement-clues-empty">从“我的精神行囊”选择三条线索后，这里将生成你的专属行动印记。</p>';
   }
 }
-const questions = [{
+var questions = [{
   id: 1,
   station: '瑞金出发',
   q: '材料：“第五次反‘围剿’失败，中央苏区形势日益严峻。”由此推断，中央红军实行战略转移首先要解决什么问题？',
@@ -1375,28 +1601,33 @@ const questions = [{
   correct: 0,
   e: '学习路线经过筛选，帮助理解关键节点；它不能代替完整历史路线。'
 }];
-let quizSession = [];
-let quizIndex = 0;
-let score = 0;
-let sessionWrong = [];
-let quizCurrentOptions = [];
-let quizMode = 'random';
+var quizSession = [];
+var quizIndex = 0;
+var score = 0;
+var sessionWrong = [];
+var quizCurrentOptions = [];
+var quizMode = 'random';
 function shuffled(items) {
-  const copy = [...items];
-  for (let i = copy.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
+  var copy = _toConsumableArray(items);
+  for (var i = copy.length - 1; i > 0; i -= 1) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var _ref9 = [copy[j], copy[i]];
+    copy[i] = _ref9[0];
+    copy[j] = _ref9[1];
   }
   return copy;
 }
 function renderQuizStatus() {
   document.querySelector('#quizHighScore').textContent = state.highScore;
   document.querySelector('#wrongQuestionCount').textContent = state.wrongQuestions.length;
-  const wrongButton = document.querySelector('#startWrongReview');
+  var wrongButton = document.querySelector('#startWrongReview');
   wrongButton.disabled = state.wrongQuestions.length === 0;
-  wrongButton.textContent = state.wrongQuestions.length ? `错题专项练习 · ${state.wrongQuestions.length} 题` : '暂无错题';
+  wrongButton.textContent = state.wrongQuestions.length ? "\u9519\u9898\u4E13\u9879\u7EC3\u4E60 \xB7 ".concat(state.wrongQuestions.length, " \u9898") : '暂无错题';
 }
-function startQuiz(pool = questions, limit = 10, mode = 'random') {
+function startQuiz() {
+  var pool = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : questions;
+  var limit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 10;
+  var mode = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'random';
   quizMode = mode;
   quizSession = shuffled(pool).slice(0, Math.min(limit, pool.length));
   quizIndex = 0;
@@ -1411,26 +1642,34 @@ function startQuiz(pool = questions, limit = 10, mode = 'random') {
   renderQuestion();
 }
 function renderQuestion() {
-  const item = quizSession[quizIndex];
-  quizCurrentOptions = shuffled(item.a.map((answer, index) => ({
-    answer,
-    correct: index === item.correct
-  })));
+  var item = quizSession[quizIndex];
+  quizCurrentOptions = shuffled(item.a.map(function (answer, index) {
+    return {
+      answer: answer,
+      correct: index === item.correct
+    };
+  }));
   document.querySelector('#questionNo').textContent = quizIndex + 1;
   document.querySelector('#questionTotal').textContent = quizSession.length;
-  document.querySelector('#quizProgress').style.width = `${quizIndex / quizSession.length * 100}%`;
-  document.querySelector('#quizStation').textContent = `${item.station} · QUESTION ${String(item.id).padStart(2, '0')}`;
+  document.querySelector('#quizProgress').style.width = "".concat(quizIndex / quizSession.length * 100, "%");
+  document.querySelector('#quizStation').textContent = "".concat(item.station, " \xB7 QUESTION ").concat(String(item.id).padStart(2, '0'));
   document.querySelector('#question').textContent = item.q;
   document.querySelector('#quizExplain').textContent = '';
   document.querySelector('#nextQuestion').hidden = true;
-  document.querySelector('#quizOptions').innerHTML = quizCurrentOptions.map((option, index) => `<button data-index="${index}" data-correct="${option.correct}">${String.fromCharCode(65 + index)}. ${option.answer}</button>`).join('');
-  document.querySelectorAll('#quizOptions button').forEach(button => button.addEventListener('click', answerQuestion));
+  document.querySelector('#quizOptions').innerHTML = quizCurrentOptions.map(function (option, index) {
+    return "<button data-index=\"".concat(index, "\" data-correct=\"").concat(option.correct, "\">").concat(String.fromCharCode(65 + index), ". ").concat(option.answer, "</button>");
+  }).join('');
+  document.querySelectorAll('#quizOptions button').forEach(function (button) {
+    return button.addEventListener('click', answerQuestion);
+  });
 }
 function answerQuestion(event) {
-  const selected = Number(event.currentTarget.dataset.index);
-  const item = quizSession[quizIndex];
-  const correct = quizCurrentOptions[selected].correct;
-  document.querySelectorAll('#quizOptions button').forEach(button => button.disabled = true);
+  var selected = Number(event.currentTarget.dataset.index);
+  var item = quizSession[quizIndex];
+  var correct = quizCurrentOptions[selected].correct;
+  document.querySelectorAll('#quizOptions button').forEach(function (button) {
+    return button.disabled = true;
+  });
   event.currentTarget.classList.add(correct ? 'correct' : 'wrong');
   if (!correct) {
     document.querySelector('#quizOptions button[data-correct="true"]').classList.add('correct');
@@ -1438,7 +1677,9 @@ function answerQuestion(event) {
     if (!state.wrongQuestions.includes(item.id)) state.wrongQuestions.push(item.id);
   } else {
     score += 10;
-    state.wrongQuestions = state.wrongQuestions.filter(id => id !== item.id);
+    state.wrongQuestions = state.wrongQuestions.filter(function (id) {
+      return id !== item.id;
+    });
   }
   storage.setItem('sparkWrongQuestions', JSON.stringify(state.wrongQuestions));
   renderQuizStatus();
@@ -1448,7 +1689,7 @@ function answerQuestion(event) {
   document.querySelector('#nextQuestion').innerHTML = quizIndex === quizSession.length - 1 ? '查看结果 <span>→</span>' : '下一题 <span>→</span>';
 }
 function finishQuiz() {
-  const previousHighScore = state.highScore;
+  var previousHighScore = state.highScore;
   if (quizMode === 'random') state.highScore = Math.max(state.highScore, score);
   storage.setItem('sparkHighScore', state.highScore);
   document.querySelector('#quizProgress').style.width = '100%';
@@ -1456,47 +1697,56 @@ function finishQuiz() {
   document.querySelector('#quizOptions').hidden = true;
   document.querySelector('#quizExplain').hidden = true;
   document.querySelector('#nextQuestion').hidden = true;
-  const result = document.querySelector('#quizResult');
+  var result = document.querySelector('#quizResult');
   result.hidden = false;
-  const percent = quizSession.length ? Math.round(score / (quizSession.length * 10) * 100) : 0;
-  const evaluation = percent >= 90 ? '理解扎实，能够根据材料作出判断。' : percent >= 80 ? '已达到最终奖章的挑战要求。' : percent >= 60 ? '基础达标，建议继续复习错题中的因果关系。' : '建议回到六站档案，再阅读史实和因果链。';
-  result.innerHTML = `<span>${quizMode === 'wrong' ? 'WRONG ANSWER REVIEW' : 'CHALLENGE COMPLETE'}</span><strong>${score}</strong><p>本次得分 · 满分 ${quizSession.length * 10}<br>${evaluation}<br>本轮答错 ${sessionWrong.length} 题 · 待复习 ${state.wrongQuestions.length} 题 · 历史最高 ${state.highScore}</p><div><button id="restartQuiz">重新抽取10题</button><button id="retryWrong" ${state.wrongQuestions.length ? '' : 'disabled'}>错题重练 ${state.wrongQuestions.length}</button></div>`;
-  document.querySelector('#restartQuiz').addEventListener('click', () => startQuiz());
-  document.querySelector('#retryWrong').addEventListener('click', () => {
-    const pool = questions.filter(item => state.wrongQuestions.includes(item.id));
+  var percent = quizSession.length ? Math.round(score / (quizSession.length * 10) * 100) : 0;
+  var evaluation = percent >= 90 ? '理解扎实，能够根据材料作出判断。' : percent >= 80 ? '已达到最终奖章的挑战要求。' : percent >= 60 ? '基础达标，建议继续复习错题中的因果关系。' : '建议回到六站档案，再阅读史实和因果链。';
+  result.innerHTML = "<span>".concat(quizMode === 'wrong' ? 'WRONG ANSWER REVIEW' : 'CHALLENGE COMPLETE', "</span><strong>").concat(score, "</strong><p>\u672C\u6B21\u5F97\u5206 \xB7 \u6EE1\u5206 ").concat(quizSession.length * 10, "<br>").concat(evaluation, "<br>\u672C\u8F6E\u7B54\u9519 ").concat(sessionWrong.length, " \u9898 \xB7 \u5F85\u590D\u4E60 ").concat(state.wrongQuestions.length, " \u9898 \xB7 \u5386\u53F2\u6700\u9AD8 ").concat(state.highScore, "</p><div><button id=\"restartQuiz\">\u91CD\u65B0\u62BD\u53D610\u9898</button><button id=\"retryWrong\" ").concat(state.wrongQuestions.length ? '' : 'disabled', ">\u9519\u9898\u91CD\u7EC3 ").concat(state.wrongQuestions.length, "</button></div>");
+  document.querySelector('#restartQuiz').addEventListener('click', function () {
+    return startQuiz();
+  });
+  document.querySelector('#retryWrong').addEventListener('click', function () {
+    var pool = questions.filter(function (item) {
+      return state.wrongQuestions.includes(item.id);
+    });
     if (pool.length) startQuiz(pool, pool.length, 'wrong');
   });
   renderQuizStatus();
   renderBadgesAndAchievement();
-  const resultMessage = quizMode === 'wrong' ? `错题复习完成，剩余 ${state.wrongQuestions.length} 题` : state.highScore > previousHighScore ? `挑战完成：刷新最高分 ${state.highScore}` : `挑战完成：${score} 分`;
+  var resultMessage = quizMode === 'wrong' ? "\u9519\u9898\u590D\u4E60\u5B8C\u6210\uFF0C\u5269\u4F59 ".concat(state.wrongQuestions.length, " \u9898") : state.highScore > previousHighScore ? "\u6311\u6218\u5B8C\u6210\uFF1A\u5237\u65B0\u6700\u9AD8\u5206 ".concat(state.highScore) : "\u6311\u6218\u5B8C\u6210\uFF1A".concat(score, " \u5206");
   toast(resultMessage);
 }
-document.querySelector('#nextQuestion').addEventListener('click', () => {
+document.querySelector('#nextQuestion').addEventListener('click', function () {
   if (quizIndex < quizSession.length - 1) {
     quizIndex += 1;
     renderQuestion();
   } else finishQuiz();
 });
-document.querySelector('#startWrongReview').addEventListener('click', () => {
-  const pool = questions.filter(item => state.wrongQuestions.includes(item.id));
+document.querySelector('#startWrongReview').addEventListener('click', function () {
+  var pool = questions.filter(function (item) {
+    return state.wrongQuestions.includes(item.id);
+  });
   if (pool.length) startQuiz(pool, pool.length, 'wrong');
 });
-let toastTimer;
+var toastTimer;
 function toast(message) {
-  const node = document.querySelector('#toast');
+  var node = document.querySelector('#toast');
   node.textContent = message;
   node.classList.add('show');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => node.classList.remove('show'), 1800);
+  toastTimer = setTimeout(function () {
+    return node.classList.remove('show');
+  }, 1800);
 }
-function playTone(type = 'tap') {
+function playTone() {
+  var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'tap';
   if (!state.soundEnabled) return;
   try {
-    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    var AudioContextClass = window.AudioContext || window.webkitAudioContext;
     if (!AudioContextClass) return;
-    const context = new AudioContextClass();
-    const oscillator = context.createOscillator();
-    const gain = context.createGain();
+    var context = new AudioContextClass();
+    var oscillator = context.createOscillator();
+    var gain = context.createGain();
     oscillator.type = 'sine';
     oscillator.frequency.value = type === 'success' ? 660 : 440;
     gain.gain.setValueAtTime(.055, context.currentTime);
@@ -1505,12 +1755,14 @@ function playTone(type = 'tap') {
     gain.connect(context.destination);
     oscillator.start();
     oscillator.stop(context.currentTime + (type === 'success' ? .28 : .12));
-    oscillator.addEventListener('ended', () => context.close());
+    oscillator.addEventListener('ended', function () {
+      return context.close();
+    });
   } catch (_) {/* Audio is optional; interaction must continue without it. */}
 }
 function updateSoundUI() {
-  const headerButton = document.querySelector('#soundButton');
-  const toggle = document.querySelector('#soundToggle');
+  var headerButton = document.querySelector('#soundButton');
+  var toggle = document.querySelector('#soundToggle');
   headerButton.classList.toggle('muted', !state.soundEnabled);
   headerButton.textContent = state.soundEnabled ? '声' : '静';
   toggle.classList.toggle('is-on', state.soundEnabled);
@@ -1525,34 +1777,44 @@ function toggleSound() {
 }
 document.querySelector('#soundButton').addEventListener('click', toggleSound);
 document.querySelector('#soundToggle').addEventListener('click', toggleSound);
-const onboarding = document.querySelector('#onboarding');
-let onboardingIndex = 0;
+var onboarding = document.querySelector('#onboarding');
+var onboardingIndex = 0;
 function closeOnboarding() {
   onboarding.hidden = true;
   storage.setItem('sparkOnboarded', 'true');
 }
 function showOnboardingPage(index) {
   onboardingIndex = index;
-  document.querySelectorAll('#onboardingPages article').forEach((page, pageIndex) => page.classList.toggle('is-active', pageIndex === index));
-  document.querySelectorAll('#onboardingDots i').forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === index));
+  document.querySelectorAll('#onboardingPages article').forEach(function (page, pageIndex) {
+    return page.classList.toggle('is-active', pageIndex === index);
+  });
+  document.querySelectorAll('#onboardingDots i').forEach(function (dot, dotIndex) {
+    return dot.classList.toggle('is-active', dotIndex === index);
+  });
   document.querySelector('#nextOnboarding').textContent = index === 2 ? '开始研学 →' : '下一步 →';
 }
 document.querySelector('#skipOnboarding').addEventListener('click', closeOnboarding);
-document.querySelector('#nextOnboarding').addEventListener('click', () => onboardingIndex === 2 ? closeOnboarding() : showOnboardingPage(onboardingIndex + 1));
+document.querySelector('#nextOnboarding').addEventListener('click', function () {
+  return onboardingIndex === 2 ? closeOnboarding() : showOnboardingPage(onboardingIndex + 1);
+});
 if (!storage.getItem('sparkOnboarded')) {
   onboarding.hidden = false;
   showOnboardingPage(0);
 }
-document.querySelector('#resetProgress').addEventListener('click', () => {
-  const confirmed = window.confirm('确定清除本机上的全部研学记录吗？此操作无法撤销。');
+document.querySelector('#resetProgress').addEventListener('click', function () {
+  var confirmed = window.confirm('确定清除本机上的全部研学记录吗？此操作无法撤销。');
   if (!confirmed) return;
-  const keys = [];
-  for (let index = 0; index < storage.length; index += 1) keys.push(storage.key(index));
-  keys.filter(key => key && key.startsWith('spark')).forEach(key => storage.removeItem(key));
+  var keys = [];
+  for (var index = 0; index < storage.length; index += 1) keys.push(storage.key(index));
+  keys.filter(function (key) {
+    return key && key.startsWith('spark');
+  }).forEach(function (key) {
+    return storage.removeItem(key);
+  });
   window.location.reload();
 });
 function registerOfflineSupport() {
-  const status = document.querySelector('#offlineStatus');
+  var status = document.querySelector('#offlineStatus');
   if (window.location.protocol === 'file:') {
     status.textContent = '应用资源已随安装包保存，无需联网即可使用';
     return;
@@ -1561,9 +1823,11 @@ function registerOfflineSupport() {
     status.textContent = '当前浏览器不支持离线缓存';
     return;
   }
-  navigator.serviceWorker.register('./service-worker.js').then(() => navigator.serviceWorker.ready).then(() => {
+  navigator.serviceWorker.register('./service-worker.js').then(function () {
+    return navigator.serviceWorker.ready;
+  }).then(function () {
     status.textContent = '核心页面已可离线打开';
-  }).catch(() => {
+  }).catch(function () {
     status.textContent = '首次联网打开后可建立离线缓存';
   });
 }
