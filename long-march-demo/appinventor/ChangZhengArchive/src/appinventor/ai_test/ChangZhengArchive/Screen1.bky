@@ -1,0 +1,98 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="component_event" x="22" y="24">
+    <mutation component_type="Form" is_generic="false" instance_name="Screen1" event_name="Initialize"></mutation>
+    <field name="COMPONENT_SELECTOR">Screen1</field>
+    <statement name="DO">
+      <block type="component_set_get">
+        <mutation component_type="WebViewer" set_or_get="set" property_name="WebViewString" is_generic="false" instance_name="WebViewer1"></mutation>
+        <field name="COMPONENT_SELECTOR">WebViewer1</field>
+        <field name="PROP">WebViewString</field>
+        <value name="VALUE">
+          <block type="text_join">
+            <mutation items="2"></mutation>
+            <value name="ADD0"><block type="text"><field name="TEXT">spark-restore:</field></block></value>
+            <value name="ADD1">
+              <block type="component_method">
+                <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="TinyDB1"></mutation>
+                <field name="COMPONENT_SELECTOR">TinyDB1</field>
+                <value name="ARG0"><block type="text"><field name="TEXT">sparkJourneyJson</field></block></value>
+                <value name="ARG1"><block type="text"><field name="TEXT"></field></block></value>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" x="22" y="230">
+    <mutation component_type="WebViewer" is_generic="false" instance_name="WebViewer1" event_name="PageLoaded"></mutation>
+    <field name="COMPONENT_SELECTOR">WebViewer1</field>
+    <statement name="DO">
+      <block type="component_set_get">
+        <mutation component_type="WebViewer" set_or_get="set" property_name="WebViewString" is_generic="false" instance_name="WebViewer1"></mutation>
+        <field name="COMPONENT_SELECTOR">WebViewer1</field>
+        <field name="PROP">WebViewString</field>
+        <value name="VALUE">
+          <block type="text_join">
+            <mutation items="2"></mutation>
+            <value name="ADD0"><block type="text"><field name="TEXT">spark-restore:</field></block></value>
+            <value name="ADD1">
+              <block type="component_method">
+                <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="TinyDB1"></mutation>
+                <field name="COMPONENT_SELECTOR">TinyDB1</field>
+                <value name="ARG0"><block type="text"><field name="TEXT">sparkJourneyJson</field></block></value>
+                <value name="ARG1"><block type="text"><field name="TEXT"></field></block></value>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" x="22" y="438">
+    <mutation component_type="WebViewer" is_generic="false" instance_name="WebViewer1" event_name="WebViewStringChange"></mutation>
+    <field name="COMPONENT_SELECTOR">WebViewer1</field>
+    <statement name="DO">
+      <block type="controls_if">
+        <value name="IF0">
+          <block type="logic_compare">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="text_starts_at">
+                <value name="TEXT"><block type="lexical_variable_get"><mutation><eventparam name="value"></eventparam></mutation><field name="VAR">get value</field></block></value>
+                <value name="PIECE"><block type="text"><field name="TEXT">spark-sync:</field></block></value>
+              </block>
+            </value>
+            <value name="B"><block type="math_number"><field name="NUM">1</field></block></value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="component_method">
+            <mutation component_type="TinyDB" method_name="StoreValue" is_generic="false" instance_name="TinyDB1"></mutation>
+            <field name="COMPONENT_SELECTOR">TinyDB1</field>
+            <value name="ARG0"><block type="text"><field name="TEXT">sparkJourneyJson</field></block></value>
+            <value name="ARG1"><block type="lexical_variable_get"><mutation><eventparam name="value"></eventparam></mutation><field name="VAR">get value</field></block></value>
+          </block>
+        </statement>
+        <next>
+          <block type="controls_if">
+            <value name="IF0">
+              <block type="logic_compare">
+                <field name="OP">EQ</field>
+                <value name="A"><block type="lexical_variable_get"><mutation><eventparam name="value"></eventparam></mutation><field name="VAR">get value</field></block></value>
+                <value name="B"><block type="text"><field name="TEXT">spark-clear</field></block></value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="component_method">
+                <mutation component_type="TinyDB" method_name="ClearTag" is_generic="false" instance_name="TinyDB1"></mutation>
+                <field name="COMPONENT_SELECTOR">TinyDB1</field>
+                <value name="ARG0"><block type="text"><field name="TEXT">sparkJourneyJson</field></block></value>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

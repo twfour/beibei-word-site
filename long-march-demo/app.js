@@ -271,6 +271,58 @@ function getSafeStorage() {
   };
 }
 const storage = getSafeStorage();
+let nativeBridgeReady = false;
+
+function appInventorBridge() {
+  try {
+    return window.AppInventor || null;
+  } catch (_) {
+    return null;
+  }
+}
+
+function restoreJourneyFromAppInventor() {
+  const bridge = appInventorBridge();
+  if (!bridge || typeof bridge.getWebViewString !== 'function') return false;
+  try {
+    let message = String(bridge.getWebViewString() || '');
+    if (!message.startsWith('spark-restore:')) return false;
+    const restoreToken = message;
+    message = message.slice('spark-restore:'.length);
+    if (message.startsWith('spark-sync:')) message = message.slice('spark-sync:'.length);
+    if (!message) {
+      nativeBridgeReady = true;
+      return false;
+    }
+    const saved = JSON.parse(message);
+    if (Array.isArray(saved.completed)) storage.setItem('sparkCompleted', JSON.stringify(saved.completed));
+    if (Array.isArray(saved.favorites)) storage.setItem('sparkFavorites', JSON.stringify(saved.favorites));
+    if (Number(saved.unlocked)) storage.setItem('sparkUnlocked', saved.unlocked);
+    if (Number(saved.currentStation)) storage.setItem('sparkCurrentStation', saved.currentStation);
+    storage.setItem('sparkNativeRestoreToken', restoreToken);
+    nativeBridgeReady = true;
+    return true;
+  } catch (_) {
+    return false;
+  }
+}
+
+function syncJourneyToAppInventor() {
+  const bridge = appInventorBridge();
+  if (!nativeBridgeReady || !bridge || typeof bridge.setWebViewString !== 'function' || typeof state === 'undefined') return;
+  try {
+    bridge.setWebViewString(`spark-sync:${JSON.stringify({
+      unlocked: state.unlocked,
+      completed: state.completed,
+      currentStation: state.currentStation,
+      favorites: state.favorites
+    })}`);
+  } catch (_) {
+    /* WebViewString is an optional native backup; browser storage remains active. */
+  }
+}
+
+restoreJourneyFromAppInventor();
 const legacyProgress = Number(storage.getItem('sparkProgress') || 0);
 const state = {
   unlocked: Math.min(6, Math.max(1, Number(storage.getItem('sparkUnlocked') || legacyProgress || 1))),
@@ -284,6 +336,29 @@ const state = {
   taskRecords: JSON.parse(storage.getItem('sparkTaskRecords') || '{}'),
   soundEnabled: storage.getItem('sparkSoundEnabled') !== 'false',
 };
+
+let nativeRestoreChecks = 0;
+function completeNativeBridgeHandshake() {
+  const bridge = appInventorBridge();
+  if (!bridge || typeof bridge.getWebViewString !== 'function') return;
+  let message = '';
+  try { message = String(bridge.getWebViewString() || ''); } catch (_) { return; }
+  if (message.startsWith('spark-restore:')) {
+    const previousToken = storage.getItem('sparkNativeRestoreToken');
+    if (message.length > 'spark-restore:'.length && message !== previousToken) {
+      if (restoreJourneyFromAppInventor()) return window.location.reload();
+    }
+    nativeBridgeReady = true;
+    syncJourneyToAppInventor();
+    return;
+  }
+  nativeRestoreChecks += 1;
+  if (nativeRestoreChecks < 8) return window.setTimeout(completeNativeBridgeHandshake, 200);
+  nativeBridgeReady = true;
+  syncJourneyToAppInventor();
+}
+
+window.setTimeout(completeNativeBridgeHandshake, 200);
 
 function syncEarnedSpiritClues() {
   const earned = stations
@@ -338,6 +413,7 @@ function persistJourney() {
   storage.setItem('sparkCurrentStation', state.currentStation);
   storage.setItem('sparkTaskRecords', JSON.stringify(state.taskRecords));
   storage.removeItem('sparkProgress');
+  syncJourneyToAppInventor();
 }
 
 const shoeStops = [[11,94],[18,88],[25,70],[45,53],[68,38],[61,22],[71,9]];
@@ -1067,7 +1143,11 @@ document.querySelector('#resetProgress').addEventListener('click', () => {
   const keys = [];
   for (let index = 0; index < storage.length; index += 1) keys.push(storage.key(index));
   keys.filter(key => key && key.startsWith('spark')).forEach(key => storage.removeItem(key));
-  window.location.reload();
+  const bridge = appInventorBridge();
+  if (bridge && typeof bridge.setWebViewString === 'function') {
+    try { bridge.setWebViewString('spark-clear'); } catch (_) { /* Browser-only mode. */ }
+  }
+  window.setTimeout(() => window.location.reload(), 120);
 });
 
 function registerOfflineSupport() {

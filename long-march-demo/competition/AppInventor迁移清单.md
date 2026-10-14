@@ -5,7 +5,9 @@
 - [x] 第一步：最新版网页内容、界面、兼容脚本和兼容样式已同步至 AIA Assets
 - [x] 重新生成 `ChangZhengArchive.aia` 并通过 ZIP 结构与完整性检查
 - [ ] 在 AppInventorDesktop2019 中实际导入并用模拟器逐页检查
-- [ ] 第二步：使用 TinyDB 同步站点进度和精神线索归档
+- [x] 第二步：使用 TinyDB 同步站点进度和精神线索归档
+- [x] 完成站点后自动归档该站两条精神线索
+- [ ] 在 AppInventorDesktop2019 中验证 TinyDB 关闭重启恢复与清除记录
 
 ## 页面对应
 
@@ -19,7 +21,7 @@
 ## 数据结构
 
 - 用列表保存六站内容和30道题
-- 用 TinyDB 保存 unlocked、completed、currentStation、favorites、wrongQuestions、spiritKit、reflection
+- 第二步已用 TinyDB 保存 unlocked、completed、currentStation 和 favorites；题库、行囊等数据留待后续步骤迁移
 - 用 Clock 实现泸定桥倒计时和盖章动画时序
 - 用 Notifier 实现提示、确认清除和错误反馈
 
