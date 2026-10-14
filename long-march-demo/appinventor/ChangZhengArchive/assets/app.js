@@ -217,6 +217,15 @@ const historyBoundaries = {
   5:'物资分配是理解困难的简化模型。真实的严寒、饥饿、缺氧和伤亡远比游戏数值更加严峻。'
 };
 
+const taskCompatibilityHints = {
+  causal:['操作','点击上下箭头调整卡片','目标','恢复完整因果链'],
+  deduction:['操作','先选满两项，再验证','目标','只选能由史实支持的结论'],
+  routePuzzle:['操作','按日期与方向排序','目标','复原四次渡河顺序'],
+  calculation:['操作','用数字键盘完成两步计算','目标','理解急行军的时间压力'],
+  sudoku:['操作','点击空格循环填入1—4','目标','行、列、2×2区域均不重复'],
+  matching:['操作','为三条档案选择对应答案','目标','连接队伍、地点与时间']
+};
+
 const views = [...document.querySelectorAll('.view')];
 const navButtons = [...document.querySelectorAll('.bottom-nav button')];
 const multiRouteInfo = {
@@ -551,6 +560,8 @@ function renderTask(station, replay = false) {
   document.querySelector('#taskTag').textContent = `${taskLabels[task.type] || task.type.toUpperCase()} / 站点任务`;
   document.querySelector('#taskTitle').textContent = completed ? `${station.name}站任务完成` : task.title;
   document.querySelector('#taskCopy').textContent = completed ? `你已经获得“${station.spirit}”印记。可以继续下一站，也可以再次挑战。` : task.copy;
+  const taskHints = taskCompatibilityHints[task.type] || ['操作','完成任务','目标','理解历史选择'];
+  document.querySelector('#taskRuleStrip').innerHTML = `<div><span>${taskHints[0]}</span><b>${taskHints[1]}</b></div><div><span>${taskHints[2]}</span><b>${taskHints[3]}</b></div><small>首次通过 3 星 · 第二次 2 星 · 其后 1 星</small>`;
   const boundary = document.querySelector('#historyBoundary');
   boundary.hidden = !historyBoundaries[station.id];
   boundary.textContent = historyBoundaries[station.id] || '';
@@ -605,6 +616,7 @@ function renderDeductionTask(station, mount) {
     setTaskFeedback('');
   }));
   document.querySelector('#checkDeduction').addEventListener('click', () => {
+    if (selected.size !== 2) return setTaskFeedback('请先选满两项结论再验证。', 'error');
     const correct = station.task.answers.length === selected.size && station.task.answers.every(index => selected.has(index));
     correct ? finishTask(station) : consequence('至少有一项结论超出了史实线索。注意：“纠正方法”不等于否定一切，“独立思考”也不等于拒绝意见。');
   });
@@ -616,14 +628,16 @@ function renderCalculationTask(station, mount) {
     const item = station.task.stages[stage];
     mount.innerHTML = `<div class="calculation-sheet"><div><span>${item.label} · ${stage + 1}/2</span><b>${stage ? '120 ÷ 24 = ?' : '240 × 0.5 = ?'}</b></div><p>${item.q}</p><label><input id="calculationAnswer" type="number" inputmode="decimal" min="0" aria-label="计算答案"><em>${item.unit}</em></label></div><button class="task-action" id="checkCalculation">${stage ? '完成计算' : '提交第一步'}</button>`;
     const input = document.querySelector('#calculationAnswer');
-    input.focus();
-    document.querySelector('#checkCalculation').addEventListener('click', () => {
+    const submitCalculation = () => {
+      if (input.value.trim() === '') return setTaskFeedback('请先输入计算结果。', 'error');
       if (Number(input.value) !== item.answer) return consequence(stage ? '用总路程120千米除以24小时，求平均每小时前进距离。' : '按照题目给出的换算关系，用240乘以0.5。');
       if (stage === station.task.stages.length - 1) return finishTask(station);
       stage += 1;
       setTaskFeedback('第一步正确：240里约为120千米。继续计算平均速度。', 'success');
       draw();
-    });
+    };
+    document.querySelector('#checkCalculation').addEventListener('click', submitCalculation);
+    input.addEventListener('keydown', event => { if (event.key === 'Enter') submitCalculation(); });
   };
   draw();
 }
@@ -650,6 +664,10 @@ function renderMatchingTask(station, mount) {
     if (answers.some(answer => !answer)) return setTaskFeedback('还有档案没有完成配对。', 'error');
     answers.every((answer,index) => answer === station.task.rows[index].answer) ? finishTask(station) : consequence('至少有一条会师记录连接错误。注意区分会宁、将台堡以及三大主力胜利会合的月份。');
   });
+  mount.querySelectorAll('[data-match]').forEach(select => select.addEventListener('change', () => {
+    select.classList.toggle('has-value', Boolean(select.value));
+    setTaskFeedback('');
+  }));
 }
 
 function renderPackTask(station, mount) {

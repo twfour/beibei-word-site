@@ -650,6 +650,76 @@ textarea {
   text-align: center;
 }
 
+/* 2019 Companion task controls: large touch targets and no keyboard-triggered zoom. */
+.task-rule-strip {
+  margin: 14px 0 4px;
+  padding: 11px;
+  border: 1px solid rgba(230,198,126,.34);
+  background: rgba(255,255,255,.05);
+}
+
+.task-rule-strip>div {
+  display: -webkit-flex;
+  display: flex;
+  gap: 8px;
+  margin: 4px 0;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.task-rule-strip span {
+  min-width: 32px;
+  color: #e6c67e;
+}
+
+.task-rule-strip b {
+  color: #eef1e9;
+  font-weight: 400;
+}
+
+.task-rule-strip small {
+  display: block;
+  margin-top: 8px;
+  color: #bfcabf;
+  font-size: 9px;
+}
+
+#taskMount button,
+.deduction-options button,
+.order-list button,
+.sudoku-tools button,
+.matching-board select {
+  min-height: 44px;
+  touch-action: manipulation;
+}
+
+.order-list button {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+}
+
+.calculation-sheet input {
+  min-height: 52px;
+  font-size: 24px;
+}
+
+.matching-board select {
+  font-size: 16px;
+}
+
+.matching-board select.has-value {
+  border-color: #e6c67e;
+  background: #fff4d9;
+}
+
+.task-feedback:not(:empty) {
+  margin-top: 10px;
+  padding: 10px;
+  border-left: 3px solid #e6c67e;
+  background: rgba(255,255,255,.06);
+}
+
 .reading-flow-nav b {
   color: #a52d29;
   font: 700 11px/1 Georgia,serif;
