@@ -1133,6 +1133,10 @@ document.querySelector('#resetProgress').addEventListener('click', () => {
 
 function registerOfflineSupport() {
   const status = document.querySelector('#offlineStatus');
+  if (window.location.protocol === 'file:') {
+    status.textContent = '应用资源已随安装包保存，无需联网即可使用';
+    return;
+  }
   if (!('serviceWorker' in navigator)) {
     status.textContent = '当前浏览器不支持离线缓存';
     return;

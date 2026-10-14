@@ -815,7 +815,9 @@ textarea {
 }
 
 .onboarding-card {
-  width: 100%;
+  width: -webkit-calc(100vw - 36px);
+  width: calc(100vw - 36px);
+  min-width: 0;
   max-width: 420px;
 }
 

@@ -88,6 +88,7 @@ window.onerror=function(message,source,line){var notice=document.createElement('
 def sync_assets(compat_script_path: Path) -> None:
     compat_script = read(compat_script_path)
     polyfills = read(WEB_DIR / "vendor" / "polyfills.min.js")
+    write(WEB_DIR / "app.compat.js", compat_script)
     write(ASSET_DIR / "styles.compat.css", build_compat_css())
     write(ASSET_DIR / "index.html", build_compat_html(polyfills, compat_script))
     write(ASSET_DIR / "app.compat.js", compat_script)

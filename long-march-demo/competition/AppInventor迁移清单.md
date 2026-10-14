@@ -13,6 +13,8 @@
 - [x] 任务操作说明、星级规则、空值检查和成功/失败反馈已统一
 - [x] 第五步：知识挑战、错题复习、精神收藏、精神行囊和最终奖章已完成联动
 - [x] 星火全章需同时满足六站完成、六站辨析、四枚核心章、挑战80分和三条精神行囊
+- [x] 第六步静态验收：AIA资源、ES5兼容脚本、六站、六任务、30题和奖章联动已检查
+- [ ] 第六步实机验收：需在Windows的 AppInventorDesktop2019 模拟器中逐页操作
 
 ## 页面对应
 
@@ -26,14 +28,13 @@
 ## 数据结构
 
 - 用列表保存六站内容和30道题
-- 第二步已用 TinyDB 保存 unlocked、completed、currentStation 和 favorites；题库、行囊等数据留待后续步骤迁移
-- 用 Clock 实现泸定桥倒计时和盖章动画时序
-- 用 Notifier 实现提示、确认清除和错误反馈
+- 当前为 WebViewer 混合版，学习数据由网页本地存储管理；2019模拟器禁用该能力时会退化为本次运行内存
+- 任务时序、盖章动画、提示和清除确认均由内置 JavaScript 实现，未使用原生 Clock 或 Notifier 积木
 
 ## 迁移顺序
 
 1. 先搭建六个页面和统一颜色、字号。
-2. 完成 TinyDB 进度与导航。
+2. TinyDB 暂缓，优先保持2019模拟器稳定启动。
 3. 迁移六站内容和四个阅读面板。
 4. 逐个重做六种任务，不同时迁移。
 5. 迁移题库、收藏、行囊和纪念卡。
@@ -42,4 +43,4 @@
 
 ## 注意
 
-Web Service Worker、CSS动画和 localStorage 不能直接变成 App Inventor 组件，必须用 Blocks、TinyDB、Clock 和 Arrangement 重新实现。不要把网页简单套入 WebViewer 后冒充原生 AIA 作品。
+当前作品是离线 WebViewer 混合 AIA，不宣称为全原生 App Inventor 项目。Service Worker 在AIA本地文件模式下不启用，核心资源直接打包在AIA/APK内供离线运行。
