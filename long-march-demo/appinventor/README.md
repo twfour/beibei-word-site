@@ -43,7 +43,7 @@ python3 build_aia.py --compat-script /tmp/changzheng-app.compat.js
 3. 完成一站任务，确认该站两条精神线索自动归档。
 4. 导出 APK 并在安卓手机测试本地资源路径。
 
-当前 AIA SHA-256：`c20e9eddabf3c9df667b145a4079d83d9c63b0db53010d212cf73e4b6082fa74`
+当前 AIA SHA-256：`9a912badbb3562a86b9bc822ad537cb2222baca462b3bb01aa2f33364a147b4c`
 
 ## 后续原生化
 

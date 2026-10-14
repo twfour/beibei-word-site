@@ -24,28 +24,38 @@
   color: var(--red);
 }
 
-.shoe-stop::before,
-.shoe-stop::after {
-  content: "";
+.shoe-stop > span {
   position: absolute;
-  top: 3px;
-  width: 17px;
-  height: 33px;
+  top: 2px;
+  width: 16px;
+  height: 31px;
   border: 2px solid #79502b;
-  border-radius: 58% 58% 30% 30% / 30% 30% 14% 14%;
-  background:
-    linear-gradient(36deg,transparent 40%,#70441f 42% 49%,transparent 51%),
-    linear-gradient(-36deg,transparent 40%,#70441f 42% 49%,transparent 51%),
-    repeating-linear-gradient(82deg,#dfbd7b 0 2px,#ab773e 2px 4px);
+  border-radius: 55% 55% 38% 38%;
+  background-color: #d2a45e;
   box-shadow: inset 0 0 0 1px rgba(255,239,199,.42),0 3px 3px rgba(54,38,20,.25);
 }
 
-.shoe-stop::before {
+.shoe-stop > span::before,
+.shoe-stop > span::after {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 10px;
+  width: 14px;
+  height: 2px;
+  background: #70441f;
+  transform-origin: center;
+}
+
+.shoe-stop > span::before { transform: rotate(38deg); }
+.shoe-stop > span::after { transform: rotate(-38deg); }
+
+.shoe-stop > span:first-child {
   left: 4px;
   transform: rotate(-13deg);
 }
 
-.shoe-stop::after {
+.shoe-stop > span:nth-child(2) {
   right: 4px;
   top: 0;
   transform: rotate(13deg);
@@ -56,8 +66,8 @@
   z-index: 2;
   left: 50%;
   bottom: -1px;
-  min-width: 43px;
-  padding: 2px 4px;
+  min-width: 18px;
+  padding: 2px 3px;
   transform: translateX(-50%);
   border: 1px solid var(--red);
   border-radius: 10px;
@@ -73,46 +83,33 @@
   color: #fff4df;
 }
 
-.shoe-wear-2::before,
-.shoe-wear-2::after {
-  background: linear-gradient(36deg,transparent 40%,#70441f 42% 49%,transparent 51%),linear-gradient(-36deg,transparent 40%,#70441f 42% 49%,transparent 51%),repeating-linear-gradient(82deg,#c99f5e 0 2px,#97683a 2px 4px);
+.shoe-wear-2 > span {
+  background-color: #bf8e4f;
 }
 
-.shoe-wear-3::before,
-.shoe-wear-3::after {
+.shoe-wear-3 > span {
   border-color: #77502e;
-  background: linear-gradient(36deg,transparent 40%,#654020 42% 49%,transparent 51%),linear-gradient(-36deg,transparent 40%,#654020 42% 49%,transparent 51%),repeating-linear-gradient(82deg,#b88d52 0 2px,#805735 2px 4px);
+  background-color: #a97943;
 }
 
-.shoe-wear-4::before {
-  clip-path: polygon(0 0,100% 0,100% 72%,72% 80%,100% 100%,0 94%);
+.shoe-wear-4 > span {
+  border-bottom-style: dashed;
+  background-color: #956b40;
 }
 
-.shoe-wear-4::before,
-.shoe-wear-4::after {
-  background: linear-gradient(36deg,transparent 40%,#5c3b22 42% 49%,transparent 51%),linear-gradient(-36deg,transparent 40%,#5c3b22 42% 49%,transparent 51%),repeating-linear-gradient(82deg,#aa804b 0 2px,#735033 2px 4px);
-}
-
-.shoe-wear-5::before,
-.shoe-wear-5::after,
-.shoe-wear-6::before,
-.shoe-wear-6::after {
+.shoe-wear-5 > span,
+.shoe-wear-6 > span {
   border-style: dashed;
   border-color: #67462d;
-  background: linear-gradient(36deg,transparent 40%,#51351f 42% 49%,transparent 51%),linear-gradient(-36deg,transparent 40%,#51351f 42% 49%,transparent 51%),repeating-linear-gradient(82deg,#957044 0 2px,#68482d 2px 4px);
+  background-color: #765437;
 }
 
-.shoe-wear-5::after,
-.shoe-wear-6::after {
-  clip-path: polygon(0 0,100% 5%,89% 50%,100% 68%,72% 100%,0 91%,8% 43%);
-}
-
-.shoe-wear-6::before {
+.shoe-wear-6 > span:first-child {
   transform: rotate(-20deg) scaleY(.9);
   opacity: .84;
 }
 
-.shoe-wear-6::after {
+.shoe-wear-6 > span:nth-child(2) {
   transform: rotate(20deg) scaleY(.87);
   opacity: .78;
 }
