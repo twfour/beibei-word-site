@@ -861,6 +861,36 @@ textarea {
   line-height: 1.5;
 }
 
+/* Prevent the 2019 WebView from stretching the data-card plus into an oval. */
+.data-poster-card summary > div {
+  min-width: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.data-poster-card summary > b {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 36px;
+  flex: 0 0 36px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 36px;
+  min-width: 36px;
+  max-width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 0;
+  line-height: 36px;
+  text-align: center;
+}
+
 @supports (display: grid) {
   .topbar,
   .home-grid,
