@@ -610,6 +610,57 @@ textarea {
   position: sticky;
 }
 
+.station-cover:after {
+  content: attr(data-station-no);
+}
+
+.reading-flow-nav {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 12px 0 4px;
+  border-top: 1px solid rgba(52,61,48,.17);
+}
+
+.reading-flow-nav button {
+  min-width: 88px;
+  padding: 10px 8px;
+  border: 1px solid #a52d29;
+  background: transparent;
+  color: #a52d29;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.reading-flow-nav button:disabled {
+  border-color: rgba(52,61,48,.17);
+  color: #99958b;
+}
+
+.reading-flow-nav span,
+.reading-flow-nav small {
+  display: block;
+  text-align: center;
+}
+
+.reading-flow-nav b {
+  color: #a52d29;
+  font: 700 11px/1 Georgia,serif;
+}
+
+.reading-flow-nav small {
+  margin-top: 4px;
+  color: #6f756d;
+  font-size: 10px;
+}
+
 /* Explicit edges and widths replace inset() and min(). */
 .onboarding,
 .stamp-ceremony {

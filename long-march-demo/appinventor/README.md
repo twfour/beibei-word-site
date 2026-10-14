@@ -16,6 +16,8 @@
 - AIA 内的运行资源另复制到 assets 顶层，避免旧版 Companion 无法同步子目录文件
 - AIA 使用 `styles.compat.css`，其中红、绿、米白、金色和边框等 CSS 变量均已展开为实际色值，适配不支持 CSS 自定义属性的旧 WebView
 - 已同步最新版首页、路线、六站档案、进阶任务、精神线索、精神辨析、精神行囊和最终奖章界面
+- 第三步已完成六站内容固化：每站包含“历史档案—因果链—精神线索—互动任务”四个面板，并新增上一页/下一页顺序导航
+- 站点封面的大号序号现会随瑞金至会宁六站动态更新
 - 已把 `route-markers.css`、`data-poster.css`、`reward-atlas.css`、`spirit-clues.css` 等新增样式合并进旧 WebView 兼容样式
 - “清除记录”会清除网页保存的进度
 
@@ -36,7 +38,7 @@ python3 build_aia.py --compat-script /tmp/changzheng-app.compat.js
 3. 完成一站任务，确认该站两条精神线索自动归档。
 4. 导出 APK 并在安卓手机测试本地资源路径。
 
-当前 AIA SHA-256：`f4cd5b54cff2df2889c0159acfc4e8df3c2379af9e127c9a11d98b4e2d998799`
+当前 AIA SHA-256：`7a354c2df086bd3a9a6fced9b1330c6fc5ae0fccab311b55cbee0b239130fa7a`
 
 ## 后续原生化
 

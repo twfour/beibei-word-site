@@ -405,6 +405,7 @@ function openStation(id) {
 }
 
 function renderStation(station) {
+  document.querySelector('.station-cover').setAttribute('data-station-no', String(station.id).padStart(2,'0'));
   document.querySelector('#stationIndex').textContent = `STATION ${String(station.id).padStart(2,'0')} / 06`;
   document.querySelector('#stationMeta').textContent = `${station.date} · ${station.place}`;
   document.querySelector('#stationTitle').innerHTML = station.title;
@@ -774,10 +775,30 @@ function renderOrderTask(station, mount) {
 }
 
 function activatePanel(id) {
+  const panelOrder = ['facts','chain','words','task'];
+  const panelNames = ['历史档案','因果链','精神线索','互动任务'];
+  const panelIndex = Math.max(0, panelOrder.indexOf(id));
   document.querySelectorAll('.reading-tabs button').forEach(tab => tab.classList.toggle('is-active', tab.dataset.panel === id));
   document.querySelectorAll('.reading-panel').forEach(panel => panel.classList.toggle('is-active', panel.id === id));
+  document.querySelector('#readingPanelCount').textContent = `${panelIndex + 1} / ${panelOrder.length}`;
+  document.querySelector('#readingPanelName').textContent = panelNames[panelIndex];
+  document.querySelector('#previousReadingPanel').disabled = panelIndex === 0;
+  document.querySelector('#nextReadingPanel').textContent = panelIndex === panelOrder.length - 1 ? '返回路线 →' : '下一页 →';
 }
 document.querySelectorAll('.reading-tabs button').forEach(tab => tab.addEventListener('click', () => activatePanel(tab.dataset.panel)));
+document.querySelector('#previousReadingPanel').addEventListener('click', () => {
+  const order = ['facts','chain','words','task'];
+  const current = order.findIndex(id => document.querySelector(`#${id}`).classList.contains('is-active'));
+  if (current > 0) activatePanel(order[current - 1]);
+  window.scrollTo(0,0);
+});
+document.querySelector('#nextReadingPanel').addEventListener('click', () => {
+  const order = ['facts','chain','words','task'];
+  const current = order.findIndex(id => document.querySelector(`#${id}`).classList.contains('is-active'));
+  if (current < order.length - 1) activatePanel(order[current + 1]);
+  else showView('route');
+  window.scrollTo(0,0);
+});
 
 function updateJourneyUI() {
   const completedCount = state.completed.length;
