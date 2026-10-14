@@ -720,6 +720,72 @@ textarea {
   background: rgba(255,255,255,.06);
 }
 
+.quiz-status {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.quiz-status>div {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 120px;
+  flex: 1 1 120px;
+  padding: 12px;
+  border: 1px solid rgba(52,61,48,.17);
+  background: rgba(255,250,240,.55);
+}
+
+.quiz-status span,
+.quiz-status strong,
+.quiz-status small {
+  display: block;
+}
+
+.quiz-status span {
+  color: #6f756d;
+  font-size: 9px;
+}
+
+.quiz-status strong {
+  display: inline-block;
+  margin-top: 5px;
+  color: #a52d29;
+  font: 700 28px/1 Georgia,serif;
+}
+
+.quiz-status small {
+  display: inline-block;
+  margin-left: 3px;
+  color: #6f756d;
+  font-size: 9px;
+}
+
+.quiz-status>button {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #a52d29;
+  background: transparent;
+  color: #a52d29;
+  font-weight: 800;
+}
+
+.quiz-status>button:disabled {
+  border-color: rgba(52,61,48,.17);
+  color: #99958b;
+}
+
+.quiz-options button,
+.quiz-result button,
+.kit-slots>button,
+.kit-options button,
+.saved-card summary {
+  min-height: 48px;
+  touch-action: manipulation;
+}
+
 .reading-flow-nav b {
   color: #a52d29;
   font: 700 11px/1 Georgia,serif;

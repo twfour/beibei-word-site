@@ -877,6 +877,7 @@ function renderBadgesAndAchievement() {
     return `<div class="spirit-badge ${earned ? 'earned' : ''}"><i>${earned ? '✦' : '·'}</i><strong>${station.spirit}</strong><small>${earned ? `${station.name} · ${record ? starText(record.bestStars) : ''}` : '尚未获得'}</small></div>`;
   }).join('');
   const stationStars = id => state.taskRecords[id]?.bestStars || 0;
+  const judgmentCount = stations.filter(station => state.spiritJudgments[station.id]).length;
   const medals = [
     {name:'求实之章',mark:'实',earned:state.completed.includes(1) && state.completed.includes(2) && stationStars(1) + stationStars(2) >= 4,rule:'完成瑞金、遵义任务，两站合计至少4星'},
     {name:'智略之章',mark:'智',earned:state.completed.includes(2) && state.completed.includes(3) && stationStars(2) + stationStars(3) >= 4,rule:'完成遵义、赤水任务，两站合计至少4星'},
@@ -884,13 +885,13 @@ function renderBadgesAndAchievement() {
     {name:'团结之章',mark:'合',earned:state.completed.includes(6) && state.highScore >= 60,rule:'完成会宁任务，十题远征最高达到60分'}
   ];
   const allCoreEarned = medals.every(medal => medal.earned);
-  medals.push({name:'星火全章',mark:'星',earned:allCoreEarned && state.completed.length === 6 && state.highScore >= 80 && state.spiritKit.length === 3,rule:'集齐前四章、完成六站、远征达到80分，并选满三条精神行囊'});
+  medals.push({name:'星火全章',mark:'星',earned:allCoreEarned && state.completed.length === 6 && state.highScore >= 80 && judgmentCount === 6 && state.spiritKit.length === 3,rule:'集齐前四章、完成六站辨析、远征达到80分，并选满三条精神行囊'});
   const nextGoal = [
     {index:0,progress:`瑞金、遵义已完成 ${[1,2].filter(id => state.completed.includes(id)).length}/2 站 · ${stationStars(1) + stationStars(2)}/4 星`},
     {index:1,progress:`遵义、赤水已完成 ${[2,3].filter(id => state.completed.includes(id)).length}/2 站 · ${stationStars(2) + stationStars(3)}/4 星`},
     {index:2,progress:`泸定、雪山草地已完成 ${[4,5].filter(id => state.completed.includes(id)).length}/2 站 · ${stationStars(4) + stationStars(5)}/4 星`},
     {index:3,progress:`会宁任务 ${state.completed.includes(6) ? '已完成' : '未完成'} · 十题远征 ${state.highScore}/60 分`},
-    {index:4,progress:`核心奖章 ${medals.slice(0,4).filter(medal => medal.earned).length}/4 枚 · 远征 ${state.highScore}/80 分 · 精神行囊 ${state.spiritKit.length}/3`}
+    {index:4,progress:`核心奖章 ${medals.slice(0,4).filter(medal => medal.earned).length}/4 枚 · 辨析 ${judgmentCount}/6 站 · 远征 ${state.highScore}/80 分 · 行囊 ${state.spiritKit.length}/3`}
   ].find(goal => !medals[goal.index].earned);
   document.querySelector('#nextMedalGoal').innerHTML = nextGoal
     ? `<span>NEXT GOAL / 下一目标</span><strong>${medals[nextGoal.index].name}</strong><small>${nextGoal.progress}</small>`
@@ -950,6 +951,7 @@ let quizIndex = 0;
 let score = 0;
 let sessionWrong = [];
 let quizCurrentOptions = [];
+let quizMode = 'random';
 
 function shuffled(items) {
   const copy = [...items];
@@ -960,7 +962,16 @@ function shuffled(items) {
   return copy;
 }
 
-function startQuiz(pool = questions, limit = 10) {
+function renderQuizStatus() {
+  document.querySelector('#quizHighScore').textContent = state.highScore;
+  document.querySelector('#wrongQuestionCount').textContent = state.wrongQuestions.length;
+  const wrongButton = document.querySelector('#startWrongReview');
+  wrongButton.disabled = state.wrongQuestions.length === 0;
+  wrongButton.textContent = state.wrongQuestions.length ? `错题专项练习 · ${state.wrongQuestions.length} 题` : '暂无错题';
+}
+
+function startQuiz(pool = questions, limit = 10, mode = 'random') {
+  quizMode = mode;
   quizSession = shuffled(pool).slice(0, Math.min(limit, pool.length));
   quizIndex = 0;
   score = 0;
@@ -970,6 +981,7 @@ function startQuiz(pool = questions, limit = 10) {
   document.querySelector('#question').hidden = false;
   document.querySelector('#quizOptions').hidden = false;
   document.querySelector('#quizExplain').hidden = false;
+  renderQuizStatus();
   renderQuestion();
 }
 
@@ -1002,6 +1014,7 @@ function answerQuestion(event) {
     state.wrongQuestions = state.wrongQuestions.filter(id => id !== item.id);
   }
   storage.setItem('sparkWrongQuestions', JSON.stringify(state.wrongQuestions));
+  renderQuizStatus();
   document.querySelector('#score').textContent = score;
   document.querySelector('#quizExplain').textContent = item.e;
   document.querySelector('#nextQuestion').hidden = false;
@@ -1010,7 +1023,7 @@ function answerQuestion(event) {
 
 function finishQuiz() {
   const previousHighScore = state.highScore;
-  state.highScore = Math.max(state.highScore, score);
+  if (quizMode === 'random') state.highScore = Math.max(state.highScore, score);
   storage.setItem('sparkHighScore', state.highScore);
   document.querySelector('#quizProgress').style.width = '100%';
   document.querySelector('#question').hidden = true;
@@ -1019,19 +1032,28 @@ function finishQuiz() {
   document.querySelector('#nextQuestion').hidden = true;
   const result = document.querySelector('#quizResult');
   result.hidden = false;
-  result.innerHTML = `<span>CHALLENGE COMPLETE</span><strong>${score}</strong><p>本次得分 · 满分 ${quizSession.length * 10}<br>历史最高分 ${state.highScore}</p><div><button id="restartQuiz">重新抽取10题</button><button id="retryWrong" ${state.wrongQuestions.length ? '' : 'disabled'}>错题重练 ${state.wrongQuestions.length}</button></div>`;
+  const percent = quizSession.length ? Math.round(score / (quizSession.length * 10) * 100) : 0;
+  const evaluation = percent >= 90 ? '理解扎实，能够根据材料作出判断。' : percent >= 80 ? '已达到最终奖章的挑战要求。' : percent >= 60 ? '基础达标，建议继续复习错题中的因果关系。' : '建议回到六站档案，再阅读史实和因果链。';
+  result.innerHTML = `<span>${quizMode === 'wrong' ? 'WRONG ANSWER REVIEW' : 'CHALLENGE COMPLETE'}</span><strong>${score}</strong><p>本次得分 · 满分 ${quizSession.length * 10}<br>${evaluation}<br>本轮答错 ${sessionWrong.length} 题 · 待复习 ${state.wrongQuestions.length} 题 · 历史最高 ${state.highScore}</p><div><button id="restartQuiz">重新抽取10题</button><button id="retryWrong" ${state.wrongQuestions.length ? '' : 'disabled'}>错题重练 ${state.wrongQuestions.length}</button></div>`;
   document.querySelector('#restartQuiz').addEventListener('click', () => startQuiz());
   document.querySelector('#retryWrong').addEventListener('click', () => {
     const pool = questions.filter(item => state.wrongQuestions.includes(item.id));
-    if (pool.length) startQuiz(pool, pool.length);
+    if (pool.length) startQuiz(pool, pool.length, 'wrong');
   });
+  renderQuizStatus();
   renderBadgesAndAchievement();
-  toast(state.highScore > previousHighScore ? `挑战完成：刷新最高分 ${state.highScore}` : `挑战完成：${score} 分`);
+  const resultMessage = quizMode === 'wrong' ? `错题复习完成，剩余 ${state.wrongQuestions.length} 题` : state.highScore > previousHighScore ? `挑战完成：刷新最高分 ${state.highScore}` : `挑战完成：${score} 分`;
+  toast(resultMessage);
 }
 
 document.querySelector('#nextQuestion').addEventListener('click', () => {
   if (quizIndex < quizSession.length - 1) { quizIndex += 1; renderQuestion(); }
   else finishQuiz();
+});
+
+document.querySelector('#startWrongReview').addEventListener('click', () => {
+  const pool = questions.filter(item => state.wrongQuestions.includes(item.id));
+  if (pool.length) startQuiz(pool, pool.length, 'wrong');
 });
 
 let toastTimer;
