@@ -1,5 +1,12 @@
 # App Inventor 迁移清单
 
+## 当前进度（2026-10-14）
+
+- [x] 第一步：最新版网页内容、界面、兼容脚本和兼容样式已同步至 AIA Assets
+- [x] 重新生成 `ChangZhengArchive.aia` 并通过 ZIP 结构与完整性检查
+- [ ] 在 AppInventorDesktop2019 中实际导入并用模拟器逐页检查
+- [ ] 第二步：使用 TinyDB 同步站点进度和精神线索归档
+
 ## 页面对应
 
 - Screen1：首页、底部导航、首次引导

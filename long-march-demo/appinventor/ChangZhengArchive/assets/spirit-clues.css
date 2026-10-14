@@ -1,0 +1,18 @@
+.spirit-proof{position:relative;margin-top:12px;padding:15px 15px 14px 18px;background:rgba(49,75,60,.07);border-left:3px solid var(--green)}
+.spirit-proof.reasoning{background:rgba(165,45,41,.055);border-left-color:var(--red)}
+.spirit-proof b{display:block;margin-bottom:7px;color:var(--green);font-size:10px;letter-spacing:.12em}
+.spirit-proof.reasoning b{color:var(--red)}
+.spirit-proof p{margin:0;font-size:13px;line-height:1.75}
+.clue-status{margin-top:18px;padding:11px 12px;border:1px dashed rgba(49,75,60,.42);color:var(--muted);font-size:10px;line-height:1.5;text-align:center}
+.clue-status.is-earned{border-style:solid;border-color:var(--green);background:var(--green);color:#fff6e4;font-weight:800}
+.saved-detail>p{display:grid;grid-template-columns:57px 1fr;gap:8px;margin:12px 0;font-size:11px;line-height:1.65}
+.saved-detail>p>i,.saved-detail>small>i{color:#e9cc91;font-style:normal;font-weight:800}
+.saved-detail>small{display:grid;grid-template-columns:57px 1fr;gap:8px;line-height:1.65}
+.spirit-judgment{margin-top:20px;padding:20px 18px;background:var(--green);color:#fff7e6;box-shadow:0 14px 30px rgba(35,54,43,.16)}
+.judgment-head{display:flex;justify-content:space-between;gap:12px;padding-bottom:11px;border-bottom:1px solid rgba(255,255,255,.18)}
+.judgment-head span{color:#e7c47f;font:700 9px/1 Georgia,serif;letter-spacing:.15em}.judgment-head b{font-size:9px}
+.spirit-judgment h3{margin:18px 0 9px;font-size:21px}.spirit-judgment>p{margin:0;color:#dce5dc;font-size:12px;line-height:1.75}
+.judgment-options{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}.judgment-options button{display:flex;align-items:center;gap:8px;padding:12px 10px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.07);color:#fff7e6;text-align:left;cursor:pointer}.judgment-options button:disabled{cursor:default;opacity:.48}.judgment-options button.wrong{border-color:#e7a49d;background:#7f2a28}.judgment-options i{flex:none;width:23px;height:23px;display:grid;place-items:center;border:1px solid #e7c47f;border-radius:50%;color:#e7c47f;font:700 9px/1 Georgia,serif;font-style:normal}.judgment-options span{font-size:12px;font-weight:800}
+.judgment-feedback{min-height:30px;margin-top:12px;color:#e7c47f;font-size:10px;line-height:1.6}.spirit-judgment.is-passed{background:#344f40}.spirit-judgment.is-passed .judgment-head b{color:#e7c47f}
+.spirit-kit>p b{display:block;margin-top:6px;color:var(--red);font-size:9px}
+.achievement-clues{position:relative;z-index:1;margin:12px 0;padding:5px 12px;border:1px solid rgba(255,255,255,.2);text-align:left}.achievement-clues article{display:grid;grid-template-columns:20px 1fr;gap:8px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.15)}.achievement-clues article:last-child{border-bottom:0}.achievement-clues i{color:#e7c47f;font-style:normal}.achievement-clues strong{font-size:11px}.achievement-clues p{margin:3px 0 0;color:#efdcb9;font-size:9px;line-height:1.55}.achievement-clues-empty{padding:8px 0;text-align:center}

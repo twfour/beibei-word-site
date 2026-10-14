@@ -16,7 +16,7 @@ const stations = [
       ['中共中央党史和文献研究院：《10月10日·党史百年天天读》','https://www.dswxyjy.org.cn/GB/434461/434471/434552/index.html'],
       ['人民网党史频道：《长征记》','https://dangshi.people.com.cn/GB/146570/406330/index.html']
     ],
-    task: {type:'pack', title:'轻装出发：整理行军背包', copy:'背包只能装下3件物品。请选择最有助于基本行军与救护的物资。', items:['粮食','急救药品','雨具','瓷器摆件','留声机','厚重相册'], answer:['粮食','急救药品','雨具']}
+    task: {type:'causal', title:'因果档案：复原战略转移', copy:'五张档案卡被打乱了。请根据“形势—决定—行动—结果”的因果关系恢复顺序。', items:['第五次反“围剿”失利','中央苏区形势严峻','决定实行战略转移','中央红军从瑞金、于都等地出发','长征由此拉开序幕'], start:['决定实行战略转移','第五次反“围剿”失利','长征由此拉开序幕','中央苏区形势严峻','中央红军从瑞金、于都等地出发']}
   },
   {
     id: 2, slug: 'zunyi', name: '遵义', title: '遵义<br>会议', date: '1935年1月', place: '贵州遵义', spirit: '实事求是', seal: '转折', position: ['28%', '64%'],
@@ -35,7 +35,7 @@ const stations = [
       ['国防部：《遵义1935：早到的春天》','https://www.mod.gov.cn/gfbw/gfjy_index/js_214151/16364674.html'],
       ['财政部河南监管局：《遵义会议的伟大意义和深刻启示》','https://ha.mof.gov.cn/zt/djzc/djzl/201505/t20150513_1231207.htm']
     ],
-    task: {type:'choice', title:'面对失误，怎样作出选择？', copy:'原来的行动方案已经造成较大损失。哪种做法最符合遵义会议体现的方法？', options:['为了面子继续原方案','分析实际情况并及时调整','等待别人替自己决定'], correct:1, explain:'尊重事实、总结经验并及时调整，体现了实事求是。'}
+    task: {type:'deduction', title:'会议推理：哪些结论成立？', copy:'阅读三条史实线索，从四个结论中选出两项能够得到线索支持的结论。', clues:['长征初期，原有军事指挥造成严重损失。','遵义会议集中讨论军事和组织问题。','会议依据实际情况纠正错误并调整领导。'], options:['目标坚定，不等于方法永远不变','一次失误说明此前所有工作都毫无意义','判断方案要尊重事实和结果','独立思考就是拒绝听取任何意见'], answers:[0,2]}
   },
   {
     id: 3, slug: 'chishui', name: '赤水', title: '四渡<br>赤水', date: '1935年1月至3月', place: '川黔滇边境', spirit: '机智勇敢', seal: '巧渡', position: ['53%', '48%'],
@@ -54,11 +54,7 @@ const stations = [
       ['人民网党史频道：《长征记》','https://dangshi.people.com.cn/GB/146570/406330/index.html'],
       ['财政部河南监管局：《遵义会议的伟大意义和深刻启示》','https://ha.mof.gov.cn/zt/djzc/djzl/201505/t20150513_1231207.htm']
     ],
-    task: {type:'route', title:'三步判断：赢得行动主动', copy:'依次作出3个判断。目标不变，但要根据形势灵活选择办法。', steps:[
-      {q:'敌军在正面集中重兵，第一步怎么办？', a:['直接硬拼','先观察敌情与地形'], correct:1},
-      {q:'敌军判断我军将向西行动，接下来怎么办？', a:['灵活改变行进方向','沿原路线不变'], correct:0},
-      {q:'敌军调动后出现空隙，应该怎么办？', a:['抓住时机迅速行动','停在原地等待'], correct:0}
-    ]}
+    task: {type:'routePuzzle', title:'路线拼图：复原四渡赤水', copy:'根据日期与渡河方向，把四次渡河行动按先后顺序排列。路线曲折，但每一步都有判断依据。', items:['一渡｜1月29日｜向西','二渡｜2月18日至21日｜向东','三渡｜3月16日｜向西','四渡｜3月21日至22日｜向东'], start:['三渡｜3月16日｜向西','一渡｜1月29日｜向西','四渡｜3月21日至22日｜向东','二渡｜2月18日至21日｜向东']}
   },
   {
     id: 4, slug: 'luding', name: '泸定', title: '飞夺<br>泸定桥', date: '1935年5月', place: '四川泸定', spirit: '不怕牺牲', seal: '勇进', position: ['77%', '34%'],
@@ -77,7 +73,7 @@ const stations = [
       ['中共中央党史和文献研究院：《四川：三军过后尽开颜》','https://www.dswxyjy.org.cn/n1/2016/1025/c244523-28806146.html'],
       ['人民网党史频道：《长征记》','https://dangshi.people.com.cn/GB/146570/406330/index.html']
     ],
-    task: {type:'bridge', title:'争分夺秒：铺设前进通道', copy:'点击铺设12块桥板，在10秒内完成通道。准备好后开始计时。', target:12, seconds:10}
+    task: {type:'calculation', title:'急行军计算：时间够不够？', copy:'资料记载先头部队昼夜奔袭约240里。按1里约0.5千米、用时24小时计算，完成两步推理。', stages:[{label:'第一步',q:'240里约等于多少千米？',unit:'千米',answer:120},{label:'第二步',q:'若24小时完成，平均每小时至少前进多少千米？',unit:'千米/小时',answer:5}]}
   },
   {
     id: 5, slug: 'snowland', name: '雪山草地', title: '雪山<br>草地', date: '1935年6月至8月', place: '川西北地区', spirit: '艰苦奋斗', seal: '坚韧', position: ['58%', '18%'],
@@ -96,7 +92,7 @@ const stations = [
       ['国防部：《从月入四百大洋到数过雪山草地》','https://www.mod.gov.cn/gfbw/gfjy_index/4844129.html'],
       ['南京党史：《长征，让我永生难忘》','https://dsb.nanjing.gov.cn/xxcb/201306/t20130626_2084323.html']
     ],
-    task: {type:'supply', title:'有限补给：分配10份物资', copy:'在粮食、御寒用品和药品之间分配10份物资。每项都不可缺少，其中粮食与御寒用品至少各3份，药品至少2份。', total:10, minimums:{'粮食':3,'御寒用品':3,'药品':2}}
+    task: {type:'sudoku', title:'雪山密码：4×4行军数独', copy:'用1—4代表四类行军物资。每行、每列和每个2×2区域都不能出现重复数字。点击空格依次填写。', puzzle:[1,0,3,0,0,4,0,2,2,0,4,0,0,3,0,1], solution:[1,2,3,4,3,4,1,2,2,1,4,3,4,3,2,1]}
   },
   {
     id: 6, slug: 'huining', name: '会宁', title: '会宁<br>会师', date: '1936年10月', place: '甘肃会宁', spirit: '团结胜利', seal: '会师', position: ['76%', '4%'],
@@ -115,9 +111,31 @@ const stations = [
       ['国防部：《红军长征中的会师》','https://www.mod.gov.cn/gfbw/gfjy_index/js_214151/16418521.html'],
       ['中央网信办：《三军大会师——红军长征三大主力会师全纪录》','https://www.cac.gov.cn/2016-08/22/c_1119432029.htm']
     ],
-    task: {type:'order', title:'会师之前：排好历史顺序', copy:'使用上下按钮，将四个事件按先后顺序排列。', items:['瑞金出发','遵义会议','飞夺泸定桥','会宁会师'], start:['会宁会师','遵义会议','瑞金出发','飞夺泸定桥']}
+    task: {type:'matching', title:'会师密码：让队伍正确汇合', copy:'根据三条会师档案，为每条记录选择正确答案。全部匹配后才能点亮会师印记。', rows:[
+      {label:'红一方面军与红四方面军', options:['瑞金','会宁','泸定'], answer:'会宁'},
+      {label:'红二方面军与红一方面军主力', options:['将台堡','遵义','于都'], answer:'将台堡'},
+      {label:'三大主力胜利会合的时间', options:['1934年10月','1935年1月','1936年10月'], answer:'1936年10月'}
+    ]}
   }
 ];
+
+const spiritEvidence = {
+  1: ['面对中央苏区的严峻形势，中央红军仍为保存革命力量踏上未知征途。','军民共同架桥、摆渡并组织大部队转移，每个人都承担了不可缺少的任务。'],
+  2: ['遵义会议正视长征初期的严重损失，依据实际情况纠正错误、调整方向。','会议立足中国革命的实际作出判断，探索依靠自身力量解决问题的道路。'],
+  3: ['中央红军根据敌军部署连续改变方向，四次渡过赤水河并赢得行动主动。','在敌情不断变化的危急局面中，指挥员持续分析信息后再作出行动选择。'],
+  4: ['突击队员冒着危险攀踏铁索、冲向对岸，为主力渡过大渡河打开通道。','夺桥依靠突击、铺板、火力掩护与后续部队协同完成，不是个人冒险。'],
+  5: ['面对严寒、缺氧、缺粮和湿滑山路，红军仍一步一步翻越雪山、走出草地。','行军途中战友彼此搀扶、节约物资、照顾伤病员，共同克服极端环境。'],
+  6: ['三支主力红军从不同方向转战，最终围绕共同目标在西北地区胜利会合。','漫长征途中屡经困难仍持续向前，三大主力会师标志着长征胜利结束。']
+};
+
+const spiritJudgmentQuestions = {
+  1: {scene:'渡河前，沿岸群众捐出门板、床板和船只，并与红军一起架设浮桥。这个行动更直接体现哪条线索？',answer:1,explain:'大家在共同需要面前主动承担具体工作，更直接体现“责任担当”。'},
+  2: {scene:'原有指挥方法已经造成严重损失，会议没有回避问题，而是根据实际情况纠正错误。这个选择更直接体现哪条线索？',answer:0,explain:'以事实和结果检验方法、发现错误后及时调整，更直接体现“实事求是”。'},
+  3: {scene:'敌军部署突然改变，指挥员没有立刻冒进，而是重新分析敌情和路线。这个过程更直接体现哪条线索？',answer:1,explain:'紧急情况下先稳定局面、分析信息再行动，更直接体现“沉着判断”。'},
+  4: {scene:'突击队攀索前进，其他部队同时负责铺板、掩护和后续接应。这个整体行动更直接体现哪条线索？',answer:1,explain:'不同成员承担不同任务并相互配合，更直接体现“集体担当”。'},
+  5: {scene:'翻越雪山时，一名战士体力下降，战友分担物资并搀扶他继续前进。这个行动更直接体现哪条线索？',answer:1,explain:'困难中不放弃同伴、彼此支持，更直接体现“互助友爱”。'},
+  6: {scene:'三支主力红军经历不同路线，最终围绕共同目标在西北地区胜利会合。这个结果更直接体现哪条线索？',answer:0,explain:'不同队伍围绕共同目标汇聚力量，更直接体现“团结协作”。'}
+};
 
 const archiveProfiles = {
   1: {
@@ -177,12 +195,12 @@ const archiveProfiles = {
 };
 
 const taskImpacts = {
-  1:{gain:{belief:5,supply:12,unity:5},summary:'你优先保留生存、救护和防护物资，让有限负重真正服务于行军。'},
-  2:{gain:{belief:10,supply:0,unity:4},summary:'你选择面对事实、总结失误并调整方法，让队伍重新找到正确方向。'},
-  3:{gain:{belief:8,supply:-4,unity:5},summary:'你根据敌情连续判断，以必要的行军消耗换取行动主动。'},
-  4:{gain:{belief:10,supply:-3,unity:10},summary:'快速铺设通道离不开突击、掩护和后续协同，勇气成为集体力量。'},
-  5:{gain:{belief:8,supply:-8,unity:12},summary:'你在有限补给中守住每一类基本需要，也没有放弃需要帮助的同伴。'},
-  6:{gain:{belief:10,supply:3,unity:15},summary:'你把分散的历史节点重新排成共同道路，看见不同队伍因共同目标而汇聚。'}
+  1:{gain:{belief:10,supply:4,unity:3},summary:'你按因果关系复原了战略转移的历史逻辑，看见艰难出发并非偶然。'},
+  2:{gain:{belief:10,supply:0,unity:5},summary:'你从史实线索推出结论，理解了尊重事实、纠正错误与独立判断的关系。'},
+  3:{gain:{belief:8,supply:-4,unity:6},summary:'你复原了四次渡河的先后与方向，看见曲折路线背后的连续判断。'},
+  4:{gain:{belief:10,supply:-3,unity:8},summary:'你用距离和时间理解了急行军的紧迫，也看见数字背后的艰难与协同。'},
+  5:{gain:{belief:8,supply:-8,unity:10},summary:'你完成了行、列与区域三重约束，在有限条件中保持耐心和整体判断。'},
+  6:{gain:{belief:10,supply:3,unity:15},summary:'你把不同方面军、会师地点和时间准确连接，理解了团结胜利的历史脉络。'}
 };
 
 const inquiryLayers = {
@@ -201,50 +219,158 @@ const historyBoundaries = {
 
 const views = [...document.querySelectorAll('.view')];
 const navButtons = [...document.querySelectorAll('.bottom-nav button')];
-const legacyProgress = Number(localStorage.getItem('sparkProgress') || 0);
-const state = {
-  unlocked: Math.min(6, Math.max(1, Number(localStorage.getItem('sparkUnlocked') || legacyProgress || 1))),
-  completed: JSON.parse(localStorage.getItem('sparkCompleted') || '[]'),
-  currentStation: Math.min(6, Math.max(1, Number(localStorage.getItem('sparkCurrentStation') || 1))),
-  favorites: JSON.parse(localStorage.getItem('sparkFavorites') || '[]'),
-  spiritKit: JSON.parse(localStorage.getItem('sparkSpiritKit') || '[]'),
-  reflection: localStorage.getItem('sparkReflection') || '',
-  reflectionSpirit: localStorage.getItem('sparkReflectionSpirit') || '',
-  reflectionReason: localStorage.getItem('sparkReflectionReason') || localStorage.getItem('sparkReflection') || '',
-  reflectionAction: localStorage.getItem('sparkReflectionAction') || '',
-  highScore: Number(localStorage.getItem('sparkHighScore') || 0),
-  wrongQuestions: JSON.parse(localStorage.getItem('sparkWrongQuestions') || '[]'),
-  soundEnabled: localStorage.getItem('sparkSoundEnabled') !== 'false',
+const multiRouteInfo = {
+  all:{eyebrow:'全部路线',title:'不同起点，共同方向',copy:'四支队伍出发时间、行军区域和经历各不相同，先后向西北汇聚。点击图例可单独查看。'},
+  first:{eyebrow:'红一方面军 · 1934.10—1935.10',title:'中央苏区出发，到达陕北',copy:'经过遵义、四渡赤水、巧渡金沙江、强渡大渡河和翻越雪山草地等重要历程，1935年10月到达陕北。'},
+  twentyfive:{eyebrow:'红二十五军 · 1934.11—1935.09',title:'鄂豫皖出发，先期到达陕甘',copy:'从鄂豫皖根据地开始战略转移，1935年9月到达陕甘根据地，为主力红军北上提供了重要条件。'},
+  fourth:{eyebrow:'红四方面军 · 1935.03—1936.10',title:'川陕出发，北上走向会宁',copy:'从川陕根据地开始战略转移，经历雪山草地等艰苦行程，1936年10月与红一方面军在会宁会师。'},
+  second:{eyebrow:'红二方面军 · 1935.11—1936.10',title:'湘鄂川黔出发，走向将台堡',copy:'由红二、红六军团等部队发展组成，转战多省，1936年10月在将台堡同红一方面军主力会师。'}
 };
 
-function getJourneyMetrics() {
-  return state.completed.reduce((total,id) => {
-    const gain = taskImpacts[id].gain;
-    total.belief += gain.belief; total.supply += gain.supply; total.unity += gain.unity;
-    return total;
-  }, {belief:50,supply:50,unity:50});
+function selectMultiRoute(key) {
+  const selected = multiRouteInfo[key] ? key : 'all';
+  document.querySelectorAll('[data-route-filter]').forEach(button => button.classList.toggle('is-active', button.dataset.routeFilter === selected));
+  document.querySelectorAll('[data-route-layer]').forEach(layer => {
+    const matches = selected === 'all' || layer.dataset.routeLayer === selected;
+    layer.classList.toggle('is-muted', !matches);
+    layer.classList.toggle('is-selected', selected !== 'all' && matches);
+  });
+  const info = multiRouteInfo[selected];
+  const caption = document.querySelector('#atlasCaption');
+  caption.innerHTML = `<span>${info.eyebrow}</span><strong>${info.title}</strong><p>${info.copy}</p>`;
 }
 
-function renderJourneyMeters() {
-  const metrics = getJourneyMetrics();
-  const data = [['belief','信念',metrics.belief],['supply','补给',metrics.supply],['unity','团结',metrics.unity]];
-  document.querySelector('#journeyMeters').innerHTML = data.map(([key,label,value]) => `<div class="meter ${key}"><span>${label}<b>${value}</b></span><i><em style="width:${Math.max(0,Math.min(100,value))}%"></em></i></div>`).join('');
+document.querySelectorAll('[data-route-filter]').forEach(button => button.addEventListener('click', () => selectMultiRoute(button.dataset.routeFilter)));
+document.querySelectorAll('.expedition-route[data-route-layer]').forEach(layer => {
+  const activate = () => selectMultiRoute(layer.dataset.routeLayer);
+  layer.addEventListener('click', activate);
+  layer.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); activate(); }
+  });
+});
+
+function getSafeStorage() {
+  try {
+    const candidate = window.localStorage;
+    if (candidate) {
+      const testKey = '__spark_storage_test__';
+      candidate.setItem(testKey, '1');
+      candidate.removeItem(testKey);
+      return candidate;
+    }
+  } catch (_) {
+    /* App Inventor 2019 disables DOM storage for local WebViewer pages. */
+  }
+  const memory = {};
+  return {
+    getItem: key => Object.prototype.hasOwnProperty.call(memory, key) ? memory[key] : null,
+    setItem: (key, value) => { memory[key] = String(value); },
+    removeItem: key => { delete memory[key]; },
+    key: index => Object.keys(memory)[index] || null,
+    get length() { return Object.keys(memory).length; }
+  };
+}
+const storage = getSafeStorage();
+const legacyProgress = Number(storage.getItem('sparkProgress') || 0);
+const state = {
+  unlocked: Math.min(6, Math.max(1, Number(storage.getItem('sparkUnlocked') || legacyProgress || 1))),
+  completed: JSON.parse(storage.getItem('sparkCompleted') || '[]'),
+  currentStation: Math.min(6, Math.max(1, Number(storage.getItem('sparkCurrentStation') || 1))),
+  favorites: JSON.parse(storage.getItem('sparkFavorites') || '[]'),
+  spiritKit: JSON.parse(storage.getItem('sparkSpiritKit') || '[]'),
+  spiritJudgments: JSON.parse(storage.getItem('sparkSpiritJudgments') || '{}'),
+  highScore: Number(storage.getItem('sparkHighScore') || 0),
+  wrongQuestions: JSON.parse(storage.getItem('sparkWrongQuestions') || '[]'),
+  taskRecords: JSON.parse(storage.getItem('sparkTaskRecords') || '{}'),
+  soundEnabled: storage.getItem('sparkSoundEnabled') !== 'false',
+};
+
+function syncEarnedSpiritClues() {
+  const earned = stations
+    .filter(station => state.completed.includes(station.id))
+    .flatMap(station => station.keywords.map(word => word[0]));
+  state.favorites = [...new Set(earned)];
+  storage.setItem('sparkFavorites', JSON.stringify(state.favorites));
 }
 
-function consequence(message) { setTaskFeedback(`行动后果：${message}`, 'error'); }
+syncEarnedSpiritClues();
+
+state.completed.forEach(id => {
+  if (!state.taskRecords[id]) state.taskRecords[id] = {attempts:1,runs:1,bestStars:3,completedAt:'历史记录'};
+});
+
+let activeTaskRun = null;
+
+function starText(count = 0) {
+  return `${'★'.repeat(count)}${'☆'.repeat(Math.max(0,3-count))}`;
+}
+
+function beginTaskRun(station) {
+  activeTaskRun = {stationId:station.id,attempts:0};
+}
+
+function recordTaskAttempt(station, successful = false) {
+  if (!activeTaskRun || activeTaskRun.stationId !== station.id) beginTaskRun(station);
+  activeTaskRun.attempts += 1;
+  const previous = state.taskRecords[station.id] || {attempts:0,runs:0,bestStars:0};
+  previous.attempts += 1;
+  if (successful) {
+    const earnedStars = activeTaskRun.attempts === 1 ? 3 : activeTaskRun.attempts === 2 ? 2 : 1;
+    previous.runs += 1;
+    previous.lastStars = earnedStars;
+    previous.bestStars = Math.max(previous.bestStars || 0,earnedStars);
+    previous.completedAt = new Date().toLocaleDateString('zh-CN');
+  }
+  state.taskRecords[station.id] = previous;
+  storage.setItem('sparkTaskRecords', JSON.stringify(state.taskRecords));
+  return previous;
+}
+
+function consequence(message) {
+  const station = activeTaskRun ? stations[activeTaskRun.stationId - 1] : null;
+  if (station) recordTaskAttempt(station, false);
+  setTaskFeedback(`判断未通过：${message}`, 'error');
+}
 
 function persistJourney() {
-  localStorage.setItem('sparkUnlocked', state.unlocked);
-  localStorage.setItem('sparkCompleted', JSON.stringify(state.completed));
-  localStorage.setItem('sparkCurrentStation', state.currentStation);
-  localStorage.removeItem('sparkProgress');
+  storage.setItem('sparkUnlocked', state.unlocked);
+  storage.setItem('sparkCompleted', JSON.stringify(state.completed));
+  storage.setItem('sparkCurrentStation', state.currentStation);
+  storage.setItem('sparkTaskRecords', JSON.stringify(state.taskRecords));
+  storage.removeItem('sparkProgress');
+}
+
+const shoeStops = [[11,94],[18,88],[25,70],[45,53],[68,38],[61,22],[71,9]];
+const shoeWearLabels = ['新','启程','沾尘','磨损','补缀','破旧','抵达'];
+const shoeStopNames = ['瑞金出发点','瑞金','遵义','赤水','泸定','雪山草地','会宁'];
+
+function updateRouteShoes(animate = false) {
+  const shoes = document.querySelector('#routeShoes');
+  if (!shoes) return;
+  const stage = Math.min(6,state.completed.length);
+  const targetIndex = stage;
+  const shownStage = Math.max(0,Number(shoes.dataset.shownStage || 0));
+  const start = shoeStops[Math.min(6,shownStage)];
+  const target = shoeStops[targetIndex];
+  shoes.className = `route-shoes wear-${stage}`;
+  shoes.querySelector('small').textContent = shoeWearLabels[stage];
+  shoes.setAttribute('aria-label',`草鞋行至${shoeStopNames[targetIndex]}，磨损程度：${shoeWearLabels[stage]}`);
+  if (animate && shownStage !== stage) {
+    shoes.style.left = `${start[0]}%`; shoes.style.top = `${start[1]}%`;
+    shoes.getBoundingClientRect();
+    requestAnimationFrame(() => { shoes.style.left = `${target[0]}%`; shoes.style.top = `${target[1]}%`; });
+  } else {
+    shoes.style.left = `${target[0]}%`; shoes.style.top = `${target[1]}%`;
+  }
+  shoes.dataset.shownStage = stage;
 }
 
 function showView(id) {
   views.forEach(view => view.classList.toggle('is-active', view.id === id));
   const navId = id === 'station' ? 'route' : id;
   navButtons.forEach(button => button.classList.toggle('is-active', button.dataset.go === navId));
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  if (id === 'route') updateRouteShoes(true);
+  window.scrollTo(0, 0);
 }
 
 document.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', () => showView(button.dataset.go)));
@@ -255,14 +381,18 @@ function renderRoute() {
     const unlocked = station.id <= state.unlocked;
     const completed = state.completed.includes(station.id);
     const current = station.id === state.currentStation;
-    const label = unlocked ? `${station.date.replace('年','.') .replace('月','')} · ${station.spirit}` : `${station.spirit} · 待解锁`;
+    const record = state.taskRecords[station.id];
+    const label = completed && record ? `${starText(record.bestStars)} · ${station.spirit}` : unlocked ? `${station.date.replace('年','.') .replace('月','')} · ${station.spirit}` : `${station.spirit} · 待解锁`;
     const edgeClass = parseFloat(station.position[0]) >= 70 ? 'edge-right' : '';
-    return `<button class="station ${edgeClass} ${unlocked ? 'open' : 'locked'} ${completed ? 'completed' : ''} ${current ? 'current' : ''}" style="--x:${station.position[0]};--y:${station.position[1]}" data-station="${station.id}" aria-label="${station.name}${unlocked ? '' : '，尚未解锁'}"><i>${completed ? '✓' : String(station.id).padStart(2,'0')}</i><div><strong>${station.name}</strong><small>${label}</small></div></button>`;
+    const stationStyle = edgeClass ? `right:8px;top:${station.position[1]}` : `left:${station.position[0]};top:${station.position[1]}`;
+    return `<button class="station ${edgeClass} ${unlocked ? 'open' : 'locked'} ${completed ? 'completed' : ''} ${current ? 'current' : ''}" style="${stationStyle}" data-station="${station.id}" aria-label="${station.name}${unlocked ? '' : '，尚未解锁'}"><i class="shoe-stop shoe-wear-${station.id}" aria-hidden="true"><b>草鞋 ${String(station.id).padStart(2,'0')}</b></i><div><strong>${station.name}</strong><small>${label}</small></div></button>`;
   }).join('');
   route.querySelectorAll('.station').forEach(button => button.addEventListener('click', () => openStation(Number(button.dataset.station))));
   const current = stations[state.currentStation - 1];
+  const totalStars = stations.reduce((sum,station) => sum + (state.taskRecords[station.id]?.bestStars || 0),0);
   document.querySelector('#routeNoteTitle').textContent = state.completed.length === 6 ? '长征路线已完成' : `当前研学 · 第 ${String(current.id).padStart(2,'0')} 站`;
-  document.querySelector('#routeNoteText').textContent = state.completed.length === 6 ? '六站研学全部完成，你可以返回任意站点复习。' : `继续前往${current.name}。完成本站研学后，下一站将自动点亮。`;
+  document.querySelector('#routeNoteText').textContent = state.completed.length === 6 ? `六站研学全部完成，当前最佳总成绩 ${totalStars}/18 星。你可以返回任意站点刷新成绩。` : `继续前往${current.name}。完成本站后点亮下一站；当前累计 ${totalStars}/18 星。`;
+  if (document.querySelector('#route').classList.contains('is-active')) updateRouteShoes(true);
 }
 
 function openStation(id) {
@@ -292,42 +422,103 @@ function renderStation(station) {
   document.querySelector('#causalChain').innerHTML = station.chain.map((item, index) => `${index ? '<span>↓</span>' : ''}<div class="${index === station.chain.length - 1 ? 'result' : ''}"><i>${item[0]}</i><p>${item[1]}</p></div>`).join('');
   document.querySelector('#keywordCards').innerHTML = station.keywords.map((word, index) => `
     <article class="keyword-card ${index ? 'alt' : ''}">
-      <div class="keyword-no">0${index + 1}</div><small>LONG MARCH SPIRIT</small><h3>${word[0]}</h3>
-      <p>${word[1]}</p><div class="keyword-example"><b>在今天</b>${word[2]}</div>
-      <button class="collect-button" data-card="${word[0]}">＋ 收进星火档案</button>
-    </article>`).join('');
-  bindCollectionButtons();
+      <div class="keyword-no">0${index + 1}</div><small>SPIRIT CLUE / 精神线索</small><h3>${word[0]}</h3>
+      <div class="spirit-proof"><b>历史证据</b><p>${spiritEvidence[station.id][index]}</p></div>
+      <div class="spirit-proof reasoning"><b>判断依据</b><p>${word[1]}</p></div>
+      <div class="keyword-example"><b>今日行动</b>${word[2]}</div>
+      <div class="clue-status ${state.completed.includes(station.id) ? 'is-earned' : ''}">${state.completed.includes(station.id) ? '✓ 已随本站任务收入星火档案' : '完成本站任务后，自动收入星火档案'}</div>
+    </article>`).join('') + renderSpiritJudgment(station);
+  bindSpiritJudgment(station);
   renderTask(station);
   activatePanel('facts');
+}
+
+function renderSpiritJudgment(station) {
+  const question = spiritJudgmentQuestions[station.id];
+  const completed = state.completed.includes(station.id);
+  const passed = Boolean(state.spiritJudgments[station.id]);
+  return `<section class="spirit-judgment ${passed ? 'is-passed' : ''}">
+    <div class="judgment-head"><span>CLUE CHECK / 线索辨析</span><b>${passed ? '已通过' : '1 道判断'}</b></div>
+    <h3>哪条精神线索更贴近史实？</h3>
+    <p>${question.scene}</p>
+    <div class="judgment-options">${station.keywords.map((word,index) => `<button data-spirit-answer="${index}" ${!completed || passed ? 'disabled' : ''}><i>${String.fromCharCode(65 + index)}</i><span>${word[0]}</span></button>`).join('')}</div>
+    <div class="judgment-feedback" aria-live="polite">${passed ? `✓ ${question.explain}` : completed ? '选择后要能说出判断依据。' : '完成本站任务后开放辨析。'}</div>
+  </section>`;
+}
+
+function bindSpiritJudgment(station) {
+  document.querySelectorAll('[data-spirit-answer]').forEach(button => button.addEventListener('click', () => {
+    const question = spiritJudgmentQuestions[station.id];
+    const selected = Number(button.dataset.spiritAnswer);
+    const feedback = document.querySelector('.judgment-feedback');
+    document.querySelectorAll('[data-spirit-answer]').forEach(option => option.classList.remove('wrong'));
+    if (selected !== question.answer) {
+      button.classList.add('wrong');
+      feedback.textContent = '再想一想：这段史实中，人物具体做了什么？';
+      return;
+    }
+    state.spiritJudgments[station.id] = true;
+    storage.setItem('sparkSpiritJudgments', JSON.stringify(state.spiritJudgments));
+    document.querySelector('#keywordCards').innerHTML = station.keywords.map((word, index) => `
+      <article class="keyword-card ${index ? 'alt' : ''}">
+        <div class="keyword-no">0${index + 1}</div><small>SPIRIT CLUE / 精神线索</small><h3>${word[0]}</h3>
+        <div class="spirit-proof"><b>历史证据</b><p>${spiritEvidence[station.id][index]}</p></div>
+        <div class="spirit-proof reasoning"><b>判断依据</b><p>${word[1]}</p></div>
+        <div class="keyword-example"><b>今日行动</b>${word[2]}</div>
+        <div class="clue-status is-earned">✓ 已随本站任务收入星火档案</div>
+      </article>`).join('') + renderSpiritJudgment(station);
+    renderFavorites();
+    renderSpiritKit();
+    toast('辨析正确，本站线索已加入精神行囊候选');
+    playTone('success');
+  }));
 }
 
 let activeTaskTimer = null;
 
 function finishTask(station) {
   const id = station.id;
+  const record = recordTaskAttempt(station, true);
+  const earnedStars = record.lastStars || 1;
   const newlyCompleted = !state.completed.includes(id);
   if (newlyCompleted) state.completed.push(id);
   state.completed.sort((a,b) => a - b);
+  syncEarnedSpiritClues();
   if (newlyCompleted && id < stations.length) {
     state.unlocked = Math.max(state.unlocked, id + 1);
     if (state.currentStation === id) state.currentStation = id + 1;
   }
   persistJourney();
   updateJourneyUI();
-  renderJourneyMeters();
+  renderFavorites();
+  renderStationClueStatus(station);
   renderTask(station);
-  const message = id === 6 ? '六站研学全部完成！六份精神力量已经汇入星火档案。' : `任务成功！获得“${station.spirit}”印记，第 ${id + 1} 站“${stations[id].name}”已点亮。`;
+  const message = id === 6 ? `六站研学全部完成！本次获得${earnedStars}星，两条精神线索已归档。` : `任务成功！本次获得${earnedStars}星，两条精神线索已归档，第 ${id + 1} 站“${stations[id].name}”已点亮。`;
   setTaskFeedback(message, 'success');
   toast(id === 6 ? '六站长征路全部完成' : `已点亮${stations[id].name}站`);
   playTone('success');
-  if (newlyCompleted) showStampCeremony(station);
+  if (newlyCompleted) showStampCeremony(station,record);
 }
 
-function showStampCeremony(station) {
+function renderStationClueStatus(station) {
+  document.querySelectorAll('#keywordCards .clue-status').forEach(node => {
+    node.classList.add('is-earned');
+    node.textContent = '✓ 已随本站任务收入星火档案';
+  });
+  const judgment = document.querySelector('.spirit-judgment');
+  if (judgment && station) {
+    judgment.outerHTML = renderSpiritJudgment(station);
+    bindSpiritJudgment(station);
+  }
+}
+
+function showStampCeremony(station,record) {
   const ceremony = document.querySelector('#stampCeremony');
   document.querySelector('#stampStation').textContent = `${station.date} · ${station.name}`;
   document.querySelector('#stampSeal').textContent = station.seal;
   document.querySelector('#stampSpirit').textContent = station.spirit;
+  document.querySelector('#stampStars').textContent = starText(record.lastStars);
+  document.querySelector('#stampScoreNote').textContent = `本次 ${record.lastStars} 星 · 最佳 ${record.bestStars} 星 · 两条精神线索已归档`;
   ceremony.hidden = false;
   requestAnimationFrame(() => ceremony.classList.add('is-visible'));
 }
@@ -338,7 +529,10 @@ function closeStampCeremony() {
   window.setTimeout(() => { ceremony.hidden = true; }, 220);
 }
 
-document.querySelector('#closeStamp').addEventListener('click', closeStampCeremony);
+document.querySelector('#closeStamp').addEventListener('click', () => {
+  closeStampCeremony();
+  window.setTimeout(() => showView('route'), 220);
+});
 document.querySelector('#stampCeremony').addEventListener('click', event => { if (event.target.id === 'stampCeremony') closeStampCeremony(); });
 
 function setTaskFeedback(message, type = '') {
@@ -352,8 +546,8 @@ function renderTask(station, replay = false) {
   activeTaskTimer = null;
   const task = station.task;
   const completed = state.completed.includes(station.id) && !replay;
-  renderJourneyMeters();
-  document.querySelector('#taskTag').textContent = `${task.type.toUpperCase()} / 站点任务`;
+  const taskLabels = {causal:'因果排序',deduction:'逻辑推理',routePuzzle:'路线拼图',calculation:'行军计算',sudoku:'行军数独',matching:'会师配对'};
+  document.querySelector('#taskTag').textContent = `${taskLabels[task.type] || task.type.toUpperCase()} / 站点任务`;
   document.querySelector('#taskTitle').textContent = completed ? `${station.name}站任务完成` : task.title;
   document.querySelector('#taskCopy').textContent = completed ? `你已经获得“${station.spirit}”印记。可以继续下一站，也可以再次挑战。` : task.copy;
   const boundary = document.querySelector('#historyBoundary');
@@ -364,17 +558,97 @@ function renderTask(station, replay = false) {
   const mount = document.querySelector('#taskMount');
   if (completed) {
     const impact = taskImpacts[station.id];
-    const gains = [['信念',impact.gain.belief],['补给',impact.gain.supply],['团结',impact.gain.unity]].filter(item => item[1]);
-    mount.innerHTML = `<div class="task-complete"><span>✓</span><div><strong>${station.spirit}</strong><small>SPIRIT MARK ACQUIRED</small></div></div><div class="decision-summary"><span>本次决策总结</span><p>${impact.summary}</p><div>${gains.map(([label,value]) => `<b>${label} ${value > 0 ? '+' : ''}${value}</b>`).join('')}</div></div><button class="task-action ghost" id="replayTask">再次挑战</button>`;
+    const record = state.taskRecords[station.id] || {attempts:1,runs:1,bestStars:3,lastStars:3};
+    mount.innerHTML = `<div class="task-complete"><span>✓</span><div><strong>${station.spirit}</strong><small>SPIRIT MARK ACQUIRED</small></div></div><div class="task-score-slip"><div><span>最佳成绩</span><strong>${starText(record.bestStars)}</strong></div><dl><div><dt>最近一次</dt><dd>${record.lastStars || record.bestStars} 星</dd></div><div><dt>累计作答</dt><dd>${record.attempts} 次</dd></div><div><dt>完成轮次</dt><dd>${record.runs || 1} 次</dd></div></dl></div><div class="decision-summary"><span>本次决策总结</span><p>${impact.summary}</p></div><button class="task-action ghost" id="replayTask">再次挑战 · 刷新最佳</button>`;
     document.querySelector('#replayTask').addEventListener('click', () => renderTask(station, true));
     return;
   }
-  if (task.type === 'pack') renderPackTask(station, mount);
-  if (task.type === 'choice') renderChoiceTask(station, mount);
-  if (task.type === 'route') renderRouteTask(station, mount);
-  if (task.type === 'bridge') renderBridgeTask(station, mount);
-  if (task.type === 'supply') renderSupplyTask(station, mount);
-  if (task.type === 'order') renderOrderTask(station, mount);
+  beginTaskRun(station);
+  if (task.type === 'causal') renderSequenceTask(station, mount, '检查因果链');
+  if (task.type === 'deduction') renderDeductionTask(station, mount);
+  if (task.type === 'routePuzzle') renderSequenceTask(station, mount, '拼合路线');
+  if (task.type === 'calculation') renderCalculationTask(station, mount);
+  if (task.type === 'sudoku') renderSudokuTask(station, mount);
+  if (task.type === 'matching') renderMatchingTask(station, mount);
+}
+
+function renderSequenceTask(station, mount, actionLabel) {
+  const order = [...station.task.start];
+  const draw = () => {
+    const routeClass = station.task.type === 'routePuzzle' ? ' route-puzzle-list' : '';
+    mount.innerHTML = `<div class="puzzle-instruction"><span>拖动替代操作</span><b>使用箭头调整卡片顺序</b></div><div class="order-list${routeClass}">${order.map((item,index) => {
+      const parts = item.split('｜');
+      return `<div><i>${String(index + 1).padStart(2,'0')}</i><strong>${parts[0]}${parts.length > 1 ? `<small>${parts.slice(1).join(' · ')}</small>` : ''}</strong><span><button data-up="${index}" ${index === 0 ? 'disabled' : ''} aria-label="上移${parts[0]}">↑</button><button data-down="${index}" ${index === order.length - 1 ? 'disabled' : ''} aria-label="下移${parts[0]}">↓</button></span></div>`;
+    }).join('')}</div><button class="task-action" id="checkSequence">${actionLabel}</button>`;
+    mount.querySelectorAll('[data-up]').forEach(button => button.addEventListener('click', () => { const i=Number(button.dataset.up); [order[i-1],order[i]]=[order[i],order[i-1]]; draw(); }));
+    mount.querySelectorAll('[data-down]').forEach(button => button.addEventListener('click', () => { const i=Number(button.dataset.down); [order[i+1],order[i]]=[order[i],order[i+1]]; draw(); }));
+    document.querySelector('#checkSequence').addEventListener('click', () => {
+      if (order.every((item,index) => item === station.task.items[index])) return finishTask(station);
+      consequence(station.task.type === 'routePuzzle' ? '渡河日期或方向还没有正确衔接。先找最早的一渡，再观察“向西—向东—向西—向东”的变化。' : '因果链还没有接通。先找造成形势变化的原因，再连接决定、行动与结果。');
+    });
+  };
+  draw();
+}
+
+function renderDeductionTask(station, mount) {
+  const selected = new Set();
+  mount.innerHTML = `<div class="clue-board"><span>史实线索</span>${station.task.clues.map((clue,index) => `<p><i>0${index + 1}</i>${clue}</p>`).join('')}</div><div class="deduction-options">${station.task.options.map((option,index) => `<button data-deduction="${index}"><i>${String.fromCharCode(65 + index)}</i><span>${option}</span><b>○</b></button>`).join('')}</div><div class="task-counter">已选择 <b id="deductionCount">0</b> / 2</div><button class="task-action" id="checkDeduction">验证结论</button>`;
+  mount.querySelectorAll('[data-deduction]').forEach(button => button.addEventListener('click', () => {
+    const index = Number(button.dataset.deduction);
+    if (selected.has(index)) selected.delete(index);
+    else if (selected.size < 2) selected.add(index);
+    else return setTaskFeedback('只能选择两项，请先取消一项。', 'error');
+    button.classList.toggle('selected', selected.has(index));
+    button.querySelector('b').textContent = selected.has(index) ? '●' : '○';
+    document.querySelector('#deductionCount').textContent = selected.size;
+    setTaskFeedback('');
+  }));
+  document.querySelector('#checkDeduction').addEventListener('click', () => {
+    const correct = station.task.answers.length === selected.size && station.task.answers.every(index => selected.has(index));
+    correct ? finishTask(station) : consequence('至少有一项结论超出了史实线索。注意：“纠正方法”不等于否定一切，“独立思考”也不等于拒绝意见。');
+  });
+}
+
+function renderCalculationTask(station, mount) {
+  let stage = 0;
+  const draw = () => {
+    const item = station.task.stages[stage];
+    mount.innerHTML = `<div class="calculation-sheet"><div><span>${item.label} · ${stage + 1}/2</span><b>${stage ? '120 ÷ 24 = ?' : '240 × 0.5 = ?'}</b></div><p>${item.q}</p><label><input id="calculationAnswer" type="number" inputmode="decimal" min="0" aria-label="计算答案"><em>${item.unit}</em></label></div><button class="task-action" id="checkCalculation">${stage ? '完成计算' : '提交第一步'}</button>`;
+    const input = document.querySelector('#calculationAnswer');
+    input.focus();
+    document.querySelector('#checkCalculation').addEventListener('click', () => {
+      if (Number(input.value) !== item.answer) return consequence(stage ? '用总路程120千米除以24小时，求平均每小时前进距离。' : '按照题目给出的换算关系，用240乘以0.5。');
+      if (stage === station.task.stages.length - 1) return finishTask(station);
+      stage += 1;
+      setTaskFeedback('第一步正确：240里约为120千米。继续计算平均速度。', 'success');
+      draw();
+    });
+  };
+  draw();
+}
+
+function renderSudokuTask(station, mount) {
+  const values = [...station.task.puzzle];
+  const fixed = station.task.puzzle.map(Boolean);
+  const draw = () => {
+    mount.innerHTML = `<div class="sudoku-key"><span>1 粮食</span><span>2 药品</span><span>3 御寒</span><span>4 向导</span></div><div class="sudoku-grid" role="grid">${values.map((value,index) => `<button class="${fixed[index] ? 'fixed' : ''}" data-cell="${index}" ${fixed[index] ? 'disabled' : ''} aria-label="第${Math.floor(index/4)+1}行第${index%4+1}列">${value || '·'}</button>`).join('')}</div><div class="sudoku-tools"><button id="clearSudoku">清空重填</button><small>点击空格：· → 1 → 2 → 3 → 4</small></div><button class="task-action" id="checkSudoku">检查雪山密码</button>`;
+    mount.querySelectorAll('[data-cell]:not(:disabled)').forEach(button => button.addEventListener('click', () => { const i=Number(button.dataset.cell); values[i]=(values[i]+1)%5; draw(); }));
+    document.querySelector('#clearSudoku').addEventListener('click', () => { station.task.puzzle.forEach((value,index) => { values[index]=value; }); draw(); });
+    document.querySelector('#checkSudoku').addEventListener('click', () => {
+      if (values.some(value => !value)) return setTaskFeedback('还有空格没有填写。每行、每列和每个2×2区域都需要1—4。', 'error');
+      values.every((value,index) => value === station.task.solution[index]) ? finishTask(station) : consequence('目前存在重复数字。分别检查每一行、每一列和四个2×2区域。');
+    });
+  };
+  draw();
+}
+
+function renderMatchingTask(station, mount) {
+  mount.innerHTML = `<div class="matching-board">${station.task.rows.map((row,index) => `<label><span><i>0${index + 1}</i>${row.label}</span><select data-match="${index}"><option value="">选择对应档案</option>${row.options.map(option => `<option value="${option}">${option}</option>`).join('')}</select></label>`).join('')}</div><button class="task-action" id="checkMatching">核对会师档案</button>`;
+  document.querySelector('#checkMatching').addEventListener('click', () => {
+    const answers = [...mount.querySelectorAll('[data-match]')].map(select => select.value);
+    if (answers.some(answer => !answer)) return setTaskFeedback('还有档案没有完成配对。', 'error');
+    answers.every((answer,index) => answer === station.task.rows[index].answer) ? finishTask(station) : consequence('至少有一条会师记录连接错误。注意区分会宁、将台堡以及三大主力胜利会合的月份。');
+  });
 }
 
 function renderPackTask(station, mount) {
@@ -427,26 +701,31 @@ function renderBridgeTask(station, mount) {
   const drawPlanks = () => document.querySelector('#bridgeTrack').innerHTML = Array.from({length:station.task.target}, (_,i) => `<i class="${i < count ? 'laid' : ''}"></i>`).join('');
   drawPlanks();
   document.querySelector('#startBridge').addEventListener('click', event => {
+    const actionButton = event.currentTarget;
     count = 0; remaining = station.task.seconds * 10; drawPlanks();
-    event.currentTarget.textContent = '点击铺设桥板';
-    event.currentTarget.onclick = null;
+    actionButton.textContent = '点击铺设桥板';
+    actionButton.onclick = null;
     const tap = () => {
       count += 1;
       document.querySelector('#bridgeCount').textContent = count;
       drawPlanks();
       if (count >= station.task.target) { clearInterval(activeTaskTimer); activeTaskTimer = null; finishTask(station); }
     };
-    event.currentTarget.addEventListener('click', tap);
+    actionButton.addEventListener('click', tap);
     activeTaskTimer = setInterval(() => {
+      if (!document.querySelector('#bridgeTime')) {
+        clearInterval(activeTaskTimer); activeTaskTimer = null;
+        return;
+      }
       remaining -= 1;
       const timeNode = document.querySelector('#bridgeTime');
       if (timeNode) timeNode.textContent = `${(remaining / 10).toFixed(1)} 秒`;
       if (remaining <= 0) {
         clearInterval(activeTaskTimer); activeTaskTimer = null;
-        event.currentTarget.removeEventListener('click', tap);
-        event.currentTarget.textContent = '重新开始';
+        actionButton.removeEventListener('click', tap);
+        actionButton.textContent = '重新开始';
         consequence('通道未能及时铺通，主力渡河会受到影响。真正的行动还需要突击、铺板和火力掩护共同配合。');
-        event.currentTarget.addEventListener('click', () => renderBridgeTask(station, mount), {once:true});
+        actionButton.addEventListener('click', () => renderBridgeTask(station, mount), {once:true});
       }
     }, 100);
   }, {once:true});
@@ -512,51 +791,28 @@ function updateJourneyUI() {
   renderBadgesAndAchievement();
 }
 
-function bindCollectionButtons() {
-  document.querySelectorAll('.collect-button').forEach(button => {
-    const selected = state.favorites.includes(button.dataset.card);
-    button.classList.toggle('is-collected', selected);
-    button.textContent = selected ? '✓ 已收入星火档案' : '＋ 收进星火档案';
-    button.addEventListener('click', () => {
-      const card = button.dataset.card;
-      if (!state.favorites.includes(card)) {
-        state.favorites.push(card);
-        localStorage.setItem('sparkFavorites', JSON.stringify(state.favorites));
-        toast(`“${card}”已收入档案`);
-      }
-      button.classList.add('is-collected');
-      button.textContent = '✓ 已收入星火档案';
-      renderFavorites();
-    });
-  });
-}
-
 function renderFavorites() {
-  document.querySelector('#favoriteSummary').textContent = `已收藏 ${state.favorites.length} 张`;
+  document.querySelector('#favoriteSummary').textContent = `已获得 ${state.favorites.length} 条`;
   document.querySelector('#collectionEmpty').hidden = state.favorites.length > 0;
   const keywordMap = new Map(stations.flatMap(station => station.keywords.map(word => [word[0], {word, station}])));
   document.querySelector('#collectionList').innerHTML = state.favorites.map((item, index) => {
     const entry = keywordMap.get(item);
     if (!entry) return '';
-    return `<details class="saved-card"><summary><div><span>SPARK CARD ${String(index + 1).padStart(2,'0')} · ${entry.station.name}</span><strong>${item}</strong></div><b>＋</b></summary><div class="saved-detail"><p>${entry.word[1]}</p><small><i>在今天</i>${entry.word[2]}</small><button data-remove-card="${item}">移出收藏</button></div></details>`;
+    const wordIndex = entry.station.keywords.findIndex(word => word[0] === item);
+    return `<details class="saved-card"><summary><div><span>SPIRIT CLUE ${String(index + 1).padStart(2,'0')} · ${entry.station.name}</span><strong>${item}</strong></div><b>＋</b></summary><div class="saved-detail"><p><i>历史证据</i>${spiritEvidence[entry.station.id][wordIndex]}</p><p><i>判断依据</i>${entry.word[1]}</p><small><i>今日行动</i>${entry.word[2]}</small></div></details>`;
   }).join('');
-  document.querySelectorAll('[data-remove-card]').forEach(button => button.addEventListener('click', () => {
-    const card = button.dataset.removeCard;
-    state.favorites = state.favorites.filter(item => item !== card);
-    localStorage.setItem('sparkFavorites', JSON.stringify(state.favorites));
-    document.querySelectorAll(`.collect-button[data-card="${card}"]`).forEach(node => { node.classList.remove('is-collected'); node.textContent = '＋ 收进星火档案'; });
-    renderFavorites();
-    toast(`已移出“${card}”`);
-  }));
 }
 
 function renderSpiritKit() {
-  const available = stations.filter(station => state.completed.includes(station.id)).flatMap(station => station.keywords.map(word => ({name:word[0],station:station.name})));
+  const verifiedStations = stations.filter(station => state.completed.includes(station.id) && state.spiritJudgments[station.id]);
+  const available = verifiedStations.flatMap(station => station.keywords.map(word => ({name:word[0],station:station.name})));
   state.spiritKit = state.spiritKit.filter(name => available.some(item => item.name === name)).slice(0,3);
-  localStorage.setItem('sparkSpiritKit', JSON.stringify(state.spiritKit));
+  storage.setItem('sparkSpiritKit', JSON.stringify(state.spiritKit));
+  const judgmentSummary = document.querySelector('#judgmentSummary');
+  if (judgmentSummary) judgmentSummary.textContent = `已辨析 ${Object.keys(state.spiritJudgments).filter(id => state.spiritJudgments[id]).length} / 6 站`;
   document.querySelector('#kitCount').textContent = `${state.spiritKit.length} / 3`;
   document.querySelector('#kitSlots').innerHTML = Array.from({length:3}, (_,index) => state.spiritKit[index] ? `<button data-kit-remove="${state.spiritKit[index]}"><i>✦</i><strong>${state.spiritKit[index]}</strong><small>点击取出</small></button>` : `<div><i>${index + 1}</i><strong>等待装入</strong><small>选择一张精神卡</small></div>`).join('');
-  document.querySelector('#kitOptions').innerHTML = available.map(item => `<button data-kit-add="${item.name}" ${state.spiritKit.includes(item.name) ? 'disabled' : ''}><span>${item.station}</span><strong>${item.name}</strong></button>`).join('') || '<p>完成第一站后，精神关键词将在这里出现。</p>';
+  document.querySelector('#kitOptions').innerHTML = available.map(item => `<button data-kit-add="${item.name}" ${state.spiritKit.includes(item.name) ? 'disabled' : ''}><span>${item.station}</span><strong>${item.name}</strong></button>`).join('') || '<p>完成站点任务并通过“精神辨析”后，线索将在这里出现。</p>';
   document.querySelectorAll('[data-kit-add]').forEach(button => button.addEventListener('click', () => {
     if (state.spiritKit.length >= 3) return toast('精神行囊最多装入三张卡');
     state.spiritKit.push(button.dataset.kitAdd); renderSpiritKit(); renderBadgesAndAchievement(); playTone('success');
@@ -567,60 +823,94 @@ function renderSpiritKit() {
 }
 
 function renderBadgesAndAchievement() {
+  renderSpiritKit();
+  const totalStars = stations.reduce((sum,station) => sum + (state.taskRecords[station.id]?.bestStars || 0),0);
+  document.querySelector('#taskStarTotal').textContent = `${totalStars} / 18 星`;
+  document.querySelector('#scoreLedger').innerHTML = stations.map(station => {
+    const record = state.taskRecords[station.id];
+    const scored = record && record.bestStars > 0;
+    return `<article class="${scored ? 'scored' : ''}"><i>${String(station.id).padStart(2,'0')}</i><div><strong>${station.name}</strong><span>${scored ? starText(record.bestStars) : record ? '进行中 · ☆☆☆' : '尚未完成'}</span></div><small>${record ? `作答 ${record.attempts} 次` : '等待解锁'}</small></article>`;
+  }).join('');
   document.querySelector('#badgeCount').textContent = `${state.completed.length} / 6`;
   document.querySelector('#badgeGrid').innerHTML = stations.map(station => {
     const earned = state.completed.includes(station.id);
-    return `<div class="spirit-badge ${earned ? 'earned' : ''}"><i>${earned ? '✦' : '·'}</i><strong>${station.spirit}</strong><small>${earned ? station.name : '尚未获得'}</small></div>`;
+    const record = state.taskRecords[station.id];
+    return `<div class="spirit-badge ${earned ? 'earned' : ''}"><i>${earned ? '✦' : '·'}</i><strong>${station.spirit}</strong><small>${earned ? `${station.name} · ${record ? starText(record.bestStars) : ''}` : '尚未获得'}</small></div>`;
   }).join('');
-  renderSpiritKit();
-  const achieved = state.completed.length === 6 && Boolean(state.reflectionSpirit && state.reflectionReason && state.reflectionAction) && state.spiritKit.length === 3;
+  const stationStars = id => state.taskRecords[id]?.bestStars || 0;
+  const medals = [
+    {name:'求实之章',mark:'实',earned:state.completed.includes(1) && state.completed.includes(2) && stationStars(1) + stationStars(2) >= 4,rule:'完成瑞金、遵义任务，两站合计至少4星'},
+    {name:'智略之章',mark:'智',earned:state.completed.includes(2) && state.completed.includes(3) && stationStars(2) + stationStars(3) >= 4,rule:'完成遵义、赤水任务，两站合计至少4星'},
+    {name:'勇毅之章',mark:'勇',earned:state.completed.includes(4) && state.completed.includes(5) && stationStars(4) + stationStars(5) >= 4,rule:'完成泸定、雪山草地任务，两站合计至少4星'},
+    {name:'团结之章',mark:'合',earned:state.completed.includes(6) && state.highScore >= 60,rule:'完成会宁任务，十题远征最高达到60分'}
+  ];
+  const allCoreEarned = medals.every(medal => medal.earned);
+  medals.push({name:'星火全章',mark:'星',earned:allCoreEarned && state.completed.length === 6 && state.highScore >= 80 && state.spiritKit.length === 3,rule:'集齐前四章、完成六站、远征达到80分，并选满三条精神行囊'});
+  const nextGoal = [
+    {index:0,progress:`瑞金、遵义已完成 ${[1,2].filter(id => state.completed.includes(id)).length}/2 站 · ${stationStars(1) + stationStars(2)}/4 星`},
+    {index:1,progress:`遵义、赤水已完成 ${[2,3].filter(id => state.completed.includes(id)).length}/2 站 · ${stationStars(2) + stationStars(3)}/4 星`},
+    {index:2,progress:`泸定、雪山草地已完成 ${[4,5].filter(id => state.completed.includes(id)).length}/2 站 · ${stationStars(4) + stationStars(5)}/4 星`},
+    {index:3,progress:`会宁任务 ${state.completed.includes(6) ? '已完成' : '未完成'} · 十题远征 ${state.highScore}/60 分`},
+    {index:4,progress:`核心奖章 ${medals.slice(0,4).filter(medal => medal.earned).length}/4 枚 · 远征 ${state.highScore}/80 分 · 精神行囊 ${state.spiritKit.length}/3`}
+  ].find(goal => !medals[goal.index].earned);
+  document.querySelector('#nextMedalGoal').innerHTML = nextGoal
+    ? `<span>NEXT GOAL / 下一目标</span><strong>${medals[nextGoal.index].name}</strong><small>${nextGoal.progress}</small>`
+    : '<span>ALL COMPLETE / 全部达成</span><strong>五枚挑战奖章已全部点亮</strong><small>你可以继续重做任务，刷新自己的最佳成绩。</small>';
+  document.querySelector('#challengeMedalCount').textContent = `${medals.filter(medal => medal.earned).length} / 5`;
+  document.querySelector('#challengeMedals').innerHTML = medals.map((medal,index) => `<article class="${medal.earned ? 'earned' : ''} ${index === medals.length - 1 ? 'final' : ''}"><i>${medal.earned ? medal.mark : '·'}</i><div><strong>${medal.name}</strong><p>${medal.rule}</p></div><span>${medal.earned ? '已获得' : '未解锁'}</span></article>`).join('');
+  const achieved = medals[medals.length - 1].earned;
   const card = document.querySelector('#achievementCard');
   card.hidden = !achieved;
   if (achieved) {
-    document.querySelector('#achievementMarks').innerHTML = stations.map(station => `<i title="${station.spirit}">✦</i>`).join('');
-    document.querySelector('#achievementKit').innerHTML = `<span>我的精神行囊</span><strong>${state.spiritKit.join(' · ')}</strong>`;
-    document.querySelector('#achievementReflection').textContent = `“我选择${state.reflectionSpirit}，因为${state.reflectionReason}”`;
-    document.querySelector('#achievementAction').innerHTML = `<span>我的一个月行动</span><strong>${state.reflectionAction}</strong>`;
+    document.querySelector('#achievementMarks').innerHTML = medals.slice(0,4).map(medal => `<i title="${medal.name}">${medal.mark}</i>`).join('');
+    document.querySelector('#achievementKit').innerHTML = `<span>任务挑战总成绩</span><strong>${totalStars}/18 星 · 十题远征 ${state.highScore}/100 分</strong>`;
+    const selectedEntries = state.spiritKit.map(name => {
+      const station = stations.find(item => item.keywords.some(word => word[0] === name));
+      const word = station?.keywords.find(item => item[0] === name);
+      return word ? `<article><i>✦</i><div><strong>${word[0]}</strong><p>${word[2]}</p></div></article>` : '';
+    }).join('');
+    document.querySelector('#achievementClues').innerHTML = selectedEntries || '<p class="achievement-clues-empty">从“我的精神行囊”选择三条线索后，这里将生成你的专属行动印记。</p>';
   }
 }
 
 const questions = [
-  {id:1,station:'瑞金出发',q:'中央红军主力于哪一年开始长征？',a:['1931年','1934年','1937年'],correct:1,e:'1934年10月中旬，中央红军主力从瑞金、于都等地出发。'},
-  {id:2,station:'瑞金出发',q:'中央红军撤离中央苏区的直接背景是什么？',a:['第五次反“围剿”失败','粮食丰收','会师已经完成'],correct:0,e:'第五次反“围剿”失败后，中央苏区形势严峻，红军开始战略转移。'},
-  {id:3,station:'瑞金出发',q:'长征开始时，“战略转移”主要是为了什么？',a:['举行庆典','保存革命力量并寻找新道路','参观各地'],correct:1,e:'战略转移是在危急形势下保存力量、寻找新道路的选择。'},
-  {id:4,station:'瑞金出发',q:'瑞金出发最能体现哪种精神？',a:['坚定理想','盲目冒险','等待观望'],correct:0,e:'面对未知征途仍为共同目标行动，体现了坚定理想。'},
-  {id:5,station:'瑞金出发',q:'以下哪种做法最符合“责任担当”？',a:['逃避小组任务','只挑最简单的工作','认真完成自己承担的部分'],correct:2,e:'责任担当意味着在集体需要时主动承担并完成自己的任务。'},
-  {id:6,station:'遵义会议',q:'遵义会议召开于哪一年？',a:['1934年','1935年','1936年'],correct:1,e:'遵义会议于1935年1月15日至17日召开。'},
-  {id:7,station:'遵义会议',q:'遵义会议重点解决了什么问题？',a:['军事和组织问题','桥梁建造问题','粮食种植问题'],correct:0,e:'会议集中解决了当时具有决定意义的军事和组织问题。'},
-  {id:8,station:'遵义会议',q:'遵义会议为什么被称为重要转折？',a:['更换了服装','在危急关头挽救了党和红军','增加了交通工具'],correct:1,e:'会议纠正错误领导，在极其危急的关头挽救了党、红军和中国革命。'},
-  {id:9,station:'遵义会议',q:'面对已经证明不合适的方法，正确做法是什么？',a:['分析原因并调整','为了面子继续','把问题藏起来'],correct:0,e:'坚定目标与及时调整方法并不矛盾。'},
-  {id:10,station:'遵义会议',q:'“独立自主”更接近下面哪种理解？',a:['完全不听建议','结合实际独立思考并解决问题','凡事等待答案'],correct:1,e:'独立自主不是拒绝帮助，而是立足实际作出自己的判断。'},
-  {id:11,station:'四渡赤水',q:'四渡赤水主要发生在哪一地区？',a:['川黔滇边境','东北平原','珠江三角洲'],correct:0,e:'中央红军在川黔滇边境灵活机动，四次渡过赤水河。'},
-  {id:12,station:'四渡赤水',q:'四渡赤水的路线为什么看起来曲折？',a:['队伍迷路了','根据敌情灵活改变方向','没有任何目标'],correct:1,e:'曲折路线来自连续的敌情判断和机动调整。'},
-  {id:13,station:'四渡赤水',q:'四渡赤水后，红军通过哪条江摆脱围追堵截？',a:['金沙江','钱塘江','黄浦江'],correct:0,e:'红军进军云南并巧渡金沙江，摆脱了敌军围追堵截。'},
-  {id:14,station:'四渡赤水',q:'“目标坚定，办法灵活”说明什么？',a:['方法永远不能改变','目标和方法都可随意放弃','可根据实际调整方法'],correct:2,e:'目标可以坚定不移，实现目标的办法应根据实际情况调整。'},
-  {id:15,station:'四渡赤水',q:'紧急情况下首先应该怎样做？',a:['沉着分析信息','马上随意行动','放弃判断'],correct:0,e:'沉着判断能帮助我们看清变化，再选择合适行动。'},
-  {id:16,station:'飞夺泸定桥',q:'飞夺泸定桥发生在哪一天？',a:['1935年5月29日','1935年1月15日','1936年10月22日'],correct:0,e:'1935年5月29日，红四团突击队夺取泸定桥。'},
-  {id:17,station:'飞夺泸定桥',q:'夺取泸定桥的主要目的是什么？',a:['修建新城市','打开渡过大渡河的通道','举行运动比赛'],correct:1,e:'夺桥是为了让红军主力越过大渡河并继续北上。'},
-  {id:18,station:'飞夺泸定桥',q:'飞夺泸定桥只依靠突击队员个人行动吗？',a:['是，与其他人无关','不是，还需要急行军、掩护和协同','只需要等待'],correct:1,e:'行动依靠突击、火力掩护和后续部队的共同配合。'},
-  {id:19,station:'飞夺泸定桥',q:'真正的勇气更接近哪种表现？',a:['从来不会害怕','为了表现而冒险','明白责任后仍选择行动'],correct:2,e:'勇气不是感觉不到害怕，而是在责任面前依然行动。'},
-  {id:20,station:'飞夺泸定桥',q:'“集体担当”强调什么？',a:['只依靠一个人','关键时刻相互配合并承担责任','把任务推给别人'],correct:1,e:'集体担当包含主动承担责任和相互协作。'},
-  {id:21,station:'雪山草地',q:'中央红军长征途中翻越的第一座大雪山是？',a:['泰山','夹金山','黄山'],correct:1,e:'1935年6月，中央红军翻越夹金山。'},
-  {id:22,station:'雪山草地',q:'翻越雪山时主要面临哪些困难？',a:['严寒、缺氧和湿滑山路','炎热和沙尘','城市交通拥堵'],correct:0,e:'高海拔雪山带来严寒、缺氧和难行的山路。'},
-  {id:23,station:'雪山草地',q:'穿越草地时为什么补给困难？',a:['商店太多','人烟稀少、食物和燃料缺乏','道路太宽'],correct:1,e:'草地人烟稀少、天气多变，食物和燃料都十分缺乏。'},
-  {id:24,station:'雪山草地',q:'面对漫长困难，下面哪种方法更有效？',a:['把任务拆小并坚持完成','一次失败就放弃','只等待别人完成'],correct:0,e:'把大任务分解并持续行动，是坚韧的现实表现。'},
-  {id:25,station:'雪山草地',q:'“互助友爱”在困难中有什么作用？',a:['让同伴更加孤立','帮助大家共同坚持前进','减少合作'],correct:1,e:'相互搀扶和彼此照顾，是红军克服困难的重要力量。'},
-  {id:26,station:'会宁会师',q:'红军三大主力胜利会师发生在哪一年？',a:['1934年','1935年','1936年'],correct:2,e:'1936年10月，红军三大主力在西北地区胜利会合。'},
-  {id:27,station:'会宁会师',q:'红一方面军和红四方面军主要在哪里会师？',a:['会宁','瑞金','遵义'],correct:0,e:'1936年10月，红一方面军和红四方面军在甘肃会宁会师。'},
-  {id:28,station:'会宁会师',q:'红二方面军后来同红一方面军主力在哪里会师？',a:['将台堡','泸定桥','于都'],correct:0,e:'1936年10月22日，双方在将台堡胜利会师。'},
-  {id:29,station:'会宁会师',q:'三大主力会师标志着什么？',a:['长征胜利结束','长征刚刚开始','遵义会议召开'],correct:0,e:'三大主力胜利会合，标志着具有伟大历史意义的长征胜利结束。'},
-  {id:30,station:'会宁会师',q:'会师最突出体现了哪种力量？',a:['各自行动','团结协作','互不联系'],correct:1,e:'共同理想和相互配合，使分散的力量最终汇聚。'}
+  {id:1,station:'瑞金出发',q:'材料：“第五次反‘围剿’失败，中央苏区形势日益严峻。”由此推断，中央红军实行战略转移首先要解决什么问题？',a:['保存革命力量，摆脱被动局面','立即同所有敌军进行决战','留在原地等待形势自行改变'],correct:0,e:'战略转移是在严重危机下保存革命力量、寻找新道路的主动选择。'},
+  {id:2,station:'瑞金出发',q:'将下列事件按因果顺序排列：①中央红军踏上长征路 ②第五次反“围剿”失利 ③中央苏区形势严峻 ④决定实行战略转移。',a:['②③④①','③②①④','②④③①'],correct:0,e:'反“围剿”失利使形势严峻，继而作出战略转移决定，最后付诸行动。'},
+  {id:3,station:'瑞金出发',q:'有人说：“离开根据地就是放弃理想。”结合长征出发背景，哪一项反驳最有说服力？',a:['地点改变不等于目标改变，转移是为了保存力量继续斗争','只要出发得足够快，任何决定都正确','所有战略转移都会自动取得胜利'],correct:0,e:'判断是否坚定理想，要看根本目标是否坚持，而不能只看行动地点是否改变。'},
+  {id:4,station:'瑞金出发',q:'出发时运输能力有限，必须减少不必要的辎重。这一选择最能说明长期行动首先需要什么？',a:['在目标与条件之间分清轻重缓急','尽量携带所有物品以避免取舍','只考虑眼前方便，不考虑后续路程'],correct:0,e:'资源有限时要围绕核心目标作出取舍，这既是判断力也是责任。'},
+  {id:5,station:'瑞金出发',q:'小组项目遇到困难，哪种做法与长征出发体现的方法最接近？',a:['保留共同目标，重新评估条件并调整计划','因为原计划受阻而立即放弃目标','不分析原因，只把任务量继续增加'],correct:0,e:'坚定不是机械重复，而是在现实条件下继续寻找通向目标的道路。'},
+  {id:6,station:'遵义会议',q:'遵义会议前，红军在长征初期遭受严重损失。会议首先总结经验、纠正错误，这说明转折产生的关键条件是什么？',a:['正视事实并根据实际调整领导和方法','暂时隐藏问题以保持表面一致','等到困难完全消失后再作决定'],correct:0,e:'遵义会议的重要启示是从实际出发，敢于总结失误并及时纠正。'},
+  {id:7,station:'遵义会议',q:'下列哪组关系最准确地概括遵义会议的作用？',a:['危急局面—总结经验—调整领导—实现转折','物资充足—举行会议—停止行军—长征结束','路线顺利—拒绝讨论—维持原状—取得胜利'],correct:0,e:'会议发生在危急关头，通过总结经验和调整领导，使革命事业出现重要转折。'},
+  {id:8,station:'遵义会议',q:'“坚持正确目标”与“纠正错误方法”之间是什么关系？',a:['二者可以统一，纠错是为了更好实现目标','二者互相矛盾，调整方法就是动摇目标','二者毫无关系，方法不会影响结果'],correct:0,e:'实事求是要求根据实际修正方法，这恰恰服务于坚定的目标。'},
+  {id:9,station:'遵义会议',q:'如果只有“遵义会议召开于1935年1月”这一信息，尚不能直接证明它是生死攸关的转折。还需要哪类证据？',a:['会前困境、会议调整及会后局势变化','会议所在建筑的颜色和面积','参会人员当天的饮食清单'],correct:0,e:'判断历史事件意义，需要把背景、决策内容和后续影响连接起来。'},
+  {id:10,station:'遵义会议',q:'学习方案连续两周效果不佳。哪种处理同时体现“独立自主”和“实事求是”？',a:['分析错因，参考建议后按自身情况调整','照搬同学方法，不检查是否适合自己','拒绝所有建议，也拒绝查看学习数据'],correct:0,e:'独立自主不是拒绝意见，而是在尊重事实的基础上形成自己的判断。'},
+  {id:11,station:'四渡赤水',q:'地图上四渡赤水路线多次往返。如果只凭路线曲折就断定“红军迷失方向”，这一判断忽略了什么？',a:['敌军部署不断变化，路线调整具有战略目的','直线距离永远比安全和主动更重要','所有曲折路线都来自地图绘制误差'],correct:0,e:'路线要结合敌我态势解释；曲折机动是为了调动敌军、寻找战机。'},
+  {id:12,station:'四渡赤水',q:'敌军判断红军将向北，红军却突然转向并再次渡河。这种行动主要利用了什么？',a:['制造信息差，使敌军部署落后于红军行动','固定路线，让敌军更容易预判','停止侦察，把结果完全交给运气'],correct:0,e:'灵活机动通过改变方向打乱敌军判断，从而争取主动。'},
+  {id:13,station:'四渡赤水',q:'从“四渡赤水—南渡乌江—威逼贵阳—进军云南—巧渡金沙江”可以概括出怎样的行动逻辑？',a:['连续调动敌军，在运动中创造摆脱包围的机会','始终选择距离最短的直线路线','每次改变方向都意味着更换最终目标'],correct:0,e:'一系列机动围绕摆脱围追堵截这一目标展开，方法变化而目标稳定。'},
+  {id:14,station:'四渡赤水',q:'面对三条路线：甲路最短但敌军集中，乙路较远但防守薄弱，丙路补给较好但已被识破。最符合四渡赤水思维的是？',a:['结合敌情与时机选择乙路，并随变化继续调整','只按距离选择甲路，不考虑敌军部署','坚持丙路，因为补给条件永远最重要'],correct:0,e:'战略判断不能只看单一条件，要综合敌情、时机、补给和目标。'},
+  {id:15,station:'四渡赤水',q:'下列哪项最能证明四渡赤水不是“无计划地改变方向”？',a:['多次机动最终帮助红军跳出重兵包围','路线在地图上留下许多弯曲线段','行军经过了不同省份和河流'],correct:0,e:'判断行动是否有效，应看变化是否服务于目标以及最终结果。'},
+  {id:16,station:'飞夺泸定桥',q:'红军需要迅速夺取泸定桥，根本原因是后有追兵、前有大渡河阻隔。这说明桥梁在行动中具有什么作用？',a:['控制关键通道，关系主力能否继续前进','只具有纪念意义，不影响行军','主要用于缩短会议时间'],correct:0,e:'泸定桥是跨越大渡河的重要通道，关系全军后续行动。'},
+  {id:17,station:'飞夺泸定桥',q:'突击队攀桥、火力掩护、后续部队跟进三者之间最准确的关系是？',a:['分工不同但目标一致，缺少一环都会增加失败风险','突击队行动足以取代所有协同','后续部队只在胜利后出现，与夺桥无关'],correct:0,e:'飞夺泸定桥体现的不只是个人勇敢，也是明确分工下的集体协同。'},
+  {id:18,station:'飞夺泸定桥',q:'如果突击速度很快，但掩护力量没有及时到位，最可能出现什么结果？',a:['突击队暴露在火力下，整体成功率下降','速度可以自动弥补所有协同缺口','后续部队无需过桥也能完成任务'],correct:0,e:'复杂任务中，局部速度必须与整体协同配合，不能只追求单项表现。'},
+  {id:19,station:'飞夺泸定桥',q:'“明知危险仍然行动”并不等于盲目冒险。区分二者的关键是什么？',a:['是否有明确目标、必要性判断和协同准备','行动者是否完全感觉不到害怕','行动过程是否足够引人注目'],correct:0,e:'勇敢建立在责任、判断和准备之上；忽视条件的冲动不是勇敢。'},
+  {id:20,station:'飞夺泸定桥',q:'班级限时完成一项复杂任务，哪种安排最接近飞夺泸定桥体现的协作方式？',a:['按能力分工、同步信息，并为关键环节提供支援','所有人重复同一工作，避免承担不同责任','让一名同学完成全部工作，其他人等待结果'],correct:0,e:'有效协作需要明确分工、相互支援和围绕共同目标同步行动。'},
+  {id:21,station:'雪山草地',q:'雪山严寒缺氧，草地泥泞且补给困难。两种环境不同，却共同考验了红军的什么能力？',a:['在极端条件下保持组织、互助与持续行动','依靠固定方案解决所有环境问题','只凭个人体力而不需要集体支持'],correct:0,e:'环境不同，困难也不同，但都需要坚韧、组织和互助。'},
+  {id:22,station:'雪山草地',q:'某队伍要穿越人烟稀少地区。若只能优先保障一项方案，哪项最符合长距离行军需要？',a:['控制负重并统筹食物、保暖、救护和队伍互助','把物资平均分成许多无关小类，不设优先级','只准备出发当天的食物，不考虑后续补给'],correct:0,e:'长距离行动需要统筹基本生存、医疗、气候和团队状况。'},
+  {id:23,station:'雪山草地',q:'“把大目标拆成一个个可完成的小目标”为什么能帮助穿越长期困难？',a:['能持续确认进展、分配体力并及时调整','能让困难在没有行动时自动消失','能保证每一步都不会遇到任何风险'],correct:0,e:'分解目标不能消除风险，但有助于稳定节奏、观察进展和坚持行动。'},
+  {id:24,station:'雪山草地',q:'同伴因疲劳掉队。只强调“每个人自己坚持”有什么局限？',a:['忽视团队成员相互依赖，可能削弱整体行动能力','能够确保队伍速度始终达到最快','可以减少所有人的物资消耗'],correct:0,e:'长征中的互助说明，集体坚韧不仅是个人意志，也是彼此支撑。'},
+  {id:25,station:'雪山草地',q:'比较“困难很多所以无法前进”和“困难很多所以更要规划、互助”。两者最根本的差别是什么？',a:['是否把困难转化为需要分析和解决的问题','是否承认困难客观存在','是否知道雪山草地的名称'],correct:0,e:'长征精神不是否认困难，而是正视困难并组织行动克服困难。'},
+  {id:26,station:'会宁会师',q:'红一、红二、红四方面军出发地点和行军路线不同，却最终会师。这一事实最能说明什么？',a:['共同目标能够凝聚经历和路径不同的力量','路线不同必然导致目标互相冲突','只有完全相同的经历才能形成团结'],correct:0,e:'团结并不要求过程完全相同，而是建立在共同理想和大局意识上。'},
+  {id:27,station:'会宁会师',q:'下列事件按时间先后排序正确的是：①会宁会师 ②遵义会议 ③中央红军从瑞金等地出发 ④飞夺泸定桥。',a:['③②④①','②③①④','③④②①'],correct:0,e:'1934年出发，1935年1月遵义会议，1935年5月飞夺泸定桥，1936年10月会师。'},
+  {id:28,station:'会宁会师',q:'为什么不能把长征简单理解为“中央红军从瑞金走到会宁的一条线”？',a:['多支红军从不同根据地出发，路线与到达时间各不相同','因为历史地图不能画出任何行军路线','因为所有红军始终沿完全相同的道路行军'],correct:0,e:'长征包括红一、红二、红四方面军和红二十五军等多支队伍的战略转移。'},
+  {id:29,station:'会宁会师',q:'“会师”不仅是地理上的相遇。结合长征全程，它还意味着什么？',a:['分散力量重新汇聚，共同目标和大局意识得到体现','各支队伍从此不再需要任何分工','此前不同路线和历史经历失去意义'],correct:0,e:'会师体现力量汇聚与团结胜利，但并不抹去各支队伍不同的长征经历。'},
+  {id:30,station:'会宁会师',q:'四支队伍路线图和六站研学路线看起来不同。面对这种差异，最合理的解释是？',a:['六站是学习用代表性节点，四支队伍路线呈现更完整的历史全景','两张图中必有一张完全错误','六站路线已经包含所有队伍经过的每一个地点'],correct:0,e:'学习路线经过筛选，帮助理解关键节点；它不能代替完整历史路线。'}
 ];
 
 let quizSession = [];
 let quizIndex = 0;
 let score = 0;
 let sessionWrong = [];
+let quizCurrentOptions = [];
 
 function shuffled(items) {
   const copy = [...items];
@@ -646,6 +936,7 @@ function startQuiz(pool = questions, limit = 10) {
 
 function renderQuestion() {
   const item = quizSession[quizIndex];
+  quizCurrentOptions = shuffled(item.a.map((answer,index) => ({answer,correct:index === item.correct})));
   document.querySelector('#questionNo').textContent = quizIndex + 1;
   document.querySelector('#questionTotal').textContent = quizSession.length;
   document.querySelector('#quizProgress').style.width = `${quizIndex / quizSession.length * 100}%`;
@@ -653,25 +944,25 @@ function renderQuestion() {
   document.querySelector('#question').textContent = item.q;
   document.querySelector('#quizExplain').textContent = '';
   document.querySelector('#nextQuestion').hidden = true;
-  document.querySelector('#quizOptions').innerHTML = item.a.map((answer, index) => `<button data-index="${index}">${String.fromCharCode(65 + index)}. ${answer}</button>`).join('');
+  document.querySelector('#quizOptions').innerHTML = quizCurrentOptions.map((option,index) => `<button data-index="${index}" data-correct="${option.correct}">${String.fromCharCode(65 + index)}. ${option.answer}</button>`).join('');
   document.querySelectorAll('#quizOptions button').forEach(button => button.addEventListener('click', answerQuestion));
 }
 
 function answerQuestion(event) {
   const selected = Number(event.currentTarget.dataset.index);
   const item = quizSession[quizIndex];
-  const correct = selected === item.correct;
+  const correct = quizCurrentOptions[selected].correct;
   document.querySelectorAll('#quizOptions button').forEach(button => button.disabled = true);
   event.currentTarget.classList.add(correct ? 'correct' : 'wrong');
   if (!correct) {
-    document.querySelector(`#quizOptions button[data-index="${item.correct}"]`).classList.add('correct');
+    document.querySelector('#quizOptions button[data-correct="true"]').classList.add('correct');
     sessionWrong.push(item.id);
     if (!state.wrongQuestions.includes(item.id)) state.wrongQuestions.push(item.id);
   } else {
     score += 10;
     state.wrongQuestions = state.wrongQuestions.filter(id => id !== item.id);
   }
-  localStorage.setItem('sparkWrongQuestions', JSON.stringify(state.wrongQuestions));
+  storage.setItem('sparkWrongQuestions', JSON.stringify(state.wrongQuestions));
   document.querySelector('#score').textContent = score;
   document.querySelector('#quizExplain').textContent = item.e;
   document.querySelector('#nextQuestion').hidden = false;
@@ -679,8 +970,9 @@ function answerQuestion(event) {
 }
 
 function finishQuiz() {
+  const previousHighScore = state.highScore;
   state.highScore = Math.max(state.highScore, score);
-  localStorage.setItem('sparkHighScore', state.highScore);
+  storage.setItem('sparkHighScore', state.highScore);
   document.querySelector('#quizProgress').style.width = '100%';
   document.querySelector('#question').hidden = true;
   document.querySelector('#quizOptions').hidden = true;
@@ -694,34 +986,13 @@ function finishQuiz() {
     const pool = questions.filter(item => state.wrongQuestions.includes(item.id));
     if (pool.length) startQuiz(pool, pool.length);
   });
-  toast(`挑战完成：${score} 分`);
+  renderBadgesAndAchievement();
+  toast(state.highScore > previousHighScore ? `挑战完成：刷新最高分 ${state.highScore}` : `挑战完成：${score} 分`);
 }
 
 document.querySelector('#nextQuestion').addEventListener('click', () => {
   if (quizIndex < quizSession.length - 1) { quizIndex += 1; renderQuestion(); }
   else finishQuiz();
-});
-
-const reflectionSpirit = document.querySelector('#reflectionSpirit');
-const reflectionReason = document.querySelector('#reflectionReason');
-const reflectionAction = document.querySelector('#reflectionAction');
-reflectionSpirit.innerHTML += [...new Set(stations.flatMap(station => [station.spirit,...station.keywords.map(word => word[0])]))].map(item => `<option value="${item}">${item}</option>`).join('');
-reflectionSpirit.value = state.reflectionSpirit;
-reflectionReason.value = state.reflectionReason;
-reflectionAction.value = state.reflectionAction;
-document.querySelector('#saveReflection').addEventListener('click', () => {
-  state.reflectionSpirit = reflectionSpirit.value;
-  state.reflectionReason = reflectionReason.value.trim();
-  state.reflectionAction = reflectionAction.value.trim();
-  state.reflection = state.reflectionReason;
-  localStorage.setItem('sparkReflectionSpirit', state.reflectionSpirit);
-  localStorage.setItem('sparkReflectionReason', state.reflectionReason);
-  localStorage.setItem('sparkReflectionAction', state.reflectionAction);
-  localStorage.setItem('sparkReflection', state.reflectionReason);
-  const complete = Boolean(state.reflectionSpirit && state.reflectionReason && state.reflectionAction);
-  document.querySelector('#saveHint').textContent = complete ? '行动计划已装入档案' : '请完成三项内容';
-  renderBadgesAndAchievement();
-  toast(complete ? '行动计划已保存' : '还差一项没有完成');
 });
 
 let toastTimer;
@@ -762,7 +1033,7 @@ function updateSoundUI() {
 
 function toggleSound() {
   state.soundEnabled = !state.soundEnabled;
-  localStorage.setItem('sparkSoundEnabled', state.soundEnabled);
+  storage.setItem('sparkSoundEnabled', state.soundEnabled);
   updateSoundUI();
   if (state.soundEnabled) playTone();
   toast(state.soundEnabled ? '操作提示音已开启' : '操作提示音已关闭');
@@ -775,7 +1046,7 @@ const onboarding = document.querySelector('#onboarding');
 let onboardingIndex = 0;
 function closeOnboarding() {
   onboarding.hidden = true;
-  localStorage.setItem('sparkOnboarded', 'true');
+  storage.setItem('sparkOnboarded', 'true');
 }
 function showOnboardingPage(index) {
   onboardingIndex = index;
@@ -785,73 +1056,17 @@ function showOnboardingPage(index) {
 }
 document.querySelector('#skipOnboarding').addEventListener('click', closeOnboarding);
 document.querySelector('#nextOnboarding').addEventListener('click', () => onboardingIndex === 2 ? closeOnboarding() : showOnboardingPage(onboardingIndex + 1));
-if (!localStorage.getItem('sparkOnboarded')) {
+if (!storage.getItem('sparkOnboarded')) {
   onboarding.hidden = false;
   showOnboardingPage(0);
 }
 
-const demoSteps = [
-  {time:'00:00',title:'一句话介绍',copy:'首页：面向初中生，把长征历史读成一条可互动的研学路线。',view:'home'},
-  {time:'00:25',title:'历史全景',copy:'路线：说明六站是代表性节点，展开“不只一条路线”。',view:'route'},
-  {time:'00:55',title:'内容深度',copy:'站点：展示史实、人物群像、史料卡和三层思考。',view:'station'},
-  {time:'01:30',title:'核心互动',copy:'任务：演示选择后果、行军指标和完成盖章。',view:'station',panel:'task'},
-  {time:'02:10',title:'学习闭环',copy:'档案：展示徽章、精神行囊、行动计划和纪念卡。',view:'collection'},
-  {time:'02:40',title:'技术与原创',copy:'作品说明：离线、本地保存、AI辅助范围和AIA/APK迁移计划。',view:'about'}
-];
-let demoIndex = 0;
-let demoRemaining = 180;
-let demoTimerId = null;
-
-function renderDemoSteps() {
-  document.querySelector('#demoSteps').innerHTML = demoSteps.map((step,index) => `<li class="${index === demoIndex ? 'is-active' : ''} ${index < demoIndex ? 'is-done' : ''}"><i>${step.time}</i><div><strong>${step.title}</strong><p>${step.copy}</p></div></li>`).join('');
-  document.querySelector('#demoProgress').style.width = `${demoIndex / (demoSteps.length - 1) * 100}%`;
-  document.querySelector('#demoPrompt').textContent = demoSteps[demoIndex].copy;
-}
-
-function openDemoStep() {
-  const step = demoSteps[demoIndex];
-  if (step.view === 'station') { renderStation(stations[Math.max(0,state.currentStation - 1)]); showView('station'); }
-  else showView(step.view);
-  if (step.panel) activatePanel(step.panel);
-}
-
-function startDefenseDemo() {
-  clearInterval(demoTimerId); demoIndex = 0; demoRemaining = 180;
-  document.querySelector('#nextDemo').disabled = false;
-  document.querySelector('#nextDemo').textContent = '下一画面';
-  document.querySelector('#startDemo').textContent = '重新计时';
-  document.querySelector('.demo-console').classList.add('is-running');
-  renderDemoSteps(); openDemoStep();
-  demoTimerId = setInterval(() => {
-    demoRemaining -= 1;
-    const minutes = String(Math.floor(demoRemaining / 60)).padStart(2,'0');
-    const seconds = String(demoRemaining % 60).padStart(2,'0');
-    document.querySelector('#demoTimer').textContent = `${minutes}:${seconds}`;
-    if (demoRemaining <= 0) { clearInterval(demoTimerId); demoTimerId = null; toast('三分钟演示时间到'); }
-  },1000);
-}
-
-document.querySelector('#startDemo').addEventListener('click', startDefenseDemo);
-document.querySelector('#nextDemo').addEventListener('click', () => {
-  if (demoIndex === demoSteps.length - 1) {
-    clearInterval(demoTimerId); demoTimerId = null;
-    document.querySelector('.demo-console').classList.remove('is-running');
-    document.querySelector('#nextDemo').disabled = true;
-    document.querySelector('#nextDemo').textContent = '下一画面';
-    document.querySelector('#startDemo').textContent = '开始计时';
-    showView('help');
-    return;
-  }
-  demoIndex += 1;
-  renderDemoSteps(); openDemoStep();
-  if (demoIndex === demoSteps.length - 1) document.querySelector('#nextDemo').textContent = '结束演示';
-});
-renderDemoSteps();
-
 document.querySelector('#resetProgress').addEventListener('click', () => {
   const confirmed = window.confirm('确定清除本机上的全部研学记录吗？此操作无法撤销。');
   if (!confirmed) return;
-  Object.keys(localStorage).filter(key => key.startsWith('spark')).forEach(key => localStorage.removeItem(key));
+  const keys = [];
+  for (let index = 0; index < storage.length; index += 1) keys.push(storage.key(index));
+  keys.filter(key => key && key.startsWith('spark')).forEach(key => storage.removeItem(key));
   window.location.reload();
 });
 
