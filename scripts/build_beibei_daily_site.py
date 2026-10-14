@@ -845,6 +845,82 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The main message is that basic science matters. A question about molecular geometry may sound abstract, but it can lead to important progress in medicine, materials and the study of life’s origins."
         ),
     },
+    "20261010": {
+        "pet_index": "04",
+        "overview": (
+            "文章围绕加拿大诗人、古典学者安妮·卡森获得 2026 年诺贝尔文学奖展开，并借此解释文学奖为何总伴随争议。"
+            "开头写热门人选卡森最终胜出，诺委会赞扬她以创新形式持续与古典传统对话。随后文章回顾她的创作背景：她受过古典学训练，"
+            "长期从希腊、拉丁文本和神话中取材，《红的自传》把古代怪物革律翁改写成敏感、孤独的现代少年，《安提戈涅》等作品也重新组织古典悲剧和残篇。"
+            "文章强调她的文字兼具学术深度和可读性，形式横跨诗歌、散文、歌剧、翻译与随笔，常以克制、冷峻的语调书写欲望、爱情和权力。"
+            "后半部分转向诺奖评选机制：评委追求具有普遍性、影响力和开创性的文学，但文学价值本来就难以客观衡量，翻译条件、评委地域视野和性别失衡都会影响结果。"
+            "文章列举彼得·汉德克和鲍勃·迪伦等争议案例，说明诺奖既会激怒批评者，也会重新定义何为文学。结尾认为，尽管诺奖带有主观性和局限，"
+            "它仍能塑造全球文学经典、带动译作出版和图书销量，并让作家的名字跨越语言与国界。"
+        ),
+        "pet": (
+            "The article is about Anne Carson, a Canadian poet who won the 2026 Nobel Prize in Literature. Carson was one of the favourites before the announcement. The Nobel committee praised her for finding new ways to connect modern writing with the classical tradition. "
+            "Carson was trained as a classical scholar. Her work often uses Greek and Latin literature. In “Autobiography of Red”, she turns an ancient monster called Geryon into a sensitive modern teenager. She has also translated and changed Greek tragedies and used the surviving pieces of Sappho’s poems in her own writing. "
+            "Her poems have deep scholarly ideas, but they are also clear and enjoyable to read. She writes poetry, prose, opera, translations and essays. Love, desire and power often appear in her work, and her style is calm, sharp and sometimes funny. "
+            "The article then asks why the Nobel Prize in Literature is so controversial. Literature is more subjective than science. Judges may have limited knowledge of writers from other regions, and translation can strongly affect which books they can read. Some earlier winners, such as Peter Handke and Bob Dylan, caused major arguments. "
+            "The main message is that the prize is imperfect but still powerful. It can change book sales, help small publishers and bring translated literature to new readers. It also starts worldwide debates about what literature can be."
+        ),
+    },
+    "20261011": {
+        "pet_index": "04",
+        "overview": (
+            "文章报道南非人权律师 Navanethem “Navi” Pillay 获得 2026 年诺贝尔和平奖，并分析这一决定为何引发以色列和特朗普阵营的强烈反应。"
+            "Pillay 长期从事人权和国际司法工作，曾为反种族隔离活动人士辩护，也领导联合国调查委员会认定以色列在加沙实施种族灭绝。"
+            "诺委会没有在颁奖理由中直接提及加沙，而是强调她捍卫国际法、推动战争罪和危害人类罪问责的长期贡献；以色列则指责她有偏见，特朗普转发批评内容，"
+            "称挪威和诺委会的决定令人蒙羞。文章随后回顾 Pillay 的成长经历：她出生于德班一个贫困的印度泰米尔裔家庭，在种族隔离制度下长大，"
+            "亲眼见证国家暴力，因此选择学习法律并为被监禁的反种族隔离人士辩护。种族隔离结束后，她成为南非高等法院法官，并持续推动女性权利与平等。"
+            "文章特别强调她在卢旺达问题国际刑事法庭的开创性工作：她推动把强奸和针对妇女儿童的性暴力认定为战争武器，并使强奸首次被司法判决纳入种族灭绝。"
+            "结尾指出，她后来仍持续反对排外暴力、维护国际刑事法院；这次获奖既表彰其一生的法律贡献，也延续了和平奖鲜明的政治分量。"
+        ),
+        "pet": (
+            "The article is about Navi Pillay, a South African human-rights lawyer who won the 2026 Nobel Peace Prize. She has spent many years defending human rights and supporting international law. The decision was also highly political because she led a United Nations commission that said Israel had committed genocide in Gaza. "
+            "The Nobel committee did not directly mention Gaza when it announced the prize. It focused on Pillay’s long career and her work to make sure that war crimes, crimes against humanity and genocide are punished. Israel strongly criticised the decision and accused her of bias. Donald Trump also shared a message attacking Pillay and the Nobel committee. "
+            "Pillay grew up in a poor Indian Tamil family in Durban during apartheid. As a young person, she saw unfair laws and violence against Black South Africans. She studied law and later defended imprisoned anti-apartheid activists, including Nelson Mandela. After apartheid ended, she became a High Court judge and supported women’s rights and equality. "
+            "One of her most important achievements came at the international court for Rwanda. She helped the court recognise rape and sexual violence as weapons of war. In 1998, rape was legally recognised as part of genocide for the first time. This decision later became an important rule in international law. "
+            "The main message is that Pillay’s prize honours a lifetime of work for justice. At the same time, it shows that the Nobel Peace Prize often enters difficult political arguments."
+        ),
+    },
+    "20261013": {
+        "pet_index": "04",
+        "overview": (
+            "文章调查俄罗斯西伯利亚一名反鼠疫研究所技术员死亡、医院隔离以及约 200 人可能接触的传闻，回答这是否会成为又一次全球疫情。"
+            "开头指出，新冠疫情留下的集体记忆使“神秘呼吸道疾病加实验室泄漏”极易引发恐慌，但目前证明死者感染鼠疫或实验室病原体的证据很薄弱，"
+            "俄罗斯官方披露有限又进一步放大了猜测。文章梳理已知事实：一名年轻技术员因不明原因肺炎死亡，多家医院采取隔离措施，但相关样本没有检出目标病原体。"
+            "中段科普鼠疫的三种主要形式，并说明鼠疫至今仍在多国动物群体中地方性存在；只有肺鼠疫能在人与人之间传播，而且依赖咳嗽或打喷嚏产生的较大飞沫，"
+            "通常只能传播约三到六英尺，需要近距离接触。鼠疫潜伏期只有一到七天，又有多种抗生素可以治疗，因此若接触者至今没有阳性，大规模暴发的可能性很低。"
+            "后半部分讨论更危险的猜想——病原体是否被实验室改造成耐药菌——但文章指出目前没有证据支持；俄乌战争、生物武器叙事和俄方缺乏透明度共同制造了信息真空。"
+            "结尾引用美国官员和专家判断：事件值得持续关注，但无需恐慌，肺鼠疫并不会成为另一个新冠疫情。"
+        ),
+        "pet": (
+            "The article is about rumours of a possible plague accident at a laboratory in Siberia. A young woman who worked at an anti-plague research institute died from pneumonia of an unknown cause. Some hospitals were placed under quarantine, and reports said that up to 200 people may have had contact with an infected person. "
+            "The article says there is still little evidence that the woman died from plague. Russian authorities have shared few details, which has encouraged rumours. However, scientists already understand plague quite well, so they can judge the danger more clearly. "
+            "Plague still exists among animals in many parts of the world. There are three main forms. Pneumonic plague is the only form that can spread between people, but it does not travel easily. It spreads through larger droplets from a cough or sneeze, so people usually need to be very close to an infected person. "
+            "Plague also has a short incubation period of one to seven days. People who were exposed would probably have shown symptoms by now. It can usually be treated with antibiotics. There is no evidence that the laboratory created a more dangerous or drug-resistant form of the disease. "
+            "The main message is that the event should be investigated, especially because Russia has not been transparent. But experts say a large outbreak is unlikely, and pneumonic plague is not expected to become another COVID-19 pandemic."
+        ),
+    },
+    "20261014": {
+        "pet_index": "04",
+        "overview": (
+            "文章借 2026 年诺贝尔经济学奖回顾宏观经济学如何从凯恩斯主义与货币主义之争，发展到以个体行为为基础的新凯恩斯框架。"
+            "奖项授予 Robert Hall 和 Michael Woodford：Hall 研究消费者如何根据对终身收入的预期平滑消费，Woodford 则用自然利率和纯信用经济模型解释央行如何通过利率稳定通胀与就业。"
+            "文章指出，这两人的共同贡献是为宏观经济学建立“微观基础”：不再只从货币总量、通胀等统计数字自上而下建模，而是从消费者和企业的选择推导整体经济结果。"
+            "Hall 的模型认为，理性消费者只会在获得有关终身收入的新信息时改变支出，因此个人消费轨迹像醉汉回家，短期随机偏移但大方向稳定；Woodford 的框架则认为，"
+            "市场利率低于自然利率会引发通胀繁荣，高于自然利率则会造成通缩，央行应清晰沟通反应规则。后半部分集中讨论理论局限：自然利率无法直接观察且会快速变化，"
+            "现实中的消费者常把临时收入花掉，并不像模型假设的那样完全理性；模型也曾忽略金融部门，难以预见金融危机。如今前瞻指引可能造成市场与央行互相揣测的“镜厅”，"
+            "疫情、战争等供给冲击和高债务又迫使央行在通胀与失业之间作出痛苦取舍。文章最终强调，获奖理论重塑了央行思维，但并未给现实政策提供简单答案。"
+        ),
+        "pet": (
+            "The article is about the 2026 Nobel Prize in Economics. It went to Robert Hall and Michael Woodford, two important New Keynesian economists. Their work helped explain how the choices of individual people and businesses can shape the whole economy. "
+            "Earlier economists often studied large totals, such as the money supply, inflation and unemployment. Hall and Woodford helped build macroeconomics on “microfoundations”. This means starting with the behaviour of consumers and companies and then using it to understand national economic results. "
+            "Hall studied consumer spending. His model says people think about their future income and try to keep their spending fairly smooth over their lives. A temporary payment should not greatly change their spending unless it changes what they expect to earn in the long term. Woodford studied interest rates. His model says central banks should compare market rates with a natural rate that keeps the economy balanced. "
+            "The article also explains the weaknesses of these ideas. The natural interest rate cannot be seen directly and can change quickly. Real consumers are not always rational and may spend temporary payments immediately. Older versions of the models also paid too little attention to banks and financial crises. "
+            "Today, central banks face pandemics, wars, supply problems and high government debt. They must choose how much inflation or unemployment they are willing to accept. The main message is that Hall and Woodford changed economic thinking, but their models cannot remove the difficult choices that governments and central banks must make."
+        ),
+    },
 }
 
 
@@ -999,6 +1075,10 @@ VOCAB_FALSE_POSITIVES = {
     # The no-phonetic/POS fallback can otherwise treat "precious" as a card
     # and swallow the following article translation as its definition.
     "precious",
+    # 20261010: a line of Anne Carson's quoted poem is body text. The
+    # no-phonetic fallback otherwise mistakes it for a vocabulary heading.
+    "stale peace of old bedtimes",
+    "everything i know about love and its necessities",
 }
 
 
@@ -1385,6 +1465,13 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition": "测定（基因或分子成分的）序列；按顺序排列",
         "definition_en": "to identify the order of genes or parts of molecules; to arrange things in order",
         "example": "The human genome has now been sequenced. 人类基因组的序列现已测定。",
+    },
+    "to be assailed by worries": {
+        "pos": "phr.",
+        "phonetic": "",
+        "definition": "为焦虑、疑虑或担心所困扰",
+        "definition_en": "to be troubled or attacked by worries, doubts or fears",
+        "example": "She was assailed by doubts about the decision. 她受到对这一决定的疑虑困扰。",
     },
 }
 
@@ -1845,7 +1932,12 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
         # pattern is deliberately broad. Do not let it fire at the start of a
         # real paragraph such as "PISA scores began ... around 2012. The ...".
         if numbered_vocab_heading is not None and numbered_vocab_heading.start() >= 80:
-            cut_positions.append(numbered_vocab_heading.start())
+            # A publication year followed by a new sentence can resemble a
+            # numbered dictionary sense, e.g. "published in 1998. A novel...".
+            # It is still part of the article paragraph, not a vocab heading.
+            after_heading = english_source[numbered_vocab_heading.end():]
+            if not re.match(r"(?:19|20)\d{2}[.、]\s", after_heading):
+                cut_positions.append(numbered_vocab_heading.start())
         if cut_positions:
             english_source = english_source[:min(cut_positions)]
         english_source = clean_original_paragraph(recover_english_split_by_translation(english_source))
