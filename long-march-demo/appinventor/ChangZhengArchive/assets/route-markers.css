@@ -24,41 +24,28 @@
   color: var(--red);
 }
 
-.shoe-stop > span {
+.shoe-stop > svg {
   position: absolute;
-  top: 2px;
-  width: 16px;
-  height: 31px;
-  border: 2px solid #79502b;
-  border-radius: 55% 55% 38% 38%;
-  background-color: #d2a45e;
-  box-shadow: inset 0 0 0 1px rgba(255,239,199,.42),0 3px 3px rgba(54,38,20,.25);
-}
-
-.shoe-stop > span::before,
-.shoe-stop > span::after {
-  content: "";
-  position: absolute;
-  left: 1px;
-  top: 10px;
-  width: 14px;
-  height: 2px;
-  background: #70441f;
-  transform-origin: center;
-}
-
-.shoe-stop > span::before { transform: rotate(38deg); }
-.shoe-stop > span::after { transform: rotate(-38deg); }
-
-.shoe-stop > span:first-child {
-  left: 4px;
-  transform: rotate(-13deg);
-}
-
-.shoe-stop > span:nth-child(2) {
-  right: 4px;
   top: 0;
-  transform: rotate(13deg);
+  left: 0;
+  display: block;
+  width: 46px;
+  height: 42px;
+  overflow: visible;
+}
+
+.shoe-stop .sole > path:first-child {
+  fill: #d2a45e;
+  stroke: #79502b;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.shoe-stop .strap {
+  fill: none;
+  stroke: #70441f;
+  stroke-width: 2;
+  stroke-linecap: round;
 }
 
 .shoe-stop b {
@@ -83,33 +70,35 @@
   color: #fff4df;
 }
 
-.shoe-wear-2 > span {
-  background-color: #bf8e4f;
+.shoe-wear-2 .sole > path:first-child {
+  fill: #bf8e4f;
 }
 
-.shoe-wear-3 > span {
-  border-color: #77502e;
-  background-color: #a97943;
+.shoe-wear-3 .sole > path:first-child {
+  fill: #a97943;
+  stroke: #77502e;
 }
 
-.shoe-wear-4 > span {
-  border-bottom-style: dashed;
-  background-color: #956b40;
+.shoe-wear-4 .sole > path:first-child {
+  fill: #956b40;
+  stroke-dasharray: 4 2;
 }
 
-.shoe-wear-5 > span,
-.shoe-wear-6 > span {
-  border-style: dashed;
-  border-color: #67462d;
-  background-color: #765437;
+.shoe-wear-5 .sole > path:first-child,
+.shoe-wear-6 .sole > path:first-child {
+  fill: #765437;
+  stroke: #67462d;
+  stroke-dasharray: 3 2;
 }
 
-.shoe-wear-6 > span:first-child {
-  transform: rotate(-20deg) scaleY(.9);
+.shoe-wear-6 .sole-left {
+  transform: rotate(-4deg);
+  transform-origin: center;
   opacity: .84;
 }
 
-.shoe-wear-6 > span:nth-child(2) {
-  transform: rotate(20deg) scaleY(.87);
+.shoe-wear-6 .sole-right {
+  transform: rotate(4deg);
+  transform-origin: center;
   opacity: .78;
 }
