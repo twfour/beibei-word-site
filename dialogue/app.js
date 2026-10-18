@@ -55,6 +55,58 @@ const studentGroups=[
   {key:'public',label:'社会交往',description:'问路、乘车、购物和公共场所中的基本礼貌与规则意识。'},
   {key:'stranger',label:'陌生人安全',description:'不泄露隐私、不跟随、不勉强配合；危险时大声拒绝并立即求助。'}
 ];
+const studentCasual={
+  S001:'老师，我刚才在这一步有点掉线了，能再讲一下为什么这么做吗？',
+  S002:'老师对不起，今天到校速度没跑赢时间。我先坐下，下课再跟您说明。',
+  S003:'救个急，尺子能借我一节课吗？下课原路返回。',
+  S004:'咱们先把任务摊开，别让一个人直接变成“全能组员”。我整理资料，你来展示怎么样？',
+  S005:'这段我怕漏重点，咱俩先切到静音模式，下课接着聊？',
+  S006:'我想试试，虽然现在还是新手村。先给我一小块任务，不会的我马上问。',
+  S007:'地我已经扫完啦，黑板和讲台就交给你，咱俩别让值日拖到天黑。',
+  S008:'老师，我身体有点不对劲，想去医务室，能让同学陪我一下吗？',
+  S009:'不好意思，这里是图书馆“低音区”，能稍微小声一点吗？谢谢。',
+  S010:'抱歉，我刚才手比眼睛快，拿错你的本子了。现在还你。',
+  S011:'老师，这次作业我确实没按时写完，不甩锅。我今晚补好，明早交。',
+  S012:'老师，您说的问题我会改。不过刚才还有一段“隐藏剧情”，我下课单独跟您说明可以吗？',
+  S013:'老师，我有个不太一样的思路，可能不成熟，能不能占一分钟说说？',
+  S014:'老师，我最近看黑板有点像开了模糊滤镜，能帮我看看有没有合适的位置吗？',
+  S015:'这次不是题针对我，是我基础题丢分太多。我已经分好错题，想请您帮我看看先补哪块。',
+  S016:'老师，我背是背了，但知识好像没成功保存。您觉得我先改哪个学习习惯最有效？',
+  S017:'老师，我知道您在维持纪律，不过刚才那句真不是我说的。咱们下课可以再核实。',
+  S018:'老师，谢谢您上次让我整理错题，亲测有效，最近同类题真的少错了。',
+  S019:'老师，我怕自己接收失败，再确认一下：周五前做完前两部分，发到群里，对吗？',
+  S020:'老师，这件事我们自己沟通过两次，还是卡关了，现在也影响上课，想请您帮忙。',
+  S021:'这个玩笑我笑不出来，别拿我的外貌开玩笑了。',
+  S022:'答案不能给你复制粘贴，但思路可以共享。哪题不会，我陪你看。',
+  S023:'我知道你现在很气。先给我一分钟把事情说完整，再决定要不要继续气我？',
+  S024:'谢谢你喊我，不过这周末档期已满，这次先不参加啦。',
+  S025:'看得出来你现在挺难受。想安静待会儿，还是需要一个不乱讲道理的陪聊？',
+  S026:'这件事我只告诉了你，现在全网像开了会员一样都知道了。我真的很难受，请别再往外说。',
+  S027:'先暂停“谁对谁错大赛”，咱们看看哪套方案更符合老师的要求。',
+  S028:'外号频道可以关了，请直接叫我名字。这个我已经认真说过，不好笑。',
+  S029:'对不起，是我弄坏的，不让它自己背锅。我负责修，修不好就赔。',
+  S030:'最近咱俩一起玩的时间少了，我有点想念旧版本。周末一起吃个饭吗？',
+  S031:'这次成绩我也不满意。先别急着开启批评模式，让我把错在哪、准备怎么改讲完。',
+  S032:'我知道您怕我拖延。我休息十分钟，七点开工，九点前交作业，欢迎到点抽查。',
+  S033:'咱们给手机定个双方都能接受的规则吧：作业后四十分钟，睡前主动放客厅。',
+  S034:'我知道您想让我进步，但一直和别人比，我的电量会掉得很快。能不能说一件这周能改的事？',
+  S035:'我不是三分钟热度，我先把课程、费用和时间查清楚，咱们体验一次再决定？',
+  S036:'我现在情绪有点满格，再说容易误伤。我先冷静十分钟，等会儿回来继续聊。',
+  S037:'我知道您担心我，但突然翻东西会让我很不舒服。担心什么可以直接问，咱们定个边界。',
+  S038:'我想买这个，不是冲动下单。我把用途、价格和我能承担的部分都列好了，您帮我看看？',
+  S039:'我刚才语气可能自带了“顶嘴特效”，但本意不是那个。我重新说一遍。',
+  S040:'谢谢您这几天接我放学，辛苦值我看见了。今天餐桌我来收。',
+  S041:'您好，请问文具区往哪边走？我已经在店里转出副本地图了。',
+  S042:'您好，队尾在后面，大家都按顺序排着呢，麻烦您也从后面来。',
+  S043:'不好意思，我下一站下车，借过一下，谢谢。',
+  S044:'对不起，刚才我走路没加载雷达，撞到您了。您没事吧？',
+  S045:'谢谢您帮我捡起来，刚才真的差点一个人忙成八只手。',
+  S046:'您好，我们点的是另一道，这盘可能走错桌了，麻烦帮忙核对一下。',
+  S047:'我接个电话，先出去切换到“正常音量”，等会儿回来。',
+  S048:'您好，打扰一下，地铁站往哪边走？我导航好像也迷路了。',
+  S049:'可以，我站这儿帮您拍。拍完您验收一下，争取不拍成游客照事故。',
+  S050:'您好，我算了一下好像少找了，我们一起对一下小票，看看是谁算岔了。'
+};
 let activeNewYearGroup='classic';
 let activeStudentGroup='school';
 let currentPracticeId=null;
@@ -63,6 +115,11 @@ let practiceContext=null;
 const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
 const compactOcrPlain=value=>String(value??'').split(/\n{2,}/).map(paragraph=>paragraph.replace(/[ \t]*\n[ \t]*/g,'')).join('\n\n');
 const compactOcrText=value=>compactOcrPlain(value).split(/\n{2,}/).map(escapeHtml).join('<br><br>');
+function casualStudentSay(item){
+  if(item.safety)return item.say;
+  if(studentCasual[item.id])return studentCasual[item.id];
+  return item.say.replace(/^您好，/,'').replace(/能否/g,'能不能').replace(/请您/g,'麻烦您').replace(/我愿意/g,'我可以').replace(/不方便/g,'不太方便').replace(/立即/g,'马上').replace(/进行/g,'').replace(/希望您/g,'希望你').replace(/可以吗？$/,'行吗？');
+}
 const isMissing=item=>item.answer.startsWith('本条 OCR 暂未识别');
 const isFeature=item=>item.answer.length>180||item.question.length>110;
 const stepPattern=/^第([一二三四五六七八九十]+)步[，,：:]?/;
@@ -133,8 +190,9 @@ function renderStudentGuide(){
   const items=studentDialogues.filter(item=>item.group===activeStudentGroup);
   document.querySelector('#student-description').textContent=group.description;
   document.querySelector('#student-count').textContent=`${items.length} 个场景`;
-  document.querySelector('#student-grid').innerHTML=items.map(item=>`<details class="student-card"><summary><span>${item.id}</span><h3>${escapeHtml(item.scene)}</h3><i aria-hidden="true">+</i></summary><div class="student-answer">${item.safety?'<span class="student-safety">SAFETY FIRST / 安全优先</span>':''}<strong>“${escapeHtml(item.say)}”</strong><div class="student-detail"><p><b>为什么这样说</b>${escapeHtml(item.point)}</p><p class="avoid"><b>尽量别这样说</b>${escapeHtml(item.avoid)}</p></div><div class="student-actions"><button type="button" data-student-practice="${item.id}">拿这题练习 ↘</button></div></div></details>`).join('');
+  document.querySelector('#student-grid').innerHTML=items.map(item=>`<details class="student-card"><summary><span>${item.id}</span><h3>${escapeHtml(item.scene)}</h3><i aria-hidden="true">+</i></summary><div class="student-answer">${item.safety?'<span class="student-safety">SAFETY FIRST / 安全场景不玩梗</span>':`<div class="student-tone"><button class="active" type="button" data-student-tone="casual" data-student-id="${item.id}">自然一点</button><button type="button" data-student-tone="formal" data-student-id="${item.id}">稳妥说法</button></div>`}<strong data-student-answer="${item.id}">“${escapeHtml(casualStudentSay(item))}”</strong><div class="student-detail"><p><b>为什么这样说</b>${escapeHtml(item.point)}</p><p class="avoid"><b>尽量别这样说</b>${escapeHtml(item.avoid)}</p></div><div class="student-actions"><button type="button" data-student-practice="${item.id}">拿这题练习 ↘</button></div></div></details>`).join('');
   tabs.querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>{activeStudentGroup=button.dataset.studentGroup;renderStudentGuide()}));
+  document.querySelectorAll('[data-student-tone]').forEach(button=>button.addEventListener('click',()=>{const item=studentDialogues.find(entry=>entry.id===button.dataset.studentId);const answer=document.querySelector(`[data-student-answer="${item.id}"]`);answer.textContent=`“${button.dataset.studentTone==='casual'?casualStudentSay(item):item.say}”`;button.parentElement.querySelector('.active').classList.remove('active');button.classList.add('active')}));
   document.querySelectorAll('[data-student-practice]').forEach(button=>button.addEventListener('click',()=>{const selected=studentDialogues.find(item=>item.id===button.dataset.studentPractice);practiceContext={kind:'student',group:selected.group,first:selected};showNextPractice();document.querySelector('#practice').scrollIntoView({behavior:'smooth',block:'start'})}));
 }
 
@@ -153,7 +211,7 @@ function showNextPractice(){
   document.querySelector('#practice-number').textContent=`SCENARIO ${isStudent?item.id:String(item.id).padStart(3,'0')}`;
   document.querySelector('#practice-label').textContent=isStudent?studentGroups.find(group=>group.key===item.group).label:(context.group?.title||item.label);
   document.querySelector('#practice-question').textContent=isStudent?item.scene:item.question;
-  document.querySelector('#practice-answer').innerHTML=compactOcrText(isStudent?item.say:item.answer);
+  document.querySelector('#practice-answer').innerHTML=compactOcrText(isStudent?casualStudentSay(item):item.answer);
   document.querySelector('#practice-formula').textContent=isStudent?item.point:(item.formula||'先理解场景，再选择合适表达');
   document.querySelector('#practice-input').value='';
   document.querySelector('#reference').hidden=true;
