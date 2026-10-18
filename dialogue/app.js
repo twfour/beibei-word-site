@@ -41,7 +41,8 @@ const newYearGroups=[
 let activeNewYearGroup='classic';
 
 const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
-const compactOcrText=value=>String(value??'').split(/\n{2,}/).map(paragraph=>escapeHtml(paragraph.replace(/[ \t]*\n[ \t]*/g,''))).join('<br><br>');
+const compactOcrPlain=value=>String(value??'').split(/\n{2,}/).map(paragraph=>paragraph.replace(/[ \t]*\n[ \t]*/g,'')).join('\n\n');
+const compactOcrText=value=>compactOcrPlain(value).split(/\n{2,}/).map(escapeHtml).join('<br><br>');
 const isMissing=item=>item.answer.startsWith('本条 OCR 暂未识别');
 const isFeature=item=>item.answer.length>180||item.question.length>110;
 const stepPattern=/^第([一二三四五六七八九十]+)步[，,：:]?/;
@@ -49,11 +50,11 @@ const stepPattern=/^第([一二三四五六七八九十]+)步[，,：:]?/;
 function answerTemplate(answer){
   const blocks=String(answer).split(/\n{2,}/).map(block=>block.trim()).filter(Boolean);
   const steps=blocks.filter(block=>stepPattern.test(block));
-  if(steps.length<2)return `<p>${escapeHtml(answer).replace(/\n/g,'<br>')}</p>`;
+  if(steps.length<2)return `<p>${compactOcrText(answer)}</p>`;
   const intro=blocks.filter(block=>!stepPattern.test(block));
   return `<div class="answer-copy answer-copy-steps">
-    ${intro.map(block=>`<p class="answer-intro">${escapeHtml(block).replace(/\n/g,'<br>')}</p>`).join('')}
-    <ol class="answer-steps">${steps.map((block,index)=>`<li><b>${String(index+1).padStart(2,'0')}</b><p>${escapeHtml(block.replace(stepPattern,'').trim())}</p></li>`).join('')}</ol>
+    ${intro.map(block=>`<p class="answer-intro">${compactOcrText(block)}</p>`).join('')}
+    <ol class="answer-steps">${steps.map((block,index)=>`<li><b>${String(index+1).padStart(2,'0')}</b><p>${compactOcrText(block.replace(stepPattern,'').trim())}</p></li>`).join('')}</ol>
   </div>`;
 }
 
@@ -87,7 +88,7 @@ function toastLines(scene){
 }
 function toastSceneTemplate(scene,compact=false){
   const lines=toastLines(scene);
-  return `<details class="toast-scene ${compact?'toast-scene-compact':''}"><summary><span>${String(scene.no).padStart(2,'0')}</span><div><small>SCENE ${String(scene.no).padStart(2,'0')}</small><h3>${escapeHtml(scene.title)}</h3><p>${lines.length} 条参考话术</p></div><i aria-hidden="true">+</i></summary><ol>${lines.map(line=>`<li>${escapeHtml(line).replace(/\n/g,'<br>')}</li>`).join('')}</ol></details>`;
+  return `<details class="toast-scene ${compact?'toast-scene-compact':''}"><summary><span>${String(scene.no).padStart(2,'0')}</span><div><small>SCENE ${String(scene.no).padStart(2,'0')}</small><h3>${escapeHtml(scene.title)}</h3><p>${lines.length} 条参考话术</p></div><i aria-hidden="true">+</i></summary><ol>${lines.map(line=>`<li>${compactOcrText(line)}</li>`).join('')}</ol></details>`;
 }
 function renderToastGuide(){
   document.querySelector('#toast-scene-grid').innerHTML=toastScenes.map(scene=>toastSceneTemplate(scene)).join('');
@@ -102,7 +103,7 @@ function renderNewYearGuide(){
   document.querySelector('#new-year-count').textContent=`${items.length} 条`;
   document.querySelector('#blessing-grid').innerHTML=items.map((item,index)=>`<article class="blessing-card"><div><span>${String(index+1).padStart(2,'0')}</span><small>${escapeHtml(group.label)}</small></div><p>${compactOcrText(item.answer)}</p><button type="button" data-copy-blessing="${item.id}">复制这句 <i>↗</i></button></article>`).join('');
   tabs.querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>{activeNewYearGroup=button.dataset.newYearGroup;renderNewYearGuide()}));
-  document.querySelectorAll('[data-copy-blessing]').forEach(button=>button.addEventListener('click',async()=>{const item=dialogues.find(entry=>entry.id===Number(button.dataset.copyBlessing));try{await navigator.clipboard.writeText(item.answer);button.textContent='已复制 ✓'}catch{button.textContent='请长按文字复制'}}));
+  document.querySelectorAll('[data-copy-blessing]').forEach(button=>button.addEventListener('click',async()=>{const item=dialogues.find(entry=>entry.id===Number(button.dataset.copyBlessing));try{await navigator.clipboard.writeText(compactOcrPlain(item.answer));button.textContent='已复制 ✓'}catch{button.textContent='请长按文字复制'}}));
 }
 
 function render(){
@@ -128,7 +129,7 @@ loadMore.addEventListener('click',()=>{visibleLimit+=PAGE_SIZE;render()});
 function syncSaved(){document.querySelector('#saved-count').textContent=saved.size}
 
 const savedDialog=document.querySelector('#saved-dialog');
-document.querySelector('#saved-button').addEventListener('click',()=>{const items=dialogues.filter(item=>saved.has(item.id));document.querySelector('#saved-list').innerHTML=items.length?items.map(item=>`<div class="saved-item"><strong>${escapeHtml(item.question)}</strong><p>${escapeHtml(item.answer)}</p></div>`).join(''):'<p class="saved-empty">还没有收藏。点击话术卡片右上角的 ♡ 即可加入。</p>';savedDialog.showModal()});
+document.querySelector('#saved-button').addEventListener('click',()=>{const items=dialogues.filter(item=>saved.has(item.id));document.querySelector('#saved-list').innerHTML=items.length?items.map(item=>`<div class="saved-item"><strong>${escapeHtml(item.question)}</strong><p>${compactOcrText(item.answer)}</p></div>`).join(''):'<p class="saved-empty">还没有收藏。点击话术卡片右上角的 ♡ 即可加入。</p>';savedDialog.showModal()});
 document.querySelector('.dialog-close').addEventListener('click',()=>savedDialog.close());
 document.querySelector('#reveal').addEventListener('click',event=>{const reference=document.querySelector('#reference');reference.hidden=!reference.hidden;event.currentTarget.textContent=reference.hidden?'看参考表达':'收起参考表达'});
 document.querySelector('#random-pick').addEventListener('click',()=>{const pool=filteredItems();if(!pool.length)return;const item=pool[Math.floor(Math.random()*pool.length)];visibleLimit=Math.max(PAGE_SIZE,pool.indexOf(item)+1);render();const target=document.querySelector(`[data-id="${item.id}"]`);target?.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>target?.querySelector('.reveal-answer').focus(),500)});
