@@ -5,7 +5,30 @@ import argparse, json, re
 from pathlib import Path
 
 ENTRY_RE = re.compile(r"(?m)^\s*(\d{1,3})\s*[.、．]\s*")
-ANSWER_RE = re.compile(r"(?m)^\s*(?:(?:回|答|名|辐|辅|同|加|El|Fl|EB|AR|WAR|BA)\s*[:：]|(?:话术|可以说|你可以说|你可以客气的说)\s*[:：]?)\s*")
+ANSWER_RE = re.compile(r"(?m)^\s*(?:(?:回|答|名|辐|辅|同|加|El|Fl|EB|AR|WAR|BA)\s*[:：]|(?:话术|思路\s*\d*|示例|可以说|你可以说|你可以客气的说)\s*[:：]?)\s*")
+QUESTION_RE = re.compile(r"[?？]|怎么|如何|什么|怎样|怎办|回复")
+RECOVERED_QUESTIONS = {
+    (16,44): "别人夸：你很优秀，怎么接？", (17,48): "领导夸你，怎么接？",
+    (18,52): "别人问你是一个人吗？怎么接？", (19,57): "女生问：你觉得我胖吗？怎么接？",
+    (21,7): "有人说你很有才华，怎么接？", (31,1): "比如你的领导喜欢运动（踢足球、打乒乓球），怎么夸？",
+    (33,2): "逛街买西服，怎么夸店主？", (168,2): "你作为家属或者朋友陪客吃饭，怎么说？",
+}
+RECOVERED_ANSWERS = {
+    (14,31): "心意和红包，我选较贵重的收下啦。", (14,34): "如果沉默是金的话，看来你已经发财了。",
+    (16,44): "近朱者赤嘛，和你在一起，怎么能不潜移默化呢。", (17,48): "火车跑得快，全靠车头带。有您这么优秀的领导带头，我一定会加倍努力。",
+    (18,52): "我怕我半个人呀，会吓死你。", (19,56): "有的人见了一面，就心生爱慕、相见恨晚；有的人哪怕在一起一辈子，也不见得了解对方。", (19,57): "该胖的地方胖，该瘦的地方瘦。",
+    (20,61): "我这身高还不是为了凸显你的高度吗？", (20,64): "感谢领导的精准扶贫，距离买房又近了一步。",
+    (21,65): "突然感觉周围都暗了，原来是你的红包在发光。", (21,7): "彼此彼此，你不光有才华，而且还很低调呢。", (21,69): "你的颜值胜于才华。",
+    (22,70): "年龄只是个数字，我还年轻着呢。", (22,71): "不多不少，刚好够花。", (22,72): "跟重要的人聊天，当然要字字斟酌，慎之又慎。",
+    (24,81): "还好我不无聊，有喜欢的人陪我聊天。", (24,82): "领导，您有什么安排吗？", (24,83): "领导您客气了，您先忙，有问题随时喊我。",
+    (31,1): "领导，您身体真好哇，一看就经常锻炼！我一运动就累得喘不上气，您跟没事儿一样，太厉害了。\n\n您工作那么忙，还能坚持锻炼，真挺了不起的。", (33,2): "老板娘，你们家的生意肯定是这里最好的。这个商场我经常来，你是这楼里我见过最漂亮的一个老板娘。",
+    (38,6): "嗨，一砖砌不成墙，一木竖不成梁，还是团队的功劳，更重要的是领导您带队有方。\n\n船载千斤，掌舵一人。没有张总您的指导，我哪有您说的这么好啊，谢谢张总多年的栽培。", (41,2): "谢谢您的认可。活动前我们领导就再三强调，一定要把活动办漂亮。所有细节我专门安排人去盯，如果您之后还有需求，随时跟我联系就好，别客气。",
+    (46,6): "感谢领导对我的信任和栽培。没有您的信任和指导，我也不可能成长这么快。感谢领导给我这个大舞台，我希望今后在您的带领下持续进步。", (61,22): "老板，我很认同您的想法，我先按您的指示执行。老板问意见大概率是走个过场，不要直接提反对意见。",
+    (98,4): "这是我该做的事情，小小心意，就是单独表达一下我对您的敬意。\n\n领导，我没有别的意思，主要是最近半年您帮助我太多了，我不知道该怎么表达这份心情，您就收下吧，下不为例了。",
+    (113,3): "可以用“环境法”：抓住当下共同的环境和事物，按“事实＋感受＋询问意见”展开。例如在活动中问：“好久不见，你也在这儿啊。我好久没参加这样的活动了，这次感觉办得不错，你是不是经常参加？”", (145,19): "不要说自己表现最不好。不管实际表现如何，都应先说清自己对团队的贡献。如果必须评价他人，就事论事，以谁对团队协作的贡献较少为标准，不做人身评价。",
+    (168,2): "刘总，经常听我们家老张提到您，早就想请您吃个饭了。感谢您一路以来对他的栽培和照顾。\n\n我也跟老张说了，以后一定要多支持您的工作。",
+}
+EXCERPT_KEYS = {(87,1), (87,2)}
 CATEGORIES = [
     ("interview", "面试求职", ("面试", "薪资", "离职", "简历", "竞聘", "岗位")),
     ("dining", "饭局酒局", ("饭局", "敬酒", "喝酒", "酒量", "请客", "饭", "宴")),
@@ -55,9 +78,27 @@ def main() -> None:
             if page["page"] <= 14 and local_number <= 30: continue
             end = matches[index+1].start() if index+1 < len(matches) else len(page["text"])
             question, answer = split_block(page["text"][match.end():end])
+            recovery_key=(page["page"],local_number)
+            question=RECOVERED_QUESTIONS.get(recovery_key,question)
+            answer=RECOVERED_ANSWERS.get(recovery_key,answer)
+            if recovery_key in EXCERPT_KEYS:
+                answer="本条为原书“万能回怼话术”清单中的独立示例，无另外回答。"
             if len(question) < 4: continue
             category, label = classify(question + "\n" + answer)
-            items.append({"id":next_id,"category":category,"label":label,"question":question,"answer":answer or "本条 OCR 暂未识别出完整回答。","formula":"OCR 二次精修 · 待人工校订","reviewStatus":"ocr","confidence":page.get("confidence")})
+            is_excerpt=recovery_key in EXCERPT_KEYS
+            is_question=bool(QUESTION_RE.search(question))
+            if is_excerpt:
+                formula="原书示例 · 非问答条目"
+                content_type="excerpt"
+            elif not answer and not is_question:
+                answer="本条为原书中的示例或清单内容，无独立回答。"
+                formula="原书示例 · 非问答条目"
+                content_type="excerpt"
+            else:
+                answer=answer or "本条 OCR 暂未识别出完整回答。"
+                formula="OCR 二次精修 · 待人工校订"
+                content_type="dialogue" if is_question else "method"
+            items.append({"id":next_id,"category":category,"label":label,"question":question,"answer":answer,"formula":formula,"reviewStatus":"ocr","confidence":page.get("confidence"),"sourcePage":page["page"],"sourceNumber":local_number,"contentType":content_type})
             next_id += 1
     result = {"title":reviewed_doc["title"],"version":"full-ocr-v1","reviewed_count":len(reviewed),"ocr_count":len(items)-len(reviewed),"total_count":len(items),"items":items}
     args.output.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")

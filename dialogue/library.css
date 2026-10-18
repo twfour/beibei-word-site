@@ -5,7 +5,7 @@
 .status-filters button{border:0;background:transparent;padding:7px 10px;color:var(--muted);font:700 11px var(--sans);cursor:pointer}
 .status-filters button:hover,.status-filters button.active{background:var(--yellow);color:var(--ink)}
 .status-badge{display:inline-block;margin-left:8px;padding:3px 5px;background:#e3ddd0;color:#69645b;font:800 8px var(--mono);letter-spacing:.06em;font-style:normal;vertical-align:1px}
-.status-reviewed{background:#dceec8;color:#355226}.status-missing{background:#f5d3cf;color:#9d241b}
+.status-reviewed{background:#dceec8;color:#355226}.status-missing{background:#f5d3cf;color:#9d241b}.status-excerpt{background:#f3d94e;color:#171714}
 .feature-card{grid-column:1/-1;min-height:0;background:var(--ink);color:var(--paper);display:grid;grid-template-columns:minmax(220px,.68fr) minmax(0,1.32fr);column-gap:6vw;align-items:start}
 .feature-card .dialogue-top{grid-column:1/-1;color:#a9a59b}.feature-card .save{color:var(--yellow)}
 .feature-kicker{display:block;margin-top:34px;color:var(--yellow);font:800 10px var(--mono);letter-spacing:.14em}

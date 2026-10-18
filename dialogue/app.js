@@ -15,10 +15,10 @@ const isMissing=item=>item.answer.startsWith('本条 OCR 暂未识别');
 const isFeature=item=>item.category==='method'||item.answer.length>180||item.question.length>110;
 
 function cardTemplate(item){
-  const status=item.reviewStatus==='reviewed'?'已校正':isMissing(item)?'回答缺失':'OCR 精修';
+  const status=item.reviewStatus==='reviewed'?'已校正':item.contentType==='excerpt'?'原书示例':isMissing(item)?'回答缺失':'OCR 精修';
   const cardType=isFeature(item)?'feature-card':'';
   return `<article class="dialogue-card ${cardType}" data-id="${item.id}">
-    <div class="dialogue-top"><span><i class="scene-no">${String(item.id).padStart(3,'0')}</i> / ${escapeHtml(item.label)} <em class="status-badge status-${isMissing(item)?'missing':item.reviewStatus}">${status}</em></span><button class="save" type="button" aria-label="收藏这句话" aria-pressed="${saved.has(item.id)}">${saved.has(item.id)?'♥':'♡'}</button></div>
+    <div class="dialogue-top"><span><i class="scene-no">${String(item.id).padStart(3,'0')}</i> / ${escapeHtml(item.label)} <em class="status-badge status-${item.contentType==='excerpt'?'excerpt':isMissing(item)?'missing':item.reviewStatus}">${status}</em></span><button class="save" type="button" aria-label="收藏这句话" aria-pressed="${saved.has(item.id)}">${saved.has(item.id)?'♥':'♡'}</button></div>
     ${isFeature(item)?'<span class="feature-kicker">FEATURE / 专题方法</span>':''}
     <p class="question">${escapeHtml(item.question)}</p>
     <button class="reveal-answer" type="button" aria-expanded="false">${isFeature(item)?'阅读全文':'怎么接？'} ↓</button>
@@ -30,7 +30,7 @@ function filteredItems(){
   const query=search.value.trim().toLowerCase();
   return dialogues.filter(item=>{
     const categoryMatch=activeFilter==='all'||item.category===activeFilter;
-    const statusMatch=activeStatus==='all'||(activeStatus==='reviewed'&&item.reviewStatus==='reviewed')||(activeStatus==='complete'&&!isMissing(item))||(activeStatus==='missing'&&isMissing(item));
+    const statusMatch=activeStatus==='all'||(activeStatus==='reviewed'&&item.reviewStatus==='reviewed')||(activeStatus==='complete'&&!isMissing(item))||(activeStatus==='excerpt'&&item.contentType==='excerpt');
     const searchMatch=!query||`${item.label}${item.question}${item.answer}`.toLowerCase().includes(query);
     return categoryMatch&&statusMatch&&searchMatch;
   });
