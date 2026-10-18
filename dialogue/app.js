@@ -41,6 +41,7 @@ const newYearGroups=[
 let activeNewYearGroup='classic';
 
 const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
+const compactOcrText=value=>String(value??'').split(/\n{2,}/).map(paragraph=>escapeHtml(paragraph.replace(/[ \t]*\n[ \t]*/g,''))).join('<br><br>');
 const isMissing=item=>item.answer.startsWith('本条 OCR 暂未识别');
 const isFeature=item=>item.answer.length>180||item.question.length>110;
 const stepPattern=/^第([一二三四五六七八九十]+)步[，,：:]?/;
@@ -99,7 +100,7 @@ function renderNewYearGuide(){
   const items=group.ids.map(id=>dialogues.find(item=>item.id===id)).filter(Boolean);
   document.querySelector('#new-year-description').textContent=group.description;
   document.querySelector('#new-year-count').textContent=`${items.length} 条`;
-  document.querySelector('#blessing-grid').innerHTML=items.map((item,index)=>`<article class="blessing-card"><div><span>${String(index+1).padStart(2,'0')}</span><small>${escapeHtml(group.label)}</small></div><p>${escapeHtml(item.answer).replace(/\n/g,'<br>')}</p><button type="button" data-copy-blessing="${item.id}">复制这句 <i>↗</i></button></article>`).join('');
+  document.querySelector('#blessing-grid').innerHTML=items.map((item,index)=>`<article class="blessing-card"><div><span>${String(index+1).padStart(2,'0')}</span><small>${escapeHtml(group.label)}</small></div><p>${compactOcrText(item.answer)}</p><button type="button" data-copy-blessing="${item.id}">复制这句 <i>↗</i></button></article>`).join('');
   tabs.querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>{activeNewYearGroup=button.dataset.newYearGroup;renderNewYearGuide()}));
   document.querySelectorAll('[data-copy-blessing]').forEach(button=>button.addEventListener('click',async()=>{const item=dialogues.find(entry=>entry.id===Number(button.dataset.copyBlessing));try{await navigator.clipboard.writeText(item.answer);button.textContent='已复制 ✓'}catch{button.textContent='请长按文字复制'}}));
 }
