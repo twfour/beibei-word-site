@@ -10,6 +10,7 @@ let activeStatus='all';
 let visibleLimit=PAGE_SIZE;
 let saved=new Set(JSON.parse(localStorage.getItem('dialogue-saved-v1')||'[]'));
 const toastSceneIds=new Set(Array.from({length:87},(_,index)=>index+316));
+const newYearIds=new Set(Array.from({length:55},(_,index)=>index+403));
 const toastScenes=[
   {no:1,title:'敬长辈',ids:[316,317,318,319,320,321,322]},
   {no:2,title:'敬领导',ids:Array.from({length:42},(_,index)=>index+323)},
@@ -31,6 +32,14 @@ const moreToastScenes=[
   {no:16,title:'升学宴',extra:['今天非常高兴，不只因为拿到了理想大学的通知书，更重要的是有家人和朋友与我一起分享这份快乐。我的成绩离不开大家的鼓励和支持，这杯我敬大家。']},
   {no:17,title:'别人敬酒托你办事',extra:['你放心，这件事情我一定全力以赴。我看这事对你也非常重要，建议你多找几个人问一问。我这边一定会尽力，但万一没办成，你也不要怪我。']}
 ];
+const newYearGroups=[
+  {key:'classic',label:'古典雅句',description:'适合贺卡、朋友圈和正式场合，短而有余韵。',ids:[403,404,405,406,407,408,409,410,411,412,425,426,427,428,429,430,431,439,440,441,442,443,444,445,446,447,448,449,450,451]},
+  {key:'warm',label:'亲友温暖',description:'适合家人、朋友和在意的人，语气温柔、不生硬。',ids:[418,419,420,421,422,423,424,433,434,435,436,437,438]},
+  {key:'playful',label:'轻松俏皮',description:'适合熟人和年轻朋友，有年味，也有一点幽默。',ids:[413,432]},
+  {key:'leader',label:'领导职场',description:'感谢过去一年的指导，同时表达新一年的态度和祝愿。',ids:[414,415,416,417]},
+  {key:'guide',label:'短信写法',description:'发不发、用短信还是微信、如何开头署名，一次讲清。',ids:[452,453,454,455,456,457]}
+];
+let activeNewYearGroup='classic';
 
 const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
 const isMissing=item=>item.answer.startsWith('本条 OCR 暂未识别');
@@ -51,7 +60,7 @@ function cardTemplate(item){
 function filteredItems(){
   const query=search.value.trim().toLowerCase();
   return dialogues.filter(item=>{
-    if(!query&&toastSceneIds.has(item.id))return false;
+    if(!query&&(toastSceneIds.has(item.id)||newYearIds.has(item.id)))return false;
     const categoryMatch=activeFilter==='all'||item.category===activeFilter;
     const statusMatch=activeStatus==='all'||(activeStatus==='reviewed'&&item.reviewStatus==='reviewed')||(activeStatus==='complete'&&!isMissing(item))||(activeStatus==='excerpt'&&item.contentType==='excerpt');
     const searchMatch=!query||`${item.label}${item.question}${item.answer}`.toLowerCase().includes(query);
@@ -70,6 +79,17 @@ function toastSceneTemplate(scene,compact=false){
 function renderToastGuide(){
   document.querySelector('#toast-scene-grid').innerHTML=toastScenes.map(scene=>toastSceneTemplate(scene)).join('');
   document.querySelector('#toast-more-list').innerHTML=moreToastScenes.map(scene=>toastSceneTemplate(scene,true)).join('');
+}
+function renderNewYearGuide(){
+  const tabs=document.querySelector('#new-year-tabs');
+  tabs.innerHTML=newYearGroups.map((group,index)=>`<button type="button" data-new-year-group="${group.key}" class="${group.key===activeNewYearGroup?'active':''}"><span>${String(index+1).padStart(2,'0')}</span>${group.label}</button>`).join('');
+  const group=newYearGroups.find(item=>item.key===activeNewYearGroup);
+  const items=group.ids.map(id=>dialogues.find(item=>item.id===id)).filter(Boolean);
+  document.querySelector('#new-year-description').textContent=group.description;
+  document.querySelector('#new-year-count').textContent=`${items.length} 条`;
+  document.querySelector('#blessing-grid').innerHTML=items.map((item,index)=>`<article class="blessing-card"><div><span>${String(index+1).padStart(2,'0')}</span><small>${escapeHtml(group.label)}</small></div><p>${escapeHtml(item.answer).replace(/\n/g,'<br>')}</p><button type="button" data-copy-blessing="${item.id}">复制这句 <i>↗</i></button></article>`).join('');
+  tabs.querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>{activeNewYearGroup=button.dataset.newYearGroup;renderNewYearGuide()}));
+  document.querySelectorAll('[data-copy-blessing]').forEach(button=>button.addEventListener('click',async()=>{const item=dialogues.find(entry=>entry.id===Number(button.dataset.copyBlessing));try{await navigator.clipboard.writeText(item.answer);button.textContent='已复制 ✓'}catch{button.textContent='请长按文字复制'}}));
 }
 
 function render(){
@@ -101,7 +121,7 @@ document.querySelector('#reveal').addEventListener('click',event=>{const referen
 document.querySelector('#random-pick').addEventListener('click',()=>{const pool=filteredItems();if(!pool.length)return;const item=pool[Math.floor(Math.random()*pool.length)];visibleLimit=Math.max(PAGE_SIZE,pool.indexOf(item)+1);render();const target=document.querySelector(`[data-id="${item.id}"]`);target?.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>target?.querySelector('.reveal-answer').focus(),500)});
 
 async function init(){
-  try{const response=await fetch('/dialogue/data/dialogues-full.json');if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.json();dialogues=data.items;document.querySelector('#library-count').textContent=data.total_count;document.querySelector('#filter-total').textContent=data.total_count;renderToastGuide();render()}
+  try{const response=await fetch('/dialogue/data/dialogues-full.json');if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.json();dialogues=data.items;document.querySelector('#library-count').textContent=data.total_count;document.querySelector('#filter-total').textContent=data.total_count;renderToastGuide();renderNewYearGuide();render()}
   catch(error){grid.innerHTML='<p class="empty">内容库暂时无法加载，请稍后刷新。</p>';console.error(error)}
 }
 init();
