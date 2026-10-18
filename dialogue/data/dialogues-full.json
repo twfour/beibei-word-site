@@ -3152,14 +3152,14 @@
       "id": 252,
       "category": "relationship",
       "label": "人情往来",
-      "question": "这事不成，没关系啊，能认识您啊，就是我的福气。",
-      "answer": "（求人帮忙很忌讳赶鸭子上架，强人所拿，如果让别人感受\n到不舒服了，可能你们后续连朋友都做不成了，所以有时候\n不施压反而机会更大。）",
+      "question": "请别人帮忙时，怎么表达才不会给对方压力？",
+      "answer": "这事不成没关系啊，能认识您，就是我的福气。",
       "formula": "降低对方压力 + 为对方留退路",
-      "reviewStatus": "ocr",
+      "reviewStatus": "reviewed",
       "confidence": 88.2,
       "sourcePage": 106,
       "sourceNumber": 3,
-      "contentType": "method"
+      "contentType": "excerpt"
     },
     {
       "id": 253,
