@@ -6,6 +6,7 @@
   <meta name="description" content="把高情商表达拆成可理解、可练习、可复习的场景话术手册。">
   <title>话术红册 · 高情商对话练习</title>
   <link rel="stylesheet" href="/dialogue/styles.css">
+  <link rel="stylesheet" href="/dialogue/library.css">
 </head>
 <body>
   <header class="topbar">
@@ -53,8 +54,15 @@
         <button data-filter="interview">面试求职</button><button data-filter="gift">送礼人情</button>
         <button data-filter="comfort">安慰鼓励</button><button data-filter="method">表达方法</button>
       </div>
+      <div class="library-toolbar">
+        <div class="status-filters" id="status-filters" aria-label="按内容状态筛选">
+          <span>CONTENT STATUS</span><button class="active" data-status="all">全部</button><button data-status="reviewed">已校正</button><button data-status="complete">只看完整</button><button data-status="missing">回答缺失</button>
+        </div>
+        <p id="result-count" aria-live="polite">正在加载内容库…</p>
+      </div>
       <div class="dialogue-grid" id="dialogue-grid"></div>
       <p class="empty" id="empty" hidden>没找到这个场景，换个词试试。</p>
+      <button class="load-more" id="load-more" type="button" hidden>再加载 30 条 <span>↓</span></button>
     </section>
 
     <section class="method" id="method">
