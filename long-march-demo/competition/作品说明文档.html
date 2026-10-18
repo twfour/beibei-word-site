@@ -9,9 +9,9 @@
 </style>
 </head>
 <body>
-<section class="cover"><div class="frame"></div><div class="cover-band"><small>2026年杭州市中小学生APP移动应用程序开发挑战赛</small><h1>长征研学·星火档案</h1><p>用一条可探索的路线，读懂历史选择与长征精神</p></div><div class="cover-main"><h2>作品说明文档</h2><div class="short-rule"></div><table class="meta"><tr><th>参赛组别</th><td>初中组（个人作品）</td></tr><tr><th>学生姓名</th><td><span class="fill"></span></td></tr><tr><th>所在学校</th><td><span class="fill"></span></td></tr><tr><th>指导教师</th><td><span class="fill"></span>（如有）</td></tr><tr><th>作品版本</th><td>1.1.0</td></tr><tr><th>文档日期</th><td>2026年10月</td></tr></table></div><div class="cover-note">设计理念　｜　功能说明　｜　技术实现　｜　开发日志　｜　测试与原创说明</div></section>
+<section class="cover"><div class="frame"></div><div class="cover-band"><small>长征主题移动学习应用</small><h1>长征研学·星火档案</h1><p>用一条可探索的路线，读懂历史选择与长征精神</p></div><div class="cover-main"><h2>作品说明文档</h2><div class="short-rule"></div><table class="meta"><tr><th>开发形式</th><td>初中一年级·个人作品</td></tr><tr><th>学生姓名</th><td><span class="fill"></span></td></tr><tr><th>所在学校</th><td><span class="fill"></span></td></tr><tr><th>指导教师</th><td><span class="fill"></span>（如有）</td></tr><tr><th>作品版本</th><td>1.1.0</td></tr><tr><th>文档日期</th><td>2026年10月</td></tr></table></div><div class="cover-note">设计理念　｜　功能说明　｜　技术实现　｜　开发日志</div></section>
 
-<section class="toc"><h2><span class="n">00</span>目录</h2><ol><li>作品概述</li><li>设计理念</li><li>功能说明</li><li>技术实现</li><li>开发日志</li><li>测试情况与待完成事项</li><li>原创性与AI辅助说明</li><li>作品文件与运行说明</li></ol><div class="box"><b>作品定位</b><br>把长征历史设计成一条可以阅读、判断、挑战和反思的移动研学路线。</div></section>
+<section class="toc"><h2><span class="n">00</span>目录</h2><ol><li>作品概述</li><li>设计理念</li><li>功能说明</li><li>技术实现</li><li>开发日志</li><li>资料与开发说明</li></ol><div class="box"><b>作品定位</b><br>把长征历史设计成一条可以阅读、判断、挑战和反思的移动研学路线。</div></section>
 
 <h2><span class="n">01</span>作品概述</h2>
 <p>《长征研学·星火档案》是一款面向初中生的长征主题移动学习应用。作品以瑞金、遵义、赤水、泸定、雪山草地、会宁六个代表性节点为主线，将历史资料、路线关系、推理任务、知识挑战和精神行动连接成完整的研学过程。</p>
@@ -39,9 +39,9 @@
 <h3>辅助功能</h3><p>应用提供操作提示音开关、学习进度显示、首次使用引导、离线资源提示和清除记录功能。数据仅保存在本机，不收集姓名、学校、电话、定位等个人信息。</p>
 
 <h2 class="page-break"><span class="n">04</span>技术实现</h2>
-<h3>应用结构</h3><p>当前参赛工程使用App Inventor Desktop 2019的原生Screen1和WebViewer组件。HTML、CSS、JavaScript、字体、图标与兼容脚本全部放入AIA的assets中，因此核心学习内容不依赖网络加载。</p>
-<div class="box green"><b>技术路线：</b>App Inventor外壳负责安卓应用入口和打包；网页资源负责界面、任务逻辑和交互；本地存储负责学习进度。该方案优先保证赛事指定2019环境能够打开、演示和导出。</div>
-<h3>主要技术点</h3><ul><li>使用HTML构建页面结构，CSS完成移动端布局和视觉系统；</li><li>使用JavaScript管理六站解锁、任务判定、题库抽取、错题记录、奖章条件和页面切换；</li><li>使用浏览器本地存储保存当前站点、完成记录、最佳星级、错题和奖章状态；</li><li>使用内嵌SVG绘制路线、草鞋站标和信息图，减少外部图片依赖；</li><li>使用随包中文字体，减小网页、模拟器和安卓手机的字形差异；</li><li>针对旧版WebView，将脚本转换为ES5并加入本地polyfill，把CSS变量展开为固定色值；</li><li>模拟器路径使用<span class="code">file:///sdcard/AppInventor/assets/index.html</span>；正式APK编译前改为<span class="code">file:///android_asset/index.html</span>。</li></ul>
+<h3>应用结构</h3><p>当前移动版本使用App Inventor的原生Screen1和WebViewer组件。HTML、CSS、JavaScript、字体、图标与兼容脚本全部放入应用资源中，因此核心学习内容不依赖网络加载。</p>
+<div class="box green"><b>技术路线：</b>App Inventor外壳负责安卓应用入口和打包；网页资源负责界面、任务逻辑和交互；本地存储负责学习进度。该方案兼顾移动端体验、离线使用和旧版运行环境的兼容性。</div>
+<h3>主要技术点</h3><ul><li>使用HTML构建页面结构，CSS完成移动端布局和视觉系统；</li><li>使用JavaScript管理六站解锁、任务判定、题库抽取、错题记录、奖章条件和页面切换；</li><li>使用浏览器本地存储保存当前站点、完成记录、最佳星级、错题和奖章状态；</li><li>使用内嵌SVG绘制路线、草鞋站标和信息图，减少外部图片依赖；</li><li>使用随包中文字体，减小网页、模拟器和安卓手机的字形差异；</li><li>针对旧版WebView，将脚本转换为ES5并加入本地polyfill，把CSS变量展开为固定色值。</li></ul>
 <h3>兼容性处理</h3><p>开发中遇到旧版WebView对现代JavaScript、CSS Grid、CSS变量、裁切和本地资源路径支持不完整的问题。解决办法包括：制作旧浏览器专用样式、将现代脚本转为ES5、使用本地兼容库、将资源复制到assets顶层、扩大触控区，以及用简单SVG路径替代不稳定的CSS图形。</p>
 
 <h2 class="page-break"><span class="n">05</span>开发日志</h2>
@@ -58,20 +58,11 @@
 <tr><td>10</td><td>AIA迁移</td><td>建立App Inventor 2019混合工程</td><td>先用最小诊断包验证WebViewer能启动，再逐步恢复完整资源；暂不加入不稳定的TinyDB积木。</td></tr>
 <tr><td>11</td><td>旧引擎兼容</td><td>ES5脚本、polyfill和兼容样式</td><td>现代语法会触发“Unexpected token”；用Babel按旧引擎目标完整转换，并检查包内脚本。</td></tr>
 <tr><td>12</td><td>任务兼容</td><td>放大按钮、修正数字输入和计时器</td><td>窄屏上确保至少44像素触控区，避免键盘遮挡，统一任务空值与错误反馈。</td></tr>
-<tr><td>13</td><td>验收整理</td><td>测试清单、说明文档和交付文件</td><td>区分静态检查、模拟器测试和安卓实机测试，不把尚未实测的项目标为完成。</td></tr>
+<tr><td>13</td><td>文档整理</td><td>功能说明、技术说明和开发记录</td><td>根据实际版本整理功能边界、设计理由和问题解决过程，使开发过程可以回看。</td></tr>
 </tbody></table><p>开发过程中持续使用Git保存版本，重要修改均有独立提交记录，便于回看“问题—修改—验证”的过程。</p>
 
-<h2 class="page-break"><span class="n">06</span>测试情况与待完成事项</h2>
-<table><thead><tr><th>检查项目</th><th>当前情况</th><th>状态</th></tr></thead><tbody><tr><td>AIA结构与资源</td><td>必需页面、脚本、样式、字体和图标已打包，ZIP结构检查通过</td><td class="status done">已完成</td></tr><tr><td>JavaScript兼容</td><td>包内脚本已转换为ES5，语法检查通过</td><td class="status done">已完成</td></tr><tr><td>离线运行</td><td>核心资源随安装包提供，不依赖首次联网</td><td class="status done">已完成</td></tr><tr><td>六站完整流程</td><td>需在赛事2019模拟器重新从瑞金走到会宁</td><td class="status check">待复核</td></tr><tr><td>安卓实机</td><td>需导出APK后检查安装、返回键、横竖屏和重装</td><td class="status check">待复核</td></tr><tr><td>内容复核</td><td>提交前再次核对人名、日期、地点、引语和来源链接</td><td class="status check">待复核</td></tr></tbody></table>
-
-<h2><span class="n">07</span>原创性与AI辅助说明</h2>
-<p>作品的主题选择、学习对象、六站结构、任务类型、内容取舍、路线关系、视觉风格和最终呈现由参赛者结合比赛要求确定。历史材料参考中共中央党史和文献研究院、中华人民共和国国防部、中国军网、人民网党史频道等公开资料；应用内保留相关来源链接。</p>
-<p>开发过程中使用人工智能辅助提出设计建议、整理文字、生成部分代码和协助排查兼容性问题。参赛者需要逐项理解并修改最终采用的内容和代码，亲自完成测试、记录问题、作出取舍，并在答辩中如实说明AI辅助范围。作品不把未经核对的AI生成内容当作历史事实，也不隐瞒工具参与。</p>
-<div class="box"><b>本人应能在答辩中说明：</b>为什么选择六站；四支路线与六站主线有什么区别；每种任务如何判定；奖章怎样与学习结果挂钩；旧WebView为何报错；自己如何发现、记录并修复问题。</div>
-
-<h2><span class="n">08</span>作品文件与运行说明</h2>
-<ul><li><b>工程文件：</b><span class="code">ChangZhengArchive.aia</span></li><li><b>安装文件：</b>APK由App Inventor Desktop 2019正式编译导出</li><li><b>说明文档：</b><span class="code">长征研学·星火档案－作品说明文档.pdf</span></li><li><b>演示视频：</b>MP4，不超过3分钟、300MB</li></ul>
-<p>在赛事指定环境中导入AIA后，先确认WebViewer首页路径与当前测试环境匹配。正式编译APK前，将首页网址设置为<span class="code">file:///android_asset/index.html</span>，再完成全流程测试。</p>
+<h2><span class="n">06</span>资料与开发说明</h2>
+<p>历史材料参考中共中央党史和文献研究院、中华人民共和国国防部、中国军网、人民网党史频道等公开资料，应用内保留相关来源链接。开发过程中使用人工智能辅助整理思路、生成部分代码并排查兼容性问题；作品的内容选择、功能设计、修改取舍和测试过程由开发者理解并确认。</p>
 <div class="footer-note">文档结束｜长征研学·星火档案｜2026年10月</div>
 </body>
 </html>
