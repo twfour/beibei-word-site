@@ -29,6 +29,38 @@ RECOVERED_ANSWERS = {
     (168,2): "刘总，经常听我们家老张提到您，早就想请您吃个饭了。感谢您一路以来对他的栽培和照顾。\n\n我也跟老张说了，以后一定要多支持您的工作。",
 }
 EXCERPT_KEYS = {(87,1), (87,2)}
+CURATED_ENTRIES = {
+    35: {
+        "question": "有人夸你：颜值真高，怎么接？",
+        "answer": "我就喜欢你这么一本正经地说大实话。",
+    },
+    49: {
+        "question": "有人称赞你的气质时，怎么接？",
+        "answer": "谢谢夸奖，跟你相比不值一提。",
+    },
+    78: {
+        "question": "对方说他长得不好看，怎么接？",
+        "answer": "请尊重我的审美，你是怀疑我眼光不好？",
+    },
+    100: {
+        "question": "如果对方说：“我儿子除了学习好什么都不会，就喜欢宅家里打游戏”，怎么夸？",
+        "answer": "哎呀，这个电竞也是很好的运动，现在国家都承认的。",
+    },
+    103: {
+        "question": "夸女性皮肤，怎么夸？",
+        "answer": "你皮肤真好，昨天加班大家都熬那么晚，你连一颗痘都不冒，黑眼圈也没有。",
+    },
+    119: {
+        "question": "对方说：“你今天穿得真好看啊”，怎么接？",
+        "answer": "就还好吧，谢谢谢谢，真的吗？我一直觉得你审美超级好。",
+    },
+    120: {
+        "question": "万能反夸话术示例：",
+        "answer": "谢谢啊，你嘴这么甜，以后肯定发大财。",
+        "contentType": "excerpt",
+        "formula": "原书示例 · 非问答条目",
+    },
+}
 CATEGORIES = [
     ("interview", "面试求职", ("面试", "薪资", "离职", "简历", "竞聘", "岗位")),
     ("dining", "饭局酒局", ("饭局", "敬酒", "喝酒", "酒量", "请客", "饭", "宴")),
@@ -100,6 +132,9 @@ def main() -> None:
                 content_type="dialogue" if is_question else "method"
             items.append({"id":next_id,"category":category,"label":label,"question":question,"answer":answer,"formula":formula,"reviewStatus":"ocr","confidence":page.get("confidence"),"sourcePage":page["page"],"sourceNumber":local_number,"contentType":content_type})
             next_id += 1
+    for item in items:
+        if item["id"] in CURATED_ENTRIES:
+            item.update(CURATED_ENTRIES[item["id"]])
     result = {"title":reviewed_doc["title"],"version":"full-ocr-v1","reviewed_count":len(reviewed),"ocr_count":len(items)-len(reviewed),"total_count":len(items),"items":items}
     args.output.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")
 
