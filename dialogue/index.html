@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="把高情商表达拆成可理解、可练习、可复习的场景话术手册。">
+  <title>话术红册 · 高情商对话练习</title>
+  <link rel="stylesheet" href="/dialogue/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/dialogue/" aria-label="话术红册首页">
+      <span class="brand-mark">话</span>
+      <span>话术红册<small>DIALOGUE LAB</small></span>
+    </a>
+    <nav aria-label="主导航">
+      <a href="#library">场景库</a><a href="#method">方法</a><a href="#practice">练习</a>
+    </nav>
+    <button class="saved-button" id="saved-button" type="button">我的句子 <b id="saved-count">0</b></button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">HIGH EQ · REAL TALK · 001</p>
+        <h1>话要好听，<br><em>也要有用。</em></h1>
+        <p class="lead">不背“漂亮话”，只练关键时刻能说出口的话。从《高情商话术实战速成宝典》的 210 页场景中，拆出可理解、可模仿、可迁移的表达结构。</p>
+        <div class="hero-actions"><a class="primary" href="#library">选一个场景 ↘</a><button class="text-button" id="random-pick" type="button">随机抽一题</button></div>
+      </div>
+      <div class="hero-card" aria-label="今日话术示例">
+        <div class="card-index"><span>TODAY'S LINE</span><b>01</b></div>
+        <p class="prompt">对方说：“你反应比别人慢半拍。”</p>
+        <div class="answer">“是啊，我就是反应慢嘛，<br>还得多和你们这些聪明人学一学呢。”</div>
+        <div class="formula"><span>承认事实</span><i>+</i><span>软化锋芒</span><i>+</i><span>反向赞美</span></div>
+      </div>
+      <div class="hero-stamp" aria-hidden="true">会说话<br><span>不等于</span><br>讨好</div>
+    </section>
+
+    <section class="quick-strip" aria-label="站点数据">
+      <div><b>210</b><span>原书页数</span></div><div><b>08</b><span>场景分类</span></div><div><b>03</b><span>步拆解法</span></div><p>当前为内容模型原型 <span>· PROTOTYPE</span></p>
+    </section>
+
+    <section class="library" id="library">
+      <header class="section-head">
+        <div><p class="eyebrow">SCENE INDEX / 场景索引</p><h2>你现在，最怕接哪句话？</h2></div>
+        <label class="search"><span>⌕</span><input id="search" type="search" placeholder="搜索“被夸”、“领导”、“拒绝”…"></label>
+      </header>
+      <div class="filters" id="filters" aria-label="按场景筛选">
+        <button class="active" data-filter="all">全部 <sup>06</sup></button>
+        <button data-filter="praise">被夸时</button><button data-filter="work">职场</button>
+        <button data-filter="boundary">边界感</button><button data-filter="relationship">人情往来</button>
+      </div>
+      <div class="dialogue-grid" id="dialogue-grid"></div>
+      <p class="empty" id="empty" hidden>没找到这个场景，换个词试试。</p>
+    </section>
+
+    <section class="method" id="method">
+      <div class="method-title"><p class="eyebrow">THE 3-BEAT METHOD</p><h2>一句好话，<br>有三个节拍。</h2></div>
+      <ol>
+        <li><b>01</b><div><h3>先接住</h3><p>回应对方表达的事实或情绪，别急着证明自己。</p></div></li>
+        <li><b>02</b><div><h3>再转向</h3><p>用幽默、自谦或重新定义，把话题从对抗转为连接。</p></div></li>
+        <li><b>03</b><div><h3>留余地</h3><p>不把话说满，让对方有台阶，也保留自己的边界。</p></div></li>
+      </ol>
+    </section>
+
+    <section class="practice" id="practice">
+      <div class="practice-copy"><p class="eyebrow">30-SECOND PRACTICE</p><h2>先想一句，<br>再看参考答案。</h2><p>真正的高情商不是记忆句子，而是在具体关系中做出合适选择。</p></div>
+      <div class="practice-board">
+        <div class="practice-meta"><span>SCENARIO 04</span><span>被夸时</span></div>
+        <blockquote>“你今天穿的衣服真漂亮。”</blockquote>
+        <textarea id="practice-input" rows="3" placeholder="如果是你，会怎么接？"></textarea>
+        <div class="practice-actions"><button class="primary" id="reveal" type="button">看参考表达</button><span id="practice-hint">提示：试试把赞美送回去</span></div>
+        <div class="reference" id="reference" hidden><small>REFERENCE / 参考</small><p>“谢谢，你今天发型也不错，很有气质。”</p><em>接受赞美 + 发现对方</em></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="footer-mark">话</div><p>话术红册 · 内容学习原型<br><span>基于《高情商话术实战速成宝典（红皮书）》的场景结构设计</span></p><a href="#">回到顶部 ↑</a></footer>
+
+  <dialog id="saved-dialog"><button class="dialog-close" type="button" aria-label="关闭">×</button><p class="eyebrow">MY LINES / 我的句子</p><h2>收藏的话术</h2><div id="saved-list"></div></dialog>
+  <script src="/dialogue/app.js"></script>
+</body>
+</html>
