@@ -5,7 +5,7 @@ import argparse, json, re
 from pathlib import Path
 
 ENTRY_RE = re.compile(r"(?m)^\s*(\d{1,3})\s*[.、．]\s*")
-ANSWER_RE = re.compile(r"(?m)^\s*(?:回|答|话术|可以说|你可以说|你可以客气的说|El|Fl|EB|AR|WAR|BA)\s*[:：]?\s*")
+ANSWER_RE = re.compile(r"(?m)^\s*(?:(?:回|答|名|辐|辅|同|加|El|Fl|EB|AR|WAR|BA)\s*[:：]|(?:话术|可以说|你可以说|你可以客气的说)\s*[:：]?)\s*")
 CATEGORIES = [
     ("interview", "面试求职", ("面试", "薪资", "离职", "简历", "竞聘", "岗位")),
     ("dining", "饭局酒局", ("饭局", "敬酒", "喝酒", "酒量", "请客", "饭", "宴")),
@@ -57,7 +57,7 @@ def main() -> None:
             question, answer = split_block(page["text"][match.end():end])
             if len(question) < 4: continue
             category, label = classify(question + "\n" + answer)
-            items.append({"id":next_id,"category":category,"label":label,"question":question,"answer":answer or "本条 OCR 暂未识别出完整回答。","formula":"OCR 自动整理 · 待后续校订","reviewStatus":"ocr","confidence":page.get("confidence")})
+            items.append({"id":next_id,"category":category,"label":label,"question":question,"answer":answer or "本条 OCR 暂未识别出完整回答。","formula":"OCR 二次精修 · 待人工校订","reviewStatus":"ocr","confidence":page.get("confidence")})
             next_id += 1
     result = {"title":reviewed_doc["title"],"version":"full-ocr-v1","reviewed_count":len(reviewed),"ocr_count":len(items)-len(reviewed),"total_count":len(items),"items":items}
     args.output.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")
