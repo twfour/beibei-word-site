@@ -8,6 +8,9 @@ from pathlib import Path
 ENTRY_RE = re.compile(r"(?m)^\s*(\d{1,3})\s*[.、．]\s*")
 ANSWER_RE = re.compile(r"(?m)^\s*(?:(?:回|答|名|辐|辅|同|加|El|Fl|EB|AR|WAR|BA)\s*[:：]|(?:话术|思路\s*\d*|示例|可以说|你可以说|你可以客气的说)\s*[:：]?)\s*")
 QUESTION_RE = re.compile(r"[?？]|怎么|如何|什么|怎样|怎办|回复")
+SECTION_BOUNDARY_RE = re.compile(
+    r"\n(?=(?:思路\s*\d+|场[景合]\s*\d+|第[一二三四五六七八九十]+种)\s*[:：])"
+)
 RECOVERED_QUESTIONS = {
     (16,44): "别人夸：你很优秀，怎么接？", (17,48): "领导夸你，怎么接？",
     (18,52): "别人问你是一个人吗？怎么接？", (19,57): "女生问：你觉得我胖吗？怎么接？",
@@ -86,6 +89,12 @@ CURATED_ENTRIES = {
         "answer": "思路一：打开格局。用更高的姿态、更宽容的方式，向下兼容对方的无知和傲慢，让对方知道他说话很没礼貌，但你不与他计较。\n\n例如对方催婚时，可以说：“你不了解情况啊，不过没关系。”",
         "contentType": "method",
         "formula": "打开格局 · 降位打击",
+    },
+    239: {
+        "question": "送礼怎么说，让人更舒服？",
+        "answer": "可以用六种思路：\n\n1. 找借口：说礼物是给对方家人的，例如“这不是给您的，是给孩子的”。\n\n2. 说礼物是朋友送的：“我朋友是酒厂代理商，送了我几箱，我家没人喝，您帮我品品这酒怎么样。”\n\n3. 借用对方的特质：送适合对方的东西，并说明为什么只有对方用着合适。\n\n4. 请对方帮忙：“朋友刚开始做水果，请您尝尝，好的话帮他们宣传宣传。”\n\n5. 利用从众心理：说这是网上很火或旅游时发现的当地特色，带来请对方尝尝。\n\n6. 给下次使用找理由：“这些东西您留着，我过几天还要来吃，不然我还得从家里带过来。”",
+        "contentType": "method",
+        "formula": "找理由 · 降低对方收礼压力",
     },
     245: {
         "question": "如何高情商安慰别人？",
@@ -179,12 +188,21 @@ def refine_from_text_layer(items: list[dict], text_layer_path: Path) -> None:
     pages = {page["page"]: page["text"] for page in clean_doc["pages"]}
     candidates: dict[tuple[int, int], list[tuple[str, str]]] = {}
     page_candidates: dict[int, list[tuple[str, str]]] = {}
+
+    def following_text(page_no: int) -> str:
+        """Collect cross-page continuation until the next numbered entry."""
+        chunks = []
+        for next_page in range(page_no + 1, max(pages, default=page_no) + 1):
+            text = re.sub(r"^\s*\d{1,3}\s*\n", "", pages.get(next_page, ""))
+            next_match = ENTRY_RE.search(text)
+            chunks.append(text[:next_match.start()] if next_match else text)
+            if next_match:
+                break
+        return "\n".join(chunks)
+
     for page_no, text in pages.items():
         matches = list(ENTRY_RE.finditer(text))
-        next_text = pages.get(page_no + 1, "")
-        next_match = ENTRY_RE.search(next_text)
-        continuation = next_text[:next_match.start()] if next_match else next_text
-        continuation = re.sub(r"^\s*\d{1,3}\s*\n", "", continuation)
+        continuation = following_text(page_no)
         for index, match in enumerate(matches):
             end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
             block = text[match.end():end]
@@ -194,6 +212,23 @@ def refine_from_text_layer(items: list[dict], text_layer_path: Path) -> None:
             ) == (43, 3)
             if index == len(matches) - 1 and continuation.strip() and cross_page_question:
                 block += "\n" + continuation
+            boundaries = []
+            for found in SECTION_BOUNDARY_RE.finditer(block):
+                if found.start() <= 60:
+                    continue
+                prefix = block[:found.start()]
+                marker = block[found.start():found.start() + 24]
+                same_series_started = (
+                    marker.lstrip().startswith("思路") and bool(re.search(r"思路\s*1\s*[:：]", prefix))
+                ) or (
+                    marker.lstrip().startswith("场") and bool(re.search(r"场[景合]\s*1\s*[:：]", prefix))
+                ) or (
+                    marker.lstrip().startswith("第") and bool(re.search(r"第一种\s*[:：]", prefix))
+                )
+                if not same_series_started:
+                    boundaries.append(found)
+            if boundaries:
+                block = block[:boundaries[0].start()]
             pair = split_block(block)
             candidates.setdefault((page_no, int(match.group(1))), []).append(pair)
             page_candidates.setdefault(page_no, []).append(pair)
@@ -214,7 +249,17 @@ def refine_from_text_layer(items: list[dict], text_layer_path: Path) -> None:
             continue
         is_question = bool(QUESTION_RE.search(question))
         if answer:
-            if not is_question and (item.get("sourcePage") or 0) >= 178:
+            recompose_fragment = (
+                not is_question
+                and (
+                    question.rstrip().endswith(("，", ",", "、"))
+                    or (
+                        len(question) > 35
+                        and not re.search(r"[。！？?!：:]$", question.rstrip())
+                    )
+                )
+            )
+            if not is_question and ((item.get("sourcePage") or 0) >= 178 or recompose_fragment):
                 item.update(
                     question=f"原书{item['label']}话术示例：",
                     answer=compact(question + "\n" + answer),
