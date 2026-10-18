@@ -38,8 +38,19 @@
 .feature-card.method-card .reveal-answer:hover{border-color:var(--red);background:var(--red);color:#fff}
 .feature-card.method-card .answer-panel{border-color:var(--line)}
 .feature-card.method-card .answer-panel p{color:#3f3b34}
+.answer-copy-steps{display:block}
+.answer-copy-steps .answer-intro{margin:0 0 22px;font-size:15px;line-height:1.75;color:#aaa69d}
+.answer-steps{counter-reset:answer-step;margin:0 0 22px;padding:0;list-style:none;border-top:1px solid #514f48}
+.answer-steps li{display:grid;grid-template-columns:42px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid #514f48}
+.answer-steps li>b{padding-top:5px;color:var(--yellow);font:900 11px var(--mono);letter-spacing:.08em}
+.feature-card .answer-steps li>p{margin:0;color:#ded9ce;font-size:16px;line-height:1.78}
+.feature-card.step-card .answer-panel small{display:inline-block;margin-top:2px}
+.feature-card.method-card .answer-steps{border-color:var(--line)}
+.feature-card.method-card .answer-steps li{border-color:var(--line)}
+.feature-card.method-card .answer-steps li>b{color:var(--red)}
+.feature-card.method-card .answer-copy-steps .answer-intro{color:var(--muted)}
 .load-more{display:block;width:min(420px,100%);margin:34px auto 0;padding:17px;border:1px solid var(--ink);background:transparent;font:800 12px var(--sans);cursor:pointer;transition:.18s}
 .load-more:hover{background:var(--red);border-color:var(--red);color:white}.load-more span{margin-left:10px}
 .load-more[hidden]{display:none}
 @media(max-width:900px){.toast-scene-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.toast-guide-head,.toast-more{grid-template-columns:1fr}.toast-scene[open]{grid-column:1/-1}.new-year-head{grid-template-columns:90px 1fr}.new-year-lead{grid-column:2}.blessing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:720px){.library-toolbar{align-items:flex-start;flex-direction:column}.library-toolbar>p{white-space:normal}.feature-card{grid-template-columns:1fr}.feature-card .dialogue-top,.feature-card .question,.feature-card .reveal-answer,.feature-card .answer-panel{grid-column:1}.feature-card .answer-panel{grid-row:auto;margin-top:24px;padding:22px 0 0;border-left:0;border-top:1px solid #514f48}.feature-kicker{margin-top:25px}.toast-guide,.new-year-guide{padding:76px 18px}.toast-guide-head{margin-bottom:28px}.toast-guide-intro>b{font-size:60px}.toast-scene-grid,.blessing-grid{grid-template-columns:1fr}.toast-scene[open]{grid-column:1}.toast-scene summary{min-height:150px;grid-template-columns:48px 1fr auto;padding:22px 18px}.toast-scene summary>span{font-size:34px}.toast-scene ol,.toast-more .toast-scene ol{padding:0 20px 24px 72px}.toast-more{padding:24px 18px}.new-year-head{grid-template-columns:64px 1fr;gap:18px}.new-year-seal{width:60px;height:60px;font-size:34px}.new-year-lead{grid-column:1/-1}.new-year-tabs button{min-width:128px}.new-year-meta{align-items:flex-start;flex-direction:column}.blessing-card{min-height:220px}}
+@media(max-width:720px){.library-toolbar{align-items:flex-start;flex-direction:column}.library-toolbar>p{white-space:normal}.feature-card{grid-template-columns:1fr}.feature-card .dialogue-top,.feature-card .question,.feature-card .reveal-answer,.feature-card .answer-panel{grid-column:1}.feature-card .answer-panel{grid-row:auto;margin-top:24px;padding:22px 0 0;border-left:0;border-top:1px solid #514f48}.answer-steps li{grid-template-columns:34px 1fr;gap:12px}.feature-card .answer-steps li>p{font-size:15px}.feature-kicker{margin-top:25px}.toast-guide,.new-year-guide{padding:76px 18px}.toast-guide-head{margin-bottom:28px}.toast-guide-intro>b{font-size:60px}.toast-scene-grid,.blessing-grid{grid-template-columns:1fr}.toast-scene[open]{grid-column:1}.toast-scene summary{min-height:150px;grid-template-columns:48px 1fr auto;padding:22px 18px}.toast-scene ol,.toast-more .toast-scene ol{padding:0 20px 24px 72px}.toast-more{padding:24px 18px}.new-year-head{grid-template-columns:64px 1fr;gap:18px}.new-year-seal{width:60px;height:60px;font-size:34px}.new-year-lead{grid-column:1/-1}.new-year-tabs button{min-width:128px}.new-year-meta{align-items:flex-start;flex-direction:column}.blessing-card{min-height:220px}}

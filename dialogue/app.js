@@ -43,16 +43,29 @@ let activeNewYearGroup='classic';
 const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
 const isMissing=item=>item.answer.startsWith('本条 OCR 暂未识别');
 const isFeature=item=>item.answer.length>180||item.question.length>110;
+const stepPattern=/^第([一二三四五六七八九十]+)步[，,：:]?/;
+
+function answerTemplate(answer){
+  const blocks=String(answer).split(/\n{2,}/).map(block=>block.trim()).filter(Boolean);
+  const steps=blocks.filter(block=>stepPattern.test(block));
+  if(steps.length<2)return `<p>${escapeHtml(answer).replace(/\n/g,'<br>')}</p>`;
+  const intro=blocks.filter(block=>!stepPattern.test(block));
+  return `<div class="answer-copy answer-copy-steps">
+    ${intro.map(block=>`<p class="answer-intro">${escapeHtml(block).replace(/\n/g,'<br>')}</p>`).join('')}
+    <ol class="answer-steps">${steps.map((block,index)=>`<li><b>${String(index+1).padStart(2,'0')}</b><p>${escapeHtml(block.replace(stepPattern,'').trim())}</p></li>`).join('')}</ol>
+  </div>`;
+}
 
 function cardTemplate(item){
   const status=item.reviewStatus==='reviewed'?'已校正':item.contentType==='excerpt'?'原书示例':isMissing(item)?'回答缺失':'OCR 精修';
-  const cardType=`${isFeature(item)?'feature-card':''} ${item.category==='method'?'method-card':''}`.trim();
+  const hasSteps=String(item.answer).split(/\n{2,}/).filter(block=>stepPattern.test(block.trim())).length>=2;
+  const cardType=`${isFeature(item)?'feature-card':''} ${item.category==='method'?'method-card':''} ${hasSteps?'step-card':''}`.trim();
   return `<article class="dialogue-card ${cardType}" data-id="${item.id}">
     <div class="dialogue-top"><span><i class="scene-no">${String(item.id).padStart(3,'0')}</i> / ${escapeHtml(item.label)} <em class="status-badge status-${item.contentType==='excerpt'?'excerpt':isMissing(item)?'missing':item.reviewStatus}">${status}</em></span><button class="save" type="button" aria-label="收藏这句话" aria-pressed="${saved.has(item.id)}">${saved.has(item.id)?'♥':'♡'}</button></div>
-    ${isFeature(item)?'<span class="feature-kicker">FEATURE / 专题方法</span>':''}
+    ${isFeature(item)?`<span class="feature-kicker">${hasSteps?'GUIDE / 分步方法':'FEATURE / 专题方法'}</span>`:''}
     <p class="question">${escapeHtml(item.question)}</p>
     <button class="reveal-answer" type="button" aria-expanded="false">${isFeature(item)?'阅读全文':'怎么接？'} ↓</button>
-    <div class="answer-panel" hidden><p>${escapeHtml(item.answer).replace(/\n/g,'<br>')}</p><small>${escapeHtml(item.formula)}</small></div>
+    <div class="answer-panel" hidden>${answerTemplate(item.answer)}<small>${escapeHtml(item.formula)}</small></div>
   </article>`;
 }
 
