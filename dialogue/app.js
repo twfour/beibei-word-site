@@ -8,7 +8,7 @@ let saved=new Set(JSON.parse(localStorage.getItem('dialogue-saved-v1')||'[]'));
 
 function cardTemplate(item){
   return `<article class="dialogue-card" data-id="${item.id}" data-category="${item.category}" data-search="${item.label}${item.question}${item.answer}">
-    <div class="dialogue-top"><span><i class="scene-no">0${item.id}</i> / ${item.label}</span><button class="save" type="button" aria-label="收藏这句话" aria-pressed="${saved.has(item.id)}">${saved.has(item.id)?'♥':'♡'}</button></div>
+    <div class="dialogue-top"><span><i class="scene-no">${String(item.id).padStart(3,'0')}</i> / ${item.label}${item.reviewStatus==='ocr'?'<em class="ocr-badge">OCR</em>':''}</span><button class="save" type="button" aria-label="收藏这句话" aria-pressed="${saved.has(item.id)}">${saved.has(item.id)?'♥':'♡'}</button></div>
     <p class="question">${item.question}</p>
     <button class="reveal-answer" type="button" aria-expanded="false">怎么接？ ↓</button>
     <div class="answer-panel" hidden><p>${item.answer}</p><small>${item.formula}</small></div>
@@ -29,7 +29,7 @@ document.querySelector('.dialog-close').addEventListener('click',()=>savedDialog
 document.querySelector('#reveal').addEventListener('click',event=>{const reference=document.querySelector('#reference');reference.hidden=!reference.hidden;event.currentTarget.textContent=reference.hidden?'看参考表达':'收起参考表达'});
 document.querySelector('#random-pick').addEventListener('click',()=>{if(!dialogues.length)return;const item=dialogues[Math.floor(Math.random()*dialogues.length)];activeFilter='all';search.value='';document.querySelector('#filters .active').classList.remove('active');document.querySelector('#filters [data-filter="all"]').classList.add('active');applyFilter();document.querySelector(`[data-id="${item.id}"]`).scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>document.querySelector(`[data-id="${item.id}"] .reveal-answer`).focus(),500)});
 async function init(){
-  try{const response=await fetch('/dialogue/data/dialogues.json');if(!response.ok)throw new Error(`HTTP ${response.status}`);dialogues=(await response.json()).items;render()}
+  try{const response=await fetch('/dialogue/data/dialogues-full.json');if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.json();dialogues=data.items;document.querySelector('#library-count').textContent=data.total_count;document.querySelector('#filter-total').textContent=data.total_count;render()}
   catch(error){grid.innerHTML='<p class="empty">内容库暂时无法加载，请稍后刷新。</p>';console.error(error)}
 }
 init();

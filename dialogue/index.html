@@ -37,7 +37,7 @@
     </section>
 
     <section class="quick-strip" aria-label="站点数据">
-      <div><b>210</b><span>全书页数</span></div><div><b>30</b><span>已精校话术</span></div><div><b>06</b><span>场景分类</span></div><p>全书 OCR 内容库 <span>· PREVIEW 30</span></p>
+      <div><b>210</b><span>全书页数</span></div><div><b id="library-count">30</b><span>已收录条目</span></div><div><b>10</b><span>场景分类</span></div><p>全书 OCR 内容库 <span>· FULL BOOK</span></p>
     </section>
 
     <section class="library" id="library">
@@ -46,10 +46,12 @@
         <label class="search"><span>⌕</span><input id="search" type="search" placeholder="搜索“被夸”、“领导”、“拒绝”…"></label>
       </header>
       <div class="filters" id="filters" aria-label="按场景筛选">
-        <button class="active" data-filter="all">全部 <sup>30</sup></button>
+        <button class="active" data-filter="all">全部 <sup id="filter-total">30</sup></button>
         <button data-filter="praise">赞美回应</button><button data-filter="work">职场沟通</button>
         <button data-filter="boundary">边界应对</button><button data-filter="relationship">人情往来</button>
         <button data-filter="dining">饭局酒局</button><button data-filter="social">聊天应对</button>
+        <button data-filter="interview">面试求职</button><button data-filter="gift">送礼人情</button>
+        <button data-filter="comfort">安慰鼓励</button><button data-filter="method">表达方法</button>
       </div>
       <div class="dialogue-grid" id="dialogue-grid"></div>
       <p class="empty" id="empty" hidden>没找到这个场景，换个词试试。</p>
