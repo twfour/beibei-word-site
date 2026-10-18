@@ -1,4 +1,5 @@
 let dialogues=[];
+let studentDialogues=[];
 const PAGE_SIZE=30;
 const grid=document.querySelector('#dialogue-grid');
 const search=document.querySelector('#search');
@@ -46,8 +47,18 @@ const methodGroups=[
   {key:'action',title:'给出行动',description:'少做空泛解释，用解决方案、完成时间和后续动作回应。',pattern:/行动|方案|解决|完成时间|明确行动/},
   {key:'structure',title:'结构化表达',description:'先讲核心观点，再用事实、结果或清晰层次支撑。',pattern:/结构化|核心观点|事实|结果|聚焦/}
 ];
+const studentGroups=[
+  {key:'school',label:'在校日常',description:'课堂、值日、小组合作和校园公共空间中的清楚表达。'},
+  {key:'teacher',label:'对老师',description:'提问、说明情况、接受批评，也能礼貌表达不同意见。'},
+  {key:'classmate',label:'对同学',description:'交朋友、处理误会、拒绝不合理请求，并守住自己的边界。'},
+  {key:'family',label:'在家沟通',description:'围绕学习、手机、兴趣和隐私，与家人进行可解决问题的沟通。'},
+  {key:'public',label:'社会交往',description:'问路、乘车、购物和公共场所中的基本礼貌与规则意识。'},
+  {key:'stranger',label:'陌生人安全',description:'不泄露隐私、不跟随、不勉强配合；危险时大声拒绝并立即求助。'}
+];
 let activeNewYearGroup='classic';
+let activeStudentGroup='school';
 let currentPracticeId=null;
+let practiceContext=null;
 
 const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
 const compactOcrPlain=value=>String(value??'').split(/\n{2,}/).map(paragraph=>paragraph.replace(/[ \t]*\n[ \t]*/g,'')).join('\n\n');
@@ -115,31 +126,46 @@ function renderNewYearGuide(){
   document.querySelectorAll('[data-copy-blessing]').forEach(button=>button.addEventListener('click',async()=>{const item=dialogues.find(entry=>entry.id===Number(button.dataset.copyBlessing));try{await navigator.clipboard.writeText(compactOcrPlain(item.answer));button.textContent='已复制 ✓'}catch{button.textContent='请长按文字复制'}}));
 }
 
+function renderStudentGuide(){
+  const tabs=document.querySelector('#student-tabs');
+  tabs.innerHTML=studentGroups.map((group,index)=>`<button type="button" data-student-group="${group.key}" class="${group.key===activeStudentGroup?'active':''}"><span>${String(index+1).padStart(2,'0')}</span>${group.label}</button>`).join('');
+  const group=studentGroups.find(item=>item.key===activeStudentGroup);
+  const items=studentDialogues.filter(item=>item.group===activeStudentGroup);
+  document.querySelector('#student-description').textContent=group.description;
+  document.querySelector('#student-count').textContent=`${items.length} 个场景`;
+  document.querySelector('#student-grid').innerHTML=items.map(item=>`<details class="student-card"><summary><span>${item.id}</span><h3>${escapeHtml(item.scene)}</h3><i aria-hidden="true">+</i></summary><div class="student-answer">${item.safety?'<span class="student-safety">SAFETY FIRST / 安全优先</span>':''}<strong>“${escapeHtml(item.say)}”</strong><div class="student-detail"><p><b>为什么这样说</b>${escapeHtml(item.point)}</p><p class="avoid"><b>尽量别这样说</b>${escapeHtml(item.avoid)}</p></div><div class="student-actions"><button type="button" data-student-practice="${item.id}">拿这题练习 ↘</button></div></div></details>`).join('');
+  tabs.querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>{activeStudentGroup=button.dataset.studentGroup;renderStudentGuide()}));
+  document.querySelectorAll('[data-student-practice]').forEach(button=>button.addEventListener('click',()=>{const selected=studentDialogues.find(item=>item.id===button.dataset.studentPractice);practiceContext={kind:'student',group:selected.group,first:selected};showNextPractice();document.querySelector('#practice').scrollIntoView({behavior:'smooth',block:'start'})}));
+}
+
 function practicePool(group=null){
   return dialogues.filter(item=>!isMissing(item)&&item.question&&item.answer&&item.question.length<130&&item.answer.length<520&&(!group||group.pattern.test(item.formula||'')));
 }
-function showPractice(group=null){
-  const pool=practicePool(group);
+function showNextPractice(){
+  const context=practiceContext||{kind:'adult',group:null};
+  const pool=context.kind==='student'?studentDialogues.filter(item=>item.group===context.group):practicePool(context.group);
   if(!pool.length)return;
   const choices=pool.filter(item=>item.id!==currentPracticeId);
-  const item=(choices.length?choices:pool)[Math.floor(Math.random()*(choices.length||pool.length))];
+  const item=context.first||(choices.length?choices:pool)[Math.floor(Math.random()*(choices.length||pool.length))];
+  context.first=null;practiceContext=context;
   currentPracticeId=item.id;
-  document.querySelector('#practice-number').textContent=`SCENARIO ${String(item.id).padStart(3,'0')}`;
-  document.querySelector('#practice-label').textContent=group?.title||item.label;
-  document.querySelector('#practice-question').textContent=item.question;
-  document.querySelector('#practice-answer').innerHTML=compactOcrText(item.answer);
-  document.querySelector('#practice-formula').textContent=item.formula||'先理解场景，再选择合适表达';
+  const isStudent=context.kind==='student';
+  document.querySelector('#practice-number').textContent=`SCENARIO ${isStudent?item.id:String(item.id).padStart(3,'0')}`;
+  document.querySelector('#practice-label').textContent=isStudent?studentGroups.find(group=>group.key===item.group).label:(context.group?.title||item.label);
+  document.querySelector('#practice-question').textContent=isStudent?item.scene:item.question;
+  document.querySelector('#practice-answer').innerHTML=compactOcrText(isStudent?item.say:item.answer);
+  document.querySelector('#practice-formula').textContent=isStudent?item.point:(item.formula||'先理解场景，再选择合适表达');
   document.querySelector('#practice-input').value='';
   document.querySelector('#reference').hidden=true;
   document.querySelector('#reveal').textContent='看参考表达';
-  document.querySelector('#practice-hint').textContent=group?`正在练习：${group.title}`:'先想 30 秒，再看参考';
+  document.querySelector('#practice-hint').textContent=isStudent?'中学生场景 · 先说出自己的版本':context.group?`正在练习：${context.group.title}`:'先想 30 秒，再看参考';
 }
 function renderMethodGuide(){
   document.querySelector('#method-list').innerHTML=methodGroups.map((group,index)=>{
     const count=dialogues.filter(item=>group.pattern.test(item.formula||'')).length;
     return `<article class="method-card"><span>${String(index+1).padStart(2,'0')} / ${count} 条相关内容</span><h3>${group.title}</h3><p>${group.description}</p><button type="button" data-practice-method="${group.key}">练这类场景 ↘</button></article>`;
   }).join('');
-  document.querySelectorAll('[data-practice-method]').forEach(button=>button.addEventListener('click',()=>{const group=methodGroups.find(item=>item.key===button.dataset.practiceMethod);showPractice(group);document.querySelector('#practice').scrollIntoView({behavior:'smooth',block:'start'})}));
+  document.querySelectorAll('[data-practice-method]').forEach(button=>button.addEventListener('click',()=>{const group=methodGroups.find(item=>item.key===button.dataset.practiceMethod);practiceContext={kind:'adult',group};showNextPractice();document.querySelector('#practice').scrollIntoView({behavior:'smooth',block:'start'})}));
 }
 
 function render(){
@@ -168,11 +194,11 @@ const savedDialog=document.querySelector('#saved-dialog');
 document.querySelector('#saved-button').addEventListener('click',()=>{const items=dialogues.filter(item=>saved.has(item.id));document.querySelector('#saved-list').innerHTML=items.length?items.map(item=>`<div class="saved-item"><strong>${escapeHtml(item.question)}</strong><p>${compactOcrText(item.answer)}</p></div>`).join(''):'<p class="saved-empty">还没有收藏。点击话术卡片右上角的 ♡ 即可加入。</p>';savedDialog.showModal()});
 document.querySelector('.dialog-close').addEventListener('click',()=>savedDialog.close());
 document.querySelector('#reveal').addEventListener('click',event=>{const reference=document.querySelector('#reference');reference.hidden=!reference.hidden;event.currentTarget.textContent=reference.hidden?'看参考表达':'收起参考表达'});
-document.querySelector('#practice-next').addEventListener('click',()=>showPractice());
+document.querySelector('#practice-next').addEventListener('click',showNextPractice);
 document.querySelector('#random-pick').addEventListener('click',()=>{const pool=filteredItems();if(!pool.length)return;const item=pool[Math.floor(Math.random()*pool.length)];visibleLimit=Math.max(PAGE_SIZE,pool.indexOf(item)+1);render();const target=document.querySelector(`[data-id="${item.id}"]`);target?.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>target?.querySelector('.reveal-answer').focus(),500)});
 
 async function init(){
-  try{const response=await fetch('/dialogue/data/dialogues-full.json');if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.json();dialogues=data.items;document.querySelector('#library-count').textContent=data.total_count;document.querySelector('#filter-total').textContent=data.total_count;renderToastGuide();renderNewYearGuide();renderMethodGuide();showPractice();render()}
+  try{const [response,studentResponse]=await Promise.all([fetch('/dialogue/data/dialogues-full.json'),fetch('/dialogue/data/student-dialogues.json')]);if(!response.ok||!studentResponse.ok)throw new Error(`HTTP ${response.status}/${studentResponse.status}`);const [data,studentData]=await Promise.all([response.json(),studentResponse.json()]);dialogues=data.items;studentDialogues=studentData.items;document.querySelector('#library-count').textContent=data.total_count;document.querySelector('#filter-total').textContent=data.total_count;renderToastGuide();renderNewYearGuide();renderStudentGuide();renderMethodGuide();practiceContext={kind:'student',group:'school'};showNextPractice();render()}
   catch(error){grid.innerHTML='<p class="empty">内容库暂时无法加载，请稍后刷新。</p>';console.error(error)}
 }
 init();
