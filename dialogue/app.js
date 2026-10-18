@@ -38,7 +38,16 @@ const newYearGroups=[
   {key:'playful',label:'轻松俏皮',description:'适合熟人和年轻朋友，有年味，也有一点幽默。',ids:[413,432]},
   {key:'leader',label:'给领导拜年',description:'既有可直接使用的领导祝福文案，也包含发不发、用短信还是微信、如何开头和署名等写法规则。',ids:[414,415,416,417,452,453,454,455,456,457]}
 ];
+const methodGroups=[
+  {key:'receive',title:'接住对方',description:'先承认事实、情绪或善意，让对方感到被听见。',pattern:/接住|接受|承认感受|确认事实/},
+  {key:'respect',title:'尊重再表达',description:'先顾及身份和场面，再说感谢、祝愿或自己的意见。',pattern:/尊重|祝愿|顾及场面|顾及合作/},
+  {key:'humor',title:'幽默转向',description:'用自嘲、轻松回应或重新定义，把对抗转成连接。',pattern:/幽默|轻松|转向|自嘲/},
+  {key:'boundary',title:'留好余地',description:'说明限制、提供替代，也给双方保留体面和边界。',pattern:/退路|替代|限制|立场|边界/},
+  {key:'action',title:'给出行动',description:'少做空泛解释，用解决方案、完成时间和后续动作回应。',pattern:/行动|方案|解决|完成时间|明确行动/},
+  {key:'structure',title:'结构化表达',description:'先讲核心观点，再用事实、结果或清晰层次支撑。',pattern:/结构化|核心观点|事实|结果|聚焦/}
+];
 let activeNewYearGroup='classic';
+let currentPracticeId=null;
 
 const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
 const compactOcrPlain=value=>String(value??'').split(/\n{2,}/).map(paragraph=>paragraph.replace(/[ \t]*\n[ \t]*/g,'')).join('\n\n');
@@ -106,6 +115,33 @@ function renderNewYearGuide(){
   document.querySelectorAll('[data-copy-blessing]').forEach(button=>button.addEventListener('click',async()=>{const item=dialogues.find(entry=>entry.id===Number(button.dataset.copyBlessing));try{await navigator.clipboard.writeText(compactOcrPlain(item.answer));button.textContent='已复制 ✓'}catch{button.textContent='请长按文字复制'}}));
 }
 
+function practicePool(group=null){
+  return dialogues.filter(item=>!isMissing(item)&&item.question&&item.answer&&item.question.length<130&&item.answer.length<520&&(!group||group.pattern.test(item.formula||'')));
+}
+function showPractice(group=null){
+  const pool=practicePool(group);
+  if(!pool.length)return;
+  const choices=pool.filter(item=>item.id!==currentPracticeId);
+  const item=(choices.length?choices:pool)[Math.floor(Math.random()*(choices.length||pool.length))];
+  currentPracticeId=item.id;
+  document.querySelector('#practice-number').textContent=`SCENARIO ${String(item.id).padStart(3,'0')}`;
+  document.querySelector('#practice-label').textContent=group?.title||item.label;
+  document.querySelector('#practice-question').textContent=item.question;
+  document.querySelector('#practice-answer').innerHTML=compactOcrText(item.answer);
+  document.querySelector('#practice-formula').textContent=item.formula||'先理解场景，再选择合适表达';
+  document.querySelector('#practice-input').value='';
+  document.querySelector('#reference').hidden=true;
+  document.querySelector('#reveal').textContent='看参考表达';
+  document.querySelector('#practice-hint').textContent=group?`正在练习：${group.title}`:'先想 30 秒，再看参考';
+}
+function renderMethodGuide(){
+  document.querySelector('#method-list').innerHTML=methodGroups.map((group,index)=>{
+    const count=dialogues.filter(item=>group.pattern.test(item.formula||'')).length;
+    return `<article class="method-card"><span>${String(index+1).padStart(2,'0')} / ${count} 条相关内容</span><h3>${group.title}</h3><p>${group.description}</p><button type="button" data-practice-method="${group.key}">练这类场景 ↘</button></article>`;
+  }).join('');
+  document.querySelectorAll('[data-practice-method]').forEach(button=>button.addEventListener('click',()=>{const group=methodGroups.find(item=>item.key===button.dataset.practiceMethod);showPractice(group);document.querySelector('#practice').scrollIntoView({behavior:'smooth',block:'start'})}));
+}
+
 function render(){
   const matches=filteredItems();
   const shown=matches.slice(0,visibleLimit);
@@ -132,10 +168,11 @@ const savedDialog=document.querySelector('#saved-dialog');
 document.querySelector('#saved-button').addEventListener('click',()=>{const items=dialogues.filter(item=>saved.has(item.id));document.querySelector('#saved-list').innerHTML=items.length?items.map(item=>`<div class="saved-item"><strong>${escapeHtml(item.question)}</strong><p>${compactOcrText(item.answer)}</p></div>`).join(''):'<p class="saved-empty">还没有收藏。点击话术卡片右上角的 ♡ 即可加入。</p>';savedDialog.showModal()});
 document.querySelector('.dialog-close').addEventListener('click',()=>savedDialog.close());
 document.querySelector('#reveal').addEventListener('click',event=>{const reference=document.querySelector('#reference');reference.hidden=!reference.hidden;event.currentTarget.textContent=reference.hidden?'看参考表达':'收起参考表达'});
+document.querySelector('#practice-next').addEventListener('click',()=>showPractice());
 document.querySelector('#random-pick').addEventListener('click',()=>{const pool=filteredItems();if(!pool.length)return;const item=pool[Math.floor(Math.random()*pool.length)];visibleLimit=Math.max(PAGE_SIZE,pool.indexOf(item)+1);render();const target=document.querySelector(`[data-id="${item.id}"]`);target?.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>target?.querySelector('.reveal-answer').focus(),500)});
 
 async function init(){
-  try{const response=await fetch('/dialogue/data/dialogues-full.json');if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.json();dialogues=data.items;document.querySelector('#library-count').textContent=data.total_count;document.querySelector('#filter-total').textContent=data.total_count;renderToastGuide();renderNewYearGuide();render()}
+  try{const response=await fetch('/dialogue/data/dialogues-full.json');if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.json();dialogues=data.items;document.querySelector('#library-count').textContent=data.total_count;document.querySelector('#filter-total').textContent=data.total_count;renderToastGuide();renderNewYearGuide();renderMethodGuide();showPractice();render()}
   catch(error){grid.innerHTML='<p class="empty">内容库暂时无法加载，请稍后刷新。</p>';console.error(error)}
 }
 init();

@@ -89,22 +89,18 @@
     </section>
 
     <section class="method" id="method">
-      <div class="method-title"><p class="eyebrow">THE 3-BEAT METHOD</p><h2>一句好话，<br>有三个节拍。</h2></div>
-      <ol>
-        <li><b>01</b><div><h3>先接住</h3><p>回应对方表达的事实或情绪，别急着证明自己。</p></div></li>
-        <li><b>02</b><div><h3>再转向</h3><p>用幽默、自谦或重新定义，把话题从对抗转为连接。</p></div></li>
-        <li><b>03</b><div><h3>留余地</h3><p>不把话说满，让对方有台阶，也保留自己的边界。</p></div></li>
-      </ol>
+      <div class="method-title"><p class="eyebrow">METHOD ATLAS / 方法图谱</p><h2>不是背一句，<br>而是会一类。</h2><p>从全书话术中归纳常用表达结构。选一种方法，直接练对应场景。</p></div>
+      <div class="method-list" id="method-list"></div>
     </section>
 
     <section class="practice" id="practice">
       <div class="practice-copy"><p class="eyebrow">30-SECOND PRACTICE</p><h2>先想一句，<br>再看参考答案。</h2><p>真正的高情商不是记忆句子，而是在具体关系中做出合适选择。</p></div>
       <div class="practice-board">
-        <div class="practice-meta"><span>SCENARIO 04</span><span>被夸时</span></div>
-        <blockquote>“你今天穿的衣服真漂亮。”</blockquote>
+        <div class="practice-meta"><span id="practice-number">SCENARIO</span><span id="practice-label">随机场景</span></div>
+        <blockquote id="practice-question">正在准备题目…</blockquote>
         <textarea id="practice-input" rows="3" placeholder="如果是你，会怎么接？"></textarea>
-        <div class="practice-actions"><button class="primary" id="reveal" type="button">看参考表达</button><span id="practice-hint">提示：试试把赞美送回去</span></div>
-        <div class="reference" id="reference" hidden><small>REFERENCE / 参考</small><p>“谢谢，你今天发型也不错，很有气质。”</p><em>接受赞美 + 发现对方</em></div>
+        <div class="practice-actions"><button class="primary" id="reveal" type="button">看参考表达</button><button class="practice-next" id="practice-next" type="button">换一题 ↻</button><span id="practice-hint">先想 30 秒，再看参考</span></div>
+        <div class="reference" id="reference" hidden><small>REFERENCE / 参考</small><p id="practice-answer"></p><em id="practice-formula"></em></div>
       </div>
     </section>
   </main>
