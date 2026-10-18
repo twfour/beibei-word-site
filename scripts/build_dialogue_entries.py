@@ -2,6 +2,7 @@
 """Turn the full OCR page library into searchable dialogue/method entries."""
 from __future__ import annotations
 import argparse, json, re
+from difflib import SequenceMatcher
 from pathlib import Path
 
 ENTRY_RE = re.compile(r"(?m)^\s*(\d{1,3})\s*[.、．]\s*")
@@ -50,6 +51,10 @@ CURATED_ENTRIES = {
         "question": "夸女性皮肤，怎么夸？",
         "answer": "你皮肤真好，昨天加班大家都熬那么晚，你连一颗痘都不冒，黑眼圈也没有。",
     },
+    110: {
+        "question": "有的领导看起来年轻，比如头发都在，身材也保养得很好，没有大肚腩，怎么夸？",
+        "answer": "领导，您看起来好年轻呀，走路都还在带风的！",
+    },
     119: {
         "question": "对方说：“你今天穿得真好看啊”，怎么接？",
         "answer": "就还好吧，谢谢谢谢，真的吗？我一直觉得你审美超级好。",
@@ -82,6 +87,14 @@ CURATED_ENTRIES = {
         "contentType": "method",
         "formula": "打开格局 · 降位打击",
     },
+    295: {
+        "question": "你做东请领导或同事吃饭，怎么说？",
+        "answer": "今天很荣幸能和各位领导同事在这里聚一聚，我平时啊，毛毛躁躁的，有什么做得不妥的地方，希望大家多多包涵。今后呢，有需要我的地方，请大家尽管开口。",
+    },
+    298: {
+        "question": "你请朋友同事吃饭，怎么说？",
+        "answer": "这不平时大家忙吗，难得有时间聚一聚，假期了就大家放松一下，都是自己人啊，该吃吃该喝喝，千万别跟我客气。",
+    },
     364: {
         "question": "敬领导话术示例：",
         "answer": "老大，我敬你一杯，这1年以来，感谢你对我的照顾和帮助，在你的带领下，我真的学到很多东西，这杯酒，我干了，你随意。",
@@ -94,11 +107,23 @@ CURATED_ENTRIES = {
         "contentType": "excerpt",
         "formula": "原书示例 · 敬同事",
     },
+    388: {
+        "question": "敬领导话术示例：",
+        "answer": "王总，这次见你，我发现您气色更好了，刚才小跑上楼连气都不带喘的，是不是天天在健身啊？这杯酒我敬您，希望您身体永远倍儿棒。",
+        "contentType": "excerpt",
+        "formula": "原书示例 · 敬领导",
+    },
     393: {
         "question": "领导敬下属话术示例：",
         "answer": "小张啊，这两年你进步真的很大，希望你能够百尺竿头更进一步，从优秀变得更优秀。",
         "contentType": "excerpt",
         "formula": "原书示例 · 敬下属",
+    },
+    449: {
+        "question": "新年祝福文案：",
+        "answer": "奋斗中辞别旧岁，憧憬中迎来新年。",
+        "contentType": "excerpt",
+        "formula": "原书示例 · 新年祝福",
     },
 }
 CATEGORIES = [
@@ -133,9 +158,83 @@ def split_block(block: str) -> tuple[str, str]:
     if len(lines) > 1 and len(lines[0]) <= 90: return lines[0], compact("\n".join(lines[1:]))
     return compact(block[:120]), compact(block[120:])
 
+def normalized_match_text(text: str) -> str:
+    return re.sub(r"[^\w\u4e00-\u9fff]", "", text).lower()
+
+def refine_from_text_layer(items: list[dict], text_layer_path: Path) -> None:
+    """Replace noisy OCR with the PDF's clean text layer without changing site IDs."""
+    clean_doc = json.loads(text_layer_path.read_text(encoding="utf-8"))
+    pages = {page["page"]: page["text"] for page in clean_doc["pages"]}
+    candidates: dict[tuple[int, int], list[tuple[str, str]]] = {}
+    page_candidates: dict[int, list[tuple[str, str]]] = {}
+    for page_no, text in pages.items():
+        matches = list(ENTRY_RE.finditer(text))
+        next_text = pages.get(page_no + 1, "")
+        next_match = ENTRY_RE.search(next_text)
+        continuation = next_text[:next_match.start()] if next_match else next_text
+        continuation = re.sub(r"^\s*\d{1,3}\s*\n", "", continuation)
+        for index, match in enumerate(matches):
+            end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
+            block = text[match.end():end]
+            base_question, _ = split_block(block)
+            cross_page_question = bool(QUESTION_RE.search(base_question)) or (
+                page_no, int(match.group(1))
+            ) == (43, 3)
+            if index == len(matches) - 1 and continuation.strip() and cross_page_question:
+                block += "\n" + continuation
+            pair = split_block(block)
+            candidates.setdefault((page_no, int(match.group(1))), []).append(pair)
+            page_candidates.setdefault(page_no, []).append(pair)
+
+    for item in items:
+        key = (item.get("sourcePage"), item.get("sourceNumber"))
+        options = candidates.get(key, [])
+        current = normalized_match_text(item["question"] + item["answer"])
+        score = lambda pair: SequenceMatcher(
+            None, current, normalized_match_text(pair[0] + pair[1])
+        ).ratio()
+        if not options or max(map(score, options), default=0) < 0.35:
+            options = page_candidates.get(item.get("sourcePage"), [])
+        if not options:
+            continue
+        question, answer = max(options, key=score)
+        if len(question) < 4:
+            continue
+        is_question = bool(QUESTION_RE.search(question))
+        if answer:
+            if not is_question and (item.get("sourcePage") or 0) >= 178:
+                item.update(
+                    question=f"原书{item['label']}话术示例：",
+                    answer=compact(question + "\n" + answer),
+                    contentType="excerpt",
+                    formula="原书示例 · 非问答条目",
+                )
+            else:
+                item.update(question=question, answer=answer)
+                item["contentType"] = "dialogue" if is_question else "method"
+        elif not is_question:
+            item.update(
+                question=f"原书{item['label']}示例：",
+                answer=question,
+                contentType="excerpt",
+                formula="原书示例 · 非问答条目",
+            )
+    for item in items:
+        item["question"] = re.sub(r"\n\s*\d{1,3}\s*$", "", item["question"]).strip()
+        item["answer"] = re.sub(r"\n\s*\d{1,3}\s*$", "", item["answer"]).strip()
+        if item["answer"].startswith("本条为原书"):
+            original = item["question"]
+            item.update(
+                question=f"原书{item['label']}示例：",
+                answer=original,
+                contentType="excerpt",
+                formula="原书示例 · 非问答条目",
+            )
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("ocr", type=Path); parser.add_argument("reviewed", type=Path); parser.add_argument("output", type=Path)
+    parser.add_argument("--text-layer", type=Path)
     args = parser.parse_args()
     ocr = json.loads(args.ocr.read_text(encoding="utf-8"))
     reviewed_doc = json.loads(args.reviewed.read_text(encoding="utf-8"))
@@ -172,6 +271,8 @@ def main() -> None:
                 content_type="dialogue" if is_question else "method"
             items.append({"id":next_id,"category":category,"label":label,"question":question,"answer":answer,"formula":formula,"reviewStatus":"ocr","confidence":page.get("confidence"),"sourcePage":page["page"],"sourceNumber":local_number,"contentType":content_type})
             next_id += 1
+    if args.text_layer:
+        refine_from_text_layer(items, args.text_layer)
     for item in items:
         if item["id"] in CURATED_ENTRIES:
             item.update(CURATED_ENTRIES[item["id"]])
