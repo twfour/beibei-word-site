@@ -1564,16 +1564,16 @@
     },
     {
       "id": 130,
-      "category": "method",
-      "label": "表达方法",
-      "question": "船载千金，掌舵一人，没有张总您的指导，我哪有",
-      "answer": "您说的这么好啊，谢谢张总多年的栽培。",
-      "formula": "OCR 二次精修 · 待人工校订",
-      "reviewStatus": "ocr",
+      "category": "work",
+      "label": "职场沟通",
+      "question": "领导说：小江是我们部门的骨干成员，工作业务交给他，我可是少操不少心呢，怎么接？",
+      "answer": "船载千斤，掌舵一人。没有张总您的指导，我哪有您说的这么好啊，谢谢张总多年的栽培。",
+      "formula": "领导夸奖 · 归功领导",
+      "reviewStatus": "reviewed",
       "confidence": 87.5,
       "sourcePage": 38,
       "sourceNumber": 2,
-      "contentType": "method"
+      "contentType": "dialogue"
     },
     {
       "id": 131,
