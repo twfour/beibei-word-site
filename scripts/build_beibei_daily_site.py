@@ -921,6 +921,132 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "Today, central banks face pandemics, wars, supply problems and high government debt. They must choose how much inflation or unemployment they are willing to accept. The main message is that Hall and Woodford changed economic thinking, but their models cannot remove the difficult choices that governments and central banks must make."
         ),
     },
+    "20261015": {
+        "pet_index": "04",
+        "overview": (
+            "文章从欧盟限制中国混合动力汽车进口写起，随后把焦点转向另一场产业竞争：欧美试图留住废旧电池和“黑质”等可回收资源，而中国正在扩大循环经济优势。"
+            "欧美担心有价值的电池金属作为废料流向中国，因此开始限制出口；中国则希望通过回收锂、钴、镍等材料，减少对新开采矿产和海外供应链的依赖。"
+            "文章回顾中国回收产业从进口“洋垃圾”、污染严重的非正规作坊，走向禁止大部分固体废物进口、建设“城市矿山”和规范化回收体系的过程。"
+            "中国制造了大量电池、光伏板和风机，产品、拆解企业与冶炼产业链集中，使回收更容易形成规模，目前拥有全球大部分电池回收产能。"
+            "但行业仍面临旧电池流入小作坊、设备分布偏远、贵金属含量低和回收成本高等问题。政府正在通过国有回收平台、数字追踪、AI 分拣和生产者责任制度改善收集效率。"
+            "结尾认为，欧美保留本土废料会增加中国的原料压力，却难以迅速复制中国完整、低成本且规模庞大的回收产业链，中国的主导地位短期内仍难被撼动。"
+        ),
+        "pet": (
+            "The article is about competition between China, Europe and America in electric vehicles and battery recycling. The European Union plans to limit imports of Chinese hybrid cars. At the same time, Western countries want to keep valuable battery waste instead of sending it to China. "
+            "Old batteries can be broken into a powder called black mass. Useful metals such as lithium, cobalt and nickel can be recovered from it and used again. China wants more recycled materials because this can reduce its need for newly mined minerals and foreign supplies. "
+            "China’s recycling industry has changed greatly. In the past, the country imported large amounts of foreign waste, and small informal businesses often caused pollution. The government later banned most solid-waste imports and supported cleaner recycling companies and urban mines. "
+            "China has an important advantage because it makes many batteries, solar panels and wind turbines itself. Its factories, recyclers and metal processors are close together. However, many used batteries still go to informal dealers or are simply thrown away. The government is now improving collection, digital tracking and AI sorting. "
+            "The main message is that Europe and America can keep more of their own waste, but building a complete recycling industry is expensive and difficult. China is likely to remain the leading battery recycler for some time."
+        ),
+    },
+    "20261016": {
+        "pet_index": "04",
+        "overview": (
+            "文章讨论 AI 热潮中的数字为何越来越难相信：OpenAI、Anthropic 等未上市公司频繁披露年化营收、调整后利润和媒体口径不一的数据，市场却会据此剧烈波动。"
+            "开头以 OpenAI 营收报道相差 200 亿美元、科技股随消息涨跌为例，说明投资者正在用模糊数字给规模空前的 AI 投资定价。"
+            "文章把这种现象放进历史背景：并购、无形资产和股权激励都曾促使企业创造非标准指标，而 AI 公司常用 ARR 把某一时点收入年化，它并不等于经过审计的会计收入。"
+            "不同公司还会采用总额或净额确认收入，使看似可比较的数据实际上口径不同；在企业上市前，投资者只能依赖泄露消息和管理层选择性披露。"
+            "上市科技巨头同样使用经过调整的 EBITDA、年化云业务收入等指标，并投入巨额资金建设数据中心，却很难量化 AI 给客户和自身带来的真实回报。"
+            "文章最后把问题扩大到宏观统计：芯片价格、数据中心投资、折旧和跨公司利润流动会扭曲通胀、GDP 与企业利润数据，而统计和审计机构资源不足，使市场更难获得可靠答案。"
+        ),
+        "pet": (
+            "The article is about unreliable financial numbers in the artificial-intelligence industry. One report said OpenAI’s revenue was close to $50 billion, while another report gave a much higher number. Technology shares moved sharply even though investors could not be sure which figure was correct. "
+            "AI startups often use ARR, or annual recurring revenue. This number takes recent income and imagines that it will continue for a full year. It is useful for fast-growing businesses, but it is not the same as normal audited revenue. Companies may also count the same type of sales in different ways. "
+            "OpenAI and Anthropic are private companies, so they do not have to publish complete financial reports. Investors depend on leaked information and selected numbers. Companies can also use adjusted profit figures that remove costs they do not want investors to focus on. "
+            "Large public technology companies are more transparent, but their AI results are still difficult to measure. They spend huge amounts on data centres and chips. This quickly helps chip and construction companies, while the cost appears more slowly in the technology companies’ own accounts. The real return from AI is still uncertain. "
+            "The main message is that AI may be valuable, but the numbers used to price it are often unclear or impossible to compare. Investors, journalists and governments need stronger accounting, auditing and economic statistics."
+        ),
+    },
+    "20261017": {
+        "pet_index": "04",
+        "overview": (
+            "文章报道特斯拉终于展示下一代 Roadster，并分析这辆能够短暂腾空、零到 60 英里加速仅 0.81 秒的跑车，对特斯拉真正的商业意义。"
+            "发布会上，Roadster 借助与 SpaceX 合作开发的高压储气罐和推进器完成坡道腾空、翻转和落地，计划提供性能版、推力版以及邀请制火箭版。"
+            "一些设计偏离特斯拉惯例，例如机械门锁和缺少传统侧后视镜，也带来是否符合道路法规的疑问；它强调人工驾驶，与公司长期宣传的自动驾驶方向形成反差。"
+            "文章回顾 Roadster 漫长历史：初代车型 2008 年推出，第二代 2017 年亮相后不断延期，预订者等待近十年，而特斯拉把机器人和自动驾驶项目置于更高优先级。"
+            "后半部分指出，这款车未必需要成为销量冠军。它更像一场技术表演，用来证明特斯拉能制造其他公司做不到的产品、重新吸引华尔街注意，并招募顶尖工程师和 AI 人才。"
+            "结尾认为，Roadster 的成功标准不只是卖出多少辆，而是能否恢复特斯拉作为大胆技术公司的品牌想象力。"
+        ),
+        "pet": (
+            "The article is about Tesla’s new Roadster. After many years of waiting, Tesla showed the car at a live event. In the most dramatic demonstration, the Roadster drove up a ramp, left the ground, turned in the air and landed safely. "
+            "The car uses high-pressure air tanks and small thrusters developed with help from SpaceX. Tesla says one version can reach 60 miles per hour in only 0.81 seconds. The company plans several versions, including a special rocket model. "
+            "Some details are unusual for Tesla. The car appears to have mechanical door latches and no normal side mirrors. This creates questions about whether it can legally drive on public roads. It is also designed as a car for human drivers, even though Tesla often talks about autonomous driving. "
+            "The Roadster has been delayed for many years. Tesla first showed the second-generation model in 2017, and some customers have waited almost a decade. During that time, the company focused more on robots and self-driving technology. "
+            "The main message is that the Roadster does not need to sell in huge numbers. It can still help Tesla by showing technical skill, exciting investors and attracting talented engineers."
+        ),
+    },
+    "20261019": {
+        "pet_index": "04",
+        "overview": (
+            "文章以白宫新闻秘书 Zacharia 上任仅四天半便离职的闹剧为切口，批评特朗普政府在重大外交和安全政策上缺乏准备、战略和可信解释。"
+            "Zacharia 被指履历和律师资格存在问题，首次发布会又无法清楚回答记者提问，很快打破白宫高级官员“最短任期”纪录。"
+            "作者认为，如果白宫事前完成基本审查，就能避免发言人在镜头前艰难复述空洞口号的场面；特朗普事后轻描淡写的回应反而暴露出任命和决策流程的随意。"
+            "文章随后把这一人事风波与更大的外交混乱联系起来，包括对伊朗战争、星链服务、对俄制裁和柴油供应等政策突然转向。"
+            "这些决定往往以短期政治和中期选举为导向，却可能损害美国信誉、盟友关系和长期国家利益，也没有得到清楚一致的公众说明。"
+            "结尾指出，短命发言人只是白宫治理方式的缩影：选民即将投票，他们会判断政府究竟是否拥有比发布会套话更具体、更有分量的战略。"
+        ),
+        "pet": (
+            "The article is about a White House press secretary named Zacharia who left the job after only a few days. Reports questioned parts of her work history and whether she was properly qualified as a lawyer. Her first press conference also went badly because she was not ready to explain important government policies. "
+            "The writer says the White House should have checked her background more carefully. Better preparation could have prevented an embarrassing public scene. President Trump later treated the problem as unimportant, but the article argues that it showed weak decision-making. "
+            "The story then looks at larger foreign-policy problems. The Trump administration had made sudden decisions about Iran, Russia, Starlink and energy supplies. Some policies changed direction quickly, and officials did not clearly explain the strategy behind them. "
+            "The article says these choices may have been made to improve fuel prices or help the government before the midterm elections. However, short-term political gains can damage alliances, trust and America’s long-term interests. "
+            "The main message is that the press-secretary problem was not only about one unprepared person. It represented a government that often makes major decisions without a clear plan or a convincing public explanation."
+        ),
+    },
+    "20261020": {
+        "pet_index": "04",
+        "overview": (
+            "文章从法国多地爆发骚乱、历史建筑和市政设施被纵火、商铺遭洗劫以及约两千人被捕写起，分析街头暴力与 2027 年总统大选、财政危机和政治极化的关系。"
+            "法国具有长期街头抗议传统，文章把这次骚乱与 1968 年学生运动和黄背心运动对照；参与者提出教育、油价和警方执法等不满，但部分破坏显然经过组织，并非普通和平示威。"
+            "政府与左翼互相指责，马克龙又无法连任，而中间派尚无有力接班人，使政治竞争逐渐收缩为左翼梅朗雄与右翼勒庞之间的对决。"
+            "如果勒庞胜选，左翼可能发动新一轮抗议；如果政府继续回避福利和公共支出改革，法国的高赤字、高债务利息与市场压力也会继续恶化。"
+            "政客更愿意讨论治安和身份问题，却缺少能同时恢复财政、公共服务和社会信任的方案，街头动荡与债券市场紧张可能互相强化。"
+            "结尾描写骚乱后重新坐满露台咖啡馆的普通人：沉默多数反对暴力，也知道改革不可避免，但若中间政治无法提出可信路线，选民仍会被推向两极。"
+        ),
+        "pet": (
+            "The article is about serious riots in France. Buildings were set on fire, shops were attacked and about 2,000 people were arrested. France has a long history of protests, including the student movement of 1968 and the yellow-vest demonstrations. "
+            "The protesters had many complaints, including education, fuel prices and police behaviour. However, the article says some people came ready to cause organised violence. The government and left-wing politicians blamed each other for the disorder. "
+            "The riots happened before an important presidential election. Emmanuel Macron cannot run again, and the political centre has no clear strong candidate. The main competition may be between the left-wing leader Jean-Luc Mélenchon and the right-wing leader Marine Le Pen. A Le Pen victory could lead to more protests from the left. "
+            "France also has deep economic problems. Government debt and interest costs are high, but politicians do not want to reform expensive benefits. Financial markets are becoming worried at the same time as the streets are becoming more violent. "
+            "The main message is that many ordinary French people reject the riots and understand that change is needed. But if moderate politicians cannot offer a believable plan, voters may be forced to choose between two political extremes."
+        ),
+    },
+    "20261021": {
+        "pet_index": "04",
+        "overview": (
+            "文章评估沙特王储穆罕默德·本·萨勒曼进入掌权第二个十年时面临的危机：胡塞武装冲突升级、经济转型受阻，以及对美国安全保护的依赖同时暴露。"
+            "原定举行的“沙漠达沃斯”未来投资倡议峰会被迫延期，象征王储过去押注的三条路线都遇到麻烦：也门停火破裂，大型发展项目和外资目标落空，特朗普政府又并不完全受沙特影响。"
+            "在胡塞导弹和地区武装威胁下，沙特的军事选择都代价高昂；经济方面，财政紧张、项目搁置和增长转弱，显示依靠石油收入推动宏大转型的局限。"
+            "文章认为王储目前仍牢牢掌权：他已集中政治权力，王室内部缺乏足以挑战他的力量，西方长期批评者也承认沙特面对袭击时几乎没有轻松选项。"
+            "但这次危机不同于早年因自身冒进造成、可以靠政策转向修复的问题。外部战争、美国政策和地区安全格局并不由他控制，而沙特防空、军队能力和经济多元化仍未达到目标。"
+            "结尾指出，与巴基斯坦、土耳其签署共同防御安排，是寻找美国替代者的一次尝试；王储真正的考验，是改变石油依赖、军事短板和单一安全靠山这些国家深层结构。"
+        ),
+        "pet": (
+            "The article is about Saudi Crown Prince Muhammad bin Salman and the difficult start to his second decade in power. An important investment meeting in Riyadh had to be delayed. This showed that several of his biggest plans were facing trouble at the same time. "
+            "The war with the Houthis has become dangerous again. Saudi Arabia faces missile attacks and has no easy military choice. Fighting harder could be costly, but doing too little could make the kingdom look weak. "
+            "The crown prince’s economic programme is also under pressure. Some large projects have been delayed, foreign investment has disappointed and the economy is slowing. Saudi Arabia still depends heavily on oil even after years of plans to create new industries. "
+            "Muhammad bin Salman is not about to lose power. He has much more control than he did in his early years, and even some foreign critics accept that Saudi Arabia must defend itself. But today’s problems are harder because many of them come from outside the kingdom and cannot be fixed by a simple policy change. "
+            "The main message is that Saudi Arabia needs deeper reform. New defence agreements with Pakistan and Turkey may reduce its dependence on America, but changing the economy, military and security system will take many years."
+        ),
+    },
+    "20261022": {
+        "pet_index": "04",
+        "overview": (
+            "文章由两组与马斯克相关的消息组成：特斯拉与 SpaceX 成立独立董事委员会讨论潜在合并，以及马斯克提出向美国儿童账户赠送 SpaceX 股票并讨论 AI 时代的全民高收入。"
+            "由于马斯克同时领导并持有两家公司大量股份，他属于利益冲突方，不能参与特别委员会谈判；任何交易还必须通过严格的董事和股东批准程序。"
+            "文章回顾马斯克不断整合旗下企业的趋势，并分析合并可能带来的协同：特斯拉的 AI、芯片与制造能力可以同 SpaceX、星链及火箭技术结合，新 Roadster 已体现这种合作。"
+            "另一部分介绍儿童 Trump 账户赠股设想。向账户捐赠升值股票可能带来税收优势，但也涉及资产集中、锁定期和公司控制权等问题；Anthropic 的股权公益安排被作为参照。"
+            "马斯克预测 AI 将创造物质极大丰富、降低货币重要性，主张联邦政府通过支票提供全民高收入，却没有承诺用个人财富直接资助这一计划。"
+            "经济学家 Daron Acemoglu 因此要求他“言行一致”，既然认为未来财富不再重要，就应在十年内捐出大部分净资产。文章结尾保留疑问：这些宏大承诺会不会真正兑现。"
+        ),
+        "pet": (
+            "The article is about two big ideas connected to Elon Musk. First, Tesla and SpaceX have created special committees to discuss a possible merger. Second, Musk has talked about giving SpaceX shares to accounts for American children and about a future universal high income. "
+            "Musk leads both Tesla and SpaceX and owns large amounts of stock in both companies. Because he has a conflict of interest, he cannot take part in the special committee discussions. A merger would also need approval from directors and shareholders. "
+            "The companies could help each other in several areas. Tesla works on AI, chips, batteries and manufacturing, while SpaceX has rockets and Starlink. The new Tesla Roadster already uses technology developed with SpaceX. A merger could create a very large Musk business group. "
+            "Musk has also suggested putting SpaceX shares into special accounts for children. Donating valuable shares may have tax advantages, but it could create risks if the accounts hold too much of one company. The shares may also have to remain in the accounts for several years. "
+            "Musk believes AI may create so much wealth that money becomes less important. He says the federal government should provide universal high income, but critics note that he has not promised to fund it himself. The main question is whether Musk will turn these large ideas into real action."
+        ),
+    },
 }
 
 
@@ -1079,6 +1205,36 @@ VOCAB_FALSE_POSITIVES = {
     # no-phonetic fallback otherwise mistakes it for a vocabulary heading.
     "stale peace of old bedtimes",
     "everything i know about love and its necessities",
+    # 20261015-20261021: slash-separated examples such as
+    # "toxic chemicals/fumes" and terms containing sb/sth are already part of
+    # the preceding real vocabulary entry. The no-POS fallback can otherwise
+    # reinterpret the text on either side of the slash as a second card.
+    "toxic chemicals",
+    "mounting excitement",
+    "oil",
+    "on top of sth",
+    "to have a vague impression",
+    "a faint glow",
+    "ster",
+    "aggregate demand",
+    "a situation fraught with danger",
+    "a curved path",
+    "a mechanical device",
+    "clamp down (on sb",
+    "manual labour",
+    "a glaring error",
+    "tangible benefits",
+    "to perform",
+    "squeeze sb",
+    "a momentous decision",
+    "to introduce",
+    "a pair of swimming",
+    "a legislative assembly",
+    "enemy",
+    "an implausible claim",
+    "a golf",
+    "a fascist",
+    "the way that sb",
 }
 
 
@@ -1473,6 +1629,85 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition_en": "to be troubled or attacked by worries, doubts or fears",
         "example": "She was assailed by doubts about the decision. 她受到对这一决定的疑虑困扰。",
     },
+    "signature": {
+        "definition": "标志性的；独具特色的；代表性的",
+        "definition_en": "characteristic of a particular person, company or thing",
+        "example": "The company unveiled its signature design at the auto show. 这家公司在车展上展示了其标志性设计。",
+    },
+    "telling": {
+        "definition": "说明问题的；显露真实情况的；有力的",
+        "definition_en": "showing effectively what someone or something is really like; having a strong effect",
+        "example": "The number is a telling comment on the state of society. 这个数字生动反映了社会状况。",
+    },
+    "pledge": {
+        "definition": "保证给予或做；正式承诺",
+        "definition_en": "to formally promise to give or do something",
+        "example": "The government pledged its support for the plan. 政府承诺支持这项计划。",
+    },
+    "steer": {
+        "definition": "驾驶；掌控方向；引导",
+        "definition_en": "to control the direction of a vehicle or influence how a situation develops",
+        "example": "She steered the team to victory. 她率领全队取得胜利。",
+    },
+    "step in": {
+        "definition": "介入；干预；出面帮助",
+        "definition_en": "to become involved in a difficult situation in order to help",
+        "example": "If no agreement was reached, the army would step in. 如果无法达成协议，军方将会介入。",
+    },
+    "nickel": {
+        "definition": "镍",
+        "definition_en": "a silver-coloured metal used in making steel",
+        "example": "A large glass jar filled with pennies, nickels, dimes, and quarters. 一个装满1分、5分、10分和25分硬币的大玻璃罐。",
+    },
+    "riff": {
+        "definition": "（一小段）讲话或文章；（文中）不严谨的变体",
+        "definition_en": "a short piece of speech or writing that develops a theme or idea",
+        "example": "Rowe does a very clever riff on the nature of prejudice. 罗发表了一段对偏见本质十分精辟的讲话。",
+    },
+    "gregorian calendar": {
+        "definition": "公历；格里高利历",
+        "definition_en": "the calendar introduced by Pope Gregory XIII in 1582 and now used internationally",
+        "example": "The Gregorian calendar is used in most countries around the world. 世界上大多数国家都使用公历。",
+    },
+    "unveil": {
+        "definition": "为……揭幕；公布",
+        "definition_en": "to uncover something formally or introduce something that was kept secret",
+        "example": "Mr. Werner unveiled his new strategy this week. 沃纳先生本周公布了他的新策略。",
+    },
+    "nameplate": {
+        "definition": "名牌；标示牌；名称牌",
+        "definition_en": "a sign or plate showing the name of a company, person, owner or maker",
+    },
+    "ramp": {
+        "definition": "斜坡；坡道",
+        "definition_en": "a slope joining two places when one is higher than the other",
+        "example": "Ramps should be provided for wheelchair users. 应该给轮椅使用者提供坡道。",
+    },
+    "despot": {
+        "definition": "专制统治者；专制君主；暴君",
+        "definition_en": "a ruler with great power, especially one who uses it cruelly",
+        "example": "An enlightened despot. 开明的专制君主。",
+    },
+    "hapless": {
+        "definition": "不幸的；倒霉的",
+        "definition_en": "unlucky",
+        "example": "His hapless victim. 他不幸的受害者。",
+    },
+    "goggles": {
+        "definition": "护目镜；风镜；游泳镜",
+        "definition_en": "glasses fitting closely to the face to protect the eyes",
+        "example": "A pair of swimming, ski or safety goggles. 一副游泳、滑雪或安全护目镜。",
+    },
+    "emblematic": {
+        "definition": "标志性的；象征性的；典型的",
+        "definition_en": "representing or symbolizing something; typical of a situation",
+        "example": "The violence is emblematic of what is happening in our inner cities. 这种暴力行为正反映了市中心贫民区的状况。",
+    },
+    "dignitary": {
+        "definition": "（政府或教会的）显要人物；要员",
+        "definition_en": "an important person with a high rank in government or a church",
+        "example": "An office fund used to entertain visiting dignitaries. 一笔用于招待来访要员的办公资金。",
+    },
 }
 
 
@@ -1640,20 +1875,20 @@ def vocabulary_context(vocab: dict[str, str], paragraphs: list[dict[str, str]]) 
         r"(?<![A-Za-z])(" + "|".join(re.escape(alias) for alias in sorted(aliases, key=len, reverse=True)) + r")(?![A-Za-z])",
         re.I,
     )
-    for paragraph in paragraphs:
+    for paragraph_index, paragraph in enumerate(paragraphs, 1):
         english_sentences = split_english_sentences(paragraph["original"])
         for index, sentence in enumerate(english_sentences):
             if pattern.search(sentence):
                 return {
                     "sentence": shorten_context(sentence, 260),
                     "translation": shorten_context(paragraph["translation"], 220),
-                    "paragraph": str(paragraph["number"]),
+                    "paragraph": str(paragraph_index),
                 }
         if pattern.search(paragraph["original"]):
             return {
                 "sentence": shorten_context(paragraph["original"], 260),
                 "translation": shorten_context(paragraph["translation"], 220),
-                "paragraph": str(paragraph["number"]),
+                "paragraph": str(paragraph_index),
             }
     return {}
 
@@ -1886,6 +2121,27 @@ def recover_english_split_by_translation(value: str) -> str:
         ),
         "",
     )
+    # A page may end after an article or preposition and resume with only a
+    # two-word predicate complement before the vocabulary begins, for example
+    # "relies on America as an" -> "indispensable protector.". The normal
+    # continuation guard deliberately requires a longer fragment, so handle
+    # this tightly constrained short form separately.
+    if not continuation and re.search(
+        r"\b(?:a|an|the|as|of|to|and|or|but|with|for|from|in|on|at|by)\s*$",
+        first,
+        re.I,
+    ):
+        continuation = next(
+            (
+                re.sub(r"\s+", " ", match.group(1)).strip()
+                for match in re.finditer(
+                    r"(?<![A-Za-z])([a-z][A-Za-z’'\-\s]{7,80}[.!?][\"”’']?)",
+                    tail,
+                )
+                if len(match.group(1).split()) >= 2
+            ),
+            "",
+        )
     return f"{first} {continuation}".strip() if continuation else first
 
 
@@ -1893,6 +2149,7 @@ def clean_original_paragraph(value: str) -> str:
     """Remove PDF extraction leftovers from the English paragraph body."""
     value = re.sub(r"([.!?][\"”’']?)\s+[A-Z][A-Z0-9.-]{1,12}=.*$", r"\1", value).strip()
     value = re.sub(r"\s+[A-Z][A-Z0-9.-]{1,12}=$", "", value).strip()
+    value = re.sub(r"\s*[“‘]\s*$", "", value).strip()
     return value
 
 
@@ -1912,6 +2169,7 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
         vocab = VOCAB_PATTERN.search(english_source)
         vocab_heading = VOCAB_HEADING_PATTERN.search(english_source)
         bare_vocab_heading = VOCAB_BARE_HEADING_PATTERN.search(english_source)
+        pos_no_phonetic_vocab_heading = VOCAB_POS_NO_PHONETIC_PATTERN.search(english_source)
         phonetic_vocab_heading = VOCAB_PHONETIC_HEADING_PATTERN.search(english_source)
         numbered_vocab_heading = VOCAB_NUMBERED_HEADING_PATTERN.search(english_source)
         no_pos_phrase_vocab_heading = VOCAB_NO_POS_PHRASE_PATTERN.search(english_source)
@@ -1922,6 +2180,7 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
                 vocab,
                 vocab_heading,
                 bare_vocab_heading,
+                pos_no_phonetic_vocab_heading,
                 phonetic_vocab_heading,
                 no_pos_phrase_vocab_heading,
                 land_a_blow_heading,
@@ -2469,10 +2728,10 @@ def daily_html(article: Article, all_articles: list[Article], config: dict) -> s
         introduction_html = ""
     seen_terms: set[str] = set()
     paragraph_rows: list[str] = []
-    for paragraph in article.paragraphs:
+    for paragraph_index, paragraph in enumerate(article.paragraphs, 1):
         paragraph_rows.append(f"""
-      <article class="parallel-row" id="para-{paragraph['number']}">
-        <div class="para-no">{int(paragraph['number']):02d}</div>
+      <article class="parallel-row" id="para-{paragraph_index}">
+        <div class="para-no">{paragraph_index:02d}</div>
         <div class="original"><div class="label">ORIGINAL</div><p>{annotate_original(paragraph['original'], article.vocabulary, seen_terms)}</p></div>
         <div class="translation"><div class="label">译文</div><p>{html.escape(paragraph['translation'])}</p></div>
       </article>""")
