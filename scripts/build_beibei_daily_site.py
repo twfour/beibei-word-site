@@ -21,7 +21,11 @@ SITE_CONFIG_PATH = OUTPUT_DIR / "site_config.json"
 CACHE_DIR = OUTPUT_DIR / ".beibei-cache" / "articles"
 ANALYSIS_HEADINGS = ("长难句分析", "中英文互译")
 POST_READING_HEADINGS = (*ANALYSIS_HEADINGS, "文章结构", "课后作业")
-POS_PATTERN = r"(?:n|v|adj|adv|phr|conj|exclamation)(?:\.,\s*(?:n|v|adj|adv|phr|conj|exclamation))*"
+POS_ATOM_PATTERN = r"(?:n|v|adj|adv|phr|conj|exclamation|abbr)"
+# Handouts use both "n., v." and "n. v." for words with several parts of
+# speech, so accept either separator before the final period supplied by each
+# vocabulary regex.
+POS_PATTERN = rf"{POS_ATOM_PATTERN}(?:\.(?:,\s*|\s+){POS_ATOM_PATTERN})*"
 
 
 @dataclass
@@ -1047,6 +1051,96 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "Musk believes AI may create so much wealth that money becomes less important. He says the federal government should provide universal high income, but critics note that he has not promised to fund it himself. The main question is whether Musk will turn these large ideas into real action."
         ),
     },
+    "20261023": {
+        "pet_index": "04",
+        "overview": (
+            "文章梳理欧洲多国近期接连爆发的抗议与骚乱，并追问这些事件是否意味着欧洲正在走向系统性危机。"
+            "开头从意大利米兰的暴力冲突、葡萄牙里斯本的抗议帐篷营地和阿尔巴尼亚学生示威写起，说明住房、学费和生活成本压力正在把不满推向街头。"
+            "文章随后回溯西班牙与法国的抗议根源：西班牙房租飙升和驱逐悲剧使住房问题进入大选议程；法国的校园矛盾则逐渐演变为反对不平等的全国性运动。"
+            "这些抗议虽发生在不同国家，却共享相似背景——经济增长疲弱、青年机会减少、公共服务承压，而政府往往用移民管控等简单方案回避更难的结构改革。"
+            "文章认为，目前的局势更像经济停滞发出的警报，而不是欧洲即将崩溃或发生革命的证据。多数抗议者希望改善生活，而非推翻现有制度。"
+            "结尾提出，欧洲若想真正平息不满，需要恢复增长、升级产业与服务业、改善教育，并认真处理人工智能治理和公共安全等新问题。"
+        ),
+        "pet": (
+            "The article is about protests in several European countries. In Milan, demonstrations became violent. In Lisbon, protesters built a camp of tents. Students in Albania also protested, and the police used rubber bullets. Housing costs, university fees and the high cost of living are important causes. "
+            "The article then looks at Spain and France. In Spain, rapidly rising rents and the eviction of families have made housing a major political issue. In France, problems that began on university campuses grew into a wider movement against inequality. "
+            "Although the protests are different, they share some causes. Europe has weak economic growth, young people have fewer opportunities and public services are under pressure. Governments sometimes focus on simple answers, such as stricter immigration controls, instead of difficult economic reforms. "
+            "The writer does not think Europe is close to a revolution or total collapse. Most protesters want better lives and fairer policies, not the end of the political system. However, the unrest is a warning that economic stagnation can become dangerous. "
+            "The main message is that European governments need practical reforms. They must create growth, improve education, support stronger industries and services, and deal seriously with AI governance and public safety."
+        ),
+    },
+    "20261024": {
+        "pet_index": "04",
+        "overview": (
+            "文章报道加拿大阿尔伯塔省一场带有分离主义色彩的公投失败，超过四分之三的选民选择留在加拿大，并分析这场政治操作为何反而强化了国家认同。"
+            "文章指出，省长 Danielle Smith 推动公投，很大程度上是为了安抚党内极端派并转移自身丑闻压力；但投票并没有提出可执行的独立方案，后来还被法院判定无效。"
+            "Smith 一方面宣称支持加拿大统一，另一方面又主动靠近特朗普政府，希望从美国获得政治与经济好处，使联邦派和分离派都怀疑她的真实立场。"
+            "文章认为，美国政府把阿尔伯塔的分裂情绪当作介入加拿大内政、削弱加拿大主权的工具，但压倒性的留加结果表明这种策略未能获得民意支持。"
+            "后半部分把事件放进民粹政治的常见套路中：地方领导人把治理失败归咎于联邦政府，通过制造怨恨凝聚选票，却很少提出真正可行的政策。"
+            "结尾认为，加拿大此次躲过分裂风险，国家主权与团结共识反而得到巩固，也更有条件继续推进相对独立于美国的路线。"
+        ),
+        "pet": (
+            "The article is about a referendum in Alberta, Canada. More than three quarters of voters chose to stay in Canada. The result was a clear defeat for the separatist movement and reduced fears that the country could break apart. "
+            "Alberta’s premier, Danielle Smith, supported the referendum partly to calm the more extreme members of her party and to move attention away from political scandals. However, the vote did not offer a clear or practical plan for independence. A court later ruled that it was invalid. "
+            "Smith says she supports Canadian unity, but she has also tried to build a close relationship with Donald Trump’s government. This has made both sides suspicious of her. Separatists see her as too loyal to Canada, while federalists think she has encouraged a dangerous movement for her own benefit. "
+            "The article says the United States tried to use Alberta’s anger as a way to influence Canada. But the strong vote to remain showed that most people did not support this plan. "
+            "The main message is that populist leaders often blame the federal government for local problems. In this case, the tactic failed. Canada’s sense of unity and sovereignty became stronger after the referendum."
+        ),
+    },
+    "20261026": {
+        "pet_index": "04",
+        "overview": (
+            "文章由两部分组成，讨论西方奢侈品牌在中国市场增长放缓之际，中国本土高端品牌和全球中端服饰品牌如何抢走消费者。"
+            "第一部分以老铺黄金等品牌为例：当欧洲奢侈品集团在华收入下滑时，本土高端品牌依靠文化审美、产品创新和更贴近中国消费者的定位逆势增长，销量和毛利率表现亮眼。"
+            "不过投资者仍担心这股热潮只是短期风口，因为中国品牌尚未建立与欧洲百年奢侈品牌相当的全球影响力，改变国际消费者审美也需要很长时间。"
+            "文章用欧洲汽车企业在中国市场的衰落提醒奢侈品巨头：即使全球品牌优势深厚，也不能忽视本土竞争者的快速升级。"
+            "第二部分转向优衣库、Zara、Gap 等中端品牌。奢侈品牌持续涨价，把许多消费者推向价格更合理、品质和设计不断提升的中端产品；联名设计师策略又帮助中端品牌提高调性、售价和毛利率。"
+            "奢侈品牌却陷入两难：降价会损害稀缺感和品牌价值，不降价又难以挽回流失顾客。文章结尾指出，消费者正逐渐不再把高价标签等同于精英身份，市场规则因此被重新书写。"
+        ),
+        "pet": (
+            "The article is about changes in the fashion and luxury market. Western luxury companies are earning less money in China, while some Chinese premium brands are growing quickly. Laopu Gold is one example. It combines traditional Chinese design with modern luxury and has achieved strong sales and profit margins. "
+            "However, investors are not sure that this success will last. Chinese luxury brands still have less global influence than famous European companies. Building an international image and changing people’s ideas about beauty can take many years. Still, the fall of European car companies in China shows that old global leaders should not ignore fast local competitors. "
+            "The second part of the article looks at middle-market clothing brands such as Uniqlo, Zara and Gap. Luxury companies have raised prices again and again, so many customers are looking for cheaper choices. Middle-market brands now offer better quality and design than before. "
+            "These companies also work with famous designers. Such partnerships improve their image and allow them to charge more while keeping prices below luxury levels. Luxury brands cannot easily lower their prices because discounts could damage their special image. "
+            "The main message is that high prices no longer automatically show high status. Chinese brands and stronger middle-market companies are changing the rules of the fashion business."
+        ),
+    },
+    "20261027": {
+        "pet_index": "04",
+        "overview": (
+            "文章报道巴西总统大选中卢拉以微弱优势击败小博索纳罗，并分析这场胜利对巴西民主、美国在拉美的布局以及卢拉未来执政意味着什么。"
+            "卢拉获得约 51.75% 选票，小博索纳罗获得约 48.25%；卢拉称选民战胜了谎言和否定主义，而败选方拒绝承认结果并申请废除选举。"
+            "小博索纳罗主张释放父亲、赦免其支持者并限制最高法院权力，但许多选民仍记得老博索纳罗执政时期的政治动荡、疫情伤亡和环境破坏。"
+            "文章也讨论特朗普政府的介入：美国希望建立拉美右翼同盟，并通过关税和制裁向巴西施压，但卢拉胜选使这一地缘政治计划受挫。"
+            "卢拉虽然得到女性和低收入选民支持，仍要面对生活成本高企、经济治理和兑现福利承诺等难题；竞选期间双方还围绕女性权益、重刑政策和社交平台算法展开激烈交锋。"
+            "结尾回顾卢拉从贫困家庭、工会领袖到总统的经历，以及入狱、罪名撤销和重新掌权的政治起落，说明他的胜利既是个人逆转，也是巴西对右翼民粹路线的一次拒绝。"
+        ),
+        "pet": (
+            "The article is about Brazil’s presidential election. Lula won a fourth term with about 51.75 percent of the vote. Flávio Bolsonaro received about 48.25 percent. Lula said voters had defeated lies and denial, but Bolsonaro refused to accept the result and asked for the election to be cancelled. "
+            "Bolsonaro promised to free his father, pardon his supporters and reduce the power of the Supreme Court. Many voters, however, remembered the political disorder, deaths during the pandemic and environmental damage under his father’s government. "
+            "The election was also important for the United States. Donald Trump wanted to build a group of right-wing governments in Latin America. His government used tariffs and sanctions to put pressure on Brazil. Lula’s victory weakened this plan. "
+            "Lula received strong support from women and poorer voters, but he still faces difficult problems. Employment has improved, yet the cost of living remains high. He must manage the economy and keep his promises about social benefits. The campaign also included arguments about women’s rights, crime policies and possible bias in social-media algorithms. "
+            "The article ends with Lula’s unusual life story. He grew up poor, became a union leader and later president. After prison and the cancellation of his convictions, he returned to power. His victory is both a personal comeback and a rejection of right-wing populism."
+        ),
+    },
+    "20261028": {
+        "pet_index": "04",
+        "overview": (
+            "文章报道委内瑞拉反对派领袖 María Corina Machado 结束流亡、戏剧性回国，并分析她的归来如何打乱特朗普政府与临时领导人 Delcy Rodríguez 之间的安排。"
+            "Machado 的回国具有强烈象征意义。她坚持 2024 年大选被马杜罗阵营窃取，要求恢复民选政府并尽快举行可信选举；此前的镇压、逮捕和流亡使反对派付出沉重代价。"
+            "但特朗普政府更看重短期稳定、石油控制和对加拉加斯的影响力，对立即推动民主选举态度谨慎，并与 Rodríguez 维持务实合作。"
+            "文章指出，美国可以把石油安排包装成政策成功，却无法因此解决委内瑞拉的贫困、制度崩坏和政治合法性问题；Machado 的现身迫使华盛顿更明确地选择支持谁。"
+            "与此同时，反对派人物 Dinorah Figuera 等人推动和解对话，试图在报复政治之外寻找过渡方案；流亡的候选人 Edmundo González 也可能回国，使权力竞争更加复杂。"
+            "结尾认为，Machado 归来不会立即改变政权，但会把选举、政治犯和民主合法性重新推到议程中心，委内瑞拉下一阶段的政治博弈因此更加难以预测。"
+        ),
+        "pet": (
+            "The article is about Venezuelan opposition leader María Corina Machado returning home after exile. Her return was dramatic and highly symbolic. She says the 2024 election was stolen and wants Venezuela to hold a free and believable election. Many opposition supporters have been arrested, forced into hiding or sent abroad. "
+            "Machado’s return creates a problem for Donald Trump. His government has built a practical relationship with interim leader Delcy Rodríguez. Washington wants stability, influence over Venezuelan oil and cooperation from the government in Caracas. It is less willing to push immediately for a new election. "
+            "The article says that control of oil can look like a policy success, but it does not solve Venezuela’s deeper problems. The country still faces poverty, weak institutions and a lack of political trust. Machado is forcing the United States to explain whether it supports short-term stability or democratic change. "
+            "Other opposition leaders are also active. Dinorah Figuera is discussing reconciliation and a peaceful transition. Edmundo González, who is living abroad, may also return. This means there could be several opposition figures competing to shape the future. "
+            "The main message is that Machado’s return will not change the government overnight. However, it puts elections, political prisoners and democratic legitimacy back at the centre of Venezuelan politics."
+        ),
+    },
 }
 
 
@@ -1108,6 +1202,12 @@ def load_site_config() -> dict:
 
 def clean_text(value: str) -> str:
     value = value.replace("\x00", " ")
+    # A 20261024 margin annotation prints "in·valid /.../" immediately
+    # before Para. 5. It is not the dictionary entry (which appears on the
+    # following page), and otherwise swallows the whole paragraph as a gloss.
+    value = re.sub(r"\\?\s*in·valid\s*/[^/]+/\s*(?=Para\.)", " ", value)
+    # A slash inside the headword otherwise looks like the start of phonetics.
+    value = value.replace("price-to-earnings (P/E)", "price-to-earnings ratio")
     value = re.sub(r"(?:-\s*)?\d+\s*-\s*视频号：贝贝外刊\s*公众号：一起贝英语", " ", value)
     value = re.sub(r"视频号：贝贝外刊\s*\d+\s*-\s*公众号：一起贝英语", " ", value)
     value = re.sub(r"(?<=[a-z])\s+\d{1,2}\s*-\s+(?=[a-z])", " ", value)
@@ -1147,52 +1247,79 @@ def cover_image_ref(date: str) -> str:
 
 
 VOCAB_PATTERN = re.compile(
-    r"\b([A-Za-z][A-Za-z’' /()-]{1,52}?)\s+"
+    r"\b([A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{1,52}?)\s+"
     rf"({POS_PATTERN})\.\s*/([^/]{{1,90}})/\s*"
-    r"(.*?)(?=\s+[A-Za-z][A-Za-z’' /()-]{1,52}?\s+"
-    rf"{POS_PATTERN}\.\s*/|\s+Para\.\s*\d+|"
+    r"(.*?)(?=\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{1,52}?\s+"
+    rf"{POS_PATTERN}\.\s*/|"
+    r"\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{1,80}?\s+"
+    rf"{POS_PATTERN}\.\s+(?=(?:\d+[.、]|to\b|at\b|if\b|not\b|used\b|the\b|a\b|an\b))|"
+    r"\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{0,52}?(?:sb|sth)\.\s+phr\.\s+|"
+    r"\s+[A-Za-z]{2,8}\.\s+abbr\.\s*/|"
+    r"\s+Para\.\s*\d+|"
     r"\s+长难句分析|\s+中英文互译|\s+文章结构|\s+课后作业|$)",
     re.S,
 )
 VOCAB_HEADING_PATTERN = re.compile(
-    r"\b[A-Za-z][A-Za-z’' /()-]{1,52}?(?:\s+\.\.\.\s+[A-Za-z][A-Za-z’' /()-]{0,24})?\s+"
+    r"\b[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{1,52}?(?:\s+\.\.\.\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{0,24})?\s+"
     rf"{POS_PATTERN}\.\s*/[^/]{{1,90}}/",
     re.S,
 )
+VOCAB_ABBR_PATTERN = re.compile(
+    r"\b([A-Za-z]{2,8})\.\s+(abbr)\.\s*/([^/]{1,90})/\s*"
+    r"(.*?)(?=\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{1,52}?\s+"
+    rf"{POS_PATTERN}\.\s*/|\s+Para\.\s*\d+|"
+    r"\s+长难句分析|\s+中英文互译|\s+文章结构|\s+课后作业|$)",
+    re.S,
+)
 VOCAB_BARE_HEADING_PATTERN = re.compile(
-    r"\b[A-Za-z][A-Za-z’' /()-]{1,80}?\s+"
-    rf"{POS_PATTERN}\.\s+(?=(?:\d+[.、]|to\b|if\b|If\b|Someone\b|A\b|An\b|The\b))",
+    r"\b[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{1,80}?\s+"
+    rf"{POS_PATTERN}\.\s+(?=(?:\d+[.、]|to\b|at\b|if\b|not\b|used\b|Someone\b|A\b|An\b|The\b|a\b|an\b|the\b))",
     re.S,
 )
 VOCAB_PHONETIC_HEADING_PATTERN = re.compile(
-    r"\b[A-Za-z][A-Za-z’' /()-]{1,80}?\s*/[^/]{1,90}/\s+(?=\d+[.、])",
+    r"\b[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{1,80}?\s*/[^/]{1,90}/\s+(?=\d+[.、])",
     re.S,
 )
 VOCAB_NUMBERED_HEADING_PATTERN = re.compile(
-    r"\b[A-Za-z][A-Za-z’' /()-]{1,80}?\s+(?=\d+[.、]\s+(?:during\b|to\b|when\b|if\b|If\b|A\b|An\b|The\b))",
+    r"\b[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{1,80}?\s+(?=\d+[.、]\s+(?:during\b|to\b|when\b|if\b|If\b|A\b|An\b|The\b))",
     re.S,
 )
 VOCAB_NO_POS_PATTERN = re.compile(
-    r"\b([A-Za-z][A-Za-z’' /()-]{1,52}?)\s*/([^/]{1,90})/\s*"
-    r"(.*?)(?=\s+[A-Za-z][A-Za-z’' /()-]{1,52}?\s+"
-    rf"{POS_PATTERN}\.\s*/|\s+[A-Za-z][A-Za-z’' /()-]{{1,80}}?\s*/[^/]{{1,90}}/\s+\d+[.、]|"
+    r"\b([A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{1,52}?)\s*/([^/]{1,90})/\s*"
+    r"(.*?)(?=\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{1,52}?\s+"
+    rf"{POS_PATTERN}\.\s*/|\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{{1,80}}?\s*/[^/]{{1,90}}/\s+\d+[.、]|"
     r"\s+Para\.\s*\d+|\s+长难句分析|\s+中英文互译|\s+文章结构|\s+课后作业|$)",
     re.S,
 )
 VOCAB_POS_NO_PHONETIC_PATTERN = re.compile(
-    r"\b([A-Za-z][A-Za-z’' /()-]{1,80}?)\s+"
+    r"\b([A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{1,80}?)\s+"
     rf"({POS_PATTERN})\.\s+"
-    r"(.*?)(?=\s+[A-Za-z][A-Za-z’' /()-]{1,52}?\s+"
-    rf"{POS_PATTERN}\.\s*/|\s+[A-Za-z][A-Za-z’' /()-]{{1,80}}?\s+{POS_PATTERN}\.\s+"
-    r"|\s+[A-Za-z][A-Za-z’' /()-]{1,80}?\s*/[^/]{1,90}/\s+\d+[.、]|"
+    r"(.*?)(?=\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{1,52}?\s+"
+    rf"{POS_PATTERN}\.\s*/|\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{{1,80}}?\s+{POS_PATTERN}\.\s+"
+    r"|\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{0,52}?(?:sb|sth)\.\s+phr\.\s+"
+    r"|\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{1,80}?\s*/[^/]{1,90}/\s+\d+[.、]|"
     r"\s+Para\.\s*\d+|\s+长难句分析|\s+中英文互译|\s+文章结构|\s+课后作业|$)",
     re.S,
 )
+VOCAB_DOTTED_PLACEHOLDER_PATTERN = re.compile(
+    r"\b([A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{0,52}?(?:sb|sth))\.\s+"
+    r"(phr)\.\s+"
+    r"(.*?)(?=\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{1,52}?\s+"
+    rf"{POS_PATTERN}\.\s*/|\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{{1,80}}?\s+{POS_PATTERN}\.\s+"
+    r"|\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{0,52}?(?:sb|sth)\.\s+phr\.\s+"
+    r"|\s+Para\.\s*\d+|\s+长难句分析|\s+中英文互译|\s+文章结构|\s+课后作业|$)",
+    re.S,
+)
 VOCAB_NO_POS_PHRASE_PATTERN = re.compile(
-    r"\b([A-Za-z][A-Za-z’' /()-]{0,52}?(?:sb|sth|one’s|one's)[A-Za-z’' /()-]{0,52}?)\s+"
-    r"(\d+[.、].*?)(?=\s+[A-Za-z][A-Za-z’' /()-]{1,52}?\s+"
-    rf"{POS_PATTERN}\.\s*/|\s+[A-Za-z][A-Za-z’' /()-]{{1,80}}?\s*/[^/]{{1,90}}/\s+\d+[.、]|"
+    r"\b([A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{0,52}?(?:sb|sth|one’s|one's)[A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{0,52}?)\s+"
+    r"(\d+[.、].*?)(?=\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{1,52}?\s+"
+    rf"{POS_PATTERN}\.\s*/|\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{{1,80}}?\s*/[^/]{{1,90}}/\s+\d+[.、]|"
     r"\s+Para\.\s*\d+|\s+长难句分析|\s+中英文互译|\s+文章结构|\s+课后作业|$)",
+    re.S,
+)
+VOCAB_STH_PHRASE_HEADING_PATTERN = re.compile(
+    r"\b[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{0,52}?(?:sb|sth)\.\s+phr\.\s+"
+    r"(?=(?:to\b|if\b|If\b|Someone\b|A\b|An\b|The\b|a\b|an\b|the\b))",
     re.S,
 )
 
@@ -1235,6 +1362,26 @@ VOCAB_FALSE_POSITIVES = {
     "a golf",
     "a fascist",
     "the way that sb",
+    # 20261023-20261028: slash-separated collocation examples are part of the
+    # preceding dictionary card, not additional phonetic headwords.
+    "left-wing",
+    "to feel",
+    "an outright ban",
+    "an administrative job",
+    "a concerted approach",
+    "international",
+    "industrial",
+    "a cryptic message",
+    "to foil a plan",
+    "a decisive factor",
+    "to show sb",
+    "state",
+    "emotional",
+    "accusations of corruption",
+    "style sth",
+    "biased information",
+    "price-to-earnings (p",
+    "to flex your fingers",
 }
 
 
@@ -1654,6 +1801,72 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
         "definition_en": "to become involved in a difficult situation in order to help",
         "example": "If no agreement was reached, the army would step in. 如果无法达成协议，军方将会介入。",
     },
+    "amplify": {
+        "definition": "放大、增强（声音等）；阐发、充实（故事或陈述等）",
+        "definition_en": "to increase something in strength, especially sound; to add details to a story or statement",
+        "example": "You may need to amplify this point. 你可能需要对这一点进一步予以说明。",
+    },
+    "stretch": {
+        "definition": "足够购买或支付",
+        "definition_en": "to be enough to buy or pay for something",
+        "example": "I need a new car, but my savings won't stretch to it. 我需要一辆新车，但我的积蓄不够。",
+    },
+    "sideline": {
+        "definition": "使退出比赛；把……排除在核心之外、使靠边",
+        "definition_en": "to prevent someone from playing in a team or from having an important part in something",
+        "example": "The vice-president is increasingly being sidelined. 副总统被日益排挤到权力中心之外。",
+    },
+    "reconciliation": {
+        "definition": "调解；和解；协调；和谐一致",
+        "definition_en": "an end to a disagreement and the start of a good relationship again; the process of making different ideas compatible",
+        "example": "Their change of policy brought about a reconciliation with Britain. 他们的政策改变促成了与英国的和解。",
+    },
+    "bar": {
+        "definition": "封、堵；禁止、阻止（某人做某事）",
+        "definition_en": "to close something with bars; to ban or prevent someone from doing something",
+        "example": "The players are barred from drinking alcohol the night before a match. 运动员在参赛前夜不得喝酒。",
+    },
+    "price-to-earnings ratio": {
+        "term": "price-to-earnings (P/E)",
+        "definition": "市盈率；股价与每股收益之比",
+        "definition_en": "a ratio comparing a company's share price with its earnings per share",
+        "example": "The company's price-to-earnings ratio is much higher than the industry average. 这家公司的市盈率远高于行业平均水平。",
+    },
+    "buoy": {
+        "definition": "浮标；使振奋、使更有信心",
+        "definition_en": "a floating warning marker; to make someone feel more cheerful or confident",
+        "example": "In May they danced in the streets, buoyed by their victory. 五月，他们受到胜利鼓舞，在街上跳舞。",
+    },
+    "snowball": {
+        "definition": "雪球；像滚雪球般迅速增长",
+        "definition_en": "a ball of snow; to increase rapidly in size or importance",
+        "example": "From those early days the business has snowballed. 从创业初期起，这家企业便迅速发展壮大。",
+    },
+    "boil over": {
+        "definition": "煮溢；怒火爆发；恶化为更危险或暴力的局面",
+        "definition_en": "to flow over while boiling; to become very angry or develop into violence",
+        "example": "Racial tension finally boiled over in the inner-city riots. 种族紧张局势最终演变为市中心贫困区的骚乱。",
+    },
+    "landslide": {
+        "definition": "山体滑坡；一方以压倒性多数获胜的选举",
+        "definition_en": "a mass of earth or rock falling down a slope; an overwhelming election victory",
+        "example": "She was expected to win by a landslide. 预计她会以压倒性优势获胜。",
+    },
+    "portray": {
+        "definition": "描绘、描写；把……表现成某种形象",
+        "definition_en": "to show or describe someone or something in a particular way",
+        "example": "Throughout the trial, he portrayed himself as the victim. 整个审判期间，他一直把自己说成受害者。",
+    },
+    "brigade": {
+        "definition": "旅（陆军编制）；具有相同主张或特点的一群人",
+        "definition_en": "a large army unit; a group of people sharing similar opinions or qualities",
+        "example": "the anti-smoking brigade 反吸烟派",
+    },
+    "comeback": {
+        "definition": "复出；重返；再度走红",
+        "definition_en": "a return to an activity or to popularity after a period away",
+        "example": "an ageing pop star trying to stage a comeback 一位试图重返歌坛的年长流行歌星",
+    },
     "nickel": {
         "definition": "镍",
         "definition_en": "a silver-coloured metal used in making steel",
@@ -1897,7 +2110,9 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
     normalized = clean_text(lesson_body(text))
     items: list[dict[str, str]] = []
     seen: set[str] = set()
-    for match in VOCAB_PATTERN.finditer(normalized):
+    phonetic_matches = list(VOCAB_PATTERN.finditer(normalized))
+    phonetic_matches.extend(VOCAB_ABBR_PATTERN.finditer(normalized))
+    for match in phonetic_matches:
         term = re.sub(r"\s+", " ", match.group(1)).strip()
         key = term.lower()
         if key in seen or key in VOCAB_FALSE_POSITIVES or key.startswith(("page ", "para ")) or len(term) < 2:
@@ -1931,8 +2146,10 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
                 "the PDF paragraph translation may have crossed the vocabulary boundary"
             )
         items.append(item)
-    for match in VOCAB_POS_NO_PHONETIC_PATTERN.finditer(normalized):
-        term = re.sub(r"\s+", " ", match.group(1)).strip()
+    no_phonetic_matches = list(VOCAB_POS_NO_PHONETIC_PATTERN.finditer(normalized))
+    no_phonetic_matches.extend(VOCAB_DOTTED_PLACEHOLDER_PATTERN.finditer(normalized))
+    for match in no_phonetic_matches:
+        term = re.sub(r"\.$", "", re.sub(r"\s+", " ", match.group(1)).strip())
         key = term.lower()
         if key in seen or key in VOCAB_FALSE_POSITIVES or key.startswith(("page ", "para ")) or len(term) < 2:
             continue
@@ -2085,6 +2302,11 @@ def incomplete_english_fragment(value: str) -> bool:
     compact = re.sub(r"\s+", " ", value).strip()
     if not compact:
         return False
+    # Honorifics can land at the end of a PDF page (for example, "But Ms.").
+    # Their period is not the end of the sentence, so the continuation on the
+    # following page must still be recovered.
+    if re.search(r"\b(?:Mr|Mrs|Ms|Dr|Prof|St)\.$", compact):
+        return True
     if re.search(r"[.!?][\"”’']?$", compact):
         return False
     # A line that stops after a determiner or subordinator is too ambiguous:
@@ -2114,7 +2336,7 @@ def recover_english_split_by_translation(value: str) -> str:
         (
             re.sub(r"\s+", " ", match.group(1)).strip()
             for match in re.finditer(
-                r"(?<![A-Za-z])([a-z][A-Za-z0-9$%’'\"“”().,;:\-–—\s]{35,}[.!?][\"”’']?)",
+                r"(?<![A-Za-zÀ-ÖØ-öø-ÿ])([A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ0-9$%’'\"“”().,;:\-–—\s]{35,}[.!?][\"”’']?)",
                 tail,
             )
             if len(match.group(1).split()) >= 6
@@ -2173,6 +2395,7 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
         phonetic_vocab_heading = VOCAB_PHONETIC_HEADING_PATTERN.search(english_source)
         numbered_vocab_heading = VOCAB_NUMBERED_HEADING_PATTERN.search(english_source)
         no_pos_phrase_vocab_heading = VOCAB_NO_POS_PHRASE_PATTERN.search(english_source)
+        sth_phrase_vocab_heading = VOCAB_STH_PHRASE_HEADING_PATTERN.search(english_source)
         land_a_blow_heading = re.search(r"\bland a blow / punch, etc\.", english_source)
         cut_positions = [
             match.start()
@@ -2183,6 +2406,7 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
                 pos_no_phonetic_vocab_heading,
                 phonetic_vocab_heading,
                 no_pos_phrase_vocab_heading,
+                sth_phrase_vocab_heading,
                 land_a_blow_heading,
             )
             if match is not None
