@@ -1,8 +1,16 @@
 {
-  "generated_at": "2026-10-30T08:18:31+08:00",
-  "count": 13,
-  "average_score": 56.15,
+  "generated_at": "2026-10-31T07:05:03+08:00",
+  "count": 14,
+  "average_score": 56.21,
   "articles": [
+    {
+      "date": "2026-10-31",
+      "topic": "让牵念渡过十月之水",
+      "essay_title": "让牵念渡过十月之水",
+      "score": 57,
+      "chars": 972,
+      "path": "articles/2026-10-31.html"
+    },
     {
       "date": "2026-10-30",
       "topic": "与感伤小坐，然后出发",
