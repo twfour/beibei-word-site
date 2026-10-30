@@ -20,6 +20,16 @@ class Handler(BaseHTTPRequestHandler):
 
     def respond(self, send_body: bool) -> None:
         path = unquote(urlsplit(self.path).path)
+
+        # Writing Lab is published as static files on Aliyun at
+        # english.qinyibin.com/writing/. Keep it unavailable on Render even
+        # though both deployments share this repository.
+        if os.environ.get("RENDER") and (
+            path == "/writing" or path.startswith("/writing/")
+        ):
+            self.send_not_found(send_body)
+            return
+
         if path == "/api/health":
             self.send_bytes(
                 json.dumps({"ok": True, "service": "beibei-word-site"}).encode("utf-8"),
@@ -53,6 +63,9 @@ class Handler(BaseHTTPRequestHandler):
             self.send_file(candidate, content_type, send_body)
             return
 
+        self.send_not_found(send_body)
+
+    def send_not_found(self, send_body: bool) -> None:
         self.send_response(404)
         self.send_header("Content-Type", "text/plain; charset=utf-8")
         self.end_headers()

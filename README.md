@@ -14,6 +14,10 @@
 - Start command: `python3 -B server.py`
 - Health check: `/api/health`
 
+Render 仅承载贝贝外刊服务。`writing/` 不在 Render 发布：服务端会在
+Render 环境拒绝全部 `/writing` 请求。Writing Lab 以静态文件方式发布到
+阿里云，唯一公开入口为 `https://english.qinyibin.com/writing/`。
+
 ## 当前内容
 
 - 2026-06-11：马斯克、SpaceX IPO 与极端财富的政治影响
