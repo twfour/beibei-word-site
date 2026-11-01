@@ -218,7 +218,9 @@ function goToPage(index) {
     return;
   }
   const next = pages[targetIndex];
-  next.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+  tocLinks.forEach(link => link.classList.toggle("is-active", link.dataset.target === next.id));
+  book.scrollTo({ left: next.offsetLeft, behavior: "smooth" });
+  window.setTimeout(updateNavigation, 350);
 }
 
 tocLinks.forEach(link => link.addEventListener("click", () => {
