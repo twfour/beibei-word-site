@@ -17,6 +17,7 @@ button{font:inherit}
 .progress{height:4px;margin:auto 6px 2px;border-radius:99px;background:#e2d7c6;overflow:hidden}
 .progress span{display:block;width:9%;height:100%;background:var(--red);transition:width .2s ease}
 .book{min-width:0;min-height:0;display:grid;grid-auto-flow:column;grid-auto-columns:100%;gap:18px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-color:#a85d4b #dfd3c2;scrollbar-width:thin;padding-bottom:8px;outline:none}
+#letters{display:contents}
 .page{scroll-snap-align:start;scroll-snap-stop:always;height:100%;min-width:0;padding:30px 34px;overflow:auto;border:1px solid rgba(123,99,65,.22);border-radius:28px;background:rgba(255,253,247,.94);box-shadow:var(--shadow)}
 .page-kicker,.eyebrow{margin:0 0 14px;color:var(--red);font:800 10px/1.2 Inter,-apple-system,sans-serif;letter-spacing:.18em;text-transform:uppercase}
 .cover-page{position:relative;display:grid;place-items:center;overflow:hidden;background:linear-gradient(90deg,rgba(108,64,37,.08) 1px,transparent 1px),linear-gradient(rgba(108,64,37,.06) 1px,transparent 1px),var(--paper-light);background-size:36px 36px}
@@ -38,7 +39,7 @@ button{font:inherit}
 .reading-key span{padding:7px 12px;border:1px solid var(--line);border-radius:99px;color:var(--red-dark);font-size:13px;background:#fff9ef}
 .letter-page{display:flex;flex-direction:column;overflow:hidden}
 .letter-layout{min-height:0;flex:1;display:grid;grid-template-columns:minmax(0,1.18fr) minmax(300px,.82fr);gap:0;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:var(--paper-light)}
-.letter-original,.annotations{min-width:0;height:100%;overflow:auto;padding:28px clamp(24px,3vw,46px)}
+.letter-original,.annotations{min-width:0;min-height:0;height:100%;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;padding:28px clamp(24px,3vw,46px)}
 .letter-original{font-size:clamp(17px,1.38vw,22px);line-height:2.05}
 .letter-original p{margin:0 0 17px;text-indent:2em}
 .letter-original .address{margin-top:24px;font-weight:800;text-indent:0}
