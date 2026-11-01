@@ -1,0 +1,8 @@
+.supplement-controversy{margin:1.6rem 0;padding:1.15rem;border:1px solid rgba(116,44,36,.28);background:#fbf4e8}
+.supplement-controversy .controversy-kicker{margin:0 0 .2rem;color:#8c3b31;font:700 .68rem/1.2 system-ui,sans-serif;letter-spacing:.16em}
+.supplement-controversy h3{margin:.15rem 0 .55rem}.controversy-question{font-weight:700;color:#3d2924}
+.controversy-positions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin-top:.9rem}
+.controversy-positions article{padding:.9rem;background:rgba(255,255,255,.6);border-top:3px solid #9b5a48}
+.controversy-positions h4{margin:0 0 .45rem;font-size:.95rem;color:#742c24}.controversy-positions p{margin:.35rem 0}
+.controversy-basis{font-size:.9rem;color:#5f514b}.controversy-note{margin:1rem 0 0;padding:.8rem .9rem;background:#efe1c9}
+@media(max-width:720px){.controversy-positions{grid-template-columns:1fr}}
