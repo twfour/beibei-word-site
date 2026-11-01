@@ -8,7 +8,7 @@ PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 ARCHIVE="/tmp/chinese-history-${RELEASE_ID}.tar.gz"
 python3 -m json.tool "$PROJECT_ROOT/questions.json" >/dev/null
 node --check "$PROJECT_ROOT/app.js"
-tar --exclude deploy --exclude .DS_Store -czf "$ARCHIVE" -C "$PROJECT_ROOT" .
+tar --exclude deploy --exclude scripts --exclude .DS_Store -czf "$ARCHIVE" -C "$PROJECT_ROOT" .
 ssh -i "$SSH_KEY_FILE" -o BatchMode=yes "$SSH_TARGET" "mkdir -p '$APP_BASE/releases/$RELEASE_ID'"
 scp -i "$SSH_KEY_FILE" -o BatchMode=yes "$ARCHIVE" "$SSH_TARGET:/tmp/chinese-history-$RELEASE_ID.tar.gz"
 ssh -i "$SSH_KEY_FILE" -o BatchMode=yes "$SSH_TARGET" bash -s -- "$APP_BASE" "$RELEASE_ID" <<'REMOTE'
