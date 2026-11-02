@@ -1,8 +1,16 @@
 {
-  "generated_at": "2026-10-31T07:05:03+08:00",
-  "count": 14,
-  "average_score": 56.21,
+  "generated_at": "2026-11-02T14:16:16+08:00",
+  "count": 15,
+  "average_score": 56.27,
   "articles": [
+    {
+      "date": "2026-11-02",
+      "topic": "不把世界留在远景里",
+      "essay_title": "不把世界留在远景里",
+      "score": 57,
+      "chars": 973,
+      "path": "articles/2026-11-02.html"
+    },
     {
       "date": "2026-10-31",
       "topic": "让牵念渡过十月之水",
