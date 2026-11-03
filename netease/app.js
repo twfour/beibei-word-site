@@ -76,12 +76,15 @@ const output=document.querySelector('#output');
 const fileName=document.querySelector('#file-name');
 const hint=document.querySelector('#input-hint');
 const status=document.querySelector('#run-status');
+const runButton=document.querySelector('#run-code');
+const drafts=new Map();
 let active=challenges[0];
 
 function selectChallenge(item){
-  active=item; code.textContent=item.code; input.value=item.input;
+  if(active)drafts.set(active.id,code.value);
+  active=item; code.value=drafts.get(item.id)||item.code; input.value=item.input;
   fileName.textContent=item.file; hint.textContent=item.hint;
-  output.textContent='等待运行…'; status.textContent='READY';
+  output.textContent='等待运行…'; status.textContent='READY'; status.classList.remove('is-error');
   document.querySelectorAll('.challenge').forEach(btn=>btn.classList.toggle('active',btn.dataset.id===item.id));
 }
 challenges.forEach(item=>{
@@ -89,39 +92,38 @@ challenges.forEach(item=>{
   button.innerHTML=`<b>${item.title}</b>${item.tag}`; button.addEventListener('click',()=>selectChallenge(item)); list.append(button);
 });
 
-function numbers(raw){return raw.trim().split(/\s+/).filter(Boolean).map(Number)}
-function simulate(id,raw){
-  if(!raw.trim())throw new Error('请输入测试数据');
-  if(id==='char'){
-    const s=raw.trim().split(/\s+/)[0]; if(!/^[a-z]+$/.test(s))throw new Error('请输入纯小写字母字符串');
-    const count={}; for(const ch of s)count[ch]=(count[ch]||0)+1;
-    let best=-1,ans=''; for(const ch of s)if(count[ch]>=best){best=count[ch];ans=ch} return ans;
-  }
-  const a=numbers(raw); if(a.some(Number.isNaN))throw new Error('输入中含有非数字内容');
-  if(id==='score'){
-    const [n,m,...values]=a;if(values.length<n)throw new Error(`还缺 ${n-values.length} 个分数`);
-    const cnt=Array(Math.max(0,m)+1).fill(0);values.slice(0,n).forEach(x=>{if(x>=0&&x<=m)cnt[x]++});return cnt.join(' ');
-  }
-  if(id==='cover'){
-    const [n,...v]=a;if(v.length<n*2)throw new Error('区间端点数量不足');const seen=new Set();
-    for(let j=0;j<n;j++){let l=v[j*2],r=v[j*2+1];if(l>r)[l,r]=[r,l];for(let x=l;x<=r;x++)seen.add(x)}return String(seen.size);
-  }
-  if(id==='shop'){
-    const [m,n,...v]=a;if(v.length<n*2)throw new Error('商品数据数量不足');const best=Array(m+1).fill(0);
-    for(let j=0;j<n;j++){const k=v[j*2],p=v[j*2+1];if(k>=1&&k<=m&&(best[k]===0||best[k]>p))best[k]=p}return String(best.slice(1).reduce((x,y)=>x+y,0));
-  }
-  if(id==='odd'){
-    const [n,...v]=a;if(v.length<n)throw new Error(`还缺 ${n-v.length} 个整数`);return v.slice(0,n).filter(x=>x%2!==0).join(',');
-  }
-}
-
-document.querySelector('#run-code').addEventListener('click',()=>{
-  status.textContent='RUNNING'; output.textContent='';
-  setTimeout(()=>{try{output.textContent=simulate(active.id,input.value);status.textContent='SUCCESS'}catch(error){output.textContent=`输入错误：${error.message}`;status.textContent='ERROR'}},180);
+runButton.addEventListener('click',async()=>{
+  if(!code.value.trim()){output.textContent='请先输入 C++ 源代码。';status.textContent='ERROR';status.classList.add('is-error');return}
+  drafts.set(active.id,code.value); status.textContent='COMPILING'; status.classList.remove('is-error');
+  output.textContent='正在编译并运行…'; runButton.disabled=true;
+  const controller=new AbortController(); const timer=setTimeout(()=>controller.abort(),20000);
+  try{
+    const response=await fetch('https://wandbox.org/api/compile.json',{
+      method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,
+      body:JSON.stringify({compiler:'gcc-13.2.0',code:code.value,stdin:input.value,options:'warning,boost-nothing'})
+    });
+    if(!response.ok)throw new Error(`编译服务返回 ${response.status}`);
+    const result=await response.json();
+    const compileText=[result.compiler_output,result.compiler_error].filter(Boolean).join('\n').trim();
+    const runText=[result.program_output,result.program_error].filter(Boolean).join('\n').trim();
+    if(result.compiler_error){output.textContent=`编译错误：\n${compileText}`;status.textContent='COMPILE ERROR';status.classList.add('is-error')}
+    else if(result.status!=='0'){output.textContent=runText||result.program_message||`程序退出状态：${result.status}`;status.textContent='RUNTIME ERROR';status.classList.add('is-error')}
+    else{output.textContent=`${compileText?`编译提示：\n${compileText}\n\n`:''}${runText||'（程序运行成功，没有输出）'}`;status.textContent='SUCCESS'}
+  }catch(error){
+    output.textContent=error.name==='AbortError'?'编译超时，请检查代码是否存在死循环。':`暂时无法连接编译服务：${error.message}`;
+    status.textContent='ERROR'; status.classList.add('is-error');
+  }finally{clearTimeout(timer);runButton.disabled=false}
 });
 document.querySelector('#copy-code').addEventListener('click',async event=>{
-  try{await navigator.clipboard.writeText(active.code);event.currentTarget.textContent='已复制'}catch{event.currentTarget.textContent='复制失败'}
+  try{await navigator.clipboard.writeText(code.value);event.currentTarget.textContent='已复制'}catch{event.currentTarget.textContent='复制失败'}
   setTimeout(()=>event.currentTarget.textContent='复制代码',1200);
+});
+document.querySelector('#reset-code').addEventListener('click',()=>{
+  code.value=active.code;drafts.delete(active.id);output.textContent='已恢复示例代码，等待运行…';status.textContent='READY';status.classList.remove('is-error');code.focus();
+});
+code.addEventListener('keydown',event=>{
+  if(event.key!=='Tab')return;event.preventDefault();const start=code.selectionStart,end=code.selectionEnd;
+  code.setRangeText('    ',start,end,'end');
 });
 document.querySelectorAll('[data-code-tab]').forEach(button=>button.addEventListener('click',()=>{
   const tab=button.dataset.codeTab;document.querySelectorAll('[data-code-tab]').forEach(x=>x.classList.toggle('active',x===button));

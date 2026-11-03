@@ -124,15 +124,16 @@ for(int x : a){
       <div class="portal-shell">
         <aside id="challenge-list" aria-label="选择编程题"></aside>
         <div class="workspace">
-          <div class="workbar"><div><i></i><i></i><i></i><span id="file-name">score.cpp</span></div><button id="copy-code">复制代码</button></div>
-          <pre class="editor"><code id="portal-code"></code></pre>
+          <div class="workbar"><div><i></i><i></i><i></i><span id="file-name">score.cpp</span><em>GCC 13.2 · C++17</em></div><div class="editor-actions"><button id="reset-code">恢复示例</button><button id="copy-code">复制代码</button></div></div>
+          <label class="sr-only" for="portal-code">C++ 源代码编辑器</label>
+          <textarea class="editor" id="portal-code" spellcheck="false" aria-label="C++ 源代码编辑器"></textarea>
         </div>
         <div class="terminal">
           <label for="stdin">标准输入 / STDIN</label><textarea id="stdin" spellcheck="false"></textarea>
-          <button class="run" id="run-code"><span>▶</span> 运行模拟</button>
+          <button class="run" id="run-code"><span>▶</span> 编译并运行</button>
           <div class="output-head"><span>输出 / OUTPUT</span><span id="run-status">READY</span></div>
           <pre id="output" aria-live="polite">等待运行…</pre>
-          <p class="hint" id="input-hint"></p>
+          <p class="hint"><span id="input-hint"></span><br>源代码可直接修改；运行时由在线 GCC 沙箱编译，勿提交隐私信息。</p>
         </div>
       </div>
     </section>
