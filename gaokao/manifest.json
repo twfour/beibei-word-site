@@ -1,8 +1,16 @@
 {
-  "generated_at": "2026-11-02T14:16:16+08:00",
-  "count": 15,
-  "average_score": 56.27,
+  "generated_at": "2026-11-03T10:59:33+08:00",
+  "count": 16,
+  "average_score": 56.31,
   "articles": [
+    {
+      "date": "2026-11-03",
+      "topic": "让彼此成为可呼吸的海",
+      "essay_title": "让彼此成为可呼吸的海",
+      "score": 57,
+      "chars": 907,
+      "path": "articles/2026-11-03.html"
+    },
     {
       "date": "2026-11-02",
       "topic": "不把世界留在远景里",
