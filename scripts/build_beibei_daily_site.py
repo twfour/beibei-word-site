@@ -1141,6 +1141,96 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The main message is that Machado’s return will not change the government overnight. However, it puts elections, political prisoners and democratic legitimacy back at the centre of Venezuelan politics."
         ),
     },
+    "20261029": {
+        "pet_index": "04",
+        "overview": (
+            "文章以湖南益阳一场草根足球赛为切口，分析从“苏超”扩散至全国多省的城市业余联赛为何能同时点燃消费、地方认同和大众情绪。"
+            "比赛水平并不整齐，传球失误、射门打偏、回看耗时等问题随处可见，但球迷投入的真情远胜长期战绩不佳的国家队。2025 年春从江苏兴起后，类似赛事已在约 20 个省份出现。"
+            "在经济增长乏力和房地产低迷的背景下，地方政府把联赛视为经济催化剂。球场外的小吃、赠品、住宿和跨城观赛带动消费，也让千篇一律的城市文旅多了一种不可预测的戏剧性。"
+            "联赛更深的力量来自乡土认同。长期外出工作的人借家乡球队重新建立归属感；被省会光芒遮蔽的小城市，也可以通过比赛展示本地文化、好客形象和竞争心。"
+            "相较深受腐败与假球丑闻困扰的职业联赛，草根赛事显得纯粹。高中生上场、本地户籍、低价票和人脸识别防黄牛等规则，被用来保护业余和地方属性；它虽难直接提高国家队水平，却可能吸引更多青少年踢球。"
+            "文章最后提醒，赛事名为草根，实际多由官员自上而下组织。若排名变成政绩指标、城市开始砸钱招揽球员，或大品牌和资本逐步接管商业合作，这种轻松真实的魅力便可能被侵蚀。"
+        ),
+        "pet": (
+            "The article is about local amateur football leagues in China. It begins with a match in Yiyang, Hunan. The players were not highly skilled, but 26,000 fans cheered loudly and cared deeply about the result. These city-versus-city competitions began in Jiangsu in 2025 and have spread to many provinces. "
+            "Local governments see the leagues as a way to help the economy. Matches bring visitors who spend money on food, hotels and local products. In places affected by the property downturn, football has attracted people more successfully than night markets or concerts. Sport is also more exciting than similar tourist streets and attractions found in many cities. "
+            "The leagues create strong hometown pride. Many Chinese people have moved away for work, but they still feel connected to the places where they grew up. Supporting a local team gives them a way to express this identity. Smaller cities can also show their culture to visitors. "
+            "The amateur leagues seem cleaner than professional Chinese football, which has suffered from corruption and match-fixing. Rules keep tickets cheap and require players to have local connections. Some teams must also include high-school students. These matches may encourage more young people to play football. "
+            "However, there are risks. Officials organise most of the leagues, and cities may begin to treat results as a measure of government performance. Large companies are also becoming sponsors. The main question is whether local football can keep its friendly grassroots spirit as money and official pressure grow."
+        ),
+    },
+    "20261030": {
+        "pet_index": "04",
+        "overview": (
+            "文章讨论美联储在通胀仍高于目标时维持利率不变的决定，既解释其谨慎理由，也警告暂缓加息可能重演误判“暂时性通胀”的错误。"
+            "支持按兵不动的第一项理由是就业。加息会提高企业借贷成本，而美国新增岗位低于预期、数据还被下修，就业市场虽未恶化，却处于“低招聘、低裁员”的脆弱状态。"
+            "第二项理由来自市场：此前加息已推高国债收益率，金融条件本身正在收紧；市场也已高度押注利率不变，突然加息可能引发剧烈重新定价。临近中期选举、避免政治干预质疑，也是潜在考量。"
+            "反对者担心，美联储再次把能源上涨当作短暂供给冲击。疫情后同类判断曾令通胀失控，迫使央行后来连续大幅加息。如今房租、服务业和 AI 数据中心投资已把价格压力扩散到更多领域。"
+            "伊朗战争和俄乌局势还可能继续推高能源价格。货币政策传导存在滞后，如果央行等待过久，12 月可能不得不一次加息更多，给金融市场、住房和实体经济带来更大冲击。"
+            "结尾指出，2022 年激进加息曾重创股市和楼市，但美国侥幸躲过衰退。美联储眼下是在提前压制通胀与保护就业之间做艰难选择，而经济学家并不愿再次押注软着陆。"
+        ),
+        "pet": (
+            "The article is about the Federal Reserve’s decision to keep interest rates unchanged. Inflation is still above the Fed’s target, but the central bank wants to wait and see how the economy reacts to last month’s rate increase. Interest rates affect jobs, housing, markets and many other parts of the economy. "
+            "One reason for waiting is the labour market. America added fewer jobs than expected, and earlier figures were revised down. Unemployment is still low, but companies are hiring less. Higher rates would make borrowing more expensive and could reduce hiring further. "
+            "Markets are another reason. Government bond yields are already high, which slows the economy in a similar way to a rate increase. Investors also strongly expected the Fed to hold rates, so a surprise increase could have caused painful market changes. The coming election may also have influenced the timing. "
+            "However, waiting could be a mistake. After the pandemic, the Fed called inflation temporary and acted too slowly. It later had to raise rates very quickly. Today, higher energy costs are spreading into rent, services, electricity, construction and technology. Investment in AI data centres may also be overheating the economy. "
+            "The main message is that the Fed faces a difficult choice. Raising rates now could hurt jobs and markets, but waiting too long could force a much larger increase later. There is no safe option, and another soft landing is not guaranteed."
+        ),
+    },
+    "20261031": {
+        "pet_index": "04",
+        "overview": (
+            "文章以美国中期选举为背景，指出真正可能重塑选举版图的并非特朗普个人，而是迅速增长、立场流动的西裔和亚裔选民。"
+            "美国政治长期按种族、教育和地域固化，两党更愿煽动基本盘而非争取对方选民，导致妥协受罚、文化战争加剧。西裔和亚裔规模增长快、内部高度多元、意识形态较灵活，因而成为关键摇摆力量。"
+            "特朗普支持率低迷，关税、物价和对伊朗战争使选民不满，民主党不仅可能夺回众议院，也在堪萨斯、爱荷华和得克萨斯等传统红州获得机会。更多战场州将迫使两党真正竞争。"
+            "西裔和亚裔合计已占选民约 21%。他们在 2024 年明显右转，却又在 2025 年最快离开特朗普；食品、燃油、住房、创业和教育等务实经济问题，比抽象的党派忠诚更能影响其投票。"
+            "这些选民中的许多人是新移民或移民后代，观点尚未沿党派线完全固化。支持边境安全并不等于赞同严酷驱逐；认同某项左翼政策，也不代表接受整套文化议程。"
+            "文章认为，他们会迫使民主党提出可信的经济与移民方案，也迫使共和党放弃极端驱逐和排外民族主义。若选举更多由普通摇摆选民而非初选中的强硬党员决定，美国政治可能回归中间、繁荣与务实治理。"
+        ),
+        "pet": (
+            "The article is about the American midterm elections and the growing political power of Hispanic and Asian-American voters. Donald Trump is unpopular, and Democrats may win the House and possibly the Senate. But the writer says these two groups are more important for America’s future than one election result. "
+            "American politics has become very divided. Many voters always support the same party, so politicians focus on making their own supporters angry instead of solving problems. Hispanic and Asian voters are different because their numbers are growing and they are more willing to change parties. "
+            "In 2024 many of these voters moved to the right, but in 2025 they quickly turned against Trump. High food and fuel prices affected Hispanic families, while housing costs affected many Asian families. They also care about business, education and the chance to improve their lives. "
+            "Many are immigrants or children of immigrants. Their opinions do not fit neatly into one party. They may support a secure border but oppose frightening deportation policies. They are often moderate and care less about culture wars than about practical economic management. "
+            "The main message is that swing voters can improve American politics. Democrats must offer a strong economic and immigration plan, while Republicans should reject extreme deportations and anti-immigrant language. Both parties will have to compete for the political centre."
+        ),
+    },
+    "20261102": {
+        "pet_index": "04",
+        "overview": (
+            "文章检验特朗普第二任期的经济承诺，结论是美国总体增长尚可，但关税、能源、税收、福利和资产价格共同造成明显的贫富分化。"
+            "特朗普曾承诺创造就业、提高工资、降低生活成本并复兴工业。美国经济第三季度年化增速约 3%，白宫据此宣传“蓝领繁荣”，但许多原本要帮助的普通人反而承担更多成本。"
+            "全面关税和伊朗战争推高商品与油价，平均家庭一年可能多支出约 2100 美元。旗舰税收法案虽提高退税、创设儿童投资账户，却把最大减税利益给了富人，同时收紧食品券和 Medicaid。"
+            "测算显示，最贫穷十分之一家庭损失接近收入的 3%，最富十分之一却获益近 3%；中等收入家庭也净损失。医保补贴到期、按揭利率超过 7%、建材关税和移民收紧导致的劳工短缺，又进一步推高住房成本。"
+            "就业增长几乎集中在医疗、社会服务和 AI 数据中心，制造业岗位并未复兴，实际时薪下降，劳动收入占比跌至历史低位。AI 推动股市上涨，但新增股票财富近九成流向最富十分之一家庭。"
+            "民调显示近三分之二美国人认为特朗普政策令经济变差，农民等受油价和关税冲击的群体正在转向民主党。特朗普承诺共和党胜选后向成年人发放 5000 美元，却难以消除普通人被落下的感受。"
+        ),
+        "pet": (
+            "The article asks who has won and lost under Donald Trump’s economic policies. Trump promised better jobs, bigger pay and lower living costs. The economy is growing at about 3%, but the benefits have not been shared equally. "
+            "Tariffs have raised the prices of consumer goods, and the war with Iran has increased oil prices. Together, these changes may cost an average family more than $2,000 this year. Trump’s tax law gives some refunds and creates investment accounts for babies, but its largest tax benefits go to richer people. It also reduces access to food and health benefits. "
+            "The poorest households may lose almost 3% of their income, while the richest households gain nearly 3%. Middle-income families also lose money. Higher mortgage rates, expensive building materials and labour shortages have made housing less affordable, especially for first-time buyers. "
+            "Jobs have grown mainly in health care, social services and AI data centres. Manufacturing has lost jobs, and wages have not kept up with inflation. The stock market has risen because of AI, but most of the new wealth has gone to the richest ten percent of households. "
+            "The main message is that economic growth alone does not show who is doing well. Many voters believe Trump’s policies have made life worse. His new promise of a $5,000 payment may not convince people who feel left behind."
+        ),
+    },
+    "20261103": {
+        "pet_index": "04",
+        "overview": (
+            "文章指出，中美贸易战虽然暂时淡出头条、加征关税也因休战而降温，但供应链和技术领域正在酝酿一场规模更大的经济战争。"
+            "双方没有建立可约束新冲突的互信机制，反而都在为下一轮对抗争取优势，并把经济、科技和军事领先定义为国家安全核心。新的军备竞赛不只制造武器，更在于增强自身供应链韧性，同时准备限制甚至切断对手的关键投入。"
+            "美国从拜登时期的“小院高墙”出发，限制少数军民两用先进技术，后来出口、投资和技术转让管制不断扩张，已影响中国整体技术进步；特朗普广泛使用关税又进一步扩大冲突。"
+            "中国则利用关键矿产和稀土磁体的主导地位反制芯片与设备限制，并把部分出口管制用于其他外交争端。国际能源署估计，若美欧失去中国稀土磁体供应，每年经济损失可能约达 1.5 万亿美元。"
+            "美国正投资本土稀土开采加工，并继续封锁前沿芯片和制造设备；中国也限制 AI 芯片、太阳能等高科技出口，并警告试图降低对华依赖的国家。和平需要双方共同界定真正的国家安全风险，避免把普通商业摩擦军事化。"
+            "文章用二战前资源封锁与日本袭击珍珠港的历史警示，说明供应链“卡脖子”可能外溢成真实战争。贸易曾被视为以相互依存促进和平的工具，如今这种依存却被当作弱点和战场。"
+        ),
+        "pet": (
+            "The article is about the hidden economic war between China and the United States. The public trade war looks quieter because the two countries have extended a temporary truce. However, both sides are preparing for a much larger conflict over technology and supply chains. "
+            "The new arms race is not only about weapons. Each country wants stronger supply chains for itself and the power to limit important supplies to its rival. The United States first described its policy as a small yard of sensitive technology protected by a high fence. Its controls have since become much wider. "
+            "China has responded by using its strong position in critical minerals and rare-earth magnets. These materials are needed for civilian technology and military equipment. If China blocked American and European access to rare-earth magnets, the economic cost could reach about $1.5 trillion a year. "
+            "America is spending money on its own mines and processing plants while limiting China’s access to advanced chips and chip-making machines. China is also restricting exports of high technology and warning countries not to reduce their dependence on Chinese minerals. "
+            "The writer hopes both sides can agree on which risks are truly about national security. History shows that blocking access to raw materials can help cause real wars. The main message is that trade once created peaceful interdependence, but now both countries increasingly see interdependence as a dangerous weakness."
+        ),
+    },
 }
 
 
@@ -1208,6 +1298,9 @@ def clean_text(value: str) -> str:
     value = re.sub(r"\\?\s*in·valid\s*/[^/]+/\s*(?=Para\.)", " ", value)
     # A slash inside the headword otherwise looks like the start of phonetics.
     value = value.replace("price-to-earnings (P/E)", "price-to-earnings ratio")
+    # 20261031 contains a stray chart year between the end of paragraph 9 and
+    # the page break. It is not part of the article sentence.
+    value = re.sub(r"(?<=spend more time in education\.)\s+2020(?=年至)", " ", value)
     value = re.sub(r"(?:-\s*)?\d+\s*-\s*视频号：贝贝外刊\s*公众号：一起贝英语", " ", value)
     value = re.sub(r"视频号：贝贝外刊\s*\d+\s*-\s*公众号：一起贝英语", " ", value)
     value = re.sub(r"(?<=[a-z])\s+\d{1,2}\s*-\s+(?=[a-z])", " ", value)
@@ -1252,7 +1345,7 @@ VOCAB_PATTERN = re.compile(
     r"(.*?)(?=\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{1,52}?\s+"
     rf"{POS_PATTERN}\.\s*/|"
     r"\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{1,80}?\s+"
-    rf"{POS_PATTERN}\.\s+(?=(?:\d+[.、]|to\b|at\b|if\b|not\b|used\b|the\b|a\b|an\b))|"
+    rf"{POS_PATTERN}\.\s+(?=(?:\d+[.、]|to\b|at\b|for\b|if\b|not\b|used\b|the\b|a\b|an\b))|"
     r"\s+[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{0,52}?(?:sb|sth)\.\s+phr\.\s+|"
     r"\s+[A-Za-z]{2,8}\.\s+abbr\.\s*/|"
     r"\s+Para\.\s*\d+|"
@@ -1273,7 +1366,7 @@ VOCAB_ABBR_PATTERN = re.compile(
 )
 VOCAB_BARE_HEADING_PATTERN = re.compile(
     r"\b[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ’' /()-]{1,80}?\s+"
-    rf"{POS_PATTERN}\.\s+(?=(?:\d+[.、]|to\b|at\b|if\b|not\b|used\b|Someone\b|A\b|An\b|The\b|a\b|an\b|the\b))",
+    rf"{POS_PATTERN}\.\s+(?=(?:\d+[.、]|to\b|at\b|for\b|if\b|not\b|used\b|Someone\b|A\b|An\b|The\b|a\b|an\b|the\b))",
     re.S,
 )
 VOCAB_PHONETIC_HEADING_PATTERN = re.compile(
@@ -1382,6 +1475,19 @@ VOCAB_FALSE_POSITIVES = {
     "biased information",
     "price-to-earnings (p",
     "to flex your fingers",
+    # 20261029-20261102: slash-separated collocation examples belonging to a
+    # real card can otherwise be re-read as standalone no-POS headwords.
+    "a dangerous",
+    "a hard-fought battle",
+    "to boost",
+    "a downturn in sales",
+    "a homogeneous group",
+    "a football",
+    "a coherent narrative",
+    "a ferocious beast",
+    "to criticize sb",
+    "blue-collar workers",
+    "to apply for",
 }
 
 
@@ -1389,6 +1495,36 @@ VOCAB_FALSE_POSITIVES = {
 # and its dictionary definition. Keep small, source-verified corrections here
 # so the generated tooltip never mistakes that paragraph for the word meaning.
 VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
+    "put": {
+        "definition": "表达、表述（想法或话语）",
+        "definition_en": "to express an idea or remark in a particular way",
+        "example": "He admitted the security forces might have made some mistakes, as he put it. 如他所说的，他承认治安部队可能犯了一些错误。",
+    },
+    "wend": {
+        "definition": "缓慢地走；缓行",
+        "definition_en": "to walk in a particular direction, especially slowly, casually or carefully",
+        "example": "Sleepy-eyed commuters were wending their way to work. 睡眼朦胧的通勤者缓缓走去上班。",
+    },
+    "bash sth over the head": {
+        "definition": "用某物猛击某人的头部",
+        "definition_en": "to hit someone on the head with something using great force",
+        "example": "The attacker bashed him over the head with a metal bar. 袭击者用金属棍狠狠砸了他的头。",
+    },
+    "latino": {
+        "definition": "美籍拉丁美洲裔男性；拉丁美洲裔人士",
+        "definition_en": "an American whose family originally came from Latin America",
+        "example": "The city's office of Latino Affairs. 该市的拉美族裔事务办公室。",
+    },
+    "tilt": {
+        "definition": "（使）倾斜；使偏向某一方",
+        "definition_en": "to move into a sloping position; to make one side or opinion more likely to succeed",
+        "example": "Popular opinion has tilted in favour of the socialists. 公众舆论已倒向社会党人一边。",
+    },
+    "flagship": {
+        "definition": "旗舰；最重要的产品、服务或项目",
+        "definition_en": "the main ship in a fleet; the most important product, service or project of an organisation",
+        "example": "The company is opening a new flagship store in London. 这家公司将在伦敦开设一家新的旗舰店。",
+    },
     "contentment": {
         "definition": "满意；满足；知足感",
         "definition_en": "a feeling of happiness or satisfaction",
