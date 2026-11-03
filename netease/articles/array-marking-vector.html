@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数组标记与 vector 课堂代码精读：从桶计数、区间覆盖到动态数组。">
+  <title>数组标记与 vector · 课堂代码精读</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <header class="hero" id="top">
+    <nav class="nav">
+      <a class="brand" href="../">CODE / 编程周刊</a>
+      <div class="nav-links">
+        <a href="#map">知识地图</a><a href="#lessons">例题</a><a href="#templates">模板</a><a href="#practice">在线练习</a>
+      </div>
+    </nav>
+    <div class="hero-grid">
+      <div>
+        <p class="kicker">C++ FOUNDATION · ARRAYS &amp; VECTOR</p>
+        <h1>让下标<br>替你<span>记住</span></h1>
+      </div>
+      <div class="hero-note">
+        <p>数组标记与 <code>vector</code> 课堂代码详解</p>
+        <p>把“计数、覆盖、最值、筛选”拆成可迁移的解题动作。先看懂数据如何流动，再记住模板。</p>
+      </div>
+    </div>
+    <div class="stats"><span><b>05</b> 道例题</span><span><b>04</b> 类模板</span><span><b>01</b> 组在线练习</span></div>
+  </header>
+
+  <main>
+    <section class="section" id="map">
+      <div class="section-head"><span>01 / CONCEPT MAP</span><h2>先建立一张<br>解题地图</h2></div>
+      <div class="map-grid">
+        <article class="map-card accent"><span>数组下标</span><h3>表示“谁”</h3><p>分数、坐标、种类、字符都可以映射成下标。</p><code>cnt[t]++</code></article>
+        <article class="map-card"><span>数组元素</span><h3>记录“状态”</h3><p>出现几次、是否覆盖、当前最低价，都由元素值表达。</p><code>a[i] = 1</code></article>
+        <article class="map-card"><span>vector</span><h3>收集“结果”</h3><p>不知道会留下多少项时，让动态数组按需扩展。</p><code>a.push_back(t)</code></article>
+      </div>
+      <div class="formula"><span>统一心法</span><strong>现实对象</strong><i>→</i><strong>下标映射</strong><i>→</i><strong>更新状态</strong><i>→</i><strong>遍历答案</strong></div>
+    </section>
+
+    <section class="section lessons" id="lessons">
+      <div class="section-head"><span>02 / FIVE LESSONS</span><h2>五道题，四种<br>核心动作</h2></div>
+      <div class="lesson-list">
+        <article class="lesson" data-no="01"><div class="lesson-title"><span>桶计数</span><h3>分数统计</h3><p>把分数当作桶编号，桶里的数字就是人数。</p></div><div class="lesson-body"><pre><code>int cnt[1010] = {}, n, m, t;
+cin &gt;&gt; n &gt;&gt; m;
+for(int i = 1; i &lt;= n; i++){
+    cin &gt;&gt; t;
+    cnt[t]++;
+}
+for(int i = 0; i &lt;= m; i++)
+    cout &lt;&lt; cnt[i] &lt;&lt; " ";</code></pre><div class="notes"><p><b>关键</b><code>cnt[t]++</code>：用值作下标，对应计数加 1。</p><p><b>易错</b>数组必须 <code>= {}</code> 清零；输出要写 <code>i &lt;= m</code>，不能漏掉满分。</p></div></div></article>
+
+        <article class="lesson" data-no="02"><div class="lesson-title"><span>覆盖标记</span><h3>区间覆盖长度</h3><p>重叠位置只算一次，所以“标记为 1”，而不是反复累加。</p></div><div class="lesson-body"><pre><code>int n, l, r, a[10010] = {};
+cin &gt;&gt; n;
+while(n--){
+    cin &gt;&gt; l &gt;&gt; r;
+    for(int i = l; i &lt;= r; i++) a[i] = 1;
+}
+int cnt = 0;
+for(int i = 0; i &lt;= 10000; i++)
+    if(a[i] == 1) cnt++;</code></pre><div class="notes"><p><b>关键</b><code>a[i] = 1</code> 表示位置已经覆盖，多次覆盖状态仍是 1。</p><p><b>易错</b>不要直接相加各区间长度，否则重叠部分会被重复计算。</p></div></div></article>
+
+        <article class="lesson" data-no="03"><div class="lesson-title"><span>最小值追踪</span><h3>小杨的智慧购物</h3><p>每类文具只保留目前见过的最低价格。</p></div><div class="lesson-body"><pre><code>int a[100010] = {}, m, n;
+cin &gt;&gt; m &gt;&gt; n;
+for(int i = 1; i &lt;= n; i++){
+    int k, p; cin &gt;&gt; k &gt;&gt; p;
+    if(a[k] == 0 || a[k] &gt; p) a[k] = p;
+}
+int sum = 0;
+for(int i = 1; i &lt;= m; i++) sum += a[i];</code></pre><div class="notes"><p><b>关键</b><code>a[k] == 0</code> 处理第一次遇到；之后只接受更低价格。</p><p><b>易错</b>若只判断 <code>a[k] &gt; p</code>，初值 0 永远不会被正价格更新。</p></div></div></article>
+
+        <article class="lesson" data-no="04"><div class="lesson-title"><span>字符计数</span><h3>出现最多的字符</h3><p>字符也能映射成下标；相同次数时，保留最后出现者。</p></div><div class="lesson-body"><div class="code-tabs" role="tablist"><button class="active" data-code-tab="ascii">ASCII 下标</button><button data-code-tab="offset">字母偏移</button></div><pre data-code-panel="ascii"><code>int cnt[130] = {};
+for(int i = 0; i &lt; s.size(); i++)
+    cnt[s[i]]++;
+int maxn = -1e9; char res;
+for(int i = 0; i &lt; s.size(); i++){
+    if(cnt[s[i]] &gt;= maxn){
+        maxn = cnt[s[i]]; res = s[i];
+    }
+}</code></pre><pre data-code-panel="offset" hidden><code>int cnt[30] = {};
+for(char ch : s) cnt[ch - 'a']++;
+int maxx = 0; char ans;
+for(char ch : s){
+    if(cnt[ch - 'a'] &gt;= maxx){
+        maxx = cnt[ch - 'a']; ans = ch;
+    }
+}</code></pre><div class="notes"><p><b>关键</b><code>&gt;=</code> 让后遇到的同频字符覆盖前者；<code>&gt;</code> 则会保留第一个。</p><p><b>对比</b>ASCII 写法更通用；<code>ch-'a'</code> 只适合纯小写字母，但更省空间。</p></div></div></article>
+
+        <article class="lesson" data-no="05"><div class="lesson-title"><span>动态收集</span><h3>输出奇数</h3><p>边读边筛选，把需要的结果按原顺序放进 vector。</p></div><div class="lesson-body"><pre><code>vector&lt;int&gt; a;
+for(int i = 0; i &lt; n; i++){
+    cin &gt;&gt; t;
+    if(t % 2 != 0) a.push_back(t);
+}
+bool first = true;
+for(int x : a){
+    if(!first) cout &lt;&lt; ",";
+    cout &lt;&lt; x; first = false;
+}</code></pre><div class="notes"><p><b>关键</b><code>push_back</code> 动态追加；<code>first</code> 避免首尾多出逗号。</p><p><b>易错</b>判断奇数用 <code>t % 2 != 0</code>，才能正确包含负奇数。</p></div></div></article>
+      </div>
+    </section>
+
+    <section class="section vector" id="vector">
+      <div class="section-head"><span>03 / VECTOR BASICS</span><h2>动态数组的<br>一生</h2></div>
+      <div class="vector-flow">
+        <div><small>CREATE</small><code>vector&lt;int&gt; v;</code><p>空容器，size 为 0</p></div><b>→</b><div><small>GROW</small><code>v.push_back(10);</code><p>尾部添加，自动扩容</p></div><b>→</b><div><small>SHRINK</small><code>v.pop_back();</code><p>删除末项，非空时使用</p></div><b>→</b><div><small>RESET</small><code>v.clear();</code><p>清空元素，容量可能保留</p></div>
+      </div>
+      <div class="callout"><strong>三种初始化</strong><code>vector&lt;int&gt; v1;</code><code>vector&lt;int&gt; v2(5);</code><code>vector&lt;int&gt; v3(5, 8);</code><span>空 / 5 个 0 / 5 个 8</span></div>
+    </section>
+
+    <section class="section" id="templates">
+      <div class="section-head"><span>04 / PATTERN LIBRARY</span><h2>看见题型，<br>唤醒模板</h2></div>
+      <div class="template-grid">
+        <article><span>01</span><h3>桶计数</h3><code>cnt[value]++;</code><p>值域较小，要求频次统计。</p></article>
+        <article><span>02</span><h3>覆盖标记</h3><code>a[position] = 1;</code><p>只关心“是否出现/覆盖”。</p></article>
+        <article><span>03</span><h3>最值追踪</h3><code>best = min(best, x);</code><p>扫描过程中只保留当前最优。</p></article>
+        <article><span>04</span><h3>动态收集</h3><code>v.push_back(x);</code><p>结果数量未知，且需保留顺序。</p></article>
+      </div>
+    </section>
+
+    <section class="portal" id="practice">
+      <div class="portal-head"><div><span>05 / PRACTICE LAB</span><h2>在线练习</h2></div><p>选择课堂题目，修改输入，点击运行。这里用与讲义代码相同的逻辑在浏览器中模拟结果，适合验证思路与边界。</p></div>
+      <div class="portal-shell">
+        <aside id="challenge-list" aria-label="选择编程题"></aside>
+        <div class="workspace">
+          <div class="workbar"><div><i></i><i></i><i></i><span id="file-name">score.cpp</span></div><button id="copy-code">复制代码</button></div>
+          <pre class="editor"><code id="portal-code"></code></pre>
+        </div>
+        <div class="terminal">
+          <label for="stdin">标准输入 / STDIN</label><textarea id="stdin" spellcheck="false"></textarea>
+          <button class="run" id="run-code"><span>▶</span> 运行模拟</button>
+          <div class="output-head"><span>输出 / OUTPUT</span><span id="run-status">READY</span></div>
+          <pre id="output" aria-live="polite">等待运行…</pre>
+          <p class="hint" id="input-hint"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><a href="../">← 编程周刊</a><p>内容整理自《数组标记与 vector 课堂代码详解》· 13 页课堂讲义</p><a href="#top">回到顶部 ↑</a></footer>
+  <script src="../app.js"></script>
+</body>
+</html>

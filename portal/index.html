@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Qinyibin 学习项目入口：编程、物理、数学、科学、语文、历史、英语与诗歌。">
+  <meta name="theme-color" content="#f7f6f1">
+  <meta name="application-version" content="2026.11.03.1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Qinyibin">
+  <title>Qinyibin · 学习项目</title>
+  <link rel="manifest" href="/manifest.webmanifest?v=20261102-1">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=20261101-1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261103-1">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Qinyibin 首页">
+      <span class="brand-mark" aria-hidden="true">Q</span>
+      <span>Qinyibin</span>
+    </a>
+    <span class="header-note">学习项目</span>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <img class="intro-image" src="assets/study-desk.png" alt="书桌上的物理笔记、文学书籍与植物标本">
+      <div class="intro-shade" aria-hidden="true"></div>
+      <div class="intro-copy">
+        <p class="eyebrow">QINYIBIN PROJECT DIRECTORY</p>
+        <h1 id="page-title">把每一次好奇，<br>放进可以抵达的地方。</h1>
+        <p class="intro-summary" id="project-summary">8 个学习站点，持续整理中</p>
+      </div>
+    </section>
+
+    <section class="directory" aria-labelledby="directory-title">
+      <div class="directory-head">
+        <div>
+          <p class="section-kicker">全部项目</p>
+          <h2 id="directory-title">学习目录</h2>
+        </div>
+        <label class="search-box">
+          <span class="search-icon" aria-hidden="true"></span>
+          <span class="sr-only">搜索项目</span>
+          <input id="project-search" type="search" placeholder="搜索项目或学科" autocomplete="off">
+        </label>
+      </div>
+
+      <div class="filters" id="project-filters" role="group" aria-label="按学科筛选"></div>
+      <div class="project-grid" id="project-grid" aria-live="polite"></div>
+      <p class="empty-state" id="empty-state" hidden>没有找到匹配的项目。</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>Qinyibin Learning Projects</span>
+    <span id="footer-year"></span>
+  </footer>
+
+  <div class="update-status" id="update-status" role="status" aria-live="polite" hidden></div>
+  <script src="projects.js?v=20261103-1"></script>
+  <script src="app.js?v=20261103-1"></script>
+</body>
+</html>
