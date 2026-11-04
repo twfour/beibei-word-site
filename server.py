@@ -50,6 +50,10 @@ class Handler(BaseHTTPRequestHandler):
             self.send_file(ROOT / "check" / "index.html", "text/html; charset=utf-8", send_body)
             return
 
+        if path in {"/translation", "/translation/"}:
+            self.send_file(ROOT / "translation" / "index.html", "text/html; charset=utf-8", send_body)
+            return
+
         candidate = (ROOT / path.lstrip("/")).resolve()
         if ROOT in candidate.parents and candidate.is_file():
             content_type, _ = mimetypes.guess_type(candidate.name)

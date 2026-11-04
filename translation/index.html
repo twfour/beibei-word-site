@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f4ead7">
+  <title>中译英练习 · 贝贝外刊</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="practice-header">
+    <a class="back-link" href="../index.html">← 贝贝外刊</a>
+    <div class="header-title">
+      <span>TRANSLATION LAB</span>
+      <strong>中译英练习</strong>
+    </div>
+    <div class="header-progress" aria-label="练习进度">
+      <span id="progress-text">0 / 8</span>
+      <div class="progress-track"><i id="progress-bar"></i></div>
+    </div>
+  </header>
+
+  <main class="practice-shell">
+    <aside class="issue-panel">
+      <div>
+        <p class="issue-label">本期来源 · 2026.11.03</p>
+        <h1>表面休战，<br>暗地“卡脖子”</h1>
+        <p class="issue-summary">从贝贝外刊原文提取信息，改写为适合初一到 PET 衔接阶段的中译英练习。</p>
+      </div>
+      <div class="level-key" aria-label="难度说明">
+        <span><i class="dot dot-one"></i>基础</span>
+        <span><i class="dot dot-two"></i>进阶</span>
+        <span><i class="dot dot-three"></i>挑战</span>
+      </div>
+    </aside>
+
+    <section class="exercise-stage" aria-live="polite">
+      <article class="exercise-card" id="exercise-card">
+        <div class="card-topline">
+          <span id="question-number">QUESTION 01</span>
+          <span class="level-badge" id="level-badge">基础</span>
+        </div>
+
+        <div class="prompt-block">
+          <p class="small-label">请翻译</p>
+          <h2 id="chinese-prompt"></h2>
+        </div>
+
+        <label class="answer-label" for="student-answer">你的英文</label>
+        <textarea id="student-answer" rows="3" autocomplete="off" spellcheck="false" placeholder="在这里写下完整的英文句子……"></textarea>
+
+        <div class="action-row">
+          <button class="soft-button" id="hint-one" type="button">关键词提示</button>
+          <button class="soft-button" id="hint-two" type="button">句型提示</button>
+          <button class="answer-button" id="show-answer" type="button">核对答案</button>
+        </div>
+
+        <div class="reveal-area" id="reveal-area">
+          <div class="hint-box" id="hint-box" hidden></div>
+          <div class="answer-panel" id="answer-panel" hidden>
+            <div class="answer-section">
+              <p class="small-label">参考答案</p>
+              <p class="model-answer" id="model-answer"></p>
+            </div>
+            <div class="note-grid">
+              <div>
+                <p class="small-label">一句讲解</p>
+                <p id="answer-note"></p>
+              </div>
+              <div>
+                <p class="small-label">原文对应表达</p>
+                <p class="source-line" id="source-line"></p>
+              </div>
+            </div>
+            <div class="self-check" aria-label="自我评价">
+              <span>这题完成得怎么样？</span>
+              <button type="button" data-rating="again">再练一次</button>
+              <button type="button" data-rating="done">基本会了 ✓</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <nav class="exercise-nav" aria-label="题目导航">
+        <button id="previous" type="button">← 上一题</button>
+        <div class="question-dots" id="question-dots"></div>
+        <button id="next" type="button">下一题 →</button>
+      </nav>
+    </section>
+  </main>
+
+  <footer>
+    <span>内容依据贝贝外刊原文改编</span>
+    <button id="reset-progress" type="button">清除本套进度</button>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
