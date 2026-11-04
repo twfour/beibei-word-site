@@ -15,7 +15,7 @@
       <strong>中译英练习</strong>
     </div>
     <div class="header-progress" aria-label="练习进度">
-      <span id="progress-text">0 / 8</span>
+      <span id="progress-text">0 / 6</span>
       <div class="progress-track"><i id="progress-bar"></i></div>
     </div>
   </header>
@@ -25,60 +25,73 @@
       <div>
         <p class="issue-label">本期来源 · 2026.11.03</p>
         <h1>表面休战，<br>暗地“卡脖子”</h1>
-        <p class="issue-summary">从贝贝外刊原文提取信息，改写为适合初一到 PET 衔接阶段的中译英练习。</p>
+        <p class="issue-summary">用6句话顺着文章逻辑，先了解这篇文章讲了什么，再把这些意思写成英文。</p>
       </div>
-      <div class="level-key" aria-label="难度说明">
-        <span><i class="dot dot-one"></i>基础</span>
-        <span><i class="dot dot-two"></i>进阶</span>
-        <span><i class="dot dot-three"></i>挑战</span>
+      <div class="mode-switch" aria-label="学习模式">
+        <button class="active" type="button" data-mode="learn"><b>1</b><span>今天先学<small>中英文一起看</small></span></button>
+        <button type="button" data-mode="write"><b>2</b><span>复习默写<small>只看中文来写</small></span></button>
       </div>
     </aside>
 
     <section class="exercise-stage" aria-live="polite">
       <article class="exercise-card" id="exercise-card">
         <div class="card-topline">
-          <span id="question-number">QUESTION 01</span>
-          <span class="level-badge" id="level-badge">基础</span>
+          <span id="question-number">LEARN 01</span>
+          <span class="level-badge" id="level-badge">文章大意 1 / 6</span>
         </div>
 
         <div class="prompt-block">
-          <p class="small-label">请翻译</p>
+          <p class="small-label" id="prompt-label">先读懂中文</p>
           <h2 id="chinese-prompt"></h2>
         </div>
 
-        <label class="answer-label" for="student-answer">你的英文</label>
-        <textarea id="student-answer" rows="3" autocomplete="off" spellcheck="false" placeholder="在这里写下完整的英文句子……"></textarea>
+        <section class="study-panel" id="study-panel">
+          <div class="study-answer-wrap" id="study-answer-wrap">
+            <p class="small-label">对应英文</p>
+            <p class="study-answer" id="study-answer"></p>
+          </div>
+          <div class="phrase-strip"><span>今天记住</span><strong id="core-phrase"></strong><em id="phrase-meaning"></em></div>
+          <div class="study-actions">
+            <button class="soft-button" id="cover-answer" type="button">遮住英文试着说</button>
+            <button class="learned-button" id="mark-learned" type="button">我读了两遍，记住了 ✓</button>
+          </div>
+        </section>
 
-        <div class="action-row">
-          <button class="soft-button" id="hint-one" type="button">关键词提示</button>
-          <button class="soft-button" id="hint-two" type="button">句型提示</button>
-          <button class="answer-button" id="show-answer" type="button">核对答案</button>
-        </div>
+        <section class="write-panel" id="write-panel" hidden>
+          <label class="answer-label" for="student-answer">你的英文</label>
+          <textarea id="student-answer" rows="3" autocomplete="off" spellcheck="false" placeholder="在这里写下完整的英文句子……"></textarea>
 
-        <div class="reveal-area" id="reveal-area">
-          <div class="hint-box" id="hint-box" hidden></div>
-          <div class="answer-panel" id="answer-panel" hidden>
-            <div class="answer-section">
-              <p class="small-label">参考答案</p>
-              <p class="model-answer" id="model-answer"></p>
-            </div>
-            <div class="note-grid">
-              <div>
-                <p class="small-label">一句讲解</p>
-                <p id="answer-note"></p>
+          <div class="action-row">
+            <button class="soft-button" id="hint-one" type="button">关键词提示</button>
+            <button class="soft-button" id="hint-two" type="button">句子开头</button>
+            <button class="answer-button" id="show-answer" type="button">核对答案</button>
+          </div>
+
+          <div class="reveal-area" id="reveal-area">
+            <div class="hint-box" id="hint-box" hidden></div>
+            <div class="answer-panel" id="answer-panel" hidden>
+              <div class="answer-section">
+                <p class="small-label">参考答案</p>
+                <p class="model-answer" id="model-answer"></p>
               </div>
-              <div>
-                <p class="small-label">原文对应表达</p>
-                <p class="source-line" id="source-line"></p>
+              <div class="note-grid">
+                <div>
+                  <p class="small-label">一句讲解</p>
+                  <p id="answer-note"></p>
+                </div>
+                <div>
+                  <p class="small-label">外刊原文怎么说</p>
+                  <p class="source-line" id="source-line"></p>
+                </div>
               </div>
-            </div>
-            <div class="self-check" aria-label="自我评价">
-              <span>这题完成得怎么样？</span>
-              <button type="button" data-rating="again">再练一次</button>
-              <button type="button" data-rating="done">基本会了 ✓</button>
+              <div class="self-check" aria-label="自我评价">
+                <span>不要求一字不差，意思正确、句子完整就很好。</span>
+                <button type="button" data-rating="again">明天再练</button>
+                <button type="button" data-rating="done">这句会写了 ✓</button>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </article>
 
       <nav class="exercise-nav" aria-label="题目导航">

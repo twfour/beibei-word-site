@@ -1,91 +1,91 @@
 const exercises = [
   {
-    level: 1,
-    chinese: "特朗普的贸易战现在已经很少出现在新闻头条上。",
-    keywords: "贸易战 trade wars · 新闻头条 news headlines · 很少 rarely",
-    frame: "Trump's trade wars rarely ... now.",
-    answer: "Trump's trade wars rarely appear in the news headlines now.",
-    note: "频率副词 rarely 放在实义动词 appear 前面；这里用一般现在时描述当前状况。",
+    chinese: "中美贸易战表面上暂时平静下来了。",
+    answer: "The trade war between China and the US looks quieter now.",
+    core: "look quieter",
+    meaning: "看起来平静一些",
+    keywords: "贸易战 the trade war · 中美 between China and the US · 平静一些 quieter",
+    frame: "The trade war between ... looks ...",
+    note: "look 后面接形容词 quieter，表示“看起来更加平静”。",
     source: "Donald Trump's trade wars have largely fallen off the headlines."
   },
   {
-    level: 1,
-    chinese: "表面的平静可能会误导我们。",
-    keywords: "表面的平静 the calm on the surface · 误导 mislead",
-    frame: "The calm on the surface may ...",
-    answer: "The calm on the surface may mislead us.",
-    note: "情态动词 may 后使用动词原形 mislead；us 作动词的宾语。",
-    source: "The sense of calm is misleading."
+    chinese: "但是，两国正在围绕技术和供应链展开更大的竞争。",
+    answer: "However, both countries are competing over technology and supply chains.",
+    core: "compete over",
+    meaning: "围绕……展开竞争",
+    keywords: "但是 however · 两国 both countries · 技术 technology · 供应链 supply chains",
+    frame: "However, both countries are competing ...",
+    note: "compete over 表示“围绕某事展开竞争”；and 连接两个并列对象。",
+    source: "The world is marching toward an economic war of potentially epic proportions."
   },
   {
-    level: 1,
-    chinese: "中国和美国都在为下一轮竞争做准备。",
-    keywords: "两者都 both · 为……做准备 prepare for · 下一轮 the next round",
-    frame: "China and the United States are both ...",
-    answer: "China and the United States are both preparing for the next round of competition.",
-    note: "be preparing for 表示“正在为……做准备”；both 通常放在 be 动词之后。",
-    source: "They are both focused on gaining the upper hand in what seems like an inevitable next round."
+    chinese: "美国正在限制中国获得先进芯片和制造设备。",
+    answer: "The US is limiting China's access to advanced chips and machines.",
+    core: "limit access to",
+    meaning: "限制获得……的途径",
+    keywords: "限制 limit · 中国获得…… China's access to · 先进芯片 advanced chips · 设备 machines",
+    frame: "The US is limiting China's access to ...",
+    note: "access to 是固定搭配，to 后面直接接名词，不用动词原形。",
+    source: "It is doubling down on efforts to limit China's access to frontier semiconductors."
   },
   {
-    level: 2,
-    chinese: "两国都希望让自己的供应链更加安全。",
-    keywords: "两国 both countries · 供应链 supply chains · 更加安全 safer",
-    frame: "Both countries want to make ...",
-    answer: "Both countries want to make their own supply chains safer.",
-    note: "make + 宾语 + 形容词表示“使……变得……”，所以 safer 放在 supply chains 后。",
-    source: "China and the US are focusing on ensuring the resilience of the international supply chains on which they rely."
+    chinese: "中国正利用自己在关键矿产和稀土方面的优势作出回应。",
+    answer: "China is responding with its strength in critical minerals and rare earths.",
+    core: "respond with",
+    meaning: "用……作出回应",
+    keywords: "作出回应 respond · 优势 strength · 关键矿产 critical minerals · 稀土 rare earths",
+    frame: "China is responding with its strength in ...",
+    note: "respond with 表示“以某种方式或手段回应”；its 指 China 的。",
+    source: "China is leveraging its overwhelming dominance over the supply of critical minerals."
   },
   {
-    level: 2,
-    chinese: "稀土对许多高科技产品非常重要。",
-    keywords: "稀土 rare earths · 对……重要 be important for · 高科技产品 high-tech products",
-    frame: "Rare earths are ...",
-    answer: "Rare earths are very important for many high-tech products.",
-    note: "rare earths 在这里表示一类矿产，使用复数；high-tech 作复合形容词修饰 products。",
-    source: "Critical minerals ... are essential to high-tech industries for civilian and military uses."
+    chinese: "如果稀土供应中断，美国和欧洲可能损失很多钱。",
+    answer: "Without rare-earth supplies, the US and Europe could lose a lot of money.",
+    core: "without supplies",
+    meaning: "没有供应",
+    keywords: "没有 without · 稀土供应 rare-earth supplies · 可能 could · 损失很多钱 lose a lot of money",
+    frame: "Without rare-earth supplies, the US and Europe could ...",
+    note: "without 后接名词；could 在这里表示一种可能发生的结果。",
+    source: "It could cost their economies about $1.5tn per year."
   },
   {
-    level: 2,
-    chinese: "美国正在投资新的采矿和加工项目。",
-    keywords: "投资 invest in · 采矿 mining · 加工 processing · 项目 projects",
-    frame: "The United States is investing in ...",
-    answer: "The United States is investing in new mining and processing projects.",
-    note: "invest in 是固定搭配；mining 和 processing 在这里共同修饰 projects。",
-    source: "The Trump administration is pouring hundreds of millions into projects to mine and process rare earths."
-  },
-  {
-    level: 3,
-    chinese: "如果两国不能合作，经济冲突可能会变得更加严重。",
-    keywords: "如果 if · 合作 work together · 经济冲突 economic conflict · 严重 serious",
-    frame: "If the two countries cannot ..., the economic conflict may ...",
-    answer: "If the two countries cannot work together, the economic conflict may become more serious.",
-    note: "真实条件句中，if 从句用一般现在时，主句可使用 may 表示可能性。",
+    chinese: "作者希望两国能够合作，避免经济冲突变成真正的战争。",
+    answer: "The writer hopes the two countries can work together and avoid a real war.",
+    core: "work together",
+    meaning: "共同合作",
+    keywords: "作者 the writer · 希望 hope · 合作 work together · 避免 avoid · 真正的战争 a real war",
+    frame: "The writer hopes the two countries can ... and avoid ...",
+    note: "hope 后接完整句子；work together 和 avoid a real war 由 and 并列。",
     source: "One hopes there is a path to a peaceful entente."
-  },
-  {
-    level: 3,
-    chinese: "贸易曾经让各国相互依赖，但现在这种依赖有时被看作一种弱点。",
-    keywords: "曾经 once · 相互依赖 depend on one another · 被看作 be seen as · 弱点 weakness",
-    frame: "Trade once made countries ..., but now this dependence is sometimes ...",
-    answer: "Trade once made countries depend on one another, but now this dependence is sometimes seen as a weakness.",
-    note: "make 后接不带 to 的动词原形 depend；is seen as 是被动语态，表示“被看作”。",
-    source: "Trade, once the economic glue meant to promote peace through interdependence, is becoming the battlefield."
   }
 ];
 
-const storageKey = "beibei-translation-20261103-v1";
-const saved = JSON.parse(localStorage.getItem(storageKey) || "{}") || {};
+const storageKey = "beibei-translation-20261103-v2";
+let saved = {};
+try { saved = JSON.parse(localStorage.getItem(storageKey) || "{}") || {}; } catch (error) { saved = {}; }
 const state = {
   index: Math.min(Number(saved.index) || 0, exercises.length - 1),
+  mode: saved.mode === "write" ? "write" : "learn",
   answers: saved.answers || {},
+  learned: saved.learned || {},
   ratings: saved.ratings || {}
 };
 
 const elements = {
   card: document.querySelector("#exercise-card"),
   number: document.querySelector("#question-number"),
-  level: document.querySelector("#level-badge"),
+  badge: document.querySelector("#level-badge"),
+  promptLabel: document.querySelector("#prompt-label"),
   prompt: document.querySelector("#chinese-prompt"),
+  studyPanel: document.querySelector("#study-panel"),
+  studyAnswerWrap: document.querySelector("#study-answer-wrap"),
+  studyAnswer: document.querySelector("#study-answer"),
+  corePhrase: document.querySelector("#core-phrase"),
+  phraseMeaning: document.querySelector("#phrase-meaning"),
+  coverAnswer: document.querySelector("#cover-answer"),
+  markLearned: document.querySelector("#mark-learned"),
+  writePanel: document.querySelector("#write-panel"),
   input: document.querySelector("#student-answer"),
   hintOne: document.querySelector("#hint-one"),
   hintTwo: document.querySelector("#hint-two"),
@@ -100,7 +100,8 @@ const elements = {
   dots: document.querySelector("#question-dots"),
   progressText: document.querySelector("#progress-text"),
   progressBar: document.querySelector("#progress-bar"),
-  reset: document.querySelector("#reset-progress")
+  reset: document.querySelector("#reset-progress"),
+  modeButtons: [...document.querySelectorAll("[data-mode]")]
 };
 
 let hintLevel = 0;
@@ -110,12 +111,14 @@ function save() {
 }
 
 function completedCount() {
-  return Object.values(state.ratings).filter(value => value === "done").length;
+  const collection = state.mode === "learn" ? state.learned : state.ratings;
+  return exercises.filter((exercise, index) => state.mode === "learn" ? collection[index] : collection[index] === "done").length;
 }
 
 function updateProgress() {
   const complete = completedCount();
-  elements.progressText.textContent = `${complete} / ${exercises.length}`;
+  const action = state.mode === "learn" ? "已学" : "会写";
+  elements.progressText.textContent = `${action} ${complete} / ${exercises.length}`;
   elements.progressBar.style.width = `${complete / exercises.length * 100}%`;
 }
 
@@ -124,9 +127,10 @@ function buildDots() {
   exercises.forEach((exercise, index) => {
     const button = document.createElement("button");
     button.type = "button";
-    button.setAttribute("aria-label", `第 ${index + 1} 题`);
+    button.setAttribute("aria-label", `第 ${index + 1} 句`);
     if (index === state.index) button.classList.add("current");
-    if (state.ratings[index] === "done") button.classList.add("done");
+    const complete = state.mode === "learn" ? state.learned[index] : state.ratings[index] === "done";
+    if (complete) button.classList.add("done");
     button.addEventListener("click", () => goTo(index));
     elements.dots.append(button);
   });
@@ -144,15 +148,25 @@ function setHint(level) {
 
 function render() {
   const exercise = exercises[state.index];
+  const learning = state.mode === "learn";
   hintLevel = 0;
-  elements.number.textContent = `QUESTION ${String(state.index + 1).padStart(2, "0")}`;
-  elements.level.textContent = ["基础", "进阶", "挑战"][exercise.level - 1];
-  elements.level.className = `level-badge level-${exercise.level}`;
+  elements.number.textContent = `${learning ? "LEARN" : "WRITE"} ${String(state.index + 1).padStart(2, "0")}`;
+  elements.badge.textContent = `文章大意 ${state.index + 1} / ${exercises.length}`;
+  elements.promptLabel.textContent = learning ? "先读懂中文" : "只看中文，试着写";
   elements.prompt.textContent = exercise.chinese;
+  elements.studyAnswer.textContent = exercise.answer;
+  elements.corePhrase.textContent = exercise.core;
+  elements.phraseMeaning.textContent = exercise.meaning;
   elements.input.value = state.answers[state.index] || "";
   elements.modelAnswer.textContent = exercise.answer;
   elements.answerNote.textContent = exercise.note;
   elements.sourceLine.textContent = exercise.source;
+  elements.studyPanel.hidden = !learning;
+  elements.writePanel.hidden = learning;
+  elements.studyAnswerWrap.classList.remove("covered");
+  elements.coverAnswer.textContent = "遮住英文试着说";
+  elements.markLearned.textContent = state.learned[state.index] ? "这句已经学过 ✓" : "我读了两遍，记住了 ✓";
+  elements.markLearned.classList.toggle("is-learned", Boolean(state.learned[state.index]));
   elements.hintBox.hidden = true;
   elements.answerPanel.hidden = true;
   elements.showAnswer.textContent = "核对答案";
@@ -160,6 +174,7 @@ function render() {
   elements.hintTwo.setAttribute("aria-pressed", "false");
   elements.previous.disabled = state.index === 0;
   elements.next.disabled = state.index === exercises.length - 1;
+  elements.modeButtons.forEach(button => button.classList.toggle("active", button.dataset.mode === state.mode));
   document.querySelectorAll("[data-rating]").forEach(button => {
     button.classList.toggle("selected", state.ratings[state.index] === button.dataset.rating);
   });
@@ -169,12 +184,36 @@ function render() {
 }
 
 function goTo(index) {
-  state.answers[state.index] = elements.input.value.trim();
+  if (state.mode === "write") state.answers[state.index] = elements.input.value.trim();
   state.index = Math.max(0, Math.min(index, exercises.length - 1));
   save();
   render();
 }
 
+function setMode(mode) {
+  if (state.mode === "write") state.answers[state.index] = elements.input.value.trim();
+  state.mode = mode;
+  state.index = 0;
+  save();
+  render();
+}
+
+elements.modeButtons.forEach(button => button.addEventListener("click", () => setMode(button.dataset.mode)));
+elements.studyAnswerWrap.addEventListener("click", () => {
+  if (!elements.studyAnswerWrap.classList.contains("covered")) return;
+  elements.studyAnswerWrap.classList.remove("covered");
+  elements.coverAnswer.textContent = "遮住英文试着说";
+});
+elements.coverAnswer.addEventListener("click", () => {
+  const covered = elements.studyAnswerWrap.classList.toggle("covered");
+  elements.coverAnswer.textContent = covered ? "重新显示英文" : "遮住英文试着说";
+});
+elements.markLearned.addEventListener("click", () => {
+  state.learned[state.index] = true;
+  save();
+  if (state.index < exercises.length - 1) goTo(state.index + 1);
+  else render();
+});
 elements.input.addEventListener("input", () => {
   state.answers[state.index] = elements.input.value;
   save();
@@ -193,17 +232,17 @@ document.querySelectorAll("[data-rating]").forEach(button => {
   button.addEventListener("click", () => {
     state.ratings[state.index] = button.dataset.rating;
     save();
-    render();
-    if (button.dataset.rating === "done" && state.index < exercises.length - 1) {
-      window.setTimeout(() => goTo(state.index + 1), 180);
-    }
+    if (button.dataset.rating === "done" && state.index < exercises.length - 1) goTo(state.index + 1);
+    else render();
   });
 });
 
 elements.reset.addEventListener("click", () => {
-  if (!window.confirm("确定清除这套练习的答案和完成进度吗？")) return;
+  if (!window.confirm("确定清除这套练习的学习和默写进度吗？")) return;
   state.index = 0;
+  state.mode = "learn";
   state.answers = {};
+  state.learned = {};
   state.ratings = {};
   save();
   render();
