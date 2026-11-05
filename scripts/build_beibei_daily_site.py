@@ -1231,6 +1231,29 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The writer hopes both sides can agree on which risks are truly about national security. History shows that blocking access to raw materials can help cause real wars. The main message is that trade once created peaceful interdependence, but now both countries increasingly see interdependence as a dangerous weakness."
         ),
     },
+    "20261104": {
+        "pet_index": "04",
+        "background": (
+            "美国中期选举在总统四年任期的中点举行，选民会改选众议院全部席位以及参议院约三分之一席位。"
+            "它不直接决定总统去留，却会决定总统所属政党能否继续控制国会，进而影响立法、预算、调查和重要人事提名。"
+            "文章写于2026年中期选举投票前夕。当时，柴油价格和生活成本上涨，对伊朗战争造成新的社会与政治压力，特朗普支持率下降，多个原本倾向共和党的州也出现激烈竞争。"
+            "因此，这场选举不仅关乎民主党能否夺回众议院甚至参议院，还会提前重排两党2028年总统大选的内部竞争。"
+        ),
+        "overview": (
+            "文章以特朗普在电话竞选集会上意外掉线开篇，并借“失去连接”追问共和党是否也正在失去选民。生活成本上升、柴油价格创新高以及对伊朗战争带来的冲击，使部分选民对特朗普感到失望；他的最后一场竞选演讲又把大量时间用于介绍华盛顿改造工程，与选民最关心的问题相去甚远。"
+            "民调显示，民主党在多个竞争激烈的参议院选区领先。密歇根州民主党内出现倒戈事件，却反而刺激候选人埃尔-萨耶德的支持者团结和捐款。随着特朗普支持率下滑，民主党不仅希望夺回众议院，也开始设想拿下参议院，甚至在堪萨斯、得克萨斯等共和党传统优势州取得突破。"
+            "文章随后分析选举结果将从三个方面改变美国政治。第一，如果共和党失去国会控制权，特朗普会更快成为“跛脚鸭”。民主党控制众议院后可以发出传票、启动调查并限制他的立法和支出议程；若再控制参议院，还可以阻止最高法院提名。弹劾虽然可能被提出，但参议院三分之二定罪门槛几乎无法达到。特朗普仍可依靠行政权、外交和贸易权限以及总统否决权推进部分政策。"
+            "第二，民主党2028年总统候选人竞争将在中期选举结果揭晓后提前启动。哈里斯、布蒂吉格、纽森和奥卡西奥-科尔特斯等人已经为各地候选人助选；奥索夫和埃尔-萨耶德等关键候选人的表现，也会被不同派别当作判断哪条政治路线更有全国吸引力的依据。"
+            "第三，如果共和党选情不佳，党内可能围绕未来方向展开激烈追责。特朗普若在选后恢复对伊朗军事行动，还可能进一步激怒自己的基本盘。败选会削弱副总统JD·万斯作为特朗普接班人的地位，并给特德·克鲁兹等党外缘候选人创造机会。文章的核心观点是：这场中期选举的影响远不止席位增减，它将同时改变特朗普任期的结局和两党2028年的权力布局。"
+        ),
+        "pet": (
+            "The article looks at the 2026 US midterm elections. It begins with a small accident: Donald Trump lost his phone connection during a campaign event. The writer uses this moment to ask whether Trump and the Republican Party are also losing their connection with voters. Many people are unhappy about high living costs, record diesel prices and the effects of the war on Iran. "
+            "The Democrats believe they may win back the House of Representatives. If they have a very good night, they may also take the Senate. This once seemed unlikely because many important seats were in strong Republican areas. However, Trump’s approval rating has fallen, and the Democrats now have a chance in several states that usually support Republicans. "
+            "The results could change American politics in three main ways. First, Trump may become a weaker president if his party loses Congress. A Democratic House could investigate his government and limit his plans. A Democratic Senate could also block important appointments. Removing Trump through impeachment would still be very difficult. He would also keep strong executive powers in foreign policy and trade. "
+            "Second, the election will begin the Democrats’ race for 2028. Several possible future presidential candidates are already campaigning for other Democrats. The results in states such as Michigan and Georgia may show whether voters prefer a left-wing candidate or a more moderate one. "
+            "Finally, a Republican defeat could start a serious argument inside the party. It may weaken JD Vance’s position as Trump’s likely successor and create an opportunity for other candidates such as Ted Cruz. The article’s main point is that the midterms will do more than change seats in Congress. They may shape the end of Trump’s presidency and both parties’ plans for 2028."
+        ),
+    },
 }
 
 
@@ -1495,10 +1518,78 @@ VOCAB_FALSE_POSITIVES = {
 # and its dictionary definition. Keep small, source-verified corrections here
 # so the generated tooltip never mistakes that paragraph for the word meaning.
 VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
+    "at length": {
+        "definition": "长时间且详细地",
+        "definition_en": "for a long time and in detail",
+    },
+    "ballroom": {
+        "definition": "宴会厅；舞厅",
+        "definition_en": "a large room used for formal dances, dinners or social events",
+    },
+    "campaign": {
+        "definition": "开展竞选活动；为……助选",
+        "definition_en": "to take part in planned activities to win an election or support a candidate",
+    },
+    "dictate": {
+        "definition": "决定；支配",
+        "definition_en": "to control or decide how something develops",
+    },
+    "disillusion": {
+        "definition": "使理想破灭；使失望",
+        "definition_en": "to make someone lose a positive belief or become disappointed",
+    },
+    "flip": {
+        "definition": "使（席位）易主；翻转",
+        "definition_en": "to change a political seat from one party to another",
+    },
+    "haul": {
+        "definition": "（一次）获得的大量钱款或收获",
+        "definition_en": "a large amount of something collected or obtained at one time",
+    },
+    "intensify": {
+        "definition": "加剧；增强",
+        "definition_en": "to become or make something stronger",
+    },
+    "lean into": {
+        "definition": "充分利用；着力于",
+        "definition_en": "to make full use of something or give it more attention",
+    },
+    "nerve": {
+        "definition": "紧张情绪；焦虑",
+        "definition_en": "feelings of worry or anxiety",
+    },
     "put": {
         "definition": "表达、表述（想法或话语）",
         "definition_en": "to express an idea or remark in a particular way",
         "example": "He admitted the security forces might have made some mistakes, as he put it. 如他所说的，他承认治安部队可能犯了一些错误。",
+    },
+    "ripple": {
+        "definition": "扩散；产生连锁影响",
+        "definition_en": "to spread through a group or situation like a wave",
+    },
+    "rally": {
+        "definition": "（使）团结起来支持",
+        "definition_en": "to come together or bring people together in support",
+    },
+    "rhetoric": {
+        "definition": "言辞；说辞",
+        "definition_en": "language used to influence or persuade people",
+    },
+    "stronghold": {
+        "definition": "政党势力强大的地区；票仓",
+        "definition_en": "an area where a political party has very strong support",
+    },
+    "tsunami": {
+        "definition": "巨大的浪潮或冲击",
+        "definition_en": "a huge sea wave; a sudden and powerful increase or political wave",
+    },
+    "up for sth": {
+        "definition": "正参加竞选；被提名",
+        "definition_en": "being considered as a candidate or taking part in an election",
+    },
+    "engulf": {
+        "definition": "使陷入；吞没",
+        "definition_en": "to surround, cover or affect something very strongly",
     },
     "wend": {
         "definition": "缓慢地走；缓行",
@@ -2394,7 +2485,22 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
 
 def translation_candidates(segment: str) -> list[str]:
     candidates: list[tuple[int, str]] = []
-    for line in segment.splitlines():
+    source_lines: list[str] = []
+    for raw_line in segment.splitlines():
+        source_lines.append(raw_line)
+        # Some PDF pages collapse vocabulary, a Para. heading, the English
+        # paragraph and its Chinese translation into one physical text line.
+        # The normal line filter must reject that mixed line, but the Chinese
+        # translation is still recoverable as a double-space-delimited tail.
+        # Only admit tails that begin in Chinese so dictionary entries such as
+        # "term n. ... 中文释义" cannot become paragraph translations.
+        para = re.search(r"\bPara\.\s*\d+\b", raw_line)
+        if para:
+            for part in re.split(r"\s{2,}", raw_line[para.start():]):
+                part = part.strip()
+                if re.match(r"^[\u4e00-\u9fff]", part):
+                    source_lines.append(part)
+    for line in source_lines:
         line = clean_text(line)
         han_count = len(re.findall(r"[\u4e00-\u9fff]", line))
         if han_count < 35:
@@ -2619,6 +2725,15 @@ def vocabulary_aliases(term: str) -> set[str]:
     """
     normalized = re.sub(r"\s+", " ", term.strip())
     lower = normalized.lower()
+    contextual_aliases = {
+        # These common words appear earlier in unrelated senses. Match only
+        # the source usage taught by the handout so the first tooltip is not
+        # attached to a misleading context.
+        "campaign": {"campaign for", "campaigning"},
+        "put": {"put it"},
+    }
+    if lower in contextual_aliases:
+        return contextual_aliases[lower]
     aliases = {lower}
     if "-" in lower:
         aliases.add(lower.replace("-", ""))
@@ -2630,17 +2745,26 @@ def vocabulary_aliases(term: str) -> set[str]:
         "churn out": {"churns out", "churned out", "churning out"},
         "come to one's aid": {"come to my aid", "come to our aid", "come to his aid", "come to her aid", "come to their aid", "came to my aid", "came to our aid", "came to his aid", "came to her aid", "came to their aid"},
         "go to plan": {"goes to plan", "went to plan", "gone to plan"},
+        "drop off the line": {"drops off the line", "dropped off the line", "dropping off the line"},
         "graphics-processing unit": {"graphics-processing units", "graphics processing unit", "graphics processing units", "gpu", "gpus"},
         "irk": {"irks", "irked", "irking"},
         "make the best of": {"made the best of"},
+        "keep sth on track": {"keep trump’s agenda on track", "keep trump's agenda on track"},
+        "lean into": {"leans into", "leant into", "leaned into", "leaning into"},
         "overtake": {"overtook", "overtaken"},
         "pay the price": {"paid the price", "paying the price", "pays the price"},
+        "pitch sb as": {"pitch himself as", "pitch herself as", "pitch themselves as", "pitched himself as", "pitched herself as"},
         "pump up": {"pumps up", "pumped up", "pumping up"},
+        "rally": {"rallies", "rallied", "rallying"},
         "ratchet (sth) up": {"ratchet up", "ratchets up", "ratcheted up", "ratcheting up"},
         "smack of sth": {"smack of", "smacks of", "smacked of", "smacking of"},
         "speak up": {"speaks up", "spoke up", "spoken up", "speaking up"},
         "sweep": {"swept"},
         "take into account": {"takes into account", "took into account", "taken into account", "taking into account"},
+        "tune back in": {"tunes back in", "tuned back in", "tuning back in"},
+        "be set to do sth": {"is set to", "are set to", "was set to", "were set to"},
+        "subject to": {"subject trump’s administration to", "subject trump's administration to"},
+        "up for sth": {"is up for", "are up for", "was up for", "were up for"},
     }
     aliases.update(irregular_aliases.get(lower, set()))
     if " " in lower or "/" in lower or "..." in lower:
