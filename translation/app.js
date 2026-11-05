@@ -1,4 +1,4 @@
-const exercises = [
+const november4Exercises = [
   {
     chinese: "美国中期选举将影响未来几年的政治。",
     answer: "The US midterm elections will shape politics for the next few years.",
@@ -61,18 +61,117 @@ const exercises = [
   }
 ];
 
-const storageKey = "beibei-translation-20261104-v1";
-let saved = {};
-try { saved = JSON.parse(localStorage.getItem(storageKey) || "{}") || {}; } catch (error) { saved = {}; }
-const state = {
-  index: Math.min(Number(saved.index) || 0, exercises.length - 1),
-  mode: saved.mode === "write" ? "write" : "learn",
-  answers: saved.answers || {},
-  learned: saved.learned || {},
-  ratings: saved.ratings || {}
-};
+const november3Exercises = [
+  {
+    chinese: "中美贸易战表面上暂时平静下来了。",
+    answer: "The trade war between China and the US looks quieter now.",
+    core: "look quieter",
+    meaning: "看起来平静一些",
+    keywords: "贸易战 the trade war · 中美 between China and the US · 平静一些 quieter",
+    frame: "The trade war between ... looks ...",
+    note: "look 后面接形容词 quieter，表示“看起来更加平静”。",
+    source: "Donald Trump's trade wars have largely fallen off the headlines."
+  },
+  {
+    chinese: "但是，两国正在围绕技术和供应链展开更大的竞争。",
+    answer: "However, both countries are competing over technology and supply chains.",
+    core: "compete over",
+    meaning: "围绕……展开竞争",
+    keywords: "但是 however · 两国 both countries · 技术 technology · 供应链 supply chains",
+    frame: "However, both countries are competing ...",
+    note: "compete over 表示“围绕某事展开竞争”；and 连接两个并列对象。",
+    source: "The world is marching toward an economic war of potentially epic proportions."
+  },
+  {
+    chinese: "美国正在限制中国获得先进芯片和制造设备。",
+    answer: "The US is limiting China's access to advanced chips and machines.",
+    core: "limit access to",
+    meaning: "限制获得……的途径",
+    keywords: "限制 limit · 中国获得…… China's access to · 先进芯片 advanced chips · 设备 machines",
+    frame: "The US is limiting China's access to ...",
+    note: "access to 是固定搭配，to 后面直接接名词，不用动词原形。",
+    source: "It is doubling down on efforts to limit China's access to frontier semiconductors."
+  },
+  {
+    chinese: "中国正利用自己在关键矿产和稀土方面的优势作出回应。",
+    answer: "China is responding with its strength in critical minerals and rare earths.",
+    core: "respond with",
+    meaning: "用……作出回应",
+    keywords: "作出回应 respond · 优势 strength · 关键矿产 critical minerals · 稀土 rare earths",
+    frame: "China is responding with its strength in ...",
+    note: "respond with 表示“以某种方式或手段回应”；its 指 China 的。",
+    source: "China is leveraging its overwhelming dominance over the supply of critical minerals."
+  },
+  {
+    chinese: "如果稀土供应中断，美国和欧洲可能损失很多钱。",
+    answer: "Without rare-earth supplies, the US and Europe could lose a lot of money.",
+    core: "without supplies",
+    meaning: "没有供应",
+    keywords: "没有 without · 稀土供应 rare-earth supplies · 可能 could · 损失很多钱 lose a lot of money",
+    frame: "Without rare-earth supplies, the US and Europe could ...",
+    note: "without 后接名词；could 在这里表示一种可能发生的结果。",
+    source: "It could cost their economies about $1.5tn per year."
+  },
+  {
+    chinese: "作者希望两国能够合作，避免经济冲突变成真正的战争。",
+    answer: "The writer hopes the two countries can work together and avoid a real war.",
+    core: "work together",
+    meaning: "共同合作",
+    keywords: "作者 the writer · 希望 hope · 合作 work together · 避免 avoid · 真正的战争 a real war",
+    frame: "The writer hopes the two countries can ... and avoid ...",
+    note: "hope 后接完整句子；work together 和 avoid a real war 由 and 并列。",
+    source: "One hopes there is a path to a peaceful entente."
+  }
+];
+
+const issues = [
+  {
+    date: "20261104",
+    displayDate: "2026.11.04",
+    title: "中期选举，<br>三重影响",
+    optionTitle: "中期选举，三重影响",
+    summary: "用6句话顺着文章逻辑，先了解这篇文章讲了什么，再把这些意思写成英文。",
+    storageKey: "beibei-translation-20261104-v1",
+    exercises: november4Exercises
+  },
+  {
+    date: "20261103",
+    displayDate: "2026.11.03",
+    title: "表面休战，<br>暗地“卡脖子”",
+    optionTitle: "表面休战，暗地“卡脖子”",
+    summary: "用6句话顺着文章逻辑，先了解这篇文章讲了什么，再把这些意思写成英文。",
+    storageKey: "beibei-translation-20261103-v2",
+    exercises: november3Exercises
+  }
+];
+
+const dateFromUrl = new URLSearchParams(window.location.search).get("date");
+const rememberedDate = localStorage.getItem("beibei-translation-current-date");
+let currentIssue = issues.find(issue => issue.date === dateFromUrl)
+  || issues.find(issue => issue.date === rememberedDate)
+  || issues[0];
+let exercises = currentIssue.exercises;
+let storageKey = currentIssue.storageKey;
+
+function loadState() {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(storageKey) || "{}") || {}; } catch (error) { saved = {}; }
+  return {
+    index: Math.min(Number(saved.index) || 0, exercises.length - 1),
+    mode: saved.mode === "write" ? "write" : "learn",
+    answers: saved.answers || {},
+    learned: saved.learned || {},
+    ratings: saved.ratings || {}
+  };
+}
+
+let state = loadState();
 
 const elements = {
+  issuePicker: document.querySelector("#issue-picker"),
+  issueLabel: document.querySelector("#issue-label"),
+  issueTitle: document.querySelector("#issue-title"),
+  issueSummary: document.querySelector("#issue-summary"),
   card: document.querySelector("#exercise-card"),
   number: document.querySelector("#question-number"),
   badge: document.querySelector("#level-badge"),
@@ -108,6 +207,35 @@ let hintLevel = 0;
 
 function save() {
   localStorage.setItem(storageKey, JSON.stringify(state));
+}
+
+function buildIssuePicker() {
+  elements.issuePicker.replaceChildren();
+  issues.forEach(issue => {
+    const option = document.createElement("option");
+    option.value = issue.date;
+    option.textContent = `${issue.displayDate} · ${issue.optionTitle}`;
+    elements.issuePicker.append(option);
+  });
+}
+
+function showIssue(issue, updateUrl = true) {
+  save();
+  currentIssue = issue;
+  exercises = issue.exercises;
+  storageKey = issue.storageKey;
+  state = loadState();
+  localStorage.setItem("beibei-translation-current-date", issue.date);
+  elements.issuePicker.value = issue.date;
+  elements.issueLabel.textContent = `本期来源 · ${issue.displayDate}`;
+  elements.issueTitle.innerHTML = issue.title;
+  elements.issueSummary.textContent = issue.summary;
+  if (updateUrl) {
+    const url = new URL(window.location.href);
+    url.searchParams.set("date", issue.date);
+    window.history.replaceState({}, "", url);
+  }
+  render();
 }
 
 function completedCount() {
@@ -199,6 +327,10 @@ function setMode(mode) {
 }
 
 elements.modeButtons.forEach(button => button.addEventListener("click", () => setMode(button.dataset.mode)));
+elements.issuePicker.addEventListener("change", () => {
+  const issue = issues.find(item => item.date === elements.issuePicker.value);
+  if (issue) showIssue(issue);
+});
 elements.studyAnswerWrap.addEventListener("click", () => {
   if (!elements.studyAnswerWrap.classList.contains("covered")) return;
   elements.studyAnswerWrap.classList.remove("covered");
@@ -249,9 +381,10 @@ elements.reset.addEventListener("click", () => {
 });
 
 document.addEventListener("keydown", event => {
-  if (event.target === elements.input) return;
+  if (event.target === elements.input || event.target === elements.issuePicker) return;
   if (event.key === "ArrowLeft") goTo(state.index - 1);
   if (event.key === "ArrowRight") goTo(state.index + 1);
 });
 
-render();
+buildIssuePicker();
+showIssue(currentIssue, false);
