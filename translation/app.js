@@ -1,3 +1,66 @@
+const november5Exercises = [
+  {
+    chinese: "民主党赢得了众议院，也控制了参议院。",
+    answer: "The Democrats won the House and also took control of the Senate.",
+    core: "take control of",
+    meaning: "取得……的控制权",
+    keywords: "民主党 the Democrats · 赢得 won · 众议院 the House · 控制 take control of · 参议院 the Senate",
+    frame: "The Democrats won ... and also took control of ...",
+    note: "won 是 win 的过去式；take control of 表示“取得……的控制权”。",
+    source: "Democrats had flipped the House ... More striking, they had gained control of the Senate, too."
+  },
+  {
+    chinese: "他们甚至在一些通常支持共和党的州获胜。",
+    answer: "They even won in some states that usually support Republicans.",
+    core: "states that usually support",
+    meaning: "通常支持……的州",
+    keywords: "甚至 even · 获胜 won · 一些州 some states · 通常 usually · 支持共和党 support Republicans",
+    frame: "They even won in some states that ...",
+    note: "that usually support Republicans 是定语从句，用来说明 some states。",
+    source: "They had gained control of the Senate, too, winning seats in Republican strongholds such as Iowa, Ohio, South Carolina, Texas and Kansas."
+  },
+  {
+    chinese: "许多选民不满，因为物价上涨得比工资更快。",
+    answer: "Many voters were unhappy because prices were rising faster than wages.",
+    core: "faster than",
+    meaning: "比……更快",
+    keywords: "许多选民 many voters · 不满 unhappy · 因为 because · 物价 prices · 上涨 rise · 工资 wages",
+    frame: "Many voters were unhappy because ...",
+    note: "were rising 表示当时持续上涨；faster than 用来比较物价和工资的增长速度。",
+    source: "Mortgage rates are at their highest in three years; inflation has outrun wage growth for six months."
+  },
+  {
+    chinese: "特朗普支持了一些有争议的候选人，让共和党的竞选更加困难。",
+    answer: "Trump supported some controversial candidates and made the Republican campaign more difficult.",
+    core: "make ... more difficult",
+    meaning: "让……变得更困难",
+    keywords: "支持 supported · 有争议的 controversial · 候选人 candidates · 共和党的竞选 the Republican campaign · 更困难 more difficult",
+    frame: "Trump supported ... and made ...",
+    note: "make + 名词 + 形容词表示“使某事变得……”，这里用过去式 made。",
+    source: "Mr Trump eased their path ... Mr Trump supported Republican Senate candidates who seemed concocted from the fever dreams of Democratic strategists."
+  },
+  {
+    chinese: "西裔选民重新转向民主党，削弱了共和党重划选区的优势。",
+    answer: "Hispanic voters moved back to the Democrats and weakened the Republicans' redistricting advantage.",
+    core: "move back to",
+    meaning: "重新转向……",
+    keywords: "西裔选民 Hispanic voters · 重新转向 moved back to · 民主党 the Democrats · 削弱 weakened · 重划选区的优势 redistricting advantage",
+    frame: "Hispanic voters moved back to ... and weakened ...",
+    note: "moved 和 weakened 都是一般过去时，由 and 连接两个连续结果。",
+    source: "Counties with larger Hispanic populations swung heavily towards Democrats this election. The group's reversion nearly nullified the redistricting effort."
+  },
+  {
+    chinese: "共和党政客现在必须决定是批评特朗普，还是继续支持他。",
+    answer: "Republican politicians must now decide whether to criticise Trump or continue to support him.",
+    core: "decide whether to ... or ...",
+    meaning: "决定是……还是……",
+    keywords: "共和党政客 Republican politicians · 必须 must · 决定 decide · 是否 whether · 批评 criticise · 继续支持 continue to support",
+    frame: "Republican politicians must now decide whether to ... or ...",
+    note: "whether to A or B 表示“是做A还是做B”；must 后接动词原形 decide。",
+    source: "Criticise Mr Trump and he may try to end their career in a primary. Cling to him and he could end their career in the general."
+  }
+];
+
 const november4Exercises = [
   {
     chinese: "美国中期选举将影响未来几年的政治。",
@@ -125,6 +188,15 @@ const november3Exercises = [
 ];
 
 const issues = [
+  {
+    date: "20261105",
+    displayDate: "2026.11.05",
+    title: "蓝色海啸，<br>红州翻蓝",
+    optionTitle: "蓝色海啸，红州翻蓝",
+    summary: "用6句话梳理民主党为何大胜、票仓如何变化，以及共和党接下来面对的选择。",
+    storageKey: "beibei-translation-20261105-v1",
+    exercises: november5Exercises
+  },
   {
     date: "20261104",
     displayDate: "2026.11.04",

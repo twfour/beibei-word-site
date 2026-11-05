@@ -27,6 +27,59 @@ POS_ATOM_PATTERN = r"(?:n|v|adj|adv|phr|conj|exclamation|abbr)"
 # vocabulary regex.
 POS_PATTERN = rf"{POS_ATOM_PATTERN}(?:\.(?:,\s*|\s+){POS_ATOM_PATTERN})*"
 
+TOOLTIP_OVERRIDES_BY_DATE: dict[str, dict[str, str]] = {
+    "20261105": {
+        "on course to do sth": "有望；很可能",
+        "have the makings of": "具备……的条件",
+        "top": "超过",
+        "stronghold": "传统票仓；大本营",
+        "eke sth out": "勉强取得",
+        "wallop": "彻底击败；大胜",
+        "end up with sth": "最终获得",
+        "spare": "富余的",
+        "forbidding": "形势严峻的",
+        "chamber": "议院",
+        "favourable": "有利的",
+        "overwhelm": "压倒；击败",
+        "barrel": "一头扎进",
+        "fire up": "鼓舞；使士气高涨",
+        "ease one's path": "为……铺平道路",
+        "buoy": "助推；提振",
+        "concoct": "炮制；构想",
+        "fever dream": "荒诞幻想",
+        "-elect": "候任的",
+        "carry": "赢得该地区",
+        "bid": "竞选；争取",
+        "purple": "两党摇摆的",
+        "romp": "轻松大胜",
+        "narrow": "缩小差距",
+        "shore up": "巩固",
+        "embark on sth": "开始进行",
+        "spree": "一阵狂热活动",
+        "reversion": "回流；回归",
+        "nullify": "抵消；使无效",
+        "on the back of": "凭借；由于",
+        "stretch": "最后阶段",
+        "outrun": "超过",
+        "feat": "成就；功绩",
+        "obscure": "掩盖",
+        "mass deportation": "大规模驱逐出境",
+        "trail": "竞选活动",
+        "resort to sth": "诉诸；依靠",
+        "wokery": "觉醒主义",
+        "herald": "预示",
+        "veto-proof": "足以推翻否决的",
+        "unequivocal": "明确无疑的",
+        "triumph": "重大胜利",
+        "tumultuous": "动荡的",
+        "headlock": "牢牢控制",
+        "pledge": "正式承诺；宣誓",
+        "fealty": "效忠",
+        "primary": "党内初选",
+        "cling to sth": "继续依附；紧抱",
+    },
+}
+
 
 @dataclass
 class Article:
@@ -1252,6 +1305,28 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The results could change American politics in three main ways. First, Trump may become a weaker president if his party loses Congress. A Democratic House could investigate his government and limit his plans. A Democratic Senate could also block important appointments. Removing Trump through impeachment would still be very difficult. He would also keep strong executive powers in foreign policy and trade. "
             "Second, the election will begin the Democrats’ race for 2028. Several possible future presidential candidates are already campaigning for other Democrats. The results in states such as Michigan and Georgia may show whether voters prefer a left-wing candidate or a more moderate one. "
             "Finally, a Republican defeat could start a serious argument inside the party. It may weaken JD Vance’s position as Trump’s likely successor and create an opportunity for other candidates such as Ted Cruz. The article’s main point is that the midterms will do more than change seats in Congress. They may shape the end of Trump’s presidency and both parties’ plans for 2028."
+        ),
+    },
+    "20261105": {
+        "pet_index": "04",
+        "background": (
+            "本文承接前一日对美国2026年中期选举的展望，报道投票结束后的实际结果。中期选举会改选众议院全部席位和参议院约三分之一席位，"
+            "通常被视为选民对现任总统执政表现的一次全国性评价。特朗普当时支持率低迷，物价、能源、按揭利率、关税和伊朗冲突都在影响选民判断。"
+            "共和党原本希望依靠传统红州、选区重划和此前在西裔选民中的进展守住国会，却遭遇了远超预期的失败。"
+        ),
+        "overview": (
+            "文章开篇指出，特朗普以80年来同期总统中最低的净支持率进入中期选举，而在野党本就常在中期选举增加席位，因此共和党败选并不意外；真正意外的是败得如此彻底。民主党夺回众议院，可能净增约40席，同时拿下参议院，在爱荷华、俄亥俄、南卡罗来纳、得克萨斯和堪萨斯等共和党传统优势州获胜。特朗普把失利归咎于自己不在选票上，但此前两个月他一直要求选民把这场选举当成对他的表决。"
+            "民主党原本需要翻转四个参议院席位，其中至少两个位于特朗普2024年以两位数优势获胜的州。最终，有利于民主党的全国政治环境压过了有利于共和党的选举版图。特朗普曾承诺降低物价、结束长期战争，却卷入对伊朗冲突、发动全球贸易战，并被批评更关心家族财富。文章将这次失败与小布什在伊拉克战争阴影下输掉2006年中期选举相比较。"
+            "特朗普对党内候选人的干预也帮助了民主党。他攻击北卡罗来纳州共和党参议员蒂利斯，促使其退休；在得克萨斯州支持争议缠身的帕克斯顿而非现任参议员科宁；在堪萨斯和佐治亚支持的候选人也因起诉贫困孕妇、与白人至上主义者有关等问题拖累选情。与之相对，民主党推出汉密尔顿、库珀等具有跨党派吸引力的候选人，拿下许多此前大幅支持特朗普的县。"
+            "票仓变化同样关键。佐治亚州从红州转为偏蓝，得克萨斯等州出现民主党州长和参议员突破。2024年曾明显转向特朗普的西裔选民又大幅回流民主党。共和党原本在南部提前重划选区，押注西裔支持能够维持；但佛罗里达和得克萨斯多个经过操纵的选区仍被民主党拿下，选区重划带来的优势几乎被抵消。"
+            "共和党竞选后期也缺少可宣传的政绩：汽油和柴油价格上涨，按揭利率处于三年高位，通胀连续六个月超过工资增长，关税打击农业州，社会保障被削减，大规模驱逐移民的残酷性又掩盖了边境管控成果。文章最后认为，民主党虽没有足以推翻总统否决的多数席位，却取得明确的政治胜利；共和党则进入动荡期。党内政客若批评特朗普，可能在初选中遭到报复；若继续依附他，又可能在普选中被选民抛弃。"
+        ),
+        "pet": (
+            "The article reports the results of the 2026 US midterm elections. Donald Trump entered the election with very low approval ratings. The party outside the White House often wins seats in midterm elections, so a Republican loss was possible. However, the size of the defeat was surprising. Democrats won the House and also took control of the Senate. They even won in several states that usually support Republicans. "
+            "Many voters were unhappy with Trump’s record. He had promised to lower prices and end long wars, but fuel and housing costs were high, inflation was rising faster than wages, and the United States was fighting Iran. His tariffs also hurt farming areas. The article compares the result with the Republican defeat in 2006, when the Iraq war damaged President George W. Bush. "
+            "Trump also made the Republican campaign more difficult. He attacked or pushed aside some experienced candidates and supported others with serious personal or political problems. Democrats, by contrast, chose strong candidates who could win support from different groups. Some of them won counties that had strongly supported Trump only two years earlier. "
+            "Hispanic voters played an important part. Many had moved towards Trump in 2024, but they returned to the Democrats in this election. Republicans had redrawn voting districts because they expected their Hispanic support to continue. Instead, Democrats won several of these districts in Florida and Texas. "
+            "The result is a clear political victory for Democrats, although they do not have enough votes to defeat every presidential veto. For Republicans, the future is more difficult. Politicians who criticise Trump may lose a Republican primary, but politicians who stay close to him may lose the general election. The main message is that the result has weakened Trump and created a serious choice for his party."
         ),
     },
 }
@@ -2484,6 +2559,17 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
 
 
 def translation_candidates(segment: str) -> list[str]:
+    # Background notes can be inserted between an English paragraph and its
+    # Chinese translation.  If their long Chinese prose is left in the global
+    # candidate stream, it shifts every later translation by one paragraph.
+    # Remove each labelled note only up to the next real paragraph heading;
+    # translations printed after that heading remain available for alignment.
+    segment = re.sub(
+        r"背景补充[:：]?.*?(?=\bPara\.\s*\d+\b|长难句分析|中英文互译|文章结构|课后作业|$)",
+        " ",
+        segment,
+        flags=re.S,
+    )
     candidates: list[tuple[int, str]] = []
     source_lines: list[str] = []
     for raw_line in segment.splitlines():
@@ -2746,10 +2832,19 @@ def vocabulary_aliases(term: str) -> set[str]:
         "come to one's aid": {"come to my aid", "come to our aid", "come to his aid", "come to her aid", "come to their aid", "came to my aid", "came to our aid", "came to his aid", "came to her aid", "came to their aid"},
         "go to plan": {"goes to plan", "went to plan", "gone to plan"},
         "drop off the line": {"drops off the line", "dropped off the line", "dropping off the line"},
+        "-elect": {"senator-elect", "president-elect", "governor-elect"},
+        "ease one's path": {"ease their path", "eased their path", "eases their path", "easing their path"},
+        "eke sth out": {"eke out", "ekes out", "eked out", "eking out"},
+        "embark on sth": {"embark on", "embarks on", "embarked on", "embarking on"},
+        "end up with sth": {"end up with", "ends up with", "ended up with", "ending up with"},
+        "fire up": {"fires up", "fired up", "firing up"},
+        "fever dream": {"fever dreams"},
+        "forever war": {"forever wars"},
         "graphics-processing unit": {"graphics-processing units", "graphics processing unit", "graphics processing units", "gpu", "gpus"},
         "irk": {"irks", "irked", "irking"},
         "make the best of": {"made the best of"},
         "keep sth on track": {"keep trump’s agenda on track", "keep trump's agenda on track"},
+        "have the makings of": {"has the makings of", "had the makings of"},
         "lean into": {"leans into", "leant into", "leaned into", "leaning into"},
         "overtake": {"overtook", "overtaken"},
         "pay the price": {"paid the price", "paying the price", "pays the price"},
@@ -2764,6 +2859,12 @@ def vocabulary_aliases(term: str) -> set[str]:
         "tune back in": {"tunes back in", "tuned back in", "tuning back in"},
         "be set to do sth": {"is set to", "are set to", "was set to", "were set to"},
         "subject to": {"subject trump’s administration to", "subject trump's administration to"},
+        "mass deportation": {"mass-deportation", "mass deportations", "mass-deportations"},
+        "on course to do sth": {"on course to"},
+        "resort to sth": {"resort to", "resorts to", "resorted to", "resorting to"},
+        "cling to sth": {"cling to", "clings to", "clung to", "clinging to"},
+        "reluctant": {"reluctantly"},
+        "top": {"tops", "topped", "topping"},
         "up for sth": {"is up for", "are up for", "was up for", "were up for"},
     }
     aliases.update(irregular_aliases.get(lower, set()))
@@ -2789,7 +2890,12 @@ def vocabulary_aliases(term: str) -> set[str]:
     return aliases
 
 
-def annotate_original(value: str, vocabulary: list[dict[str, str]], seen_terms: set[str]) -> str:
+def annotate_original(
+    value: str,
+    vocabulary: list[dict[str, str]],
+    seen_terms: set[str],
+    issue_date: str = "",
+) -> str:
     lookup: dict[str, dict[str, str]] = {}
     terms: list[str] = []
     for item in vocabulary:
@@ -2815,7 +2921,10 @@ def annotate_original(value: str, vocabulary: list[dict[str, str]], seen_terms: 
             output.append(html.escape(match.group(0)))
         else:
             seen_terms.add(item_key)
-            tooltip = tooltip_definition(item["definition"])
+            tooltip = TOOLTIP_OVERRIDES_BY_DATE.get(issue_date, {}).get(
+                item_key,
+                tooltip_definition(item["definition"]),
+            )
             output.append(
                 f'<span class="word-tip" tabindex="0">{html.escape(match.group(0))}'
                 f'<span class="word-tooltip">{html.escape(tooltip)}</span></span>'
@@ -3092,7 +3201,15 @@ def split_intro_paragraphs(value: str, sentences_per_paragraph: int = 2) -> list
     if uses_cjk_sentence_marks:
         sentences = re.findall(r"[^。！？]+[。！？]?", value)
     else:
-        sentences = re.split(r"(?<=[.!?])\s+(?=[A-Z])", value)
+        # Protect common English abbreviations so names such as "George W.
+        # Bush" are not split into separate display paragraphs.
+        protected = re.sub(
+            r"\b(Mr|Mrs|Ms|Dr|Prof|St|Jr|Sr|[A-Z])\.",
+            lambda match: match.group(0).replace(".", "\u2024"),
+            value,
+        )
+        sentences = re.split(r"(?<=[.!?])\s+(?=[A-Z])", protected)
+        sentences = [sentence.replace("\u2024", ".") for sentence in sentences]
     sentences = [sentence.strip() for sentence in sentences if sentence.strip()]
     if not sentences:
         return [value]
@@ -3218,7 +3335,7 @@ def daily_html(article: Article, all_articles: list[Article], config: dict) -> s
         paragraph_rows.append(f"""
       <article class="parallel-row" id="para-{paragraph_index}">
         <div class="para-no">{paragraph_index:02d}</div>
-        <div class="original"><div class="label">ORIGINAL</div><p>{annotate_original(paragraph['original'], article.vocabulary, seen_terms)}</p></div>
+        <div class="original"><div class="label">ORIGINAL</div><p>{annotate_original(paragraph['original'], article.vocabulary, seen_terms, article.date)}</p></div>
         <div class="translation"><div class="label">译文</div><p>{html.escape(paragraph['translation'])}</p></div>
       </article>""")
     paragraph_html = "".join(paragraph_rows)
