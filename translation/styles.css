@@ -127,6 +127,15 @@ button { color: inherit; }
 .study-answer-wrap.covered { background: repeating-linear-gradient(-45deg,#f3eadb,#f3eadb 8px,#eee2cf 8px,#eee2cf 16px); cursor: pointer; }
 .study-answer-wrap.covered .study-answer { filter: blur(10px); opacity: .17; user-select: none; }
 .study-answer-wrap.covered::after { content: "先自己说一遍 · 点击查看"; position: absolute; inset: 0; display: grid; place-items: center; color: var(--ink); font: 800 12px "Courier New", monospace; letter-spacing: .05em; }
+.study-support { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px; align-items: stretch; }
+.audio-button { min-width: 132px; padding: 11px 17px; border: 1px solid var(--ink); border-radius: 16px; background: var(--ink); color: white; cursor: pointer; font: 800 12px/1.2 "Courier New", monospace; transition: transform .15s ease, background .15s ease; }
+.audio-button:hover { transform: translateY(-2px); }
+.audio-button.is-speaking { background: var(--coral); border-color: var(--coral); }
+.audio-button:disabled { cursor: not-allowed; opacity: .48; transform: none; }
+.audio-button.compact { min-width: 116px; padding: 8px 13px; border-radius: 999px; }
+.grammar-note { padding: 13px 16px; border: 1px solid var(--line); border-radius: 16px; background: #edf4f0; }
+.grammar-note .small-label { margin-bottom: 6px; }
+.grammar-note p:last-child { margin: 0; font-size: 14px; line-height: 1.65; }
 .phrase-strip { display: grid; grid-template-columns:auto auto 1fr; align-items: baseline; gap: 12px; padding: 13px 16px; border-left: 4px solid var(--yellow); background: #fff3c9; }
 .phrase-strip span { color: var(--muted); font: 700 10px "Courier New", monospace; }
 .phrase-strip strong { font-size: clamp(18px, 2vw, 25px); }
@@ -175,6 +184,8 @@ footer button {
 .reveal-area { margin-top: 18px; }
 .hint-box { padding: 14px 18px; border-left: 4px solid var(--yellow); background: #fff3c9; font-size: 15px; line-height: 1.65; }
 .answer-panel { padding-top: 24px; border-top: 1px dashed var(--line); animation: reveal .25s ease; }
+.answer-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+.answer-heading .small-label { margin: 0; }
 .model-answer { margin: 0; color: var(--ink); font-size: clamp(21px, 2.3vw, 31px); line-height: 1.5; }
 .note-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
 .note-grid > div { padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: white; }
@@ -222,6 +233,8 @@ footer button { min-height: 30px; padding: 5px 10px; border-color: var(--line); 
   .exercise-card { min-height: 650px; padding: 24px 20px; border-radius: 24px; }
   .action-row .answer-button { width: 100%; margin-left: 0; }
   .phrase-strip { grid-template-columns: 1fr; gap: 4px; }
+  .study-support { grid-template-columns: 1fr; }
+  .audio-button { width: 100%; }
   .study-actions .learned-button { width: 100%; margin-left: 0; }
   .note-grid { grid-template-columns: 1fr; gap: 10px; }
   .exercise-nav { grid-template-columns: auto auto; }

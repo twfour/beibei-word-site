@@ -252,6 +252,8 @@ const elements = {
   studyPanel: document.querySelector("#study-panel"),
   studyAnswerWrap: document.querySelector("#study-answer-wrap"),
   studyAnswer: document.querySelector("#study-answer"),
+  studyAudio: document.querySelector("#study-audio"),
+  studyNote: document.querySelector("#study-note"),
   corePhrase: document.querySelector("#core-phrase"),
   phraseMeaning: document.querySelector("#phrase-meaning"),
   coverAnswer: document.querySelector("#cover-answer"),
@@ -264,6 +266,7 @@ const elements = {
   showAnswer: document.querySelector("#show-answer"),
   answerPanel: document.querySelector("#answer-panel"),
   modelAnswer: document.querySelector("#model-answer"),
+  answerAudio: document.querySelector("#answer-audio"),
   answerNote: document.querySelector("#answer-note"),
   sourceLine: document.querySelector("#source-line"),
   previous: document.querySelector("#previous"),
@@ -276,6 +279,44 @@ const elements = {
 };
 
 let hintLevel = 0;
+let activeAudioButton = null;
+
+function resetAudioButton() {
+  if (!activeAudioButton) return;
+  activeAudioButton.classList.remove("is-speaking");
+  activeAudioButton.textContent = "▶ 朗读英文";
+  activeAudioButton = null;
+}
+
+function stopSpeech() {
+  if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+  resetAudioButton();
+}
+
+function speakAnswer(button) {
+  if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) return;
+  if (activeAudioButton === button) {
+    stopSpeech();
+    return;
+  }
+  stopSpeech();
+  const utterance = new SpeechSynthesisUtterance(exercises[state.index].answer);
+  utterance.lang = "en-US";
+  utterance.rate = 0.86;
+  const voices = window.speechSynthesis.getVoices();
+  utterance.voice = voices.find(voice => voice.lang === "en-US")
+    || voices.find(voice => voice.lang.startsWith("en"))
+    || null;
+  activeAudioButton = button;
+  button.classList.add("is-speaking");
+  button.textContent = "■ 停止朗读";
+  const finish = () => {
+    if (activeAudioButton === button) resetAudioButton();
+  };
+  utterance.addEventListener("end", finish, { once: true });
+  utterance.addEventListener("error", finish, { once: true });
+  window.speechSynthesis.speak(utterance);
+}
 
 function save() {
   localStorage.setItem(storageKey, JSON.stringify(state));
@@ -292,6 +333,7 @@ function buildIssuePicker() {
 }
 
 function showIssue(issue, updateUrl = true) {
+  stopSpeech();
   save();
   currentIssue = issue;
   exercises = issue.exercises;
@@ -347,6 +389,7 @@ function setHint(level) {
 }
 
 function render() {
+  stopSpeech();
   const exercise = exercises[state.index];
   const learning = state.mode === "learn";
   hintLevel = 0;
@@ -355,6 +398,7 @@ function render() {
   elements.promptLabel.textContent = learning ? "先读懂中文" : "只看中文，试着写";
   elements.prompt.textContent = exercise.chinese;
   elements.studyAnswer.textContent = exercise.answer;
+  elements.studyNote.textContent = exercise.note;
   elements.corePhrase.textContent = exercise.core;
   elements.phraseMeaning.textContent = exercise.meaning;
   elements.input.value = state.answers[state.index] || "";
@@ -399,6 +443,8 @@ function setMode(mode) {
 }
 
 elements.modeButtons.forEach(button => button.addEventListener("click", () => setMode(button.dataset.mode)));
+elements.studyAudio.addEventListener("click", () => speakAnswer(elements.studyAudio));
+elements.answerAudio.addEventListener("click", () => speakAnswer(elements.answerAudio));
 elements.issuePicker.addEventListener("change", () => {
   const issue = issues.find(item => item.date === elements.issuePicker.value);
   if (issue) showIssue(issue);
@@ -459,4 +505,10 @@ document.addEventListener("keydown", event => {
 });
 
 buildIssuePicker();
+if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
+  [elements.studyAudio, elements.answerAudio].forEach(button => {
+    button.disabled = true;
+    button.textContent = "当前浏览器不支持朗读";
+  });
+}
 showIssue(currentIssue, false);

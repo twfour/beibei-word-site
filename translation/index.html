@@ -52,6 +52,13 @@
             <p class="small-label">对应英文</p>
             <p class="study-answer" id="study-answer"></p>
           </div>
+          <div class="study-support">
+            <button class="audio-button" id="study-audio" type="button" aria-label="朗读对应英文">▶ 朗读英文</button>
+            <div class="grammar-note">
+              <p class="small-label">语法解释</p>
+              <p id="study-note"></p>
+            </div>
+          </div>
           <div class="phrase-strip"><span>今天记住</span><strong id="core-phrase"></strong><em id="phrase-meaning"></em></div>
           <div class="study-actions">
             <button class="soft-button" id="cover-answer" type="button">遮住英文试着说</button>
@@ -73,12 +80,15 @@
             <div class="hint-box" id="hint-box" hidden></div>
             <div class="answer-panel" id="answer-panel" hidden>
               <div class="answer-section">
-                <p class="small-label">参考答案</p>
+                <div class="answer-heading">
+                  <p class="small-label">参考答案</p>
+                  <button class="audio-button compact" id="answer-audio" type="button" aria-label="朗读参考答案">▶ 朗读英文</button>
+                </div>
                 <p class="model-answer" id="model-answer"></p>
               </div>
               <div class="note-grid">
                 <div>
-                  <p class="small-label">一句讲解</p>
+                  <p class="small-label">语法解释</p>
                   <p id="answer-note"></p>
                 </div>
                 <div>
