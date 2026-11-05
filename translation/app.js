@@ -281,6 +281,34 @@ const elements = {
 let hintLevel = 0;
 let activeAudioButton = null;
 
+const preferredFemaleVoiceNames = [
+  "Samantha",
+  "Ava",
+  "Allison",
+  "Susan",
+  "Victoria",
+  "Microsoft Aria",
+  "Microsoft Jenny",
+  "Microsoft Michelle",
+  "Microsoft Zira",
+  "Google US English",
+  "Karen",
+  "Moira",
+  "Tessa",
+  "Fiona"
+];
+
+function chooseFemaleEnglishVoice(voices) {
+  const englishVoices = voices.filter(voice => /^en(?:-|_)/i.test(voice.lang));
+  for (const preferredName of preferredFemaleVoiceNames) {
+    const voice = englishVoices.find(candidate => candidate.name.includes(preferredName));
+    if (voice) return voice;
+  }
+  return englishVoices.find(voice => /^en(?:-|_)US$/i.test(voice.lang))
+    || englishVoices[0]
+    || null;
+}
+
 function resetAudioButton() {
   if (!activeAudioButton) return;
   activeAudioButton.classList.remove("is-speaking");
@@ -304,9 +332,7 @@ function speakAnswer(button) {
   utterance.lang = "en-US";
   utterance.rate = 0.86;
   const voices = window.speechSynthesis.getVoices();
-  utterance.voice = voices.find(voice => voice.lang === "en-US")
-    || voices.find(voice => voice.lang.startsWith("en"))
-    || null;
+  utterance.voice = chooseFemaleEnglishVoice(voices);
   activeAudioButton = button;
   button.classList.add("is-speaking");
   button.textContent = "■ 停止朗读";
