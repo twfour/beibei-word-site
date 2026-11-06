@@ -4,6 +4,11 @@ const november5Exercises = [
     answer: "The Democrats won the House and also took control of the Senate.",
     core: "take control of",
     meaning: "取得……的控制权",
+    vocabulary: [
+      { word: "Democrats", ipa: "/ˈdeməkræts/", meaning: "民主党人" },
+      { word: "Senate", ipa: "/ˈsenət/", meaning: "参议院" },
+      { word: "control", ipa: "/kənˈtroʊl/", meaning: "控制" }
+    ],
     keywords: "民主党 the Democrats · 赢得 won · 众议院 the House · 控制 take control of · 参议院 the Senate",
     frame: "The Democrats won ... and also took control of ...",
     note: "won 是 win 的过去式；take control of 表示“取得……的控制权”。",
@@ -14,6 +19,10 @@ const november5Exercises = [
     answer: "They even won in some states that usually support Republicans.",
     core: "states that usually support",
     meaning: "通常支持……的州",
+    vocabulary: [
+      { word: "usually", ipa: "/ˈjuːʒuəli/", meaning: "通常" },
+      { word: "Republicans", ipa: "/rɪˈpʌblɪkənz/", meaning: "共和党人" }
+    ],
     keywords: "甚至 even · 获胜 won · 一些州 some states · 通常 usually · 支持共和党 support Republicans",
     frame: "They even won in some states that ...",
     note: "that usually support Republicans 是定语从句，用来说明 some states。",
@@ -24,6 +33,11 @@ const november5Exercises = [
     answer: "Many voters were unhappy because prices were rising faster than wages.",
     core: "faster than",
     meaning: "比……更快",
+    vocabulary: [
+      { word: "voters", ipa: "/ˈvoʊtərz/", meaning: "选民" },
+      { word: "prices", ipa: "/ˈpraɪsɪz/", meaning: "物价" },
+      { word: "wages", ipa: "/ˈweɪdʒɪz/", meaning: "工资" }
+    ],
     keywords: "许多选民 many voters · 不满 unhappy · 因为 because · 物价 prices · 上涨 rise · 工资 wages",
     frame: "Many voters were unhappy because ...",
     note: "were rising 表示当时持续上涨；faster than 用来比较物价和工资的增长速度。",
@@ -34,6 +48,11 @@ const november5Exercises = [
     answer: "Trump supported some controversial candidates and made the Republican campaign more difficult.",
     core: "make ... more difficult",
     meaning: "让……变得更困难",
+    vocabulary: [
+      { word: "controversial", ipa: "/ˌkɑːntrəˈvɜːrʃəl/", meaning: "有争议的" },
+      { word: "candidates", ipa: "/ˈkændɪdəts/", meaning: "候选人" },
+      { word: "campaign", ipa: "/kæmˈpeɪn/", meaning: "竞选活动" }
+    ],
     keywords: "支持 supported · 有争议的 controversial · 候选人 candidates · 共和党的竞选 the Republican campaign · 更困难 more difficult",
     frame: "Trump supported ... and made ...",
     note: "make + 名词 + 形容词表示“使某事变得……”，这里用过去式 made。",
@@ -44,6 +63,12 @@ const november5Exercises = [
     answer: "Hispanic voters moved back to the Democrats and weakened the Republicans' redistricting advantage.",
     core: "move back to",
     meaning: "重新转向……",
+    vocabulary: [
+      { word: "Hispanic", ipa: "/hɪˈspænɪk/", meaning: "西裔的" },
+      { word: "weakened", ipa: "/ˈwiːkənd/", meaning: "削弱了" },
+      { word: "redistricting", ipa: "/ˌriːˈdɪstrɪktɪŋ/", meaning: "重划选区" },
+      { word: "advantage", ipa: "/ədˈvæntɪdʒ/", meaning: "优势" }
+    ],
     keywords: "西裔选民 Hispanic voters · 重新转向 moved back to · 民主党 the Democrats · 削弱 weakened · 重划选区的优势 redistricting advantage",
     frame: "Hispanic voters moved back to ... and weakened ...",
     note: "moved 和 weakened 都是一般过去时，由 and 连接两个连续结果。",
@@ -54,6 +79,11 @@ const november5Exercises = [
     answer: "Republican politicians must now decide whether to criticise Trump or continue to support him.",
     core: "decide whether to ... or ...",
     meaning: "决定是……还是……",
+    vocabulary: [
+      { word: "politicians", ipa: "/ˌpɑːləˈtɪʃənz/", meaning: "政客" },
+      { word: "criticise", ipa: "/ˈkrɪtɪsaɪz/", meaning: "批评" },
+      { word: "continue", ipa: "/kənˈtɪnjuː/", meaning: "继续" }
+    ],
     keywords: "共和党政客 Republican politicians · 必须 must · 决定 decide · 是否 whether · 批评 criticise · 继续支持 continue to support",
     frame: "Republican politicians must now decide whether to ... or ...",
     note: "whether to A or B 表示“是做A还是做B”；must 后接动词原形 decide。",
@@ -67,6 +97,11 @@ const november4Exercises = [
     answer: "The US midterm elections will shape politics for the next few years.",
     core: "shape politics",
     meaning: "影响政治格局",
+    vocabulary: [
+      { word: "midterm", ipa: "/ˈmɪdtɜːrm/", meaning: "期中的" },
+      { word: "elections", ipa: "/ɪˈlekʃənz/", meaning: "选举" },
+      { word: "shape", ipa: "/ʃeɪp/", meaning: "影响；塑造" }
+    ],
     keywords: "美国中期选举 the US midterm elections · 影响 shape · 未来几年 the next few years",
     frame: "The US midterm elections will ...",
     note: "will 后使用动词原形 shape；shape 在这里不是“形状”，而是“影响、塑造”。",
@@ -77,6 +112,11 @@ const november4Exercises = [
     answer: "Many voters are worried about rising living costs and the effects of war.",
     core: "be worried about",
     meaning: "担心……",
+    vocabulary: [
+      { word: "worried", ipa: "/ˈwɜːrid/", meaning: "担心的" },
+      { word: "rising", ipa: "/ˈraɪzɪŋ/", meaning: "上涨的" },
+      { word: "effects", ipa: "/ɪˈfekts/", meaning: "影响" }
+    ],
     keywords: "许多选民 many voters · 担心 be worried about · 生活成本 living costs · 战争的影响 the effects of war",
     frame: "Many voters are worried about ...",
     note: "be worried about 后接名词；rising 放在 living costs 前表示“不断上升的”。",
@@ -87,6 +127,11 @@ const november4Exercises = [
     answer: "The Democrats hope to take back the House and even win the Senate.",
     core: "take back",
     meaning: "重新夺回",
+    vocabulary: [
+      { word: "Democrats", ipa: "/ˈdeməkræts/", meaning: "民主党人" },
+      { word: "Senate", ipa: "/ˈsenət/", meaning: "参议院" },
+      { word: "take back", ipa: "/teɪk bæk/", meaning: "重新夺回" }
+    ],
     keywords: "民主党 the Democrats · 希望 hope to · 重新控制 take back · 众议院 the House · 参议院 the Senate",
     frame: "The Democrats hope to take back ...",
     note: "hope to 后接动词原形；take back the House 表示“重新夺回众议院控制权”。",
@@ -97,6 +142,11 @@ const november4Exercises = [
     answer: "If the Republicans lose Congress, Trump's power will face more limits.",
     core: "face more limits",
     meaning: "面临更多限制",
+    vocabulary: [
+      { word: "Republicans", ipa: "/rɪˈpʌblɪkənz/", meaning: "共和党人" },
+      { word: "Congress", ipa: "/ˈkɑːŋɡrəs/", meaning: "美国国会" },
+      { word: "limits", ipa: "/ˈlɪmɪts/", meaning: "限制" }
+    ],
     keywords: "如果 if · 共和党 the Republicans · 失去国会 lose Congress · 权力 power · 更多限制 more limits",
     frame: "If the Republicans lose Congress, Trump's power will ...",
     note: "if 从句用一般现在时 lose，主句用 will face 表示可能产生的结果。",
@@ -107,6 +157,11 @@ const november4Exercises = [
     answer: "The election will also affect who the Democrats choose for president in 2028.",
     core: "affect who ... choose",
     meaning: "影响……选择谁",
+    vocabulary: [
+      { word: "affect", ipa: "/əˈfekt/", meaning: "影响" },
+      { word: "choose", ipa: "/tʃuːz/", meaning: "选择" },
+      { word: "president", ipa: "/ˈprezɪdənt/", meaning: "总统" }
+    ],
     keywords: "这次选举 the election · 影响 affect · 民主党 the Democrats · 选择谁 who ... choose · 竞选总统 for president",
     frame: "The election will also affect who ...",
     note: "who the Democrats choose 是一个完整的小句，整体作 affect 的宾语。",
@@ -117,6 +172,10 @@ const november4Exercises = [
     answer: "If the Republicans lose, the party may face greater divisions.",
     core: "face divisions",
     meaning: "面临分歧",
+    vocabulary: [
+      { word: "greater", ipa: "/ˈɡreɪtər/", meaning: "更大的" },
+      { word: "divisions", ipa: "/dɪˈvɪʒənz/", meaning: "分歧；分裂" }
+    ],
     keywords: "如果 if · 共和党失败 the Republicans lose · 党内 the party · 可能 may · 更大的分歧 greater divisions",
     frame: "If the Republicans lose, the party may ...",
     note: "may 后接动词原形 face；division 在这里表示党内的“分歧、分裂”。",
@@ -130,6 +189,10 @@ const november3Exercises = [
     answer: "The trade war between China and the US looks quieter now.",
     core: "look quieter",
     meaning: "看起来平静一些",
+    vocabulary: [
+      { word: "trade war", ipa: "/treɪdˌwɔːr/", meaning: "贸易战" },
+      { word: "quieter", ipa: "/ˈkwaɪətər/", meaning: "更平静的" }
+    ],
     keywords: "贸易战 the trade war · 中美 between China and the US · 平静一些 quieter",
     frame: "The trade war between ... looks ...",
     note: "look 后面接形容词 quieter，表示“看起来更加平静”。",
@@ -140,6 +203,11 @@ const november3Exercises = [
     answer: "However, both countries are competing over technology and supply chains.",
     core: "compete over",
     meaning: "围绕……展开竞争",
+    vocabulary: [
+      { word: "competing", ipa: "/kəmˈpiːtɪŋ/", meaning: "正在竞争" },
+      { word: "technology", ipa: "/tekˈnɑːlədʒi/", meaning: "技术" },
+      { word: "supply chains", ipa: "/səˈplaɪ tʃeɪnz/", meaning: "供应链" }
+    ],
     keywords: "但是 however · 两国 both countries · 技术 technology · 供应链 supply chains",
     frame: "However, both countries are competing ...",
     note: "compete over 表示“围绕某事展开竞争”；and 连接两个并列对象。",
@@ -150,6 +218,11 @@ const november3Exercises = [
     answer: "The US is limiting China's access to advanced chips and machines.",
     core: "limit access to",
     meaning: "限制获得……的途径",
+    vocabulary: [
+      { word: "access", ipa: "/ˈækses/", meaning: "获得的机会" },
+      { word: "advanced", ipa: "/ədˈvænst/", meaning: "先进的" },
+      { word: "machines", ipa: "/məˈʃiːnz/", meaning: "机器；设备" }
+    ],
     keywords: "限制 limit · 中国获得…… China's access to · 先进芯片 advanced chips · 设备 machines",
     frame: "The US is limiting China's access to ...",
     note: "access to 是固定搭配，to 后面直接接名词，不用动词原形。",
@@ -160,6 +233,11 @@ const november3Exercises = [
     answer: "China is responding with its strength in critical minerals and rare earths.",
     core: "respond with",
     meaning: "用……作出回应",
+    vocabulary: [
+      { word: "responding", ipa: "/rɪˈspɑːndɪŋ/", meaning: "正在回应" },
+      { word: "critical minerals", ipa: "/ˈkrɪtɪkəl ˈmɪnərəlz/", meaning: "关键矿产" },
+      { word: "rare earths", ipa: "/ˌrer ˈɜːrθs/", meaning: "稀土" }
+    ],
     keywords: "作出回应 respond · 优势 strength · 关键矿产 critical minerals · 稀土 rare earths",
     frame: "China is responding with its strength in ...",
     note: "respond with 表示“以某种方式或手段回应”；its 指 China 的。",
@@ -170,6 +248,11 @@ const november3Exercises = [
     answer: "Without rare-earth supplies, the US and Europe could lose a lot of money.",
     core: "without supplies",
     meaning: "没有供应",
+    vocabulary: [
+      { word: "rare-earth supplies", ipa: "/ˌrer ˈɜːrθ səˈplaɪz/", meaning: "稀土供应" },
+      { word: "Europe", ipa: "/ˈjʊrəp/", meaning: "欧洲" },
+      { word: "could", ipa: "/kʊd/", meaning: "可能" }
+    ],
     keywords: "没有 without · 稀土供应 rare-earth supplies · 可能 could · 损失很多钱 lose a lot of money",
     frame: "Without rare-earth supplies, the US and Europe could ...",
     note: "without 后接名词；could 在这里表示一种可能发生的结果。",
@@ -180,6 +263,11 @@ const november3Exercises = [
     answer: "The writer hopes the two countries can work together and avoid a real war.",
     core: "work together",
     meaning: "共同合作",
+    vocabulary: [
+      { word: "writer", ipa: "/ˈraɪtər/", meaning: "作者" },
+      { word: "together", ipa: "/təˈɡeðər/", meaning: "共同；一起" },
+      { word: "avoid", ipa: "/əˈvɔɪd/", meaning: "避免" }
+    ],
     keywords: "作者 the writer · 希望 hope · 合作 work together · 避免 avoid · 真正的战争 a real war",
     frame: "The writer hopes the two countries can ... and avoid ...",
     note: "hope 后接完整句子；work together 和 avoid a real war 由 and 并列。",
@@ -249,6 +337,7 @@ const elements = {
   badge: document.querySelector("#level-badge"),
   promptLabel: document.querySelector("#prompt-label"),
   prompt: document.querySelector("#chinese-prompt"),
+  vocabularyList: document.querySelector("#vocabulary-list"),
   studyPanel: document.querySelector("#study-panel"),
   studyAnswerWrap: document.querySelector("#study-answer-wrap"),
   studyAnswer: document.querySelector("#study-answer"),
@@ -423,6 +512,21 @@ function render() {
   elements.badge.textContent = `文章大意 ${state.index + 1} / ${exercises.length}`;
   elements.promptLabel.textContent = learning ? "先读懂中文" : "只看中文，试着写";
   elements.prompt.textContent = exercise.chinese;
+  elements.vocabularyList.replaceChildren(...exercise.vocabulary.map(item => {
+    const entry = document.createElement("span");
+    entry.className = "vocabulary-item";
+    const word = document.createElement("strong");
+    word.className = "vocabulary-word";
+    word.textContent = item.word;
+    const ipa = document.createElement("span");
+    ipa.className = "vocabulary-ipa";
+    ipa.textContent = item.ipa;
+    const meaning = document.createElement("span");
+    meaning.className = "vocabulary-meaning";
+    meaning.textContent = item.meaning;
+    entry.append(word, ipa, meaning);
+    return entry;
+  }));
   elements.studyAnswer.textContent = exercise.answer;
   elements.studyNote.textContent = exercise.note;
   elements.corePhrase.textContent = exercise.core;

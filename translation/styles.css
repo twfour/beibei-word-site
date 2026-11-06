@@ -121,6 +121,13 @@ button { color: inherit; }
 .prompt-block { margin: clamp(32px, 7vh, 72px) 0 32px; }
 .small-label { margin: 0 0 12px; color: var(--coral); }
 .prompt-block h2 { max-width: 900px; margin: 0; font-size: clamp(28px, 4vw, 54px); line-height: 1.32; font-weight: 500; letter-spacing: -.025em; }
+.vocabulary-strip { margin: -12px 0 22px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 16px; background: #f6f0e6; }
+.vocabulary-strip .small-label { margin-bottom: 9px; }
+.vocabulary-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.vocabulary-item { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 6px; padding: 7px 10px; border-radius: 10px; background: white; font-size: 14px; line-height: 1.35; }
+.vocabulary-word { font-weight: 800; }
+.vocabulary-ipa { color: var(--coral); font-family: "Arial", sans-serif; }
+.vocabulary-meaning { color: var(--muted); }
 .study-panel { display: grid; gap: 16px; }
 .study-answer-wrap { position: relative; padding: 22px 24px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: white; transition: background .2s ease; }
 .study-answer { margin: 0; font-size: clamp(22px, 2.6vw, 35px); line-height: 1.5; transition: filter .2s ease, opacity .2s ease; }
