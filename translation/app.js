@@ -11,7 +11,7 @@ const november5Exercises = [
     ],
     keywords: "民主党 the Democrats · 赢得 won · 众议院 the House · 控制 take control of · 参议院 the Senate",
     frame: "The Democrats won ... and also took control of ...",
-    note: "won 是 win 的过去式；take control of 表示“取得……的控制权”。",
+    note: "won 是 win 的过去式；and also 连接两个过去发生的动作。",
     source: "Democrats had flipped the House ... More striking, they had gained control of the Senate, too."
   },
   {
@@ -25,7 +25,7 @@ const november5Exercises = [
     ],
     keywords: "甚至 even · 获胜 won · 一些州 some states · 通常 usually · 支持共和党 support Republicans",
     frame: "They even won in some states that ...",
-    note: "that usually support Republicans 是定语从句，用来说明 some states。",
+    note: "won 是 win 的过去式；先行词 states 是复数，因此从句中用 support 而不是 supports。",
     source: "They had gained control of the Senate, too, winning seats in Republican strongholds such as Iowa, Ohio, South Carolina, Texas and Kansas."
   },
   {
@@ -40,7 +40,7 @@ const november5Exercises = [
     ],
     keywords: "许多选民 many voters · 不满 unhappy · 因为 because · 物价 prices · 上涨 rise · 工资 wages",
     frame: "Many voters were unhappy because ...",
-    note: "were rising 表示当时持续上涨；faster than 用来比较物价和工资的增长速度。",
+    note: "because 引出不满的原因；were rising 是过去进行时，表示当时正在持续上涨。",
     source: "Mortgage rates are at their highest in three years; inflation has outrun wage growth for six months."
   },
   {
@@ -55,7 +55,7 @@ const november5Exercises = [
     ],
     keywords: "支持 supported · 有争议的 controversial · 候选人 candidates · 共和党的竞选 the Republican campaign · 更困难 more difficult",
     frame: "Trump supported ... and made ...",
-    note: "make + 名词 + 形容词表示“使某事变得……”，这里用过去式 made。",
+    note: "supported 和 made 都是一般过去时，由 and 连接两个先后相关的动作。",
     source: "Mr Trump eased their path ... Mr Trump supported Republican Senate candidates who seemed concocted from the fever dreams of Democratic strategists."
   },
   {
@@ -86,7 +86,7 @@ const november5Exercises = [
     ],
     keywords: "共和党政客 Republican politicians · 必须 must · 决定 decide · 是否 whether · 批评 criticise · 继续支持 continue to support",
     frame: "Republican politicians must now decide whether to ... or ...",
-    note: "whether to A or B 表示“是做A还是做B”；must 后接动词原形 decide。",
+    note: "must 是情态动词，后面接动词原形 decide；criticise 和 continue 保持并列。",
     source: "Criticise Mr Trump and he may try to end their career in a primary. Cling to him and he could end their career in the general."
   }
 ];
@@ -104,7 +104,7 @@ const november4Exercises = [
     ],
     keywords: "美国中期选举 the US midterm elections · 影响 shape · 未来几年 the next few years",
     frame: "The US midterm elections will ...",
-    note: "will 后使用动词原形 shape；shape 在这里不是“形状”，而是“影响、塑造”。",
+    note: "will 后使用动词原形 shape；for the next few years 作时间状语。",
     source: "The results are set to ripple across American politics to the 2028 presidential election and beyond."
   },
   {
@@ -119,7 +119,7 @@ const november4Exercises = [
     ],
     keywords: "许多选民 many voters · 担心 be worried about · 生活成本 living costs · 战争的影响 the effects of war",
     frame: "Many voters are worried about ...",
-    note: "be worried about 后接名词；rising 放在 living costs 前表示“不断上升的”。",
+    note: "rising 是现在分词，放在 living costs 前作定语；and 连接两个并列对象。",
     source: "Voters [are] disillusioned by record diesel prices, the rising cost of living and the disruption caused by the war on Iran."
   },
   {
@@ -134,7 +134,7 @@ const november4Exercises = [
     ],
     keywords: "民主党 the Democrats · 希望 hope to · 重新控制 take back · 众议院 the House · 参议院 the Senate",
     frame: "The Democrats hope to take back ...",
-    note: "hope to 后接动词原形；take back the House 表示“重新夺回众议院控制权”。",
+    note: "hope to 后接动词原形；take 和 win 由 and 连接，共用前面的 to。",
     source: "The party could take back not just the House but, on a good night, the Senate too."
   },
   {
@@ -164,7 +164,7 @@ const november4Exercises = [
     ],
     keywords: "这次选举 the election · 影响 affect · 民主党 the Democrats · 选择谁 who ... choose · 竞选总统 for president",
     frame: "The election will also affect who ...",
-    note: "who the Democrats choose 是一个完整的小句，整体作 affect 的宾语。",
+    note: "who 引出嵌入式问句，后面保持“主语 + 动词”的陈述语序，不倒装。",
     source: "The early dynamics of the race to choose a Democratic presidential nominee for 2028 will be set by key races."
   },
   {
@@ -178,7 +178,7 @@ const november4Exercises = [
     ],
     keywords: "如果 if · 共和党失败 the Republicans lose · 党内 the party · 可能 may · 更大的分歧 greater divisions",
     frame: "If the Republicans lose, the party may ...",
-    note: "may 后接动词原形 face；division 在这里表示党内的“分歧、分裂”。",
+    note: "if 从句用一般现在时 lose；主句中 may 后接动词原形 face。",
     source: "The party would be engulfed in a 'civil war' over its future from the day after election day."
   }
 ];
@@ -195,7 +195,7 @@ const november3Exercises = [
     ],
     keywords: "贸易战 the trade war · 中美 between China and the US · 平静一些 quieter",
     frame: "The trade war between ... looks ...",
-    note: "look 后面接形容词 quieter，表示“看起来更加平静”。",
+    note: "主语 The trade war 是单数，因此 look 要变为 looks；quieter 是 quiet 的比较级。",
     source: "Donald Trump's trade wars have largely fallen off the headlines."
   },
   {
@@ -210,7 +210,7 @@ const november3Exercises = [
     ],
     keywords: "但是 however · 两国 both countries · 技术 technology · 供应链 supply chains",
     frame: "However, both countries are competing ...",
-    note: "compete over 表示“围绕某事展开竞争”；and 连接两个并列对象。",
+    note: "are competing 是现在进行时，表示竞争正在进行；and 连接两个并列对象。",
     source: "The world is marching toward an economic war of potentially epic proportions."
   },
   {
@@ -225,7 +225,7 @@ const november3Exercises = [
     ],
     keywords: "限制 limit · 中国获得…… China's access to · 先进芯片 advanced chips · 设备 machines",
     frame: "The US is limiting China's access to ...",
-    note: "access to 是固定搭配，to 后面直接接名词，不用动词原形。",
+    note: "China's 是名词所有格，用来修饰 access；advanced 同时修饰 chips 和 machines。",
     source: "It is doubling down on efforts to limit China's access to frontier semiconductors."
   },
   {
@@ -240,7 +240,7 @@ const november3Exercises = [
     ],
     keywords: "作出回应 respond · 优势 strength · 关键矿产 critical minerals · 稀土 rare earths",
     frame: "China is responding with its strength in ...",
-    note: "respond with 表示“以某种方式或手段回应”；its 指 China 的。",
+    note: "is responding 是现在进行时；its 是形容词性物主代词，指代 China。",
     source: "China is leveraging its overwhelming dominance over the supply of critical minerals."
   },
   {
@@ -255,7 +255,7 @@ const november3Exercises = [
     ],
     keywords: "没有 without · 稀土供应 rare-earth supplies · 可能 could · 损失很多钱 lose a lot of money",
     frame: "Without rare-earth supplies, the US and Europe could ...",
-    note: "without 后接名词；could 在这里表示一种可能发生的结果。",
+    note: "could 是情态动词，后面接动词原形 lose，表示可能发生的结果。",
     source: "It could cost their economies about $1.5tn per year."
   },
   {
@@ -270,7 +270,7 @@ const november3Exercises = [
     ],
     keywords: "作者 the writer · 希望 hope · 合作 work together · 避免 avoid · 真正的战争 a real war",
     frame: "The writer hopes the two countries can ... and avoid ...",
-    note: "hope 后接完整句子；work together 和 avoid a real war 由 and 并列。",
+    note: "主语 The writer 是第三人称单数，因此 hope 变为 hopes；can 后接动词原形。",
     source: "One hopes there is a path to a peaceful entente."
   }
 ];
