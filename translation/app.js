@@ -1,3 +1,96 @@
+const november6Exercises = [
+  {
+    chinese: "民主党在中期选举中大胜，但金融市场的反应很平静。",
+    answer: "The Democrats won a big victory in the midterm elections, but financial markets reacted calmly.",
+    core: "react calmly",
+    meaning: "反应平静",
+    vocabulary: [
+      { word: "midterm", ipa: "/ˈmɪdtɜːrm/", meaning: "中期的" },
+      { word: "financial markets", ipa: "/faɪˌnænʃəl ˈmɑːrkɪts/", meaning: "金融市场" },
+      { word: "calmly", ipa: "/ˈkɑːmli/", meaning: "平静地" }
+    ],
+    keywords: "民主党 the Democrats · 大胜 win a big victory · 中期选举 midterm elections · 金融市场 financial markets · 平静地 calmly",
+    frame: "The Democrats won ..., but financial markets ...",
+    note: "won 和 reacted 都是一般过去时；but 连接两个意思相反的分句。",
+    source: "In American politics, a blue tsunami is causing an earthquake. In financial markets, the response ... was, for the most part, a shrug."
+  },
+  {
+    chinese: "清晰的选举结果降低了长期争议和宪政危机的风险。",
+    answer: "The clear election result reduced the risk of a long dispute and a constitutional crisis.",
+    core: "reduce the risk of",
+    meaning: "降低……的风险",
+    vocabulary: [
+      { word: "dispute", ipa: "/dɪˈspjuːt/", meaning: "争议；争端" },
+      { word: "constitutional", ipa: "/ˌkɑːnstəˈtuːʃənəl/", meaning: "宪法的" },
+      { word: "crisis", ipa: "/ˈkraɪsɪs/", meaning: "危机" }
+    ],
+    keywords: "清晰的结果 the clear result · 降低 reduced · 风险 the risk · 争议 dispute · 宪政危机 constitutional crisis",
+    frame: "The clear election result reduced ...",
+    note: "reduced 是 reduce 的过去式；a long dispute 和 a constitutional crisis 由 and 连接。",
+    source: "The Democratic wave precluded the nightmare scenario of an endlessly contested election or even a constitutional crisis."
+  },
+  {
+    chinese: "分裂执政会让总统更难提高关税或发动战争。",
+    answer: "Divided government will make it harder for the president to raise tariffs or wage wars.",
+    core: "make it harder for ... to ...",
+    meaning: "让……更难做……",
+    vocabulary: [
+      { word: "divided government", ipa: "/dɪˌvaɪdɪd ˈɡʌvərnmənt/", meaning: "分裂执政" },
+      { word: "tariffs", ipa: "/ˈterɪfs/", meaning: "关税" },
+      { word: "wage", ipa: "/weɪdʒ/", meaning: "发动；进行" }
+    ],
+    keywords: "分裂执政 divided government · 总统 the president · 提高关税 raise tariffs · 发动战争 wage wars",
+    frame: "Divided government will make it harder for ...",
+    note: "will 后接动词原形 make；raise 和 wage 由 or 连接，共用前面的 to。",
+    source: "Oversight from a reinvigorated Congress will probably make it a bit harder for the president to raise tariffs, wage wars and gut the public sector."
+  },
+  {
+    chinese: "民主党可能会更仔细地审查特斯拉和SpaceX的政府合同。",
+    answer: "The Democrats may examine government contracts with Tesla and SpaceX more carefully.",
+    core: "examine ... more carefully",
+    meaning: "更仔细地审查……",
+    vocabulary: [
+      { word: "examine", ipa: "/ɪɡˈzæmɪn/", meaning: "审查；检查" },
+      { word: "government contracts", ipa: "/ˈɡʌvərnmənt ˈkɑːntrækts/", meaning: "政府合同" },
+      { word: "carefully", ipa: "/ˈkerfəli/", meaning: "仔细地" }
+    ],
+    keywords: "民主党 the Democrats · 可能 may · 审查 examine · 政府合同 government contracts · 特斯拉和SpaceX Tesla and SpaceX",
+    frame: "The Democrats may examine ...",
+    note: "may 是情态动词，后面接动词原形 examine；contracts 用复数，表示不止一份政府合同。",
+    source: "Democrats will return the favour by poring over the government's contracts with his carmaker, Tesla, and rocketry firm, SpaceX."
+  },
+  {
+    chinese: "对数据中心的反对使CoreWeave、美光和英伟达的股价下跌。",
+    answer: "Opposition to data centres pushed down the share prices of CoreWeave, Micron and Nvidia.",
+    core: "push down share prices",
+    meaning: "压低股价",
+    vocabulary: [
+      { word: "opposition", ipa: "/ˌɑːpəˈzɪʃən/", meaning: "反对" },
+      { word: "data centres", ipa: "/ˈdeɪtə ˌsentərz/", meaning: "数据中心" },
+      { word: "share prices", ipa: "/ˈʃer ˌpraɪsɪz/", meaning: "股价" }
+    ],
+    keywords: "反对 opposition · 数据中心 data centres · 压低 pushed down · 股价 share prices · 美光 Micron · 英伟达 Nvidia",
+    frame: "Opposition to data centres pushed down ...",
+    note: "主语 Opposition 是不可数名词；pushed 是一般过去时，of 后列出三家公司。",
+    source: "CoreWeave ... slumped by 10%. Micron ... lost 7% of its value. Nvidia ... slipped by 3%."
+  },
+  {
+    chinese: "医疗保健、清洁能源和大型云服务公司可能从这次选举中受益。",
+    answer: "Health care, clean energy and big cloud companies may benefit from the election.",
+    core: "benefit from",
+    meaning: "从……中受益",
+    vocabulary: [
+      { word: "health care", ipa: "/ˈhelθ ker/", meaning: "医疗保健" },
+      { word: "clean energy", ipa: "/ˌkliːn ˈenərdʒi/", meaning: "清洁能源" },
+      { word: "benefit", ipa: "/ˈbenəfɪt/", meaning: "受益" }
+    ],
+    keywords: "医疗保健 health care · 清洁能源 clean energy · 大型云服务公司 big cloud companies · 可能 may · 受益 benefit",
+    frame: "Health care, clean energy and ... may ...",
+    note: "三个并列主语由逗号和 and 连接；may 后接动词原形 benefit。",
+    source: "Conversely, the blue wave has lifted industries ... (health care and clean energy) and large spenders on data centres."
+  }
+];
+
 const november5Exercises = [
   {
     chinese: "民主党赢得了众议院，也控制了参议院。",
@@ -276,6 +369,15 @@ const november3Exercises = [
 ];
 
 const issues = [
+  {
+    date: "20261106",
+    displayDate: "2026.11.06",
+    title: "大盘平静，<br>板块暗涌",
+    optionTitle: "大盘平静，板块暗涌",
+    summary: "用6句话梳理选举后市场为何平静，以及哪些行业承压或受益。",
+    storageKey: "beibei-translation-20261106-v1",
+    exercises: november6Exercises
+  },
   {
     date: "20261105",
     displayDate: "2026.11.05",

@@ -78,6 +78,49 @@ TOOLTIP_OVERRIDES_BY_DATE: dict[str, dict[str, str]] = {
         "primary": "党内初选",
         "cling to sth": "继续依附；紧抱",
     },
+    "20261106": {
+        "tsunami": "海啸；巨大浪潮",
+        "sweep all before it": "势如破竹；横扫一切",
+        "ruby-red": "坚定支持共和党的",
+        "seismic": "影响深远的；重大的",
+        "shrug": "不在乎的反应",
+        "tick up": "小幅上升",
+        "yield": "收益率",
+        "edge down": "小幅下降",
+        "preclude": "排除；阻止",
+        "paralysis": "瘫痪；停滞",
+        "oversight": "监督；审查",
+        "reinvigorate": "使重新振作",
+        "wage": "发动；进行",
+        "gut": "大幅削减；掏空",
+        "equity": "股票；股权",
+        "return the favour": "回敬；投桃报李",
+        "pore over": "仔细审查",
+        "shed": "下跌；损失",
+        "installation": "设施",
+        "duly": "果然；如预期地",
+        "knock": "打击；挫折",
+        "unwind": "撤销；逆转",
+        "haul": "强制带到",
+    },
+}
+
+TRANSLATION_OVERRIDES_BY_DATE: dict[str, list[str]] = {
+    "20261106": [
+        "在地质学中，地震会引发海啸；而在美国政坛，一场蓝色海啸正在掀起政治地震。11月3日的中期选举中，民主党势如破竹，席卷全国。向来被视为共和党铁票仓的得克萨斯州，时隔数十年再度选出一位民主党籍参议员；共和党根基更为深厚的堪萨斯州，也在近一个世纪以来首次迎来民主党参议员。截至本刊发表时，密西西比州的参议员选举仍难分胜负，而在上一次总统大选中，特朗普曾在该州以23个百分点的巨大优势获胜。",
+        "面对这场政治巨变，金融市场的反应却大多是波澜不惊。美国大型企业股票指数——标准普尔500指数——在选举次日早盘小幅走高，并最终收涨1.6%。10年期美国国债收益率略有回落，美元也小幅走弱。",
+        "投资者的冷淡并不难理解。市场向来青睐确定性，而民主党掀起的这场浪潮，恰恰排除了最令人胆寒的局面：选举结果陷入无休止的争议，甚至演变成一场宪政危机。选举之夜，共和党惨败的规模逐渐明朗后，特朗普向《纽约时报》表示，他将接受选举结果。这种情绪，不妨称之为“松了一口气”效应。",
+        "市场同样乐见分裂执政所引发的必然僵局——至少在美国是如此。毕竟，美国现有的营商环境本就相当友好；相较之下，政治瘫痪在欧洲则是更严重的问题，那里的底层经济环境缺乏增长动力。倘若说这场选举会带来什么影响，那么，一个重新振作起来的国会加强监督，或许会让总统更难提高关税、发动战争，以及大刀阔斧地削减公共部门。预算之争在所难免，不过，这样的争斗也早已注定。况且，与共和党相比，民主党通常不那么愿意通过阻挠提高联邦债务上限，将美国政府推向主权债务违约的边缘。",
+        "不过，表面上风平浪静，实则暗流依然汹涌，尤其是在股市。首先遭受打击的是马斯克。今年的选举中，这位一度成为“万亿富豪”的右翼人士，豪掷近5亿美元，试图帮助共和党候选人赢得选举。如今，民主党势必“投桃报李”，仔细审查其电动汽车公司特斯拉和航天公司SpaceX所获得的政府订单。受此影响，两家公司的股价分别下跌3%和4%。",
+        "其他联邦政府承包商或许不像马斯克那样招致民主党人的强烈反感，但如今反对党掌握了财政大权，它们同样难逃审查，尤其是那些令左翼人士反感的领域。例如，私人监狱运营商CoreCivic和GEO集团就遭遇了股价下跌。这两家公司都曾协助特朗普推行残酷的大规模驱逐移民行动。投资者担心，即将上任的新一届国会可能压缩移民执法预算。民主党也不太可能批准特朗普提出的1.5万亿美元国防开支计划。这一前景令洛克希德·马丁、诺斯罗普·格鲁曼、RTX等军工企业受到冲击。",
+        "第二类输家，则是那些命运完全系于人工智能数据中心建设热潮的企业。此前，许多共和党人都支持建设这些大型设施，直到它们引发公众反弹，而民主党人也毫不手软地借势加以利用。在原本计划新增数据中心容量、合计占全美一半的四个州中，佐治亚州、俄亥俄州和得克萨斯州均由共和党州长执政。从明年开始，这四个州将全部由民主党州长掌舵。其中，得克萨斯州是全美最受数据中心青睐的选址地。该州新当选的州长吉娜·希诺霍萨在竞选期间承诺，上任后立即暂停数据中心建设。",
+        "大型独立数据中心运营商CoreWeave的股价应声暴跌10%；生产人工智能服务器所需存储芯片的美光科技，市值缩水7%；市值高达5万亿美元的人工智能芯片巨头英伟达，股价也下跌了3%。电气设备制造商同样受到波及。数据中心需要大量电气设备，而为这些数据中心供电的发电厂也离不开相关产品。选举前，两党曾就一项法案初步达成协议，让输油管道、风电场等项目能获得必要许可。但如今民主党或许会在谈判中提出更苛刻的条件。受此影响，GE Vernova、Vistra和Vertiv的股价均下跌约十分之一。",
+        "反观另一面，蓝色浪潮也为一些行业带来了利好。那些有望受益于特朗普政府预算削减措施被撤销的行业——例如医疗保健和清洁能源——以及那些向数据中心投入巨资的大型科技公司，都有望从中获益。大型科技公司的“超大规模云服务商”如今或许可以减少资本支出，从而保住自身利润率；与此同时，它们现有的数据中心容量也将更少地面临来自CoreWeave等独立运营商的竞争。亚马逊和微软的股价涨幅均超过6%，Alphabet上涨逾3%。就连由极具“男性圈”色彩的扎克伯格掌舵的Meta，股价也小幅走高。当然，科技巨头的掌门人们恐怕仍免不了被传唤到国会，接受就人工智能问题以及他们对特朗普近乎谄媚的示好而进行的对抗性听证。但至少，他们下一次财报电话会议的气氛或许会友善得多。■",
+    ],
+}
+
+TITLE_VOCAB_TERMS_OVERRIDES_BY_DATE: dict[str, str] = {
+    "20261106": "make of, triumph, yawn",
 }
 
 
@@ -1329,6 +1372,28 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The result is a clear political victory for Democrats, although they do not have enough votes to defeat every presidential veto. For Republicans, the future is more difficult. Politicians who criticise Trump may lose a Republican primary, but politicians who stay close to him may lose the general election. The main message is that the result has weakened Trump and created a serious choice for his party."
         ),
     },
+    "20261106": {
+        "pet_index": "04",
+        "title_vocab_terms": "make of, triumph, yawn",
+        "overview": (
+            "文章从一个反差开场：民主党在中期选举中掀起“蓝色海啸”，得克萨斯、堪萨斯等传统红州都出现突破，但金融市场并未剧烈震荡。"
+            "标准普尔500指数选后上涨1.6%，十年期美债收益率小幅下降，美元略微走弱，市场整体只是“耸了耸肩”。"
+            "投资者的平静首先来自不确定性消退。民主党明确胜出，避免了长期争议选举结果甚至宪政危机的最坏情形；特朗普也表示接受结果，带来“松了一口气”效应。"
+            "市场同样乐见分裂政府带来的政策僵局。民主党控制国会后，总统提高关税、发动战争和大幅削减公共部门将更受制约；民主党也较少用阻挠提高债务上限来威胁政府违约。"
+            "不过，大盘的平静掩盖了个股和行业的暗流。马斯克曾花近5亿美元帮助共和党竞选，特斯拉和SpaceX可能面临民主党对政府合同的审查，股价分别下跌3%和4%。"
+            "私人监狱运营商因移民执法预算可能收紧而下跌，洛克希德·马丁、诺斯罗普·格鲁曼、RTX等军工企业也受到国防支出削减预期冲击。"
+            "受打击更大的是AI数据中心产业链。数据中心的耗电、用水、噪音和环境问题引发反弹，得州候任民主党州长承诺暂停新建项目。CoreWeave下跌10%，美光下跌7%，英伟达下跌3%，多家电力设备公司跌幅约一成，因为民主党可能对能源项目许可提出更苛刻条件。"
+            "反过来，医疗保健和清洁能源可能受益于特朗普预算削减被撤销。亚马逊、微软、Alphabet和Meta等超大规模云服务商也可能减少数据中心支出，同时面临更少的CoreWeave类竞争，从而保住利润率。"
+            "文章的核心判断是：选举结果对整体市场影响有限，但国会监管、预算和许可权的变化，正在重新分配不同企业和行业的政治风险。"
+        ),
+        "pet": (
+            "The article explains how financial markets reacted to the Democrats' big victory in the 2026 US midterm elections. The political result was dramatic, but the broad market response was calm. The S&P 500 rose by 1.6%, government-bond yields moved down slightly and the dollar became a little weaker. "
+            "Investors were calm because they like certainty. A clear result prevented a long argument about the election and reduced the risk of a constitutional crisis. Donald Trump also said that he would accept the result. Markets also often like divided government because it makes sudden and extreme policy changes more difficult. "
+            "However, some companies lost money. Elon Musk had spent almost $500 million helping Republicans. A Democratic Congress may now examine government contracts with Tesla and SpaceX more carefully. Private-prison companies and defence firms may also receive less government money. "
+            "Companies connected to AI data centres were another group of losers. Local people are worried about electricity use, water, noise and pollution. CoreWeave, Micron and Nvidia all fell, and several electrical-equipment companies also lost value. Democrats may make new data-centre and energy projects harder to approve. "
+            "Other businesses gained. Health-care and clean-energy companies may benefit if earlier budget cuts are reversed. Amazon, Microsoft, Alphabet and Meta may spend less on new data centres and face less competition from independent operators. The main message is that the whole market did not panic, but the election changed which industries investors expect to win or lose."
+        ),
+    },
 }
 
 
@@ -1586,6 +1651,9 @@ VOCAB_FALSE_POSITIVES = {
     "to criticize sb",
     "blue-collar workers",
     "to apply for",
+    # 20261106: this slash-separated example belongs to the verb card
+    # "court" (court danger/death/disaster), not a standalone headword.
+    "to court danger",
 }
 
 
@@ -2225,6 +2293,19 @@ VOCAB_CORRECTIONS: dict[str, dict[str, str]] = {
     },
 }
 
+VOCAB_CORRECTIONS_BY_DATE: dict[str, dict[str, dict[str, str]]] = {
+    "20261106": {
+        "make of": {
+            "phonetic": "/meɪk əv/",
+        },
+        "haul": {
+            "definition": "强迫某人去某处；用力拖拉",
+            "definition_en": "to force someone to go somewhere; to pull something with great effort",
+            "example": "The tech bosses can expect to be hauled before Congress for adversarial hearings. 科技公司老板可能会被强制召到国会接受对抗性听证。",
+        },
+    },
+}
+
 
 def suspicious_definition(value: str) -> bool:
     """Reject paragraph translations accidentally captured as word meanings."""
@@ -2408,7 +2489,7 @@ def vocabulary_context(vocab: dict[str, str], paragraphs: list[dict[str, str]]) 
     return {}
 
 
-def extract_vocabulary(text: str) -> list[dict[str, str]]:
+def extract_vocabulary(text: str, issue_date: str = "") -> list[dict[str, str]]:
     normalized = clean_text(lesson_body(text))
     items: list[dict[str, str]] = []
     seen: set[str] = set()
@@ -2437,6 +2518,7 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
             "example": example[:280],
         }
         item.update(VOCAB_CORRECTIONS.get(key, {}))
+        item.update(VOCAB_CORRECTIONS_BY_DATE.get(issue_date, {}).get(key, {}))
         if suspicious_definition(item["definition"]):
             raise ValueError(
                 f"Suspicious vocabulary definition for {term!r}; "
@@ -2473,6 +2555,7 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
             "example": example[:280],
         }
         item.update(VOCAB_CORRECTIONS.get(key, {}))
+        item.update(VOCAB_CORRECTIONS_BY_DATE.get(issue_date, {}).get(key, {}))
         if suspicious_definition(item["definition"]):
             raise ValueError(
                 f"Suspicious vocabulary definition for {term!r}; "
@@ -2510,6 +2593,7 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
             "example": example[:280],
         }
         item.update(VOCAB_CORRECTIONS.get(key, {}))
+        item.update(VOCAB_CORRECTIONS_BY_DATE.get(issue_date, {}).get(key, {}))
         if suspicious_definition(item["definition"]):
             raise ValueError(
                 f"Suspicious vocabulary definition for {term!r}; "
@@ -2544,6 +2628,7 @@ def extract_vocabulary(text: str) -> list[dict[str, str]]:
             "example": example[:280],
         }
         item.update(VOCAB_CORRECTIONS.get(key, {}))
+        item.update(VOCAB_CORRECTIONS_BY_DATE.get(issue_date, {}).get(key, {}))
         if suspicious_definition(item["definition"]):
             raise ValueError(
                 f"Suspicious vocabulary definition for {term!r}; "
@@ -2703,7 +2788,7 @@ def clean_original_paragraph(value: str) -> str:
     return value
 
 
-def extract_paragraphs(raw: str) -> list[dict[str, str]]:
+def extract_paragraphs(raw: str, issue_date: str = "") -> list[dict[str, str]]:
     full_raw = raw
     raw = lesson_body(raw)
     matches = list(re.finditer(r"Para\.\s*(\d+)", raw))
@@ -2771,6 +2856,8 @@ def extract_paragraphs(raw: str) -> list[dict[str, str]]:
     if stop_positions:
         translation_source = translation_source[:min(stop_positions)]
     translations = translation_candidates(translation_source)
+    if issue_date in TRANSLATION_OVERRIDES_BY_DATE:
+        translations = TRANSLATION_OVERRIDES_BY_DATE[issue_date]
     if len(translations) < len(originals):
         analysis_start = next(
             (position for position in (full_raw.find(marker) for marker in ANALYSIS_HEADINGS) if position >= 0),
@@ -2963,7 +3050,7 @@ def extract_title_explanation(path: Path) -> str:
             continue
         if not collecting:
             continue
-        if re.search(rf"\b[A-Za-z][A-Za-z’' /()-]{{1,52}}?\s+{POS_PATTERN}\.\s*/", line):
+        if re.search(rf"\b[A-Za-z][A-Za-z’' /()-]{{1,52}}?\s+{POS_PATTERN}\.(?:\s*/|$)", line):
             break
         if line.startswith(("背景补充", "Para.")):
             break
@@ -3121,13 +3208,15 @@ def read_article(path: Path, digest: str | None = None) -> Article:
         filename=path.name,
         pages=len(reader.pages),
         words=len(clean_text(raw).split()),
-        paragraphs=extract_paragraphs(raw),
-        vocabulary=extract_vocabulary(raw),
+        paragraphs=extract_paragraphs(raw, date),
+        vocabulary=extract_vocabulary(raw, date),
         analyses=extract_analyses(path),
         source_digest=digest or sha256(path),
         cover_image=cover_image_ref(date),
         title_explanation=extract_title_explanation(path),
-        title_vocab_terms=extract_title_vocab_terms(raw),
+        title_vocab_terms=TITLE_VOCAB_TERMS_OVERRIDES_BY_DATE.get(
+            date, extract_title_vocab_terms(raw)
+        ),
         structure=extract_article_structure(path),
     )
 
