@@ -1,3 +1,97 @@
+const november7Exercises = [
+  {
+    chinese: "万斯希望成为特朗普的接班人，但也想与政府的失败拉开距离。",
+    answer: "Vance hopes to become Trump's successor, but he also wants to distance himself from the government's failures.",
+    core: "distance oneself from",
+    meaning: "与……拉开距离",
+    vocabulary: [
+      { word: "successor", ipa: "/səkˈsesər/", meaning: "继任者；接班人" },
+      { word: "distance", ipa: "/ˈdɪstəns/", meaning: "使疏远；使拉开距离" },
+      { word: "failure", ipa: "/ˈfeɪljər/", meaning: "失败；失败的事" }
+    ],
+    keywords: "万斯 Vance · 希望 hopes · 接班人 successor · 与……拉开距离 distance himself from · 政府的失败 the government's failures",
+    frame: "Vance hopes to ..., but he also wants to ...",
+    note: "hopes 和 wants 的主语都是第三人称单数 Vance，因此动词加 -s；but 连接相反的两个目标。",
+    source: "Vance wants to be that Republican, but without forfeiting Trump's support. How does he manage to do both?"
+  },
+  {
+    chinese: "万斯把共和党的败选主要归咎于伊朗战争。",
+    answer: "Vance blamed the Republican defeat mainly on the Iran war.",
+    core: "blame ... on ...",
+    meaning: "把……归咎于……",
+    vocabulary: [
+      { word: "blame", ipa: "/bleɪm/", meaning: "责怪；归咎" },
+      { word: "defeat", ipa: "/dɪˈfiːt/", meaning: "失败；败选" },
+      { word: "mainly", ipa: "/ˈmeɪnli/", meaning: "主要地" }
+    ],
+    keywords: "万斯 Vance · 共和党的败选 the Republican defeat · 主要 mainly · 归咎于 blamed ... on · 伊朗战争 the Iran war",
+    frame: "Vance blamed ... mainly on ...",
+    note: "blamed 是 blame 的一般过去时；mainly 放在 on 前，强调这是他给出的首要原因。",
+    source: "He reduced the disaster to a single cause, writing: 'The reason we lost is the war.'"
+  },
+  {
+    chinese: "这种解释让他可以批评战争，而不必直接攻击特朗普。",
+    answer: "This explanation allows him to criticize the war without directly attacking Trump.",
+    core: "allow someone to do",
+    meaning: "让某人可以做某事",
+    vocabulary: [
+      { word: "explanation", ipa: "/ˌekspləˈneɪʃən/", meaning: "解释；说法" },
+      { word: "criticize", ipa: "/ˈkrɪtɪsaɪz/", meaning: "批评" },
+      { word: "directly", ipa: "/dəˈrektli/", meaning: "直接地" }
+    ],
+    keywords: "这种解释 this explanation · 让他 allows him · 批评战争 criticize the war · 不必 without · 直接攻击 directly attacking",
+    frame: "This explanation allows him to ... without ...",
+    note: "without 是介词，后面的 attack 要变为 attacking；him 后则用 to criticize。",
+    source: "Trump likely agrees with this critique ... Donald Trump Jr. quickly shared Vance's post."
+  },
+  {
+    chinese: "这套说法还让他的外交政策对手鲁比奥看起来应对败选负责。",
+    answer: "The argument also makes his foreign-policy rival, Marco Rubio, look responsible for the defeat.",
+    core: "make someone look",
+    meaning: "让某人显得……",
+    vocabulary: [
+      { word: "argument", ipa: "/ˈɑːrɡjəmənt/", meaning: "论点；说法" },
+      { word: "foreign-policy", ipa: "/ˈfɔːrən ˈpɑːləsi/", meaning: "外交政策的" },
+      { word: "rival", ipa: "/ˈraɪvəl/", meaning: "竞争对手" },
+      { word: "responsible", ipa: "/rɪˈspɑːnsəbəl/", meaning: "应负责的" }
+    ],
+    keywords: "这套说法 the argument · 外交政策对手 foreign-policy rival · 鲁比奥 Marco Rubio · 看起来应负责 look responsible · 败选 the defeat",
+    frame: "The argument also makes ... look ...",
+    note: "make 后用“宾语 + 动词原形”，所以是 makes Rubio look，不是 looks。",
+    source: "Blaming the hawks for snookering Trump into a mistake implicates the Rubio wing of the party for the midterm debacle."
+  },
+  {
+    chinese: "万斯回避了其他问题，因为他曾支持特朗普的许多政策。",
+    answer: "Vance ignored other problems because he had supported many of Trump's policies.",
+    core: "ignore other problems",
+    meaning: "回避其他问题",
+    vocabulary: [
+      { word: "ignore", ipa: "/ɪɡˈnɔːr/", meaning: "忽视；回避" },
+      { word: "support", ipa: "/səˈpɔːrt/", meaning: "支持" },
+      { word: "policy", ipa: "/ˈpɑːləsi/", meaning: "政策" }
+    ],
+    keywords: "万斯 Vance · 回避了 ignored · 其他问题 other problems · 因为 because · 曾支持 had supported · 许多政策 many policies",
+    frame: "Vance ignored ... because he had supported ...",
+    note: "had supported 是过去完成时，表示“支持这些政策”发生在“回避问题”之前。",
+    source: "Vance either justified or enthusiastically supported all of these errors."
+  },
+  {
+    chinese: "作者认为，万斯正在利用这场战争保住自己在MAGA阵营中的地位，并为2028年做准备。",
+    answer: "The writer believes Vance is using the war to protect his place in MAGA and prepare for 2028.",
+    core: "use ... to do",
+    meaning: "利用……做……",
+    vocabulary: [
+      { word: "believe", ipa: "/bɪˈliːv/", meaning: "认为；相信" },
+      { word: "protect", ipa: "/prəˈtekt/", meaning: "保护；保住" },
+      { word: "prepare", ipa: "/prɪˈper/", meaning: "准备" }
+    ],
+    keywords: "作者 the writer · 认为 believes · 利用战争 use the war · 保住自己的地位 protect his place · 为2028年做准备 prepare for 2028",
+    frame: "The writer believes Vance is using ... to ... and ...",
+    note: "is using 是现在进行时，表示作者认为这一策略正在进行；protect 和 prepare 共用前面的 to。",
+    source: "This would seem to offer Vance the shortest and straightest path to holding together the MAGA coalition and his place within it."
+  }
+];
+
 const november6Exercises = [
   {
     chinese: "民主党在中期选举中大胜，但金融市场的反应很平静。",
@@ -369,6 +463,15 @@ const november3Exercises = [
 ];
 
 const issues = [
+  {
+    date: "20261107",
+    displayDate: "2026.11.07",
+    title: "万斯铺路，<br>2028已来",
+    optionTitle: "万斯铺路，2028已来",
+    summary: "用6句话梳理万斯如何用伊朗战争切割败选责任、打击鲁比奥并为2028年铺路。",
+    storageKey: "beibei-translation-20261107-v1",
+    exercises: november7Exercises
+  },
   {
     date: "20261106",
     displayDate: "2026.11.06",

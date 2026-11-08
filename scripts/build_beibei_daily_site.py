@@ -103,6 +103,70 @@ TOOLTIP_OVERRIDES_BY_DATE: dict[str, dict[str, str]] = {
         "unwind": "撤销；逆转",
         "haul": "强制带到",
     },
+    "20261107": {
+        "coronate": "正式确立为继任者",
+        "successor": "继任者；接班人",
+        "excise": "删除；剔除",
+        "primary": "党内初选",
+        "electorate": "全体选民",
+        "matrix": "决策框架；考量体系",
+        "forfeit": "失去；放弃",
+        "shrewd": "精明的；善于算计的",
+        "disingenuous": "不真诚的；虚伪的",
+        "concede": "承认",
+        "rout": "彻底击败",
+        "shorthand": "简略的表达方式",
+        "reduce sth to sth": "将……简化为……",
+        "debacle": "惨败；彻底失败",
+        "violate": "违背；违反",
+        "oft-stated": "反复声明的",
+        "quagmire": "难以脱身的泥潭",
+        "critique": "批评；评论",
+        "cataclysm": "大灾难；剧变",
+        "imprimatur": "正式批准；认可",
+        "concession": "认错；让步",
+        "box out": "排挤；阻止参与",
+        "hawk": "鹰派人物",
+        "snooker": "诱使陷入错误；困住",
+        "implicate": "表明……涉及或应负责",
+        "wing": "党内派别",
+        "dismantle": "瓦解；逐步拆除",
+        "coalition": "政治联盟",
+        "binge": "狂热行动；放纵",
+        "food stamp": "食品救济券",
+        "cop to": "承认；坦承",
+        "justify": "为……辩护",
+        "refute": "驳斥；否认",
+        "iron-fisted": "采取铁腕手段的",
+        "alienate": "使疏远；使失去支持",
+        "establishment": "建制派；当权精英",
+        "woe": "困境；麻烦",
+        "amnesty": "大赦；合法化安排",
+        "revive": "重新提起；恢复",
+        "epithet": "带攻击性的称呼",
+        "factional": "党内派系的",
+        "assert": "断言；坚称",
+        "pollster": "民意调查人员",
+        "disgruntled": "不满的；失望的",
+        "manipulate": "操纵；诱导",
+        "blurt out": "脱口而出",
+        "phase out": "逐步取消",
+        "advocacy": "公开倡议；游说",
+        "on and off": "断断续续地",
+        "bête noire": "眼中钉；心头大患",
+        "immutable": "不可改变的",
+        "inhibition": "顾虑；心理阻碍",
+        "giddy": "因兴奋而忘乎所以的",
+        "subtly": "微妙地；含蓄地",
+        "point the finger at": "把责任推给……",
+        "hold together": "维系团结",
+        "course": "路线；方向",
+        "recommit": "重新坚守",
+        "veer": "偏离；转向",
+        "militarized": "军事化的",
+        "ongoing": "持续进行的",
+        "orgy": "无节制的泛滥；狂欢",
+    },
 }
 
 TRANSLATION_OVERRIDES_BY_DATE: dict[str, list[str]] = {
@@ -116,6 +180,21 @@ TRANSLATION_OVERRIDES_BY_DATE: dict[str, list[str]] = {
         "第二类输家，则是那些命运完全系于人工智能数据中心建设热潮的企业。此前，许多共和党人都支持建设这些大型设施，直到它们引发公众反弹，而民主党人也毫不手软地借势加以利用。在原本计划新增数据中心容量、合计占全美一半的四个州中，佐治亚州、俄亥俄州和得克萨斯州均由共和党州长执政。从明年开始，这四个州将全部由民主党州长掌舵。其中，得克萨斯州是全美最受数据中心青睐的选址地。该州新当选的州长吉娜·希诺霍萨在竞选期间承诺，上任后立即暂停数据中心建设。",
         "大型独立数据中心运营商CoreWeave的股价应声暴跌10%；生产人工智能服务器所需存储芯片的美光科技，市值缩水7%；市值高达5万亿美元的人工智能芯片巨头英伟达，股价也下跌了3%。电气设备制造商同样受到波及。数据中心需要大量电气设备，而为这些数据中心供电的发电厂也离不开相关产品。选举前，两党曾就一项法案初步达成协议，让输油管道、风电场等项目能获得必要许可。但如今民主党或许会在谈判中提出更苛刻的条件。受此影响，GE Vernova、Vistra和Vertiv的股价均下跌约十分之一。",
         "反观另一面，蓝色浪潮也为一些行业带来了利好。那些有望受益于特朗普政府预算削减措施被撤销的行业——例如医疗保健和清洁能源——以及那些向数据中心投入巨资的大型科技公司，都有望从中获益。大型科技公司的“超大规模云服务商”如今或许可以减少资本支出，从而保住自身利润率；与此同时，它们现有的数据中心容量也将更少地面临来自CoreWeave等独立运营商的竞争。亚马逊和微软的股价涨幅均超过6%，Alphabet上涨逾3%。就连由极具“男性圈”色彩的扎克伯格掌舵的Meta，股价也小幅走高。当然，科技巨头的掌门人们恐怕仍免不了被传唤到国会，接受就人工智能问题以及他们对特朗普近乎谄媚的示好而进行的对抗性听证。但至少，他们下一次财报电话会议的气氛或许会友善得多。■",
+    ],
+    "20261107": [
+        "自2024年成为共和党副总统候选人以来，J.D.万斯的政治布局就围绕着一个目标：让特朗普亲自加冕，将自己确立为他的接班人。上个月，万斯在接受肖恩·斯派塞（前白宫新闻发言人）采访时直言：“最终，谁能成为共和党总统候选人，将由特朗普决定。”这番话干净利落地将初选选民排除在了决定的考量之外。然而，中期选举的结果表明，共和党选民中正在形成一种新的政治需求：他们希望2028年的总统候选人能够与本届政府的种种失政拉开距离。万斯希望成为这样一位候选人，却又不愿因此失去特朗普的支持。那他究竟要如何兼顾这两者呢？",
+        "把所有问题都归咎于伊朗战争。这正是万斯颇为精明、却也带有几分虚伪的策略。在X平台发表的一篇长文中，这位副总统坦然承认，共和党遭遇了惨败，而且“许多在2024年投票支持特朗普/万斯组合的人，在2026年转而投票给了民主党”。分析人士往往将2024年共和党总统选举的支持者简称为“特朗普选民”，但万斯显然有意避开了这一简化叫法。他将这场政治灾难归结为单一原因，并写道：“我们败选的根源在于战争。这一点，总统昨晚已亲口承认。”",
+        "此番论调堪称一石多鸟，其一，它切中了部分事实。伊朗战争确实是一场政治噩梦：一方面它彻底撕毁了特朗普“远离泥潭”的反复承诺，另一方面则推高了油价与各类商品的物价。",
+        "其次，同样重要的是，特朗普很可能也认同这种批评。几个月来，总统一直公开将责任推给伊朗，同时又竭力辩称，战争造成的代价微不足道、只是暂时的，而且是避免核灾难所必须付出的代价。（自开战之日起，这场冲突就宣称“距离结束仅剩两周”。）昨晚在接受福克斯新闻采访时，特朗普坚称：“我们拥有最好的经济。”但他随即解释说：“因为汽油价格上涨，人们没能像原本那样充分感受到经济的好处。而汽油价格上涨，是伊朗造成的。”小唐纳德·特朗普（特朗普儿子）很快转发了万斯的这篇帖子，并评论道：“每一个字都百分之百正确。”这一表态无异于为万斯的认错之辞盖上了一枚来自特朗普家族的准官方印章。",
+        "第三，万斯的这套说辞意在封堵自己最有可能的竞争对手——国务卿鲁比奥。如果问题出在战争上，那么共和党选民又有什么理由选择一位毕生职责就是处理外交事务的内阁官员呢？鲁比奥向来以外交政策强硬派著称。而如果将责任归咎于那些怂恿特朗普犯下错误的鹰派，那么共和党内的鲁比奥一派，自然也就难辞其咎。",
+        "第四，万斯对特朗普瓦解2024年共和党选民联盟的其他种种做法，选择了视而不见。关税呢？大规模驱逐移民呢？腐败呢？挥金如土的宫殿式建设狂潮呢？还有那套国内政策：一边为富人减税，一边却让数百万低收入美国人失去医疗保险和食品券？这些问题，特朗普没有一个愿意承认自己犯了错。而万斯当初不仅为这些政策辩护，甚至还曾热情拥护其中的每一项。",
+        "在那篇X平台帖子中，万斯还特意反驳了共和党的批评者。这些人（合理地）认为，政府以铁腕手段推行移民执法，疏远了拉美裔选民；而这些选民原本期待的，只是一套范围更有限、重点打击犯罪移民的驱逐政策。万斯写道：“你们很快就会听到各种建制派政客声称，解决当前困境的办法是实行大赦。我并不排斥调整移民执法方式，比如将更多执法重点放在雇用非法劳工的企业身上。但任何鼓吹大赦的人，都是在欺骗你们。”",
+        "然而，“大赦”并不是对斯蒂芬·米勒那套移民政策的唯一替代方案。那套政策主张部署训练仓促、蒙面执法的特工，并鼓励他们采取最粗暴的执法手段。事实上，大赦只是移民改革方案中的一种可能安排。奥巴马第二任期内，鲁比奥曾短暂支持过一项包含大赦条款的移民改革计划。或许正是这段历史，解释了万斯为何如此急于重新搬出“大赦”这个概念——要把它变成攻击党内派系对手的一顶帽子。",
+        "万斯在帖子中还表示，一位民调专家曾告诉他，那些心怀不满的特朗普选民——抱歉，应该说是特朗普—万斯选民——只要政府做到以下四件事，就会“重新回到我们阵营”：结束战争。将重心转向生活成本和通胀问题。奉行“美国优先”。调整美国与以色列的关系。",
+        "从某种视角来看，尤其是从网络右翼颇为盛行的那套政治叙事来看，这四件事其实可以归结为一件事：特朗普必须停止任由以色列操纵自己，将美国拖入一场又一场对外战争，转而把精力放在让美国人富裕起来上。对万斯而言，这一论调可谓再合适不过。因为特朗普似乎也愿意接受这种批评。就在昨天，他在福克斯新闻的采访中脱口而出，称自己如今倾向于逐步取消美国对以色列的援助。",
+        "万斯暗示以色列曾帮助说服特朗普对伊朗开战，这一点确有道理。但以色列的游说，并不是霍尔木兹海峡遭到封锁的唯一原因。自1979年人质危机爆发以来，伊朗便逐渐成为美国眼中的头号宿敌，而特朗普早在那个时期就形成了自己对世界的一套根深蒂固、几乎不可撼动的信念。此后，他一直时不时主张对伊朗动武。此外，绑架委内瑞拉总统尼古拉斯·马杜罗的行动似乎也让特朗普尝到了权力带来的快感，使他对动用军事力量的顾虑进一步消退。",
+        "将政府在国内施政上的种种失败统统归咎于伊朗战争，同时又含沙射影地将矛头指向内塔尼亚胡，暗示是他蒙骗了特朗普、诱使其发动战争——这似乎为万斯提供了一条最短、最直接的道路，让他既能维系MAGA阵营内部的团结，又能保住自己在这一阵营中的地位。按照这套说辞，特朗普政府本身其实运转得相当完美，唯一需要做的，不过是稍稍调整航向，重新坚定地回归“美国优先”的原则。",
+        "那么，究竟还有谁能够带领MAGA运动迈向这种特朗普主义的崭新未来，一种不再诉诸战争的特朗普主义？同时，又不必背离特朗普那套军事化的移民执法路线，不必承认政府内部仍在上演的腐败盛宴与权力滥用？答案只有一个人。",
     ],
 }
 
@@ -1394,6 +1473,23 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "Other businesses gained. Health-care and clean-energy companies may benefit if earlier budget cuts are reversed. Amazon, Microsoft, Alphabet and Meta may spend less on new data centres and face less competition from independent operators. The main message is that the whole market did not panic, but the election changed which industries investors expect to win or lose."
         ),
     },
+    "20261107": {
+        "pet_index": "04",
+        "overview": (
+            "文章分析J.D.万斯如何在共和党中期选举惨败后，同时为2028年总统竞选铺路。他长期希望特朗普亲自将他确立为政治接班人，但选举结果表明，共和党选民也可能寻找一位能与现政府失败拉开距离的候选人。万斯面临的难题，是如何切割责任，却又不失去特朗普的支持。"
+            "他的核心策略是把败选几乎全部归咎于伊朗战争。这个解释有一定事实基础：战争违背了特朗普避免海外泥潭的承诺，还推高了燃料和生活成本。更重要的是，特朗普本人也愿意把油价问题归咎于伊朗，特朗普的儿子也公开认可万斯的说法。因此，万斯可以承认共和党败选，却无需直接否定特朗普。"
+            "这套叙事还能打击万斯潜在的2028年对手、国务卿马可·鲁比奥。如果战争是败选的根源，那么负责外交政策的鲁比奥和共和党鹰派便更容易被追责。同时，万斯回避了关税、大规模驱逐移民、腐败、富人减税和削减低收入者福利等国内问题，因为他自己曾为这些政策辩护。"
+            "在移民议题上，万斯拒绝承认政府的铁腕执法疏远了拉美裔选民，而是把党内批评者描绘成鼓吹“大赦”的建制派。这一标签也会伤及曾支持过移民改革的鲁比奥。万斯提出的四项诉求是结束战争、降低生活成本、重回“美国优先”和调整对以色列关系，其共同叙事是以色列把特朗普拖入了战争。"
+            "作者对此持批判态度。以色列的游说确实可能影响特朗普，但特朗普多年来本就支持对伊朗动武，也在其他军事行动后变得更愿意使用武力。文章认为，把一切归咎于战争和内塔尼亚胡，是万斯维系MAGA联盟、排挤竞争对手并把自己包装成“无战争特朗普主义”接班人的政治算计。"
+        ),
+        "pet": (
+            "The article explains how J. D. Vance may be preparing for the 2028 presidential election. Vance wants Donald Trump to choose him as the next Republican leader. However, the midterm defeat showed that some Republican voters may want a candidate who is less closely connected to the government's failures. Vance therefore needs to separate himself from the defeat without losing Trump's support. "
+            "His main answer is to blame the Iran war. The war broke Trump's promise to avoid long foreign conflicts and it also raised fuel prices and living costs. Trump himself has blamed Iran for high petrol prices, so Vance can criticise the war without directly attacking the president. Trump's son also publicly supported Vance's message. "
+            "This argument may also weaken Marco Rubio, a possible rival in 2028. Rubio is secretary of state and is known for strong foreign-policy views. If the war caused the defeat, voters may blame Rubio and other foreign-policy hawks. At the same time, Vance avoids talking about tariffs, mass deportations, corruption, tax cuts for the rich and cuts to help for poor families. He supported many of these policies himself. "
+            "Vance also argues about immigration. Some Republicans say that harsh enforcement pushed Latino voters away. Vance answers that party leaders should not support amnesty. This word can be used against Rubio because he once supported an immigration-reform plan that included a path to legal status. "
+            "Vance says unhappy voters will return if the government ends the war, lowers living costs, follows America First and changes its relationship with Israel. The writer accepts that Israel may have influenced Trump, but says Trump has wanted to attack Iran for many years. The article's main point is that Vance is using the war to protect his place in the MAGA movement, attack a rival and present himself as the future leader of Trumpism without war."
+        ),
+    },
 }
 
 
@@ -1654,6 +1750,17 @@ VOCAB_FALSE_POSITIVES = {
     # 20261106: this slash-separated example belongs to the verb card
     # "court" (court danger/death/disaster), not a standalone headword.
     "to court danger",
+    # 20261107: "the medical/military/political establishment" is an example
+    # inside the establishment card, not a standalone no-POS headword.
+    "the medical",
+    # 20261107: slash-separated examples and a numbered list in paragraph 9
+    # can resemble phonetic headwords, but all belong to existing cards/body.
+    "a person or thing that comes after sb",
+    "throw sth",
+    "a hasty departure",
+    "focus on cost of living",
+    "the plane was on",
+    "an ongoing debate",
 }
 
 
@@ -2302,6 +2409,23 @@ VOCAB_CORRECTIONS_BY_DATE: dict[str, dict[str, dict[str, str]]] = {
             "definition": "强迫某人去某处；用力拖拉",
             "definition_en": "to force someone to go somewhere; to pull something with great effort",
             "example": "The tech bosses can expect to be hauled before Congress for adversarial hearings. 科技公司老板可能会被强制召到国会接受对抗性听证。",
+        },
+    },
+    "20261107": {
+        "disingenuous": {
+            "definition": "不真诚的；不诚实的；虚伪的",
+            "definition_en": "not sincere, especially when pretending to know less than one really does",
+            "example": "It would be disingenuous of me to claim I had never seen it. 要说我从未看过，那就是言不由衷了。",
+        },
+        "manipulate": {
+            "definition": "暗中控制；操纵；影响",
+            "definition_en": "to control or influence someone, often dishonestly and without their awareness",
+            "example": "As a politician, he knows how to manipulate public opinion. 身为政治家，他知道如何左右公众舆论。",
+        },
+        "orgy": {
+            "definition": "狂欢；放纵；过度的某种活动",
+            "definition_en": "a party involving excessive activity; an extreme amount of a particular activity",
+            "example": "The rebels went on an orgy of killing. 叛乱者肆意杀人。",
         },
     },
 }
