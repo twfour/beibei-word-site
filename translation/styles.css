@@ -69,7 +69,7 @@ button { color: inherit; }
   min-height: calc(100vh - 112px);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+  grid-template-columns: minmax(280px, 350px) minmax(0, 1fr);
   gap: clamp(24px, 4vw, 64px);
   padding: clamp(24px, 4vw, 56px);
 }
@@ -123,11 +123,16 @@ button { color: inherit; }
 .prompt-block h2 { max-width: 900px; margin: 0; font-size: clamp(28px, 4vw, 54px); line-height: 1.32; font-weight: 500; letter-spacing: -.025em; }
 .vocabulary-strip { margin: -12px 0 22px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 16px; background: #f6f0e6; }
 .vocabulary-strip .small-label { margin-bottom: 9px; }
-.vocabulary-list { display: flex; flex-wrap: wrap; gap: 8px; }
-.vocabulary-item { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 6px; padding: 7px 10px; border-radius: 10px; background: white; font-size: 14px; line-height: 1.35; }
-.vocabulary-word { font-weight: 800; }
-.vocabulary-ipa { color: var(--coral); font-family: "Arial", sans-serif; }
-.vocabulary-meaning { color: var(--muted); }
+.vocabulary-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.vocabulary-item { display: grid; grid-template-columns: minmax(300px, .9fr) minmax(0, 1fr); align-items: center; gap: 14px; width: 100%; padding: 8px 11px; border-radius: 10px; background: white; font-size: 14px; line-height: 1.35; }
+.vocabulary-term { min-width: 0; display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+.vocabulary-word { flex: 0 0 auto; font-weight: 800; white-space: nowrap; }
+.vocabulary-ipa { flex: 0 0 auto; color: var(--coral); font-family: "Arial", sans-serif; white-space: nowrap; }
+.vocabulary-meaning { min-width: 0; color: var(--muted); }
+.vocabulary-audio { flex: 0 0 auto; width: 30px; height: 30px; display: inline-grid; place-items: center; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: var(--cream); color: var(--ink); cursor: pointer; font: 800 10px/1 "Courier New", monospace; transition: transform .15s ease, background .15s ease, color .15s ease; }
+.vocabulary-audio:hover { transform: translateY(-1px); border-color: var(--ink); }
+.vocabulary-audio.is-speaking { border-color: var(--coral); background: var(--coral); color: white; }
+.vocabulary-audio:disabled { cursor: not-allowed; opacity: .4; transform: none; }
 .study-panel { display: grid; gap: 16px; }
 .study-answer-wrap { position: relative; padding: 22px 24px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: white; transition: background .2s ease; }
 .study-answer { margin: 0; font-size: clamp(22px, 2.6vw, 35px); line-height: 1.5; transition: filter .2s ease, opacity .2s ease; }
@@ -242,6 +247,8 @@ footer button { min-height: 30px; padding: 5px 10px; border-color: var(--line); 
   .phrase-strip { grid-template-columns: 1fr; gap: 4px; }
   .study-support { grid-template-columns: 1fr; }
   .audio-button { width: 100%; }
+  .vocabulary-item { grid-template-columns: minmax(0, 1fr); gap: 5px; }
+  .vocabulary-term { overflow-x: auto; padding-bottom: 2px; }
   .study-actions .learned-button { width: 100%; margin-left: 0; }
   .note-grid { grid-template-columns: 1fr; gap: 10px; }
   .exercise-nav { grid-template-columns: auto auto; }

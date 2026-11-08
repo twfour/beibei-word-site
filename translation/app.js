@@ -606,7 +606,7 @@ function chooseFemaleEnglishVoice(voices) {
 function resetAudioButton() {
   if (!activeAudioButton) return;
   activeAudioButton.classList.remove("is-speaking");
-  activeAudioButton.textContent = "▶ 朗读英文";
+  activeAudioButton.textContent = activeAudioButton.dataset.idleLabel || "▶ 朗读英文";
   activeAudioButton = null;
 }
 
@@ -615,27 +615,31 @@ function stopSpeech() {
   resetAudioButton();
 }
 
-function speakAnswer(button) {
+function speakText(button, text, rate = 0.86) {
   if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) return;
   if (activeAudioButton === button) {
     stopSpeech();
     return;
   }
   stopSpeech();
-  const utterance = new SpeechSynthesisUtterance(exercises[state.index].answer);
+  const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = "en-US";
-  utterance.rate = 0.86;
+  utterance.rate = rate;
   const voices = window.speechSynthesis.getVoices();
   utterance.voice = chooseFemaleEnglishVoice(voices);
   activeAudioButton = button;
   button.classList.add("is-speaking");
-  button.textContent = "■ 停止朗读";
+  button.textContent = button.dataset.speakingLabel || "■ 停止朗读";
   const finish = () => {
     if (activeAudioButton === button) resetAudioButton();
   };
   utterance.addEventListener("end", finish, { once: true });
   utterance.addEventListener("error", finish, { once: true });
   window.speechSynthesis.speak(utterance);
+}
+
+function speakAnswer(button) {
+  speakText(button, exercises[state.index].answer);
 }
 
 function save() {
@@ -718,8 +722,10 @@ function render() {
   elements.promptLabel.textContent = learning ? "先读懂中文" : "只看中文，试着写";
   elements.prompt.textContent = exercise.chinese;
   elements.vocabularyList.replaceChildren(...exercise.vocabulary.map(item => {
-    const entry = document.createElement("span");
+    const entry = document.createElement("div");
     entry.className = "vocabulary-item";
+    const term = document.createElement("div");
+    term.className = "vocabulary-term";
     const word = document.createElement("strong");
     word.className = "vocabulary-word";
     word.textContent = item.word;
@@ -729,7 +735,18 @@ function render() {
     const meaning = document.createElement("span");
     meaning.className = "vocabulary-meaning";
     meaning.textContent = item.meaning;
-    entry.append(word, ipa, meaning);
+    const audio = document.createElement("button");
+    audio.type = "button";
+    audio.className = "vocabulary-audio";
+    audio.dataset.idleLabel = "▶";
+    audio.dataset.speakingLabel = "■";
+    audio.textContent = audio.dataset.idleLabel;
+    audio.setAttribute("aria-label", `朗读单词 ${item.word}`);
+    audio.title = `朗读 ${item.word}`;
+    audio.disabled = !("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window);
+    audio.addEventListener("click", () => speakText(audio, item.word, 0.78));
+    term.append(word, ipa, audio);
+    entry.append(term, meaning);
     return entry;
   }));
   elements.studyAnswer.textContent = exercise.answer;
