@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="进制转换课堂精读：短除法、乘基取整、按权展开、回文判断与 Excel 列序号。">
+  <title>进制转换 · 课堂代码精读</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../base-conversion.css">
+</head>
+<body class="base-article">
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <header class="hero base-hero" id="top">
+    <nav class="nav"><a class="brand" href="../">CODE / 编程周刊</a><div class="nav-links"><a href="#map">知识地图</a><a href="#methods">转换方法</a><a href="#problems">课堂题型</a><a href="#practice">在线编程</a></div></nav>
+    <div class="hero-grid">
+      <div><p class="kicker">CODE WEEKLY · VOL. 002</p><h1>换一种<br><span>数数方式</span></h1></div>
+      <div class="hero-note"><p>进制转换 · 两份课堂资料合并精读</p><p>整数向外转：<code>除基取余，逆序读</code>。任意进制向十进制转：<code>逐位乘权，再累加</code>。方向不同，底层却是同一个“位值”思想。</p></div>
+    </div>
+    <div class="stats"><span><b>03</b> 种转换方法</span><span><b>09</b> 个课堂题型</span><span><b>04</b> 组在线代码</span></div>
+  </header>
+
+  <main>
+    <section class="section" id="map">
+      <div class="section-head"><span>01 / NUMBER SYSTEM</span><h2>进制，规定了<br>何时“进一”</h2></div>
+      <div class="radix-strip">
+        <article><small>BASE 2</small><strong>0 1</strong><p>计算机内部 · 逢二进一</p></article>
+        <article><small>BASE 8</small><strong>0—7</strong><p>三位二进制可对应一位八进制</p></article>
+        <article class="hot"><small>BASE 10</small><strong>0—9</strong><p>日常计数 · 逢十进一</p></article>
+        <article><small>BASE 16</small><strong>0—9 A—F</strong><p>A=10，B=11，…，F=15</p></article>
+      </div>
+      <div class="place-value">
+        <div><span>位</span><b>3</b><b>0</b><b>7</b></div>
+        <div><span>权</span><code>8²</code><code>8¹</code><code>8⁰</code></div>
+        <p><strong>307₈</strong> = 3×8² + 0×8¹ + 7×8⁰ = <strong>199₁₀</strong></p>
+      </div>
+      <div class="formula"><span>位值原则</span><strong>一位的数值</strong><i>×</i><strong>这一位的权</strong><i>→</i><strong>累加成真实大小</strong></div>
+    </section>
+
+    <section class="section lessons" id="methods">
+      <div class="section-head"><span>02 / THREE METHODS</span><h2>三条转换路线，<br>方向决定算法</h2></div>
+      <div class="lesson-list">
+        <article class="lesson" data-no="01"><div class="lesson-title"><span>十进制整数 → k 进制</span><h3>除 k 倒取余</h3><p>每次余数都是当前最低位，所以记录顺序与最终书写顺序相反。</p></div><div class="lesson-body"><div class="division-stack"><div><b>199 ÷ 8</b><span>商 24</span><em>余 7</em></div><div><b>24 ÷ 8</b><span>商 3</span><em>余 0</em></div><div><b>3 ÷ 8</b><span>商 0</span><em>余 3</em></div><p>余数从下往上读：<strong>307₈</strong></p></div><pre><code>while (n) {
+    a[++idx] = n % r;  // 先取最低位
+    n /= r;            // 再去掉最低位
+}
+for (int i = idx; i &gt;= 1; i--)
+    cout &lt;&lt; digit(a[i]);</code></pre><div class="notes"><p><b>方向</b>余数是低位先出现，因此必须倒序输出。</p><p><b>边界</b><code>n=0</code> 时循环不会执行，要单独输出 0。</p></div></div></article>
+
+        <article class="lesson" data-no="02"><div class="lesson-title"><span>十进制小数 → k 进制</span><h3>乘 k 正取整</h3><p>每次得到的是小数点后从左到右的下一位，因此按产生顺序读取。</p></div><div class="lesson-body"><div class="multiply-stack"><div><b>0.375 × 2</b><span>0.75</span><em>取整 0</em></div><div><b>0.75 × 2</b><span>1.5</span><em>取整 1</em></div><div><b>0.5 × 2</b><span>1.0</span><em>取整 1</em></div><p>整数部分从上往下读：<strong>0.011₂</strong></p></div><div class="warning-card"><strong>为什么 0.1 难以精确存储？</strong><p><code>0.1 × 2</code> 的小数部分会循环，二进制表示成为无限循环小数。计算机只能截断到有限位，因此保存的是近似值。</p></div><div class="notes"><p><b>区别</b>整数部分“除基取余、逆序”，小数部分“乘基取整、正序”。</p><p><b>停止</b>小数归零或达到题目规定精度。</p></div></div></article>
+
+        <article class="lesson" data-no="03"><div class="lesson-title"><span>k 进制 → 十进制</span><h3>按权展开</h3><p>整数位权从右向左是 k⁰、k¹、k²；小数点右边则是 k⁻¹、k⁻²。</p></div><div class="lesson-body"><div class="equation-list"><p><b>101.11₂</b><span>1×2² + 0×2¹ + 1×2⁰ + 1×2⁻¹ + 1×2⁻²</span><strong>5.75₁₀</strong></p><p><b>506.2₈</b><span>5×8² + 0×8¹ + 6×8⁰ + 2×8⁻¹</span><strong>326.25₁₀</strong></p><p><b>10.C₁₆</b><span>1×16¹ + 0×16⁰ + 12×16⁻¹</span><strong>16.75₁₀</strong></p></div><pre><code>long long ans = 0, p = 1;
+for (int i = s.size() - 1; i &gt;= 0; i--) {
+    int value = isupper(s[i])
+        ? s[i] - 'A' + 10 : s[i] - '0';
+    ans += value * p;
+    p *= k;
+}</code></pre><div class="notes"><p><b>字符映射</b><code>'7'-'0'=7</code>，<code>'C'-'A'+10=12</code>。</p><p><b>位权</b><code>p</code> 从 1 开始，每向左一位乘一次 k。</p></div></div></article>
+      </div>
+    </section>
+
+    <section class="section base-compare" id="problems">
+      <div class="section-head"><span>03 / CLASSROOM PROBLEMS</span><h2>九道题，识别<br>四类考法</h2></div>
+      <div class="problem-grid">
+        <article><span>热身 · 桶计数</span><h3>好事成双</h3><p>统计“恰好出现 2 次”的数字种类，条件必须是 <code>cnt[i] == 2</code>，不是 <code>&gt;= 2</code>。</p></article>
+        <article class="accent"><span>手算 · 十六进制</span><h3>194₁₀ = C2₁₆</h3><p>194÷16=12…2；12 对应 C。注意资料一处把被除数误写成 199，正确计算对象是 194。</p></article>
+        <article><span>代码 · 通用转换</span><h3>十进制转 r 进制</h3><p><code>n%r → 保存 → n/=r → 倒序</code>，支持 2—16 进制。</p></article>
+        <article><span>应用 · 对称比较</span><h3>进制回文</h3><p>转换后的余数数组虽然是反序，但回文性质不变；比较 <code>a[i]</code> 与 <code>a[idx+1-i]</code>。</p></article>
+        <article><span>手算 · 整数与小数</span><h3>13.375₁₀</h3><p>整数 13 → 1101；小数 0.375 → .011；合并得 <strong>1101.011₂</strong>。</p></article>
+        <article><span>比较 · 统一尺度</span><h3>谁不是 617？</h3><p>269₁₆、617₁₀、1151₈ 都是 617；1001101011₂ 是 619。</p></article>
+        <article><span>比较 · 含小数</span><h3>谁最大？</h3><p>11.75、56.1、46.875、56.5 中，<strong>111000.1₂ = 56.5</strong> 最大。</p></article>
+        <article><span>代码 · 位权累加</span><h3>k 进制转十进制</h3><p>多组输入直到 <code>0 0</code>；倒序遍历，使用 <code>long long</code> 防止溢出。</p></article>
+        <article class="excel"><span>特殊模型 · 1-based</span><h3>Excel 列名</h3><p>A=1，Z=26，AA=27。它不是普通的 0—25，而是没有数字 0 的“1-based 26 进制”。</p></article>
+      </div>
+    </section>
+
+    <section class="section vector base-patterns" id="templates">
+      <div class="section-head"><span>04 / PATTERN LIBRARY</span><h2>看见关键词，<br>立即选模板</h2></div>
+      <div class="template-grid"><article><span>01</span><h3>桶计数</h3><code>cnt[t]++</code><p>统计频次，再按条件筛选。</p></article><article><span>02</span><h3>短除法</h3><code>n % r; n /= r;</code><p>十进制整数向外转换。</p></article><article><span>03</span><h3>位权累加</h3><code>ans += digit * p</code><p>任意进制转回十进制。</p></article><article><span>04</span><h3>回文判断</h3><code>a[i] == a[idx+1-i]</code><p>只需检查前一半。</p></article></div>
+    </section>
+
+    <section class="portal" id="practice">
+      <div class="portal-head"><div><span>05 / C++ PLAYGROUND</span><h2>在线编程</h2></div><p>四个示例都来自课堂资料。直接修改 C++ 源码和标准输入，再用 GCC 13.2 / C++17 真实编译运行。</p></div>
+      <div class="portal-shell"><aside id="challenge-list" aria-label="选择编程题"></aside><div class="workspace"><div class="workbar"><div><i></i><i></i><i></i><span id="file-name">convert.cpp</span><em>GCC 13.2 · C++17</em></div><div class="editor-actions"><button id="reset-code">恢复示例</button><button id="copy-code">复制代码</button></div></div><label class="sr-only" for="portal-code">C++ 源代码编辑器</label><textarea class="editor" id="portal-code" spellcheck="false" aria-label="C++ 源代码编辑器"></textarea></div><div class="terminal"><label for="stdin">标准输入 / STDIN</label><textarea id="stdin" spellcheck="false"></textarea><button class="run" id="run-code"><span>▶</span> 编译并运行</button><div class="output-head"><span>输出 / OUTPUT</span><span id="run-status">READY</span></div><pre id="output" aria-live="polite">等待运行…</pre><p class="hint"><span id="input-hint"></span><br>代码会发送到在线 GCC 沙箱，请勿输入隐私信息。</p></div></div>
+    </section>
+  </main>
+  <footer><a href="../">← 编程周刊</a><p>整理自《进制转换讲义》与《进制转换课堂代码详解》· 共 16 页</p><a href="#top">回到顶部 ↑</a></footer>
+  <script src="../base-conversion.js"></script>
+</body>
+</html>
