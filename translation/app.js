@@ -1,3 +1,96 @@
+const november9Exercises = [
+  {
+    chinese: "中期选举失败后，特朗普用斯蒂芬·米勒取代了苏西·怀尔斯。",
+    answer: "After the midterm defeat, Trump replaced Susie Wiles with Stephen Miller.",
+    core: "replace ... with ...",
+    meaning: "用……取代……",
+    vocabulary: [
+      { word: "midterm", ipa: "/ˈmɪdtɜːrm/", meaning: "中期选举的" },
+      { word: "defeat", ipa: "/dɪˈfiːt/", meaning: "失败；败选" },
+      { word: "replace", ipa: "/rɪˈpleɪs/", meaning: "取代；替换" }
+    ],
+    keywords: "中期选举失败 the midterm defeat · 特朗普 Trump · 用……取代…… replaced ... with ... · 苏西·怀尔斯 Susie Wiles · 斯蒂芬·米勒 Stephen Miller",
+    frame: "After ..., Trump replaced ... with ...",
+    note: "replace A with B 表示‘用B取代A’；replaced 是一般过去时。",
+    source: "The president responded by replacing his chief of staff, Susie Wiles, with Stephen Miller."
+  },
+  {
+    chinese: "米勒名义上是副幕僚长，但他早已是政府中最有权势的人物之一。",
+    answer: "Miller was officially the deputy chief of staff, but he was already one of the administration's most powerful figures.",
+    core: "one of the most ...",
+    meaning: "最……的……之一",
+    vocabulary: [
+      { word: "officially", ipa: "/əˈfɪʃəli/", meaning: "正式地；名义上" },
+      { word: "deputy", ipa: "/ˈdepjuti/", meaning: "副手；副职" },
+      { word: "administration", ipa: "/ədˌmɪnɪˈstreɪʃən/", meaning: "政府；行政当局" }
+    ],
+    keywords: "名义上 officially · 副幕僚长 deputy chief of staff · 早已 already · 最有权势的人物之一 one of the most powerful figures",
+    frame: "Miller was ..., but he was already one of ...",
+    note: "one of 后接复数名词 figures；but 连接名义职位与实际权力的反差。",
+    source: "In reality, Miller was already the administration's most powerful figure, arguably including Trump himself."
+  },
+  {
+    chinese: "怀尔斯执行特朗普的意愿，而米勒帮助塑造这些意愿。",
+    answer: "Wiles carried out Trump's wishes, while Miller helped shape them.",
+    core: "carry out",
+    meaning: "执行；落实",
+    vocabulary: [
+      { word: "carry out", ipa: "/ˌkæri ˈaʊt/", meaning: "执行；实施" },
+      { word: "wish", ipa: "/wɪʃ/", meaning: "意愿；愿望" },
+      { word: "shape", ipa: "/ʃeɪp/", meaning: "塑造；影响" }
+    ],
+    keywords: "怀尔斯 Wiles · 执行 carried out · 特朗普的意愿 Trump's wishes · 而 while · 米勒 Miller · 塑造 shape",
+    frame: "Wiles carried out ..., while Miller ...",
+    note: "while 在这里表示对比，相当于‘而’；helped 后可直接接动词原形 shape。",
+    source: "Wiles ... facilitated Trump's impulses without questioning them. Miller, however, has driven and shaped those impulses."
+  },
+  {
+    chinese: "米勒利用行政权力绕过国会，并推动大规模驱逐行动。",
+    answer: "Miller used executive power to bypass Congress and push mass deportation.",
+    core: "use ... to do",
+    meaning: "利用……做……",
+    vocabulary: [
+      { word: "executive", ipa: "/ɪɡˈzekjətɪv/", meaning: "行政的" },
+      { word: "bypass", ipa: "/ˈbaɪpæs/", meaning: "绕过；避开" },
+      { word: "deportation", ipa: "/ˌdiːpɔːrˈteɪʃən/", meaning: "驱逐出境" }
+    ],
+    keywords: "米勒 Miller · 利用行政权力 used executive power · 绕过国会 bypass Congress · 推动 push · 大规模驱逐 mass deportation",
+    frame: "Miller used ... to ... and ...",
+    note: "to bypass 表示目的；bypass 和 push 由 and 连接，共用前面的 to。",
+    source: "He has ... employed executive actions to circumvent Congress ... He has directed the administration's frantic campaign of mass deportation."
+  },
+  {
+    chinese: "怀尔斯在接受乳腺癌治疗期间，仍继续从事繁重的工作。",
+    answer: "Wiles continued her demanding work while receiving treatment for breast cancer.",
+    core: "while doing",
+    meaning: "在做……期间",
+    vocabulary: [
+      { word: "demanding", ipa: "/dɪˈmændɪŋ/", meaning: "要求高的；费力的" },
+      { word: "treatment", ipa: "/ˈtriːtmənt/", meaning: "治疗" },
+      { word: "breast cancer", ipa: "/ˈbrest ˌkænsər/", meaning: "乳腺癌" }
+    ],
+    keywords: "怀尔斯 Wiles · 继续 continued · 繁重的工作 demanding work · 在……期间 while · 接受治疗 receiving treatment · 乳腺癌 breast cancer",
+    frame: "Wiles continued ... while receiving ...",
+    note: "while receiving 是省略结构，完整形式是 while she was receiving。",
+    source: "She was diagnosed with breast cancer, forcing her to spend much of the campaign season juggling one of the most demanding jobs in government with regular chemotherapy appointments."
+  },
+  {
+    chinese: "作者认为，特朗普宁愿行动过火，也不愿承认失败。",
+    answer: "The writer believes Trump would rather go too far than admit failure.",
+    core: "would rather ... than ...",
+    meaning: "宁愿……也不愿……",
+    vocabulary: [
+      { word: "writer", ipa: "/ˈraɪtər/", meaning: "作者" },
+      { word: "admit", ipa: "/ədˈmɪt/", meaning: "承认" },
+      { word: "failure", ipa: "/ˈfeɪljər/", meaning: "失败" }
+    ],
+    keywords: "作者 the writer · 认为 believes · 特朗普 Trump · 宁愿 would rather · 行动过火 go too far · 承认失败 admit failure",
+    frame: "The writer believes Trump would rather ... than ...",
+    note: "would rather A than B 表示‘宁愿A也不愿B’，A和B都用动词原形。",
+    source: "But Trump cannot admit he has failed, or bring himself to show any weakness. Better to go too far than not far enough."
+  }
+];
+
 const november7Exercises = [
   {
     chinese: "万斯希望成为特朗普的接班人，但也想与政府的失败拉开距离。",
@@ -464,6 +557,15 @@ const november3Exercises = [
 
 const issues = [
   {
+    date: "20261109",
+    displayDate: "2026.11.09",
+    title: "败选加码，<br>米勒掌权",
+    optionTitle: "败选加码，米勒掌权",
+    summary: "用6句话梳理特朗普为何在败选后提拔米勒，以及这次人事变动释放的强硬政治信号。",
+    storageKey: "beibei-translation-20261109-v1",
+    exercises: november9Exercises
+  },
+  {
     date: "20261107",
     displayDate: "2026.11.07",
     title: "万斯铺路，<br>2028已来",
@@ -511,6 +613,26 @@ const issues = [
 ];
 
 const coreExamples = {
+  "replace ... with ...": {
+    sentence: "We replaced the old lamp with a brighter one.",
+    translation: "我们用一盏更亮的灯替换了旧灯。"
+  },
+  "one of the most ...": {
+    sentence: "This is one of the most useful books in our library.",
+    translation: "这是我们图书馆里最有用的书之一。"
+  },
+  "carry out": {
+    sentence: "The students carried out the science experiment carefully.",
+    translation: "学生们认真完成了科学实验。"
+  },
+  "while doing": {
+    sentence: "She listened to music while doing her homework.",
+    translation: "她做作业时听音乐。"
+  },
+  "would rather ... than ...": {
+    sentence: "I would rather walk than wait for the bus.",
+    translation: "我宁愿走路，也不愿等公交车。"
+  },
   "distance oneself from": {
     sentence: "She tried to distance herself from the argument.",
     translation: "她试图与这场争论拉开距离。"

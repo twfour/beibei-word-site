@@ -196,10 +196,23 @@ TRANSLATION_OVERRIDES_BY_DATE: dict[str, list[str]] = {
         "将政府在国内施政上的种种失败统统归咎于伊朗战争，同时又含沙射影地将矛头指向内塔尼亚胡，暗示是他蒙骗了特朗普、诱使其发动战争——这似乎为万斯提供了一条最短、最直接的道路，让他既能维系MAGA阵营内部的团结，又能保住自己在这一阵营中的地位。按照这套说辞，特朗普政府本身其实运转得相当完美，唯一需要做的，不过是稍稍调整航向，重新坚定地回归“美国优先”的原则。",
         "那么，究竟还有谁能够带领MAGA运动迈向这种特朗普主义的崭新未来，一种不再诉诸战争的特朗普主义？同时，又不必背离特朗普那套军事化的移民执法路线，不必承认政府内部仍在上演的腐败盛宴与权力滥用？答案只有一个人。",
     ],
+    "20261109": [
+        "反思，从来不是特朗普身上惹人注目的特质。他从不认错，也从不修正路线；他只会更加纯粹地做自己。因此，面对选民在投票箱前以压倒性规模表达的拒绝，这位总统给出的回应竟是：撤换白宫幕僚长苏西·怀尔斯，改由斯蒂芬·米勒接任。",
+        "严格来说，米勒此前作为副幕僚长，充其量只是怀尔斯的副手。但实际上，米勒早已是本届政府中最有权势的人物，甚至可以说，其影响力不亚于特朗普本人。特朗普的前顾问、米勒的盟友史蒂夫·班农，曾在特朗普首个任期内一度被视为幕后真正的操盘手。今年早些时候，班农将米勒称为特朗普的‘首相’。在议会制国家，总统或君主不过是象征性的国家元首，而首相才是政府运作的实际掌舵者。",
+        "尽管怀尔斯以专业素养和办事能力著称，但她能够在幕僚长的位置上任职近两年，靠的始终是顺应特朗普的冲动政策，而非质疑他的决定。米勒却截然不同：他更是这些冲动的推动者和塑造者。",
+        "米勒是一个狂热的后自由主义者。他曾多次宣称，反对派不具备合法性。‘民主党不是一个政党，’他去年表示，‘它是一个国内极端主义组织。’他还近乎偏执地、却又卓有成效地运用行政手段，绕过国会这一立法机构。即便共和党盟友掌控着国会，特朗普也从未对立法机构抱有多大兴趣。如果米勒一如既往地行事，他将进一步扩大对行政权力的依赖，并推动本届政府对任何形式的监督都采取抵抗的态度。",
+        "尤其驱动米勒的，是他坚信移民问题背后存在一场阴谋：左翼精英正暗中策划，企图摧毁传统的美国。特朗普在2024年大选中曾在拉美裔选民中取得令人震惊的支持率增长，如今却选择亲手瓦解自己当初的选举联盟。这一看似令人费解的决定，最重要的解释因素，就是米勒。他一手主导了政府疯狂的大规模驱逐行动，深信共和党只有四年时间，必须永久改变美国的人口结构，否则就将面临永远无法翻身的灭绝命运。在所有人当中，米勒对美国街头暴力混乱局面的出现负有最大责任：蒙面执法人员乘坐没有标识的车辆四处行动，将涉嫌违法者成批带走。与此同时，他几乎切断了所有合法移民渠道，唯独对南非白人敞开大门，而且还高调地欢迎他们。甚至连特朗普有时也抱怨，米勒的移民执法行动已经做得太过火了。",
+        "怀尔斯在共和党内部颇受欢迎，许多共和党人都欣赏她为白宫西翼带来的沉着与理性。她的父亲是帕特·萨默罗尔，一名橄榄球赛事解说员，常年酗酒。特朗普本人并不饮酒，但怀尔斯在2025年的一次采访中表示，她的父亲与特朗普之间存在某些相似之处。她形容特朗普具有‘酗酒者的性格’，并坦言，正是这份了解，让自己得以胜任这份工作。不过，今年她的工作节奏还是慢了下来。今年3月，也就是美国与伊朗冲突爆发后不久，怀尔斯被确诊患有乳腺癌。此后，在竞选季的大部分时间里，她不得不一边应付美国政府最繁重的职位之一，一边定期接受化疗。她将这段痛苦经历形容为‘残酷而漫长’，并坦言，有时自己甚至要拼尽全力才能从床上爬起来。",
+        "怀尔斯在白宫组建了一支忠于她本人、也忠于总统的团队。去年，她带领白宫西翼接连取得一系列政绩，其中包括推动特朗普政府的标志性立法《大而美法案》获得通过。本届政府任期伊始，包括怀尔斯在内的白宫顾问们就采取了一系列措施，试图将当初支持特朗普当选的广泛选民联盟，转化为稳定支持共和党的常规选民群体。",
+        "然而，怀尔斯从未阻止特朗普听取其他顾问的意见，无论这些人身处政府内部还是政府之外。最近几周，其中一些顾问的影响力变得愈发重要。与此同时，特朗普身边的其他权势人物也开始将矛头指向怀尔斯。有人抱怨说，是她束缚了特朗普的手脚。而米勒的妻子凯蒂，她曾在白宫和马斯克手下担任助理，在‘让美国再次伟大’（MAGA）阵营中也颇具影响力，她也开始积极推动丈夫更进一步，登上权力之巅。米勒的支持者认为，在特朗普总统任期仅剩最后两年的关键时刻，由他来掌舵政府才是合适的人选。尽管民主党在本周的选举中取得了压倒性胜利，但特朗普过去鲜少主动向民主党伸出橄榄枝。最近几天，他更是用一个新帽子表明了自己的态度：帽子被摆在总统坚毅桌上，鲜红的帽身只有一个醒目的单词：VETO（否决）。",
+        "米勒的晋升，正是将这一信号推向了更进一步。他曾向特朗普自我推介，声称自己主张逐步结束与伊朗的战争。因此，他的上位传递出一种双重信号：在一个战线上选择退却——而这一战线在许多特朗普的忠实拥趸看来，已经背离了‘美国优先’的原则；与此同时，却决意在其他所有战线上继续推进强硬路线。",
+        "特朗普生活在一个零和博弈的世界里，那里只有赢家和输家。每逢挫败，他的本能反应便是赋予某位助手更大的权力，而他自己也清楚，这个人有时做得太过了。但特朗普无法承认自己失败，也无法让自己显露出哪怕一丝软弱。在他看来，做得过火，总好过做得不够。",
+    ],
 }
 
 TITLE_VOCAB_TERMS_OVERRIDES_BY_DATE: dict[str, str] = {
     "20261106": "make of, triumph, yawn",
+    "20261109": "double down with",
 }
 
 
@@ -1490,6 +1503,23 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "Vance says unhappy voters will return if the government ends the war, lowers living costs, follows America First and changes its relationship with Israel. The writer accepts that Israel may have influenced Trump, but says Trump has wanted to attack Iran for many years. The article's main point is that Vance is using the war to protect his place in the MAGA movement, attack a rival and present himself as the future leader of Trumpism without war."
         ),
     },
+    "20261109": {
+        "pet_index": "04",
+        "overview": (
+            "文章从特朗普在中期选举惨败后的反应切入：他没有反思或调整路线，而是撤换幕僚长苏西·怀尔斯，提拔斯蒂芬·米勒。名义上米勒原本只是副幕僚长，实际上早已是政府中最有权势的人物之一，甚至被史蒂夫·班农称作特朗普的‘首相’。"
+            "怀尔斯和米勒代表两种不同的辅政方式。怀尔斯以专业、稳健著称，她通过顺应特朗普的冲动来维持政府运转；米勒则不仅执行这些冲动，还主动塑造政策方向。他主张后自由主义，把民主党描述为不合法的极端组织，并善于使用行政权力绕过国会和外部监督。"
+            "移民是米勒最重要的议题。他认为左翼精英利用移民摧毁传统美国，因此推动大规模驱逐、限制合法移民，并试图在四年内永久改变美国人口结构。文章认为，这套激进政策破坏了特朗普2024年在拉美裔选民中建立的联盟，也把暴力和混乱带到美国街头。"
+            "怀尔斯的退场既有健康原因，也有权力斗争因素。她在伊朗冲突开始后被确诊乳腺癌，一边接受化疗，一边承担繁重工作。与此同时，特朗普身边一些顾问指责她束缚总统，米勒的妻子凯蒂也推动丈夫升任。尽管怀尔斯曾帮助通过《大而美法案》并建立稳定团队，她最终仍被更激进的力量取代。"
+            "米勒声称支持逐步结束伊朗战争，因此这次任命可能意味着特朗普在战争问题上退一步，却会在移民、行政权力和党争等其他方面继续加码。文章最后指出，特朗普习惯用赢家和输家理解世界；面对失败，他宁可授权一个自己也承认有时做得过火的人，也不愿承认错误或表现软弱。"
+        ),
+        "pet": (
+            "The article explains why Donald Trump replaced his chief of staff, Susie Wiles, with Stephen Miller after a heavy election defeat. Trump rarely accepts blame or changes direction. Instead of becoming more moderate, he chose an adviser who supports a harder political line. Miller was officially Wiles's deputy, but he was already one of the most powerful people in the White House. Steve Bannon even called him Trump's prime minister. "
+            "Wiles and Miller worked in very different ways. Wiles was professional and calm. She kept her job by helping Trump carry out his wishes without questioning them. Miller does more than carry out Trump's ideas: he helps create and shape them. He often describes political opponents as illegitimate and uses presidential action to avoid Congress and outside control. "
+            "Immigration is Miller's main concern. He believes left-wing leaders use immigration to destroy traditional America. He directed the government's mass-deportation campaign and greatly reduced legal immigration. The writer argues that these policies created violence in American streets and damaged the support Trump had won among Latino voters in 2024. "
+            "Wiles also faced serious personal difficulties. She was diagnosed with breast cancer after the Iran conflict began and had to combine a very demanding job with regular chemotherapy. At the same time, some people around Trump said that she was holding the president back. Miller's wife, Katie, also encouraged support for her husband's promotion. "
+            "Miller says he wants to wind down the war with Iran. His promotion may therefore mean retreat on that issue but stronger action on immigration and other policies. The article's final point is that Trump sees politics as a fight between winners and losers. After a defeat, he would rather give more power to a very aggressive adviser than admit failure or show weakness."
+        ),
+    },
 }
 
 
@@ -1761,6 +1791,10 @@ VOCAB_FALSE_POSITIVES = {
     "focus on cost of living",
     "the plane was on",
     "an ongoing debate",
+    # 20261109: both strings are example fragments inside the preceding cards,
+    # not standalone vocabulary entries.
+    "a frantic dash",
+    "to come",
 }
 
 
@@ -2426,6 +2460,53 @@ VOCAB_CORRECTIONS_BY_DATE: dict[str, dict[str, dict[str, str]]] = {
             "definition": "狂欢；放纵；过度的某种活动",
             "definition_en": "a party involving excessive activity; an extreme amount of a particular activity",
             "example": "The rebels went on an orgy of killing. 叛乱者肆意杀人。",
+        },
+    },
+    "20261109": {
+        "distilled": {
+            "definition": "蒸馏的；提纯的；提炼的；浓缩的；凝练的",
+            "definition_en": "made purer or reduced to the most essential or characteristic elements",
+            "example": "The report offers a distilled version of the findings, focusing only on the most important points. 这份报告提炼了研究结果，只聚焦于最重要的内容。",
+        },
+        "throne": {
+            "definition": "御座；宝座；王位；王权",
+            "definition_en": "a special chair used by a king or queen; the position of being a monarch",
+            "example": "Queen Elizabeth came to the throne in 1952. 伊丽莎白女王于1952年即位。",
+        },
+        "chief of staff": {
+            "definition": "幕僚长；办公室主任",
+            "definition_en": "the most senior aide who manages staff and coordinates the work of a leader",
+            "example": "The president replaced his chief of staff after a series of political setbacks. 在一连串政治挫折之后，总统更换了自己的幕僚长。",
+        },
+        "oversight": {
+            "definition": "监督；审查；疏忽；忽略",
+            "definition_en": "the state of supervising something; a mistake caused by failing to notice something",
+            "example": "The committee has oversight of finance and general policy. 委员会负责处理财政和综合政策。",
+        },
+        "ostentatious": {
+            "definition": "铺张的；炫耀的",
+            "definition_en": "expensive or showy in a way that is intended to impress people",
+            "example": "He was generous in his use of money without being ostentatious. 他花钱大方却不摆阔。",
+        },
+        "juggle": {
+            "definition": "尽量兼顾；玩抛接杂耍",
+            "definition_en": "to give enough time to several different things; to throw and catch objects repeatedly",
+            "example": "The management team meets several times a week to juggle budgets and resources. 管理团队一周开几次会，力图兼顾预算和资源。",
+        },
+        "signature": {
+            "definition": "明显特征；鲜明特色；识别标志",
+            "definition_en": "a particular quality that makes something different and easy to recognize",
+            "example": "Bright colours are his signature. 他总爱用亮丽的色彩。",
+        },
+        "ascension": {
+            "definition": "上升；升高；登上；耶稣升天",
+            "definition_en": "the act of moving up or reaching a high position; in Christianity, Jesus's journey into heaven",
+            "example": "Her ascension to the throne surprised many people. 她的登基令许多人意外。",
+        },
+        "wind down": {
+            "definition": "逐步减少直至停止；放松一下",
+            "definition_en": "to gradually reduce an activity before stopping it; to relax after work",
+            "example": "Aid workers have begun winding down their operation. 援助工作人员已开始逐步减少他们的工作。",
         },
     },
 }
