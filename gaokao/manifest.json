@@ -1,8 +1,16 @@
 {
-  "generated_at": "2026-11-09T07:35:48+08:00",
-  "count": 20,
-  "average_score": 56.45,
+  "generated_at": "2026-11-10T07:42:07+08:00",
+  "count": 21,
+  "average_score": 56.48,
   "articles": [
+    {
+      "date": "2026-11-10",
+      "topic": "让言语照亮彼此的黑夜",
+      "essay_title": "让言语照亮彼此的黑夜",
+      "score": 57,
+      "chars": 893,
+      "path": "articles/2026-11-10.html"
+    },
     {
       "date": "2026-11-09",
       "topic": "在仰望之外彼此看见",
