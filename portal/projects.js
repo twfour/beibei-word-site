@@ -8,9 +8,7 @@ window.QINYIBIN_PROJECTS = [
     description: "每周更新课堂代码精读：拆解 C++ 例题、关键语句、易错边界与可复用模板。",
     color: "#1f5a43",
     subprojects: [
-      ["编程周刊", "https://code.qinyibin.com/netease/"],
-      ["进制转换", "https://code.qinyibin.com/netease/articles/base-conversion.html"],
-      ["数组标记与 vector", "https://code.qinyibin.com/netease/articles/array-marking-vector.html"]
+      ["编程周刊", "https://code.qinyibin.com/netease/"]
     ]
   },
   {
