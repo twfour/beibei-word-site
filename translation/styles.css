@@ -148,10 +148,20 @@ button { color: inherit; }
 .grammar-note { padding: 13px 16px; border: 1px solid var(--line); border-radius: 16px; background: #edf4f0; }
 .grammar-note .small-label { margin-bottom: 6px; }
 .grammar-note p:last-child { margin: 0; font-size: 14px; line-height: 1.65; }
-.phrase-strip { display: grid; grid-template-columns:auto auto 1fr; align-items: baseline; gap: 12px; padding: 13px 16px; border-left: 4px solid var(--yellow); background: #fff3c9; }
-.phrase-strip span { color: var(--muted); font: 700 10px "Courier New", monospace; }
-.phrase-strip strong { font-size: clamp(18px, 2vw, 25px); }
-.phrase-strip em { color: var(--muted); font-style: normal; font-size: 14px; }
+.phrase-strip { display: grid; gap: 11px; padding: 13px 16px; border-left: 4px solid var(--yellow); background: #fff3c9; }
+.phrase-heading { display: grid; grid-template-columns:auto minmax(0, 1fr) auto; align-items: center; gap: 12px; }
+.phrase-heading > span,
+.phrase-example-heading > span { color: var(--muted); font: 700 10px "Courier New", monospace; }
+.phrase-heading strong { grid-column: 1 / -1; font-size: clamp(18px, 2vw, 25px); }
+.phrase-heading em { color: var(--muted); font-style: normal; font-size: 14px; }
+.phrase-heading button { padding: 5px 10px; border: 1px solid rgba(23, 60, 53, .28); border-radius: 999px; background: rgba(255,255,255,.48); color: var(--ink); cursor: pointer; font: 700 10px/1.2 "Courier New", monospace; }
+.phrase-heading button:hover { border-color: var(--ink); background: white; }
+.phrase-example { padding-top: 10px; border-top: 1px solid rgba(23, 60, 53, .15); }
+.phrase-example-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.phrase-example > p { margin: 7px 0 0; font-size: 15px; line-height: 1.55; }
+.phrase-example .core-example-translation { color: var(--ink); font-size: 15px; }
+.phrase-example #core-example { color: var(--muted); }
+.phrase-example #core-example[hidden] { display: block; visibility: hidden; }
 .study-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .study-actions button { min-height: 44px; padding: 10px 17px; border: 1px solid var(--ink); border-radius: 999px; background: transparent; cursor: pointer; font: 700 12px "Courier New", monospace; }
 .study-actions .learned-button { margin-left: auto; background: var(--mint); }
@@ -244,7 +254,8 @@ footer button { min-height: 30px; padding: 5px 10px; border-color: var(--line); 
   .issue-panel { padding: 26px; }
   .exercise-card { min-height: 650px; padding: 24px 20px; border-radius: 24px; }
   .action-row .answer-button { width: 100%; margin-left: 0; }
-  .phrase-strip { grid-template-columns: 1fr; gap: 4px; }
+  .phrase-heading { grid-template-columns: minmax(0, 1fr) auto; gap: 6px; }
+  .phrase-heading > span { grid-column: 1 / -1; }
   .study-support { grid-template-columns: 1fr; }
   .audio-button { width: 100%; }
   .vocabulary-item { grid-template-columns: minmax(0, 1fr); gap: 5px; }

@@ -510,6 +510,129 @@ const issues = [
   }
 ];
 
+const coreExamples = {
+  "distance oneself from": {
+    sentence: "She tried to distance herself from the argument.",
+    translation: "她试图与这场争论拉开距离。"
+  },
+  "blame ... on ...": {
+    sentence: "Do not blame your mistakes on other people.",
+    translation: "不要把自己的错误归咎于别人。"
+  },
+  "allow someone to do": {
+    sentence: "This card allows visitors to enter the library.",
+    translation: "这张卡允许访客进入图书馆。"
+  },
+  "make someone look": {
+    sentence: "The dark suit makes him look more confident.",
+    translation: "这套深色西装让他看起来更自信。"
+  },
+  "ignore other problems": {
+    sentence: "We cannot ignore other problems while solving this one.",
+    translation: "我们不能在解决这个问题时忽视其他问题。"
+  },
+  "use ... to do": {
+    sentence: "She used a map to find the old museum.",
+    translation: "她用地图找到了那座老博物馆。"
+  },
+  "react calmly": {
+    sentence: "Try to react calmly when something goes wrong.",
+    translation: "遇到问题时，尽量冷静应对。"
+  },
+  "reduce the risk of": {
+    sentence: "Wearing a seat belt reduces the risk of injury.",
+    translation: "系安全带可以降低受伤的风险。"
+  },
+  "make it harder for ... to ...": {
+    sentence: "Heavy rain makes it harder for drivers to see the road.",
+    translation: "大雨让驾驶员更难看清道路。"
+  },
+  "examine ... more carefully": {
+    sentence: "We need to examine the evidence more carefully.",
+    translation: "我们需要更仔细地审查证据。"
+  },
+  "push down share prices": {
+    sentence: "Weak sales may push down the company's share price.",
+    translation: "销售疲软可能会压低这家公司的股价。"
+  },
+  "benefit from": {
+    sentence: "Students can benefit from regular reading.",
+    translation: "学生可以从经常阅读中受益。"
+  },
+  "take control of": {
+    sentence: "She took control of the project after the manager left.",
+    translation: "经理离开后，她接管了这个项目。"
+  },
+  "states that usually support": {
+    sentence: "The candidate visited states that usually support the other party.",
+    translation: "这位候选人访问了一些通常支持另一政党的州。"
+  },
+  "faster than": {
+    sentence: "Prices rose faster than wages last year.",
+    translation: "去年物价上涨得比工资更快。"
+  },
+  "make ... more difficult": {
+    sentence: "The lack of time made the task more difficult.",
+    translation: "时间不足让这项任务变得更难。"
+  },
+  "move back to": {
+    sentence: "Some customers have moved back to local shops.",
+    translation: "一些顾客已经重新选择当地商店。"
+  },
+  "decide whether to ... or ...": {
+    sentence: "We need to decide whether to wait or leave now.",
+    translation: "我们需要决定是等待还是现在离开。"
+  },
+  "shape politics": {
+    sentence: "Social media can shape politics in unexpected ways.",
+    translation: "社交媒体可能以意想不到的方式影响政治。"
+  },
+  "be worried about": {
+    sentence: "Many parents are worried about online safety.",
+    translation: "许多家长担心网络安全。"
+  },
+  "take back": {
+    sentence: "The team hopes to take back the lead.",
+    translation: "这支队伍希望重新取得领先。"
+  },
+  "face more limits": {
+    sentence: "Under the new rules, companies will face more limits.",
+    translation: "在新规则下，企业将面临更多限制。"
+  },
+  "affect who ... choose": {
+    sentence: "The news may affect who voters choose as their leader.",
+    translation: "这则新闻可能影响选民选择谁作为领导人。"
+  },
+  "face divisions": {
+    sentence: "The party may face divisions after the election.",
+    translation: "选举后，这个政党可能面临分裂。"
+  },
+  "look quieter": {
+    sentence: "The streets look quieter after the holiday.",
+    translation: "节日过后，街道看起来更安静了。"
+  },
+  "compete over": {
+    sentence: "The two companies compete over new technology.",
+    translation: "这两家公司围绕新技术展开竞争。"
+  },
+  "limit access to": {
+    sentence: "The school limits access to the science lab.",
+    translation: "学校限制进入科学实验室。"
+  },
+  "respond with": {
+    sentence: "She responded with a warm smile.",
+    translation: "她以温暖的微笑作为回应。"
+  },
+  "without supplies": {
+    sentence: "Without medical supplies, the hospital cannot help everyone.",
+    translation: "没有医疗物资，这家医院无法帮助所有人。"
+  },
+  "work together": {
+    sentence: "We can solve the problem faster if we work together.",
+    translation: "如果我们共同合作，就能更快地解决问题。"
+  }
+};
+
 const dateFromUrl = new URLSearchParams(window.location.search).get("date");
 const rememberedDate = localStorage.getItem("beibei-translation-current-date");
 let currentIssue = issues.find(issue => issue.date === dateFromUrl)
@@ -550,6 +673,9 @@ const elements = {
   studyNote: document.querySelector("#study-note"),
   corePhrase: document.querySelector("#core-phrase"),
   phraseMeaning: document.querySelector("#phrase-meaning"),
+  coreExample: document.querySelector("#core-example"),
+  coreExampleTranslation: document.querySelector("#core-example-translation"),
+  toggleRememberEnglish: document.querySelector("#toggle-remember-english"),
   coverAnswer: document.querySelector("#cover-answer"),
   markLearned: document.querySelector("#mark-learned"),
   writePanel: document.querySelector("#write-panel"),
@@ -753,6 +879,15 @@ function render() {
   elements.studyNote.textContent = exercise.note;
   elements.corePhrase.textContent = exercise.core;
   elements.phraseMeaning.textContent = exercise.meaning;
+  const coreExample = coreExamples[exercise.core];
+  elements.coreExample.textContent = coreExample?.sentence || "";
+  elements.coreExampleTranslation.textContent = coreExample?.translation || "";
+  elements.corePhrase.hidden = false;
+  elements.coreExample.hidden = true;
+  elements.coreExampleTranslation.hidden = false;
+  elements.toggleRememberEnglish.hidden = !coreExample;
+  elements.toggleRememberEnglish.textContent = "查看英文例句";
+  elements.toggleRememberEnglish.setAttribute("aria-expanded", "false");
   elements.input.value = state.answers[state.index] || "";
   elements.modelAnswer.textContent = exercise.answer;
   elements.answerNote.textContent = exercise.note;
@@ -809,6 +944,12 @@ elements.studyAnswerWrap.addEventListener("click", () => {
 elements.coverAnswer.addEventListener("click", () => {
   const covered = elements.studyAnswerWrap.classList.toggle("covered");
   elements.coverAnswer.textContent = covered ? "重新显示英文" : "遮住英文试着说";
+});
+elements.toggleRememberEnglish.addEventListener("click", () => {
+  const willShow = elements.coreExample.hidden;
+  elements.coreExample.hidden = !willShow;
+  elements.toggleRememberEnglish.textContent = willShow ? "隐藏英文例句" : "查看英文例句";
+  elements.toggleRememberEnglish.setAttribute("aria-expanded", String(willShow));
 });
 elements.markLearned.addEventListener("click", () => {
   state.learned[state.index] = true;

@@ -64,7 +64,18 @@
               <p id="study-note"></p>
             </div>
           </div>
-          <div class="phrase-strip"><span>今天记住</span><strong id="core-phrase"></strong><em id="phrase-meaning"></em></div>
+          <div class="phrase-strip">
+            <div class="phrase-heading">
+              <span>今天记住</span><em id="phrase-meaning"></em>
+              <button id="toggle-remember-english" type="button" aria-expanded="false">查看英文例句</button>
+              <strong id="core-phrase"></strong>
+            </div>
+            <div class="phrase-example">
+              <div class="phrase-example-heading"><span>中文例句</span></div>
+              <p class="core-example-translation" id="core-example-translation"></p>
+              <p id="core-example" hidden></p>
+            </div>
+          </div>
           <div class="study-actions">
             <button class="soft-button" id="cover-answer" type="button">遮住英文试着说</button>
             <button class="learned-button" id="mark-learned" type="button">我读了两遍，记住了 ✓</button>
