@@ -12,7 +12,7 @@ const grid=document.querySelector('#scene-grid');
 const tabs=document.querySelector('#formula-tabs');
 const detail=document.querySelector('#formula-detail');
 
-grid.innerHTML=scenes.map(scene=>`<article class="scene-card" data-scene="${scene.key}"><div><span>${scene.no}</span><small>${scene.accent}</small></div><h3>${scene.title}</h3><p>${scene.subtitle}</p><div class="scene-actions"><button type="button">打开方法 ↘</button>${scene.key==='meeting'?'<a href="/dialogue/speaking/meeting/">完整章节 ↗</a>':scene.key==='report'?'<a href="/dialogue/speaking/report/">完整章节 ↗</a>':''}</div></article>`).join('');
+grid.innerHTML=scenes.map(scene=>`<article class="scene-card" data-scene="${scene.key}"><div><span>${scene.no}</span><small>${scene.accent}</small></div><h3>${scene.title}</h3><p>${scene.subtitle}</p><div class="scene-actions"><button type="button">打开方法 ↘</button>${scene.key==='meeting'?'<a href="/dialogue/speaking/meeting/">完整章节 ↗</a>':scene.key==='report'?'<a href="/dialogue/speaking/report/">完整章节 ↗</a>':scene.key==='social'?'<a href="/dialogue/speaking/social/">完整章节 ↗</a>':''}</div></article>`).join('');
 tabs.innerHTML=scenes.map((scene,index)=>`<button type="button" data-formula="${scene.key}" class="${index===0?'active':''}"><span>${scene.no}</span>${scene.title}</button>`).join('');
 
 function renderFormula(key){
