@@ -1,0 +1,25 @@
+.scene-card details { margin: 2px 0 18px; }
+.scene-card summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border: 1px solid var(--ink);
+  font: 800 11px var(--sans);
+  cursor: pointer;
+  list-style: none;
+  transition: .2s ease;
+}
+.scene-card summary::-webkit-details-marker { display: none; }
+.scene-card summary::after { content: "＋"; font-size: 16px; line-height: 1; }
+.scene-card details[open] summary { background: var(--ink); color: #fff; }
+.scene-card details[open] summary::after { content: "－"; }
+.scene-card details blockquote { margin-top: 14px; }
+.scene-card blockquote p { margin: 0 0 16px; }
+.scene-card blockquote p:last-child { margin-bottom: 0; }
+.scene-card-long { min-height: 360px; }
+.scene-card-long details { flex: 1; }
+.scene-card-long details:not([open]) + small { margin-top: auto; }
+@media (max-width: 700px) {
+  .scene-card summary { width: 100%; justify-content: space-between; }
+}
