@@ -8,7 +8,7 @@ const methodMap=[
   ['07','日常交际','正式介绍、实习沟通','二三一与五种聊天公式']
 ];
 
-document.querySelector('#method-table').innerHTML=methodMap.map(item=>`<article class="method-row ${item[0]==='05'?'active':''}"><span>${item[0]}</span><h3>${item[1]}</h3><p>${item[2]}</p><b>${item[3]}</b>${item[0]==='05'?'<i>首批上线</i>':''}</article>`).join('');
+document.querySelector('#method-table').innerHTML=methodMap.map(item=>`<article class="method-row ${item[0]==='05'?'active':''}"><span>${item[0]}</span><h3>${item[1]}</h3><p>${item[2]}</p><b>${item[3]}</b>${item[0]==='05'?'<i>八场景已上线</i>':''}</article>`).join('');
 
 const scenes={
   celebrate:{
@@ -84,6 +84,8 @@ const scenes={
     }
   }
 };
+
+Object.assign(scenes,window.youthExtraScenes||{});
 
 const switcher=document.querySelector('#scene-switch');
 const stage=document.querySelector('#scene-stage');

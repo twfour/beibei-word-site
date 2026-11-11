@@ -1,0 +1,12 @@
+@media (min-width: 901px) {
+  .scene-switch { grid-template-columns: repeat(4, 1fr); }
+  .scene-switch button { border-bottom: 1px solid var(--ink); }
+  .scene-switch button:nth-child(4n) { border-right: 0; }
+  .scene-switch button:nth-last-child(-n+4) { border-bottom: 0; }
+}
+@media (min-width: 701px) and (max-width: 900px) {
+  .scene-switch { grid-template-columns: repeat(2, 1fr); }
+  .scene-switch button { border-bottom: 1px solid var(--ink); }
+  .scene-switch button:nth-child(2n) { border-right: 0; }
+  .scene-switch button:nth-last-child(-n+2) { border-bottom: 0; }
+}
