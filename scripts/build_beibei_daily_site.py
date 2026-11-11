@@ -21,7 +21,7 @@ SITE_CONFIG_PATH = OUTPUT_DIR / "site_config.json"
 CACHE_DIR = OUTPUT_DIR / ".beibei-cache" / "articles"
 ANALYSIS_HEADINGS = ("长难句分析", "中英文互译")
 POST_READING_HEADINGS = (*ANALYSIS_HEADINGS, "文章结构", "课后作业")
-POS_ATOM_PATTERN = r"(?:n|v|adj|adv|phr|conj|exclamation|abbr)"
+POS_ATOM_PATTERN = r"(?:n|v|adj|adv|prep|phr|conj|exclamation|abbr)"
 # Handouts use both "n., v." and "n. v." for words with several parts of
 # speech, so accept either separator before the final period supplied by each
 # vocabulary regex.
@@ -207,6 +207,21 @@ TRANSLATION_OVERRIDES_BY_DATE: dict[str, list[str]] = {
         "然而，怀尔斯从未阻止特朗普听取其他顾问的意见，无论这些人身处政府内部还是政府之外。最近几周，其中一些顾问的影响力变得愈发重要。与此同时，特朗普身边的其他权势人物也开始将矛头指向怀尔斯。有人抱怨说，是她束缚了特朗普的手脚。而米勒的妻子凯蒂，她曾在白宫和马斯克手下担任助理，在‘让美国再次伟大’（MAGA）阵营中也颇具影响力，她也开始积极推动丈夫更进一步，登上权力之巅。米勒的支持者认为，在特朗普总统任期仅剩最后两年的关键时刻，由他来掌舵政府才是合适的人选。尽管民主党在本周的选举中取得了压倒性胜利，但特朗普过去鲜少主动向民主党伸出橄榄枝。最近几天，他更是用一个新帽子表明了自己的态度：帽子被摆在总统坚毅桌上，鲜红的帽身只有一个醒目的单词：VETO（否决）。",
         "米勒的晋升，正是将这一信号推向了更进一步。他曾向特朗普自我推介，声称自己主张逐步结束与伊朗的战争。因此，他的上位传递出一种双重信号：在一个战线上选择退却——而这一战线在许多特朗普的忠实拥趸看来，已经背离了‘美国优先’的原则；与此同时，却决意在其他所有战线上继续推进强硬路线。",
         "特朗普生活在一个零和博弈的世界里，那里只有赢家和输家。每逢挫败，他的本能反应便是赋予某位助手更大的权力，而他自己也清楚，这个人有时做得太过了。但特朗普无法承认自己失败，也无法让自己显露出哪怕一丝软弱。在他看来，做得过火，总好过做得不够。",
+    ],
+    "20261110": [
+        "在一封包含257个英文单词的内部员工信中，英伟达首席执行官黄仁勋已坦白承认：这家芯片巨头正陷入其三十余年发展史上前所未有的危机。数月来，关于黄仁勋与一名涉嫌从事间谍活动的女性关系密切的报道接连不断。周日，黄仁勋终于承认自己曾有婚外情，并表示英伟达董事会正对此展开调查。此前，他曾坚称，自己与这名女性之间并无任何不当关系。该女性供职于一家总部位于新加坡的英伟达客户企业。",
+        "‘我背叛了我的妻子。’现年63岁的黄仁勋在备忘录中写道，‘我的所作所为伤害了她，也伤害了我们的孩子。我没有任何借口为自己的行为开脱。我对此深感抱歉。’这一令人震惊的坦白，让围绕这家人工智能产业核心企业的争议进一步升级。与此同时，人工智能行业本就风波不断，数据中心支出可能放缓的担忧已令市场震荡。英伟达生产的芯片是人工智能计算设备不可或缺的核心部件，而它也已跻身全球市值最高的企业之列。",
+        "黄仁勋本人一直是人工智能领域最热情的鼓吹者。他有大批追随者，这股狂热甚至被称为‘Jensanity’（黄仁勋狂热）。他身着标志性的皮衣，奔走于世界各地，积极推动人工智能技术的普及，并将这一变革称为一场新的工业革命。与此同时，英伟达也逐渐成为人工智能基础设施建设的重要资金支持者。黄仁勋与华尔街多家顶级金融机构合作，推动一项规模达5000亿美元的计划，帮助企业迅速扩建人工智能设备；他还不断向人工智能供应链注资，为新兴客户提供资金支持。",
+        "尽管在调查结果出炉之前，黄仁勋仍将继续担任英伟达首席执行官，但这一事件无疑让这位人工智能领域的布道者声望骤降，而眼下又是一个极其微妙的时刻。很难不将周末传出的消息视为利空：它令美国这一家举足轻重的企业、塑造本国人工智能发展轨迹的掌舵人，其治理能力备受争议，更让其判断力饱受质疑。",
+        "为调查此事，英伟达董事会正着手组建一个由独立董事组成的委员会，并将聘请外部法律顾问协助调查。消息公布后，Hyperliquid区块链上一种追踪英伟达股价的永续期货合约下跌了约2.9%。",
+        "此次调查前，就有一系列报道称，英伟达掌门人曾成为前Megaspeed International公司高管黄乐的目标，而美国政府怀疑此人曾被某间谍机构招募。此前，黄仁勋曾表示，自己与这名女性之间只是‘正常’的商业往来，而她目前已不再任职于Megaspeed。董事会的调查将重点核实这位芯片大亨是否曾成为外国情报活动的目标。董事会表示，目前没有理由认为美国国家安全利益或英伟达的商业机密已经遭到泄露，调查将全面审查所有现有信息。",
+        "在备忘录中，黄仁勋表示自己将全力配合调查。‘我热爱我们的国家，也热爱我们的公司。我将竭尽所能保护英伟达，维护美国的国家安全。’作为英伟达的联合创始人，黄仁勋以事必躬亲、精力充沛的管理风格闻名。他一手将一家显卡制造商打造成为当今世界举足轻重的科技企业。英伟达备受追捧的人工智能加速芯片，被广泛用于人工智能模型的开发与运行；与此同时，公司也不断向相关领域拓展业务，涉足计算机、网络设备和软件等多个领域。",
+        "黄仁勋还是人工智能领域举足轻重的发声者，致力于平息外界对于人工智能技术可能失控的担忧。他曾驳斥人工智能实验室应当放慢步伐、以避免技术威胁人类的主张，即便在阿莫代伊和奥特曼等行业领袖都已认同这一观点之际。他还认为，没有必要为人工智能制定新的监管规定。",
+        "这家总部位于加州圣克拉拉市的公司，至今没有公开的继任者计划，而黄仁勋身后也看不出有谁能够顺理成章地接过帅印。他曾多次表示，希望未来几十年继续执掌英伟达。与此同时，他还围绕自己建立了一套非正式的组织架构，刻意摒弃传统的层级管理体系。在这套体系中，直接向他汇报的高管们肩负着迅速落实其决策的任务。黄仁勋认为，这种管理模式赋予公司更大的灵活性，使其能够迅速应对技术领域的瞬息万变，始终保持敏捷。然而，这种高度依赖个人的管理体系也带来了一个问题：公司内部并没有一位随时可以接班的人，能够立即接手黄仁勋那近乎永不停歇的工作节奏。",
+        "最新披露的种种情况，凸显了英伟达所面临的巨大‘关键人物风险’（Key Man Risk）。英伟达不是一家普通的公司，黄仁勋也不是一位普通的首席执行官。他本人就是英伟达的化身：公司的长期战略与发展方向由他明确制定，而据称有多达60名高管直接向他汇报，公司的大部分运转也都掌握在他手中。由于担心敏感信息可能外泄，外界要求调查并加强对黄仁勋及英伟达审查的呼声日益高涨。这进一步加剧了公司的压力，而英伟达原本就身处一场艰难的地缘政治平衡之中。",
+        "尽管在特朗普政府现行的许可制度下，英伟达获准向中国出口有限种类的产品，但北京方面已对相关芯片的进口实施限制。这一僵局持续制约着英伟达在全球第二大经济体的销售表现。长期以来，黄仁勋一直希望扩大英伟达人工智能处理器在中国市场的销售。中国是全球最大的芯片市场。他曾主张，英伟达及其同行应当获准继续服务这一地区，以确保自家产品在人工智能发展进程中保持核心地位。在他看来，如果将中国市场拒之门外，反而可能促使中国成长为一股更加强大、更加独立的人工智能力量。",
+        "投资者一直在向英伟达投入巨额资金，押注这家公司将继续成为人工智能基础设施投资狂潮的最大受益者之一。英伟达将于本月晚些时候公布财报。去年10月，公司市值一度创下近5.8万亿美元的历史纪录。然而，受市场对人工智能基础设施建设热潮能否持续的担忧拖累，其市值如今已跌破5万亿美元。",
+        "总部位于新加坡的Megaspeed公司则被指违反美国出口管制规定，涉嫌走私英伟达芯片至中国。黄仁勋此前曾表示，他与Megaspeed员工的接触，与自己同许多中国客户及企业高管之间的商业往来并无二致。",
     ],
 }
 
@@ -1520,6 +1535,23 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "Miller says he wants to wind down the war with Iran. His promotion may therefore mean retreat on that issue but stronger action on immigration and other policies. The article's final point is that Trump sees politics as a fight between winners and losers. After a defeat, he would rather give more power to a very aggressive adviser than admit failure or show weakness."
         ),
     },
+    "20261110": {
+        "pet_index": "04",
+        "overview": (
+            "文章围绕英伟达首席执行官黄仁勋承认婚外情及随之而来的间谍争议展开。黄仁勋在给员工的备忘录中向妻子和孩子道歉，并表示董事会将启动调查。涉事女性曾供职于英伟达的新加坡客户Megaspeed，美国政府怀疑她可能被外国情报机构招募。"
+            "这场风波发生在英伟达和人工智能行业的敏感时刻。黄仁勋不仅是英伟达的领导者，也是全球最知名的人工智能倡导者之一。他奔走各地推广人工智能，把它称为新工业革命，还通过巨额融资支持数据中心、供应链和新兴客户。消息公布后，追踪英伟达股价的加密永续期货一度下跌约2.9%。"
+            "英伟达董事会将由独立董事和外部律师调查黄仁勋的关系是否导致国家安全或公司机密受损。黄仁勋承诺配合，并强调会保护公司和美国国家安全。文章同时回顾了他把一家显卡制造商发展成全球关键科技公司的经历，以及英伟达向计算机、网络和软件领域的扩张。"
+            "风波暴露了英伟达的‘关键人物风险’。公司没有公开的继任计划，也没有明显接班人。黄仁勋采用高度扁平化的管理结构，据称直接管理约60名高管，亲自决定长期战略并推动执行。这让公司反应敏捷，却也意味着一旦他无法履职，缺少能够立即接手的人。"
+            "英伟达还承受着地缘政治和市场压力。美国只允许部分芯片在许可下出口中国，而中国也限制相关产品进口。与此同时，投资者担心人工智能基础设施支出能否持续，英伟达市值已从近5.8万亿美元高点跌破5万亿美元。Megaspeed还被指违反美国出口限制、向中国走私英伟达芯片，使私人丑闻、公司治理、国家安全与对华芯片政策交织在一起。"
+        ),
+        "pet": (
+            "The article explains a serious crisis around Nvidia's chief executive, Jensen Huang. Huang admitted in a message to employees that he had an affair. He apologised to his wife and children and said there was no excuse for his actions. Nvidia's board has started an investigation because the woman worked for a customer in Singapore and the US government suspects that she may have been recruited by a foreign spy agency. "
+            "The news came at a difficult time for Nvidia. Huang is one of the world's best-known supporters of artificial intelligence. He travels around the world to promote AI and calls it a new industrial revolution. Nvidia also helps finance data centres and new AI companies. After the announcement, a digital contract linked to Nvidia's share price fell by about 2.9%. "
+            "Independent directors and outside lawyers will examine whether company secrets or national security were harmed. Huang says he will support the investigation and protect both Nvidia and the United States. He helped turn Nvidia from a graphics-card maker into one of the world's most important technology companies. Its chips are widely used to build and run AI models. "
+            "The crisis also shows Nvidia's key-person risk. The company has no clear public plan for a future leader. Huang makes many important decisions himself and has around 60 people reporting directly to him. This system helps Nvidia move quickly, but there is no obvious person ready to replace him. "
+            "Nvidia also faces problems in China and in the AI market. The United States allows only some products to be sold to China, while China has restricted imports. Investors are also worried that spending on AI infrastructure may slow down. Nvidia's market value has fallen from nearly $5.8 trillion to below $5 trillion. The article shows how a private scandal can quickly become a problem about company leadership, national security and global technology competition."
+        ),
+    },
 }
 
 
@@ -1795,6 +1827,13 @@ VOCAB_FALSE_POSITIVES = {
     # not standalone vocabulary entries.
     "a frantic dash",
     "to come",
+    # 20261110: slash-separated collocation examples are part of the preceding
+    # dictionary card, not independent phonetic headwords.
+    "to bolster sb's confidence",
+    "a media",
+    "to bring sb",
+    "to implement changes",
+    "to fuel speculation",
 }
 
 
@@ -2507,6 +2546,68 @@ VOCAB_CORRECTIONS_BY_DATE: dict[str, dict[str, dict[str, str]]] = {
             "definition": "逐步减少直至停止；放松一下",
             "definition_en": "to gradually reduce an activity before stopping it; to relax after work",
             "example": "Aid workers have begun winding down their operation. 援助工作人员已开始逐步减少他们的工作。",
+        },
+    },
+    "20261110": {
+        "stunning": {
+            "definition": "极有魅力的；令人震惊的",
+            "definition_en": "extremely attractive or impressive; extremely surprising or shocking",
+            "example": "He suffered a stunning defeat in the election. 他在选举中惨败。",
+        },
+        "rock": {
+            "definition": "使震惊；使害怕；使摇晃",
+            "definition_en": "to shock someone greatly; to move gently backwards and forwards",
+            "example": "The country was rocked by a series of political scandals. 一连串的政治丑闻震惊全国。",
+        },
+        "cheerleader": {
+            "definition": "热情拥护者；鼓吹者；啦啦队队员",
+            "definition_en": "someone who publicly supports an idea or cause; a person who leads cheers for a team",
+            "example": "She has become one of the president's most vocal cheerleaders. 她已成为总统最直言不讳的拥护者之一。",
+        },
+        "jensanity": {
+            "definition": "‘黄仁勋热’；围绕黄仁勋的公众狂热",
+            "definition_en": "an informal term for the intense public excitement surrounding Jensen Huang",
+            "example": "Jensanity has turned Nvidia's CEO into a global celebrity. ‘黄仁勋热’让英伟达首席执行官成为全球瞩目的公众人物。",
+        },
+        "signature": {
+            "definition": "明显特征；鲜明特色；识别标志",
+            "definition_en": "a quality that makes something distinctive and easy to recognize",
+            "example": "Bright colours are his signature. 他总爱用亮丽的色彩。",
+        },
+        "fledgling": {
+            "definition": "初出茅庐的人；新兴组织；刚会飞的幼鸟",
+            "definition_en": "a new and inexperienced person or organization; a young bird that has just learnt to fly",
+            "example": "Fledgling companies often need outside investment. 新兴公司通常需要外部投资。",
+        },
+        "evangelist": {
+            "definition": "热情的倡导者；积极的推广者；福音传教士",
+            "definition_en": "someone who enthusiastically promotes an idea or technology; a Christian preacher",
+            "example": "He is an outspoken evangelist for artificial intelligence. 他是一位直言不讳的人工智能倡导者。",
+        },
+        "architect": {
+            "definition": "缔造者；设计师；建筑师",
+            "definition_en": "a person who creates an idea or makes an event happen; a person who designs buildings",
+            "example": "James was the principal architect of the constitution. 詹姆斯是该宪法的主设计师。",
+        },
+        "blockchain": {
+            "definition": "区块链",
+            "definition_en": "a digital system that stores transaction records in linked blocks across a computer network",
+            "example": "Blockchain technology allows transactions to be recorded securely without relying on a central authority. 区块链技术能够在不依赖中央机构的情况下安全地记录交易。",
+        },
+        "agile": {
+            "definition": "敏捷的；灵活的；思维机敏的",
+            "definition_en": "able to move quickly and easily or to think quickly and intelligently",
+            "example": "An agile company can react quickly to market changes. 灵活的公司能够迅速应对市场变化。",
+        },
+        "grant": {
+            "definition": "正式同意；准予；允许",
+            "definition_en": "to formally agree to give someone permission or what they ask for",
+            "example": "The bank finally granted a £500 loan to me. 银行终于同意给我贷款500英镑。",
+        },
+        "runaway": {
+            "definition": "难以控制的；失控的；逃跑的",
+            "definition_en": "happening quickly and becoming hard to control; having escaped or left",
+            "example": "The country is trying to control runaway inflation. 这个国家正努力控制迅猛的通货膨胀。",
         },
     },
 }

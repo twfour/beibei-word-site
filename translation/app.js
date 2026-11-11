@@ -1,3 +1,96 @@
+const november10Exercises = [
+  {
+    chinese: "黄仁勋承认自己有婚外情，并向妻子和孩子道歉。",
+    answer: "Jensen Huang admitted that he had an affair and apologised to his wife and children.",
+    core: "admit that",
+    meaning: "承认……",
+    vocabulary: [
+      { word: "admit", ipa: "/ədˈmɪt/", meaning: "承认" },
+      { word: "affair", ipa: "/əˈfer/", meaning: "婚外情" },
+      { word: "apologise", ipa: "/əˈpɑːlədʒaɪz/", meaning: "道歉" }
+    ],
+    keywords: "黄仁勋 Jensen Huang · 承认 admitted that · 婚外情 have an affair · 道歉 apologised · 妻子和孩子 wife and children",
+    frame: "Jensen Huang admitted that ... and apologised to ...",
+    note: "admitted 和 apologised 都是一般过去时；apologise to someone 表示‘向某人道歉’。",
+    source: "Huang admitted on Sunday that he'd had an affair ... 'My actions hurt her and our children.'"
+  },
+  {
+    chinese: "英伟达董事会成立了一个独立委员会调查此事。",
+    answer: "Nvidia's board formed an independent committee to investigate the case.",
+    core: "form a committee to",
+    meaning: "成立委员会来……",
+    vocabulary: [
+      { word: "board", ipa: "/bɔːrd/", meaning: "董事会" },
+      { word: "independent", ipa: "/ˌɪndɪˈpendənt/", meaning: "独立的" },
+      { word: "investigate", ipa: "/ɪnˈvestɪɡeɪt/", meaning: "调查" }
+    ],
+    keywords: "英伟达董事会 Nvidia's board · 成立 formed · 独立委员会 an independent committee · 调查 investigate · 此事 the case",
+    frame: "Nvidia's board formed ... to ...",
+    note: "to investigate 是目的状语，说明成立委员会的目的；formed 是一般过去时。",
+    source: "The Nvidia board is assembling a committee of independent directors, who will work with outside counsel."
+  },
+  {
+    chinese: "黄仁勋把一家显卡制造商发展成了全球重要的科技公司。",
+    answer: "Huang turned a graphics-card maker into an important global technology company.",
+    core: "turn ... into ...",
+    meaning: "把……变成……",
+    vocabulary: [
+      { word: "graphics card", ipa: "/ˈɡræfɪks kɑːrd/", meaning: "显卡" },
+      { word: "maker", ipa: "/ˈmeɪkər/", meaning: "制造商" },
+      { word: "global", ipa: "/ˈɡloʊbəl/", meaning: "全球的" }
+    ],
+    keywords: "黄仁勋 Huang · 显卡制造商 graphics-card maker · 发展成 turned ... into · 全球科技公司 global technology company",
+    frame: "Huang turned ... into ...",
+    note: "turn A into B 表示‘把A变成B’；turned 是一般过去时。",
+    source: "Nvidia's co-founder ... built the maker of graphics cards into arguably the world's most important technology company."
+  },
+  {
+    chinese: "英伟达没有明确的接班人，而且公司非常依赖黄仁勋。",
+    answer: "Nvidia has no clear successor and the company depends heavily on Huang.",
+    core: "depend heavily on",
+    meaning: "非常依赖……",
+    vocabulary: [
+      { word: "successor", ipa: "/səkˈsesər/", meaning: "继任者；接班人" },
+      { word: "depend", ipa: "/dɪˈpend/", meaning: "依赖" },
+      { word: "heavily", ipa: "/ˈhevɪli/", meaning: "在很大程度上" }
+    ],
+    keywords: "英伟达 Nvidia · 没有明确的接班人 has no clear successor · 公司 the company · 非常依赖 depends heavily on · 黄仁勋 Huang",
+    frame: "Nvidia has no ..., and the company depends ...",
+    note: "company 是第三人称单数，所以 depend 变为 depends；depend on 是固定搭配。",
+    source: "The company has no public succession plan, and there is no obvious heir apparent for Huang."
+  },
+  {
+    chinese: "这场风波凸显了英伟达面临的关键人物风险。",
+    answer: "The scandal highlighted the key-person risk facing Nvidia.",
+    core: "highlight the risk",
+    meaning: "凸显风险",
+    vocabulary: [
+      { word: "scandal", ipa: "/ˈskændəl/", meaning: "丑闻；风波" },
+      { word: "highlight", ipa: "/ˈhaɪlaɪt/", meaning: "凸显；强调" },
+      { word: "risk", ipa: "/rɪsk/", meaning: "风险" }
+    ],
+    keywords: "这场风波 the scandal · 凸显 highlighted · 关键人物风险 key-person risk · 英伟达 Nvidia",
+    frame: "The scandal highlighted ... facing ...",
+    note: "facing Nvidia 是现在分词短语，放在 risk 后面，表示‘英伟达面临的’。",
+    source: "The latest revelations highlight the considerable key man risk that Nvidia faces."
+  },
+  {
+    chinese: "英伟达既面临对华销售限制，也面临人工智能投资放缓的担忧。",
+    answer: "Nvidia faces both limits on sales to China and concerns about slower AI investment.",
+    core: "both ... and ...",
+    meaning: "既……又……",
+    vocabulary: [
+      { word: "limit", ipa: "/ˈlɪmɪt/", meaning: "限制" },
+      { word: "concern", ipa: "/kənˈsɜːrn/", meaning: "担忧" },
+      { word: "investment", ipa: "/ɪnˈvestmənt/", meaning: "投资" }
+    ],
+    keywords: "英伟达 Nvidia · 面临 faces · 既……又…… both ... and ... · 对华销售限制 limits on sales to China · 投资放缓 slower investment",
+    frame: "Nvidia faces both ... and ...",
+    note: "both A and B 连接两个并列宾语；faces 因主语 Nvidia 为单数而加 -s。",
+    source: "The impasse continues to curb the chipmaker's sales ... weighed down by concern about the sustainability of AI infrastructure build-out."
+  }
+];
+
 const november9Exercises = [
   {
     chinese: "中期选举失败后，特朗普用斯蒂芬·米勒取代了苏西·怀尔斯。",
@@ -557,6 +650,15 @@ const november3Exercises = [
 
 const issues = [
   {
+    date: "20261110",
+    displayDate: "2026.11.10",
+    title: "风波升级，<br>英伟达承压",
+    optionTitle: "风波升级，英伟达承压",
+    summary: "用6句话梳理黄仁勋婚外情与间谍调查如何暴露英伟达的治理、接班和地缘政治风险。",
+    storageKey: "beibei-translation-20261110-v1",
+    exercises: november10Exercises
+  },
+  {
     date: "20261109",
     displayDate: "2026.11.09",
     title: "败选加码，<br>米勒掌权",
@@ -613,6 +715,30 @@ const issues = [
 ];
 
 const coreExamples = {
+  "admit that": {
+    sentence: "He admitted that he had made a serious mistake.",
+    translation: "他承认自己犯了一个严重错误。"
+  },
+  "form a committee to": {
+    sentence: "The school formed a committee to improve student safety.",
+    translation: "学校成立了一个委员会来改善学生安全。"
+  },
+  "turn ... into ...": {
+    sentence: "They turned the old factory into a library.",
+    translation: "他们把旧工厂改造成了一座图书馆。"
+  },
+  "depend heavily on": {
+    sentence: "The village depends heavily on tourism.",
+    translation: "这个村庄非常依赖旅游业。"
+  },
+  "highlight the risk": {
+    sentence: "The accident highlighted the risk of careless driving.",
+    translation: "这起事故凸显了粗心驾驶的风险。"
+  },
+  "both ... and ...": {
+    sentence: "The course teaches both reading and writing.",
+    translation: "这门课程既教阅读，也教写作。"
+  },
   "replace ... with ...": {
     sentence: "We replaced the old lamp with a brighter one.",
     translation: "我们用一盏更亮的灯替换了旧灯。"
