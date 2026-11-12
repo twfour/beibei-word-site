@@ -1,3 +1,96 @@
+const november11Exercises = [
+  {
+    chinese: "黄仁勋的丑闻原本可能引发要求他辞职和深入调查的呼声。",
+    answer: "Huang's scandal could have led to calls for his resignation and a deeper investigation.",
+    core: "lead to calls for",
+    meaning: "引发对……的呼声",
+    vocabulary: [
+      { word: "scandal", ipa: "/ˈskændəl/", meaning: "丑闻" },
+      { word: "resignation", ipa: "/ˌrezɪɡˈneɪʃən/", meaning: "辞职" },
+      { word: "investigation", ipa: "/ɪnˌvestɪˈɡeɪʃən/", meaning: "调查" }
+    ],
+    keywords: "黄仁勋的丑闻 Huang's scandal · 可能 could have · 引发 lead to · 辞职的呼声 calls for his resignation · 深入调查 a deeper investigation",
+    frame: "Huang's scandal could have led to calls for ...",
+    note: "could have led to 表示‘原本可能导致’；lead to 后接名词。",
+    source: "You could suppose that such reckless behavior ... might lead to widespread calls for immediate resignation and for deep investigation."
+  },
+  {
+    chinese: "英伟达支撑着美国大型科技公司生态的很大一部分。",
+    answer: "Nvidia supports a large part of America's big-tech ecosystem.",
+    core: "a large part of",
+    meaning: "……的很大一部分",
+    vocabulary: [
+      { word: "support", ipa: "/səˈpɔːrt/", meaning: "支撑；支持" },
+      { word: "ecosystem", ipa: "/ˈiːkoʊˌsɪstəm/", meaning: "生态体系" },
+      { word: "big-tech", ipa: "/ˌbɪɡ ˈtek/", meaning: "大型科技企业的" }
+    ],
+    keywords: "英伟达 Nvidia · 支撑 supports · 很大一部分 a large part of · 大型科技公司生态 big-tech ecosystem",
+    frame: "Nvidia supports a large part of ...",
+    note: "Nvidia 是单数主语，因此 support 变为 supports；part of 后接整体。",
+    source: "Nvidia helps support big chunks of the Magnificent Seven ecosystem."
+  },
+  {
+    chinese: "黄仁勋已经变得大到不能倒，这或许就是许多人保护他的原因。",
+    answer: "Huang has become too big to fail, which may be why many people protect him.",
+    core: "too ... to ...",
+    meaning: "太……而不能……",
+    vocabulary: [
+      { word: "fail", ipa: "/feɪl/", meaning: "失败；倒下" },
+      { word: "protect", ipa: "/prəˈtekt/", meaning: "保护" },
+      { word: "become", ipa: "/bɪˈkʌm/", meaning: "变得" }
+    ],
+    keywords: "黄仁勋 Huang · 已经变得 has become · 大到不能倒 too big to fail · 这或许就是 which may be why · 保护他 protect him",
+    frame: "Huang has become too ... to ..., which may be why ...",
+    note: "too + 形容词 + to do 表示‘太……而不能……’；which 指代前面整件事。",
+    source: "Huang is too big to fail. Which may be why so many people seem motivated to downplay or protect him right now."
+  },
+  {
+    chinese: "国会议员必须决定是听从市场，还是推动更多调查。",
+    answer: "Lawmakers must decide whether to follow the market or push for more investigation.",
+    core: "decide whether to ... or ...",
+    meaning: "决定是……还是……",
+    vocabulary: [
+      { word: "lawmakers", ipa: "/ˈlɔːˌmeɪkərz/", meaning: "立法者；国会议员" },
+      { word: "market", ipa: "/ˈmɑːrkɪt/", meaning: "市场" },
+      { word: "push", ipa: "/pʊʃ/", meaning: "推动；促使" }
+    ],
+    keywords: "国会议员 lawmakers · 必须决定 must decide · 是……还是…… whether ... or ... · 听从市场 follow the market · 推动调查 push for investigation",
+    frame: "Lawmakers must decide whether to ... or ...",
+    note: "whether to A or B 连接两个选择；must 后用动词原形 decide。",
+    source: "Lawmakers will have to choose whether to take their cues from the markets or push for more investigation."
+  },
+  {
+    chinese: "硅谷和华盛顿保护黄仁勋，部分原因是这能让体系继续运转。",
+    answer: "Silicon Valley and Washington protect Huang partly because this keeps the system moving.",
+    core: "keep ... moving",
+    meaning: "让……继续运转",
+    vocabulary: [
+      { word: "partly", ipa: "/ˈpɑːrtli/", meaning: "部分地" },
+      { word: "system", ipa: "/ˈsɪstəm/", meaning: "体系；系统" },
+      { word: "moving", ipa: "/ˈmuːvɪŋ/", meaning: "运转着的" }
+    ],
+    keywords: "硅谷 Silicon Valley · 华盛顿 Washington · 保护 protect · 部分因为 partly because · 让体系运转 keep the system moving",
+    frame: "... protect Huang partly because this keeps ...",
+    note: "keep + 宾语 + doing 表示‘让……保持某种状态’；this 指代保护黄仁勋这件事。",
+    source: "Washington and Silicon Valley are motivated to circle the wagons around Huang, in part because doing so keeps the system moving and the money flowing."
+  },
+  {
+    chinese: "人工智能热潮把国家的命运与一场复杂的技术豪赌绑在了一起。",
+    answer: "The AI boom has tied countries' fortunes to one complex technological bet.",
+    core: "tie ... to ...",
+    meaning: "把……与……绑在一起",
+    vocabulary: [
+      { word: "fortunes", ipa: "/ˈfɔːrtʃənz/", meaning: "命运；前途" },
+      { word: "complex", ipa: "/kəmˈpleks/", meaning: "复杂的" },
+      { word: "technological", ipa: "/ˌteknəˈlɑːdʒɪkəl/", meaning: "技术的" }
+    ],
+    keywords: "人工智能热潮 the AI boom · 把……绑在…… tie ... to ... · 国家的命运 countries' fortunes · 复杂的技术豪赌 a complex technological bet",
+    frame: "The AI boom has tied ... to ...",
+    note: "tie A to B 表示‘把A与B绑定’；has tied 是现在完成时。",
+    source: "The fortunes of countries and many of its most powerful citizens are all tied up in one progressively intricate technological and financial bet."
+  }
+];
+
 const november10Exercises = [
   {
     chinese: "黄仁勋承认自己有婚外情，并向妻子和孩子道歉。",
@@ -650,6 +743,15 @@ const november3Exercises = [
 
 const issues = [
   {
+    date: "20261111",
+    displayDate: "2026.11.11",
+    title: "丑闻爆发，<br>硅谷保人",
+    optionTitle: "丑闻爆发，硅谷保人",
+    summary: "用6句话理清黄仁勋为何‘大到不能倒’，以及道德问责如何与股市、AI竞赛和国家利益冲突。",
+    storageKey: "beibei-translation-20261111-v1",
+    exercises: november11Exercises
+  },
+  {
     date: "20261110",
     displayDate: "2026.11.10",
     title: "风波升级，<br>英伟达承压",
@@ -715,6 +817,30 @@ const issues = [
 ];
 
 const coreExamples = {
+  "lead to calls for": {
+    sentence: "The accident led to calls for stricter safety rules.",
+    translation: "这起事故引发了制定更严格安全规则的呼声。"
+  },
+  "a large part of": {
+    sentence: "Reading is a large part of her daily routine.",
+    translation: "阅读是她日常生活的重要组成部分。"
+  },
+  "too ... to ...": {
+    sentence: "The box is too heavy to carry alone.",
+    translation: "这个箱子太重了，一个人搬不动。"
+  },
+  "choose whether to ... or ...": {
+    sentence: "We must choose whether to wait or leave now.",
+    translation: "我们必须选择是继续等，还是现在离开。"
+  },
+  "keep ... moving": {
+    sentence: "Clear instructions keep the project moving.",
+    translation: "清晰的指示能让项目继续推进。"
+  },
+  "tie ... to ...": {
+    sentence: "Do not tie your happiness to one test result.",
+    translation: "不要把自己的快乐与一次考试结果绑在一起。"
+  },
   "admit that": {
     sentence: "He admitted that he had made a serious mistake.",
     translation: "他承认自己犯了一个严重错误。"

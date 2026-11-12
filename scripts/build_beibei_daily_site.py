@@ -223,6 +223,16 @@ TRANSLATION_OVERRIDES_BY_DATE: dict[str, list[str]] = {
         "投资者一直在向英伟达投入巨额资金，押注这家公司将继续成为人工智能基础设施投资狂潮的最大受益者之一。英伟达将于本月晚些时候公布财报。去年10月，公司市值一度创下近5.8万亿美元的历史纪录。然而，受市场对人工智能基础设施建设热潮能否持续的担忧拖累，其市值如今已跌破5万亿美元。",
         "总部位于新加坡的Megaspeed公司则被指违反美国出口管制规定，涉嫌走私英伟达芯片至中国。黄仁勋此前曾表示，他与Megaspeed员工的接触，与自己同许多中国客户及企业高管之间的商业往来并无二致。",
     ],
+    "20261111": [
+        "鉴于美国与中国之间的人工智能竞赛已然引发近乎狂热的关注，你或许会以为，当人工智能领域最重要的公司掌舵人被曝与一名疑似间谍的女性存在婚外情时，必然会招致空前的愤怒与口诛笔伐。你也许会认为，如此轻率的行为一经曝光，势必引发铺天盖地的问责声浪：不仅要求这位高管立即辞职，还要对他本人乃至整个公司展开彻查。群情激愤，讨伐四起，不一而足。",
+        "然而，颇为耐人寻味的是，当英伟达首席执行官黄仁勋与一名女商人存在恋爱关系的消息传出后，硅谷和华盛顿的某些重要势力的反应却出奇地平静。亿万富翁对冲基金经理比尔·阿克曼发文呼吁大家支持黄仁勋和他的家人。风险投资家肖恩·马奎尔虽承认他的行为“愚蠢至极”且“有损美国利益”，却又称他并无恶意，而且对美国的人工智能领导地位无可替代。马斯克也表示赞同。事实尚未完全查清，辩护之词却愈发荒诞，甚至有人以黄仁勋的孩子已经成年为由为他开脱。",
+        "当天晚些时候，特朗普也附和了要求黄仁勋留任首席执行官的呼声，称他是“一位值得尊敬的人”。这位总统本人也曾有过婚外情，且受到多名女性可信度颇高的性犯罪指控，如今对此事似乎毫不在意。我们很容易将这一切归结为有权有势的男人在袒护自己人——不过是“兄弟情谊”凌驾于迫在眉睫的技术与地缘政治安全大局之上的又一个典型案例。然而，这种解释忽略了黄仁勋和英伟达在美国政治以及全球金融体系中的核心地位。",
+        "去年，我曾将美国形容为一个“英伟达国家”，就像沙特阿拉伯是一个石油国家一样。原因在于，近年来，英伟达已成为其他人工智能企业最重要的投资者之一。可以说，英伟达在很大程度上支撑着“美股七雄”所构成的生态体系，而这些科技公司合计占据了标普500指数当前总市值的约三分之一。自2023年以来，美股每美元收益里，就有15美分来自英伟达的股价涨幅。",
+        "黄仁勋1993年创立英伟达，他也是这家公司的灵魂人物。在科技行业许多人眼中，他是推动人工智能迅猛发展的关键远见者之一。他对人工智能末日论等议题的看法也在影响美国政策。黄仁勋是独一无二的存在：他是这家公司的关键支柱，而英伟达本身又可以说是美国经济的关键支柱。换个角度来看，英伟达实际上已经将整个金融体系置于人质般的境地。黄仁勋成了一个“大到不能倒”的人物，或许正因如此，才会有如此多的人急于淡化丑闻的严重性，出面保护他。",
+        "随着这段关系的更多细节逐渐浮出水面，国会议员将不得不作出选择：究竟是听从市场的风向，还是推动更深入的调查？特朗普一贯以股市为行为导向，英伟达的股价表现以及整体人工智能投资热潮，都让他心生欢喜。他不太可能采取任何危及这一切的行动。民主党则处于一个颇为微妙的境地：无论是强力施压要求黄仁勋辞职，还是深入追查他本人及英伟达究竟何时知晓这段关系、又掌握了多少内情，都可能加剧英伟达股价的波动，进而撼动那团依靠持续扩张与高速增长维系的人工智能投资乱局。归根结底，围绕黄仁勋的道德审判，与特朗普以及那些在经济利益上与英伟达的成功深度捆绑的人所考量的，根本不是同一回事。",
+        "这场丑闻还带有一种格外符合当下人工智能时代的讽刺意味。黄仁勋似乎与自己所在行业的头号对手——中国——走得过于亲近。然而，华盛顿和硅谷非但没有对他口诛笔伐，反而非常积极地抱团维护他，因为这样做能够让整个体系继续运转，让资本持续流动。这套不惜一切代价加速发展的逻辑，本将中国人工智能实力视作关乎存亡的威胁，如今同一批人却选择对这桩与对手的不当纠缠视而不见。",
+        "这正是人工智能竞赛所催生的激励机制的扭曲之处。参与这场博弈，就意味着必须拥抱荒谬的风险，只为证明一个理想化的未来终将实现。要想跑完这场竞赛，参与者就必须承受巨大的认知失调；而在局外人看来，他们的行事方式也因此显得愈发难以捉摸，愈发鲁莽失度。至少，黄仁勋是一个极具代表性的样本，让我们得以看清：当一个国家的命运，以及这个国家许多最有权势之人的财富与前途，都被捆绑在同一场日益复杂的技术与金融豪赌之上时，究竟会发生什么。从这个意义上说，黄仁勋就是人工智能繁荣时代的化身。他早已深深盘踞于经济体系的核心，其影响力究竟会为世界带来繁荣，还是将人类引向无法估量的灾难，取决于我们从何种角度审视他。",
+    ],
 }
 
 TITLE_VOCAB_TERMS_OVERRIDES_BY_DATE: dict[str, str] = {
@@ -1552,6 +1562,23 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "Nvidia also faces problems in China and in the AI market. The United States allows only some products to be sold to China, while China has restricted imports. Investors are also worried that spending on AI infrastructure may slow down. Nvidia's market value has fallen from nearly $5.8 trillion to below $5 trillion. The article shows how a private scandal can quickly become a problem about company leadership, national security and global technology competition."
         ),
     },
+    "20261111": {
+        "pet_index": "04",
+        "overview": (
+            "文章从一个反常现象写起：黄仁勋被曝与一名疑似间谍的女性有婚外情，按理应该引发强烈谴责和彻底调查，但硅谷富豪、投资人和特朗普却迅速为他辩护。他们虽承认黄仁勋犯错，却更强调他对美国人工智能领导地位“无可替代”。"
+            "作者认为，这不只是权势男性彼此袒护。英伟达已经深度进入美国股市和人工智能产业链。它投资其他人工智能企业，支撑“美股七巨头”生态；自2023年以来，美股每赚取1美元，约有15美分来自英伟达。因此，作者把美国比作依赖英伟达的“英伟达国家”。"
+            "黄仁勋本人又是这家关键公司的支柱。他是英伟达创始人，也会影响美国对人工智能的政策讨论。英伟达是美国经济的关键支点，而黄仁勋又是英伟达的关键支点，他因而变成“大到不能倒”的人物。这种经济上的依赖，正是各方急于淡化丑闻的核心原因。"
+            "这也给政客造成两难。特朗普看重股市和人工智能投资，不愿危及英伟达。民主党则在中期选举中主张约束科技寡头、强化企业问责，但如果逼黄仁勋辞职或深入调查，又可能引发英伟达股价和整个人工智能投资体系的波动。道德问责与金融利益因此发生冲突。"
+            "最后，作者将丑闻视为人工智能竞赛所造成的“扭曲激励”。美国一方面将中国人工智能视为存亡威胁，另一方面却因为需要维持体系运转和资金流动，容忍黄仁勋与所谓对手之间的风险关系。当国家命运、权贵财富与一场技术金融豪赌绑在一起时，参与者就会容忍风险和矛盾。黄仁勋因而成了人工智能热潮本身的化身。"
+        ),
+        "pet": (
+            "The article begins with a surprising reaction to Jensen Huang's scandal. Huang was reported to have had an affair with a woman believed to be a spy. Many people expected anger, calls for his resignation and a full investigation. Instead, powerful people in Silicon Valley and Washington defended him. Investors, Elon Musk and Donald Trump said that Huang had made a mistake but was still very important to America's AI leadership. "
+            "The writer says this is not only about powerful men protecting one another. Nvidia has become central to the American stock market and the AI industry. It invests in other AI companies and supports a large part of the big-tech ecosystem. Since 2023, Nvidia has produced about 15 cents of every dollar returned by the American stock market. The writer therefore compares the United States to an 'Nvidia-state'. "
+            "Huang is also central to Nvidia itself. He founded the company in 1993 and his ideas about AI can influence US policy. Nvidia is a key part of the American economy, and Huang is a key part of Nvidia. This makes him seem 'too big to fail'. People may be protecting him because they fear that losing him could hurt the company, the market and the wider AI boom. "
+            "Politicians now face a difficult choice. Trump cares greatly about the stock market and is unlikely to damage Nvidia. Democrats want stronger control of technology companies and greater corporate responsibility. However, pushing Huang to resign or investigating him more deeply could make Nvidia's share price unstable and shake the larger system of AI investment. Moral responsibility and financial interests are pulling in different directions. "
+            "The writer ends by describing the warped incentives of the AI race. Washington treats China's AI power as a serious threat, yet it may ignore Huang's risky relationship because it wants the system and the money to keep moving. When a country's future and powerful people's fortunes are tied to one complex technological bet, they may accept great risks and clear contradictions. Huang has become a symbol of the AI boom and of both its promise and its danger."
+        ),
+    },
 }
 
 
@@ -1834,6 +1861,12 @@ VOCAB_FALSE_POSITIVES = {
     "to bring sb",
     "to implement changes",
     "to fuel speculation",
+    # 20261111: slash-separated definition/example fragments are already part
+    # of real cards and must not become duplicate standalone vocabulary pages.
+    "a singular noun",
+    "a moral issue",
+    "circle the wagons around sb",
+    "to touch sb",
 }
 
 
@@ -2610,6 +2643,77 @@ VOCAB_CORRECTIONS_BY_DATE: dict[str, dict[str, dict[str, str]]] = {
             "example": "The country is trying to control runaway inflation. 这个国家正努力控制迅猛的通货膨胀。",
         },
     },
+    "20261111": {
+        "pitchfork": {
+            "definition": "干草叉；草叉；（比喻）民众愤怒或群体讨伐",
+            "definition_en": "a long-handled farming tool; used figuratively as a symbol of public anger or mob protest",
+            "example": "Angry protesters took to the streets with metaphorical pitchforks, demanding the CEO's resignation. 愤怒的抗议者走上街头，群情激愤地要求这位首席执行官辞职。",
+        },
+        "faction": {
+            "definition": "（大团体中的）派系；派别；小集团",
+            "definition_en": "a small group within a larger group whose members have different aims or beliefs",
+            "example": "There are rival factions within the administration. 政府内部存在对立派别。",
+        },
+        "pressing": {
+            "definition": "紧急的；急迫的",
+            "definition_en": "needing to be dealt with immediately",
+            "example": "I'm afraid I have some pressing business to attend to. 很抱歉，我有些急事需要处理。",
+        },
+        "imperative": {
+            "definition": "重要紧急的事；必要的事；祈使语气",
+            "definition_en": "an important matter that needs immediate action; the form of a verb used for an order",
+            "example": "Quality education for all is an economic imperative. 向全民提供高质量教育是经济发展的必要条件。",
+        },
+        "doomerism": {
+            "definition": "末日悲观主义；悲观宿命论",
+            "definition_en": "a pessimistic belief that society, the economy or humanity is heading towards disaster",
+            "example": "Doomerism about artificial intelligence has spread among people who fear that the technology could threaten humanity's future. 对人工智能的末日悲观情绪在担心该技术威胁人类未来的人群中蔓延。",
+        },
+        "singular": {
+            "definition": "非凡的；突出的；独一无二的；单数的",
+            "definition_en": "very great, unusual or unique; having the grammatical singular form",
+            "example": "She showed singular courage in a difficult situation. 她在困难处境中表现出了非凡的勇气。",
+        },
+        "jeopardize": {
+            "definition": "危及；危害；损害",
+            "definition_en": "to risk harming or destroying someone or something",
+            "example": "He would never do anything to jeopardize his career. 他决不会做任何有损自己事业的事。",
+        },
+        "existential": {
+            "definition": "关乎存亡的；与人类存在有关的",
+            "definition_en": "threatening survival or existence; relating to human existence and experience",
+            "example": "Climate change is an existential threat to some island nations. 气候变化是某些岛国面临的生存威胁。",
+        },
+        "dalliance": {
+            "definition": "短暂的情感关系；调情；短暂接触",
+            "definition_en": "a brief romantic relationship; a short involvement with an activity or idea",
+            "example": "The newspaper reported his brief dalliance with a colleague. 报纸报道了他与一名同事的短暂情感关系。",
+        },
+        "dissonance": {
+            "definition": "不一致；不协调；冲突；不和谐音",
+            "definition_en": "a lack of agreement between ideas, beliefs or actions; an unpleasant combination of musical notes",
+            "example": "There is a growing dissonance between the president's promises and his actual policies. 总统的承诺与实际政策之间的矛盾日益凸显。",
+        },
+        "hyperobject": {
+            "definition": "超物体；规模巨大、无法从单一视角完整理解的现象",
+            "definition_en": "an object or phenomenon so vast in time and space that it cannot be fully understood from one perspective",
+            "example": "Climate change is often described as a hyperobject because its effects are spread across the globe. 气候变化常被称为‘超物体’，因为它的影响遍及全球。",
+        },
+    },
+}
+
+
+VOCAB_ADDITIONS_BY_DATE: dict[str, list[dict[str, str]]] = {
+    "20261111": [
+        {
+            "term": "usher in",
+            "pos": "phr",
+            "phonetic": "",
+            "definition": "开启；开创；迎来；标志着……的到来",
+            "definition_en": "to mark or signal the beginning of a new period, development or change",
+            "example": "The invention of the internet ushered in a new era of global communication. 互联网的发明开启了全球通信的新时代。",
+        },
+    ],
 }
 
 
@@ -2946,6 +3050,11 @@ def extract_vocabulary(text: str, issue_date: str = "") -> list[dict[str, str]]:
                 "the PDF paragraph translation may have crossed the vocabulary boundary"
             )
         items.append(item)
+    for addition in VOCAB_ADDITIONS_BY_DATE.get(issue_date, []):
+        key = addition["term"].lower()
+        if key not in seen:
+            items.append(addition.copy())
+            seen.add(key)
     return items
 
 
