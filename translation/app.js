@@ -1,3 +1,96 @@
+const november12Exercises = [
+  {
+    chinese: "全球最大的15个经济体，生育率都低于人口更替水平。",
+    answer: "The world's 15 largest economies all have birth rates below the replacement level.",
+    core: "be below",
+    meaning: "低于……",
+    vocabulary: [
+      { word: "economy", ipa: "/ɪˈkɑːnəmi/", meaning: "经济体" },
+      { word: "birth rate", ipa: "/ˈbɜːrθ reɪt/", meaning: "生育率" },
+      { word: "replacement level", ipa: "/rɪˈpleɪsmənt ˈlevəl/", meaning: "人口更替水平" }
+    ],
+    keywords: "全球最大的15个经济体 the world's 15 largest economies · 都 all · 生育率 birth rates · 低于 be below · 人口更替水平 the replacement level",
+    frame: "The world's ... all have ... below ...",
+    note: "below 是介词，表示‘低于’；economy 的复数形式是 economies。",
+    source: "The top 15 countries by GDP are now all below the replacement rate."
+  },
+  {
+    chinese: "更少的年轻人必须支撑经济增长、养老金和公共服务。",
+    answer: "Fewer young people must support economic growth, pensions and public services.",
+    core: "support ... and ...",
+    meaning: "支撑……和……",
+    vocabulary: [
+      { word: "economic growth", ipa: "/ˌiːkəˈnɑːmɪk ɡroʊθ/", meaning: "经济增长" },
+      { word: "pension", ipa: "/ˈpenʃən/", meaning: "养老金" },
+      { word: "public service", ipa: "/ˌpʌblɪk ˈsɜːrvɪs/", meaning: "公共服务" }
+    ],
+    keywords: "更少的年轻人 fewer young people · 必须 must · 支撑 support · 经济增长 economic growth · 养老金 pensions · 公共服务 public services",
+    frame: "Fewer young people must support ...",
+    note: "fewer 修饰可数名词复数；must 后接动词原形 support。",
+    source: "A dwindling band of young will have to support economic growth, pensions and public services."
+  },
+  {
+    chinese: "更小的家庭意味着更少的亲属和更多的孤独。",
+    answer: "Smaller families mean fewer relatives and more loneliness.",
+    core: "mean fewer ... and more ...",
+    meaning: "意味着更少的……和更多的……",
+    vocabulary: [
+      { word: "relative", ipa: "/ˈrelətɪv/", meaning: "亲属" },
+      { word: "loneliness", ipa: "/ˈloʊnlinəs/", meaning: "孤独" },
+      { word: "smaller", ipa: "/ˈsmɔːlər/", meaning: "更小的" }
+    ],
+    keywords: "更小的家庭 smaller families · 意味着 mean · 更少的亲属 fewer relatives · 更多的孤独 more loneliness",
+    frame: "Smaller families mean fewer ... and more ...",
+    note: "fewer 修饰可数名词 relatives；more 修饰不可数名词 loneliness。",
+    source: "Family trees are being pruned ... This 'kin crash' ... is likely to aggravate the 'loneliness epidemic'."
+  },
+  {
+    chinese: "住房成本很重要，但时间的机会成本可能是更大的因素。",
+    answer: "Housing costs matter, but the opportunity cost of time may be a bigger factor.",
+    core: "may be a bigger factor",
+    meaning: "可能是一个更大的因素",
+    vocabulary: [
+      { word: "housing cost", ipa: "/ˈhaʊzɪŋ kɔːst/", meaning: "住房成本" },
+      { word: "opportunity cost", ipa: "/ˌɑːpərˈtuːnəti kɔːst/", meaning: "机会成本" },
+      { word: "factor", ipa: "/ˈfæktər/", meaning: "因素" }
+    ],
+    keywords: "住房成本 housing costs · 很重要 matter · 但是 but · 时间的机会成本 the opportunity cost of time · 可能是更大的因素 may be a bigger factor",
+    frame: "... matter, but ... may be a bigger factor.",
+    note: "matter 在这里作动词，表示‘很重要’；may 后接动词原形 be。",
+    source: "The biggest opportunity cost may not be financial, however. It may be time."
+  },
+  {
+    chinese: "社交媒体和电视会让无孩生活显得更有吸引力。",
+    answer: "Social media and television can make a child-free life look more attractive.",
+    core: "make ... look ...",
+    meaning: "让……显得……",
+    vocabulary: [
+      { word: "child-free", ipa: "/ˌtʃaɪld ˈfriː/", meaning: "无孩的；选择不生育的" },
+      { word: "attractive", ipa: "/əˈtræktɪv/", meaning: "有吸引力的" },
+      { word: "social media", ipa: "/ˌsoʊʃəl ˈmiːdiə/", meaning: "社交媒体" }
+    ],
+    keywords: "社交媒体 social media · 电视 television · 会 can · 让……显得 make ... look ... · 无孩生活 a child-free life · 更有吸引力 more attractive",
+    frame: "Social media and television can make ... look ...",
+    note: "make + 宾语 + 动词原形，表示‘让……做/显得……’；look 后接形容词 attractive。",
+    source: "This creates a feedback loop in which life looks glorious without children."
+  },
+  {
+    chinese: "生孩子是个人选择，但它会给整个社会带来影响。",
+    answer: "Having children is a personal choice, but it has consequences for the whole society.",
+    core: "have consequences for",
+    meaning: "对……产生影响",
+    vocabulary: [
+      { word: "personal", ipa: "/ˈpɜːrsənəl/", meaning: "个人的" },
+      { word: "consequence", ipa: "/ˈkɑːnsɪkwens/", meaning: "后果；影响" },
+      { word: "society", ipa: "/səˈsaɪəti/", meaning: "社会" }
+    ],
+    keywords: "生孩子 having children · 个人选择 a personal choice · 但是 but · 带来影响 have consequences for · 整个社会 the whole society",
+    frame: "Having children is ..., but it has consequences for ...",
+    note: "动名词短语 Having children 作主语时按单数处理，所以使用 is；have consequences for 表示‘对……产生影响’。",
+    source: "Having children is a personal choice but with public consequences."
+  }
+];
+
 const november11Exercises = [
   {
     chinese: "黄仁勋的丑闻原本可能引发要求他辞职和深入调查的呼声。",
@@ -743,6 +836,15 @@ const november3Exercises = [
 
 const issues = [
   {
+    date: "20261112",
+    displayDate: "2026.11.12",
+    title: "生育寒冬，<br>全球难题",
+    optionTitle: "生育寒冬，全球难题",
+    summary: "用6句话梳理全球生育率为何下降，以及小家庭、机会成本和社会传染将带来哪些长期影响。",
+    storageKey: "beibei-translation-20261112-v1",
+    exercises: november12Exercises
+  },
+  {
     date: "20261111",
     displayDate: "2026.11.11",
     title: "丑闻爆发，<br>硅谷保人",
@@ -817,6 +919,30 @@ const issues = [
 ];
 
 const coreExamples = {
+  "be below": {
+    sentence: "The temperature is below zero today.",
+    translation: "今天的气温低于零度。"
+  },
+  "support ... and ...": {
+    sentence: "Good habits support our health and learning.",
+    translation: "好习惯有助于我们的健康和学习。"
+  },
+  "mean fewer ... and more ...": {
+    sentence: "Better planning can mean fewer mistakes and more success.",
+    translation: "更好的计划可以意味着更少的错误和更多的成功。"
+  },
+  "may be a bigger factor": {
+    sentence: "Time may be a bigger factor than money.",
+    translation: "时间可能是比金钱更重要的因素。"
+  },
+  "make ... look ...": {
+    sentence: "Bright colours make the room look larger.",
+    translation: "明亮的颜色让房间显得更大。"
+  },
+  "have consequences for": {
+    sentence: "Our daily choices have consequences for the environment.",
+    translation: "我们的日常选择会对环境产生影响。"
+  },
   "lead to calls for": {
     sentence: "The accident led to calls for stricter safety rules.",
     translation: "这起事故引发了制定更严格安全规则的呼声。"

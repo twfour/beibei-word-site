@@ -233,6 +233,20 @@ TRANSLATION_OVERRIDES_BY_DATE: dict[str, list[str]] = {
         "这场丑闻还带有一种格外符合当下人工智能时代的讽刺意味。黄仁勋似乎与自己所在行业的头号对手——中国——走得过于亲近。然而，华盛顿和硅谷非但没有对他口诛笔伐，反而非常积极地抱团维护他，因为这样做能够让整个体系继续运转，让资本持续流动。这套不惜一切代价加速发展的逻辑，本将中国人工智能实力视作关乎存亡的威胁，如今同一批人却选择对这桩与对手的不当纠缠视而不见。",
         "这正是人工智能竞赛所催生的激励机制的扭曲之处。参与这场博弈，就意味着必须拥抱荒谬的风险，只为证明一个理想化的未来终将实现。要想跑完这场竞赛，参与者就必须承受巨大的认知失调；而在局外人看来，他们的行事方式也因此显得愈发难以捉摸，愈发鲁莽失度。至少，黄仁勋是一个极具代表性的样本，让我们得以看清：当一个国家的命运，以及这个国家许多最有权势之人的财富与前途，都被捆绑在同一场日益复杂的技术与金融豪赌之上时，究竟会发生什么。从这个意义上说，黄仁勋就是人工智能繁荣时代的化身。他早已深深盘踞于经济体系的核心，其影响力究竟会为世界带来繁荣，还是将人类引向无法估量的灾难，取决于我们从何种角度审视他。",
     ],
+    "20261112": [
+        "如今，世道真的变了。在韩国，宠物车的销量已经超过了儿童婴儿车；在日本，一些神社为狗狗举行祈福仪式的次数，有时还超过了新生儿。过去，人们普遍认为，一对夫妻养了小狗，便会渐渐萌生为人父母的念头，继而开始备孕生子。然而，如今越来越多的宠物“家长”却把这些四脚毛孩视为孩子的永久替代品。一些企业甚至开始提供所谓的“宠物假”，让员工有时间与新来的宠物培养感情，或在宠物生病时悉心照料。",
+        "并不是所有人都觉得这一趋势可爱又温馨。教皇方济各曾警告，人类正面临一场“人口寒冬”，并严厉地将选择不生孩子的行为斥为“自私”。马斯克也曾表示，出生率持续下滑是“人类文明面临的最大威胁，远远超过其他”。如今，全球国内生产总值排名前15的国家，无一例外，生育率都已低于人口更替水平（2.1），美国、中国和印度都包括在内。出生率不断下降，可能导致全球人口在本世纪后半叶开始萎缩。这将是自14世纪黑死病夺去数千万人的生命以来，人类历史上首次出现全球人口规模的下降。",
+        "英国《金融时报》专栏作家卡米拉·卡文迪什女男爵为那些推迟生育或干脆选择不生孩子的人起了一个名字：“Maybe一代”。她在一本引人深思的新书中，试图探究：人类最深刻的本能——延续血脉、繁衍后代——如今为何正在逐渐消退。",
+        "生育率暴跌所带来的后果，其实不难想象：人口老龄化的社会将不得不依靠规模日益缩小的年轻一代来推动经济增长、供养养老金体系，维持公共服务的运转。而这些后果的影响也是巨大的。出生率下降将重塑文化、社会乃至地缘政治格局。到2050年，尼日利亚的人口将超过美国，成为全球第三人口大国。卡文迪什女士提出，人口增长乏力的国家可能通过侵犯他国来扩张人口规模，同时转移国内的矛盾与焦虑。她还预言，未来的世界将变得更加动荡，宗教也愈发盛行，因为“全球人口中，生活在以伊斯兰教或基督教人口为主的国家的人所占比例将进一步上升”。",
+        "与此同时，越来越多的人选择只生一个孩子，由此引发了一场所谓的“亲族关系崩塌”：兄弟姐妹以及其他亲属的数量都在不断减少。五十年前，一名35岁的加拿大人平均有20个仍在世的表亲；如今，这一数字已降至约10个，而到2095年，可能只剩下5个。到本世纪末，与1950年相比，全球65岁人群中，每个人仍然在世的亲属数量预计将减少38%。披头士那首略带忧伤的歌曲中所唱的“所有孤独的人”，或许正是未来世界的真实写照。",
+        "究竟是什么导致了这场生育热潮的逆转？人们谈论最多的，是生活成本和住房价格。当一个成年人仍像个长不大的孩子一样，不得不住在父母家中时，自然很难生出养育下一代的念头。美国近年来出生率的下降，约有一半可能与房价上涨有关。研究估算，如果住房成本一直保持稳定，那么从1990年到2020年，美国本可以多出生约1300万名儿童。然而，即便是在住房并不算特别昂贵的国家，生育率也同样出现了大幅下滑，日本便是一个例子。",
+        "相比之下，机会成本或许才是更重要的因素。养育孩子需要投入大量时间，而随着国家日益富裕，人们也拥有了越来越多更具吸引力的生活选择。与此同时，许多父母认为，与其把有限的时间和资源分摊给三四个孩子，不如集中投入一两个孩子身上，让他们接受中文、小提琴等各种培训，从而在这场教育军备竞赛中拥有更大的胜算。学术界将这种育儿方式称为“密集型育儿”；也有人借用“直升机式父母”或“虎妈式教育”等说法来形容它。",
+        "“社会传染效应”同样会影响人们对是否生育以及生几个孩子的看法。TikTok上的视频极力赞美一种光鲜亮丽的“无孩生活”：午后悠闲小憩、完成旅行心愿清单、积攒丰厚储蓄，甚至早早退休。（那些已经被育儿生活折腾得筋疲力尽的父母们，对此只能说：抱歉，现在后悔也来不及了。）研究表明，电视节目也在一定程度上助长了生育率的下降。此外，越来越多的“苦难回忆录”不断涌现，书中大肆倾诉为人父母和婚姻生活有多么艰难，也在无形中起到了避孕的作用。",
+        "朋友和兄弟姐妹同样会对一个人想要生几个孩子产生深刻影响。例如，移居英国的波兰女性，生育的孩子数量往往多于留在波兰的同龄女性，她们的生育行为逐渐向新居住国的家庭平均水平靠拢。即便在伦敦养育一个孩子的成本往往高于华沙，这一现象依然存在。",
+        "那些觉得自己或许喜欢孩子、却始终在等待的人——等待合适的伴侣、合适的时机，或是更宽裕的银行存款——可能正在被一种错误的安全感误导。卡文迪什女男爵对试管婴儿技术（IVF）和冻卵现象提出了尖锐批评：诊所往往把女性未来成为母亲的可能性描绘得过于乐观，而实际数据却并不如此。冷冻胚胎的成功率因人而异，与女性年龄密切相关，但英国的平均成功率还不到30%。男性随着年龄增长，同样面临一些鲜少被公开讨论的生育难题。一场悄然发生的“精子末日危机”正在逼近：许多国家男性的精子数量已经急剧下降，原因可能与长期接触日常家居用品中的某些化学物质有关。年龄增长也会损害精子质量。然而，即便是那些已经意识到女性生育存在生物学时钟的人，也未必会将男性生育能力随年龄衰退这一事实纳入考量。",
+        "那么，我们究竟能采取什么措施，防止这场生育率崩塌？移民可以缓解问题，但移民政策往往不得民心，而且越来越多的国家正变得不再欢迎外来人口。至于那些试图劝说人们多生孩子的努力，也几乎没有取得什么成效。那些宣传非但无法唤起人们的生育热情，反倒惹人反感。比如，丹麦曾推出名为“为了丹麦，行动起来”的电视广告，鼓励情侣们外出度假，并提交怀孕证明以赢取奖品。新加坡还推出过一首说唱歌曲：“我是爱国的丈夫，你是爱国的妻子，让我们尽一份公民义务，创造新的生命！”",
+        "归根结底，生不生孩子，终究是个人选择，却又会产生波及整个社会的后果。眼下最值得追问的是：“Maybe一代”最终会不会变成“拒绝一代”？这个问题的答案，人口学家和作家们恐怕还得等待下一章的到来。■",
+    ],
 }
 
 TITLE_VOCAB_TERMS_OVERRIDES_BY_DATE: dict[str, str] = {
@@ -1579,6 +1593,23 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The writer ends by describing the warped incentives of the AI race. Washington treats China's AI power as a serious threat, yet it may ignore Huang's risky relationship because it wants the system and the money to keep moving. When a country's future and powerful people's fortunes are tied to one complex technological bet, they may accept great risks and clear contradictions. Huang has become a symbol of the AI boom and of both its promise and its danger."
         ),
     },
+    "20261112": {
+        "pet_index": "04",
+        "overview": (
+            "文章从宠物正在取代孩子的社会现象写起。韩国宠物推车的销量已经超过婴儿车，日本一些神社为狗祈福的次数甚至多于婴儿。越来越多的人把宠物当成子女的永久替代品，一些企业还推出“宠物假”。教皇方济各和马斯克等人则将低生育率视为文明危机。"
+            "卡米拉·卡文迪什把推迟生育或干脆不生的人称为‘Maybe一代’。如今全球GDP排名前15的国家生育率全部低于人口更替水平，世界人口可能在本世纪首次自黑死病以来出现下降。年轻人变少会影响经济增长、养老金和公共服务，还可能改变世界的地缘政治和宗教结构。"
+            "低生育率也会造成‘亲族崩塌’。家庭只生一个孩子时，下一代的兄弟姐妹、叔伯姑姨和堂表亲都会变少。到本世纪末，65岁人群拥有的在世亲属数量可能比1950年减少38%。亲属网络萎缩不只意味着家庭支持减少，也可能使孤独问题更加严重。"
+            "文章接着分析人们少生或不生的多重原因。高房价确实让年轻人更难建立家庭，但这无法解释日本等住房相对不贵的国家。更深层的原因包括时间的机会成本、集中资源培养少数孩子的‘密集型育儿’，以及社交媒体、电视和‘苦难回忆录’对无孩生活的宣传。朋友和兄弟姐妹的选择也会通过‘社会传染’影响个人。"
+            "等待更合适时机的人还可能过度相信冻卵和试管婴儿，但英国冷冻胚胎的平均成功率低于30%，男性的精子数量和质量也会随年龄变化。移民可以缓解人口下降，却常遭受反对；丹麦和新加坡的催生广告也收效甚微。文章最后强调，生育是个人选择，却会产生公共后果；最大的未知，是‘Maybe一代’最终会不会成为‘不生一代’。"
+        ),
+        "pet": (
+            "The article begins with a change in family life. In South Korea, more people now buy pushchairs for pets than for children. In Japan, some shrines bless more dogs than babies. Many people treat pets as permanent substitutes for children, and some companies even offer leave for workers with a new or sick pet. Pope Francis and Elon Musk, however, warned that falling birth rates are a serious danger. "
+            "Camilla Cavendish calls people who delay or avoid having children 'Generation Maybe'. The world's 15 largest economies all have birth rates below the level needed to replace their populations. Later this century, the world's population may fall for the first time since the Black Death. Smaller younger generations will have to support economic growth, pensions and public services. Population change may also affect global politics and religion. "
+            "Families are becoming smaller in another way. When more parents have only one child, future adults have fewer brothers, sisters, aunts, uncles and cousins. This is called a 'kin crash'. By the end of the century, a 65-year-old person may have 38% fewer living relatives than someone of the same age in 1950. Smaller family networks may mean less support and more loneliness. "
+            "High housing costs are one reason for lower birth rates, but they do not explain everything. Children need a great deal of time and money. In richer countries, adults have many other attractive ways to use their time. Some parents also spend all their resources on one or two children to help them win the education race. Social media, television and books about the difficulties of marriage and parenting can make a child-free life look more attractive. Friends and siblings also influence people's choices. "
+            "People who wait for the perfect time may trust IVF or egg-freezing too much. In Britain, the average success rate for frozen embryos is below 30%, and male fertility also falls with age. Immigration can reduce population decline, but many countries do not welcome it. Government campaigns asking people to have more babies have usually failed. The article ends with an important point: having a child is a personal choice, but the results affect the whole society. No one yet knows whether Generation Maybe will finally become Generation No."
+        ),
+    },
 }
 
 
@@ -1867,6 +1898,9 @@ VOCAB_FALSE_POSITIVES = {
     "a moral issue",
     "circle the wagons around sb",
     "to touch sb",
+    # 20261112: extraction fragments from bless and body examples, not cards.
+    "bles",
+    "a vast body of evidence",
 }
 
 
@@ -2700,6 +2734,119 @@ VOCAB_CORRECTIONS_BY_DATE: dict[str, dict[str, dict[str, str]]] = {
             "example": "Climate change is often described as a hyperobject because its effects are spread across the globe. 气候变化常被称为‘超物体’，因为它的影响遍及全球。",
         },
     },
+    "20261112": {
+        "buggy": {
+            "definition": "婴儿车；童车；专用小汽车",
+            "definition_en": "a light folding chair on wheels for a baby; a small special-purpose car",
+            "example": "Sales of buggies for pets have overtaken those for children. 宠物车的销量已经超过了儿童婴儿车。",
+        },
+        "overtake": {
+            "definition": "（在数量、程度或重要性上）超过；赶上",
+            "definition_en": "to become greater in number, amount or importance; to go past someone or something",
+            "example": "Nuclear energy may overtake oil as the main fuel. 核能可能会超过石油成为主要燃料。",
+        },
+        "canine": {
+            "definition": "狗；犬科动物；犬齿",
+            "definition_en": "a dog; one of the pointed teeth near the front of the mouth",
+            "example": "The shrine sometimes blesses more canines than babies. 这座神社有时为狗祈福的次数多于婴儿。",
+        },
+        "conceive": {
+            "definition": "想象；构想；怀孕",
+            "definition_en": "to form an idea in the mind; to become pregnant",
+            "example": "They began to conceive of parenthood and then started trying to conceive. 他们开始想象为人父母，然后尝试怀孕。",
+        },
+        "cuddly": {
+            "definition": "柔软可爱的；令人想拥抱的；亲人的",
+            "definition_en": "soft, pleasant and attractive to hug; affectionate and enjoying being held",
+            "example": "The puppy is so small and cuddly that everyone wants to hold it. 这只小狗又小又可爱，谁都想抱一抱。",
+        },
+        "frosty": {
+            "definition": "冷淡的；冷若冰霜的；严寒的",
+            "definition_en": "unfriendly and disapproving; extremely cold or covered with frost",
+            "example": "The proposal received a frosty response. 这项提议得到了冷淡的回应。",
+        },
+        "forgo": {
+            "definition": "放弃；弃绝（想要的事物或活动）",
+            "definition_en": "to decide not to have or do something that you would like",
+            "example": "No one was prepared to forgo their lunch hour to attend the meeting. 谁都不愿意放弃午餐时间参加会议。",
+        },
+        "sombre": {
+            "definition": "忧郁的；严肃的；阴暗的",
+            "definition_en": "sad and serious; dark or dull in colour",
+            "example": "The year ended on a sombre note. 那一年在沉闷的气氛中结束。",
+        },
+        "chorus": {
+            "definition": "副歌；合唱部分",
+            "definition_en": "the part of a song that is repeated after each verse",
+            "example": "Everyone joined in the chorus. 唱到副歌时，大家都跟着唱了起来。",
+        },
+        "fever": {
+            "definition": "狂热；热潮；发烧",
+            "definition_en": "great interest or excitement about something; a high body temperature",
+            "example": "Election fever spread across the country. 选举热潮席卷了全国。",
+        },
+        "fertility": {
+            "definition": "生育能力；生育率；肥沃",
+            "definition_en": "the ability to have children; the rate at which children are born; the quality of being fertile",
+            "example": "Fertility has fallen sharply in many countries. 许多国家的生育率已经大幅下降。",
+        },
+        "shot": {
+            "definition": "机会；可能性；尝试",
+            "definition_en": "a chance of success; an attempt to do or achieve something",
+            "example": "The team has a good shot at the title. 这支队很有机会获得冠军。",
+        },
+        "shower": {
+            "definition": "大量给予；洒落；淋浴",
+            "definition_en": "to give someone a large amount of something; to fall in many small pieces; to wash under a shower",
+            "example": "He showered her with gifts. 他送给她许多礼物。",
+        },
+        "stretch": {
+            "definition": "分摊、延展有限资源；拉长；撑大",
+            "definition_en": "to spread limited resources over several needs; to make something longer, wider or looser",
+            "example": "They stretched their resources over three children. 他们把有限的资源分摊给了三个孩子。",
+        },
+        "invoke": {
+            "definition": "提及；援引（例子、理论或法律）",
+            "definition_en": "to mention a person, example, theory or law in support of an idea",
+            "example": "She invoked several scholars to support her argument. 她援引了几位学者来支持自己的论点。",
+        },
+        "contagion": {
+            "definition": "（情绪、观念等的）传播；接触传染",
+            "definition_en": "the rapid spread of an idea, feeling or harmful influence; the spread of disease by contact",
+            "example": "Social contagion can influence people's choices. 社会传染效应会影响人们的选择。",
+        },
+        "glorious": {
+            "definition": "极其愉快的；美好的；光荣的",
+            "definition_en": "extremely enjoyable or attractive; deserving great fame or success",
+            "example": "They enjoyed a glorious trip to Rome. 他们享受了一次非常愉快的罗马之旅。",
+        },
+        "searing": {
+            "definition": "尖锐批评的；强烈的；灼人的",
+            "definition_en": "powerfully critical or intense; so hot or painful that it seems to burn",
+            "example": "The article makes a searing criticism of the policy. 这篇文章对该政策提出了尖锐批评。",
+        },
+        "rosy": {
+            "definition": "乐观的；看似美好的；粉红的",
+            "definition_en": "likely to be good or successful, sometimes more positive than the facts support; pink",
+            "example": "The clinic painted a rosy picture of the treatment. 诊所把这种治疗描绘得过于乐观。",
+        },
+        "precipitous": {
+            "definition": "突然且急剧的；陡峭的；仓促的",
+            "definition_en": "sudden and great; very steep; done too quickly and without enough care",
+            "example": "The country experienced a precipitous decline in births. 该国的出生人口出现了急剧下降。",
+        },
+        "degrade": {
+            "definition": "使恶化；使退化；使有辱人格",
+            "definition_en": "to cause something to become worse; to treat someone without respect",
+            "example": "Age can degrade sperm quality. 年龄增长会使精子质量恶化。",
+        },
+        "factor sth into sth": {
+            "term": "factor in",
+            "definition": "把……因素纳入考虑",
+            "definition_en": "to include a fact or situation when making a decision or plan",
+            "example": "Remember to factor in staffing costs. 记得把人员成本纳入考虑。",
+        },
+    },
 }
 
 
@@ -3252,7 +3399,10 @@ def extract_paragraphs(raw: str, issue_date: str = "") -> list[dict[str, str]]:
         if cut_positions:
             english_source = english_source[:min(cut_positions)]
         english_source = clean_original_paragraph(recover_english_split_by_translation(english_source))
-        english_source = re.sub(r"^\W+", "", english_source).strip()
+        # Drop page-number/bullet noise without deleting meaningful opening
+        # quotation marks from the article text (for example “Social
+        # contagion” in the 20261112 issue).
+        english_source = re.sub(r"^[^A-Za-zÀ-ÖØ-öø-ÿ“‘\"']+", "", english_source).strip()
         if not english_source:
             continue
         originals.append({
