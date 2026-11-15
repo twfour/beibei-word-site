@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="位运算课堂精读：原码、反码、补码，六种位运算符与 lowbit 等常用技巧。">
+  <title>位运算 · 课堂代码精读</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../bitwise.css">
+</head>
+<body class="bit-article">
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <header class="hero bit-hero" id="top">
+    <nav class="nav"><a class="brand" href="../">CODE / 编程周刊</a><div class="nav-links"><a href="#codes">机器编码</a><a href="#operators">六种运算</a><a href="#tricks">常用技巧</a><a href="#practice">在线编程</a></div></nav>
+    <div class="hero-grid"><div><p class="kicker">CODE WEEKLY · VOL. 003</p><h1>深入整数的<br><span>每一位</span></h1></div><div class="hero-note"><p>位运算 · 讲义与课堂代码合并精读</p><p>计算机不直接看十进制数字。它看到的是一串 0 和 1，以及这些位在 <code>&amp; | ~ ^ &lt;&lt; &gt;&gt;</code> 下如何改变。</p></div></div>
+    <div class="stats"><span><b>03</b> 种机器编码</span><span><b>06</b> 个位运算符</span><span><b>09</b> 段课堂代码</span></div>
+  </header>
+
+  <main>
+    <section class="section" id="codes">
+      <div class="section-head"><span>01 / MACHINE CODE</span><h2>负数为什么要用<br>补码保存</h2></div>
+      <div class="sign-demo"><div class="decimal"><small>DECIMAL</small><strong>−18</strong></div><div class="code-path"><article><span>原码</span><code><i>1</i>001 0010</code><p>符号位为 1，其余位写绝对值。</p></article><b>取反 →</b><article><span>反码</span><code><i>1</i>110 1101</code><p>符号位不动，其余位 0、1 互换。</p></article><b>+ 1 →</b><article class="active"><span>补码</span><code><i>1</i>110 1110</code><p>计算机实际使用；加减法可统一。</p></article></div></div>
+      <div class="positive-note"><strong>正数更简单</strong><span>+18 的原码 = 反码 = 补码 =</span><code>0001 0010</code></div>
+      <div class="encoding-grid"><article><span>原码的问题</span><h3>两个零</h3><p><code>0000 0000</code> 与 <code>1000 0000</code> 都表示零，直接加法也不方便。</p></article><article><span>反码仍未解决</span><h3>零仍有两种</h3><p>负数只翻转数值位，仍无法统一所有加减运算。</p></article><article class="accent"><span>补码的价值</span><h3>唯一的零</h3><p>零只有 <code>0000 0000</code>，硬件可用同一套加法器处理加减。</p></article></div>
+    </section>
+
+    <section class="section lessons" id="operators">
+      <div class="section-head"><span>02 / SIX OPERATORS</span><h2>六种运算，都是<br>逐位发生</h2></div>
+      <div class="truth-grid"><article><div class="op">&amp;</div><h3>按位与</h3><p>两位都是 1 才得 1。</p><code>10101100<br>&amp; 01101010<br>= 00101000</code><strong>172 &amp; 106 = 40</strong></article><article><div class="op">|</div><h3>按位或</h3><p>至少一位是 1 就得 1。</p><code>10101100<br>| 01101010<br>= 11101110</code><strong>172 | 106 = 238</strong></article><article><div class="op">^</div><h3>按位异或</h3><p>相同为 0，不同为 1。</p><code>10101100<br>^ 01101010<br>= 11000110</code><strong>172 ^ 106 = 198</strong></article><article><div class="op">~</div><h3>按位取反</h3><p>每一位 0、1 互换，包括符号位。</p><code>~10101100<br>= 01010011</code><strong>8 位示意：83</strong></article><article><div class="op">&lt;&lt;</div><h3>左移</h3><p>整体向左，右边补 0。</p><code>00001011 &lt;&lt; 2<br>= 00101100</code><strong>11 × 2² = 44</strong></article><article><div class="op">&gt;&gt;</div><h3>右移</h3><p>无符号数补 0；有符号数通常补符号位。</p><code>00001011 &gt;&gt; 2<br>= 00000010</code><strong>11 ÷ 2² = 2</strong></article></div>
+      <div class="shift-warning"><b>移位边界</b><p>左移可能溢出并改变符号位；负数右移是算术右移，资料示例中 <code>−11 &gt;&gt; 2 = −3</code>。处理纯位模式时优先考虑 <code>unsigned</code>。</p></div>
+    </section>
+
+    <section class="section bit-properties">
+      <div class="section-head"><span>03 / IDENTITIES</span><h2>先记性质，<br>再看技巧</h2></div>
+      <div class="identity-table"><div class="head"><span>与自身</span><span>与 0</span><span>与最低位 1</span></div><div><code>x &amp; x = x</code><code>x &amp; 0 = 0</code><code>x &amp; 1</code><small>保留最低位</small></div><div><code>x | x = x</code><code>x | 0 = x</code><code>x | 1</code><small>最低位置 1</small></div><div><code>x ^ x = 0</code><code>x ^ 0 = x</code><code>x ^ 1</code><small>最低位翻转</small></div></div>
+      <div class="calc-strip"><span>资料中的计算结果</span><code>128 &amp; 255 = 128</code><code>34 &amp; 0 = 0</code><code>34 | 0 = 34</code><code>255 ^ 1 = 254</code><code>128 ^ 255 = 127</code></div>
+    </section>
+
+    <section class="section bit-tricks" id="tricks">
+      <div class="section-head"><span>04 / BIT TRICKS</span><h2>一行表达式，<br>完成一次精准操作</h2></div>
+      <div class="trick-list"><article><span>01 / 清零</span><h3><code>x &amp; ~x</code></h3><p>x 与自己的反码每一位都相反，因此结果永远为 0。</p></article><article><span>02 / 判断奇偶</span><h3><code>x &amp; 1</code></h3><p>最低位为 1 是奇数，为 0 是偶数。</p></article><article><span>03 / 异或还原</span><h3><code>x ^ b ^ b = x</code></h3><p><code>b ^ b = 0</code>，再利用 <code>x ^ 0 = x</code>。</p></article><article><span>04 / 交换变量</span><h3><code>a^=b; b^=a; a^=b;</code></h3><p>无需临时变量，但资料也提醒实际代码中可读性较差。</p></article><article class="hot"><span>05 / lowbit</span><h3><code>x &amp; -x</code></h3><p>留下最低位的 1 以及它右侧的所有 0。20 的二进制是 10100，结果为 4。</p></article><article class="hot"><span>06 / 消去最低位 1</span><h3><code>x &amp; (x - 1)</code></h3><p>每执行一次少一个 1；循环次数就是二进制中 1 的个数。</p></article><article><span>07 / 取第 i 位</span><h3><code>(x &gt;&gt; i) &amp; 1</code></h3><p>先把第 i 位移到最右，再只保留最低位。</p></article><article><span>08 / 取相反数</span><h3><code>-x = ~x + 1</code></h3><p>补码机制的直接结果；所以 <code>~1 = -2</code>。</p></article></div>
+    </section>
+
+    <section class="section vector bit-apps">
+      <div class="section-head"><span>05 / CODE APPLICATIONS</span><h2>课堂代码中的<br>三次组合运用</h2></div>
+      <div class="app-grid"><article><span>输出 32 位补码</span><pre><code>for(int i = 31; i &gt;= 0; i--)
+    cout &lt;&lt; ((n &gt;&gt; i) &amp; 1);</code></pre><p>从第 31 位到第 0 位逐位提取；负数前面会出现连续的 1。</p></article><article><span>高低 16 位交换</span><pre><code>unsigned int n;
+cout &lt;&lt; ((n &gt;&gt; 16) + (n &lt;&lt; 16));</code></pre><p>右移让高 16 位落到低位，左移让低 16 位升到高位；两部分互不重叠。</p></article><article><span>统计二进制中的 1</span><pre><code>while(x){
+    x &amp;= x - 1;
+    cnt++;
+}</code></pre><p>13：1101 → 1100 → 1000 → 0000，共消去 3 个 1。</p></article></div>
+    </section>
+
+    <section class="portal" id="practice">
+      <div class="portal-head"><div><span>06 / C++ PLAYGROUND</span><h2>课堂代码</h2></div><p>以下源码均整理自两份资料。可直接修改代码与标准输入，再使用 GCC 13.2 / C++17 编译运行；未补写原文没有的题面。</p></div>
+      <div class="portal-shell"><aside id="challenge-list" aria-label="选择课堂代码"></aside><div class="workspace"><div class="workbar"><div><i></i><i></i><i></i><span id="file-name">clear.cpp</span><em>GCC 13.2 · C++17</em></div><div class="editor-actions"><button id="reset-code">恢复源码</button><button id="copy-code">复制代码</button></div></div><label class="sr-only" for="portal-code">C++ 源代码编辑器</label><textarea class="editor" id="portal-code" spellcheck="false" aria-label="C++ 源代码编辑器"></textarea></div><div class="terminal"><label for="stdin">标准输入 / STDIN</label><textarea id="stdin" spellcheck="false"></textarea><button class="run" id="run-code"><span>▶</span> 编译并运行</button><div class="output-head"><span>输出 / OUTPUT</span><span id="run-status">READY</span></div><pre id="output" aria-live="polite">等待运行…</pre><p class="hint"><span id="input-hint"></span><br>代码会发送到在线 GCC 沙箱，请勿输入隐私信息。</p></div></div>
+    </section>
+  </main>
+  <footer><a href="../">← 编程周刊</a><p>整理自《位运算讲义》与《位运算代码详解》· 共 31 页</p><a href="#top">回到顶部 ↑</a></footer>
+  <script src="../bitwise.js"></script>
+</body>
+</html>
