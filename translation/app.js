@@ -12,7 +12,11 @@ const november13Exercises = [
     keywords: "五名前员工 five former employees · 说 said that · 保持关系 had a relationship with · 一名高管 an executive · 直接向他汇报 reported directly to him",
     frame: "Five former employees said that ... who reported directly to him.",
     note: "who 引导定语从句，修饰 executive；report to someone 表示‘向某人汇报’。",
-    analysis: "主句：Five former employees（主语）+ said（谓语）+ that 宾语从句；从句：Huang（主语）+ had（谓语）+ a relationship（宾语）；who reported directly to him 是定语从句，修饰 an executive。",
+    analysis: "找谓语：said / had / reported，共三套骨架。定骨架：Five former employees + said + that 从句，属于 SVO，整套 that 从句进入宾语岗位。看“制服”：who 把 reported directly to him 标成定语从句，后置修饰 an executive。",
+    grammarLinks: [
+      { label: "宾语从句", href: "/grammar/chapter-12.html#noun" },
+      { label: "定语从句", href: "/grammar/chapter-05.html#clause" }
+    ],
     source: "He also had an extramarital relationship with an executive who reports to him, according to five people who worked at the company."
   },
   {
@@ -28,7 +32,11 @@ const november13Exercises = [
     keywords: "与客户的关系 a relationship with a customer · 造成 creates · 明显的 obvious · 利益冲突 conflict of interest",
     frame: "A relationship with ... creates ...",
     note: "主语 A relationship 是单数，因此 create 要变为 creates；conflict of interest 是固定搭配。",
-    analysis: "A relationship with a customer（主语）+ creates（谓语）+ an obvious conflict of interest（宾语）；with a customer 是介词短语，后置修饰 relationship。",
+    analysis: "找谓语：creates，只有一套骨架。定骨架：A relationship with a customer（S）+ creates（V）+ an obvious conflict of interest（O），属于 SVO。看修饰：with a customer 放在 relationship 后面，补充说明是哪一种关系。",
+    grammarLinks: [
+      { label: "五种基本句型", href: "/grammar/chapter-09.html#five" },
+      { label: "定语的位置", href: "/grammar/chapter-05.html#position" }
+    ],
     source: "Romance with a customer creates an obvious conflict of interest."
   },
   {
@@ -44,7 +52,11 @@ const november13Exercises = [
     keywords: "正因为 precisely because · 英伟达 Nvidia · 如此重要 so important · 严重的不当行为 serious misconduct · 必须受到惩罚 must be punished",
     frame: "Precisely because ... is so important, ... must be punished.",
     note: "must be + 过去分词构成含情态动词的被动语态，表示‘必须被……’。",
-    analysis: "Precisely because Nvidia is so important 是原因状语从句；主句为 serious misconduct（主语）+ must be punished（谓语，情态动词的被动语态）。",
+    analysis: "找谓语：is / must be punished，共两套骨架。定骨架：serious misconduct + must be punished，属于被动视角的 SV。看“制服”：because 把 Nvidia is so important 标成原因状语从句；precisely 把原因焦点加强为“正是因为”。",
+    grammarLinks: [
+      { label: "状语从句", href: "/grammar/chapter-12.html#adverbial" },
+      { label: "被动与叙述视角", href: "/grammar/chapter-16.html#state" }
+    ],
     source: "Yet it is precisely because Nvidia is so important that Mr Huang must go."
   },
   {
@@ -60,7 +72,11 @@ const november13Exercises = [
     keywords: "如果 if · 不愿辞职 is unwilling to resign · 英伟达董事会 Nvidia's board · 应该 should · 解雇他 sack him",
     frame: "If ... is unwilling to ..., ... should ...",
     note: "真实条件句中，if 从句使用一般现在时；should 后接动词原形 sack。",
-    analysis: "If Huang is unwilling to resign 是条件状语从句；主句为 Nvidia's board（主语）+ should sack（谓语）+ him（宾语）。",
+    analysis: "找完整谓语：is / should sack；to resign 没有独立谓语权，是非谓语。定骨架：Nvidia's board（S）+ should sack（V）+ him（O），属于 SVO。看“制服”：if 把前一套骨架标成条件状语从句，to resign 补足 unwilling 的内容。",
+    grammarLinks: [
+      { label: "条件状语从句", href: "/grammar/chapter-12.html#adverbial" },
+      { label: "非谓语的产生", href: "/grammar/chapter-14.html#birth" }
+    ],
     source: "If he is unwilling to resign, Nvidia's board should sack him."
   },
   {
@@ -76,7 +92,11 @@ const november13Exercises = [
     keywords: "美国商务部 the US Commerce Department · 未能 failed to · 阻止 stem · 最先进的芯片 the best chips · 流向中国 the flow ... to China",
     frame: "The ... failed to stem the flow of ... to ...",
     note: "fail to do 表示‘未能做某事’；stem the flow of 表示‘遏制……的流动’。",
-    analysis: "The US Commerce Department（主语）+ failed（谓语）；to stem the flow of the best chips to China 是不定式补足语，说明未能完成的动作。",
+    analysis: "找完整谓语：failed；to stem 是被收回谓语权的非谓语。定骨架：The US Commerce Department + failed，属于 SV。向外扩展：to stem... 说明“未能做什么”；the flow 是 stem 的宾语，of the best chips 和 to China 再补充流动的内容与方向。",
+    grammarLinks: [
+      { label: "非谓语的岗位", href: "/grammar/chapter-14.html#jobs" },
+      { label: "主干向外扩展", href: "/grammar/chapter-03.html#idea" }
+    ],
     source: "The Commerce Department ... has failed abjectly to stem the flow of the best chips to China."
   },
   {
@@ -92,7 +112,11 @@ const november13Exercises = [
     keywords: "这种文化 this culture · 不受惩罚 of impunity · 损害了 has damaged · 企业 the company · 削弱了 undermined · 国家安全 national security",
     frame: "This culture of ... has damaged ... and undermined ...",
     note: "has damaged 与 undermined 共用助动词 has，构成现在完成时的并列谓语。",
-    analysis: "This culture of impunity（主语）+ has damaged / (has) undermined（并列谓语）+ the company / national security（两个对应的宾语）。",
+    analysis: "找谓语：has damaged / (has) undermined，共用一个主语和助动词。定骨架：This culture of impunity（S）+ 两组 V-O，属于两个并列的 SVO。看省略：第二个谓语前省去重复的 has，但平行关系由 and 清楚标出。",
+    grammarLinks: [
+      { label: "并列与省略", href: "/grammar/chapter-13.html#omit" },
+      { label: "五种基本句型", href: "/grammar/chapter-09.html#five" }
+    ],
     source: "This culture of impunity must end. It has damaged one of America's great corporate successes and undermined its national security."
   }
 ];
@@ -1302,6 +1326,7 @@ const elements = {
   studyAnswerWrap: document.querySelector("#study-answer-wrap"),
   studyAnswer: document.querySelector("#study-answer"),
   studySentenceAnalysis: document.querySelector("#study-sentence-analysis"),
+  studyGrammarLinks: document.querySelector("#study-grammar-links"),
   studyAudio: document.querySelector("#study-audio"),
   studyNote: document.querySelector("#study-note"),
   corePhrase: document.querySelector("#core-phrase"),
@@ -1320,6 +1345,7 @@ const elements = {
   answerPanel: document.querySelector("#answer-panel"),
   modelAnswer: document.querySelector("#model-answer"),
   answerSentenceAnalysis: document.querySelector("#answer-sentence-analysis"),
+  answerGrammarLinks: document.querySelector("#answer-grammar-links"),
   answerAudio: document.querySelector("#answer-audio"),
   answerNote: document.querySelector("#answer-note"),
   sourceLine: document.querySelector("#source-line"),
@@ -1472,6 +1498,18 @@ function setHint(level) {
   if (hintLevel === 2) elements.hintBox.textContent = exercise.frame;
 }
 
+function renderGrammarLinks(container, links = []) {
+  container.replaceChildren(...links.map(item => {
+    const link = document.createElement("a");
+    link.href = item.href;
+    link.textContent = `${item.label} ↗`;
+    link.target = "_blank";
+    link.rel = "noopener";
+    return link;
+  }));
+  container.hidden = links.length === 0;
+}
+
 function render() {
   stopSpeech();
   const exercise = exercises[state.index];
@@ -1512,6 +1550,7 @@ function render() {
   elements.studyAnswer.textContent = exercise.answer;
   elements.studySentenceAnalysis.textContent = exercise.analysis || "";
   elements.studySentenceAnalysis.hidden = !exercise.analysis;
+  renderGrammarLinks(elements.studyGrammarLinks, exercise.grammarLinks || []);
   elements.studyNote.textContent = exercise.note;
   elements.corePhrase.textContent = exercise.core;
   elements.phraseMeaning.textContent = exercise.meaning;
@@ -1528,6 +1567,7 @@ function render() {
   elements.modelAnswer.textContent = exercise.answer;
   elements.answerSentenceAnalysis.textContent = exercise.analysis || "";
   elements.answerSentenceAnalysis.hidden = !exercise.analysis;
+  renderGrammarLinks(elements.answerGrammarLinks, exercise.grammarLinks || []);
   elements.answerNote.textContent = exercise.note;
   elements.sourceLine.textContent = exercise.source;
   elements.studyPanel.hidden = !learning;
