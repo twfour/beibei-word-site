@@ -247,6 +247,18 @@ TRANSLATION_OVERRIDES_BY_DATE: dict[str, list[str]] = {
         "那么，我们究竟能采取什么措施，防止这场生育率崩塌？移民可以缓解问题，但移民政策往往不得民心，而且越来越多的国家正变得不再欢迎外来人口。至于那些试图劝说人们多生孩子的努力，也几乎没有取得什么成效。那些宣传非但无法唤起人们的生育热情，反倒惹人反感。比如，丹麦曾推出名为“为了丹麦，行动起来”的电视广告，鼓励情侣们外出度假，并提交怀孕证明以赢取奖品。新加坡还推出过一首说唱歌曲：“我是爱国的丈夫，你是爱国的妻子，让我们尽一份公民义务，创造新的生命！”",
         "归根结底，生不生孩子，终究是个人选择，却又会产生波及整个社会的后果。眼下最值得追问的是：“Maybe一代”最终会不会变成“拒绝一代”？这个问题的答案，人口学家和作家们恐怕还得等待下一章的到来。■",
     ],
+    "20261113": [
+        "英伟达首席执行官黄仁勋，因涉嫌与一名被美国情报部门认定为间谍的女性发生婚外情，目前正接受调查，他还曾与一名直接向他汇报工作的公司高管保持婚外关系。消息来自五名曾在英伟达工作过的人士。这段此前从未曝光的关系，涉及英伟达医疗健康业务副总裁金伯莉·鲍威尔。根据英伟达的行为准则，公司要求员工避免任何可能使自身行为产生利益冲突的情形，其中包括私人关系；公司还表示，对于收到的不当行为举报，将及时展开调查。许多企业也都有明文规定，禁止管理人员与下属发展亲密关系。今年3月，在英伟达于加利福尼亚州圣何塞举办的一场会议期间，黄仁勋与鲍威尔被拍到在一家酒店内举止亲昵。黄仁勋现年63岁，鲍威尔48岁，两人均已婚，配偶另有其人。",
+        "黄仁勋是一位才华横溢的人物，但也会犯傻。作为英伟达的掌舵者，这家全球领先的芯片设计公司，直到不久前还是全球市值最高的企业。而他出轨了。他的情人是一家名为Megaspeed的云计算公司的高管，该公司并不出名，却购买了价值数十亿美元的英伟达硬件。美国官员认为，这名女性是一名间谍，而她在新加坡的公司真正的用途是将这些在政治上高度敏感的芯片走私到中国。即便不再曝出任何新的丑闻，黄仁勋的位置也难以维持。他必须辞职，或者被董事会解雇。所有卷入这场丑闻的美国政府官员，也应受到同样的追责。",
+        "11月8日，黄仁勋承认自己有过不忠行为。此前数月，关于他与黄乐（二人并无亲属关系）关系的传闻早已甚嚣尘上。黄仁勋究竟何时得知美国政府怀疑对方是间谍，两人的婚外关系又是在何时结束，目前仍不清楚。尽管如此，他所表现出的判断力失误已经到了灾难性的地步。与客户发展恋情，会造成显而易见的利益冲突。更何况，黄仁勋掌管着一项美国技术，而中国正对这项技术垂涎不已，他本应格外谨慎。可就在上月，他还在公开场合对二人关系的性质刻意撒谎。",
+        "黄仁勋的违规行为或许性质更加严重。目前，外界疑云重重，质疑英伟达首席法务官是否曾于去年介入美国商务部对Megaspeed的调查。美国商务部负责执行出口管制政策。黄仁勋一直主张放宽芯片出口限制，表面上的理由是让中国继续依赖美国技术；如今，这一立场难免令人心生疑虑。他大力推崇中国的开源模型，也将因此受到更多审视。",
+        "主张黄仁勋留任的人士认为，他对英伟达至关重要，而英伟达又是美国保持人工智能领先于中国的关键所在。黄仁勋深度参与这家由他共同创立的公司的方方面面，直接向他汇报的高管竟多达约60人——这个数字荒唐得令人难以置信。",
+        "然而，恰恰因为英伟达如此重要，黄仁勋才更必须离开。对美国的长远利益而言，至关重要的国家安全企业，其最高管理层若犯下如此恶劣的失当行为，就必须为此付出代价。即便从股东利益出发，也很难说让黄仁勋继续留任就是明智之举。一场接一场的调查正接踵而至，包括联邦调查局（FBI）的调查在内，势必会严重分散他的精力。一个深陷丑闻的人工智能亿万富翁，很容易成为刚刚重新掌握政治主动权的民主党的攻击目标。只要黄仁勋仍然赖在掌舵的位置上，英伟达在华盛顿的公信力就会和他本人一样，蒙上难以洗刷的污点。",
+        "如果黄仁勋不愿主动辞职，英伟达董事会就应当解雇他。没有哪位企业掌门人是不可替代的。所谓“分阶段交接”之类的折中方案，只会让这场危机持续发酵，进一步扩大损害。遗憾的是，迄今为止，英伟达董事会的表态始终含糊其辞。11月8日，董事会在宣布启动调查时发表声明称，公司“没有理由相信国家安全或英伟达的商业机密遭到了泄露”。然而，任何称得上可信的调查程序，都不可能为黄仁勋已经亲口承认的不当行为开脱。",
+        "判断力严重失当的，并不只有黄仁勋一人。在霍华德·卢特尼克领导下，美国商务部遏制尖端芯片流向中国的努力可谓一败涂地。种种迹象表明，尽管走私风险早已引起有关方面的警觉，商务部却仍允许英伟达继续向Megaspeed出售芯片；与此同时，对于五角大楼和财政部要求将这家新加坡公司列入贸易黑名单的呼声，商务部似乎也一直不予理睬。与黄仁勋一样，卢特尼克同样主张放宽芯片出口管制。",
+        "遗憾的是，卢特尼克恐怕不会主动辞职。但随着民主党重新掌控国会，他们将不仅对卢特尼克展开质询，还会追问美国总统特朗普。毕竟，特朗普本人购买了英伟达股票，还指定英伟达为他新建的宴会厅提供资金支持。两年来，美国政策前后矛盾、执法松懈，给了中国可乘之机，使其在这场技术竞赛中逐渐占据上风。而这项技术的力量，未来甚至可能超过核武器。但愿局面自此能够扭转。",
+        "过去四年里，各国政府争相向黄仁勋示好，媒体和公众则将他奉为明星，追捧有加。和许多身居高位的领导者一样，他渐渐产生了一种错觉：自己重要到足以凌驾于规则之上，普通的规矩，对他不再适用。而在特朗普政府内部，这种心态甚至表现得更加明显。这种有恃无恐、逍遥法外的文化必须终结。它不仅损害了美国最成功的企业之一，也动摇了美国的国家安全根基。黄仁勋必须下台，而在他之后，还有更多人应该被追责。■",
+    ],
 }
 
 TITLE_VOCAB_TERMS_OVERRIDES_BY_DATE: dict[str, str] = {
@@ -1610,6 +1622,23 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "People who wait for the perfect time may trust IVF or egg-freezing too much. In Britain, the average success rate for frozen embryos is below 30%, and male fertility also falls with age. Immigration can reduce population decline, but many countries do not welcome it. Government campaigns asking people to have more babies have usually failed. The article ends with an important point: having a child is a personal choice, but the results affect the whole society. No one yet knows whether Generation Maybe will finally become Generation No."
         ),
     },
+    "20261113": {
+        "pet_index": "04",
+        "overview": (
+            "文章先补充黄仁勋丑闻的新事实：除了与一名被美国情报部门怀疑为间谍的客户高管有婚外情，他还被曝曾与直接向自己汇报的英伟达副总裁保持关系。两人都是已婚人士，这种上下级关系也可能违反公司的行为准则并造成利益冲突。"
+            "作者据此明确主张黄仁勋必须辞职或被解雇。关键问题不只在私人道德，而在判断力和国家安全风险。他掌管着中国急于获得的敏感芯片技术，却与客户发展关系，还曾公开否认二人关系；外界也开始追问英伟达法务部门是否干预美国商务部对Megaspeed的调查。"
+            "支持黄仁勋留任的人认为，他对英伟达不可或缺，而英伟达又关系到美国在人工智能领域对中国的领先地位。作者却反驳说，正因为公司如此重要，高层的严重失当行为才更应受到惩罚。持续调查会分散黄仁勋的精力，也会损害英伟达在华盛顿的公信力。"
+            "文章随后把责任扩展到英伟达董事会和美国商务部。董事会提出所谓分阶段交接，只会延长损害，也不可能用调查为黄仁勋已经承认的行为开脱。商务部则被指未能阻止先进芯片流向中国，甚至在走私疑虑出现后仍允许英伟达向Megaspeed销售产品。"
+            "最后，作者将事件归因于一种权力豁免文化。黄仁勋长期受到各国政府和市场追捧，逐渐相信普通规则不再适用于自己；特朗普政府内部也存在类似心态。这种文化既伤害企业信誉，也削弱国家安全，因此被追责的不应只有黄仁勋。"
+        ),
+        "pet": (
+            "The article reports new facts about Jensen Huang's scandal. Huang is already under investigation for an affair with a customer whom US officials believe may be a spy. Five former Nvidia workers now say that he also had a relationship with Kimberly Powell, a vice president who reported to him. Both were married. A relationship between a manager and a worker can break company rules and create a conflict of interest. "
+            "The writer argues that Huang must resign or be fired. The problem is not only his private behaviour. He controls sensitive American chip technology that China wants, so he should have been especially careful. Instead, he had a relationship with a customer and publicly lied about it. There are also questions about whether Nvidia's top lawyer became involved in a government investigation of Megaspeed. "
+            "Some people say Huang must stay because he is essential to Nvidia, and Nvidia is important to America's lead in AI. The writer gives the opposite answer: because Nvidia is so important, serious misconduct at the top must have consequences. Investigations, including one by the FBI, will distract Huang and damage Nvidia's credibility in Washington. "
+            "The writer also criticises Nvidia's board and the US Commerce Department. The board has spoken too carefully and may consider a slow change of leadership, but this would only make the damage last longer. The Commerce Department appears to have allowed sales to Megaspeed after concerns about smuggling were raised. Democrats in Congress are expected to question the officials involved. "
+            "The article ends with a wider warning about power. Governments have treated Huang like a rock star for years, and he may have started to believe that normal rules did not apply to him. The same attitude can be seen in the Trump administration. The writer says this culture of avoiding punishment has harmed a great American company and weakened national security. Huang should leave, but other responsible people should also face consequences."
+        ),
+    },
 }
 
 
@@ -1901,6 +1930,11 @@ VOCAB_FALSE_POSITIVES = {
     # 20261112: extraction fragments from bless and body examples, not cards.
     "bles",
     "a vast body of evidence",
+    # 20261113: slash-separated example fragments, not vocabulary headings.
+    "to arouse sb's interest",
+    "dismal conditions",
+    "abject poverty",
+    "a high",
 }
 
 
@@ -2845,6 +2879,58 @@ VOCAB_CORRECTIONS_BY_DATE: dict[str, dict[str, dict[str, str]]] = {
             "definition": "把……因素纳入考虑",
             "definition_en": "to include a fact or situation when making a decision or plan",
             "example": "Remember to factor in staffing costs. 记得把人员成本纳入考虑。",
+        },
+    },
+    "20261113": {
+        "front": {
+            "definition": "掩护非法活动的公司或组织；幌子",
+            "definition_en": "a company or organization used to hide an illegal or secret activity",
+            "example": "Officials suspect that the company is a front for smuggling chips. 官员怀疑这家公司是走私芯片的幌子。",
+        },
+        "dirt": {
+            "definition": "可损害他人名誉的丑闻或负面信息",
+            "definition_en": "unpleasant information that could damage someone's reputation or career",
+            "example": "Even if no more dirt appears, his position is difficult to defend. 即使不再曝出更多丑闻，他的位置也难以维持。",
+        },
+        "steward": {
+            "definition": "管理者；受托负责重要事物的人",
+            "definition_en": "a person responsible for managing and protecting something important",
+            "example": "A technology leader must be a careful steward of sensitive information. 科技企业领导者必须谨慎管理敏感信息。",
+        },
+        "still": {
+            "definition": "（加强比较级）甚至更；还要",
+            "definition_en": "used after a comparative to make it stronger",
+            "example": "The new evidence may prove graver still. 新证据可能表明问题甚至更严重。",
+        },
+        "ridden": {
+            "definition": "充满某种不良事物的",
+            "definition_en": "full of something unpleasant or harmful",
+            "example": "A scandal-ridden leader becomes an easy political target. 深陷丑闻的领导者很容易成为政治攻击目标。",
+        },
+        "empower": {
+            "definition": "授权；使获得权力或影响力",
+            "definition_en": "to give someone authority, power or greater control",
+            "example": "The election empowered the opposition in Congress. 这次选举增强了国会反对党的权力。",
+        },
+        "dismal": {
+            "definition": "糟糕的；低劣的；令人失望的",
+            "definition_en": "very bad, unsuccessful or disappointing",
+            "example": "Several officials showed dismal judgment. 几名官员都表现出糟糕的判断力。",
+        },
+        "abject": {
+            "definition": "彻底的；惨重的；毫无希望的",
+            "definition_en": "complete and terrible; without hope or success",
+            "example": "The policy was an abject failure. 这项政策彻底失败了。",
+        },
+        "tap": {
+            "definition": "选定或委任某人、某组织承担任务",
+            "definition_en": "to choose or appoint a person or organization for a particular task",
+            "example": "The government tapped the company to support the project. 政府选定这家公司支持该项目。",
+        },
+        "dose": {
+            "definition": "一定数量；一份；一剂",
+            "definition_en": "an amount of something, especially medicine or a particular quality",
+            "example": "The same attitude appears in even larger doses elsewhere. 同样的态度在别处表现得更为明显。",
         },
     },
 }
@@ -4192,6 +4278,27 @@ def build(force: bool = False, refresh_dates: set[str] | None = None) -> tuple[l
         raise ValueError(
             "No source PDF found for requested date(s): " + ", ".join(missing_dates)
         )
+    targeted_build = bool(refresh_dates) and not force
+    if targeted_build:
+        # A targeted daily build should not publish every newer PDF that happens
+        # to be present in the download folder. Keep dates already listed in the
+        # manifest and add only the explicitly requested issue(s).
+        published_dates: set[str] = set()
+        manifest_path = OUTPUT_DIR / "manifest.json"
+        if manifest_path.exists():
+            try:
+                existing_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+                published_dates = {
+                    item["date"] for item in existing_manifest
+                    if isinstance(item, dict) and re.fullmatch(r"20\d{6}", str(item.get("date", "")))
+                }
+            except (json.JSONDecodeError, OSError):
+                published_dates = set()
+        included_dates = published_dates | refresh_dates
+        sources = [
+            (path, digest) for path, digest in sources
+            if re.search(r"(20\d{6})", path.name).group(1) in included_dates
+        ]
     articles: list[Article] = []
     reused = 0
     refreshed = 0
@@ -4205,14 +4312,18 @@ def build(force: bool = False, refresh_dates: set[str] | None = None) -> tuple[l
     config = load_site_config()
     write_assets()
     (OUTPUT_DIR / "index.html").write_text(index_html(articles), encoding="utf-8")
+    dates_to_write = refresh_dates if targeted_build else {article.date for article in articles}
     for article in articles:
+        if article.date not in dates_to_write:
+            continue
         (OUTPUT_DIR / "days" / f"{article.date}.html").write_text(
             daily_html(article, articles, config), encoding="utf-8"
         )
-    expected_pages = {f"{article.date}.html" for article in articles}
-    for stale_page in (OUTPUT_DIR / "days").glob("20??????.html"):
-        if stale_page.name not in expected_pages:
-            stale_page.unlink()
+    if not targeted_build:
+        expected_pages = {f"{article.date}.html" for article in articles}
+        for stale_page in (OUTPUT_DIR / "days").glob("20??????.html"):
+            if stale_page.name not in expected_pages:
+                stale_page.unlink()
     manifest = [
         {"date": a.date, "title": a.title, "filename": a.filename,
          "sha256": a.source_digest, "pages": a.pages,

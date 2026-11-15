@@ -1,3 +1,96 @@
+const november13Exercises = [
+  {
+    chinese: "五名前员工说，黄仁勋曾与一名直接向他汇报的高管保持关系。",
+    answer: "Five former employees said that Huang had a relationship with an executive who reported directly to him.",
+    core: "report directly to",
+    meaning: "直接向……汇报",
+    vocabulary: [
+      { word: "former", ipa: "/ˈfɔːrmər/", meaning: "以前的；前任的" },
+      { word: "executive", ipa: "/ɪɡˈzekjətɪv/", meaning: "高管" },
+      { word: "relationship", ipa: "/rɪˈleɪʃənʃɪp/", meaning: "关系" }
+    ],
+    keywords: "五名前员工 five former employees · 说 said that · 保持关系 had a relationship with · 一名高管 an executive · 直接向他汇报 reported directly to him",
+    frame: "Five former employees said that ... who reported directly to him.",
+    note: "who 引导定语从句，修饰 executive；report to someone 表示‘向某人汇报’。",
+    source: "He also had an extramarital relationship with an executive who reports to him, according to five people who worked at the company."
+  },
+  {
+    chinese: "与客户发展恋情会造成明显的利益冲突。",
+    answer: "A relationship with a customer creates an obvious conflict of interest.",
+    core: "create a conflict of interest",
+    meaning: "造成利益冲突",
+    vocabulary: [
+      { word: "customer", ipa: "/ˈkʌstəmər/", meaning: "客户" },
+      { word: "obvious", ipa: "/ˈɑːbviəs/", meaning: "明显的" },
+      { word: "conflict", ipa: "/ˈkɑːnflɪkt/", meaning: "冲突" }
+    ],
+    keywords: "与客户的关系 a relationship with a customer · 造成 creates · 明显的 obvious · 利益冲突 conflict of interest",
+    frame: "A relationship with ... creates ...",
+    note: "主语 A relationship 是单数，因此 create 要变为 creates；conflict of interest 是固定搭配。",
+    source: "Romance with a customer creates an obvious conflict of interest."
+  },
+  {
+    chinese: "正因为英伟达如此重要，严重的不当行为才必须受到惩罚。",
+    answer: "Precisely because Nvidia is so important, serious misconduct must be punished.",
+    core: "precisely because",
+    meaning: "正是因为……",
+    vocabulary: [
+      { word: "precisely", ipa: "/prɪˈsaɪsli/", meaning: "恰恰；正是" },
+      { word: "misconduct", ipa: "/ˌmɪsˈkɑːndʌkt/", meaning: "不当行为" },
+      { word: "punish", ipa: "/ˈpʌnɪʃ/", meaning: "惩罚" }
+    ],
+    keywords: "正因为 precisely because · 英伟达 Nvidia · 如此重要 so important · 严重的不当行为 serious misconduct · 必须受到惩罚 must be punished",
+    frame: "Precisely because ... is so important, ... must be punished.",
+    note: "must be + 过去分词构成含情态动词的被动语态，表示‘必须被……’。",
+    source: "Yet it is precisely because Nvidia is so important that Mr Huang must go."
+  },
+  {
+    chinese: "如果黄仁勋不愿辞职，英伟达董事会就应该解雇他。",
+    answer: "If Huang is unwilling to resign, Nvidia's board should sack him.",
+    core: "if ... should ...",
+    meaning: "如果……就应该……",
+    vocabulary: [
+      { word: "unwilling", ipa: "/ʌnˈwɪlɪŋ/", meaning: "不愿意的" },
+      { word: "resign", ipa: "/rɪˈzaɪn/", meaning: "辞职" },
+      { word: "sack", ipa: "/sæk/", meaning: "解雇" }
+    ],
+    keywords: "如果 if · 不愿辞职 is unwilling to resign · 英伟达董事会 Nvidia's board · 应该 should · 解雇他 sack him",
+    frame: "If ... is unwilling to ..., ... should ...",
+    note: "真实条件句中，if 从句使用一般现在时；should 后接动词原形 sack。",
+    source: "If he is unwilling to resign, Nvidia's board should sack him."
+  },
+  {
+    chinese: "美国商务部未能阻止最先进的芯片流向中国。",
+    answer: "The US Commerce Department failed to stem the flow of the best chips to China.",
+    core: "fail to stem the flow of",
+    meaning: "未能遏制……的流动",
+    vocabulary: [
+      { word: "Commerce Department", ipa: "/ˈkɑːmɜːrs dɪˈpɑːrtmənt/", meaning: "商务部" },
+      { word: "stem", ipa: "/stem/", meaning: "遏制；阻止" },
+      { word: "flow", ipa: "/floʊ/", meaning: "流动" }
+    ],
+    keywords: "美国商务部 the US Commerce Department · 未能 failed to · 阻止 stem · 最先进的芯片 the best chips · 流向中国 the flow ... to China",
+    frame: "The ... failed to stem the flow of ... to ...",
+    note: "fail to do 表示‘未能做某事’；stem the flow of 表示‘遏制……的流动’。",
+    source: "The Commerce Department ... has failed abjectly to stem the flow of the best chips to China."
+  },
+  {
+    chinese: "这种权力不受惩罚的文化损害了企业，也削弱了国家安全。",
+    answer: "This culture of impunity has damaged the company and undermined national security.",
+    core: "damage ... and undermine ...",
+    meaning: "损害……并削弱……",
+    vocabulary: [
+      { word: "impunity", ipa: "/ɪmˈpjuːnəti/", meaning: "不受惩罚" },
+      { word: "damage", ipa: "/ˈdæmɪdʒ/", meaning: "损害" },
+      { word: "undermine", ipa: "/ˌʌndərˈmaɪn/", meaning: "逐渐削弱" }
+    ],
+    keywords: "这种文化 this culture · 不受惩罚 of impunity · 损害了 has damaged · 企业 the company · 削弱了 undermined · 国家安全 national security",
+    frame: "This culture of ... has damaged ... and undermined ...",
+    note: "has damaged 与 undermined 共用助动词 has，构成现在完成时的并列谓语。",
+    source: "This culture of impunity must end. It has damaged one of America's great corporate successes and undermined its national security."
+  }
+];
+
 const november12Exercises = [
   {
     chinese: "全球最大的15个经济体，生育率都低于人口更替水平。",
@@ -836,6 +929,15 @@ const november3Exercises = [
 
 const issues = [
   {
+    date: "20261113",
+    displayDate: "2026.11.13",
+    title: "丑闻再曝，<br>必须辞职",
+    optionTitle: "丑闻再曝，必须辞职",
+    summary: "用6句话梳理黄仁勋为何必须辞职，以及董事会、商务部和权力豁免文化应承担什么责任。",
+    storageKey: "beibei-translation-20261113-v1",
+    exercises: november13Exercises
+  },
+  {
     date: "20261112",
     displayDate: "2026.11.12",
     title: "生育寒冬，<br>全球难题",
@@ -919,6 +1021,30 @@ const issues = [
 ];
 
 const coreExamples = {
+  "report directly to": {
+    sentence: "The team leader reports directly to the school principal.",
+    translation: "这位组长直接向校长汇报。"
+  },
+  "create a conflict of interest": {
+    sentence: "Accepting this gift could create a conflict of interest.",
+    translation: "接受这份礼物可能会造成利益冲突。"
+  },
+  "precisely because": {
+    sentence: "We check the facts carefully precisely because the issue is important.",
+    translation: "正因为这个问题很重要，我们才认真核实事实。"
+  },
+  "if ... should ...": {
+    sentence: "If you feel unwell, you should tell a teacher.",
+    translation: "如果你感到不舒服，就应该告诉老师。"
+  },
+  "fail to stem the flow of": {
+    sentence: "The new rule failed to stem the flow of false information.",
+    translation: "这项新规定未能遏制虚假信息的传播。"
+  },
+  "damage ... and undermine ...": {
+    sentence: "Repeated lies damage trust and undermine teamwork.",
+    translation: "反复撒谎会损害信任并削弱团队合作。"
+  },
   "be below": {
     sentence: "The temperature is below zero today.",
     translation: "今天的气温低于零度。"
