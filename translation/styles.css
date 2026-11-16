@@ -121,6 +121,14 @@ button { color: inherit; }
 .prompt-block { margin: clamp(32px, 7vh, 72px) 0 32px; }
 .small-label { margin: 0 0 12px; color: var(--coral); }
 .prompt-block h2 { max-width: 900px; margin: 0; font-size: clamp(28px, 4vw, 54px); line-height: 1.32; font-weight: 500; letter-spacing: -.025em; }
+.translation-process { margin: -12px 0 22px; padding: 16px; border: 1px solid var(--line); border-radius: 18px; background: #edf4f0; }
+.translation-process[hidden] { display: none; }
+.translation-process .small-label { margin-bottom: 10px; }
+.translation-process-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.translation-process-step { position: relative; min-width: 0; padding: 13px 14px 13px 42px; border-radius: 12px; background: white; }
+.translation-process-step b { position: absolute; left: 13px; top: 13px; width: 21px; height: 21px; display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: white; font: 800 10px/1 "Courier New", monospace; }
+.translation-process-step strong { display: block; margin-bottom: 5px; font-size: 13px; }
+.translation-process-step p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
 .vocabulary-strip { margin: -12px 0 22px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 16px; background: #f6f0e6; }
 .vocabulary-strip .small-label { margin-bottom: 9px; }
 .vocabulary-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
@@ -264,6 +272,7 @@ footer button { min-height: 30px; padding: 5px 10px; border-color: var(--line); 
   .phrase-heading > span { grid-column: 1 / -1; }
   .study-support { grid-template-columns: 1fr; }
   .audio-button { width: 100%; }
+  .translation-process-steps { grid-template-columns: 1fr; }
   .vocabulary-item { grid-template-columns: minmax(0, 1fr); gap: 5px; }
   .vocabulary-term { overflow-x: auto; padding-bottom: 2px; }
   .study-actions .learned-button { width: 100%; margin-left: 0; }

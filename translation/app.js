@@ -244,6 +244,73 @@ const november13Exercises = [
   }
 ];
 
+const translationProcesses = {
+  "20261114": [
+    {
+      grammar: "这是两个过去发生的动作，用一般过去时；用 while 连接两套完整句子，表示前后对比。",
+      words: "prepare for succession（为接班做准备）、for years（多年）、change leaders（更换领导者）、in only four days（只用四天）。",
+      order: "先写 Apple prepared...，再用 while 接 Nvidia changed...，时间放在各自动作后面。"
+    },
+    {
+      grammar: "主语只有 Kress；must 后接三个并列的动词原形，形成“必须做 A、B 和 C”的结构。",
+      words: "calm investors（安抚投资者）、support suppliers（稳住供应商）、repair the relationship（修复关系）。",
+      order: "Kress must + calm...、support... and repair...；must 不需要在每个动词前重复。"
+    },
+    {
+      grammar: "前半句用主系表说明公司实力；but 后用 prove that 接宾语从句，说明必须证明的内容。",
+      words: "a powerful company（实力强大的公司）、prove that（证明）、rapid growth（高速增长）、continue（继续）。",
+      order: "先写 Nvidia is...，but 转折后写 Kress must prove that + 完整小句。"
+    },
+    {
+      grammar: "前句说明过去的事实，用一般过去时；so 引出现在必须采取的行动，使用 must + 动词原形。",
+      words: "deals（交易）、rest on（依赖）、personal promise（个人承诺）、rebuild trust（重建信任）。",
+      order: "Many deals rested on...，再用 so 接 Kress must rebuild...，按“原因 → 结果”排列。"
+    },
+    {
+      grammar: "主干是 needs to work；rather than 连接两个平行的介词部分 with... 和 against...。",
+      words: "work with policymakers（与政策制定者合作）、rather than（而不是）、against them（与他们对抗）。",
+      order: "Nvidia now needs to work with...，随后直接接 rather than against them，避免重复 work。"
+    },
+    {
+      grammar: "主句用现在进行时表示正在寻找；because 引出一般现在时的原因从句。",
+      words: "the board（董事会）、look for（寻找）、permanent successor（正式继任者）、technical background（技术背景）。",
+      order: "先写 The board is looking for...，再用 because 接 Kress lacks...。"
+    }
+  ],
+  "20261113": [
+    {
+      grammar: "主句用一般过去时 said；that 引出说话内容，who 再引出定语从句修饰 executive。",
+      words: "former employees（前员工）、have a relationship with（与……保持关系）、report directly to（直接向……汇报）。",
+      order: "Five former employees said that + 完整内容；在 executive 后接 who reported directly to him。"
+    },
+    {
+      grammar: "这是一般事实，用一般现在时；单数主语 A relationship 对应第三人称单数 creates。",
+      words: "relationship with a customer（与客户的关系）、create（造成）、obvious conflict of interest（明显的利益冲突）。",
+      order: "先放主语 A relationship with a customer，再接 creates + 宾语。"
+    },
+    {
+      grammar: "because 引出原因从句；主句强调“必须受到惩罚”，用 must be + 过去分词构成被动语态。",
+      words: "precisely because（正因为）、important（重要）、serious misconduct（严重不当行为）、punish（惩罚）。",
+      order: "Precisely because + 原因小句放在前面，逗号后写 serious misconduct must be punished。"
+    },
+    {
+      grammar: "使用 if 条件句：if 从句用一般现在时，主句用 should + 动词原形表达建议。",
+      words: "be unwilling to（不愿意）、resign（辞职）、board（董事会）、sack（解雇）。",
+      order: "If Huang is unwilling to resign 放在前面，逗号后接 Nvidia's board should sack him。"
+    },
+    {
+      grammar: "主句用一般过去时 failed；fail to do 后接不定式，说明“未能做成什么”。",
+      words: "Commerce Department（商务部）、fail to（未能）、stem the flow of（遏制……流动）、chips to China（流向中国的芯片）。",
+      order: "The US Commerce Department failed to + 动作；把 the best chips 放在 of 后，方向 to China 放末尾。"
+    },
+    {
+      grammar: "一个主语带两个并列谓语；用现在完成时 has damaged，并让 undermined 共用 has。",
+      words: "culture of impunity（不受惩罚的文化）、damage（损害）、undermine（削弱）、national security（国家安全）。",
+      order: "This culture of impunity has damaged... and undermined...，两个动作由 and 并列。"
+    }
+  ]
+};
+
 const november12Exercises = [
   {
     chinese: "全球最大的15个经济体，生育率都低于人口更替水平。",
@@ -1477,6 +1544,8 @@ const elements = {
   badge: document.querySelector("#level-badge"),
   promptLabel: document.querySelector("#prompt-label"),
   prompt: document.querySelector("#chinese-prompt"),
+  translationProcess: document.querySelector("#translation-process"),
+  translationProcessSteps: document.querySelector("#translation-process-steps"),
   vocabularyList: document.querySelector("#vocabulary-list"),
   studyPanel: document.querySelector("#study-panel"),
   studyAnswerWrap: document.querySelector("#study-answer-wrap"),
@@ -1664,6 +1733,27 @@ function renderGrammarLinks(container, links = []) {
   container.hidden = links.length === 0;
 }
 
+function renderTranslationProcess(process, learning) {
+  const steps = process ? [
+    ["先定句型", process.grammar],
+    ["再选词组", process.words],
+    ["最后组句", process.order]
+  ] : [];
+  elements.translationProcessSteps.replaceChildren(...steps.map(([title, detail], index) => {
+    const step = document.createElement("div");
+    step.className = "translation-process-step";
+    const number = document.createElement("b");
+    number.textContent = String(index + 1);
+    const heading = document.createElement("strong");
+    heading.textContent = title;
+    const text = document.createElement("p");
+    text.textContent = detail;
+    step.append(number, heading, text);
+    return step;
+  }));
+  elements.translationProcess.hidden = !learning || steps.length === 0;
+}
+
 function render() {
   stopSpeech();
   const exercise = exercises[state.index];
@@ -1673,6 +1763,7 @@ function render() {
   elements.badge.textContent = `文章大意 ${state.index + 1} / ${exercises.length}`;
   elements.promptLabel.textContent = learning ? "先读懂中文" : "只看中文，试着写";
   elements.prompt.textContent = exercise.chinese;
+  renderTranslationProcess(translationProcesses[currentIssue.date]?.[state.index], learning);
   elements.vocabularyList.replaceChildren(...exercise.vocabulary.map(item => {
     const entry = document.createElement("div");
     entry.className = "vocabulary-item";
