@@ -1583,6 +1583,7 @@ const elements = {
 
 let hintLevel = 0;
 let activeAudioButton = null;
+let activeAudioElement = null;
 
 const preferredFemaleVoiceNames = [
   "Samantha",
@@ -1620,6 +1621,11 @@ function resetAudioButton() {
 }
 
 function stopSpeech() {
+  if (activeAudioElement) {
+    activeAudioElement.pause();
+    activeAudioElement.currentTime = 0;
+    activeAudioElement = null;
+  }
   if ("speechSynthesis" in window) window.speechSynthesis.cancel();
   resetAudioButton();
 }
@@ -1647,8 +1653,41 @@ function speakText(button, text, rate = 0.86) {
   window.speechSynthesis.speak(utterance);
 }
 
+function playRecordedAudio(button, audioPath, fallbackText, fallbackRate = 0.86) {
+  if (activeAudioButton === button) {
+    stopSpeech();
+    return;
+  }
+  stopSpeech();
+  const audio = new Audio(audioPath);
+  activeAudioElement = audio;
+  activeAudioButton = button;
+  button.classList.add("is-speaking");
+  button.textContent = button.dataset.speakingLabel || "■ 停止朗读";
+  const finish = () => {
+    if (activeAudioElement !== audio) return;
+    activeAudioElement = null;
+    resetAudioButton();
+  };
+  const fallback = () => {
+    if (activeAudioElement !== audio) return;
+    activeAudioElement = null;
+    resetAudioButton();
+    speakText(button, fallbackText, fallbackRate);
+  };
+  audio.addEventListener("ended", finish, { once: true });
+  audio.addEventListener("error", fallback, { once: true });
+  audio.play().catch(fallback);
+}
+
 function speakAnswer(button) {
-  speakText(button, exercises[state.index].answer);
+  const audioPath = `audio/${currentIssue.date}-${String(state.index + 1).padStart(2, "0")}.mp3`;
+  playRecordedAudio(button, audioPath, exercises[state.index].answer);
+}
+
+function speakVocabulary(button, text, vocabularyIndex) {
+  const audioPath = `audio/${currentIssue.date}-${String(state.index + 1).padStart(2, "0")}-word-${String(vocabularyIndex + 1).padStart(2, "0")}.mp3`;
+  playRecordedAudio(button, audioPath, text, 0.78);
 }
 
 function save() {
@@ -1764,7 +1803,7 @@ function render() {
   elements.promptLabel.textContent = learning ? "先读懂中文" : "只看中文，试着写";
   elements.prompt.textContent = exercise.chinese;
   renderTranslationProcess(translationProcesses[currentIssue.date]?.[state.index], learning);
-  elements.vocabularyList.replaceChildren(...exercise.vocabulary.map(item => {
+  elements.vocabularyList.replaceChildren(...exercise.vocabulary.map((item, vocabularyIndex) => {
     const entry = document.createElement("div");
     entry.className = "vocabulary-item";
     const term = document.createElement("div");
@@ -1786,8 +1825,7 @@ function render() {
     audio.textContent = audio.dataset.idleLabel;
     audio.setAttribute("aria-label", `朗读单词 ${item.word}`);
     audio.title = `朗读 ${item.word}`;
-    audio.disabled = !("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window);
-    audio.addEventListener("click", () => speakText(audio, item.word, 0.78));
+    audio.addEventListener("click", () => speakVocabulary(audio, item.word, vocabularyIndex));
     term.append(word, ipa, audio);
     entry.append(term, meaning);
     return entry;
@@ -1919,10 +1957,4 @@ document.addEventListener("keydown", event => {
 });
 
 buildIssuePicker();
-if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
-  [elements.studyAudio, elements.answerAudio].forEach(button => {
-    button.disabled = true;
-    button.textContent = "当前浏览器不支持朗读";
-  });
-}
 showIssue(currentIssue, false);
