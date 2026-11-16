@@ -259,6 +259,19 @@ TRANSLATION_OVERRIDES_BY_DATE: dict[str, list[str]] = {
         "遗憾的是，卢特尼克恐怕不会主动辞职。但随着民主党重新掌控国会，他们将不仅对卢特尼克展开质询，还会追问美国总统特朗普。毕竟，特朗普本人购买了英伟达股票，还指定英伟达为他新建的宴会厅提供资金支持。两年来，美国政策前后矛盾、执法松懈，给了中国可乘之机，使其在这场技术竞赛中逐渐占据上风。而这项技术的力量，未来甚至可能超过核武器。但愿局面自此能够扭转。",
         "过去四年里，各国政府争相向黄仁勋示好，媒体和公众则将他奉为明星，追捧有加。和许多身居高位的领导者一样，他渐渐产生了一种错觉：自己重要到足以凌驾于规则之上，普通的规矩，对他不再适用。而在特朗普政府内部，这种心态甚至表现得更加明显。这种有恃无恐、逍遥法外的文化必须终结。它不仅损害了美国最成功的企业之一，也动摇了美国的国家安全根基。黄仁勋必须下台，而在他之后，还有更多人应该被追责。■",
     ],
+    "20261114": [
+        "近几个月，全球最具价值的两家公司先后更换掌门人，但两场交接几乎没有任何相似之处。在苹果，蒂姆·库克于9月卸任，将帅印交给约翰·特努斯。这家iPhone制造商将此称为一项“长期继任计划”。而英伟达的权力交接，只用了四天。作为这家芯片巨头33年来唯一的掌舵者，黄仁勋原本从未打算离开。11月8日，他承认自己有婚外情；11月12日，随着更多有关其私生活的内幕曝光，他最终宣布辞职。",
+        "目前，这副重担落在了科莱特·克雷斯肩上。自2013年以来，她一直担任英伟达首席财务官，如今已被任命为临时首席执行官。她此前从未接受过接掌公司最高职位的系统培养，如今必须迅速进入角色。丑闻曝光以来，英伟达股价已下跌约20%。除了安抚投资者，她还必须稳住供应商、修复与华盛顿方面的关系，并维系那张庞大而复杂的融资计划与合作伙伴网络，正是这张网络推动英伟达实现了狂飙式的增长。",
+        "克雷斯接手的，是一台堪称企业史上最强大的赚钱机器。全球三分之二的人工智能算力由英伟达芯片驱动。其毛利率长期徘徊在75%左右，而竞争对手、芯片设计公司AMD的毛利率仅为55%。分析师预计，在本财年，英伟达营收将超过4000亿美元，几乎是去年的两倍。此外，公司账上还握有约1000亿美元现金及高流动性金融资产。",
+        "克雷斯面临的第一场考验，将在11月17日到来，届时英伟达将公布最新季度财报。如果业绩远超预期，或许还能抚平市场的焦虑。但投资者同样希望得到一个保证：英伟达能否兑现承诺，在明年继续实现70%的营收增长？她必须让市场相信，突如其来的高层动荡不会分散公司的精力。毕竟，英伟达劲敌正虎视眈眈：既有AMD这样的芯片竞争对手，也有谷歌、亚马逊等云计算巨头，它们如今已经开始自行设计人工智能芯片。",
+        "接下来，是这家芯片巨头错综复杂的供应链。英伟达表示，由于供应链瓶颈，公司目前仍无法满足全部市场需求。这也使得其下一代人工智能系统Vera Rubin的推出变得格外棘手。有报道称，制造环节出现的问题正在拖慢高端版本的生产进度。",
+        "要确保产品按时交付，英伟达必须与台积电这样的供应商密切合作。作为一家台湾企业，台积电负责制造英伟达的芯片；此外，公司还需要与韩国SK海力士等存储芯片制造商保持紧密协作。黄仁勋在处理这些关系方面堪称高手，他不仅善于运用合同，更懂得凭借个人魅力维系合作。英伟达已与许多供应商签订长期协议，承诺到2029年向它们投入数千亿美元。但供应商同样需要得到保证：支撑这些巨额订单的宏大增长目标，是否依然能够实现？",
+        "再来看华盛顿。黄仁勋曾是特朗普最青睐的商界领袖之一，并充分利用自己的关系，极力游说政府放宽对华芯片出口限制，其立场也屡屡与国会中的对华强硬派发生冲突。如今，这场丑闻已令英伟达在美国政坛的地位遭受重创。11月18日，也就是财报电话会议结束后的第二天，黄仁勋被要求出席一场国会闭门简报会，就自己与黄乐的关系接受质询。黄乐是英伟达新加坡客户公司Megaspeed的一名高管，据报道，美国官员怀疑她是中国间谍。民主党人将于明年1月掌控国会，或将施加更大压力。一名英伟达员工坦言，黄仁勋在华盛顿一贯强硬的行事风格，为公司树敌不少。今后，英伟达需要做的是与政策制定者合作，而不是与他们对抗。对克雷斯而言，这意味着她必须改变公司的路线。",
+        "然而，最艰巨的任务或许还在于：如何让英伟达继续稳坐人工智能经济的核心位置。黄仁勋激进而大胆的商业布局，让英伟达成为人工智能基础设施热潮中的最大玩家，也由此不断推高了对其芯片的需求。过去三年间，英伟达已向初创企业承诺投入超过700亿美元，仅去年一年就进行了约90笔投资，而今年迄今也至少有60笔。除此之外，英伟达还为人工智能云服务商提供了最高达360亿美元的兜底支持，承诺购买它们无法向其他客户售出的算力资源。对于俄亥俄州一个计划供OpenAI使用的大型数据中心项目，英伟达也为其债务提供了担保。不仅如此，公司还签下了总额达200亿美元的数据中心租赁协议，并计划将这些租赁资源再转租给第三方；与此同时，它还与华尔街贷款机构共同筹措了一项融资计划，可能为数据中心领域撬动高达5000亿美元的新增投资。这些交易中的许多，都建立在黄仁勋个人的承诺之上。如今，克雷斯必须让所有合作伙伴相信：英伟达的承诺依然作数。",
+        "无论克雷斯处理上述事务的手腕多么高明，她恐怕都难以长期坐稳这一职位。她缺乏技术背景；据彭博社报道，英伟达董事会已经与一家外部猎头公司合作，着手寻找正式接班人。在公司内部，负责英伟达数据中心计算业务的伊恩·巴克颇受工程师们欢迎，但他尚未证明自己有能力执掌一家如此庞大的企业。AMD首席执行官苏姿丰、Arm首席执行官雷内·哈斯，后者曾在英伟达任职，也可能成为候选人。另一个潜在人选是苹果硬件芯片业务负责人约翰尼·斯鲁吉。英伟达最终或许会发现，解决自身接班难题的答案，就藏在那家曾向它展示过何为成功交接的公司之中。",
+        "黄仁勋的垮台，从来都不是一个科技故事，而是一个亘古未变的主题：关于男性的傲慢，关于一个男人如何被肆意的狂妄所反噬。太阳底下没有新鲜事。黄仁勋曾煞费苦心地掩饰自己的傲慢。2023年我第一次见到他时，他和他的随行团队一直在向外界传递一种形象：他是一个谦逊的人。在我们的交谈中，黄仁勋总是不动声色地把关注点从自己的成就上移开，迫不及待地将功劳归于员工和高管团队。他也很喜欢与服务行业的人员亲切寒暄。他曾经也做过洗碗工，这一点，他总是不厌其烦地提醒别人。他喜欢光顾那些不起眼的小餐馆，然后留下数额惊人的小费。有一次，我和他在一家丹尼餐厅吃早餐。他给服务员留下了1000美元小费，全是面额100美元的钞票。他甚至没有刻意炫耀这件事。还是我后来特意找到那位服务员，才打听到了这一细节。",
+        "然而，随着时间推移，我开始怀疑，这一切不过是一场表演。而他表演的对象，从来不是旁人，而是他自己。或许是借此满足对自我形象的美化。事实上，黄仁勋相当傲慢。他几乎无法容忍任何不同意见，也基本不具备开放地展开讨论的能力。哪怕你只是在一件微不足道的小事上反驳他，也仿佛是在点燃一根导火索。如果你坚持自己的立场，他很快便会勃然大怒，冲着你大声咆哮，指责你愚蠢至极。黄仁勋一旦发起训斥，动辄持续一个小时甚至更久。他手下的高管们看起来是真的怕他。",
+    ],
 }
 
 TITLE_VOCAB_TERMS_OVERRIDES_BY_DATE: dict[str, str] = {
@@ -1639,6 +1652,23 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "The article ends with a wider warning about power. Governments have treated Huang like a rock star for years, and he may have started to believe that normal rules did not apply to him. The same attitude can be seen in the Trump administration. The writer says this culture of avoiding punishment has harmed a great American company and weakened national security. Huang should leave, but other responsible people should also face consequences."
         ),
     },
+    "20261114": {
+        "pet_index": "04",
+        "overview": (
+            "文章以苹果与英伟达截然不同的接班方式开篇。苹果通过多年规划完成领导层交接，英伟达却在黄仁勋承认婚外情及更多私生活爆料后，仅用四天便仓促换帅。首席财务官科莱特·克雷斯临危受命，成为临时首席执行官。"
+            "克雷斯接手的是一家盈利能力极强、却刚遭遇股价重挫的公司。英伟达芯片支撑全球约三分之二的人工智能算力，毛利率约75%，年度营收预计超过4000亿美元。但她首先要用最新财报证明，公司仍能实现明年70%的增长目标，并在竞争对手加速自研芯片时稳住投资者。"
+            "第二重挑战来自供应链。下一代Vera Rubin系统可能因制造问题延迟，英伟达必须继续获得台积电、SK海力士等供应商的支持。黄仁勋过去依靠合同和个人魅力维系这些关系；如今，克雷斯需要让供应商相信，支撑长期巨额订单的增长目标仍然可靠。"
+            "第三重挑战是修复华盛顿关系和整个融资生态。黄仁勋曾以强硬方式游说放宽对华芯片限制，为公司树敌。与此同时，英伟达对初创企业、云服务商和数据中心作出的投资、担保与租赁承诺，许多都建立在黄仁勋个人信用之上。克雷斯必须改变沟通路线，并说服合作伙伴继续履约。"
+            "克雷斯大概率只是过渡人选，因为她缺乏技术背景，董事会已在寻找正式继任者。文章最后借传记作者的观察复盘黄仁勋的性格：他刻意塑造谦逊亲民的形象，实际上却傲慢、易怒且难以接受异议。他的垮台不仅是接班危机，也是个人权力过度集中和盲目自信的警示。"
+        ),
+        "pet": (
+            "The article compares two leadership changes. Apple prepared for its new leader over many years. Nvidia changed leaders in only four days after Jensen Huang admitted an affair and more stories about his private life appeared. Colette Kress, Nvidia's finance chief, became the temporary chief executive. She was not trained for this job and must learn very quickly. "
+            "Kress is taking control of a very strong company at a difficult moment. Nvidia's chips power about two-thirds of the world's AI computing. Its profit margins are high, and analysts expect more than $400 billion in revenue this year. However, the share price has fallen by about 20%. Kress must show investors that Nvidia can still reach its growth target while AMD, Google and Amazon build competing chips. "
+            "The supply chain is another problem. Manufacturing difficulties may delay a more powerful version of Nvidia's next AI system. The company must work closely with suppliers such as TSMC and SK Hynix. Huang managed these relationships through contracts and personal charm. Kress now has to convince suppliers that Nvidia's large future orders are still safe. "
+            "She must also repair Nvidia's relationship with Washington and protect its wide business network. Huang often argued with politicians about limits on chip sales to China. Nvidia has also promised huge investments, guarantees and data-centre deals. Many partners trusted these plans because they trusted Huang personally. Kress must persuade them that Nvidia will keep its promises without him. "
+            "Kress may not remain chief executive for long because she does not have a technical background. The board is already looking for a permanent leader. The final part of the article describes Huang as proud, angry and unwilling to accept disagreement, although he tried to appear humble. His fall is therefore not only a technology story. It is also a warning about too much power, poor succession planning and dangerous overconfidence."
+        ),
+    },
 }
 
 
@@ -1856,6 +1886,12 @@ VOCAB_FALSE_POSITIVES = {
     "squeeze sb",
     "a momentous decision",
     "to introduce",
+    # 20261114: these are example fragments or the surrounding collocation,
+    # not standalone vocabulary headings in the handout.
+    "hold sb",
+    "lofty ceilings",
+    "rest on",
+    "track sb",
     "a pair of swimming",
     "a legislative assembly",
     "enemy",
@@ -2933,6 +2969,123 @@ VOCAB_CORRECTIONS_BY_DATE: dict[str, dict[str, dict[str, str]]] = {
             "example": "The same attitude appears in even larger doses elsewhere. 同样的态度在别处表现得更为明显。",
         },
     },
+    "20261114": {
+        "instrument": {
+            "definition": "金融工具；可交易的金融资产",
+            "definition_en": "a financial asset or contract that can be traded",
+            "example": "The company holds cash and other liquid financial instruments. 公司持有现金和其他高流动性金融工具。",
+        },
+        "blowout": {
+            "definition": "远超预期的亮眼业绩；大获全胜",
+            "definition_en": "a result or performance that is much better than expected",
+            "example": "A blowout set of results could calm investors. 一份远超预期的业绩报告或许能安抚投资者。",
+        },
+        "aggressive": {
+            "definition": "积极大胆的；进取的",
+            "definition_en": "confident and forceful in pursuing a plan or opportunity",
+            "example": "The company has followed an aggressive dealmaking strategy. 公司采取了积极大胆的交易策略。",
+        },
+        "hold": {
+            "definition": "仍然有效；仍然成立",
+            "definition_en": "to remain true, valid or effective",
+            "example": "Suppliers want to know whether the growth targets still hold. 供应商想知道增长目标是否仍然有效。",
+        },
+        "stand": {
+            "definition": "仍然有效；继续作数",
+            "definition_en": "to remain valid or unchanged",
+            "example": "Partners need to know whether the deal promises still stand. 合作伙伴需要知道交易承诺是否仍然作数。",
+        },
+        "lofty": {
+            "definition": "宏大的；很高的",
+            "definition_en": "very high or ambitious",
+            "example": "The company must prove that its lofty growth targets are realistic. 公司必须证明其宏大的增长目标切实可行。",
+        },
+        "agent": {
+            "definition": "间谍；特工",
+            "definition_en": "a person who secretly obtains information for a government",
+            "example": "Lawmakers asked whether the customer was a foreign agent. 议员质问这名客户是否是外国间谍。",
+        },
+        "hover": {
+            "definition": "维持在某一水平附近；徘徊",
+            "definition_en": "to stay near a particular level or amount",
+            "example": "Nvidia's gross margin has hovered around 75%. 英伟达的毛利率一直维持在75%左右。",
+        },
+        "inherit": {
+            "definition": "接手；承接（前任留下的责任或局面）",
+            "definition_en": "to take over a situation or responsibility from a predecessor",
+            "example": "Kress inherited a powerful company and a difficult crisis. 克雷斯接手了一家强大的公司，也接下了一场棘手的危机。",
+        },
+        "nerve": {
+            "definition": "焦虑；紧张情绪",
+            "definition_en": "a feeling of worry or tension",
+            "example": "Strong results could soothe investors' nerves. 强劲业绩或许能缓解投资者的焦虑。",
+        },
+        "bruise": {
+            "definition": "使声誉或地位受损；挫伤",
+            "definition_en": "to damage someone's reputation, confidence or position",
+            "example": "The scandal badly bruised Nvidia's standing in Washington. 丑闻严重损害了英伟达在华盛顿的地位。",
+        },
+        "flatter": {
+            "definition": "美化；奉承；使自以为是",
+            "definition_en": "to make someone seem better than they are or feel too pleased with themselves",
+            "example": "Huang may flatter himself by describing his behaviour as humble. 黄仁勋把自己的行为说成谦逊，或许是在自我美化。",
+        },
+        "variant": {
+            "definition": "变体；变种；不同版本",
+            "definition_en": "a form of something that differs slightly from other forms of the same thing",
+            "example": "Manufacturing problems are slowing production of the high-end variant. 制造问题正在拖慢高端版本的生产。",
+        },
+        "bottleneck": {
+            "definition": "瓶颈；阻碍进展的环节",
+            "definition_en": "a problem that delays or stops progress in a process",
+            "example": "Supply-chain bottlenecks are limiting production. 供应链瓶颈正在限制产量。",
+        },
+        "hawk": {
+            "definition": "鹰派人物；主张强硬政策的人",
+            "definition_en": "a person who supports forceful or aggressive policies",
+            "example": "China hawks in Congress opposed looser chip-export rules. 国会中的对华鹰派反对放宽芯片出口规定。",
+        },
+        "course": {
+            "definition": "方针；方向；行动路线",
+            "definition_en": "a direction or plan of action",
+            "example": "Nvidia must chart a course that works with policymakers. 英伟达必须制定一条能与政策制定者合作的路线。",
+        },
+        "dealmaking": {
+            "definition": "交易谈判；促成交易",
+            "definition_en": "the activity of negotiating and reaching business agreements",
+            "example": "Huang used aggressive dealmaking to keep Nvidia at the centre of the AI economy. 黄仁勋通过积极大胆的交易让英伟达保持在人工智能经济的中心。",
+        },
+        "orchestrate": {
+            "definition": "精心安排；策划",
+            "definition_en": "to organize a complicated plan or event very carefully",
+            "example": "Nvidia orchestrated a complex network of investments and partnerships. 英伟达精心构建了一套复杂的投资与合作网络。",
+        },
+        "unravel": {
+            "definition": "逐渐瓦解；崩溃；失控",
+            "definition_en": "to gradually fall apart, fail or lose control",
+            "example": "Huang's position began to unravel after the scandal. 丑闻发生后，黄仁勋的地位开始瓦解。",
+        },
+        "handler": {
+            "definition": "助手；顾问；负责安排行程或事务的人",
+            "definition_en": "a person who organizes, advises or manages someone else's affairs",
+            "example": "His handlers tried to keep the event on schedule. 他的助手努力让活动按计划进行。",
+        },
+        "deflect": {
+            "definition": "转移；引开（批评、注意力或责任）",
+            "definition_en": "to redirect criticism, attention or responsibility away from someone",
+            "example": "He used humour to deflect criticism. 他用幽默来转移批评。",
+        },
+        "make way for sb/sth": {
+            "definition": "让位于；被……取代",
+            "definition_en": "to be replaced by someone or something new",
+            "example": "The founder stepped aside to make way for a successor. 创始人退到一旁，为继任者让位。",
+        },
+        "to the tune of sth": {
+            "definition": "总额达……；高达……",
+            "definition_en": "amounting to a particular, usually large, sum of money",
+            "example": "The company promised investments to the tune of hundreds of billions of dollars. 公司承诺投入数千亿美元。",
+        },
+    },
 }
 
 
@@ -3485,6 +3638,9 @@ def extract_paragraphs(raw: str, issue_date: str = "") -> list[dict[str, str]]:
         if cut_positions:
             english_source = english_source[:min(cut_positions)]
         english_source = clean_original_paragraph(recover_english_split_by_translation(english_source))
+        # Some handouts insert this editorial label immediately before the
+        # next paragraph. It is navigation text, not part of the article.
+        english_source = re.sub(r"^more to read:\s*", "", english_source, flags=re.I)
         # Drop page-number/bullet noise without deleting meaningful opening
         # quotation marks from the article text (for example “Social
         # contagion” in the 20261112 issue).

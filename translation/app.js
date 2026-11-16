@@ -1,3 +1,126 @@
+const november14Exercises = [
+  {
+    chinese: "苹果为接班准备了多年，而英伟达只用了四天就更换了领导者。",
+    answer: "Apple prepared for its succession for years, while Nvidia changed leaders in only four days.",
+    core: "while ...",
+    meaning: "而；然而（表示对比）",
+    vocabulary: [
+      { word: "prepare", ipa: "/prɪˈper/", meaning: "准备" },
+      { word: "succession", ipa: "/səkˈseʃən/", meaning: "接班；继任" },
+      { word: "leader", ipa: "/ˈliːdər/", meaning: "领导者" }
+    ],
+    keywords: "苹果 Apple · 为接班准备 prepared for its succession · 多年 for years · 而 while · 英伟达 Nvidia · 更换领导者 changed leaders · 只用四天 in only four days",
+    frame: "Apple prepared for ..., while Nvidia changed ...",
+    note: "while 连接两个完整句子，在这里表示对比，而不是表示‘当……时’。",
+    analysis: "找谓语：prepared / changed，两套骨架。定骨架：Apple + prepared... 与 Nvidia + changed... 都是 SVO。看“制服”：while 把两套骨架连成对比关系，突出有序交接与仓促换帅的反差。",
+    grammarLinks: [
+      { label: "并列与对比", href: "/grammar/chapter-13.html#logic" },
+      { label: "五种基本句型", href: "/grammar/chapter-09.html#five" }
+    ],
+    source: "At Apple, Tim Cook stepped down in September, handing the reins to John Ternus in what the iPhone maker called a ‘long-planned succession’. Nvidia's handover took four days."
+  },
+  {
+    chinese: "克雷斯必须安抚投资者、稳住供应商，并修复与华盛顿的关系。",
+    answer: "Kress must calm investors, support suppliers and repair Nvidia's relationship with Washington.",
+    core: "must ... and ...",
+    meaning: "必须……并且……",
+    vocabulary: [
+      { word: "calm", ipa: "/kɑːm/", meaning: "使平静；安抚" },
+      { word: "supplier", ipa: "/səˈplaɪər/", meaning: "供应商" },
+      { word: "repair", ipa: "/rɪˈper/", meaning: "修复" }
+    ],
+    keywords: "克雷斯 Kress · 必须 must · 安抚投资者 calm investors · 稳住供应商 support suppliers · 修复关系 repair the relationship · 与华盛顿 with Washington",
+    frame: "Kress must ..., ... and ...",
+    note: "情态动词 must 后的 calm、support 和 repair 都用动词原形，三个动作构成并列。",
+    analysis: "找谓语：must calm / (must) support / (must) repair，共用主语和情态动词。定骨架：Kress（S）+ 三组 V-O，是三个并列的 SVO。看省略：后两个动词前省去重复的 must，由逗号和 and 标出平行关系。",
+    grammarLinks: [
+      { label: "并列与省略", href: "/grammar/chapter-13.html#omit" },
+      { label: "五种基本句型", href: "/grammar/chapter-09.html#five" }
+    ],
+    source: "As well as steadying investors' nerves, she will have to reassure suppliers, repair relations with Washington and hold together the vast network of financing schemes and partnerships that have powered Nvidia's breakneck growth."
+  },
+  {
+    chinese: "英伟达实力强大，但克雷斯必须证明高速增长能够继续。",
+    answer: "Nvidia is a powerful company, but Kress must prove that its rapid growth can continue.",
+    core: "prove that",
+    meaning: "证明……",
+    vocabulary: [
+      { word: "powerful", ipa: "/ˈpaʊərfəl/", meaning: "强大的" },
+      { word: "prove", ipa: "/pruːv/", meaning: "证明" },
+      { word: "rapid", ipa: "/ˈræpɪd/", meaning: "迅速的" }
+    ],
+    keywords: "英伟达 Nvidia · 实力强大 is a powerful company · 但是 but · 克雷斯 Kress · 必须证明 must prove that · 高速增长 rapid growth · 能够继续 can continue",
+    frame: "Nvidia is ..., but Kress must prove that ... can continue.",
+    note: "prove that 后接完整的宾语从句；that 在这里引出‘要证明的内容’。",
+    analysis: "找谓语：is / must prove / can continue，共三套骨架。定骨架：Nvidia + is + a powerful company 是 SVP；Kress + must prove + that 从句是 SVO。看“制服”：but 连接两个主句作转折，that 把 its rapid growth can continue 标成宾语从句。",
+    grammarLinks: [
+      { label: "主系表", href: "/grammar/chapter-09.html#linking" },
+      { label: "宾语从句", href: "/grammar/chapter-12.html#noun" }
+    ],
+    source: "Ms Kress has inherited what is perhaps the greatest corporate money machine in history. But investors will also be seeking assurances that Nvidia can deliver on its promise of 70% revenue growth next year."
+  },
+  {
+    chinese: "许多交易依赖黄仁勋的个人承诺，因此克雷斯必须重建合作伙伴的信任。",
+    answer: "Many deals rested on Huang's personal promise, so Kress must rebuild her partners' trust.",
+    core: "rest on",
+    meaning: "依赖；以……为基础",
+    vocabulary: [
+      { word: "deal", ipa: "/diːl/", meaning: "交易；协议" },
+      { word: "promise", ipa: "/ˈprɑːmɪs/", meaning: "承诺" },
+      { word: "rebuild", ipa: "/ˌriːˈbɪld/", meaning: "重建" }
+    ],
+    keywords: "许多交易 many deals · 依赖 rested on · 个人承诺 personal promise · 因此 so · 必须重建 must rebuild · 合作伙伴的信任 her partners' trust",
+    frame: "Many ... rested on ..., so ... must rebuild ...",
+    note: "rest on 表示‘依赖、取决于’；so 连接前因与后果。",
+    analysis: "找谓语：rested / must rebuild，两套骨架。定骨架：Many deals + rested on... 是 SV 加介词补充；Kress + must rebuild + trust 是 SVO。看“制服”：so 把两套骨架连成因果关系，前句是原因，后句是结果。",
+    grammarLinks: [
+      { label: "因果与逻辑", href: "/grammar/chapter-13.html#logic" },
+      { label: "五种基本句型", href: "/grammar/chapter-09.html#five" }
+    ],
+    source: "Nvidia has deployed these resources in a series of bold investments and partnerships, many of which rested on Mr Huang's word."
+  },
+  {
+    chinese: "英伟达今后需要与政策制定者合作，而不是与他们对抗。",
+    answer: "Nvidia now needs to work with policymakers rather than against them.",
+    core: "rather than",
+    meaning: "而不是……",
+    vocabulary: [
+      { word: "policymaker", ipa: "/ˈpɑːləsiˌmeɪkər/", meaning: "政策制定者" },
+      { word: "rather than", ipa: "/ˈræðər ðæn/", meaning: "而不是" },
+      { word: "against", ipa: "/əˈɡenst/", meaning: "反对；与……对抗" }
+    ],
+    keywords: "英伟达 Nvidia · 今后 now · 需要 needs to · 合作 work with policymakers · 而不是 rather than · 与他们对抗 against them",
+    frame: "Nvidia now needs to work with ... rather than against ...",
+    note: "with policymakers 与 against them 是平行的介词结构，rather than 标出取舍。",
+    analysis: "找完整谓语：needs；to work 没有独立谓语权，是非谓语补充。定骨架：Nvidia + needs + to work...。看平行：with policymakers 与 against them 都修饰 work，rather than 把二者连成‘选择前者而非后者’的对比。",
+    grammarLinks: [
+      { label: "非谓语的岗位", href: "/grammar/chapter-14.html#jobs" },
+      { label: "并列与对比", href: "/grammar/chapter-13.html#logic" }
+    ],
+    source: "Nvidia will need to chart a course that works with policymakers rather than against them."
+  },
+  {
+    chinese: "董事会正在寻找正式继任者，因为克雷斯缺乏技术背景。",
+    answer: "The board is looking for a permanent successor because Kress lacks a technical background.",
+    core: "look for",
+    meaning: "寻找……",
+    vocabulary: [
+      { word: "board", ipa: "/bɔːrd/", meaning: "董事会" },
+      { word: "successor", ipa: "/səkˈsesər/", meaning: "继任者" },
+      { word: "technical", ipa: "/ˈteknɪkəl/", meaning: "技术方面的" }
+    ],
+    keywords: "董事会 the board · 正在寻找 is looking for · 正式继任者 a permanent successor · 因为 because · 克雷斯 Kress · 缺乏 lacks · 技术背景 a technical background",
+    frame: "The board is looking for ... because ... lacks ...",
+    note: "look for 表示‘寻找’；because 引出董事会寻找其他人选的原因。",
+    analysis: "找谓语：is looking / lacks，两套骨架。定骨架：The board + is looking for... 与 Kress + lacks + a technical background。看“制服”：because 把第二套骨架标成原因状语从句，说明寻找正式继任者的原因。",
+    grammarLinks: [
+      { label: "状语从句", href: "/grammar/chapter-12.html#adverbial" },
+      { label: "五种基本句型", href: "/grammar/chapter-09.html#five" }
+    ],
+    source: "Given her lack of technical background, few expect her to be appointed permanently. Nvidia's board, which has formed a search committee, is likely to be looking for someone with deep expertise in engineering."
+  }
+];
+
 const november13Exercises = [
   {
     chinese: "五名前员工说，黄仁勋曾与一名直接向他汇报的高管保持关系。",
@@ -959,6 +1082,15 @@ const november3Exercises = [
 
 const issues = [
   {
+    date: "20261114",
+    displayDate: "2026.11.14",
+    title: "临危接棒，<br>重建信任",
+    optionTitle: "临危接棒，重建信任",
+    summary: "用6句话梳理克雷斯接掌英伟达后面对的增长、供应链、华盛顿关系与接班难题。",
+    storageKey: "beibei-translation-20261114-v1",
+    exercises: november14Exercises
+  },
+  {
     date: "20261113",
     displayDate: "2026.11.13",
     title: "丑闻再曝，<br>必须辞职",
@@ -1051,6 +1183,30 @@ const issues = [
 ];
 
 const coreExamples = {
+  "while ...": {
+    sentence: "My sister enjoys drawing, while I prefer reading.",
+    translation: "我姐姐喜欢画画，而我更喜欢阅读。"
+  },
+  "must ... and ...": {
+    sentence: "We must check the facts and explain them clearly.",
+    translation: "我们必须核实事实并把它们解释清楚。"
+  },
+  "prove that": {
+    sentence: "The result proves that careful practice works.",
+    translation: "这个结果证明认真练习是有效的。"
+  },
+  "rest on": {
+    sentence: "The success of the plan rests on teamwork.",
+    translation: "这项计划的成功依赖团队合作。"
+  },
+  "rather than": {
+    sentence: "We should solve the problem rather than ignore it.",
+    translation: "我们应该解决问题，而不是忽视它。"
+  },
+  "look for": {
+    sentence: "The school is looking for a new basketball coach.",
+    translation: "学校正在寻找一名新的篮球教练。"
+  },
   "report directly to": {
     sentence: "The team leader reports directly to the school principal.",
     translation: "这位组长直接向校长汇报。"
