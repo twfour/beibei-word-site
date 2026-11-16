@@ -1484,7 +1484,6 @@ const elements = {
   studySentenceAnalysis: document.querySelector("#study-sentence-analysis"),
   studyGrammarLinks: document.querySelector("#study-grammar-links"),
   studyAudio: document.querySelector("#study-audio"),
-  studyNote: document.querySelector("#study-note"),
   corePhrase: document.querySelector("#core-phrase"),
   phraseMeaning: document.querySelector("#phrase-meaning"),
   coreExample: document.querySelector("#core-example"),
@@ -1503,7 +1502,6 @@ const elements = {
   answerSentenceAnalysis: document.querySelector("#answer-sentence-analysis"),
   answerGrammarLinks: document.querySelector("#answer-grammar-links"),
   answerAudio: document.querySelector("#answer-audio"),
-  answerNote: document.querySelector("#answer-note"),
   sourceLine: document.querySelector("#source-line"),
   previous: document.querySelector("#previous"),
   next: document.querySelector("#next"),
@@ -1707,7 +1705,6 @@ function render() {
   elements.studySentenceAnalysis.textContent = exercise.analysis || "";
   elements.studySentenceAnalysis.hidden = !exercise.analysis;
   renderGrammarLinks(elements.studyGrammarLinks, exercise.grammarLinks || []);
-  elements.studyNote.textContent = exercise.note;
   elements.corePhrase.textContent = exercise.core;
   elements.phraseMeaning.textContent = exercise.meaning;
   const coreExample = coreExamples[exercise.core];
@@ -1724,7 +1721,6 @@ function render() {
   elements.answerSentenceAnalysis.textContent = exercise.analysis || "";
   elements.answerSentenceAnalysis.hidden = !exercise.analysis;
   renderGrammarLinks(elements.answerGrammarLinks, exercise.grammarLinks || []);
-  elements.answerNote.textContent = exercise.note;
   elements.sourceLine.textContent = exercise.source;
   elements.studyPanel.hidden = !learning;
   elements.writePanel.hidden = learning;
