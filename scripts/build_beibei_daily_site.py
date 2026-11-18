@@ -272,6 +272,19 @@ TRANSLATION_OVERRIDES_BY_DATE: dict[str, list[str]] = {
         "黄仁勋的垮台，从来都不是一个科技故事，而是一个亘古未变的主题：关于男性的傲慢，关于一个男人如何被肆意的狂妄所反噬。太阳底下没有新鲜事。黄仁勋曾煞费苦心地掩饰自己的傲慢。2023年我第一次见到他时，他和他的随行团队一直在向外界传递一种形象：他是一个谦逊的人。在我们的交谈中，黄仁勋总是不动声色地把关注点从自己的成就上移开，迫不及待地将功劳归于员工和高管团队。他也很喜欢与服务行业的人员亲切寒暄。他曾经也做过洗碗工，这一点，他总是不厌其烦地提醒别人。他喜欢光顾那些不起眼的小餐馆，然后留下数额惊人的小费。有一次，我和他在一家丹尼餐厅吃早餐。他给服务员留下了1000美元小费，全是面额100美元的钞票。他甚至没有刻意炫耀这件事。还是我后来特意找到那位服务员，才打听到了这一细节。",
         "然而，随着时间推移，我开始怀疑，这一切不过是一场表演。而他表演的对象，从来不是旁人，而是他自己。或许是借此满足对自我形象的美化。事实上，黄仁勋相当傲慢。他几乎无法容忍任何不同意见，也基本不具备开放地展开讨论的能力。哪怕你只是在一件微不足道的小事上反驳他，也仿佛是在点燃一根导火索。如果你坚持自己的立场，他很快便会勃然大怒，冲着你大声咆哮，指责你愚蠢至极。黄仁勋一旦发起训斥，动辄持续一个小时甚至更久。他手下的高管们看起来是真的怕他。",
     ],
+    "20261116": [
+        "事情还能更戏剧化一些吗？人工智能模型变得愈发强大，速度之快，远远超出了几乎所有人的预期。下周，前沿人工智能模型开发商Anthropic预计将挂牌上市，有望创下人工智能企业首次公开募股规模的历史纪录。然而，从某些方面来看，人工智能热潮已经显露出摇摇欲坠的迹象。一场涉及性丑闻与间谍疑云的风波正令全球顶尖芯片制造商英伟达深陷动荡；在赢得中期选举之后，美国民主党人已迫不及待地准备向数据中心以及与特朗普关系密切的科技巨头开刀。大家开始担心，一场规模惊人的科技泡沫破裂即将到来。那么，世界究竟应该为此担忧到什么程度？历史或许能给我们一些启示。从运河、铁路到互联网，许多过去曾经改变世界的新兴技术，都经历过市场狂热，以及随后的骤然幻灭。围绕这些技术的押注最终以失败告终，尽管技术本身被证明具有革命性意义。",
+        "即便向来秉持“技术乐观主义”的《经济学人》，如今也对可能到来的紧缩感到一丝忧虑。人工智能领域预期的投资规模太过庞大。根据一项预测，2025年至2032年间，年均投资将达到美国国内生产总值的3.6%。与人工智能相关的股票更是经历了一轮令人目眩的上涨：目前，股市中受人工智能影响最深的十大股票，合计占标普500指数已接近40%。企业股票目前占美国家庭净资产的38%，比互联网泡沫巅峰时期高出近四分之一。而截至8月的过去12个月里，流入美国股市的外国净资金首次突破1万亿美元，远超整个2010年代的总和。",
+        "对于这一切究竟能否持续的疑虑，已经令股市在过去六个月里基本原地踏步。中期选举结束后，投资者担心民主党会阻挠数据中心建设，纳斯达克科技股指数单日暴跌5.5%。英伟达的资产负债表在很大程度上支撑着整个人工智能产业，其股价较历史高点已下跌近30%。看空者认为，等到Anthropic上市，其未来前景就将通过股价呈现在所有投资者面前；一旦股价下跌，很可能引发整个市场的崩溃。Anthropic及其主要竞争对手OpenAI，是整个人工智能产业链面向终端客户的核心企业，而其中就包括数据中心、芯片设计商和芯片制造商。如果这两家公司销售收入不足，或者无法以足够高的价格出售产品，那么灾难恐怕就在所难免。",
+        "如果投资者高估了人工智能可以创造的收入，那么这将是一次符合金融史规律的误判。不过，好消息是，这一次的后果很可能尚在可控范围之内。一场类似互联网泡沫破裂的股市崩盘有可能发生，但演变成一场深重金融危机的可能性要小得多。",
+        "历史上，能够敏锐地发现炙手可热的新兴技术的投资者，却常常无法预判究竟谁才能从中真正获利。巴菲特在2008年曾写道：“如果当年在基蒂霍克有一位目光长远的资本家在场，那么他只需把奥维尔·莱特击落，就能为自己的继任者帮上一个大忙。”他借此指出，航空业难以创造丰厚利润。20世纪90年代，许多投资者为铺设光纤网络投入巨资，最终却血本无归；真正赚得盆满钵满的，是那些利用这套基础设施建立起商业模式的科技公司。",
+        "不难想象一场崩盘将如何发生。Anthropic的收入有相当一部分来自获得风险投资支持的人工智能初创企业，而一旦市场收紧，这部分收入就会迅速枯竭。美国的模型开发商目前也只领先中国竞争对手大约六个月，而后者实际上几乎是在免费提供自己的模型。正如本刊报道所述，Anthropic与OpenAI当下高昂的估值，建立在两个前提之上：它们能够持续领跑比赛，或是依托这微弱的优势，打磨出新的商业模式。",
+        "最悲观的预言者受到一本颇具影响力的著作启发，认为如果这两家公司失败，最终就可能引发一场类似1873年铁路泡沫破裂的危机，那是上一次出现如此大规模、相对于国内生产总值而言如此惊人的投资狂潮。彼时，由于投资回报远低于预期，市场崩溃最终酿成金融浩劫，导致通货紧缩，并引发了美国历史上持续时间最长的一次经济衰退。",
+        "所幸，这种类比并不恰当。美国在人工智能领域的资本支出，大部分用于购买芯片等进口设备。因此，美国经济真正直接暴露在这轮投资热潮中的部分要小得多，可能仅是国内生产总值的0.3%。相比之下，人工智能投资紧缩对台湾地区经济的冲击将比美国严重得多，其目前的年经济增长率高达14%。此外，如今的金融环境也截然不同。1870年代，当时美国尚未建立中央银行，市场崩盘之后，政策应对不是降息，而是采取紧缩性货币政策。而今天，如果发生类似危机，央行采取的很可能是降息措施。",
+        "人工智能热潮的融资方式同样令人稍感宽慰。历史上最严重的金融崩盘，包括1873年的那场危机，往往都发生在主要依靠债务的投资狂潮之后，尤其需要警惕的是家庭信贷过度扩张，而非企业借贷本身。诚然，与两三年前相比，如今人工智能行业为了投资扩张而借入的资金已大幅增加。两三年前，相关投资几乎完全依靠科技巨头源源不断的巨额现金流来支撑。但即便如此，目前人工智能领域累积形成的资本存量，仍主要由股权融资支撑。五家“超大规模云服务商”的债务与租赁承诺总额约相当于账面价值的30%，仅相当于其市值的6%；而且，它们原有的核心业务依然能够创造巨额利润。英伟达的财务杠杆则微乎其微。人工智能领域的债务扩张，也尚未推动美国非金融企业部门的信贷规模相对于国内生产总值突破长期趋势水平。",
+        "那么，如果人工智能引发一场市场崩盘，究竟会发生什么？遭受股市损失的家庭会减少消费。背负高额债务的企业，包括许多被称为“新型云服务商”的数据中心初创公司，则可能轰然倒下。美国或许会陷入一场程度较轻的经济衰退，程度可能与2001年的衰退相当。若要让局势进一步恶化，人工智能泡沫破裂还必须与另一场重大灾难同时发生，例如债券市场恐慌或战争。这种情况并非不可能：几个发达国家的债务水平已经高得危险，而一些全球领导人的行事风格又充满火药味。但就目前而言，这并不是最有可能出现的结果。",
+        "更值得关注的，是这项技术本身将走向何方。硅谷的科技巨头们认为，他们已经建成了开发超级智能所需的基础设施。一些人甚至预测，递归式自我改进——即人工智能在不需要人类参与的情况下，自行开发出更强大的人工智能——最快可能在明年就会成为现实。一场来势汹汹的政治反弹，仍有可能打断人工智能一路狂奔的发展势头。但一场金融市场的崩盘，恐怕做不到这一点。■",
+    ],
 }
 
 TITLE_VOCAB_TERMS_OVERRIDES_BY_DATE: dict[str, str] = {
@@ -1669,6 +1682,23 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "Kress may not remain chief executive for long because she does not have a technical background. The board is already looking for a permanent leader. The final part of the article describes Huang as proud, angry and unwilling to accept disagreement, although he tried to appear humble. His fall is therefore not only a technology story. It is also a warning about too much power, poor succession planning and dangerous overconfidence."
         ),
     },
+    "20261116": {
+        "pet_index": "04",
+        "overview": (
+            "文章从人工智能行业的强烈反差切入：模型能力继续快速提升，Anthropic即将上市，但英伟达丑闻、民主党监管压力和科技股回落，又让市场开始担心AI泡沫破裂。历史表明，革命性技术并不保证早期投资者一定获利。"
+            "当前风险确实不小。人工智能投资规模巨大，相关股票在标普500中的权重很高，美国家庭财富也越来越依赖股市。Anthropic与OpenAI位于整条AI供应链的需求端，如果销售和定价能力不足，数据中心、芯片设计商和芯片制造商都会受到冲击。"
+            "作者认为，类似互联网泡沫的股市崩盘完全可能发生，但深度金融危机的概率较低。过去的投资者常常看对技术方向，却看错最终赢家：修建铁路、航空和光纤网络的早期资本可能血本无归，真正获利的反而是后来利用这些基础设施建立业务的公司。"
+            "把今天与1873年铁路泡沫直接相比并不恰当。美国AI资本支出中很多资金流向进口芯片，国内经济的直接敞口有限；现代央行也可以通过降息应对危机。更重要的是，本轮AI投资仍主要依靠股权和科技巨头现金流，而不是高杠杆家庭债务。"
+            "如果泡沫破裂，美国家庭可能减少消费，高负债的新型云服务商可能倒闭，美国也可能经历类似2001年的轻度衰退。除非再叠加债市恐慌或战争，危机不太可能失控。文章最后强调，政治反弹或许能减慢AI发展，但单纯的金融崩盘大概率阻止不了技术继续前进。"
+        ),
+        "pet": (
+            "AI models are becoming more powerful very quickly, and Anthropic may soon enter the stock market. However, the AI boom also looks less stable. Nvidia is facing a scandal, American politicians may act against data centres, and technology shares have fallen. History shows that an important new technology can succeed even when many investors lose money. "
+            "The amount of money going into AI is very large. A small group of AI-related companies now makes up a big part of the American stock market, and many families own shares. Anthropic and OpenAI bring customers into the AI supply chain. If they cannot sell enough services at high enough prices, chip companies and data centres may also suffer. "
+            "The writer thinks an AI stock-market crash is possible, but a serious financial crisis is less likely. Investors often recognise a powerful new technology but fail to choose the companies that will make money from it. Many people lost money building airlines and fibre networks, while later companies used that infrastructure to become successful. "
+            "Today is also different from the railway crash of 1873. Much American AI spending buys imported equipment, so the direct effect on the US economy is smaller. Modern central banks can cut interest rates during a crisis. Most AI investment is still paid for with company shares and cash, rather than dangerous levels of debt. "
+            "If the AI boom ends, families may spend less and some highly indebted cloud companies may fail. America could have a mild recession like the one in 2001. A much worse crisis would probably need another disaster at the same time. Political action may slow AI development, but a financial crash alone will probably not stop the technology."
+        ),
+    },
 }
 
 
@@ -1892,6 +1922,10 @@ VOCAB_FALSE_POSITIVES = {
     "lofty ceilings",
     "rest on",
     "track sb",
+    # 20261116: fragments from numbered senses/examples, not vocabulary cards.
+    "an almighty bang",
+    "to nurse an ambition",
+    "the belligerent countries",
     "a pair of swimming",
     "a legislative assembly",
     "enemy",
@@ -3084,6 +3118,138 @@ VOCAB_CORRECTIONS_BY_DATE: dict[str, dict[str, dict[str, str]]] = {
             "definition": "总额达……；高达……",
             "definition_en": "amounting to a particular, usually large, sum of money",
             "example": "The company promised investments to the tune of hundreds of billions of dollars. 公司承诺投入数千亿美元。",
+        },
+    },
+    "20261116": {
+        "cataclysm": {
+            "definition": "大灾难；造成巨大破坏的剧变",
+            "definition_en": "a sudden and extremely destructive event or upheaval",
+            "example": "A technology crash need not become a financial cataclysm. 科技股崩盘未必会演变成金融浩劫。",
+        },
+        "frontier": {
+            "definition": "前沿的；尖端的",
+            "definition_en": "relating to the newest and most advanced developments in a field",
+            "example": "Anthropic is a frontier AI model-maker. Anthropic是一家前沿人工智能模型开发商。",
+        },
+        "ipo": {
+            "definition": "首次公开募股；公司首次上市发行股票",
+            "definition_en": "the first public sale of a company's shares",
+            "example": "Anthropic could have the biggest-ever IPO of an AI firm. Anthropic可能创下人工智能企业首次公开募股规模纪录。",
+        },
+        "wobbly": {
+            "definition": "不稳定的；摇摇欲坠的",
+            "definition_en": "weak, uncertain or not firmly supported",
+            "example": "The AI boom is starting to look wobbly. 人工智能热潮开始显得不太稳定。",
+        },
+        "rock": {
+            "definition": "使震动；使动荡；动摇信心",
+            "definition_en": "to shock or destabilise a group, market or system",
+            "example": "Scandals have rocked Nvidia and other AI companies. 丑闻使英伟达及其他人工智能公司受到冲击。",
+        },
+        "adjacent": {
+            "definition": "与……关系密切的；属于……周边阵营的",
+            "definition_en": "closely connected with a person, group or movement",
+            "example": "Trump-adjacent figures have attacked the AI industry. 与特朗普阵营关系密切的人士抨击了人工智能行业。",
+        },
+        "almighty": {
+            "definition": "极大的；十分严重的",
+            "definition_en": "very great, powerful or severe",
+            "example": "Some investors fear an almighty technology bust. 一些投资者担心一场规模惊人的科技泡沫破裂。",
+        },
+        "canal": {
+            "definition": "运河；人工水道",
+            "definition_en": "an artificial waterway used by boats or for carrying water",
+            "example": "Canals were once at the centre of an investment boom. 运河曾经是一场投资热潮的中心。",
+        },
+        "crunch": {
+            "definition": "经济紧缩；资金困境；危机时刻",
+            "definition_en": "a difficult period when money, credit or resources become scarce",
+            "example": "AI startups could lose funding in a crunch. 市场收紧时，人工智能初创企业可能失去资金。",
+        },
+        "dizzying": {
+            "definition": "快得令人目眩的；惊人的",
+            "definition_en": "extremely fast, large or impressive in a confusing way",
+            "example": "AI-related shares have had a dizzying rise. 人工智能相关股票经历了一轮令人目眩的上涨。",
+        },
+        "sustainable": {
+            "definition": "可持续的；能够长期维持的",
+            "definition_en": "able to continue at the same level without serious problems",
+            "example": "Investors question whether the AI boom is sustainable. 投资者怀疑人工智能热潮能否持续。",
+        },
+        "flat": {
+            "definition": "基本不变的；没有明显涨跌的",
+            "definition_en": "showing little or no change in price or level",
+            "example": "Stocks have remained roughly flat for six months. 股市六个月来基本没有变化。",
+        },
+        "underpin": {
+            "definition": "支撑；构成……的基础",
+            "definition_en": "to support something or form its basis",
+            "example": "Nvidia's balance sheet underpins much of the AI industry. 英伟达的资产负债表支撑着人工智能产业的很大一部分。",
+        },
+        "rout": {
+            "definition": "市场全面溃败；大幅抛售",
+            "definition_en": "a severe and widespread defeat or market sell-off",
+            "example": "A fall in one major stock could trigger a market-wide rout. 一只重要股票下跌可能引发全市场溃败。",
+        },
+        "consistent": {
+            "definition": "符合……的；与……一致的",
+            "definition_en": "in agreement with or following the same pattern as something",
+            "example": "The mistake would be consistent with financial history. 这种错误符合金融史的一贯规律。",
+        },
+        "spot": {
+            "definition": "发现；识别出",
+            "definition_en": "to notice or identify something, especially an opportunity or trend",
+            "example": "Some investors spotted the new technology early. 一些投资者很早就发现了这项新技术。",
+        },
+        "farsighted": {
+            "definition": "有远见的；深谋远虑的",
+            "definition_en": "able to understand future developments and make wise decisions",
+            "example": "A farsighted investor still may choose the wrong company. 有远见的投资者仍可能选错公司。",
+        },
+        "gloomy": {
+            "definition": "悲观的；前景黯淡的",
+            "definition_en": "without much hope about future success",
+            "example": "The gloomiest forecasters expect a severe crash. 最悲观的预测者认为会发生严重崩盘。",
+        },
+        "binge": {
+            "definition": "短期内过度进行的活动；投资狂潮",
+            "definition_en": "a short period of doing far too much of an activity",
+            "example": "The railway era produced a huge investment binge. 铁路时代引发了一场巨大的投资狂潮。",
+        },
+        "legacy": {
+            "definition": "原有的；既有业务留下的",
+            "definition_en": "existing from an earlier period, especially an established business or system",
+            "example": "The hyperscalers' legacy businesses remain highly profitable. 超大规模云服务商的原有业务仍然利润丰厚。",
+        },
+        "overwhelming": {
+            "definition": "压倒性地；绝大部分地（原文中为 overwhelmingly）",
+            "definition_en": "to a very great degree or by a very large majority",
+            "example": "AI investment is overwhelmingly financed by equity. 人工智能投资绝大部分由股权融资。",
+        },
+        "leverage": {
+            "definition": "财务杠杆；借债程度",
+            "definition_en": "the amount of debt used to finance a company or investment",
+            "example": "Nvidia's financial leverage is negligible. 英伟达的财务杠杆微乎其微。",
+        },
+        "nurse": {
+            "definition": "承受并慢慢消化（损失或伤痛）",
+            "definition_en": "to continue dealing with a loss, injury or painful feeling",
+            "example": "Households nursing stock-market losses may spend less. 承受股市损失的家庭可能会减少消费。",
+        },
+        "shallow": {
+            "definition": "程度较轻的；不严重的",
+            "definition_en": "not deep or severe",
+            "example": "America might experience a shallow recession. 美国可能经历一场程度较轻的衰退。",
+        },
+        "belligerent": {
+            "definition": "交战的；参战的",
+            "definition_en": "involved in or fighting a war",
+            "example": "The belligerent countries abandoned the gold standard. 交战国放弃了金本位制。",
+        },
+        "blow up": {
+            "definition": "突然倒闭；彻底失败；爆雷",
+            "definition_en": "to fail or collapse suddenly and dramatically",
+            "example": "Highly leveraged cloud startups could blow up. 高杠杆云服务初创企业可能会突然倒闭。",
         },
     },
 }
@@ -4374,7 +4540,7 @@ def daily_html(article: Article, all_articles: list[Article], config: dict) -> s
                 book_pages.append(f"""
       <section class="book-page book-reading-page" id="reading{'-' + str(index) if index > 1 else ''}">
         <div class="book-page-kicker">PARAGRAPH {index:02d} / {len(paragraph_rows):02d}</div>
-        {row}
+{row}
       </section>""")
         if display.get("vocabulary", True):
             book_toc_links.append('<a href="#vocabulary">词汇卡片</a>')

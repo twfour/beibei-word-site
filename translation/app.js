@@ -1,3 +1,126 @@
+const november16Exercises = [
+  {
+    chinese: "人工智能模型越来越强大，但人工智能热潮开始显得不稳定。",
+    answer: "AI models are becoming more powerful, but the AI boom is starting to look unstable.",
+    core: "start to look",
+    meaning: "开始显得……",
+    vocabulary: [
+      { word: "powerful", ipa: "/ˈpaʊərfəl/", meaning: "强大的" },
+      { word: "boom", ipa: "/buːm/", meaning: "繁荣；热潮" },
+      { word: "unstable", ipa: "/ʌnˈsteɪbəl/", meaning: "不稳定的" }
+    ],
+    keywords: "人工智能模型 AI models · 越来越强大 are becoming more powerful · 但是 but · 人工智能热潮 the AI boom · 开始显得 is starting to look · 不稳定 unstable",
+    frame: "AI models are becoming ..., but the AI boom is starting to look ...",
+    note: "两个正在发生的变化都用现在进行时；look 后接形容词 unstable。",
+    analysis: "找谓语：are becoming / is starting，两套骨架。定骨架：AI models + are becoming + more powerful 是 SVP；the AI boom + is starting + to look unstable。看“制服”：but 把两套骨架连成转折，对比技术变强与市场变得不稳。",
+    grammarLinks: [
+      { label: "主系表", href: "/grammar/chapter-09.html#linking" },
+      { label: "并列与转折", href: "/grammar/chapter-13.html#logic" }
+    ],
+    source: "Artificial-intelligence models keep growing more powerful, faster than almost anyone predicted. Yet in some ways the AI boom is looking wobbly."
+  },
+  {
+    chinese: "受人工智能影响最大的十只股票，如今占标普500指数近40%。",
+    answer: "The ten stocks most exposed to AI now make up nearly 40% of the S&P 500.",
+    core: "make up",
+    meaning: "构成；占……比例",
+    vocabulary: [
+      { word: "exposed", ipa: "/ɪkˈspoʊzd/", meaning: "受……影响的" },
+      { word: "nearly", ipa: "/ˈnɪrli/", meaning: "几乎；接近" },
+      { word: "index", ipa: "/ˈɪndeks/", meaning: "指数" }
+    ],
+    keywords: "十只股票 the ten stocks · 受人工智能影响最大的 most exposed to AI · 如今 now · 占 make up · 接近40% nearly 40% · 标普500指数 the S&P 500",
+    frame: "The ten stocks most exposed to ... now make up nearly ... of ...",
+    note: "make up 在这里表示‘构成、占据’；most exposed to AI 后置修饰 stocks。",
+    analysis: "找谓语：make up，只有一套骨架。定骨架：The ten stocks（S）+ make up（V）+ nearly 40%（O），属于 SVO。看修饰：most exposed to AI 后置限定 stocks；of the S&P 500 说明这个比例属于哪个整体。",
+    grammarLinks: [
+      { label: "五种基本句型", href: "/grammar/chapter-09.html#five" },
+      { label: "定语的位置", href: "/grammar/chapter-05.html#position" }
+    ],
+    source: "The top ten heavily AI-exposed stocks are now nearly 40% of America's S&P 500 index."
+  },
+  {
+    chinese: "如果Anthropic和OpenAI的销售额太低，灾难可能随之而来。",
+    answer: "If Anthropic and OpenAI have too few sales, disaster may follow.",
+    core: "if ... may ...",
+    meaning: "如果……，可能会……",
+    vocabulary: [
+      { word: "sales", ipa: "/seɪlz/", meaning: "销售额；销量" },
+      { word: "disaster", ipa: "/dɪˈzæstər/", meaning: "灾难" },
+      { word: "follow", ipa: "/ˈfɑːloʊ/", meaning: "随后发生" }
+    ],
+    keywords: "如果 if · Anthropic和OpenAI Anthropic and OpenAI · 销售额太低 have too few sales · 灾难 disaster · 可能 may · 随之而来 follow",
+    frame: "If ... have too few sales, ... may follow.",
+    note: "if 从句用一般现在时表示真实条件；主句用 may 表示可能结果。",
+    analysis: "找谓语：have / may follow，两套骨架。定骨架：disaster + may follow 是主句 SV。看“制服”：if 把 Anthropic and OpenAI have too few sales 标成条件状语从句，说明灾难出现的条件。",
+    grammarLinks: [
+      { label: "条件状语从句", href: "/grammar/chapter-12.html#adverbial" },
+      { label: "情态动词与陈述句", href: "/grammar/chapter-02.html#statement" }
+    ],
+    source: "If they have too few sales or cannot charge high enough prices, disaster looms."
+  },
+  {
+    chinese: "人工智能股市崩盘可能发生，但深度金融危机的可能性要小得多。",
+    answer: "An AI stock-market crash may happen, but a deep financial crisis is much less likely.",
+    core: "be less likely",
+    meaning: "可能性较小",
+    vocabulary: [
+      { word: "stock-market", ipa: "/ˈstɑːk ˌmɑːrkɪt/", meaning: "股票市场的" },
+      { word: "financial", ipa: "/faɪˈnænʃəl/", meaning: "金融的" },
+      { word: "likely", ipa: "/ˈlaɪkli/", meaning: "可能的" }
+    ],
+    keywords: "人工智能股市崩盘 an AI stock-market crash · 可能发生 may happen · 但是 but · 深度金融危机 a deep financial crisis · 可能性小得多 is much less likely",
+    frame: "An ... crash may happen, but a ... crisis is much less likely.",
+    note: "may happen 表示‘可能发生’；much 修饰比较级 less likely，加强‘小得多’。",
+    analysis: "找谓语：may happen / is，两套骨架。定骨架：An AI stock-market crash + may happen 是 SV；a deep financial crisis + is + much less likely 是 SVP。看“制服”：but 连接两种风险，并突出严重金融危机的概率更低。",
+    grammarLinks: [
+      { label: "主系表", href: "/grammar/chapter-09.html#linking" },
+      { label: "程度与比较", href: "/grammar/chapter-07.html#degree" }
+    ],
+    source: "A dotcom-style equity-market crash could happen; a deep financial crisis is much less likely."
+  },
+  {
+    chinese: "大部分人工智能投资仍然由股权融资，而不是债务融资。",
+    answer: "Most AI investment is still financed by equity rather than debt.",
+    core: "be financed by",
+    meaning: "由……提供资金",
+    vocabulary: [
+      { word: "investment", ipa: "/ɪnˈvestmənt/", meaning: "投资" },
+      { word: "equity", ipa: "/ˈekwəti/", meaning: "股权；股票资本" },
+      { word: "debt", ipa: "/det/", meaning: "债务" }
+    ],
+    keywords: "大部分人工智能投资 most AI investment · 仍然 still · 由……融资 is financed by · 股权 equity · 而不是 rather than · 债务 debt",
+    frame: "Most ... investment is still financed by ... rather than ...",
+    note: "is financed by 是被动语态；rather than 连接 equity 和 debt 两个平行名词。",
+    analysis: "找谓语：is financed，只有一套骨架。定骨架：Most AI investment（S）+ is financed（V），采用被动视角。向外扩展：by equity 交代资金来源，rather than debt 对比‘股权而非债务’。",
+    grammarLinks: [
+      { label: "被动与叙述视角", href: "/grammar/chapter-16.html#state" },
+      { label: "并列与对比", href: "/grammar/chapter-13.html#logic" }
+    ],
+    source: "Yet the accumulated AI capital stock is still mostly equity-financed."
+  },
+  {
+    chinese: "政治反弹可能会减缓人工智能的发展，但金融崩盘很可能不会。",
+    answer: "A political backlash could slow AI down, but a financial crash probably will not.",
+    core: "slow ... down",
+    meaning: "使……放慢；减缓……",
+    vocabulary: [
+      { word: "political", ipa: "/pəˈlɪtɪkəl/", meaning: "政治的" },
+      { word: "backlash", ipa: "/ˈbæklæʃ/", meaning: "强烈反对；反弹" },
+      { word: "probably", ipa: "/ˈprɑːbəbli/", meaning: "很可能；大概" }
+    ],
+    keywords: "政治反弹 a political backlash · 可能 could · 减缓人工智能 slow AI down · 但是 but · 金融崩盘 a financial crash · 很可能不会 probably will not",
+    frame: "A political backlash could slow ... down, but a financial crash probably will not.",
+    note: "slow A down 表示‘使A放慢’；will not 后省略重复的 slow AI down。",
+    analysis: "找谓语：could slow / will not (slow)，两套骨架。定骨架：A political backlash + could slow + AI down 是 SVO。看省略：but 后的 a financial crash probably will not 省去重复内容 slow AI down，避免句子啰嗦。",
+    grammarLinks: [
+      { label: "并列与省略", href: "/grammar/chapter-13.html#omit" },
+      { label: "五种基本句型", href: "/grammar/chapter-09.html#five" }
+    ],
+    source: "A furious political backlash could still interrupt the breakneck advance of AI. A financial crash probably won't."
+  }
+];
+
 const november14Exercises = [
   {
     chinese: "苹果为接班准备了多年，而英伟达只用了四天就更换了领导者。",
@@ -245,6 +368,38 @@ const november13Exercises = [
 ];
 
 const translationProcesses = {
+  "20261116": [
+    {
+      grammar: "两个分句都描述正在发生的变化，用现在进行时；but 连接技术进步与市场不稳的转折。",
+      words: "become more powerful（变得更强大）、AI boom（人工智能热潮）、start to look unstable（开始显得不稳定）。",
+      order: "先写 AI models are becoming...，再用 but 接 the AI boom is starting to look...。"
+    },
+    {
+      grammar: "主干采用一般现在时；主语是复数 stocks，谓语用 make up，表示‘构成、占比’。",
+      words: "the ten stocks（十只股票）、most exposed to AI（受AI影响最大）、nearly 40%（接近40%）。",
+      order: "先放 The ten stocks，后接修饰语 most exposed to AI，再写 now make up + 比例 + of整体。"
+    },
+    {
+      grammar: "使用真实条件句：if 从句用一般现在时，主句用 may + 动词原形表达可能结果。",
+      words: "too few sales（销售额太低）、disaster（灾难）、follow（随后发生）。",
+      order: "If + 两家公司 + have too few sales 放前面，逗号后写 disaster may follow。"
+    },
+    {
+      grammar: "前句用 may 表示可能；but 后用主系表和比较级，比较两类风险的发生概率。",
+      words: "stock-market crash（股市崩盘）、deep financial crisis（深度金融危机）、much less likely（可能性小得多）。",
+      order: "先写 An AI stock-market crash may happen，再用 but 接 a deep financial crisis is...。"
+    },
+    {
+      grammar: "投资是‘被融资’，所以用被动语态 is financed；rather than 连接两个资金来源。",
+      words: "AI investment（人工智能投资）、be financed by（由……融资）、equity（股权）、debt（债务）。",
+      order: "Most AI investment + is still financed by + equity，最后用 rather than debt 作对比。"
+    },
+    {
+      grammar: "前句用 could 表示可能，but 后用 will not；第二句省略与前面重复的 slow AI down。",
+      words: "political backlash（政治反弹）、slow AI down（减缓AI）、financial crash（金融崩盘）、probably（很可能）。",
+      order: "先写 A political backlash could slow AI down，再用 but 接 a financial crash probably will not。"
+    }
+  ],
   "20261114": [
     {
       grammar: "这是两个过去发生的动作，用一般过去时；用 while 连接两套完整句子，表示前后对比。",
@@ -1149,6 +1304,15 @@ const november3Exercises = [
 
 const issues = [
   {
+    date: "20261116",
+    displayDate: "2026.11.16",
+    title: "泡沫将破，<br>未必浩劫",
+    optionTitle: "泡沫将破，未必浩劫",
+    summary: "用6句话梳理AI股市为何可能崩盘，以及股权融资、有限经济敞口和现代央行为何降低系统性风险。",
+    storageKey: "beibei-translation-20261116-v1",
+    exercises: november16Exercises
+  },
+  {
     date: "20261114",
     displayDate: "2026.11.14",
     title: "临危接棒，<br>重建信任",
@@ -1250,6 +1414,30 @@ const issues = [
 ];
 
 const coreExamples = {
+  "start to look": {
+    sentence: "The sky is starting to look dark.",
+    translation: "天空开始变暗了。"
+  },
+  "make up": {
+    sentence: "Girls make up half of the basketball team.",
+    translation: "女生占篮球队的一半。"
+  },
+  "if ... may ...": {
+    sentence: "If we leave late, we may miss the train.",
+    translation: "如果出发晚了，我们可能会错过火车。"
+  },
+  "be less likely": {
+    sentence: "Rain is less likely this afternoon.",
+    translation: "今天下午下雨的可能性较小。"
+  },
+  "be financed by": {
+    sentence: "The new library was financed by local businesses.",
+    translation: "这座新图书馆由当地企业出资建设。"
+  },
+  "slow ... down": {
+    sentence: "Heavy traffic slowed the bus down.",
+    translation: "拥堵的交通使公交车慢了下来。"
+  },
   "while ...": {
     sentence: "My sister enjoys drawing, while I prefer reading.",
     translation: "我姐姐喜欢画画，而我更喜欢阅读。"
