@@ -1,3 +1,126 @@
+const november17Exercises = [
+  {
+    chinese: "星舰先水平下降，最后转为垂直姿态。",
+    answer: "Starship flew horizontally until it turned into a vertical position.",
+    core: "until ...",
+    meaning: "直到……为止",
+    vocabulary: [
+      { word: "horizontally", ipa: "/ˌhɔːrɪˈzɑːntəli/", meaning: "水平地" },
+      { word: "vertical", ipa: "/ˈvɜːrtɪkəl/", meaning: "垂直的" },
+      { word: "position", ipa: "/pəˈzɪʃən/", meaning: "姿态；位置" }
+    ],
+    keywords: "星舰 Starship · 水平飞行 flew horizontally · 直到 until · 转为 turned into · 垂直姿态 a vertical position",
+    frame: "Starship flew ... until it turned into ...",
+    note: "until 引出时间状语从句；两个动作都发生在过去，因此使用一般过去时。",
+    analysis: "找谓语：flew / turned，两套骨架。定骨架：Starship + flew horizontally 是 SV；it + turned into a vertical position 是 SV 加介词补充。看“制服”：until 把第二套骨架标成时间状语从句，说明水平飞行持续到何时。",
+    grammarLinks: [
+      { label: "时间状语从句", href: "/grammar/chapter-12.html#adverbial" },
+      { label: "五种基本句型", href: "/grammar/chapter-09.html#five" }
+    ],
+    source: "Incongruously, the rocket flew horizontal until the last moment when three Raptor rocket engines ignited and it swooped into a vertical position."
+  },
+  {
+    chinese: "发射塔用两条机械臂稳稳接住了星舰上面级。",
+    answer: "The launch tower caught the Starship upper stage securely with two mechanical arms.",
+    core: "catch ... with ...",
+    meaning: "用……接住……",
+    vocabulary: [
+      { word: "launch", ipa: "/lɔːntʃ/", meaning: "发射" },
+      { word: "securely", ipa: "/sɪˈkjʊrli/", meaning: "牢固地；稳稳地" },
+      { word: "mechanical", ipa: "/məˈkænɪkəl/", meaning: "机械的" }
+    ],
+    keywords: "发射塔 the launch tower · 接住 caught · 星舰上面级 the Starship upper stage · 稳稳地 securely · 用两条机械臂 with two mechanical arms",
+    frame: "The launch tower caught ... securely with ...",
+    note: "caught 是 catch 的过去式；with two mechanical arms 表示完成动作所使用的工具。",
+    analysis: "找谓语：caught，只有一套骨架。定骨架：The launch tower（S）+ caught（V）+ the Starship upper stage（O），属于 SVO。向外扩展：securely 修饰动作方式，with two mechanical arms 说明使用的工具。",
+    grammarLinks: [
+      { label: "五种基本句型", href: "/grammar/chapter-09.html#five" },
+      { label: "介词短语", href: "/grammar/chapter-06.html#phrase" }
+    ],
+    source: "The Starship upper stage was snagged by the launch tower, as snug as you like."
+  },
+  {
+    chinese: "航天飞机几乎可以完全重复使用，却远未实现低成本、快速发射。",
+    answer: "The Space Shuttle was nearly fully reusable, but it fell far short of low-cost, rapid launch.",
+    core: "fall short of",
+    meaning: "未达到；远低于……",
+    vocabulary: [
+      { word: "reusable", ipa: "/ˌriːˈjuːzəbəl/", meaning: "可重复使用的" },
+      { word: "rapid", ipa: "/ˈræpɪd/", meaning: "快速的" },
+      { word: "launch", ipa: "/lɔːntʃ/", meaning: "发射" }
+    ],
+    keywords: "航天飞机 the Space Shuttle · 几乎 nearly · 完全可重复使用 fully reusable · 但是 but · 远未达到 fell far short of · 低成本快速发射 low-cost, rapid launch",
+    frame: "The Space Shuttle was ..., but it fell far short of ...",
+    note: "fall short of 表示‘没有达到目标或标准’；far 加强程度，表示‘远未达到’。",
+    analysis: "找谓语：was / fell，两套骨架。定骨架：The Space Shuttle + was + nearly fully reusable 是 SVP；it + fell far short of... 是 SV 加介词补充。看“制服”：but 连接理想与现实的转折。",
+    grammarLinks: [
+      { label: "主系表", href: "/grammar/chapter-09.html#linking" },
+      { label: "并列与转折", href: "/grammar/chapter-13.html#logic" }
+    ],
+    source: "The Space Shuttle was nearly a fully reusable space launch system, but it fell far short of low-cost, rapid launch."
+  },
+  {
+    chinese: "SpaceX目前每三周制造一艘星舰上面级，但工厂的设计产能是每三天一艘。",
+    answer: "SpaceX currently makes one Starship upper stage every three weeks, but its factory was designed to produce one every three days.",
+    core: "be designed to",
+    meaning: "被设计用来……",
+    vocabulary: [
+      { word: "currently", ipa: "/ˈkɜːrəntli/", meaning: "目前" },
+      { word: "factory", ipa: "/ˈfæktəri/", meaning: "工厂" },
+      { word: "produce", ipa: "/prəˈduːs/", meaning: "生产" }
+    ],
+    keywords: "目前 currently · 制造 makes · 一艘上面级 one Starship upper stage · 每三周 every three weeks · 工厂 its factory · 被设计为 was designed to · 每三天生产一艘 produce one every three days",
+    frame: "SpaceX currently makes ..., but its factory was designed to produce ...",
+    note: "every three weeks 和 every three days 表示频率；was designed to 是被动结构。",
+    analysis: "找谓语：makes / was designed，两套骨架。定骨架：SpaceX + makes + one upper stage 是 SVO；its factory + was designed 是被动主干。看“制服”：but 对比当前产量与设计产能，to produce... 说明工厂被设计来做什么。",
+    grammarLinks: [
+      { label: "被动与叙述视角", href: "/grammar/chapter-16.html#state" },
+      { label: "非谓语的岗位", href: "/grammar/chapter-14.html#jobs" }
+    ],
+    source: "The company can currently manufacture a Starship upper stage in its South Texas Starfactory every three weeks. The factory was sized to produce a ship every three days."
+  },
+  {
+    chinese: "随着发射和着陆越来越频繁，今天的奇迹终将成为日常。",
+    answer: "As launches and landings become more frequent, today's wonder will eventually become routine.",
+    core: "become routine",
+    meaning: "变成日常；成为常态",
+    vocabulary: [
+      { word: "landing", ipa: "/ˈlændɪŋ/", meaning: "着陆" },
+      { word: "frequent", ipa: "/ˈfriːkwənt/", meaning: "频繁的" },
+      { word: "routine", ipa: "/ruːˈtiːn/", meaning: "日常的；常规的" }
+    ],
+    keywords: "随着 as · 发射和着陆 launches and landings · 越来越频繁 become more frequent · 今天的奇迹 today's wonder · 最终 eventually · 成为日常 become routine",
+    frame: "As ... become more frequent, ... will eventually become routine.",
+    note: "as 引出伴随变化；主句用 will 表示作者对未来的判断。",
+    analysis: "找谓语：become / will become，两套骨架。定骨架：launches and landings + become + more frequent 是 SVP；today's wonder + will become + routine 也是 SVP。看“制服”：as 把前句标成伴随状语，表示两种变化同步发生。",
+    grammarLinks: [
+      { label: "状语从句", href: "/grammar/chapter-12.html#adverbial" },
+      { label: "主系表", href: "/grammar/chapter-09.html#linking" }
+    ],
+    source: "The landings will come with increasing frequency; and so will the launches. And eventually ... what we experienced with amazement this weekend will become routine."
+  },
+  {
+    chinese: "人类的适应能力既可能让我们对变化麻木，也能帮助我们实现看似不可能的事情。",
+    answer: "Human adaptability can both numb us to change and help us achieve what seems impossible.",
+    core: "both ... and ...",
+    meaning: "既……又……",
+    vocabulary: [
+      { word: "adaptability", ipa: "/əˌdæptəˈbɪləti/", meaning: "适应能力" },
+      { word: "numb", ipa: "/nʌm/", meaning: "使麻木" },
+      { word: "achieve", ipa: "/əˈtʃiːv/", meaning: "实现；完成" }
+    ],
+    keywords: "人类的适应能力 human adaptability · 既……又…… both...and... · 使我们对变化麻木 numb us to change · 帮助我们实现 help us achieve · 看似不可能的事情 what seems impossible",
+    frame: "Human adaptability can both ... and ...",
+    note: "both...and... 连接 numb 和 help 两个并列动词；can 同时支配两个动作。",
+    analysis: "找谓语：can numb / (can) help，两组并列谓语，共用主语 Human adaptability。定骨架：前半是 numb + us，后半是 help + us + achieve。看“制服”：both...and... 标出两个平行动作；what seems impossible 是 achieve 的宾语。",
+    grammarLinks: [
+      { label: "并列与省略", href: "/grammar/chapter-13.html#omit" },
+      { label: "名词性从句", href: "/grammar/chapter-12.html#noun" }
+    ],
+    source: "The resilience of our species, our impressive adaptability in the face of constant change, is one of our superpowers. It is also the quality that numbs us ... It can dull our sense of wonder about what is possible."
+  }
+];
+
 const november16Exercises = [
   {
     chinese: "人工智能模型越来越强大，但人工智能热潮开始显得不稳定。",
@@ -368,6 +491,38 @@ const november13Exercises = [
 ];
 
 const translationProcesses = {
+  "20261117": [
+    {
+      grammar: "用一般过去时描述飞行过程；until 引出时间状语从句，说明水平飞行持续到转为垂直姿态。",
+      words: "fly horizontally（水平飞行）、turn into（转为）、a vertical position（垂直姿态）。",
+      order: "先写 Starship flew horizontally，再用 until 接 it turned into a vertical position。"
+    },
+    {
+      grammar: "主干采用一般过去时的 SVO；with + 工具说明发射塔用什么接住飞船。",
+      words: "launch tower（发射塔）、catch the upper stage（接住上面级）、securely（稳稳地）、mechanical arms（机械臂）。",
+      order: "先写 The launch tower caught + 宾语，再补 securely 和 with two mechanical arms。"
+    },
+    {
+      grammar: "前半句用主系表描述性能；but 后用 fall short of 表示现实没有达到目标。",
+      words: "nearly fully reusable（几乎完全可重复使用）、fall far short of（远未达到）、low-cost rapid launch（低成本快速发射）。",
+      order: "先写 The Space Shuttle was...，再用 but 接 it fell far short of...。"
+    },
+    {
+      grammar: "前句用一般现在时表示当前产量；but 后用 was designed to 表示工厂原定的设计能力。",
+      words: "currently（目前）、upper stage（上面级）、every three weeks（每三周）、be designed to produce（被设计为生产）。",
+      order: "先写 SpaceX目前的产量，再用 but 对比 its factory 的设计产能。"
+    },
+    {
+      grammar: "as 引出伴随变化，主句用 will 表达未来结果；两个部分都使用 become + 形容词或名词补语。",
+      words: "launches and landings（发射和着陆）、more frequent（更频繁）、eventually（最终）、become routine（成为日常）。",
+      order: "As + 频率变化放前面，逗号后写 today's wonder will eventually become routine。"
+    },
+    {
+      grammar: "can 同时支配两个动作；both...and... 连接 numb 和 help，保持结构平行。",
+      words: "human adaptability（人类适应能力）、numb us to change（让我们对变化麻木）、achieve（实现）、what seems impossible（看似不可能的事）。",
+      order: "Human adaptability can both + 动作一 + and + 动作二，最后用 what 从句作 achieve 的宾语。"
+    }
+  ],
   "20261116": [
     {
       grammar: "两个分句都描述正在发生的变化，用现在进行时；but 连接技术进步与市场不稳的转折。",
@@ -1304,6 +1459,15 @@ const november3Exercises = [
 
 const issues = [
   {
+    date: "20261117",
+    displayDate: "2026.11.17",
+    title: "塔臂接舰，<br>未来已来",
+    optionTitle: "塔臂接舰，未来已来",
+    summary: "用6句话梳理星舰塔架捕获的技术突破、航天飞机的局限，以及快速复用将如何改变太空探索。",
+    storageKey: "beibei-translation-20261117-v1",
+    exercises: november17Exercises
+  },
+  {
     date: "20261116",
     displayDate: "2026.11.16",
     title: "泡沫将破，<br>未必浩劫",
@@ -1414,6 +1578,30 @@ const issues = [
 ];
 
 const coreExamples = {
+  "until ...": {
+    sentence: "We waited until the rain stopped.",
+    translation: "我们一直等到雨停。"
+  },
+  "catch ... with ...": {
+    sentence: "She caught the ball with both hands.",
+    translation: "她用双手接住了球。"
+  },
+  "fall short of": {
+    sentence: "The result fell short of our expectations.",
+    translation: "这个结果没有达到我们的预期。"
+  },
+  "be designed to": {
+    sentence: "This bridge is designed to carry heavy traffic.",
+    translation: "这座桥被设计用来承载繁忙的交通。"
+  },
+  "become routine": {
+    sentence: "Online meetings have become routine for many workers.",
+    translation: "线上会议已经成为许多员工的日常。"
+  },
+  "both ... and ...": {
+    sentence: "Reading can both teach us and entertain us.",
+    translation: "阅读既能教给我们知识，也能带来乐趣。"
+  },
   "start to look": {
     sentence: "The sky is starting to look dark.",
     translation: "天空开始变暗了。"

@@ -285,6 +285,21 @@ TRANSLATION_OVERRIDES_BY_DATE: dict[str, list[str]] = {
         "那么，如果人工智能引发一场市场崩盘，究竟会发生什么？遭受股市损失的家庭会减少消费。背负高额债务的企业，包括许多被称为“新型云服务商”的数据中心初创公司，则可能轰然倒下。美国或许会陷入一场程度较轻的经济衰退，程度可能与2001年的衰退相当。若要让局势进一步恶化，人工智能泡沫破裂还必须与另一场重大灾难同时发生，例如债券市场恐慌或战争。这种情况并非不可能：几个发达国家的债务水平已经高得危险，而一些全球领导人的行事风格又充满火药味。但就目前而言，这并不是最有可能出现的结果。",
         "更值得关注的，是这项技术本身将走向何方。硅谷的科技巨头们认为，他们已经建成了开发超级智能所需的基础设施。一些人甚至预测，递归式自我改进——即人工智能在不需要人类参与的情况下，自行开发出更强大的人工智能——最快可能在明年就会成为现实。一场来势汹汹的政治反弹，仍有可能打断人工智能一路狂奔的发展势头。但一场金融市场的崩盘，恐怕做不到这一点。■",
     ],
+    "20261117": [
+        "黑银相间的星舰从天际坠落而下，在飞行的最后关头，穿出层层云幕，终于显露身影。令人难以置信的是，在下降过程中，火箭始终保持着水平姿态，直到最后一刻，三台猛禽发动机同时点火，星舰才猛然转为垂直状态。随后，星舰上面级缓缓地、轻柔地，甚至有些一顿一顿地向着早已等候在那里的发射塔靠近。塔身伸出的两只机械臂向外张开，仿佛正静候它的到来。整个过程的容错空间小得惊人：火箭两侧各有一个小小的凸起，每个不过一英尺（约30厘米）长，而这就是火箭能够搭上机械臂的唯一着力点。",
+        "就在它出现在视野中不到一分钟后，星舰上面级便被发射塔牢牢夹住，严丝合缝，稳稳当当。至此，一切尘埃落定。SpaceX成立近25年来，终于迈出了意义非凡的一步：研发并不断优化一款庞大、能够快速重复使用的火箭。这是一项令人叹为观止的壮举，也是一项卓越的工程成就。它背后凝聚着最顶尖的工程师团队的智慧，他们必须设法攻克数以百万计、错综复杂的技术难题。而就在周六傍晚，在此前于印度洋进行过数次试验性演练之后，他们终于在全世界的注视下，将这一切变成了现实。",
+        "不到一天前，我还在这里亲眼目睹星舰发射升空。知道它已经绕着地球飞行了数圈，再看到这艘飞船凭借自身动力返回地球，并最终被发射塔捕获，那种不真实感便愈发强烈。仿佛一脚踏进了未来。SpaceX此前已经多次令我们惊叹：它曾让火箭在海上驳船上实现着陆，也曾通过载人龙飞船将人类重新送入太空。但这一次的飞行，又将一切提升到了全新的高度。星舰的体量极其庞大，从轨道返回时携带的能量更是惊人。而就在几年前，设想用几根堪称巨型筷子的机械臂来捕获一枚火箭，在人们看来还近乎天方夜谭。",
+        "然而，这一切终究成为了现实。人类此前也造出过能够重复使用、并进入轨道飞行的航天器。20世纪70年代，在成功登月带来的巨大信心鼓舞下，美国国家航空航天局（NASA）设计并制造了多架航天飞机。它们配备的固体火箭助推器可以从海中打捞上来，再次使用。那个巨大的橙色外部燃料箱则不会在每次飞行后回收，但轨道飞行器能够在太空中执行为期两周、甚至更长时间的任务，随后返回地球，降落在跑道上。",
+        "航天飞机堪称工程学上的奇迹。然而，在返回地球的过程中，它们只能像滑翔机一样滑翔，而不能重新点燃发动机。它们的隔热瓦系统也十分脆弱，每次飞行结束后，都需要经过极其细致、耗时耗力的维护。在航天飞机项目启动之初，NASA曾设想，每次可以将数十名人类送入太空，并将货物运输成本压低至每磅仅25美元。",
+        "然而，现实远未达到这些乐观的预期。航天飞机的载人容量最终也只有七名宇航员，而每磅货物的运输成本却接近2.5万美元。每架轨道器的制造成本都高得惊人，NASA最终也只制造了五架真正执行过太空飞行任务的航天飞机。",
+        "如今，SpaceX在星际基地已有五艘星舰处于较为成熟的研发阶段，工厂内还储备着足以组装另外十余艘星舰的零部件。目前，公司每隔三周就能在南得克萨斯州的星际工厂制造出一艘星舰上面级。而这座工厂最初的设计产能，是每三天就能生产一艘。五年前，SpaceX创始人马斯克在一次采访中谈及这些生产目标时，听起来简直像个疯子。但如今，再也没人觉得他疯了。",
+        "航天飞机曾是一套几乎实现完全重复使用的航天发射系统，却始终未能真正做到低成本、高频次发射。在长达30多年的时间里，航天飞机总共执行了135次飞行任务。而SpaceX的目标是：在未来几年内，每年实现135次飞行，随后进一步提升至数千次。",
+        "这正是周六这次成功的意义所在。SpaceX的雄心，是从根本上改变人类与宇宙之间的关系。而实现这一愿景的第一步，就是让火箭完整地返回地球。如今，SpaceX已经成功将星舰火箭的两个部分都安全的带回发射塔。当然，要让这样的着陆方式达到很高的成功率，还需要时间。但周六的安全返回，已经为这项技术提供了切实可见的验证。",
+        "此后，星舰着陆的次数会越来越多，发射的频率也将不断提高。随着时间推移，SpaceX还将逐步完善隔热瓦系统，这很可能是实现快速重复使用过程中最难攻克的一环。最终，无论今天看来多么难以置信，这个周末令我们惊叹不已的场景，终将变成再平常不过的日常。总有一天，我们会对此习以为常。但至少今天，还不是时候。",
+        "回到地球上，人们时常对那些总忍不住仰望星空的人颇有微词。他们会问：地球上还有那么多亟待解决的问题，为什么偏偏要去探索太空？我想说，这种想法确情有可原，但事实上，我始终认为，这种观点建立在一种错误的二元对立之上。它限制了人类所能实现的可能性，也错误地假定：一项伟大的技术突破，其价值不过在于突破本身，而再无其他收获。",
+        "技术有一种迷惑人的本领：它有时会让我们产生一种错觉，以为某种技术或系统一旦能够稳定运行，甚至运行得极其出色，就意味着它已经抵达了终点，成为某种最终形态。然而，任何一种最终走向淘汰的技术体系，其被取代的原因，人们开始以全新的视角理解世界，也重新认识人类在这个世界中的位置。",
+        "当然，这并不是说每一次技术变革都必然有益于人类，事实显然并非如此。我们人类这个物种拥有惊人的韧性，以及面对持续变化时令人赞叹的适应能力。这是人类最强大的天赋之一。但也正是这种能力，让我们逐渐对新技术强加于我们的种种改变变得麻木，而其中有些改变我们本应拒绝。然而，人类的韧性还有另一面：它同样可能磨钝我们的感知，让我们逐渐失去对人类所能创造的奇迹的敬畏——尤其是当人类试图完成一件几乎无人相信能够实现的事情时。这个周末，SpaceX让不可能成为了可能。而未来，还会有其他人做到这一点。",
+    ],
 }
 
 TITLE_VOCAB_TERMS_OVERRIDES_BY_DATE: dict[str, str] = {
@@ -1699,6 +1714,23 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "If the AI boom ends, families may spend less and some highly indebted cloud companies may fail. America could have a mild recession like the one in 2001. A much worse crisis would probably need another disaster at the same time. Political action may slow AI development, but a financial crash alone will probably not stop the technology."
         ),
     },
+    "20261117": {
+        "pet_index": "04",
+        "overview": (
+            "文章从星舰返回地球的惊险画面写起：上面级先以水平姿态下降，再在猛禽发动机点火后翻转为垂直姿态，最终只凭火箭两侧很小的凸起，被发射塔的两条机械臂精准接住。这是SpaceX首次让从轨道返回的星舰上面级实现塔架捕获。"
+            "作者认为，这次成功不只是精彩表演，而是迈向大型火箭快速重复使用的重要里程碑。此前SpaceX已实现猎鹰火箭海上回收和载人龙飞船入轨，但星舰体量更大、返航能量更高，用机械臂捕获它，几年前仍像天方夜谭。"
+            "文章随后以航天飞机作对比。航天飞机接近可重复使用，却需要耗费大量时间维护脆弱的隔热瓦，运载人数和成本也远未达到最初预期。30年间它只飞行135次；SpaceX却希望几年内做到每年135次，最终提升到每年数千次。"
+            "星舰仍未完成全部目标。此次超重型助推器未能回收，塔架捕获也需要进一步提高成功率，而隔热系统可能是实现快速复用最难的一环。不过，SpaceX已经证明完整回收火箭的关键构想可行，今天令人惊叹的场景未来可能成为日常。"
+            "最后，作者回应“地球问题尚未解决，为何还要探索太空”的质疑。他认为这是一种虚假的二元对立，也提醒读者不要把现有技术误当作最终形态。人类适应变化的韧性有时会使我们对技术危害麻木，却也能推动我们不断突破看似不可能的边界。"
+        ),
+        "pet": (
+            "A Starship returned from space and made an unusual landing. It first fell almost horizontally. Then three engines started, the ship turned upright and moved slowly towards a launch tower. Two large arms caught it by two very small points on its sides. The space for error was extremely small. "
+            "This was an important step for SpaceX. The company wants to build a very large rocket that can be used again quickly. SpaceX has landed smaller rockets on ships and has carried people into space before. However, Starship is much bigger and returns with much more energy, so catching it with tower arms is a greater challenge. "
+            "The article compares Starship with the American Space Shuttle. The shuttle was nearly reusable, but its heat shield needed slow and careful repairs after every flight. It was also much more expensive than NASA first expected. The shuttle flew only 135 times in 30 years. SpaceX hopes Starship will one day fly hundreds or even thousands of times each year. "
+            "There is still a lot of work to do. SpaceX must make these landings reliable, and the heat shield may be the hardest problem. The booster was not caught on this flight. Even so, the safe return of the upper stage showed that the main idea can work. What looks amazing today may become normal in the future. "
+            "Some people ask why humans should explore space when Earth has many problems. The writer thinks this creates a false choice. Technology never has a final form, and new systems can completely change how we see the world. Human beings sometimes accept harmful technology too easily, but our ability to adapt also helps us achieve things that once seemed impossible."
+        ),
+    },
 }
 
 
@@ -1933,6 +1965,8 @@ VOCAB_FALSE_POSITIVES = {
     "a golf",
     "a fascist",
     "the way that sb",
+    # 20261117: an example collocation belonging to "impose", not a card.
+    "to impose limitations",
     # 20261023-20261028: slash-separated collocation examples are part of the
     # preceding dictionary card, not additional phonetic headwords.
     "left-wing",
@@ -3252,6 +3286,93 @@ VOCAB_CORRECTIONS_BY_DATE: dict[str, dict[str, dict[str, str]]] = {
             "example": "Highly leveraged cloud startups could blow up. 高杠杆云服务初创企业可能会突然倒闭。",
         },
     },
+    "20261117": {
+        "inherent": {
+            "definition": "内在的；固有的（原文中 inherently 表示“本质上”）",
+            "definition_en": "existing as a natural or permanent part of something",
+            "example": "Technological change is not inherently good for humanity. 技术变革并非本质上都有益于人类。",
+        },
+        "raptor": {
+            "definition": "“猛禽”发动机（SpaceX火箭发动机名称）",
+            "definition_en": "the name of the rocket engine used by SpaceX's Starship",
+            "example": "Three Raptor engines ignited before Starship turned upright. 三台“猛禽”发动机点火后，星舰转为垂直姿态。",
+        },
+        "vertical": {
+            "definition": "垂直的；竖直的",
+            "definition_en": "standing or pointing straight up rather than lying flat",
+            "example": "The rocket swooped into a vertical position. 火箭猛然转为垂直姿态。",
+        },
+        "nub": {
+            "definition": "小凸起；小突块",
+            "definition_en": "a small rounded projection or lump",
+            "example": "Two small nubs were the rocket's only purchase on the tower arms. 两个小凸起是火箭搭住塔臂的唯一着力点。",
+        },
+        "purchase": {
+            "definition": "着力点；可供抓牢或支撑的地方",
+            "definition_en": "a firm hold or point of support on a surface",
+            "example": "The nubs gave the rocket purchase on the tower arms. 小凸起为火箭提供了搭住塔臂的着力点。",
+        },
+        "snug": {
+            "definition": "紧密贴合的；稳稳固定的",
+            "definition_en": "fitting closely, securely and comfortably",
+            "example": "The upper stage sat as snug as you like in the tower arms. 星舰上面级严丝合缝地卡在塔臂之间。",
+        },
+        "dazzle": {
+            "definition": "使惊叹；使赞叹不已",
+            "definition_en": "to impress someone greatly with an achievement",
+            "example": "SpaceX has dazzled us before with reusable rockets. SpaceX此前已用可重复使用火箭令我们惊叹。",
+        },
+        "flush": {
+            "definition": "充满……的；富有……的（flush with）",
+            "definition_en": "having a large amount of something, especially confidence or money",
+            "example": "NASA was flush with confidence after the Moon landings. 登月成功后，NASA充满信心。",
+        },
+        "shuttle": {
+            "definition": "航天飞机；往返两地的运输工具",
+            "definition_en": "a spacecraft or vehicle that travels regularly between two places",
+            "example": "NASA designed and built several Space Shuttles. NASA设计并制造了多架航天飞机。",
+        },
+        "fish": {
+            "definition": "从水中打捞；捞出",
+            "definition_en": "to pull or retrieve something from water",
+            "example": "The solid rocket boosters were fished from the ocean and reused. 固体火箭助推器从海中打捞后再次使用。",
+        },
+        "shield": {
+            "definition": "防护层；隔热罩（heat shield）",
+            "definition_en": "a protective covering that prevents heat or damage",
+            "example": "The shuttle's heat shields needed careful refurbishment. 航天飞机的隔热罩需要细致整修。",
+        },
+        "rosy": {
+            "definition": "过于乐观的；看似美好的",
+            "definition_en": "optimistic and hopeful, sometimes more than the facts justify",
+            "example": "Reality never matched NASA's rosy projections. 现实从未达到NASA乐观的设想。",
+        },
+        "house": {
+            "definition": "容纳；存放；设有",
+            "definition_en": "to contain or provide space for something",
+            "example": "The factory houses components for more Starships. 工厂存放着可组装更多星舰的零部件。",
+        },
+        "binary": {
+            "definition": "二元对立；非此即彼的两种选择",
+            "definition_en": "a division into only two opposing choices or states",
+            "example": "The writer rejects the false binary between Earth and space. 作者反对地球与太空之间的虚假二元对立。",
+        },
+        "numb": {
+            "definition": "使麻木；使对……失去敏感",
+            "definition_en": "to make someone unable to feel or react normally",
+            "example": "Adaptability can numb us to harmful technological change. 适应能力可能使我们对有害的技术变化变得麻木。",
+        },
+        "imposition": {
+            "definition": "强加的负担、要求或改变",
+            "definition_en": "an unwelcome demand, burden or change forced on someone",
+            "example": "We should question the impositions of new technology. 我们应当审视新技术强加给我们的改变。",
+        },
+        "dull": {
+            "definition": "削弱；使迟钝；使失去敏锐感",
+            "definition_en": "to make a feeling, sense or reaction weaker",
+            "example": "Resilience can dull our sense of wonder. 韧性也可能磨钝我们的惊奇感。",
+        },
+    },
 }
 
 
@@ -3264,6 +3385,16 @@ VOCAB_ADDITIONS_BY_DATE: dict[str, list[dict[str, str]]] = {
             "definition": "开启；开创；迎来；标志着……的到来",
             "definition_en": "to mark or signal the beginning of a new period, development or change",
             "example": "The invention of the internet ushered in a new era of global communication. 互联网的发明开启了全球通信的新时代。",
+        },
+    ],
+    "20261117": [
+        {
+            "term": "cargo",
+            "pos": "n",
+            "phonetic": "/ˈkɑːrɡoʊ/",
+            "definition": "（船或飞机装载的）货物",
+            "definition_en": "goods carried by a ship, aircraft or spacecraft",
+            "example": "NASA hoped to carry cargo for as little as $25 per pound. NASA曾希望把货物运输成本降至每磅25美元。",
         },
     ],
 }
@@ -3902,6 +4033,18 @@ def vocabulary_aliases(term: str) -> set[str]:
         "forever war": {"forever wars"},
         "graphics-processing unit": {"graphics-processing units", "graphics processing unit", "graphics processing units", "gpu", "gpus"},
         "irk": {"irks", "irked", "irking"},
+        "inherent": {"inherently"},
+        "incongruous": {"incongruously"},
+        "halting": {"haltingly"},
+        "expectant": {"expectantly"},
+        "nub": {"nubs"},
+        "step into": {"steps into", "stepped into", "stepping into"},
+        "take things to another level": {"takes things to another level", "took things to another level", "taking things to another level"},
+        "cap out": {"caps out", "capped out", "capping out"},
+        "fall short of": {"falls short of", "fell short of", "fell far short of", "fallen short of", "falling short of"},
+        "aspire to": {"aspires to", "aspired to", "aspiring to"},
+        "take sth for granted": {"take it for granted", "take this all for granted", "takes it for granted", "took it for granted"},
+        "can't help but": {"can’t help but", "couldn't help but", "couldn’t help but"},
         "make the best of": {"made the best of"},
         "keep sth on track": {"keep trump’s agenda on track", "keep trump's agenda on track"},
         "have the makings of": {"has the makings of", "had the makings of"},
@@ -4091,7 +4234,7 @@ ANALYSIS_BODY_START = re.compile(
     r"1[.、:：]\s*"
     r"|第[一二三四五六七八九十]+部分\s*[:：]"
     r"|主句(?:\d+|部分)?\s*[:：]"
-    r"|分句[①②③④⑤⑥⑦⑧⑨⑩\d]+拆解\s*"
+    r"|分句\s*[①②③④⑤⑥⑦⑧⑨⑩\d]+(?:拆解)?\s*[:：]?"
     r"|整体(?:结构|分析)\s*[:：]"
     r")"
 )
@@ -4422,8 +4565,8 @@ def daily_html(article: Article, all_articles: list[Article], config: dict) -> s
         data-example="{html.escape(v['example'])}" data-issue="{article.date}">
         <div class="vocab-head"><div><h3>{html.escape(v['term'])}</h3><span>{html.escape(v['phonetic'])} · {html.escape(v['pos'])}.</span></div><div class="vocab-actions"><button class="favorite-word" type="button" aria-label="收藏 {html.escape(v['term'])}" aria-pressed="false">♡</button></div></div>
         <p class="definition">{html.escape(v['definition'])}</p>
-        {f'<p class="definition-en">{html.escape(v["definition_en"])}</p>' if v['definition_en'] else ''}
-        {f'<p class="example">{html.escape(v["example"])}</p>' if v['example'] else ''}
+{f'<p class="definition-en">{html.escape(v["definition_en"])}</p>' if v['definition_en'] else ''}
+{f'<p class="example">{html.escape(v["example"])}</p>' if v['example'] else ''}
 {context_html}
       </article>""")
     vocab_html = "".join(vocab_cards)
