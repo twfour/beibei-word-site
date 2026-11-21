@@ -300,6 +300,58 @@ TRANSLATION_OVERRIDES_BY_DATE: dict[str, list[str]] = {
         "技术有一种迷惑人的本领：它有时会让我们产生一种错觉，以为某种技术或系统一旦能够稳定运行，甚至运行得极其出色，就意味着它已经抵达了终点，成为某种最终形态。然而，任何一种最终走向淘汰的技术体系，其被取代的原因，人们开始以全新的视角理解世界，也重新认识人类在这个世界中的位置。",
         "当然，这并不是说每一次技术变革都必然有益于人类，事实显然并非如此。我们人类这个物种拥有惊人的韧性，以及面对持续变化时令人赞叹的适应能力。这是人类最强大的天赋之一。但也正是这种能力，让我们逐渐对新技术强加于我们的种种改变变得麻木，而其中有些改变我们本应拒绝。然而，人类的韧性还有另一面：它同样可能磨钝我们的感知，让我们逐渐失去对人类所能创造的奇迹的敬畏——尤其是当人类试图完成一件几乎无人相信能够实现的事情时。这个周末，SpaceX让不可能成为了可能。而未来，还会有其他人做到这一点。",
     ],
+    "20261118": [
+        "现代生活有时恍若一部科幻小说：一位梦想将计算机送入太空的火箭大佬，成为了世界上首位万亿美元富豪；无人机彻底改写了战争的形态；出租车开始自行驾驶；人工智能模型正在失控；人形机器人正大举迈向；还有一些注射药物，既能帮助人们减重，又能改善健康——当然，前提是你负担得起。如今，似乎只差外星人登场了。不过，他们大概不会在2027年现身。但除此之外，还有十件事值得我们密切关注。",
+        "1. 后特朗普时代。随着中期选举的尘埃落定，围绕特朗普继任者的角逐将正式拉开帷幕。但特朗普绝不会就此成为一个跛脚鸭总统——他更像是一只破坏力十足的“愤怒的小鸟”。为了竭力维系自己的影响力、塑造自己的政治遗产，他势必推出更多行政命令，卷入更多法律纷争，突如其来地更名，大兴土木，甚至发动新的军事冒险。与此同时，世界也将开始思考：一个后特朗普时代的美国，究竟会是什么模样？",
+        "2. 伊朗战争的余波。这场冲突恐怕难以迎来一个干净利落的结局，不确定性仍将持续。但特朗普这场考虑不周的战争，已经削弱了美国的国际地位：盟友不再信任它，敌人也不再畏惧它。战争的影响将在2027年持续扩散，重塑地区政治格局，改变全球能源流向，并对粮食安全构成威胁——届时化肥供应也将陷入短缺。至于伊朗国内，现政权则会进一步收紧控制。",
+        "3. 史上最热之年，再度刷新。预计2027年将再度刷新全球有记录以来的最高气温纪录。一次“超级厄尔尼诺”现象，将让我们提前窥见一个更加炎热、气候波动更加剧烈的未来：干旱、热浪、野火以及极端天气将愈发频繁，除非能够迅速削减温室气体排放。但颇具讽刺意味的是，特朗普无意间成了全球最大的可再生能源推销员。可再生能源不仅是应对气候变化的最佳途径，也是摆脱全球能源市场剧烈起伏的最佳选择。",
+        "4. 针对人工智能的反噬浪潮。人工智能带来的风险正受到越来越严格的审视。随着人工智能企业通过复杂而不透明的交易安排承担越来越多债务，市场崩盘的风险也将随之上升。无论金融市场最终走向何方，能力更强的人工智能模型都将催生一波网络攻击浪潮。企业和政府也会越来越担忧人工智能供应链所面临的地缘政治风险。然而，关于人工智能将导致大规模失业，或数据中心会消耗过多能源和水资源的担忧，却缺乏数据支持。这场反弹所折射的，是想象中后果，而非真实隐忧。《星球大战》问世至今已有50年，但在2027年，它似乎比以往任何时候都更切合现实。",
+        "5. 欧洲右翼民粹主义。右翼民粹主义在世界各地持续抬头。但到了2027年，全球目光都将聚焦法国。来自右翼民粹主义政党国民联盟的玛丽娜·勒庞，很有希望赢得法国总统大选。如果这一幕成为现实，欧盟赖以运转的法德引擎将遭受重创，也将进一步加剧外界对法国公共财政脆弱处境的担忧——这个国家早已背负沉重债务。",
+        "6. 债券市场施压。但令债券市场神经紧绷的，并不只有法国。财政挥霍无度、人工智能基础设施建设热潮，以及能源价格上涨引发的新一轮通胀，正在推高发达经济体的融资成本。更高的利率也在挤压企业和家庭的生存空间。这样的局面不可能永远持续下去。总有某个地方、某个环节，将出现断裂。",
+        "7. XX倒计时。技术正在改变战争的性质，使较弱小的国家也更容易抵御强大的对手——乌克兰和伊朗的经历已经证明了这一点。那么，这对C的战略意图意味着什么？美国如今自顾不暇。C会选择采取行动，还是等待2028年选举的结果？未来两年，局势都将充满危险。",
+        "8. “司美格鲁肽效应”。减肥药不仅帮助人们减轻体重，也正在改变消费者的行为方式。那些身形变得苗条、仿佛重获新生的人，开始掀起一股所谓的“报复性消费”热潮，在服装、化妆品和健身领域大手笔花钱。与此同时，减肥药的巨大成功，也重新点燃了制药企业对延长人类寿命疗法的兴趣。",
+        "9. 太空发射成本进一步下降。SpaceX庞大的星舰将开始定期执行卫星发射任务。中国的火箭企业也将展示助推器回收复用技术。发射成本的下降，将为私人空间站铺平道路；没错，还将为在轨道上建设数据中心创造条件。而这一设想，或许并不像听起来那么疯狂。",
+        "10. 好莱坞重启经典。适逢上映五十周年，《星球大战》将重返大银幕，一部全新力作也试图重启这一经典系列；《复仇者联盟》再度回归，而新一任詹姆斯·邦德也即将登场。不过，由YouTube创作者制作的低成本电影已经取得成功，观众是否还渴望新鲜的故事？或许是吧。然而，《星球大战》所呈现的种种情节：一个军事超级大国被小型、廉价的飞行器逼入窘境；机器人拥有了自己的意志，开始不听指挥；而安全防线的松懈与数据失窃，则带来了难以估量的后果，这一切或许会让它在2027年显得比以往任何时候都更加切合现实。",
+        "现实似乎已经追上了科幻。我们希望，《世界前瞻2027》能够成为一份既实用又引人入胜的指南，帮助你读懂这个瞬息万变、充满不确定性的未来。■",
+    ],
+    "20261119": [
+        "黄仁勋今天上午在一份声明中表示，如果能重返英伟达，这家他上周才被扫地出门的芯片巨头，他将“倍感荣幸”。然而，对黄仁勋而言，遗憾的是，英伟达董事会已在今天的财报电话会议上明确表态，并没有考虑重新聘用他。尽管如此，硅谷的诸多重量级人物仍在高调表达对他的支持。试想，换作一位权势不及黄仁勋的高管，若被曝与三名女性有婚外情，其中一人被指为间谍，另一人则是其直接下属，这无疑会被视为无法挽回的判断失误。但黄仁勋的支持者似乎并不认为，这些丑闻足以断送他在英伟达的职业生涯。",
+        "马斯克在X声称，没有黄仁勋，英伟达就会失去那些重要的“握手”交易，即由黄仁勋亲自斡旋敲定的合作。投资英伟达的公司代表加文贝克则撰文表示，在调查进行之际，他支持让黄仁勋复职。Epic Games首席执行官蒂姆·斯威尼在X上评论称，那些“动机不纯的记者”实际上是通过舆论操纵，误导了董事会，最终将这位“百年一遇的远见者”赶下台。Uber联合创始人特拉维斯·卡兰尼克——他本人对科技公司高管被罢免一事颇有切身体会——也在超过19.5万名要求黄仁勋重返CEO职位的请愿签署者之列；马斯克、贝克和斯威尼同样签了名。一名英伟达高层员工还致信董事会警告称，如果黄仁勋不能复职，公司可能会失去“不可替代的人才”。",
+        "归根结底，这些人都无权决定黄仁勋的命运。真正掌握决定权的，是英伟达董事会。但在黄仁勋犯下足以令其失去资格的严重过错之后，仍有如此多人为他撑腰，这恰恰折射出他对英伟达乃至整个经济体系所拥有的巨大影响力。",
+        "尽管黄仁勋被指危及国家安全，美国证券交易委员会（SEC）据称也正在调查英伟达是否违反了投资者信息披露相关法律，但他的支持者仍坚持认为，他不可或缺。他们的逻辑是：黄仁勋就是英伟达本身，而失去他的风险，甚至可能大于让他重新担任CEO所带来的风险。从某种意义上说，他们的确有道理，黄仁勋早已成为这家公司的代名词。然而，这种高度集中的地位，与其说是一项优势，不如说是一种负累。眼下本应成为一次反思的契机，让人们重新审视过度依赖单一CEO所带来的风险；可科技行业的许多人却在强化与此相反的教训，执意押注这样一位声名受损的高管。",
+        "英伟达堪称一家“具有系统重要性”的机构——这是业内术语，指其一旦倒下，就可能动摇金融体系的部分环节。丑闻曝光后，英伟达股价暴跌，引发约1.5万亿美元的抛售潮（相当于公司价值逾四分之一），华尔街为之震颤。人工智能产业，乃至整个美国经济，都高度依赖英伟达的芯片。“英伟达握住了金融体系的大半命脉，黄仁勋大到不能倒。”或许正因如此，此刻才有如此多人急于淡化事态，甚至竭力为他保驾护航。",
+        "这其中，有一部分源于科技行业根深蒂固的神话：科技领袖是不可替代的天才。硅谷向来热衷于讲述这样的故事。标普500指数近十分之一的市值，集中在几家尚未明确接班人的公司身上：英伟达、特斯拉和Meta。英伟达董事会目前正在调查黄仁勋是否是间谍活动的目标，而这个董事会向来对他忠心耿耿、唯命是从。其中一些董事自1993年起便在董事会任职。",
+        "舆论施压过去确实曾成为科技公司迎回被罢免领导人的有效手段。2023年末，OpenAI董事会以奥特曼“在与董事会沟通时未能始终坦诚”为由将其解雇；然而，仅仅五天后，在全公司上下的反抗浪潮中，董事会便重新迎回了他。和黄仁勋一样，奥特曼也是声名显赫的联合创始人。他是公司的门面，也是外界普遍认为对公司成功居功至伟的人物。至于奥特曼的种种缺点乃至不当行为，人们似乎都认为，那些问题与他创造股东价值的能力无关，可以退居次要位置。",
+        "当然，因与员工发生恋情而受到惩处的高管并非只有这一例。麦当劳于2019年因此解雇了首席执行官；英特尔首席执行官则在2018年因未披露与下属的关系而辞职；波音也曾于2006年因类似问题将首席执行官赶下台。如今，国家安全方面的隐忧更为这场风波增添了一层紧迫性。黄仁勋究竟对Megaspeed——这家据称由间谍任职、且自2024年起便受到美国商务部调查的公司——了解多少，目前仍在调查之中。投资者的愤怒已达到一定程度，甚至有人因这场风波起诉英伟达。",
+        "并非所有人都支持黄仁勋东山再起。美国财政部长斯科特·贝森特曾表示，他希望英伟达从公司外部选任一位新CEO；也有一些国会议员反对黄仁勋回归。但那些主张让他复职的人，却在兜售一种危险的叙事：任何单一领导者的不可或缺性。知名投资人Balaji Srinivasan今天写道：“可以说，从美国国家安全的角度出发，立即让这位AI领域最重要的人物重返全球顶尖AI公司的掌舵位置，已刻不容缓。”至于英伟达在黄仁勋领导下是否曾让美国最大的经济竞争对手获得顶尖计算芯片，他似乎并不在意。将整个企业的命运系于一个人的成败之上，本身就伴随着极端风险；而黄仁勋的辩护者，却对此视而不见。",
+    ],
+    "20261120": [
+        "在人类与机器之间的界限日益模糊的今天，《剑桥词典》将其年度词汇的桂冠颁给了自然智能——“人类”（human）。人工智能领域的一系列突破，尤其是三年前ChatGPT的问世，让“人究竟何以为人”这一问题再次变得棘手。而在评选2026年度词汇时，《剑桥词典》却划定了一条清晰的边界：它指的是“具有人的品质、缺点和情感，有别于神、动物或机器”。",
+        "人工智能的飞速发展引起了大家的疑问：计算机是否也能拥有意识？包括进化生物学家理查德·道金斯在内的一些人对此给出了肯定的回答。道金斯表示，自己“强烈地感受到它们就是人类”。而持怀疑态度的人则认为，人脑的演化方式与人工智能系统的构建过程之间，还是存在着天壤之别。",
+        "《剑桥词典》表示，在聊天机器人时代，“human”一词的含义及其使用方式变得愈发重要。该词典编辑科林·麦金托什说，人工智能正在“改变着我们谈论身为人类的方式”，也使得人们越来越多地借助这个词，将人类的工作与先进计算机系统的成果区分开来。",
+        "他说：“当我们把思考的工作外包出去时，人类究竟会失去什么？这种担忧促使我们重新审视自己对人工智能的依赖程度。从顶尖数学家到幼儿教师，都在思考这个问题。近期，诸如‘human-made（人类制造的）’这样的复合词明显增多，这也凸显出‘human’一词正被用来标明某种作品或品质出自人类，而非人工智能。”人工智能又一次将我们带回那些延续了数千年的追问：我们是谁？何以为人？这些问题的答案从来不是一成不变的，但不断提出这些问题，本身就是我们人类共同拥有的特质。",
+        "入围年度词汇候选名单的还有其他几个与科技相关的词汇。其中一个是“agent”，即能够在没有人类控制的情况下自主运行的人工智能系统，有时其自主程度甚至令人不安。另一个是“analogues”，指与数字技术相对的非数字化活动。还有一个与科技无关的候选词：“wholesome”，用来形容那些可能在身体、道德或情感层面让生活变得更美好的事物。",
+        "本月早些时候，意为“胜过或盖过某人或某物”的网络俚语“mogging”被评为《柯林斯词典》年度词汇。科技相关的新词也成为《剑桥词典》新增词条中的一大亮点。“looksmaxxing”指通过各种方式让自己在外形上尽可能具有吸引力，这个词与网络男性圈（manosphere）文化联系密切；另一个词是“aura farming”，同样常见于社交媒体，指“有意识地通过某些行为展现一种令人欣赏、觉得有魅力且有趣的个性”。",
+        "我们竟然需要如此明确地重申，这本身就足以说明，科幻般的现实正以多么惊人的速度向我们逼近。或许，语言是我们所能采取的最好抵抗；或许，只要我们足够频繁地说出“人类”这个词，机器人就无法将我们取而代之。",
+        "人们或许是在工作时拖延正事，顺手进行了其中一些搜索，同时忧心忡忡地思量着：再过八个月或十个月，自己的工作岗位是否还会存在。也可能是在一个个辗转难眠的深夜里，人们被人工智能创造者发出的警告所困扰。这些创造者自己也曾预言：无论他们的产品未来能在消灭疾病、帮助人们在感恩节期间找到廉价机票等方面发挥多大作用，最终都可能将整个文明夷为平地。",
+        "我们当然可以将这些忧虑一并纳入考量，但与此同时，也不妨承认：在过去这一年里，真实生活凭借其鲜活的肉身，同样赢得了一场又一场胜利。冬季奥运会、世界杯。春天，教皇Leo十四世发布了他的首篇通谕《壮丽的人性》（Magnifica Humanitas），将人工智能的危险作为主题，并谴责人工智能的能力“完全局限于数据处理”。他警告说：“所谓的人工智能不会经历生活，不拥有身体，不会感受喜悦或痛苦，不会在关系中逐渐成熟，也无法从内心真正理解爱、工作、友谊或责任意味着什么。”在这份通谕中，“human”一词出现了370多次。",
+        "即便人工智能已经展现出模拟并提升人类某些成就的能力，与此同时，它在复制人类独有的社会性荒唐行为方面，却几乎毫无建树。而恰恰是这些荒唐行径，将我们联结在一起，让我们忍不住为之发笑。今年，世界见证了人工智能解决那些困扰数学界多年的问题。然而，紧接着发生的英伟达丑闻，却又将人类世界的人情纠葛与人际戏剧，呈现在世人面前。",
+        "假如一位科技高管由人工智能生成，他或许能把芯片制造这件事做得更加出色。可如果他遇上一位魅力非凡的女商人，而美国情报部门早已认定此人是一名间谍，这样一位人工智能掌舵者又会作何反应？他会不会也落入对方设下的圈套，最终拜倒在她的魅力之下？还是会在察觉到一丝诱惑的苗头时，便立刻将她铐起来并报警，从而让世人错失一场堪称为《继承之战》第二季量身打造的惊天丑闻？这其中的讽刺意味，实在令人无法抗拒。作为硅谷的掌舵者，黄仁勋最终却以一种近乎古希腊悲剧人物提厄斯忒斯，或美国政坛人物加里·哈特的方式跌落神坛。人类的判断力往往拙劣甚至荒唐——人会因为欲望、冲动和内心的煎熬而犯错。也许，恰恰是这些弱点，才最能定义我们何以为人。",
+    ],
+    "20261121": [
+        "自2月28日以来，伊朗一直在中东乃至欧洲各地袭击基础设施，目标从机场、军事基地，到炼油厂和输油管道，无所不包。上个月，它甚至将矛头对准了另一个国家的重要资产：法国的奶酪供应。法国有关部门指责伊朗发动了一场网络攻击，导致数百家超市的冰箱变成了烤箱，价值数百万欧元的食品因此变质。（伊朗否认与此事有关。）11月2日，欧洲其他国家也遭遇了类似的网络攻击。",
+        "战争爆发至今已近九个月，美国与伊朗的冲突仍陷于僵局。双方时而发动袭击，时而试图通过扰乱霍尔木兹海峡的航运来打击对方经济。双方都声称已经做好了打持久战的准备，但事实上，谁也不愿意让战争长期持续下去。美国和伊朗面临着相似的战略困境：双方都希望打破僵局，却都缺乏实现这一目标的手段。于是，这场军事行动逐渐演变成一场以骚扰为主的拉锯战——就包括袭击冰箱。",
+        "特朗普甚至将这种困境公开摆上台面。在中期选举前夕，他曾威胁要对伊朗发动新一轮军事打击。然而，如他的将领们所提议的那样，对伊朗基础设施实施几天空袭，这恐怕不足以将其政权逼至崩溃边缘。11月9日，在与卡塔尔首相会谈后，特朗普似乎有所退让，称升级冲突“似乎并非什么必要之举”。",
+        "几天后，他又下令副总统J.D.万斯退出谈判。特朗普在社交媒体上写道：“我们不需要与伊朗达成协议。那样的日子早就一去不复返了。”伊朗政权在谈判中确实表现出了一定的灵活性，但它仍然希望达成一份明显有利于自己的协议。因此，眼下的特朗普似乎更愿意寄希望于经济压力能够迫使伊朗屈服。然而，这一策略的代价十分高昂：美国航空母舰被牵制在中东，无法调往太平洋；海湾地区的盟友则被拖入经济衰退；与此同时，这场战争还在持续成为共和党的沉重负担。",
+        "在公开场合，伊朗官员依然态度强硬：要么按照伊朗自己的条件达成协议，要么就继续打下去。但一场旷日持久的战争绝对令人痛苦。美国的海上封锁已使伊朗原油出口大幅萎缩。一名官员透露，伊朗正在起草下一财年的预算，甚至假设石油收入将降至零——而石油收入通常约占伊朗财政总收入的三分之一。然而，对于如何打破当前僵局，伊朗政权同样拿不出什么好办法。",
+        "伊朗的战争策略已经历了三个阶段。第一阶段发生在3月和4月，当时伊朗向海湾国家发射了数千枚导弹和无人机。整个夏季，它将火力重点转向了驻扎在巴林、科威特和约旦的美军基地。自9月以来，它又进一步升级行动，开始加大对商业航运的袭击力度。",
+        "如今，德黑兰的一些强硬派正在鼓吹开启第四阶段行动，而且破坏性将更大。他们主张“应该变得更像以色列”，在海外实施暗杀和破坏活动。一名伊朗学者如此说道。然而，伊朗政权在美国境内执行此类行动的历史表现并不光彩。2011年，伊朗曾试图刺杀沙特驻华盛顿大使，却雇用了一名二手车销售员来实施行动，而此人竟试图与一名卧底线人商议这桩暗杀交易。",
+        "美国有线电视新闻网（CNN）11月16日援引美国官员的话报道称，伊朗正在“制定计划”，准备在华盛顿引爆一枚脏弹。不过，华盛顿的大多数伊朗问题观察人士很快便对此说法表示怀疑。即便真的通过放射性物质污染华盛顿，也不可能迫使特朗普结束战争；恰恰相反，这只会让局势朝着更加危险的方向发展。其他破坏性较小的行动也同样难以奏效，例如重新对海湾国家发动大规模袭击，或者试图击沉一艘美国航空母舰——目前美国在该地区部署的航母已有三艘。",
+        "对伊朗而言，和特朗普一样，眼下似乎也只剩下维持现状这一条路。过去一周，伊朗对巴林发动了三次无人机袭击。这类针对军事基地的零星打击，所能带来的收益微乎其微。伊朗或许能够让美国付出代价，却无法将美国逐出这一地区。就连它手中的霍尔木兹海峡这张王牌，威力也已不如从前。10月，伊朗至少袭击了37艘船只，高于9月的14艘，创下战争爆发以来单月袭船数量的最高纪录。",
+        "然而，途经霍尔木兹海峡的石油运输量依然维持在较高水平。数据公司Vortexa的统计显示，上个月海湾地区的石油出口量为每天1,710万桶，虽然较9月略有下降，但仍相当于战前水平的四分之三左右。国际能源署表示，石油市场正在重新回归供应过剩的局面。本月在休斯敦举行的一场会议上，一些能源企业高管甚至开始谈论：2027年原油市场可能出现供应过剩。",
+        "当然，市场距离恢复正常还差得很远。柴油和航空燃油价格仍高得惊人，航运费率也居高不下。如今，从美国墨西哥湾沿岸租用一艘油轮，将原油运往中国，其成本甚至超过发射一枚猎鹰9号火箭进入太空的费用。然而，这一切似乎都不足以动摇特朗普。中期选举既已落幕，他对油价上涨的敏感程度或许还会进一步降低。",
+        "于是，这场僵局仍在无休止地延续。美国将继续收紧海上封锁，伊朗则可能尝试发动更多网络攻击。近期，美国的银行、电子邮件服务和空中交通管制系统接连出现计算机故障。华盛顿官员表示，这些事件只是独立的系统故障，目前没有证据表明伊朗参与其中。尽管如此，这些故障依然暴露出美国的脆弱之处。双方都没有能力结束这场战争，却都有能力让它继续僵持下去。■",
+    ],
 }
 
 TITLE_VOCAB_TERMS_OVERRIDES_BY_DATE: dict[str, str] = {
@@ -1731,6 +1783,74 @@ ARTICLE_GUIDES: dict[str, dict[str, str]] = {
             "Some people ask why humans should explore space when Earth has many problems. The writer thinks this creates a false choice. Technology never has a final form, and new systems can completely change how we see the world. Human beings sometimes accept harmful technology too easily, but our ability to adapt also helps us achieve things that once seemed impossible."
         ),
     },
+    "20261118": {
+        "pet_index": "04",
+        "overview": (
+            "文章以现代生活越来越像科幻小说开篇，列出自动驾驶、失控的人工智能、人形机器人和减肥药等变化，随后提出2027年最值得关注的十个趋势。第一组趋势集中在政治和战争：中期选举后美国将进入接班竞争，特朗普仍会努力维持影响力；伊朗战争则难有干净结局，并将继续影响能源、粮食和地区秩序。"
+            "第二组趋势关注气候与人工智能。超级厄尔尼诺可能让2027年成为有记录以来最热的一年。人工智能行业面临债务、网络攻击和供应链风险，但作者认为，大规模失业和数据中心耗尽能源等流行担忧，目前并没有足够数据支持。"
+            "欧洲政治和金融压力也会升高。勒庞可能赢得法国总统大选，冲击法德合作并放大法国债务问题。与此同时，政府挥霍、人工智能基础设施建设和能源通胀共同推高融资成本，债券市场的压力迟早会在某处引发断裂。"
+            "文章还讨论军事技术、减肥药和太空产业。廉价技术让小国更有能力抵御大国；减肥药改变了消费习惯，也推动药企研究延寿疗法；SpaceX和中国火箭企业降低发射成本，为私人空间站乃至轨道数据中心创造条件。"
+            "最后，作者观察好莱坞经典系列回归，并借《星球大战》连接全文：廉价飞行器挑战军事强国、机器人自主行动、数据失窃造成灾难，这些科幻情节都越来越像现实。文章的核心判断是，现实正在追上科幻，而2027年将是快速变化、充满不确定性的一年。"
+        ),
+        "pet": (
+            "Modern life can feel like science fiction. Cars drive themselves, AI models act in surprising ways, robots look more human and new drugs help people lose weight. The article introduces ten important trends to watch in 2027. The first trends concern politics and war. After the US midterm elections, politicians will begin to compete to replace Donald Trump. The war with Iran will probably continue and affect energy, food and regional politics. "
+            "Climate and AI will also be important. A very strong El Niño may make 2027 the hottest year ever recorded. AI companies may face debt problems, cyber-attacks and risks in their supply chains. However, the writer says there is not yet enough evidence that AI will cause huge job losses or use too much of the world's energy and water. "
+            "Europe may face political and financial trouble. Marine Le Pen could win the French presidential election, which would weaken cooperation between France and Germany. Governments, AI companies and higher energy prices are all increasing the cost of borrowing. The writer believes that this pressure cannot continue forever. "
+            "Technology is changing war because smaller countries can use cheap tools to resist stronger enemies. Weight-loss drugs are changing how people spend money and are making drug companies interested in longer life. Cheaper rockets may also create private space stations and even data centres in space. "
+            "The article ends with Hollywood and Star Wars. Stories about small aircraft defeating a military power, robots making their own choices and stolen data causing disaster now seem close to real life. The main message is that reality is catching up with science fiction, and 2027 will be exciting but uncertain."
+        ),
+    },
+    "20261119": {
+        "pet_index": "04",
+        "overview": (
+            "文章从黄仁勋公开表示愿意重返英伟达写起，但董事会明确称暂不考虑重新聘用他。尽管婚外情、疑似间谍和上下级关系等问题通常足以终结一名高管的职业生涯，马斯克、投资者和科技公司创始人仍公开支持他，大量员工和公众也签署请愿书要求他复职。"
+            "支持者认为，黄仁勋亲自促成许多依靠信誉和关系达成的合作，失去他会让英伟达流失人才和重要交易。作者指出，这种声援恰恰说明黄仁勋在公司及整个经济体系中的影响力已经大到异常。"
+            "英伟达的芯片支撑人工智能产业，其股价大跌曾引发约1.5万亿美元抛售，因此公司被形容为“具有系统重要性”。然而，把公司的稳定建立在一位领导者身上，不是优势而是风险。黄仁勋越被认为不可替代，英伟达的治理问题就越严重。"
+            "文章把这一现象放进硅谷的“天才创始人”神话中，并以奥特曼被OpenAI解雇后迅速复职为例。与此同时，麦当劳、英特尔和波音都曾因高管与员工关系而追责，说明商业能力不能自动取消行为准则，尤其当事件还涉及国家安全和信息披露调查时。"
+            "最后，作者承认并非所有政商人物都支持黄仁勋回归，并反对用国家安全为其复职辩护。一个领导者若真的“大到不能倒”，公司就更应该建立可靠的继任与监督机制；把企业命运和人工智能产业的稳定系于一个人，才是这场争论暴露出的最大危险。"
+        ),
+        "pet": (
+            "Jensen Huang said that he would be honoured to return to Nvidia, but the board said it was not planning to bring him back. Huang had been removed after reports about relationships with three women, including a suspected spy and an employee who reported to him. For most executives, such news would end a career. However, many powerful people in technology still support Huang. "
+            "Elon Musk and other business leaders say Huang personally arranged important deals. Investors and many employees also signed a petition asking for his return. They fear that Nvidia could lose key workers and business relationships without him. The writer says this support shows how much power Huang has over Nvidia and the wider economy. "
+            "Nvidia's chips are central to the AI industry. When its share price fell, about $1.5 trillion was sold from the market. This makes Nvidia a systemically important company. Yet the writer argues that depending on one leader is a weakness, not a strength. If Huang seems impossible to replace, Nvidia has a serious management problem. "
+            "Silicon Valley often tells stories about genius founders who cannot be replaced. Sam Altman returned to OpenAI only five days after its board removed him. But other large companies have punished leaders for relationships with workers. The Nvidia case is even more serious because it may involve national security and rules about information for investors. "
+            "Some politicians and business leaders do not want Huang to return. The writer agrees with them. A company as important as Nvidia should have strong leadership plans and proper control. Making one person responsible for the future of a company and a whole industry creates an extreme risk."
+        ),
+    },
+    "20261120": {
+        "pet_index": "04",
+        "overview": (
+            "文章围绕《剑桥词典》把human评为2026年度词汇展开。在人工智能与人类边界越来越模糊的背景下，词典用“拥有人的品质、缺点和情感”明确区分人、神、动物和机器，也回应了计算机能否获得意识的争论。"
+            "词典编辑指出，人工智能改变了人们谈论“何以为人”的方式。human-made等复合词越来越常见，因为人们需要标明作品和劳动出自人类而不是机器。不断追问“我们是谁”，本身也被文章视为人类共有的特质。"
+            "其他候选词同样反映时代变化，包括能够自主行动的AI agent、代表非数字生活的analogue，以及有益身心的wholesome。文章还介绍mogging、looksmaxxing和aura farming等网络流行语，说明技术与社交媒体正在迅速创造新的表达。"
+            "作者并不只强调焦虑。虽然人们担心工作被取代、人工智能毁灭文明，现实生活仍以体育、宗教和身体经验证明自己的力量。教皇Leo十四世在通谕中强调，人工智能没有身体、喜悦、痛苦、友谊和责任体验。"
+            "结尾借英伟达丑闻说明人工智能很难复制人类特有的荒唐与戏剧性。人会因为欲望、冲动和糟糕判断而犯错，而这些缺点也可能正是“人性”的一部分。human成为年度词汇，因此既是一种防御，也是一场关于人类身份的重新讨论。"
+        ),
+        "pet": (
+            "Cambridge Dictionary chose 'human' as its word of the year for 2026. AI is making the line between people and machines less clear. The dictionary defines human as having the qualities, faults and feelings of people, unlike gods, animals or machines. Scientists still disagree about whether computers can become conscious. "
+            "The word human is now used more often to separate people's work from AI work. New expressions such as 'human-made' show this change. The article says that humans have asked who they are for thousands of years. The answer changes, but asking the question is something people share. "
+            "Other words on the list also reflect modern life. An AI 'agent' can work without human control. 'Analogue' activities happen away from digital technology, while 'wholesome' things improve life. Internet words such as 'mogging', 'looksmaxxing' and 'aura farming' show how social media creates new language. "
+            "Many people fear that AI will take their jobs or even destroy civilisation. However, real physical life also had many successes this year. Pope Leo XIV wrote that AI has no body and cannot truly feel joy, pain, love, friendship or responsibility. "
+            "The article ends with a humorous point. AI can solve difficult maths problems, but it cannot easily copy the strange social mistakes humans make. The Nvidia scandal shows how desire and poor judgement can create real drama. Our weaknesses may be part of what makes us human."
+        ),
+    },
+    "20261121": {
+        "pet_index": "04",
+        "overview": (
+            "文章从伊朗涉嫌攻击法国超市制冷系统写起：冰箱升温导致大量食品变质。这个看似荒诞的事件反映了美伊战争的新状态——双方在近九个月后仍无法取胜，也不愿停止，只能通过零星军事打击、网络攻击和霍尔木兹海峡的经济扰乱彼此施压。"
+            "特朗普曾威胁扩大空袭，却知道几天轰炸不足以推翻伊朗政权；谈判也因为双方都要求有利条件而停滞。他转而期待经济压力迫使伊朗让步，但美国航母被困在中东、海湾盟友陷入衰退，战争也已成为共和党的政治负担。"
+            "伊朗同样承受严重压力。海上封锁压低石油收入，政府甚至按零石油收入准备预算。其战争策略从打击海湾国家，转向美军基地和商业航运；部分强硬派还主张海外暗杀、破坏或“脏弹”行动，但作者认为这些行动既难执行，也不可能迫使美国退战。"
+            "双方因此只能维持现状。伊朗的无人机袭击无法赶走美国，对霍尔木兹海峡的攻击也没有切断石油运输。海湾出口仍维持战前三分之二以上，市场甚至重新讨论2027年供应过剩；不过柴油、航空燃油和航运价格依然很高。"
+            "文章最后预测，美国会继续加强封锁，伊朗可能增加网络攻击。近期美国银行、邮件和空管系统虽被认定为独立故障，却暴露了可被利用的脆弱性。全文的结论是：双方都没有结束战争的能力，却都有让战争持续、让对方不断付出小额代价的能力。"
+        ),
+        "pet": (
+            "Iran has attacked infrastructure across the Middle East and Europe. France says an Iranian cyber-attack made supermarket refrigerators become hot and destroyed food. This strange event shows the new form of the war between America and Iran. After almost nine months, neither side can win or wants to stop. "
+            "Donald Trump has threatened new air strikes, but a few days of bombing would probably not destroy the Iranian government. Talks have also stopped because both sides want a deal in their own favour. Trump hopes economic pressure will make Iran give up, but American ships remain in the Middle East and the war hurts US politics. "
+            "Iran is also suffering. The American blockade has reduced its oil exports, and officials are preparing for a year with no oil income. Iran has attacked Gulf countries, American bases and commercial ships. Some hardliners want assassinations or a dirty bomb, but the article says these plans would be difficult and would not end the war. "
+            "Both sides are therefore keeping the present situation. Iran can make America pay a price, but it cannot remove American forces from the region. Attacks in the Strait of Hormuz have not stopped most oil exports. Oil supply may even become too high again in 2027, although fuel and shipping are still expensive. "
+            "America will probably tighten its blockade, while Iran may try more cyber-attacks. Recent computer failures in American banks, email services and air traffic control were not linked to Iran, but they showed possible weaknesses. Neither side can finish the war, but both can keep it going."
+        ),
+    },
 }
 
 
@@ -2039,6 +2159,28 @@ VOCAB_FALSE_POSITIVES = {
     "dismal conditions",
     "abject poverty",
     "a high",
+    # 20261118-20261121: slash-separated examples and placeholder phrases
+    # belong to the preceding real cards; they are not standalone headwords.
+    "to come next after sb",
+    "to loosen",
+    "fend sb",
+    "draw a firm line with sb",
+    "a leading",
+    "impressive or noticeable than sb",
+    "to undergo tests",
+    "fall for sb",
+    "reduce sb",
+    "bring sb",
+    "a steep hill",
+    "a naval base",
+    "to draft a constitution",
+    "an act of economic",
+}
+
+VOCAB_FALSE_POSITIVES_BY_DATE: dict[str, set[str]] = {
+    # 20261118 uses "air/naval/guerrilla warfare" as an example inside the
+    # warfare card. In 20261121, by contrast, "air" is a real verb card.
+    "20261118": {"air"},
 }
 
 
@@ -3373,6 +3515,37 @@ VOCAB_CORRECTIONS_BY_DATE: dict[str, dict[str, dict[str, str]]] = {
             "example": "Resilience can dull our sense of wonder. 韧性也可能磨钝我们的惊奇感。",
         },
     },
+    "20261118": {
+        "rogue": {"definition": "行为失常的；不受控制的", "definition_en": "behaving unpredictably or dangerously outside normal control", "example": "AI models may go rogue. 人工智能模型可能会失控。"},
+        "furiously": {"definition": "拼命地；迅速而激烈地", "definition_en": "with great speed, energy or effort", "example": "He worked furiously to retain his influence. 他拼命维持自己的影响力。"},
+        "aftershock": {"definition": "余波；后续影响", "definition_en": "a continuing effect of an important or damaging event", "example": "The aftershocks of the war will continue in 2027. 战争的余波将在2027年持续。"},
+        "spanner": {"definition": "造成麻烦的因素；障碍", "definition_en": "something that disrupts a plan or process", "example": "The election could throw a spanner into European cooperation. 这场选举可能打乱欧洲合作。"},
+        "heighten": {"definition": "加剧；提高；增强", "definition_en": "to increase or make something stronger", "example": "The result could heighten concern about public finances. 这一结果可能加剧对公共财政的担忧。"},
+        "humble": {"definition": "使受挫；使威风扫地", "definition_en": "to defeat or embarrass someone powerful", "example": "Cheap craft can humble a military superpower. 廉价飞行器也能让军事强国受挫。"},
+        "craft": {"definition": "飞行器；航天器；船只", "definition_en": "a vehicle used in the air, in space or on water", "example": "Small, inexpensive craft can challenge a superpower. 小型廉价飞行器能够挑战强国。"},
+    },
+    "20261119": {
+        "liability": {"definition": "负担；不利因素", "definition_en": "a person or thing that causes problems or disadvantages", "example": "Dependence on one leader is a liability. 依赖单一领导者是一种负担。"},
+        "reckoning": {"definition": "反思；清算；直面后果", "definition_en": "a time when actions are judged and their consequences faced", "example": "The scandal should prompt a reckoning over leadership risk. 这场丑闻应促使人们反思领导层风险。"},
+        "lingo": {"definition": "行业术语；行话", "definition_en": "special words used by a particular group or profession", "example": "Systemically important is financial-industry lingo. “具有系统重要性”是金融行业术语。"},
+        "deference": {"definition": "顺从；听从；尊重", "definition_en": "polite respect and willingness to accept another person's judgment", "example": "The board has shown too much deference to Huang. 董事会对黄仁勋过于顺从。"},
+        "narrative": {"definition": "叙事；对事件的解释框架", "definition_en": "a story or explanation used to present events in a particular way", "example": "His defenders are selling a dangerous narrative. 他的辩护者正在兜售一种危险叙事。"},
+    },
+    "20261120": {
+        "analogue": {"definition": "非数字化活动；与数字技术相对的事物", "definition_en": "a non-digital activity or thing contrasted with digital technology", "example": "Reading a paper book is an analogue activity. 阅读纸质书是一种非数字活动。"},
+        "simulate": {"definition": "模拟；仿真；模仿", "definition_en": "to imitate a process, experience or achievement", "example": "AI can simulate some human achievements. 人工智能能够模拟人类的部分成就。"},
+        "folly": {"definition": "愚蠢；荒唐行为", "definition_en": "a foolish action or lack of good judgment", "example": "Human folly can produce extraordinary drama. 人类的愚蠢会制造非同寻常的戏剧。"},
+        "out of": {"definition": "出于（某种原因、情感或动机）", "definition_en": "because of a particular feeling, reason or motive", "example": "People sometimes act out of desire. 人有时会出于欲望而行动。"},
+    },
+    "20261121": {
+        "tanker": {"definition": "油轮；液体运输船", "definition_en": "a large ship used for transporting oil or other liquids", "example": "Iran attacked dozens of tankers in the strait. 伊朗在海峡袭击了数十艘油轮。"},
+        "air": {"definition": "公开表达；公开提出", "definition_en": "to express an opinion or problem publicly", "example": "Trump aired his dilemma in public. 特朗普公开谈论了自己的困境。"},
+        "content": {"definition": "满足于；愿意接受", "definition_en": "willing to accept a situation or course of action", "example": "Trump seems content to rely on economic pressure. 特朗普似乎愿意依靠经济压力。"},
+        "steep": {"definition": "高昂的；巨大的", "definition_en": "very high or greater than expected", "example": "The strategy carries a steep cost. 这一策略代价高昂。"},
+        "take": {"definition": "收入；收益额", "definition_en": "money received from an activity or business", "example": "Oil normally makes up a third of the government's take. 石油通常占政府收入的三分之一。"},
+        "muse": {"definition": "若有所思地说；思考", "definition_en": "to think about or comment on something thoughtfully", "example": "Executives mused about an oil glut in 2027. 高管们开始思考2027年是否会出现石油过剩。"},
+        "sway": {"definition": "影响；动摇；说服", "definition_en": "to influence or persuade someone", "example": "High fuel prices may not sway Trump. 高燃油价格可能也无法动摇特朗普。"},
+    },
 }
 
 
@@ -3591,7 +3764,7 @@ def extract_vocabulary(text: str, issue_date: str = "") -> list[dict[str, str]]:
     for match in phonetic_matches:
         term = re.sub(r"\s+", " ", match.group(1)).strip()
         key = term.lower()
-        if key in seen or key in VOCAB_FALSE_POSITIVES or key.startswith(("page ", "para ")) or len(term) < 2:
+        if key in seen or key in VOCAB_FALSE_POSITIVES or key in VOCAB_FALSE_POSITIVES_BY_DATE.get(issue_date, set()) or key.startswith(("page ", "para ")) or len(term) < 2:
             continue
         seen.add(key)
         body = match.group(4).strip()
@@ -3628,7 +3801,7 @@ def extract_vocabulary(text: str, issue_date: str = "") -> list[dict[str, str]]:
     for match in no_phonetic_matches:
         term = re.sub(r"\.$", "", re.sub(r"\s+", " ", match.group(1)).strip())
         key = term.lower()
-        if key in seen or key in VOCAB_FALSE_POSITIVES or key.startswith(("page ", "para ")) or len(term) < 2:
+        if key in seen or key in VOCAB_FALSE_POSITIVES or key in VOCAB_FALSE_POSITIVES_BY_DATE.get(issue_date, set()) or key.startswith(("page ", "para ")) or len(term) < 2:
             continue
         seen.add(key)
         body = match.group(3).strip()
@@ -3663,7 +3836,7 @@ def extract_vocabulary(text: str, issue_date: str = "") -> list[dict[str, str]]:
     for match in VOCAB_NO_POS_PATTERN.finditer(normalized):
         term = re.sub(r"\s+", " ", match.group(1)).strip()
         key = term.lower()
-        if key in seen or key in VOCAB_FALSE_POSITIVES or key.startswith(("page ", "para ")) or len(term) < 2:
+        if key in seen or key in VOCAB_FALSE_POSITIVES or key in VOCAB_FALSE_POSITIVES_BY_DATE.get(issue_date, set()) or key.startswith(("page ", "para ")) or len(term) < 2:
             continue
         phonetic = match.group(2).strip()
         if re.search(r"[\u4e00-\u9fff]", phonetic):
@@ -3701,7 +3874,7 @@ def extract_vocabulary(text: str, issue_date: str = "") -> list[dict[str, str]]:
     for match in VOCAB_NO_POS_PHRASE_PATTERN.finditer(normalized):
         term = re.sub(r"\s+", " ", match.group(1)).strip()
         key = term.lower()
-        if key in seen or key in VOCAB_FALSE_POSITIVES or key.startswith(("page ", "para ")) or len(term) < 2:
+        if key in seen or key in VOCAB_FALSE_POSITIVES or key in VOCAB_FALSE_POSITIVES_BY_DATE.get(issue_date, set()) or key.startswith(("page ", "para ")) or len(term) < 2:
             continue
         seen.add(key)
         body = match.group(2).strip()

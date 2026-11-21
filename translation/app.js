@@ -1,3 +1,423 @@
+const november18Exercises = [
+  {
+    chinese: "中期选举尘埃落定后，接班特朗普的竞争将开始。",
+    answer: "As the dust settles after the midterms, the race to succeed Trump will begin.",
+    core: "as the dust settles",
+    meaning: "随着尘埃落定",
+    vocabulary: [
+      { word: "midterm", ipa: "/ˈmɪdtɜːrm/", meaning: "中期选举" },
+      { word: "succeed", ipa: "/səkˈsiːd/", meaning: "接替；继任" },
+      { word: "race", ipa: "/reɪs/", meaning: "竞争；角逐" }
+    ],
+    keywords: "随着尘埃落定 as the dust settles · 中期选举后 after the midterms · 接班竞争 the race to succeed · 将开始 will begin",
+    frame: "As the dust settles ..., the race to ... will begin.",
+    note: "as 引出时间/伴随状语从句；to succeed Trump 修饰 race。",
+    analysis: "找谓语：settles / will begin。as 标出状语从句；主句骨架是 the race + will begin，to succeed Trump 是后置定语。",
+    grammarLinks: [{ label: "状语从句", href: "/grammar/chapter-12.html#adverbial" }, { label: "定语的位置", href: "/grammar/chapter-05.html#position" }],
+    source: "As the dust settles from the midterms, the race to succeed Donald Trump will begin."
+  },
+  {
+    chinese: "伊朗战争将继续影响能源、粮食和地区政治。",
+    answer: "The war with Iran will continue to affect energy, food and regional politics.",
+    core: "continue to",
+    meaning: "继续做……",
+    vocabulary: [
+      { word: "affect", ipa: "/əˈfekt/", meaning: "影响" },
+      { word: "regional", ipa: "/ˈriːdʒənəl/", meaning: "地区的" },
+      { word: "politics", ipa: "/ˈpɑːlətɪks/", meaning: "政治" }
+    ],
+    keywords: "伊朗战争 the Iran war · 将继续 will continue to · 影响 affect · 能源 energy · 粮食 food · 地区政治 regional politics",
+    frame: "The war with ... will continue to affect ...",
+    note: "will continue to 表示未来仍将持续；三个宾语用逗号和 and 并列。",
+    analysis: "骨架为 The Iran war + will continue + to affect...；to affect 后并列 energy, food and regional politics。",
+    grammarLinks: [{ label: "非谓语的岗位", href: "/grammar/chapter-14.html#jobs" }, { label: "并列结构", href: "/grammar/chapter-13.html#parallel" }],
+    source: "Its effects will continue to ripple through regional politics, global energy flows and food security in 2027."
+  },
+  {
+    chinese: "人工智能的真实风险包括债务、网络攻击和供应链问题。",
+    answer: "The real risks of AI include debt, cyber-attacks and supply-chain problems.",
+    core: "include ... and ...",
+    meaning: "包括……和……",
+    vocabulary: [
+      { word: "debt", ipa: "/det/", meaning: "债务" },
+      { word: "cyber-attack", ipa: "/ˈsaɪbər ətæk/", meaning: "网络攻击" },
+      { word: "supply chain", ipa: "/səˈplaɪ tʃeɪn/", meaning: "供应链" }
+    ],
+    keywords: "真实风险 the real risks · 人工智能 of AI · 包括 include · 债务 debt · 网络攻击 cyber-attacks · 供应链问题 supply-chain problems",
+    frame: "The real risks of ... include ..., ... and ...",
+    note: "主语 risks 为复数，谓语用 include；三个名词短语保持并列。",
+    analysis: "骨架为 The real risks of AI（S）+ include（V）+ 三个并列宾语（O）。",
+    grammarLinks: [{ label: "五种基本句型", href: "/grammar/chapter-09.html#five" }, { label: "并列结构", href: "/grammar/chapter-13.html#parallel" }],
+    source: "AI firms take on more debt ... stronger models will lead to cyber-attacks ... supply chains face geopolitical risk."
+  },
+  {
+    chinese: "更高的利率正在挤压企业和家庭。",
+    answer: "Higher interest rates are squeezing companies and households.",
+    core: "squeeze ...",
+    meaning: "挤压……；使……承压",
+    vocabulary: [
+      { word: "interest rate", ipa: "/ˈɪntrəst reɪt/", meaning: "利率" },
+      { word: "squeeze", ipa: "/skwiːz/", meaning: "挤压" },
+      { word: "household", ipa: "/ˈhaʊshoʊld/", meaning: "家庭" }
+    ],
+    keywords: "更高利率 higher interest rates · 正在挤压 are squeezing · 企业 companies · 家庭 households",
+    frame: "Higher ... are squeezing ... and ...",
+    note: "现在进行时表示压力正在发生；companies 和 households 是并列宾语。",
+    analysis: "骨架为 Higher interest rates + are squeezing + companies and households，属于 SVO。",
+    grammarLinks: [{ label: "五种基本句型", href: "/grammar/chapter-09.html#five" }, { label: "进行时", href: "/grammar/chapter-15.html#continuous" }],
+    source: "Higher rates are also squeezing companies and households."
+  },
+  {
+    chinese: "发射成本下降将为私人空间站铺平道路。",
+    answer: "Lower launch costs will pave the way for private space stations.",
+    core: "pave the way for",
+    meaning: "为……铺平道路",
+    vocabulary: [
+      { word: "launch", ipa: "/lɔːntʃ/", meaning: "发射" },
+      { word: "pave", ipa: "/peɪv/", meaning: "铺设；铺平" },
+      { word: "station", ipa: "/ˈsteɪʃən/", meaning: "空间站；站点" }
+    ],
+    keywords: "更低发射成本 lower launch costs · 将铺平道路 will pave the way · 私人空间站 private space stations",
+    frame: "Lower ... will pave the way for ...",
+    note: "pave the way for 后接名词，表示为某事创造条件。",
+    analysis: "骨架为 Lower launch costs + will pave + the way；for private space stations 说明为谁或什么铺路。",
+    grammarLinks: [{ label: "介词搭配", href: "/grammar/chapter-06.html#phrase" }, { label: "五种基本句型", href: "/grammar/chapter-09.html#five" }],
+    source: "Lower launch costs will pave the way for private space stations."
+  },
+  {
+    chinese: "现实似乎已经追上了科幻。",
+    answer: "Reality seems to have caught up with science fiction.",
+    core: "catch up with",
+    meaning: "赶上……",
+    vocabulary: [
+      { word: "reality", ipa: "/riˈæləti/", meaning: "现实" },
+      { word: "science fiction", ipa: "/ˌsaɪəns ˈfɪkʃən/", meaning: "科幻小说；科幻" },
+      { word: "seem", ipa: "/siːm/", meaning: "似乎" }
+    ],
+    keywords: "现实 reality · 似乎 seems · 已经赶上 to have caught up with · 科幻 science fiction",
+    frame: "Reality seems to have caught up with ...",
+    note: "seem to have done 表示看起来某动作已经发生；catch up with 表示赶上。",
+    analysis: "主干为 Reality + seems；to have caught up with science fiction 是完成式不定式，说明看起来已经发生的事。",
+    grammarLinks: [{ label: "完成式不定式", href: "/grammar/chapter-14.html#perfect" }, { label: "介词搭配", href: "/grammar/chapter-06.html#phrase" }],
+    source: "It seems reality has caught up with sci-fi."
+  }
+];
+
+const november19Exercises = [
+  {
+    chinese: "尽管董事会拒绝让黄仁勋回归，许多科技领袖仍支持他。",
+    answer: "Even though the board refused to bring Jensen Huang back, many tech leaders still support him.",
+    core: "even though",
+    meaning: "尽管；虽然",
+    vocabulary: [
+      { word: "refuse", ipa: "/rɪˈfjuːz/", meaning: "拒绝" },
+      { word: "board", ipa: "/bɔːrd/", meaning: "董事会" },
+      { word: "support", ipa: "/səˈpɔːrt/", meaning: "支持" }
+    ],
+    keywords: "尽管 even though · 董事会 the board · 拒绝 refused · 让黄仁勋回归 bring Jensen Huang back · 科技领袖 tech leaders · 支持 support",
+    frame: "Even though ..., ... still ...",
+    note: "even though 引出让步状语从句；still 强调主句结果与预期相反。",
+    analysis: "找谓语：refused / support。even though 把第一套骨架标成让步状语；主句 many tech leaders still support him 表达反常结果。",
+    grammarLinks: [{ label: "让步状语从句", href: "/grammar/chapter-12.html#adverbial" }, { label: "逻辑关系", href: "/grammar/chapter-13.html#logic" }],
+    source: "Even so, many of Silicon Valley's most powerful figures are rallying to his support."
+  },
+  {
+    chinese: "黄仁勋的影响力从英伟达延伸到整个经济体系。",
+    answer: "Huang's influence extends from Nvidia to the wider economy.",
+    core: "from ... to ...",
+    meaning: "从……到……",
+    vocabulary: [
+      { word: "influence", ipa: "/ˈɪnfluəns/", meaning: "影响力" },
+      { word: "extend", ipa: "/ɪkˈstend/", meaning: "延伸" },
+      { word: "economy", ipa: "/ɪˈkɑːnəmi/", meaning: "经济体系" }
+    ],
+    keywords: "黄仁勋的影响力 Huang's influence · 延伸 extends · 从英伟达 from Nvidia · 到整个经济 the wider economy",
+    frame: "... extends from ... to ...",
+    note: "from...to...标明影响范围的起点和终点。",
+    analysis: "骨架为 Huang's influence（S）+ extends（V）；from Nvidia to the wider economy 是范围状语。",
+    grammarLinks: [{ label: "五种基本句型", href: "/grammar/chapter-09.html#five" }, { label: "介词短语", href: "/grammar/chapter-06.html#phrase" }],
+    source: "It is a reflection of the enormous sway he exerts over Nvidia and the broader economy."
+  },
+  {
+    chinese: "人工智能产业高度依赖英伟达的芯片。",
+    answer: "The AI industry depends heavily on Nvidia's chips.",
+    core: "depend on",
+    meaning: "依赖……",
+    vocabulary: [
+      { word: "industry", ipa: "/ˈɪndəstri/", meaning: "产业" },
+      { word: "depend", ipa: "/dɪˈpend/", meaning: "依赖" },
+      { word: "heavily", ipa: "/ˈhevɪli/", meaning: "在很大程度上" }
+    ],
+    keywords: "人工智能产业 the AI industry · 高度 heavily · 依赖 depends on · 英伟达芯片 Nvidia's chips",
+    frame: "... depends heavily on ...",
+    note: "depend on 是不可拆开的动词短语；heavily 修饰依赖程度。",
+    analysis: "骨架为 The AI industry + depends；heavily 是程度状语，on Nvidia's chips 是介词补充。",
+    grammarLinks: [{ label: "介词搭配", href: "/grammar/chapter-06.html#phrase" }, { label: "状语的位置", href: "/grammar/chapter-07.html#adverb" }],
+    source: "The AI industry, and in turn the broader US economy, is highly dependent on Nvidia's chips."
+  },
+  {
+    chinese: "许多人认为黄仁勋大到不能倒。",
+    answer: "Many people believe that Jensen Huang is too big to fail.",
+    core: "too ... to ...",
+    meaning: "太……而不能……",
+    vocabulary: [
+      { word: "believe", ipa: "/bɪˈliːv/", meaning: "认为；相信" },
+      { word: "fail", ipa: "/feɪl/", meaning: "失败；倒下" },
+      { word: "systemic", ipa: "/sɪˈstemɪk/", meaning: "系统性的" }
+    ],
+    keywords: "许多人 many people · 认为 believe · 黄仁勋 Jensen Huang · 大到不能倒 too big to fail",
+    frame: "Many people believe that ... is too ... to ...",
+    note: "that 引出宾语从句；too big to fail 是固定表达，意为重要到无法允许其倒下。",
+    analysis: "主句是 Many people + believe + that从句。从句为 Jensen Huang + is + too big；to fail 补充 big 的结果。",
+    grammarLinks: [{ label: "名词性从句", href: "/grammar/chapter-12.html#noun" }, { label: "非谓语的岗位", href: "/grammar/chapter-14.html#jobs" }],
+    source: "Huang is too big to fail."
+  },
+  {
+    chinese: "一家公司不应让单一领导者负责其全部成功。",
+    answer: "A company should not make one leader responsible for all its success.",
+    core: "be responsible for",
+    meaning: "对……负责；是……的原因",
+    vocabulary: [
+      { word: "responsible", ipa: "/rɪˈspɑːnsəbəl/", meaning: "负责的" },
+      { word: "leader", ipa: "/ˈliːdər/", meaning: "领导者" },
+      { word: "success", ipa: "/səkˈses/", meaning: "成功" }
+    ],
+    keywords: "一家公司 a company · 不应 should not · 让 make · 一个领导者 one leader · 负责 responsible for · 全部成功 all its success",
+    frame: "A company should not make ... responsible for ...",
+    note: "make + 宾语 + 形容词构成宾语补足语；responsible 后接 for。",
+    analysis: "骨架为 A company + should not make + one leader + responsible。for all its success 补充负责的对象。",
+    grammarLinks: [{ label: "宾语补足语", href: "/grammar/chapter-09.html#object-complement" }, { label: "介词搭配", href: "/grammar/chapter-06.html#phrase" }],
+    source: "This should be an opportunity to reflect on the dangers of concentrating so much in one CEO."
+  },
+  {
+    chinese: "把公司的命运系于一个人会带来极端风险。",
+    answer: "Tying a company's fate to one person creates an extreme risk.",
+    core: "tie ... to ...",
+    meaning: "把……与……绑在一起",
+    vocabulary: [
+      { word: "fate", ipa: "/feɪt/", meaning: "命运" },
+      { word: "extreme", ipa: "/ɪkˈstriːm/", meaning: "极端的" },
+      { word: "risk", ipa: "/rɪsk/", meaning: "风险" }
+    ],
+    keywords: "把公司命运系于 tying a company's fate to · 一个人 one person · 会带来 creates · 极端风险 an extreme risk",
+    frame: "Tying ... to ... creates ...",
+    note: "动名词短语 Tying... 作主语，因此谓语用第三人称单数 creates。",
+    analysis: "整个 Tying a company's fate to one person 是主语；creates 是谓语；an extreme risk 是宾语。",
+    grammarLinks: [{ label: "动名词作主语", href: "/grammar/chapter-14.html#subject" }, { label: "五种基本句型", href: "/grammar/chapter-09.html#five" }],
+    source: "Building an entire business around a single leader creates extreme risk."
+  }
+];
+
+const november20Exercises = [
+  {
+    chinese: "《剑桥词典》把人类的工作与人工智能的成果区分开来。",
+    answer: "Cambridge Dictionary distinguishes human work from the output of AI.",
+    core: "distinguish ... from ...",
+    meaning: "把……与……区分开",
+    vocabulary: [
+      { word: "distinguish", ipa: "/dɪˈstɪŋɡwɪʃ/", meaning: "区分；辨别" },
+      { word: "output", ipa: "/ˈaʊtpʊt/", meaning: "成果；产出" },
+      { word: "dictionary", ipa: "/ˈdɪkʃəneri/", meaning: "词典" }
+    ],
+    keywords: "剑桥词典 Cambridge Dictionary · 区分 distinguishes · 人类工作 human work · 人工智能成果 the output of AI",
+    frame: "... distinguishes ... from ...",
+    note: "distinguish A from B 表示把A与B区分开；主语为第三人称单数，谓语加-s。",
+    analysis: "找谓语：distinguishes。定骨架：Cambridge Dictionary（S）+ distinguishes（V）+ human work（O）；from...补充比较对象。",
+    grammarLinks: [{ label: "五种基本句型", href: "/grammar/chapter-09.html#five" }, { label: "介词短语", href: "/grammar/chapter-06.html#phrase" }],
+    source: "The word of the year is being deployed to distinguish our work from that of advanced computer systems."
+  },
+  {
+    chinese: "人工智能的发展引发了计算机能否拥有意识的问题。",
+    answer: "Advances in AI have raised the question of whether computers can achieve consciousness.",
+    core: "whether ... can ...",
+    meaning: "是否能够……",
+    vocabulary: [
+      { word: "advance", ipa: "/ədˈvæns/", meaning: "进展" },
+      { word: "achieve", ipa: "/əˈtʃiːv/", meaning: "实现；获得" },
+      { word: "consciousness", ipa: "/ˈkɑːnʃəsnəs/", meaning: "意识" }
+    ],
+    keywords: "人工智能进展 advances in AI · 引发 have raised · 问题 the question · 计算机是否能 whether computers can · 拥有意识 achieve consciousness",
+    frame: "... have raised the question of whether ... can ...",
+    note: "whether 引出同位内容，具体说明 question 是什么；现在完成时表示影响延续到现在。",
+    analysis: "主句骨架是 Advances + have raised + the question。of whether... 是介词后的名词性从句，内部骨架为 computers + can achieve + consciousness。",
+    grammarLinks: [{ label: "名词性从句", href: "/grammar/chapter-12.html#noun" }, { label: "完成时", href: "/grammar/chapter-15.html#perfect" }],
+    source: "AI advances have spurred questions about whether computers can achieve consciousness."
+  },
+  {
+    chinese: "人们重新思考自己在多大程度上依赖人工智能。",
+    answer: "People are reconsidering the extent to which they rely on AI.",
+    core: "rely on",
+    meaning: "依赖……",
+    vocabulary: [
+      { word: "reconsider", ipa: "/ˌriːkənˈsɪdər/", meaning: "重新考虑" },
+      { word: "extent", ipa: "/ɪkˈstent/", meaning: "程度" },
+      { word: "rely", ipa: "/rɪˈlaɪ/", meaning: "依赖" }
+    ],
+    keywords: "人们 people · 正在重新思考 are reconsidering · 程度 the extent · 在多大程度上 to which · 依赖人工智能 rely on AI",
+    frame: "People are reconsidering the extent to which ...",
+    note: "to which 引出定语从句，修饰 extent；rely on 中的介词 on 不可省略。",
+    analysis: "主句是 People + are reconsidering + the extent。to which they rely on AI 修饰 extent，其中 which 是介词 to 的宾语。",
+    grammarLinks: [{ label: "定语从句", href: "/grammar/chapter-12.html#relative" }, { label: "介词搭配", href: "/grammar/chapter-06.html#phrase" }],
+    source: "Fears about what humans may lose ... has made us reconsider the extent to which we rely on AI."
+  },
+  {
+    chinese: "“人造”强调作品来自人类，而不是人工智能。",
+    answer: "‘Human-made’ shows that a work comes from people, as opposed to AI.",
+    core: "as opposed to",
+    meaning: "而不是；与……相对",
+    vocabulary: [
+      { word: "human-made", ipa: "/ˌhjuːmən ˈmeɪd/", meaning: "人造的；由人类完成的" },
+      { word: "opposed", ipa: "/əˈpoʊzd/", meaning: "相对的；反对的" },
+      { word: "work", ipa: "/wɜːrk/", meaning: "作品；工作成果" }
+    ],
+    keywords: "人造 human-made · 表明 shows · 作品 a work · 来自人类 comes from people · 而非 as opposed to · 人工智能 AI",
+    frame: "... shows that ..., as opposed to ...",
+    note: "that 引出宾语从句；as opposed to 用于明确比较两种来源。",
+    analysis: "主句骨架为 Human-made + shows + that从句。从句骨架是 a work + comes；from people 与 as opposed to AI 形成对照。",
+    grammarLinks: [{ label: "名词性从句", href: "/grammar/chapter-12.html#noun" }, { label: "逻辑关系", href: "/grammar/chapter-13.html#logic" }],
+    source: "'Human-made' highlights how the word distinguishes works of people, as distinct from AI."
+  },
+  {
+    chinese: "也许语言能阻止机器人取代我们。",
+    answer: "Perhaps language can prevent robots from taking us away.",
+    core: "prevent ... from ...",
+    meaning: "阻止……做……",
+    vocabulary: [
+      { word: "perhaps", ipa: "/pərˈhæps/", meaning: "也许" },
+      { word: "prevent", ipa: "/prɪˈvent/", meaning: "阻止" },
+      { word: "robot", ipa: "/ˈroʊbɑːt/", meaning: "机器人" }
+    ],
+    keywords: "也许 perhaps · 语言 language · 能阻止 can prevent · 机器人 robots · 取代我们 from taking us away",
+    frame: "Perhaps ... can prevent ... from ...",
+    note: "prevent + 宾语 + from doing 是固定结构，from 后必须使用动名词。",
+    analysis: "骨架是 language + can prevent + robots。from taking us away 是介词短语，说明阻止机器人做什么。",
+    grammarLinks: [{ label: "非谓语的岗位", href: "/grammar/chapter-14.html#jobs" }, { label: "介词搭配", href: "/grammar/chapter-06.html#phrase" }],
+    source: "Perhaps language is the best defence we have; maybe the robots cannot take us away if we say 'human' often enough."
+  },
+  {
+    chinese: "人的欲望和糟糕判断，也许正是人之所以为人。",
+    answer: "Human desire and poor judgment may be what makes us human.",
+    core: "what makes ...",
+    meaning: "使……成为……的东西",
+    vocabulary: [
+      { word: "desire", ipa: "/dɪˈzaɪər/", meaning: "欲望" },
+      { word: "judgment", ipa: "/ˈdʒʌdʒmənt/", meaning: "判断力" },
+      { word: "human", ipa: "/ˈhjuːmən/", meaning: "人类的；人" }
+    ],
+    keywords: "人的欲望 human desire · 糟糕判断 poor judgment · 也许 may · 正是 be what · 使我们成为人 makes us human",
+    frame: "... may be what makes us ...",
+    note: "what makes us human 是表语从句；make + us + human 是‘宾语+宾补’结构。",
+    analysis: "主句是 Human desire and poor judgment + may be + 表语。what 从句内部为 what + makes + us + human。",
+    grammarLinks: [{ label: "名词性从句", href: "/grammar/chapter-12.html#noun" }, { label: "宾语补足语", href: "/grammar/chapter-09.html#object-complement" }],
+    source: "Maybe those weaknesses are precisely what make us human."
+  }
+];
+
+const november21Exercises = [
+  {
+    chinese: "美国和伊朗都没有结束这场战争的手段。",
+    answer: "Neither America nor Iran has the means to end the war.",
+    core: "neither ... nor ...",
+    meaning: "既不……也不……",
+    vocabulary: [
+      { word: "neither", ipa: "/ˈniːðər/", meaning: "两者都不" },
+      { word: "means", ipa: "/miːnz/", meaning: "手段；方法" },
+      { word: "end", ipa: "/end/", meaning: "结束" }
+    ],
+    keywords: "美国 America · 伊朗 Iran · 都没有 neither...nor... · 手段 the means · 结束战争 end the war",
+    frame: "Neither ... nor ... has the means to ...",
+    note: "neither...nor...连接两个主语；谓语通常与靠近它的主语保持一致。",
+    analysis: "找谓语：has，只有一套骨架。定骨架：Neither America nor Iran（S）+ has（V）+ the means（O）。向外扩展：to end the war 是不定式，说明这些手段用来做什么。",
+    grammarLinks: [{ label: "并列结构", href: "/grammar/chapter-13.html#parallel" }, { label: "非谓语的岗位", href: "/grammar/chapter-14.html#jobs" }],
+    source: "Neither America nor Iran has the means to end the war."
+  },
+  {
+    chinese: "双方都声称愿意打持久战，但谁也不想这样做。",
+    answer: "Both sides claim to be willing to fight a long war, but neither wants to do so.",
+    core: "be willing to",
+    meaning: "愿意做……",
+    vocabulary: [
+      { word: "claim", ipa: "/kleɪm/", meaning: "声称" },
+      { word: "willing", ipa: "/ˈwɪlɪŋ/", meaning: "愿意的" },
+      { word: "neither", ipa: "/ˈniːðər/", meaning: "两者都不" }
+    ],
+    keywords: "双方 both sides · 声称 claim · 愿意 be willing to · 持久战 a long war · 但 but · 谁也不 neither",
+    frame: "Both sides claim to ..., but neither wants to ...",
+    note: "claim to be willing to 连用两个不定式；do so 代替前文的 fight a long war，避免重复。",
+    analysis: "找谓语：claim / wants，两套骨架。but 连接转折；to be willing 和 to fight 都是不定式，do so 则替代前面已经出现的动作。",
+    grammarLinks: [{ label: "并列与转折", href: "/grammar/chapter-13.html#logic" }, { label: "替代与省略", href: "/grammar/chapter-13.html#omit" }],
+    source: "Both claim to be prepared for a long war, but neither wants one."
+  },
+  {
+    chinese: "特朗普希望经济压力能迫使伊朗屈服。",
+    answer: "Trump hopes that economic pressure will force Iran to give in.",
+    core: "force ... to ...",
+    meaning: "迫使……做……",
+    vocabulary: [
+      { word: "economic", ipa: "/ˌiːkəˈnɑːmɪk/", meaning: "经济的" },
+      { word: "pressure", ipa: "/ˈpreʃər/", meaning: "压力" },
+      { word: "give in", ipa: "/ɡɪv ˈɪn/", meaning: "屈服；让步" }
+    ],
+    keywords: "特朗普 Trump · 希望 hopes · 经济压力 economic pressure · 迫使 force · 伊朗 Iran · 屈服 give in",
+    frame: "... hopes that ... will force ... to ...",
+    note: "hope 后接 that 宾语从句；force + 人/国家 + to do 表示迫使其采取行动。",
+    analysis: "找谓语：hopes / will force，两套骨架。that 把第二套骨架标为 hopes 的宾语；to give in 作 Iran 的动作补足语。",
+    grammarLinks: [{ label: "名词性从句", href: "/grammar/chapter-12.html#noun" }, { label: "宾语补足语", href: "/grammar/chapter-09.html#object-complement" }],
+    source: "For now, Mr Trump appears to hope economic pressure will force Iran to surrender."
+  },
+  {
+    chinese: "伊朗的战争策略已经经历了三个阶段。",
+    answer: "Iran's war strategy has gone through three phases.",
+    core: "go through",
+    meaning: "经历；经过",
+    vocabulary: [
+      { word: "strategy", ipa: "/ˈstrætədʒi/", meaning: "策略" },
+      { word: "phase", ipa: "/feɪz/", meaning: "阶段" },
+      { word: "through", ipa: "/θruː/", meaning: "穿过；经历" }
+    ],
+    keywords: "伊朗的 Iran's · 战争策略 war strategy · 已经经历 has gone through · 三个阶段 three phases",
+    frame: "... has gone through three phases.",
+    note: "用现在完成时概括从战争开始到现在的发展；go through 表示经历一系列阶段。",
+    analysis: "找谓语：has gone through。定骨架：Iran's war strategy（S）+ has gone through（V）+ three phases（O），属于 SVO。",
+    grammarLinks: [{ label: "完成时", href: "/grammar/chapter-15.html#perfect" }, { label: "五种基本句型", href: "/grammar/chapter-09.html#five" }],
+    source: "Its war strategy has gone through three phases."
+  },
+  {
+    chinese: "双方都没有破局办法，只能维持现状。",
+    answer: "Neither side has a way to break the deadlock, leaving both with the status quo.",
+    core: "leave ... with ...",
+    meaning: "使……只剩下……",
+    vocabulary: [
+      { word: "deadlock", ipa: "/ˈdedlɑːk/", meaning: "僵局" },
+      { word: "status quo", ipa: "/ˌsteɪtəs ˈkwoʊ/", meaning: "现状" },
+      { word: "leave", ipa: "/liːv/", meaning: "使处于；留下" }
+    ],
+    keywords: "双方都没有 neither side has · 办法 a way · 打破僵局 break the deadlock · 使双方只剩 leaving both with · 现状 the status quo",
+    frame: "Neither side has ..., leaving both with ...",
+    note: "leaving... 是结果状语，说明前面‘没有办法’最终造成的状态。",
+    analysis: "主句骨架是 Neither side + has + a way；to break... 修饰 way；逗号后的 leaving both with... 是现在分词结果状语。",
+    grammarLinks: [{ label: "非谓语作状语", href: "/grammar/chapter-14.html#adverbial" }, { label: "定语的位置", href: "/grammar/chapter-05.html#position" }],
+    source: "For Iran, as for Mr Trump, that leaves the status quo."
+  },
+  {
+    chinese: "两国无法结束战争，却都能让战争继续下去。",
+    answer: "The two countries cannot end the war, but both can keep it going.",
+    core: "keep ... going",
+    meaning: "让……继续下去",
+    vocabulary: [
+      { word: "country", ipa: "/ˈkʌntri/", meaning: "国家" },
+      { word: "continue", ipa: "/kənˈtɪnjuː/", meaning: "继续" },
+      { word: "conflict", ipa: "/ˈkɑːnflɪkt/", meaning: "冲突" }
+    ],
+    keywords: "两国 the two countries · 无法 cannot · 结束战争 end the war · 但 but · 都能 both can · 让它继续 keep it going",
+    frame: "... cannot ..., but both can keep ... going.",
+    note: "keep + 宾语 + doing 表示让某事持续；but 对比‘不能结束’和‘能够延续’。",
+    analysis: "找谓语：cannot end / can keep，两组并列谓语。but 标出转折；keep 后的 it 是宾语，going 是宾语补足语。",
+    grammarLinks: [{ label: "并列与转折", href: "/grammar/chapter-13.html#logic" }, { label: "宾语补足语", href: "/grammar/chapter-09.html#object-complement" }],
+    source: "Neither can end the war, but both can keep it going."
+  }
+];
+
 const november17Exercises = [
   {
     chinese: "星舰先水平下降，最后转为垂直姿态。",
@@ -491,6 +911,38 @@ const november13Exercises = [
 ];
 
 const translationProcesses = {
+  "20261121": [
+    { grammar: "用 neither...nor... 并列两个否定主语，has 与近处的 Iran 保持一致。", words: "means（手段）、end the war（结束战争）。", order: "先放 Neither America nor Iran，再写 has the means，最后用不定式说明用途。" },
+    { grammar: "but 连接表面意愿与真实选择；do so 替代重复动作。", words: "claim（声称）、be willing to（愿意）、a long war（持久战）。", order: "先写双方声称愿意作战，再用 but neither 表达无人真正愿意。" },
+    { grammar: "hope 后接 that 宾语从句；force + 宾语 + to do。", words: "economic pressure（经济压力）、give in（屈服）。", order: "先写 Trump hopes，再在 that 从句中安排压力、伊朗和屈服。" },
+    { grammar: "用现在完成时概括截至目前的三个阶段。", words: "war strategy（战争策略）、go through（经历）、phase（阶段）。", order: "主语 Iran's war strategy 后直接接 has gone through three phases。" },
+    { grammar: "leaving... 用现在分词表示结果。", words: "break the deadlock（打破僵局）、status quo（现状）。", order: "先写没有办法，再用逗号后的 leaving 说明结果。" },
+    { grammar: "but 对比不能结束与能够延续；keep + 宾语 + doing。", words: "end the war（结束战争）、keep it going（让它继续）。", order: "先写 cannot end，再用 but both can keep it going 收束。" }
+  ],
+  "20261120": [
+    { grammar: "一般现在时表达词语的功能；distinguish A from B。", words: "human work（人类工作）、output（成果）。", order: "先写词典作主语，再安排 A 和 from B。" },
+    { grammar: "现在完成时表示问题延续至今；whether 引出问题的具体内容。", words: "advances（进展）、achieve consciousness（获得意识）。", order: "先写 AI 进展引发问题，再补 whether 从句。" },
+    { grammar: "to which 引出定语从句，修饰 extent；rely on 保留介词。", words: "reconsider（重新思考）、extent（程度）、rely on（依赖）。", order: "先搭主句，再用 to which 说明依赖程度。" },
+    { grammar: "that 引出宾语从句；as opposed to 标明对照来源。", words: "human-made（人造的）、work（作品）、as opposed to（而不是）。", order: "先写 human-made shows，再写作品来自人类而非AI。" },
+    { grammar: "prevent + 宾语 + from doing 是固定结构。", words: "language（语言）、prevent（阻止）、take away（夺走）。", order: "Perhaps 放句首，接 language can prevent robots from...。" },
+    { grammar: "what 引出表语从句；make + 宾语 + 形容词。", words: "desire（欲望）、judgment（判断）、human（人类的）。", order: "先列两个并列主语，再用 may be what makes us human。" }
+  ],
+  "20261119": [
+    { grammar: "even though 引出让步从句，still 强化反常结果。", words: "board（董事会）、bring back（让……回归）、support（支持）。", order: "先写董事会拒绝，再写科技领袖仍支持。" },
+    { grammar: "一般现在时描述持续影响；from...to... 标范围。", words: "influence（影响力）、extend（延伸）、economy（经济）。", order: "Huang's influence 作主语，再写起点和终点。" },
+    { grammar: "depend on 是固定搭配；heavily 放在介词短语前修饰程度。", words: "AI industry（人工智能产业）、Nvidia's chips（英伟达芯片）。", order: "先写产业，再接 depends heavily on。" },
+    { grammar: "believe 后接 that 宾语从句；too...to... 表示过于重要而不能倒。", words: "too big to fail（大到不能倒）。", order: "许多人作主语，在 that 从句中写 Huang 的状态。" },
+    { grammar: "make + 宾语 + responsible 构成宾补；responsible 后接 for。", words: "leader（领导者）、be responsible for（对……负责）。", order: "先写公司不应让谁怎样，再补负责对象。" },
+    { grammar: "动名词短语作主语，谓语用第三人称单数。", words: "tie...to...（把……系于）、fate（命运）、extreme risk（极端风险）。", order: "先用 Tying 构成主语，再写 creates an extreme risk。" }
+  ],
+  "20261118": [
+    { grammar: "as 引出时间状语；主句用 will 表示未来。", words: "midterms（中期选举）、succeed（继任）、race（竞争）。", order: "先写尘埃落定，再写接班竞争将开始。" },
+    { grammar: "will continue to 表示未来仍将持续；三个宾语并列。", words: "affect（影响）、regional politics（地区政治）。", order: "主语后接 will continue to affect，再列三个领域。" },
+    { grammar: "一般现在时概括文章判断；复数 risks 接 include。", words: "debt（债务）、cyber-attacks（网络攻击）、supply chain（供应链）。", order: "先写真实风险，再列并列项目。" },
+    { grammar: "现在进行时表示正在发生的压力。", words: "interest rates（利率）、squeeze（挤压）、households（家庭）。", order: "Higher interest rates 作主语，再写正在挤压的两个对象。" },
+    { grammar: "will 表示预测；pave the way for 后接名词。", words: "launch costs（发射成本）、private space stations（私人空间站）。", order: "先写成本下降，再写为哪些设施铺路。" },
+    { grammar: "seem to have done 表示看起来已经发生。", words: "reality（现实）、catch up with（赶上）、science fiction（科幻）。", order: "Reality seems 后接完成式不定式。" }
+  ],
   "20261117": [
     {
       grammar: "用一般过去时描述飞行过程；until 引出时间状语从句，说明水平飞行持续到转为垂直姿态。",
@@ -1459,6 +1911,42 @@ const november3Exercises = [
 
 const issues = [
   {
+    date: "20261121",
+    displayDate: "2026.11.21",
+    title: "打不赢，<br>也停不下",
+    optionTitle: "打不赢，也停不下",
+    summary: "用6句话梳理美伊双方为何都无法破局，以及封锁、袭击和网络风险如何让战争继续。",
+    storageKey: "beibei-translation-20261121-v1",
+    exercises: november21Exercises
+  },
+  {
+    date: "20261120",
+    displayDate: "2026.11.20",
+    title: "年度词汇，<br>何以为人",
+    optionTitle: "年度词汇，何以为人",
+    summary: "用6句话理解human为何成为年度词汇，以及AI时代的人类身份、语言和弱点。",
+    storageKey: "beibei-translation-20261120-v1",
+    exercises: november20Exercises
+  },
+  {
+    date: "20261119",
+    displayDate: "2026.11.19",
+    title: "回归呼声，<br>治理风险",
+    optionTitle: "回归呼声，治理风险",
+    summary: "用6句话梳理黄仁勋复职争议，以及英伟达依赖单一领袖所暴露的系统性风险。",
+    storageKey: "beibei-translation-20261119-v1",
+    exercises: november19Exercises
+  },
+  {
+    date: "20261118",
+    displayDate: "2026.11.18",
+    title: "十项趋势，<br>现实追上科幻",
+    optionTitle: "十项趋势，现实追上科幻",
+    summary: "用6句话抓住2027年政治、战争、AI、债市与太空发展的关键趋势。",
+    storageKey: "beibei-translation-20261118-v1",
+    exercises: november18Exercises
+  },
+  {
     date: "20261117",
     displayDate: "2026.11.17",
     title: "塔臂接舰，<br>未来已来",
@@ -1578,6 +2066,30 @@ const issues = [
 ];
 
 const coreExamples = {
+  "neither ... nor ...": { sentence: "Neither Jack nor Emma is late.", translation: "杰克和艾玛都没有迟到。" },
+  "be willing to": { sentence: "She is willing to help us.", translation: "她愿意帮助我们。" },
+  "force ... to ...": { sentence: "The rain forced us to stay inside.", translation: "大雨迫使我们留在室内。" },
+  "go through": { sentence: "The project went through three stages.", translation: "这个项目经历了三个阶段。" },
+  "leave ... with ...": { sentence: "The delay left us with little time.", translation: "延误使我们只剩很少时间。" },
+  "keep ... going": { sentence: "Her encouragement kept me going.", translation: "她的鼓励让我坚持下去。" },
+  "distinguish ... from ...": { sentence: "Can you distinguish fact from opinion?", translation: "你能区分事实和观点吗？" },
+  "whether ... can ...": { sentence: "We need to know whether the plan can work.", translation: "我们需要知道这个计划能否奏效。" },
+  "rely on": { sentence: "Many students rely on online dictionaries.", translation: "许多学生依赖在线词典。" },
+  "as opposed to": { sentence: "I chose tea as opposed to coffee.", translation: "我选择了茶，而不是咖啡。" },
+  "prevent ... from ...": { sentence: "The rule prevents cars from entering.", translation: "这条规定禁止汽车进入。" },
+  "what makes ...": { sentence: "Kindness is what makes her special.", translation: "善良正是她与众不同的原因。" },
+  "even though": { sentence: "Even though it was cold, we went outside.", translation: "尽管天气很冷，我们还是出门了。" },
+  "from ... to ...": { sentence: "The shop is open from nine to five.", translation: "商店从九点营业到五点。" },
+  "depend on": { sentence: "Success depends on careful preparation.", translation: "成功取决于认真准备。" },
+  "too ... to ...": { sentence: "The box is too heavy to lift.", translation: "这个箱子太重，搬不起来。" },
+  "be responsible for": { sentence: "We are responsible for our choices.", translation: "我们要为自己的选择负责。" },
+  "tie ... to ...": { sentence: "Do not tie your happiness to money.", translation: "不要把幸福系在金钱上。" },
+  "as the dust settles": { sentence: "As the dust settles, the truth becomes clearer.", translation: "随着尘埃落定，真相变得更清楚。" },
+  "continue to": { sentence: "She continues to practise every day.", translation: "她继续每天练习。" },
+  "include ... and ...": { sentence: "The course includes reading and writing.", translation: "这门课程包括阅读和写作。" },
+  "squeeze ...": { sentence: "Higher prices are squeezing families.", translation: "更高的物价正挤压家庭生活。" },
+  "pave the way for": { sentence: "The discovery paved the way for new treatments.", translation: "这项发现为新疗法铺平了道路。" },
+  "catch up with": { sentence: "I ran to catch up with my friends.", translation: "我跑着赶上朋友们。" },
   "until ...": {
     sentence: "We waited until the rain stopped.",
     translation: "我们一直等到雨停。"
