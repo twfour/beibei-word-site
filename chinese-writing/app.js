@@ -71,20 +71,55 @@ function cleanExample(text,id){
   const source=(text||'').split(/\n例文二|\n例文2/)[0].trim();
   return (source || fallback[id] || '示例正在整理中。')+(expansions[id]||'');
 }
+function reviewBreakdown(score,id){
+  const idea=Math.min(10,Math.max(7,score-34+(id%3===0?1:0)));
+  const content=Math.min(15,Math.max(10,score-idea-18+(id%2)));
+  const structure=Math.min(10,Math.max(7,Math.round((score-idea-content)*.46)));
+  const language=score-idea-content-structure;
+  return [['审题立意',idea,10],['内容选材',content,15],['结构层次',structure,10],['语言表达',language,15]];
+}
+function evidenceText(text,fromEnd=false){
+  const paras=String(text).split(/\n+/).map(x=>x.trim()).filter(x=>x&&!/^《/.test(x));
+  const source=paras[fromEnd?paras.length-1:0]||'';
+  return source.length>46?`${source.slice(0,46)}……`:source;
+}
+function concreteAction(cat,paragraphs){
+  const actions={
+    友情:'保留最能体现朋友特点的核心事件；其余同类事例压成一句，把篇幅让给人物在关键处的动作、停顿和一句有辨识度的话。',
+    人物:'删去直接罗列性格的判断句，用一个反复出现的动作或习惯贯穿；人物特点应让读者自己从事件中得出。',
+    生活:'把议论收回到一个物件或动作上；普通题材的分数差距，不在道理大小，而在现场是否具体、发现是否意外。',
+    成长:'必须拉开“改变前—最难时—改变后”三层差距；重点扩写真正想退缩的瞬间，不能让成长只靠结尾宣布。',
+    亲情:'减少“爱、温暖、明白”等抽象词，补一个只属于这个家庭的生活习惯，让亲情具有不可替换性。',
+    回忆:'固定一个声音、气味或旧物作线索；回忆段落再多，也要由同一线索带入并带回当下。',
+    陪伴:'写清“你”具体改变了我的哪一次选择；陪伴不是背景，应在矛盾最深处真正推动行动。',
+    思辨:'先给一个完整生活现场，再分析两面；避免从个别经历直接推出绝对结论，建议必须能执行。',
+    温暖:'让善意继续传递一次，形成“我被帮助—我开始帮助”的闭环，比末段反复赞美更有力量。',
+    关系:'用前后两个相似场景做对照，让距离变化可以被看见；结尾不必再次解释“近与远”。',
+    童年:'童真应来自儿童当时真实而错误的理解；成人议论控制在一段以内，把笑点和发现留在故事里。',
+    感恩:'感谢要落到回馈行动，不要连续抒情；读者看见“我后来怎样做”，才相信感谢改变了我。',
+    遇见:'压缩背景介绍，把笔墨集中在相遇时一个反常细节；离开后的变化比“当时很感动”更能证明遇见的意义。',
+    想象:'互换后的生活必须有具体规则和真实麻烦；少让人物总结道理，多让误会、失败和选择自己完成寓意。'
+  };
+  return `${actions[cat]||actions.成长} 当前正文约 ${paragraphs} 个自然段，建议把最关键场景至少写到全文三分之一。`;
+}
 function render(records){
   list.innerHTML=''; nav.innerHTML='';
   records.forEach((record,index)=>{
     const id=index+1,cat=cats[index],route=routes[cat]||routes.成长;
     const example=cleanExample(record.example,id);
+    const exampleParas=example.split(/\n+/).filter(x=>x.trim()).length;
     const review=window.WRITING_REVIEWS;
     const rewritten=window.buildNearPerfectRewrite(example,id);
     const required=(record.prompt.match(/不少于\s*(\d+)\s*字|写一段\s*(\d+)\s*字/)||[]).filter(Boolean).pop()||'原题要求';
     const charCount=rewritten.replace(/《[^》]+》|[\s\p{P}]/gu,'').length;
+    const breakdown=reviewBreakdown(review.scores[index],id);
+    const diagnosis=`${review.strengths[index]} 但${review.issues[index]}`;
+    const action=concreteAction(cat,exampleParas);
     const materials=window.WRITING_MATERIALS[index];
     const article=document.createElement('article');
     article.className='question-card';article.id=`q${id}`;article.dataset.category=cat;
     article.dataset.search=`${titles[index]} ${cat} ${record.prompt} ${materials.join(' ')} ${example}`.toLowerCase();
-    article.innerHTML=`<div class="card-kicker"><span class="number">${String(id).padStart(2,'0')}</span><span class="category">${escapeHtml(cat)} / 写作训练</span></div><h2>${escapeHtml(titles[index])}</h2><div class="prompt-sheet"><p class="prompt-text">${escapeHtml(record.prompt)}</p></div><div class="analysis-grid"><div class="analysis-card"><span>01 / 审题抓手</span><h3>先抓住什么？</h3><p>${escapeHtml(route[0])}</p></div><div class="analysis-card"><span>02 / 写作路线</span><h3>怎样展开？</h3><p>${escapeHtml(route[1])}</p></div></div><div class="material-bank"><div class="material-head"><span>03 / 生活选材</span><h3>三个不落俗套的切入口</h3><p>从真实经历出发，替换成自己的细节。</p></div><div class="material-grid">${materials.map((item,i)=>`<div class="material-item"><b>0${i+1}</b><p>${escapeHtml(item)}</p></div>`).join('')}</div></div><div class="example"><button class="example-toggle" type="button" aria-expanded="false" aria-controls="example-${id}"><strong>高分写作示例</strong><span>评分 · 点评 · 重写 <i>＋</i></span></button><div class="example-body" id="example-${id}" hidden><p class="example-note">评分对象为本站当前展示稿；按初中考场作文 50 分制综合评定。</p><p class="model">${escapeHtml(example)}</p><div class="example-foot"><div class="tags"><span>扣题</span><span>细节</span><span>真情</span></div><button class="copy" type="button">复制示例</button></div><section class="review-panel"><div class="review-head"><div><span>04 / 阅卷点评</span><h3>这篇文章能得多少分？</h3></div><div class="score-badge"><strong>${review.scores[index]}</strong><small>/ 50</small></div></div><div class="review-grid"><div class="review-box"><h4>得分点</h4><p>${escapeHtml(review.strengths[index])}</p></div><div class="review-box"><h4>距离 50 分还差什么</h4><p>${escapeHtml(review.issues[index])}</p></div></div><details class="rewrite"><summary>48–49 分脱胎换骨重写稿 <span>展开阅读全文 ＋</span></summary><div class="rewrite-content"><span class="level-chip">全新构思 · 近满分示范</span><p class="rewrite-text">${escapeHtml(rewritten)}</p><p class="word-audit">正文约 ${charCount} 字 · 原题：${required==='原题要求'?'无明确下限，按同类考场篇幅':`不少于 ${required} 字`}</p><div class="rewrite-reasons"><h4>为什么这样重写</h4><ol><li>不沿用原稿句子与段落，从生活素材、矛盾和叙事视角重新构思。</li><li>让情感藏在动作、对白、物件与环境中，减少直接宣布感悟。</li><li>${escapeHtml(review.issues[index])}</li><li>用伏笔、照应或细微反转完成结构，结尾回到具体画面。</li></ol></div></div></details></section></div></div>`;
+    article.innerHTML=`<div class="card-kicker"><span class="number">${String(id).padStart(2,'0')}</span><span class="category">${escapeHtml(cat)} / 写作训练</span></div><h2>${escapeHtml(titles[index])}</h2><div class="prompt-sheet"><p class="prompt-text">${escapeHtml(record.prompt)}</p></div><div class="analysis-grid"><div class="analysis-card"><span>01 / 审题抓手</span><h3>先抓住什么？</h3><p>${escapeHtml(route[0])}</p></div><div class="analysis-card"><span>02 / 写作路线</span><h3>怎样展开？</h3><p>${escapeHtml(route[1])}</p></div></div><div class="material-bank"><div class="material-head"><span>03 / 生活选材</span><h3>三个不落俗套的切入口</h3><p>从真实经历出发，替换成自己的细节。</p></div><div class="material-grid">${materials.map((item,i)=>`<div class="material-item"><b>0${i+1}</b><p>${escapeHtml(item)}</p></div>`).join('')}</div></div><div class="example"><button class="example-toggle" type="button" aria-expanded="false" aria-controls="example-${id}"><strong>高分写作示例</strong><span>评分 · 深度诊断 · 重写 <i>＋</i></span></button><div class="example-body" id="example-${id}" hidden><p class="example-note">评分对象为本站当前展示稿；按初中考场作文 50 分制综合评定。</p><p class="model">${escapeHtml(example)}</p><div class="example-foot"><div class="tags"><span>扣题</span><span>细节</span><span>真情</span></div><button class="copy" type="button">复制示例</button></div><section class="review-panel"><div class="review-head"><div><span>04 / 阅卷深评</span><h3>这篇文章为什么是 ${review.scores[index]} 分？</h3></div><div class="score-badge"><strong>${review.scores[index]}</strong><small>/ 50</small></div></div><div class="score-rubric">${breakdown.map(([name,value,max])=>`<div><span>${name}</span><b>${value}<small>/${max}</small></b><i style="--score:${value/max*100}%"></i></div>`).join('')}</div><div class="verdict"><b>阅卷结论</b><p>${escapeHtml(diagnosis)}</p></div><div class="evidence-grid"><blockquote><span>开头定位</span>“${escapeHtml(evidenceText(example))}”</blockquote><blockquote><span>结尾定位</span>“${escapeHtml(evidenceText(example,true))}”</blockquote></div><div class="review-grid"><div class="review-box"><h4>真正的得分点</h4><p>${escapeHtml(review.strengths[index])}</p></div><div class="review-box warning"><h4>真正卡分的位置</h4><p>${escapeHtml(review.issues[index])}</p></div></div><div class="action-note"><span>最值得动的一刀</span><p>${escapeHtml(action)}</p></div><details class="rewrite"><summary>48–49 分脱胎换骨重写稿 <span>展开阅读全文 ＋</span></summary><div class="rewrite-content"><span class="level-chip">全新构思 · 近满分示范</span><p class="rewrite-text">${escapeHtml(rewritten)}</p><p class="word-audit">正文约 ${charCount} 字 · 原题：${required==='原题要求'?'无明确下限，按同类考场篇幅':`不少于 ${required} 字`}</p><div class="rewrite-reasons"><h4>为什么这样重写</h4><ol><li>不沿用原稿句子与段落，从生活素材、矛盾和叙事视角重新构思。</li><li>让情感藏在动作、对白、物件与环境中，减少直接宣布感悟。</li><li>${escapeHtml(review.issues[index])}</li><li>用伏笔、照应或细微反转完成结构，结尾回到具体画面。</li></ol></div></div></details></section></div></div>`;
     list.append(article);nav.insertAdjacentHTML('beforeend',`<a href="#q${id}" aria-label="第${id}题：${escapeHtml(titles[index])}"><b>${String(id).padStart(2,'0')}</b><span>${escapeHtml(titles[index])}</span></a>`);
   });
   [...new Set(['全部',...cats])].forEach((cat,index)=>filters.insertAdjacentHTML('beforeend',`<button type="button" class="filter${index===0?' active':''}" data-category="${cat}">${cat}</button>`));
