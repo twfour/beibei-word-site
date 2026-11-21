@@ -10,13 +10,5 @@ reflections:['真正让我记住他的，并不是笑声，而是他每次出错
 };
 
 window.buildNearPerfectRewrite=function(original,id){
-  const data=window.WRITING_REVIEWS,i=id-1;
-  const paras=String(original).trim().split(/\n+/).filter(Boolean);
-  const title=/^《/.test(paras[0]||'')?paras.shift():'';
-  if(!paras.length)return original;
-  paras[0]=paras[0]+'\n'+data.details[i];
-  if(paras.length===1) paras[0]+='\n'+data.reflections[i];
-  else paras[paras.length-1]=data.reflections[i]+'\n'+paras[paras.length-1];
-  if(id===28) paras[paras.length-1]+='\n我把那束光记了下来。';
-  return [title,...paras].filter(Boolean).join('\n\n');
+  return window.NOVEL_REWRITES[id-1];
 };
