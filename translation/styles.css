@@ -72,7 +72,13 @@ button { color: inherit; }
   grid-template-columns: minmax(280px, 350px) minmax(0, 1fr);
   gap: clamp(24px, 4vw, 64px);
   padding: clamp(24px, 4vw, 56px);
+  transition: padding .25s ease;
 }
+
+body.focus-mode .practice-shell { width: 100%; grid-template-columns: minmax(0, 1fr); gap: 0; padding: clamp(16px, 2vw, 30px); }
+body.focus-mode .issue-panel { display: none; }
+body.focus-mode .exercise-stage { width: 100%; align-self: stretch; }
+body.focus-mode .exercise-card { width: 100%; }
 
 .issue-panel {
   display: flex;
@@ -114,6 +120,10 @@ button { color: inherit; }
 }
 
 .card-topline { display: flex; align-items: center; justify-content: space-between; color: var(--muted); }
+.card-top-actions { display: flex; align-items: center; gap: 9px; }
+.focus-toggle { padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; font: 700 10px/1.2 "Courier New", monospace; letter-spacing: .02em; transition: border-color .15s ease, color .15s ease, background .15s ease; }
+.focus-toggle:hover { border-color: var(--ink); color: var(--ink); }
+body.focus-mode .focus-toggle { border-color: var(--ink); background: var(--ink); color: white; }
 .level-badge { padding: 7px 12px; border-radius: 999px; background: var(--mint); color: var(--ink); letter-spacing: .06em; }
 .level-badge.level-2 { background: var(--yellow); }
 .level-badge.level-3 { background: var(--coral); color: white; }
@@ -297,6 +307,9 @@ footer button { min-height: 30px; padding: 5px 10px; border-color: var(--line); 
   .practice-shell { padding: 18px 14px 30px; }
   .issue-panel { padding: 26px; }
   .exercise-card { min-height: 650px; padding: 24px 20px; border-radius: 24px; }
+  .card-topline { align-items: flex-start; gap: 10px; }
+  .card-top-actions { align-items: flex-end; flex-direction: column-reverse; }
+  .focus-toggle { padding: 6px 9px; }
   .action-row .answer-button { width: 100%; margin-left: 0; }
   .phrase-heading { grid-template-columns: minmax(0, 1fr) auto; gap: 6px; }
   .phrase-heading > span { grid-column: 1 / -1; }

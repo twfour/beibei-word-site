@@ -2580,6 +2580,7 @@ const elements = {
   card: document.querySelector("#exercise-card"),
   number: document.querySelector("#question-number"),
   badge: document.querySelector("#level-badge"),
+  toggleFocus: document.querySelector("#toggle-focus"),
   promptLabel: document.querySelector("#prompt-label"),
   prompt: document.querySelector("#chinese-prompt"),
   translationProcess: document.querySelector("#translation-process"),
@@ -2624,6 +2625,13 @@ const elements = {
 let hintLevel = 0;
 let activeAudioButton = null;
 let activeAudioElement = null;
+
+function setFocusMode(enabled) {
+  document.body.classList.toggle("focus-mode", enabled);
+  elements.toggleFocus.setAttribute("aria-pressed", String(enabled));
+  elements.toggleFocus.textContent = enabled ? "☰ 显示目录" : "⤢ 专注阅读";
+  localStorage.setItem("beibei-translation-focus-mode", enabled ? "1" : "0");
+}
 
 const preferredFemaleVoiceNames = [
   "Samantha",
@@ -3004,6 +3012,7 @@ function setMode(mode) {
 }
 
 elements.modeButtons.forEach(button => button.addEventListener("click", () => setMode(button.dataset.mode)));
+elements.toggleFocus.addEventListener("click", () => setFocusMode(!document.body.classList.contains("focus-mode")));
 elements.studyAudio.addEventListener("click", () => speakAnswer(elements.studyAudio));
 elements.answerAudio.addEventListener("click", () => speakAnswer(elements.answerAudio));
 elements.issuePicker.addEventListener("change", () => {
@@ -3072,4 +3081,5 @@ document.addEventListener("keydown", event => {
 });
 
 buildIssuePicker();
+setFocusMode(localStorage.getItem("beibei-translation-focus-mode") === "1");
 showIssue(currentIssue, false);
