@@ -328,6 +328,42 @@ const november21Exercises = [
     frame: "Neither ... nor ... has the means to ...",
     note: "neither...nor...连接两个主语；谓语通常与靠近它的主语保持一致。",
     analysis: "找谓语：has，只有一套骨架。定骨架：Neither America nor Iran（S）+ has（V）+ the means（O）。向外扩展：to end the war 是不定式，说明这些手段用来做什么。",
+    syntaxDiagram: {
+      label: "句子结构图",
+      note: "本句没有从句，包含一个不定式结构",
+      parts: [
+        {
+          type: "subject",
+          mark: "S",
+          label: "并列主语",
+          tokens: [
+            { text: "Neither", kind: "link" },
+            { text: "America", kind: "noun" },
+            { text: "nor", kind: "link" },
+            { text: "Iran", kind: "noun" }
+          ]
+        },
+        { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "has", kind: "verb" }] },
+        {
+          type: "object",
+          mark: "O",
+          label: "宾语",
+          tokens: [{ text: "the means", kind: "noun" }]
+        }
+      ],
+      branches: [
+        {
+          kind: "embedded",
+          label: "INF · 不定式结构",
+          relation: "后置修饰 means",
+          parts: [
+            { type: "marker", mark: "M", label: "不定式标记", tokens: [{ text: "to", kind: "marker" }] },
+            { type: "verb", mark: "V", label: "动作", tokens: [{ text: "end", kind: "verb" }] },
+            { type: "object", mark: "O", label: "宾语", tokens: [{ text: "the war", kind: "noun" }] }
+          ]
+        }
+      ]
+    },
     grammarLinks: [{ label: "并列结构", href: "/grammar/chapter-13.html#parallel" }, { label: "非谓语的岗位", href: "/grammar/chapter-14.html#jobs" }],
     source: "Neither America nor Iran has the means to end the war."
   },
@@ -345,6 +381,37 @@ const november21Exercises = [
     frame: "Both sides claim to ..., but neither wants to ...",
     note: "claim to be willing to 连用两个不定式；do so 代替前文的 fight a long war，避免重复。",
     analysis: "找谓语：claim / wants，两套骨架。but 连接转折；to be willing 和 to fight 都是不定式，do so 则替代前面已经出现的动作。",
+    syntaxDiagram: {
+      label: "句子结构图",
+      note: "but 连接两个并列分句",
+      mainLabel: "主句 A",
+      parts: [
+        { type: "subject", mark: "S", label: "主语", tokens: [{ text: "Both sides", kind: "noun" }] },
+        { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "claim", kind: "verb" }] },
+        {
+          type: "object",
+          mark: "C",
+          label: "不定式补语",
+          tokens: [
+            { text: "to", kind: "marker" }, { text: "be", kind: "verb" },
+            { text: "willing", kind: "noun" }, { text: "to", kind: "marker" },
+            { text: "fight", kind: "verb" }, { text: "a long war", kind: "noun" }
+          ]
+        }
+      ],
+      branches: [
+        {
+          kind: "parallel",
+          label: "主句 B",
+          relation: "but · 转折并列",
+          parts: [
+            { type: "subject", mark: "S", label: "主语", tokens: [{ text: "but", kind: "link" }, { text: "neither", kind: "noun" }] },
+            { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "wants", kind: "verb" }] },
+            { type: "object", mark: "C", label: "不定式补语", tokens: [{ text: "to", kind: "marker" }, { text: "do so", kind: "noun" }] }
+          ]
+        }
+      ]
+    },
     grammarLinks: [{ label: "并列与转折", href: "/grammar/chapter-13.html#logic" }, { label: "替代与省略", href: "/grammar/chapter-13.html#omit" }],
     source: "Both claim to be prepared for a long war, but neither wants one."
   },
@@ -362,6 +429,27 @@ const november21Exercises = [
     frame: "... hopes that ... will force ... to ...",
     note: "hope 后接 that 宾语从句；force + 人/国家 + to do 表示迫使其采取行动。",
     analysis: "找谓语：hopes / will force，两套骨架。that 把第二套骨架标为 hopes 的宾语；to give in 作 Iran 的动作补足语。",
+    syntaxDiagram: {
+      label: "句子结构图",
+      note: "that 引出 hopes 的宾语从句",
+      parts: [
+        { type: "subject", mark: "S", label: "主语", tokens: [{ text: "Trump", kind: "noun" }] },
+        { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "hopes", kind: "verb" }] },
+        { type: "object", mark: "O", label: "宾语", tokens: [{ text: "that ...", kind: "link" }] }
+      ],
+      branches: [
+        {
+          kind: "embedded",
+          label: "that · 宾语从句",
+          relation: "作 hopes 的宾语",
+          parts: [
+            { type: "subject", mark: "S", label: "从句主语", tokens: [{ text: "economic pressure", kind: "noun" }] },
+            { type: "verb", mark: "V", label: "从句谓语", tokens: [{ text: "will force", kind: "verb" }] },
+            { type: "object", mark: "O+C", label: "宾语 + 宾补", tokens: [{ text: "Iran", kind: "noun" }, { text: "to", kind: "marker" }, { text: "give in", kind: "verb" }] }
+          ]
+        }
+      ]
+    },
     grammarLinks: [{ label: "名词性从句", href: "/grammar/chapter-12.html#noun" }, { label: "宾语补足语", href: "/grammar/chapter-09.html#object-complement" }],
     source: "For now, Mr Trump appears to hope economic pressure will force Iran to surrender."
   },
@@ -379,6 +467,15 @@ const november21Exercises = [
     frame: "... has gone through three phases.",
     note: "用现在完成时概括从战争开始到现在的发展；go through 表示经历一系列阶段。",
     analysis: "找谓语：has gone through。定骨架：Iran's war strategy（S）+ has gone through（V）+ three phases（O），属于 SVO。",
+    syntaxDiagram: {
+      label: "句子结构图",
+      note: "简单句 · 主谓宾结构",
+      parts: [
+        { type: "subject", mark: "S", label: "主语", tokens: [{ text: "Iran's war strategy", kind: "noun" }] },
+        { type: "verb", mark: "V", label: "现在完成时谓语", tokens: [{ text: "has gone through", kind: "verb" }] },
+        { type: "object", mark: "O", label: "宾语", tokens: [{ text: "three phases", kind: "noun" }] }
+      ]
+    },
     grammarLinks: [{ label: "完成时", href: "/grammar/chapter-15.html#perfect" }, { label: "五种基本句型", href: "/grammar/chapter-09.html#five" }],
     source: "Its war strategy has gone through three phases."
   },
@@ -396,6 +493,37 @@ const november21Exercises = [
     frame: "Neither side has ..., leaving both with ...",
     note: "leaving... 是结果状语，说明前面‘没有办法’最终造成的状态。",
     analysis: "主句骨架是 Neither side + has + a way；to break... 修饰 way；逗号后的 leaving both with... 是现在分词结果状语。",
+    syntaxDiagram: {
+      label: "句子结构图",
+      note: "主句后接两个非谓语结构",
+      parts: [
+        { type: "subject", mark: "S", label: "主语", tokens: [{ text: "Neither side", kind: "noun" }] },
+        { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "has", kind: "verb" }] },
+        { type: "object", mark: "O", label: "宾语", tokens: [{ text: "a way", kind: "noun" }] }
+      ],
+      branches: [
+        {
+          kind: "embedded",
+          label: "INF · 不定式结构",
+          relation: "后置修饰 a way",
+          parts: [
+            { type: "marker", mark: "M", label: "标记", tokens: [{ text: "to", kind: "marker" }] },
+            { type: "verb", mark: "V", label: "动作", tokens: [{ text: "break", kind: "verb" }] },
+            { type: "object", mark: "O", label: "宾语", tokens: [{ text: "the deadlock", kind: "noun" }] }
+          ]
+        },
+        {
+          kind: "result",
+          label: "-ing · 结果状语",
+          relation: "说明主句造成的结果",
+          parts: [
+            { type: "verb", mark: "V-ing", label: "动作", tokens: [{ text: "leaving", kind: "verb" }] },
+            { type: "object", mark: "O", label: "宾语", tokens: [{ text: "both", kind: "noun" }] },
+            { type: "object", mark: "C", label: "补充状态", tokens: [{ text: "with the status quo", kind: "noun" }] }
+          ]
+        }
+      ]
+    },
     grammarLinks: [{ label: "非谓语作状语", href: "/grammar/chapter-14.html#adverbial" }, { label: "定语的位置", href: "/grammar/chapter-05.html#position" }],
     source: "For Iran, as for Mr Trump, that leaves the status quo."
   },
@@ -413,6 +541,28 @@ const november21Exercises = [
     frame: "... cannot ..., but both can keep ... going.",
     note: "keep + 宾语 + doing 表示让某事持续；but 对比‘不能结束’和‘能够延续’。",
     analysis: "找谓语：cannot end / can keep，两组并列谓语。but 标出转折；keep 后的 it 是宾语，going 是宾语补足语。",
+    syntaxDiagram: {
+      label: "句子结构图",
+      note: "but 连接两个转折并列分句",
+      mainLabel: "主句 A",
+      parts: [
+        { type: "subject", mark: "S", label: "主语", tokens: [{ text: "The two countries", kind: "noun" }] },
+        { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "cannot end", kind: "verb" }] },
+        { type: "object", mark: "O", label: "宾语", tokens: [{ text: "the war", kind: "noun" }] }
+      ],
+      branches: [
+        {
+          kind: "parallel",
+          label: "主句 B",
+          relation: "but · 转折并列",
+          parts: [
+            { type: "subject", mark: "S", label: "主语", tokens: [{ text: "but", kind: "link" }, { text: "both", kind: "noun" }] },
+            { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "can keep", kind: "verb" }] },
+            { type: "object", mark: "O+C", label: "宾语 + 宾补", tokens: [{ text: "it", kind: "noun" }, { text: "going", kind: "verb" }] }
+          ]
+        }
+      ]
+    },
     grammarLinks: [{ label: "并列与转折", href: "/grammar/chapter-13.html#logic" }, { label: "宾语补足语", href: "/grammar/chapter-09.html#object-complement" }],
     source: "Neither can end the war, but both can keep it going."
   }
@@ -2438,6 +2588,7 @@ const elements = {
   studyPanel: document.querySelector("#study-panel"),
   studyAnswerWrap: document.querySelector("#study-answer-wrap"),
   studyAnswer: document.querySelector("#study-answer"),
+  studySyntaxDiagram: document.querySelector("#study-syntax-diagram"),
   studySentenceAnalysis: document.querySelector("#study-sentence-analysis"),
   studyGrammarLinks: document.querySelector("#study-grammar-links"),
   studyAudio: document.querySelector("#study-audio"),
@@ -2456,6 +2607,7 @@ const elements = {
   showAnswer: document.querySelector("#show-answer"),
   answerPanel: document.querySelector("#answer-panel"),
   modelAnswer: document.querySelector("#model-answer"),
+  answerSyntaxDiagram: document.querySelector("#answer-syntax-diagram"),
   answerSentenceAnalysis: document.querySelector("#answer-sentence-analysis"),
   answerGrammarLinks: document.querySelector("#answer-grammar-links"),
   answerAudio: document.querySelector("#answer-audio"),
@@ -2660,6 +2812,79 @@ function renderGrammarLinks(container, links = []) {
   container.hidden = links.length === 0;
 }
 
+function createSyntaxToken(token) {
+  const element = document.createElement("span");
+  element.className = `syntax-token ${token.kind || "noun"}`;
+  element.textContent = token.text;
+  return element;
+}
+
+function createSyntaxPart(part) {
+  const node = document.createElement("div");
+  node.className = `syntax-part ${part.type || ""}`.trim();
+  const label = document.createElement("span");
+  label.className = "syntax-part-label";
+  label.textContent = `${part.mark} · ${part.label}`;
+  const tokens = document.createElement("div");
+  tokens.className = "syntax-token-row";
+  tokens.replaceChildren(...part.tokens.map(createSyntaxToken));
+  node.append(label, tokens);
+  return node;
+}
+
+function renderSyntaxDiagram(container, diagram) {
+  container.replaceChildren();
+  if (!diagram) {
+    container.hidden = true;
+    return;
+  }
+  const header = document.createElement("div");
+  header.className = "syntax-diagram-header";
+  const title = document.createElement("strong");
+  title.className = "syntax-diagram-title";
+  title.textContent = diagram.label;
+  const note = document.createElement("span");
+  note.className = "syntax-diagram-note";
+  note.textContent = diagram.note;
+  header.append(title, note);
+
+  const canvas = document.createElement("div");
+  canvas.className = "syntax-canvas";
+  const main = document.createElement("div");
+  main.className = "syntax-clause main-clause";
+  const mainLabel = document.createElement("span");
+  mainLabel.className = "syntax-clause-label";
+  mainLabel.textContent = diagram.mainLabel || "主句";
+  const mainParts = document.createElement("div");
+  mainParts.className = "syntax-main-parts";
+  mainParts.dataset.parts = String(diagram.parts.length);
+  mainParts.replaceChildren(...diagram.parts.map(createSyntaxPart));
+  main.append(mainLabel, mainParts);
+  canvas.append(main);
+
+  (diagram.branches || []).forEach(branch => {
+    const connector = document.createElement("div");
+    connector.className = `syntax-branch-connector ${branch.kind || "embedded"}`;
+    connector.setAttribute("aria-hidden", "true");
+    const nested = document.createElement("div");
+    nested.className = `syntax-clause nested-clause ${branch.kind || "embedded"}`;
+    const nestedLabel = document.createElement("span");
+    nestedLabel.className = "syntax-clause-label nested-label";
+    nestedLabel.textContent = branch.label;
+    const branchParts = document.createElement("div");
+    branchParts.className = "syntax-branch-parts";
+    branchParts.dataset.parts = String(branch.parts.length);
+    branchParts.replaceChildren(...branch.parts.map(createSyntaxPart));
+    const position = document.createElement("span");
+    position.className = "syntax-position-label";
+    position.textContent = branch.relation;
+    nested.append(nestedLabel, branchParts, position);
+    canvas.append(connector, nested);
+  });
+  container.append(header, canvas);
+  container.hidden = false;
+}
+
 function renderTranslationProcess(process, learning) {
   const steps = process ? [
     ["先定句型", process.grammar],
@@ -2719,6 +2944,7 @@ function render() {
     return entry;
   }));
   elements.studyAnswer.textContent = exercise.answer;
+  renderSyntaxDiagram(elements.studySyntaxDiagram, exercise.syntaxDiagram);
   elements.studySentenceAnalysis.textContent = exercise.analysis || "";
   elements.studySentenceAnalysis.hidden = !exercise.analysis;
   renderGrammarLinks(elements.studyGrammarLinks, exercise.grammarLinks || []);
@@ -2735,6 +2961,7 @@ function render() {
   elements.toggleRememberEnglish.setAttribute("aria-expanded", "false");
   elements.input.value = state.answers[state.index] || "";
   elements.modelAnswer.textContent = exercise.answer;
+  renderSyntaxDiagram(elements.answerSyntaxDiagram, exercise.syntaxDiagram);
   elements.answerSentenceAnalysis.textContent = exercise.analysis || "";
   elements.answerSentenceAnalysis.hidden = !exercise.analysis;
   renderGrammarLinks(elements.answerGrammarLinks, exercise.grammarLinks || []);

@@ -144,6 +144,35 @@ button { color: inherit; }
 .study-panel { display: grid; gap: 16px; }
 .study-answer-wrap { position: relative; padding: 22px 24px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: white; transition: background .2s ease; }
 .study-answer { margin: 0; font-size: clamp(22px, 2.6vw, 35px); line-height: 1.5; transition: filter .2s ease, opacity .2s ease; }
+.syntax-diagram { margin: 18px 0 3px; padding: 14px; border: 1px solid #383b43; border-radius: 15px; background: #22242a; color: #f8f5ee; }
+.syntax-diagram[hidden] { display: none; }
+.syntax-diagram-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 11px; }
+.syntax-diagram-title { color: #fff; font: 800 11px/1.2 "Courier New", monospace; letter-spacing: .04em; }
+.syntax-diagram-note { color: #aeb2bd; font-size: 12px; line-height: 1.4; }
+.syntax-canvas { padding: 14px 8px 7px; }
+.syntax-clause { position: relative; border: 2px solid #50535c; border-radius: 12px; }
+.syntax-clause-label { position: absolute; top: -11px; left: 15px; z-index: 1; padding: 4px 8px; border-radius: 6px; background: #4d69cb; color: white; font: 800 10px/1 "Courier New", monospace; }
+.syntax-main-parts { display: grid; grid-template-columns: 1.8fr .58fr 1fr; gap: 12px; align-items: stretch; padding: 25px 13px 13px; }
+.syntax-branch-parts { display: grid; grid-template-columns: 1.1fr .75fr 1.35fr; gap: 10px; align-items: stretch; }
+.syntax-part { position: relative; min-width: 0; padding: 20px 8px 8px; border: 1px solid #4d5059; border-radius: 9px; }
+.syntax-part-label { position: absolute; top: -9px; left: 8px; padding: 3px 6px; border-radius: 5px; background: #069aaa; color: white; font: 700 9px/1 "Courier New", monospace; white-space: nowrap; }
+.syntax-token-row { display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; gap: 5px; min-width: 0; }
+.syntax-token { display: inline-grid; place-items: center; min-width: 0; padding: 9px 8px; border: 2px solid #484b53; border-radius: 8px; background: #2c2e34; color: #f4f1ea; font: 700 13px/1.15 Georgia, serif; white-space: nowrap; }
+.syntax-token.verb { border-color: #8f8afb; background: #817cf0; color: white; }
+.syntax-token.link { border-color: #db5cae; background: #db5cae; color: white; }
+.syntax-token.marker { border-color: #d6aa31; background: #d6aa31; color: #28251d; }
+.syntax-part.verb { border-color: transparent; padding-inline: 0; }
+.syntax-part.verb .syntax-part-label { left: 50%; transform: translateX(-50%); }
+.syntax-branch-connector { width: 45%; height: 26px; margin-left: 50%; border-left: 2px dashed #726331; border-bottom: 2px dashed #726331; }
+.nested-clause { width: 76%; margin-left: auto; padding: 27px 13px 24px; border-style: dashed; border-color: #726331; }
+.nested-label { background: #d6aa31; color: #28251d; }
+.syntax-branch-connector.parallel { width: 12%; margin-left: 44%; border-color: #4d69cb; }
+.nested-clause.parallel { width: 100%; border-style: solid; border-color: #4d69cb; }
+.nested-clause.parallel .nested-label { background: #4d69cb; color: white; }
+.syntax-branch-connector.result { border-color: #b05a8f; }
+.nested-clause.result { width: 86%; border-color: #b05a8f; }
+.nested-clause.result .nested-label { background: #b05a8f; color: white; }
+.syntax-position-label { position: absolute; right: 12px; bottom: -12px; padding: 4px 7px; border-radius: 5px; background: #069aaa; color: white; font: 700 9px/1 "Courier New", monospace; }
 .sentence-analysis { margin: 9px 0 0; color: var(--muted); font-size: 14px; line-height: 1.65; transition: filter .2s ease, opacity .2s ease; }
 .grammar-links { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 9px; }
 .grammar-links a { padding: 4px 8px; border: 1px solid var(--line); border-radius: 999px; background: var(--cream); color: var(--ink); font: 700 10px/1.2 "Courier New", monospace; text-decoration: none; }
@@ -151,6 +180,7 @@ button { color: inherit; }
 .grammar-links[hidden] { display: none; }
 .study-answer-wrap.covered { background: repeating-linear-gradient(-45deg,#f3eadb,#f3eadb 8px,#eee2cf 8px,#eee2cf 16px); cursor: pointer; }
 .study-answer-wrap.covered .study-answer,
+.study-answer-wrap.covered .syntax-diagram,
 .study-answer-wrap.covered .sentence-analysis,
 .study-answer-wrap.covered .grammar-links { filter: blur(10px); opacity: .17; pointer-events: none; user-select: none; }
 .study-answer-wrap.covered::after { content: "先自己说一遍 · 点击查看"; position: absolute; inset: 0; display: grid; place-items: center; color: var(--ink); font: 800 12px "Courier New", monospace; letter-spacing: .05em; }
@@ -273,6 +303,12 @@ footer button { min-height: 30px; padding: 5px 10px; border-color: var(--line); 
   .study-support { grid-template-columns: 1fr; }
   .audio-button { width: 100%; }
   .translation-process-steps { grid-template-columns: 1fr; }
+  .syntax-diagram-header { align-items: flex-start; flex-direction: column; gap: 4px; }
+  .syntax-main-parts { grid-template-columns: 1fr; gap: 18px; }
+  .syntax-branch-parts { grid-template-columns: 1fr; gap: 18px; }
+  .syntax-part.verb { padding: 20px 8px 8px; border-color: #4d5059; }
+  .syntax-branch-connector { width: 30%; margin-left: 45%; }
+  .nested-clause { width: 90%; }
   .vocabulary-item { grid-template-columns: minmax(0, 1fr); gap: 5px; }
   .vocabulary-term { overflow-x: auto; padding-bottom: 2px; }
   .study-actions .learned-button { width: 100%; margin-left: 0; }
