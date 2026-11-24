@@ -2430,6 +2430,12 @@ const issues = [
 ];
 
 const coreExamples = {
+  "send ... doing": { sentence: "The good news sent everyone smiling.", translation: "这个好消息让每个人都笑了起来。" },
+  "question whether": { sentence: "Some parents question whether the change will help students.", translation: "一些家长质疑这项改变是否会帮助学生。" },
+  "deserve scrutiny": { sentence: "Such a serious claim deserves careful scrutiny.", translation: "如此严肃的说法值得仔细审查。" },
+  "remain bullish on": { sentence: "Many investors remain bullish on clean energy.", translation: "许多投资者仍然看好清洁能源。" },
+  "reduce dependence on": { sentence: "The city hopes to reduce its dependence on cars.", translation: "这座城市希望降低对汽车的依赖。" },
+  "provide ... of capacity": { sentence: "The new battery can provide ten hours of capacity.", translation: "这块新电池可以提供十小时的容量。" },
   "neither ... nor ...": { sentence: "Neither Jack nor Emma is late.", translation: "杰克和艾玛都没有迟到。" },
   "be willing to": { sentence: "She is willing to help us.", translation: "她愿意帮助我们。" },
   "force ... to ...": { sentence: "The rain forced us to stay inside.", translation: "大雨迫使我们留在室内。" },
@@ -3172,13 +3178,16 @@ function render() {
   renderGrammarLinks(elements.studyGrammarLinks, exercise.grammarLinks || []);
   elements.corePhrase.textContent = exercise.core;
   elements.phraseMeaning.textContent = exercise.meaning;
-  const coreExample = coreExamples[exercise.core];
+  const coreExample = coreExamples[exercise.core] || {
+    sentence: exercise.answer,
+    translation: exercise.chinese
+  };
   elements.coreExample.textContent = coreExample?.sentence || "";
   elements.coreExampleTranslation.textContent = coreExample?.translation || "";
   elements.corePhrase.hidden = false;
   elements.coreExample.hidden = true;
   elements.coreExampleTranslation.hidden = false;
-  elements.toggleRememberEnglish.hidden = !coreExample;
+  elements.toggleRememberEnglish.hidden = false;
   elements.toggleRememberEnglish.textContent = "查看英文例句";
   elements.toggleRememberEnglish.setAttribute("aria-expanded", "false");
   elements.input.value = state.answers[state.index] || "";
