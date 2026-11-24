@@ -19,6 +19,7 @@ SOURCE_DIR = Path("/Users/apple/Downloads/贝贝外刊")
 OUTPUT_DIR = Path(__file__).resolve().parents[1]
 SITE_CONFIG_PATH = OUTPUT_DIR / "site_config.json"
 CACHE_DIR = OUTPUT_DIR / ".beibei-cache" / "articles"
+MANUAL_ARTICLE_DIR = OUTPUT_DIR / "content" / "manual-articles"
 ANALYSIS_HEADINGS = ("长难句分析", "中英文互译")
 POST_READING_HEADINGS = (*ANALYSIS_HEADINGS, "文章结构", "课后作业")
 POS_ATOM_PATTERN = r"(?:n|v|adj|adv|prep|phr|conj|exclamation|abbr)"
@@ -1872,7 +1873,11 @@ def discover_note_pdfs() -> tuple[list[tuple[Path, str]], list[dict[str, str]]]:
     by_date: dict[str, tuple[Path, str]] = {}
     digest_owner: dict[str, Path] = {}
     duplicates: list[dict[str, str]] = []
-    for path in sorted(SOURCE_DIR.glob("*笔记讲义*.pdf")):
+    source_paths = {
+        *SOURCE_DIR.glob("*笔记讲义*.pdf"),
+        *SOURCE_DIR.glob("*预习原文*.pdf"),
+    }
+    for path in sorted(source_paths):
         date_match = re.search(r"(20\d{6})", path.name)
         if not date_match:
             continue
@@ -1950,7 +1955,7 @@ def title_from_path(path: Path) -> str:
     title = path.stem
     title = re.sub(r"^\d{8}-?", "", title)
     title = re.sub(r"^\d{8}", "", title)
-    title = re.sub(r"^【笔记讲义】", "", title)
+    title = re.sub(r"^【(?:笔记讲义|预习原文)】", "", title)
     return title.strip("- _,")
 
 
@@ -4491,6 +4496,24 @@ def read_article(path: Path, digest: str | None = None) -> Article:
     pages = [(page.extract_text() or "").replace("\x00", " ") for page in reader.pages]
     raw = "\n".join(pages)
     date = re.search(r"(20\d{6})", path.name).group(1)
+    manual_path = MANUAL_ARTICLE_DIR / f"{date}.json"
+    if manual_path.exists():
+        manual = json.loads(manual_path.read_text(encoding="utf-8"))
+        return Article(
+            date=date,
+            title=title_from_path(path),
+            filename=path.name,
+            pages=len(reader.pages),
+            words=len(clean_text(raw).split()),
+            paragraphs=manual["paragraphs"],
+            vocabulary=manual.get("vocabulary", []),
+            analyses=manual.get("analyses", []),
+            source_digest=digest or sha256(path),
+            cover_image=cover_image_ref(date),
+            title_explanation=manual.get("title_explanation", ""),
+            title_vocab_terms=manual.get("title_vocab_terms", ""),
+            structure=manual.get("structure", ""),
+        )
     return Article(
         date=date,
         title=title_from_path(path),
@@ -4982,9 +5005,17 @@ def build(force: bool = False, refresh_dates: set[str] | None = None) -> tuple[l
 
 
 def source_snapshot() -> tuple[tuple[str, int, int], ...]:
+    source_paths = {
+        *SOURCE_DIR.glob("*笔记讲义*.pdf"),
+        *SOURCE_DIR.glob("*预习原文*.pdf"),
+    }
     files = tuple(
         (str(path), path.stat().st_size, path.stat().st_mtime_ns)
-        for path in sorted(SOURCE_DIR.glob("*笔记讲义*.pdf"))
+        for path in sorted(source_paths)
+    )
+    files += tuple(
+        (str(path), path.stat().st_size, path.stat().st_mtime_ns)
+        for path in sorted(MANUAL_ARTICLE_DIR.glob("*.json"))
     )
     if SITE_CONFIG_PATH.exists():
         stat = SITE_CONFIG_PATH.stat()

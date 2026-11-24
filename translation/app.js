@@ -313,6 +313,203 @@ const november20Exercises = [
   }
 ];
 
+const november23Exercises = [
+  {
+    chinese: "一份批评性报告导致AMD股价暴跌约7%。",
+    answer: "A critical report sent AMD shares tumbling by about 7%.",
+    core: "send ... doing",
+    meaning: "使……进入某种动作或状态",
+    vocabulary: [
+      { word: "critical", ipa: "/ˈkrɪtɪkəl/", meaning: "批评性的；严厉的" },
+      { word: "share", ipa: "/ʃer/", meaning: "股票；股份" },
+      { word: "tumble", ipa: "/ˈtʌmbəl/", meaning: "暴跌；骤降" }
+    ],
+    keywords: "一份批评性报告 a critical report · 导致 sent · AMD股价 AMD shares · 暴跌 tumbling · 约7% by about 7%",
+    frame: "A critical report sent ... tumbling by ...",
+    note: "send + 宾语 + doing 表示使某人或某物突然进入某种动作或状态。",
+    analysis: "找谓语：sent。定骨架：A critical report（S）+ sent（V）+ AMD shares（O）+ tumbling（C）。by about 7%说明下跌幅度。",
+    syntaxDiagram: {
+      label: "句子结构图",
+      note: "简单句 · 宾语后接现在分词补足语",
+      parts: [
+        { type: "subject", mark: "S", label: "主语", tokens: [{ text: "A critical report", kind: "noun" }] },
+        { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "sent", kind: "verb" }] },
+        { type: "object", mark: "O+C", label: "宾语 + 宾补", tokens: [{ text: "AMD shares", kind: "noun" }, { text: "tumbling", kind: "verb" }, { text: "by about 7%", kind: "noun" }] }
+      ]
+    },
+    grammarLinks: [{ label: "宾语补足语", href: "/grammar/chapter-09.html#object-complement" }, { label: "非谓语的岗位", href: "/grammar/chapter-14.html#jobs" }],
+    source: "A troubling new report has unsettled investors in Advanced Micro Devices, sending shares tumbling around 7% during Thursday’s trading session."
+  },
+  {
+    chinese: "报告质疑AMD的财务承诺能否由其现金支撑。",
+    answer: "The report questioned whether AMD's financial commitments could be supported by its cash.",
+    core: "question whether",
+    meaning: "质疑是否……",
+    vocabulary: [
+      { word: "question", ipa: "/ˈkwestʃən/", meaning: "质疑；对……表示怀疑" },
+      { word: "commitment", ipa: "/kəˈmɪtmənt/", meaning: "资金承诺；义务" },
+      { word: "support", ipa: "/səˈpɔːrt/", meaning: "支撑；支持" }
+    ],
+    keywords: "报告 the report · 质疑 questioned · 是否 whether · 财务承诺 financial commitments · 由现金支撑 be supported by its cash",
+    frame: "The report questioned whether ... could be supported by ...",
+    note: "whether引出宾语从句；could be supported是情态动词的被动结构。",
+    analysis: "找谓语：questioned / could be supported，两套骨架。whether把第二套骨架变成questioned的宾语从句；by its cash说明被什么支撑。",
+    syntaxDiagram: {
+      label: "句子结构图",
+      note: "whether引出宾语从句",
+      parts: [
+        { type: "subject", mark: "S", label: "主语", tokens: [{ text: "The report", kind: "noun" }] },
+        { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "questioned", kind: "verb" }] },
+        { type: "object", mark: "O", label: "宾语", tokens: [{ text: "whether ...", kind: "link" }] }
+      ],
+      branches: [
+        {
+          kind: "embedded",
+          label: "whether · 宾语从句",
+          relation: "作 questioned 的宾语",
+          parts: [
+            { type: "subject", mark: "S", label: "从句主语", tokens: [{ text: "AMD's financial commitments", kind: "noun" }] },
+            { type: "verb", mark: "V", label: "被动谓语", tokens: [{ text: "could be supported", kind: "verb" }] },
+            { type: "object", mark: "A", label: "方式", tokens: [{ text: "by its cash", kind: "noun" }] }
+          ]
+        }
+      ]
+    },
+    grammarLinks: [{ label: "名词性从句", href: "/grammar/chapter-12.html#noun" }, { label: "被动语态", href: "/grammar/chapter-15.html#passive" }],
+    source: "These obligations stand against $15.8 billion in cash and short-term investments."
+  },
+  {
+    chinese: "这些指控值得审查，但尚未证明存在不当行为。",
+    answer: "The allegations deserve scrutiny, but they have not proved any wrongdoing.",
+    core: "deserve scrutiny",
+    meaning: "值得审查",
+    vocabulary: [
+      { word: "allegation", ipa: "/ˌæləˈɡeɪʃən/", meaning: "未经证实的指控" },
+      { word: "scrutiny", ipa: "/ˈskruːtəni/", meaning: "仔细审查" },
+      { word: "wrongdoing", ipa: "/ˈrɔːŋduːɪŋ/", meaning: "不当或违法行为" }
+    ],
+    keywords: "这些指控 the allegations · 值得 deserve · 审查 scrutiny · 但 but · 尚未证明 have not proved · 不当行为 wrongdoing",
+    frame: "The allegations deserve ..., but they have not proved ...",
+    note: "but连接两个转折并列分句；现在完成时强调截至目前仍未得到证明。",
+    analysis: "两套骨架由but连接。主句A是The allegations + deserve + scrutiny；主句B是they + have not proved + any wrongdoing。",
+    syntaxDiagram: {
+      label: "句子结构图",
+      note: "but连接两个转折并列分句",
+      mainLabel: "主句 A",
+      parts: [
+        { type: "subject", mark: "S", label: "主语", tokens: [{ text: "The allegations", kind: "noun" }] },
+        { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "deserve", kind: "verb" }] },
+        { type: "object", mark: "O", label: "宾语", tokens: [{ text: "scrutiny", kind: "noun" }] }
+      ],
+      branches: [
+        {
+          kind: "parallel",
+          label: "主句 B",
+          relation: "but · 转折并列",
+          parts: [
+            { type: "subject", mark: "S", label: "主语", tokens: [{ text: "but", kind: "link" }, { text: "they", kind: "noun" }] },
+            { type: "verb", mark: "V", label: "现在完成时", tokens: [{ text: "have not proved", kind: "verb" }] },
+            { type: "object", mark: "O", label: "宾语", tokens: [{ text: "any wrongdoing", kind: "noun" }] }
+          ]
+        }
+      ]
+    },
+    grammarLinks: [{ label: "并列与转折", href: "/grammar/chapter-13.html#logic" }, { label: "完成时", href: "/grammar/chapter-15.html#perfect" }],
+    source: "The allegations therefore warrant scrutiny without being treated as established wrongdoing."
+  },
+  {
+    chinese: "分析师仍然看好AMD的长期前景。",
+    answer: "Analysts remain bullish on AMD's long-term prospects.",
+    core: "remain bullish on",
+    meaning: "仍然看好……",
+    vocabulary: [
+      { word: "analyst", ipa: "/ˈænəlɪst/", meaning: "分析师" },
+      { word: "bullish", ipa: "/ˈbʊlɪʃ/", meaning: "看涨的；乐观的" },
+      { word: "prospect", ipa: "/ˈprɑːspekt/", meaning: "前景；可能性" }
+    ],
+    keywords: "分析师 analysts · 仍然 remain · 看好 bullish on · AMD的长期前景 AMD's long-term prospects",
+    frame: "Analysts remain bullish on ...",
+    note: "remain是系动词，bullish是表语；on AMD's...补充看好的对象。",
+    analysis: "这是一套主系表骨架：Analysts（S）+ remain（V）+ bullish（P）；on AMD's long-term prospects是表语的介词补充。",
+    syntaxDiagram: {
+      label: "句子结构图",
+      note: "简单句 · 主系表结构",
+      parts: [
+        { type: "subject", mark: "S", label: "主语", tokens: [{ text: "Analysts", kind: "noun" }] },
+        { type: "verb", mark: "V", label: "系动词", tokens: [{ text: "remain", kind: "verb" }] },
+        { type: "object", mark: "P", label: "表语", tokens: [{ text: "bullish", kind: "noun" }, { text: "on AMD's long-term prospects", kind: "noun" }] }
+      ]
+    },
+    grammarLinks: [{ label: "五种基本句型", href: "/grammar/chapter-09.html#five" }, { label: "系动词", href: "/grammar/chapter-09.html#linking" }],
+    source: "Despite these concerns, Wall Street remains bullish on AMD’s longer-term prospects."
+  },
+  {
+    chinese: "OpenAI希望让基础设施多元化，并降低对英伟达的依赖。",
+    answer: "OpenAI wants to diversify its infrastructure and reduce its dependence on Nvidia.",
+    core: "reduce dependence on",
+    meaning: "降低对……的依赖",
+    vocabulary: [
+      { word: "diversify", ipa: "/daɪˈvɜːrsɪfaɪ/", meaning: "使多元化" },
+      { word: "infrastructure", ipa: "/ˈɪnfrəstrʌktʃər/", meaning: "基础设施" },
+      { word: "dependence", ipa: "/dɪˈpendəns/", meaning: "依赖" }
+    ],
+    keywords: "OpenAI · 希望 wants to · 多元化 diversify · 基础设施 infrastructure · 降低依赖 reduce dependence on · 英伟达 Nvidia",
+    frame: "OpenAI wants to ... and reduce its dependence on ...",
+    note: "to diversify和(to) reduce是由and连接的并列不定式，共同作wants的补语。",
+    analysis: "主句骨架是OpenAI + wants；后面用to diversify... and reduce...说明想做什么。第二个to被省略，但两个动词仍保持并列。",
+    syntaxDiagram: {
+      label: "句子结构图",
+      note: "and连接两个并列不定式",
+      parts: [
+        { type: "subject", mark: "S", label: "主语", tokens: [{ text: "OpenAI", kind: "noun" }] },
+        { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "wants", kind: "verb" }] },
+        { type: "object", mark: "C", label: "不定式补语", tokens: [{ text: "to diversify its infrastructure", kind: "marker" }, { text: "and", kind: "link" }, { text: "reduce its dependence on Nvidia", kind: "verb" }] }
+      ]
+    },
+    grammarLinks: [{ label: "并列结构", href: "/grammar/chapter-13.html#parallel" }, { label: "非谓语的岗位", href: "/grammar/chapter-14.html#jobs" }],
+    source: "Companies like OpenAI and Anthropic ... have ongoing efforts to diversify their infrastructure."
+  },
+  {
+    chinese: "TensorWave将提供457兆瓦算力，但这只占整个协议的7.6%。",
+    answer: "TensorWave will provide 457 megawatts of capacity, but that is only 7.6% of the total deal.",
+    core: "provide ... of capacity",
+    meaning: "提供……容量",
+    vocabulary: [
+      { word: "megawatt", ipa: "/ˈmeɡəwɑːt/", meaning: "兆瓦" },
+      { word: "capacity", ipa: "/kəˈpæsəti/", meaning: "容量；算力规模" },
+      { word: "total", ipa: "/ˈtoʊtəl/", meaning: "全部的；总计的" }
+    ],
+    keywords: "TensorWave · 将提供 will provide · 457兆瓦算力 457 megawatts of capacity · 但 but · 只占 only 7.6% · 整个协议 the total deal",
+    frame: "... will provide ..., but that is only ... of ...",
+    note: "but连接两个分句；that指代前面提到的457兆瓦容量。",
+    analysis: "主句A是TensorWave + will provide + 457 megawatts of capacity。主句B是that + is + only 7.6% of the total deal，其中that回指前面的算力规模。",
+    syntaxDiagram: {
+      label: "句子结构图",
+      note: "but连接规模与占比两个分句",
+      mainLabel: "主句 A",
+      parts: [
+        { type: "subject", mark: "S", label: "主语", tokens: [{ text: "TensorWave", kind: "noun" }] },
+        { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "will provide", kind: "verb" }] },
+        { type: "object", mark: "O", label: "宾语", tokens: [{ text: "457 megawatts of capacity", kind: "noun" }] }
+      ],
+      branches: [
+        {
+          kind: "parallel",
+          label: "主句 B",
+          relation: "but · 转折补充",
+          parts: [
+            { type: "subject", mark: "S", label: "代词主语", tokens: [{ text: "but", kind: "link" }, { text: "that", kind: "noun" }] },
+            { type: "verb", mark: "V", label: "系动词", tokens: [{ text: "is", kind: "verb" }] },
+            { type: "object", mark: "P", label: "表语", tokens: [{ text: "only 7.6% of the total deal", kind: "noun" }] }
+          ]
+        }
+      ]
+    },
+    grammarLinks: [{ label: "并列与转折", href: "/grammar/chapter-13.html#logic" }, { label: "代词回指", href: "/grammar/chapter-04.html#pronoun" }],
+    source: "TensorWave will provide OpenAI with 457 megawatts of capacity ... That’s just 7.6% of the total capacity involved in the AMD deal."
+  }
+];
+
 const november21Exercises = [
   {
     chinese: "美国和伊朗都没有结束这场战争的手段。",
@@ -1061,6 +1258,14 @@ const november13Exercises = [
 ];
 
 const translationProcesses = {
+  "20261123": [
+    { grammar: "send + 宾语 + doing表示使某物进入某种状态。", words: "critical report（批评性报告）、shares（股价）、tumble（暴跌）。", order: "先写报告作主语，再用sent接AMD shares和tumbling，最后补幅度。" },
+    { grammar: "whether引出宾语从句；could be supported使用被动语态。", words: "financial commitments（财务承诺）、cash（现金）、support（支撑）。", order: "先写The report questioned，再把能否被现金支撑放入whether从句。" },
+    { grammar: "but连接转折并列句；have not proved使用现在完成时。", words: "allegations（指控）、scrutiny（审查）、wrongdoing（不当行为）。", order: "先写指控值得审查，再转折说明尚未证明不当行为。" },
+    { grammar: "remain作系动词，bullish作表语。", words: "analysts（分析师）、bullish on（看好）、long-term prospects（长期前景）。", order: "Analysts作主语，接remain bullish on和看好的对象。" },
+    { grammar: "to diversify和(to) reduce构成并列不定式。", words: "infrastructure（基础设施）、dependence on（对……的依赖）。", order: "先写OpenAI wants to，再依次写多元化和降低依赖两个目标。" },
+    { grammar: "but连接两个完整分句；that回指前面的容量。", words: "megawatts（兆瓦）、capacity（容量）、total deal（整个协议）。", order: "先写提供的算力，再用but that is only说明占比。" }
+  ],
   "20261121": [
     { grammar: "用 neither...nor... 并列两个否定主语，has 与近处的 Iran 保持一致。", words: "means（手段）、end the war（结束战争）。", order: "先放 Neither America nor Iran，再写 has the means，最后用不定式说明用途。" },
     { grammar: "but 连接表面意愿与真实选择；do so 替代重复动作。", words: "claim（声称）、be willing to（愿意）、a long war（持久战）。", order: "先写双方声称愿意作战，再用 but neither 表达无人真正愿意。" },
@@ -2060,6 +2265,15 @@ const november3Exercises = [
 ];
 
 const issues = [
+  {
+    date: "20261123",
+    displayDate: "2026.11.23",
+    title: "做空来袭，<br>机会还是危机",
+    optionTitle: "做空来袭，机会还是危机",
+    summary: "用6句话理解AMD做空报告的争议，以及OpenAI为何通过AMD降低对英伟达的依赖。",
+    storageKey: "beibei-translation-20261123-v1",
+    exercises: november23Exercises
+  },
   {
     date: "20261121",
     displayDate: "2026.11.21",

@@ -5,5 +5,12 @@
     "vocabulary": true,
     "analysis": true
   },
-  "article_guides": {}
+  "article_guides": {
+    "20261123": {
+      "pet_index": "04",
+      "background": "AMD是全球主要芯片公司之一，由苏姿丰领导，并一直试图在人工智能加速器市场挑战英伟达。Hunterbrook Media与投资机构Hunterbrook Capital有关联：前者发布调查报道，后者可能通过做空相关股票获利。因此，阅读这类报告时既要核对其中提出的财务与合规问题，也要留意发布者自身的利益关系。",
+      "overview": "文章分为两条相互关联的线索。第一条线索是Hunterbrook对AMD的调查：报告质疑AMD数百亿美元的担保、基础设施安排和未来股权投资，并关注其中国合作方可能带来的出口合规风险。AMD股价因此下跌约7%，但报告并未证明AMD违法，而且发布报告的关联基金持有AMD空头仓位。华尔街分析师仍普遍看好AMD。\n\n第二条线索是OpenAI降低对英伟达依赖的计划。OpenAI正在设计自有芯片、考虑购买Google TPU，并推进与AMD的六吉瓦算力合作。TensorWave将成为该合作的首家新云服务商，为OpenAI提供457兆瓦算力。文章由此说明，AMD既面临财务与合规质疑，也迎来了人工智能公司主动分散英伟达供应风险所带来的巨大机会。",
+      "pet": "AMD's share price fell about 7% after Hunterbrook Media published a critical report. The report questioned AMD's large financial promises and some of its relationships with Chinese companies. It also raised concerns about US export rules. However, the report did not prove that AMD broke the law. Hunterbrook Capital also has a short position in AMD, so it may make money if AMD's share price falls.\n\nWall Street analysts still believe AMD may grow in the long term. Most analysts rate the stock as a strong buy. This is partly because large AI companies want more choices instead of depending only on Nvidia.\n\nOpenAI now uses Nvidia chips for almost all of its models, so problems at Nvidia could seriously affect it. Anthropic already uses chips from Google, AMD, Amazon and Nvidia. This gives Anthropic more flexibility and can lower its costs.\n\nOpenAI is trying to build a similar system. It is designing its own chip, may buy Google TPUs and has signed a large agreement with AMD. The AMD deal could provide six gigawatts of computing capacity.\n\nTensorWave will be the first new cloud company in this deal. It will provide 457 megawatts across several US data centres and may need three times as many workers. AMD therefore faces real risks, but it also has a major chance to benefit as AI companies reduce their dependence on Nvidia."
+    }
+  }
 }
