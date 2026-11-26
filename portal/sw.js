@@ -1,12 +1,12 @@
 "use strict";
 
-const CACHE_NAME = "qinyibin-portal-2026.11.08.1";
+const CACHE_NAME = "qinyibin-portal-2026.11.26.3";
 const APP_SHELL = [
   "/",
   "/index.html",
-  "/styles.css?v=20261103-1",
-  "/app.js?v=20261103-1",
-  "/projects.js?v=20261108-1",
+  "/styles.css?v=20261126-3",
+  "/app.js?v=20261126-3",
+  "/projects.js?v=20261126-2",
   "/manifest.webmanifest?v=20261102-1",
   "/assets/favicon.svg",
   "/assets/apple-touch-icon.png?v=20261101-1",

@@ -45,11 +45,10 @@ window.QINYIBIN_PROJECTS = [
     category: "理科",
     url: "https://science.qinyibin.com/grade7/",
     domain: "science.qinyibin.com",
-    description: "浙教版七年级科学：知识地图、主动回忆卡与易错诊断，现已整理第1—2章。",
+    description: "浙教版七年级上册科学统一入口：第1—3章按主题重建，支持原资料红字主动回忆。",
     color: "#2c6a55",
     subprojects: [
-      ["七上第1章 · 探索自然的科学", "https://science.qinyibin.com/grade7/"],
-      ["七上第2章 · 丰富多彩的生命世界", "https://science.qinyibin.com/grade7/chapter2/"]
+      ["七上科学", "https://science.qinyibin.com/grade7/"]
     ]
   },
   {
@@ -89,10 +88,13 @@ window.QINYIBIN_PROJECTS = [
     category: "语言",
     url: "https://english.qinyibin.com/",
     domain: "english.qinyibin.com",
-    description: "生活英语句型、分级阅读、PET 写作、朗读与场景练习。",
+    description: "语法思维、学霸例句记忆、分级阅读、PET 写作、朗读与场景练习。",
     color: "#7151a2",
     subprojects: [
+      ["英语短语动词精选", "https://english.qinyibin.com/phrasal-verbs/"],
       ["贝贝外刊精读", "https://english.qinyibin.com/beibei/"],
+      ["极简英语思维", "https://english.qinyibin.com/grammar/"],
+      ["学霸英语语法", "https://english.qinyibin.com/xueba/"],
       ["家庭英语 8000 句", "https://english.qinyibin.com/family-english-8000-reader/"],
       ["Eagle Drums", "https://english.qinyibin.com/eagledrums/"],
       ["PET 写作练习", "https://english.qinyibin.com/writing/"]

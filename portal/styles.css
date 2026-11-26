@@ -243,18 +243,18 @@ h2 {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
 }
 
 .project-card {
   position: relative;
   display: flex;
-  min-height: 230px;
+  min-width: 0;
   flex-direction: column;
-  padding: 24px;
+  padding: 26px 26px 24px;
   overflow: hidden;
-  text-decoration: none;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -272,8 +272,8 @@ h2 {
 .project-card:hover {
   z-index: 1;
   border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
-  box-shadow: 0 14px 34px rgba(27, 34, 44, .09);
-  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(27, 34, 44, .07);
+  transform: translateY(-2px);
 }
 
 .card-top {
@@ -284,9 +284,18 @@ h2 {
 }
 
 .project-domain,
-.project-count {
+.project-category {
   color: var(--muted);
   font-size: 12px;
+}
+
+.project-category {
+  padding: 5px 9px;
+  background: color-mix(in srgb, var(--accent) 9%, #fff);
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, #fff);
+  border-radius: 999px;
+  color: color-mix(in srgb, var(--accent) 82%, #30343a);
+  font-weight: 600;
 }
 
 .subject-mark {
@@ -302,38 +311,95 @@ h2 {
 }
 
 .project-card h3 {
-  margin: 26px 0 9px;
+  margin: 22px 0 8px;
   font-family: "Noto Serif SC", "Songti SC", serif;
-  font-size: 21px;
+  font-size: 23px;
   line-height: 1.35;
   letter-spacing: 0;
 }
 
+.project-domain { margin-bottom: 0; }
+
 .project-description {
-  margin-bottom: 22px;
+  min-height: 3.44em;
+  margin: 16px 0 22px;
   color: var(--muted);
   font-size: 14px;
   line-height: 1.72;
 }
 
-.subprojects {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px 13px;
+.project-children {
   margin-top: auto;
-  padding-top: 17px;
-  border-top: 1px solid #ecebe6;
+  padding-top: 18px;
+  border-top: 1px solid #e7e6df;
+}
+
+.children-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .03em;
+}
+
+.subprojects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
 }
 
 .subproject-link {
-  position: relative;
-  z-index: 2;
-  color: #444a52;
-  font-size: 12px;
+  display: flex;
+  min-width: 0;
+  min-height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 10px 9px 12px;
+  color: #3d434b;
+  background: #f7f7f3;
+  border: 1px solid #e9e8e2;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.35;
   text-decoration: none;
+  transition: color .16s ease, background-color .16s ease, border-color .16s ease;
 }
 
-.subproject-link:hover { color: var(--accent); text-decoration: underline; }
+.subproject-link span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.subproject-arrow {
+  flex: 0 0 auto;
+  color: color-mix(in srgb, var(--accent) 70%, #777);
+  font-size: 15px;
+  transition: transform .16s ease;
+}
+
+.subproject-link:hover,
+.subproject-link:focus-visible {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 6%, #fff);
+  border-color: color-mix(in srgb, var(--accent) 34%, #e9e8e2);
+  outline: none;
+}
+
+.subproject-link:hover .subproject-arrow,
+.subproject-link:focus-visible .subproject-arrow { transform: translateX(2px); }
+
+.no-subprojects {
+  margin: 0;
+  padding: 12px;
+  color: var(--muted);
+  background: #f7f7f3;
+  border-radius: 6px;
+  font-size: 13px;
+}
 
 .empty-state {
   padding: 64px 0;
@@ -353,7 +419,7 @@ footer {
 }
 
 @media (max-width: 880px) {
-  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project-grid { grid-template-columns: 1fr; }
   .intro { min-height: 360px; }
   .intro-copy { padding: 58px 42px; }
 }
@@ -369,8 +435,9 @@ footer {
   .directory { padding: 50px 0 64px; }
   .directory-head { align-items: stretch; flex-direction: column; }
   .search-box { width: 100%; }
-  .project-grid { grid-template-columns: 1fr; }
-  .project-card { min-height: 215px; }
+  .project-card { padding: 22px 20px 20px; }
+  .project-description { min-height: 0; }
+  .subprojects { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

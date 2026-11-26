@@ -46,16 +46,20 @@
     grid.innerHTML = visible.map(function (project) {
       var links = project.subprojects.map(function (item) {
         return '<a class="subproject-link" href="' + escapeHtml(item[1]) + '">' +
-          escapeHtml(item[0]) + '</a>';
+          '<span>' + escapeHtml(item[0]) + '</span>' +
+          '<span class="subproject-arrow" aria-hidden="true">→</span></a>';
       }).join("");
 
       return '<article class="project-card" style="--accent:' + escapeHtml(project.color) + '">' +
         '<div class="card-top"><span class="subject-mark">' + escapeHtml(project.mark) + '</span>' +
-        '<span class="project-count">' + (project.subprojects.length ? project.subprojects.length + " 个子项目" : "独立项目") + '</span></div>' +
-        '<h3><a href="' + escapeHtml(project.url) + '">' + escapeHtml(project.name) + '</a></h3>' +
+        '<span class="project-category">' + escapeHtml(project.category) + '</span></div>' +
+        '<h3>' + escapeHtml(project.name) + '</h3>' +
         '<p class="project-domain">' + escapeHtml(project.domain) + '</p>' +
         '<p class="project-description">' + escapeHtml(project.description) + '</p>' +
-        (links ? '<div class="subprojects">' + links + '</div>' : '') +
+        '<div class="project-children">' +
+        '<div class="children-heading"><span>子项目</span><span>' + project.subprojects.length + ' 项</span></div>' +
+        (links ? '<nav class="subprojects" aria-label="' + escapeHtml(project.name) + '子项目">' + links + '</nav>' : '<p class="no-subprojects">内容整理中</p>') +
+        '</div>' +
         '</article>';
     }).join("");
 
@@ -125,7 +129,7 @@
     });
 
     window.addEventListener("load", function () {
-      navigator.serviceWorker.register("/sw.js?v=20261101-1", { scope: "/" })
+      navigator.serviceWorker.register("/sw.js?v=20261126-3", { scope: "/" })
         .then(function (registration) {
           registration.update();
           if (registration.waiting) registration.waiting.postMessage({ type: "SKIP_WAITING" });
