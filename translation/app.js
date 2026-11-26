@@ -313,6 +313,296 @@ const november20Exercises = [
   }
 ];
 
+const november25Exercises = [
+  {
+    chinese: "在各方施压11天后，黄仁勋重返英伟达。",
+    answer: "Jensen Huang returned to Nvidia after eleven days of pressure.",
+    core: "return to",
+    meaning: "重返……",
+    vocabulary: [
+      { word: "return", ipa: "/rɪˈtɜːrn/", meaning: "返回；重返" },
+      { word: "pressure", ipa: "/ˈpreʃər/", meaning: "压力；施压" },
+      { word: "eleven", ipa: "/ɪˈlevən/", meaning: "十一" }
+    ],
+    keywords: "黄仁勋 Jensen Huang · 重返 returned to · 英伟达 Nvidia · 11天后 after eleven days · 压力 pressure",
+    frame: "... returned to ... after ... days of pressure.",
+    note: "一般过去时returned概括已经发生的回归；after引出时间。",
+    analysis: "找谓语：returned。骨架是Jensen Huang（S）+ returned（V）；to Nvidia说明返回地点，after...说明时间与背景。",
+    syntaxDiagram: { label: "句子结构图", note: "简单句 · 地点与时间状语", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "Jensen Huang", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "returned", kind: "verb" }] },
+      { type: "object", mark: "A", label: "地点与时间", tokens: [{ text: "to Nvidia", kind: "noun" }, { text: "after eleven days of pressure", kind: "marker" }] }
+    ] },
+    grammarLinks: [{ label: "主干与状语", href: "/grammar/chapter-03.html#idea" }],
+    source: "Jensen Huang, Nvidia’s cofounder and CEO, was reinstated today by the company’s board after more than a week of whinging from shareholders, Silicon Valley leaders, and Trump."
+  },
+  {
+    chinese: "他的复职改变了整个股票市场的走势。",
+    answer: "His reinstatement changed the trajectory of the entire stock market.",
+    core: "change the trajectory of",
+    meaning: "改变……的走势",
+    vocabulary: [
+      { word: "reinstatement", ipa: "/ˌriːɪnˈsteɪtmənt/", meaning: "复职；恢复原职" },
+      { word: "trajectory", ipa: "/trəˈdʒektəri/", meaning: "轨迹；发展走势" },
+      { word: "entire", ipa: "/ɪnˈtaɪər/", meaning: "整个的" }
+    ],
+    keywords: "他的复职 his reinstatement · 改变了 changed · 走势 trajectory · 整个股票市场 the entire stock market",
+    frame: "His reinstatement changed the trajectory of ...",
+    note: "change the trajectory of表示改变某事的发展方向或走势。",
+    analysis: "这是标准SVO：His reinstatement（S）+ changed（V）+ the trajectory（O）；of...后置修饰trajectory。",
+    syntaxDiagram: { label: "句子结构图", note: "简单句 · SVO", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "His reinstatement", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "changed", kind: "verb" }] },
+      { type: "object", mark: "O", label: "宾语", tokens: [{ text: "the trajectory", kind: "noun" }, { text: "of the entire stock market", kind: "marker" }] }
+    ] },
+    grammarLinks: [{ label: "五种基本句型", href: "/grammar/chapter-09.html#five" }],
+    source: "Because we live in an Nvidiastate, one man’s reinstatement was enough to change the trajectory of the entire stock market."
+  },
+  {
+    chinese: "支持者认为人工智能热潮依赖黄仁勋。",
+    answer: "Supporters believe that the AI boom depends on Jensen Huang.",
+    core: "depend on",
+    meaning: "依赖……",
+    vocabulary: [
+      { word: "supporter", ipa: "/səˈpɔːrtər/", meaning: "支持者" },
+      { word: "boom", ipa: "/buːm/", meaning: "繁荣；热潮" },
+      { word: "depend", ipa: "/dɪˈpend/", meaning: "依赖；取决于" }
+    ],
+    keywords: "支持者 supporters · 认为 believe · 人工智能热潮 the AI boom · 依赖 depends on · 黄仁勋 Jensen Huang",
+    frame: "Supporters believe that ... depends on ...",
+    note: "that引出believe的宾语从句；depend on是固定搭配。",
+    analysis: "主句是Supporters + believe；that从句内部是the AI boom + depends on + Jensen Huang。",
+    syntaxDiagram: { label: "句子结构图", note: "that引出宾语从句", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "Supporters", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "believe", kind: "verb" }] },
+      { type: "object", mark: "O", label: "宾语", tokens: [{ text: "that ...", kind: "link" }] }
+    ], branches: [{ kind: "embedded", label: "that · 宾语从句", relation: "作 believe 的宾语", parts: [
+      { type: "subject", mark: "S", label: "从句主语", tokens: [{ text: "the AI boom", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "depends on", kind: "verb" }] },
+      { type: "object", mark: "O", label: "介词宾语", tokens: [{ text: "Jensen Huang", kind: "noun" }] }
+    ] }] },
+    grammarLinks: [{ label: "名词性从句", href: "/grammar/chapter-12.html#noun" }],
+    source: "The rationale for this rally is that Huang is the central figure of the AI boom."
+  },
+  {
+    chinese: "领导者们想让负债累累的人工智能热潮继续下去。",
+    answer: "The leaders want the debt-laden AI boom to continue.",
+    core: "want ... to continue",
+    meaning: "希望……继续",
+    vocabulary: [
+      { word: "debt-laden", ipa: "/ˈdet ˌleɪdn/", meaning: "债务负担沉重的" },
+      { word: "leader", ipa: "/ˈliːdər/", meaning: "领导者；掌权者" },
+      { word: "continue", ipa: "/kənˈtɪnjuː/", meaning: "继续" }
+    ],
+    keywords: "领导者们 the leaders · 想 want · 负债累累的 debt-laden · AI热潮 the AI boom · 继续 to continue",
+    frame: "The leaders want ... to continue.",
+    note: "want + 宾语 + to do表示希望某人或某物做某事。",
+    analysis: "主干是The leaders + want；the debt-laden AI boom是宾语，to continue是宾语补足语。",
+    syntaxDiagram: { label: "句子结构图", note: "want + 宾语 + 不定式宾补", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "The leaders", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "want", kind: "verb" }] },
+      { type: "object", mark: "O+C", label: "宾语 + 宾补", tokens: [{ text: "the debt-laden AI boom", kind: "noun" }, { text: "to continue", kind: "marker" }] }
+    ] },
+    grammarLinks: [{ label: "宾语补足语", href: "/grammar/chapter-09.html#object-complement" }],
+    source: "They—and especially Trump—want the circularly funded, debt-laden AI boom propping up the global economy to continue."
+  },
+  {
+    chinese: "多数美国人担心这场婚外情已经损害国家安全。",
+    answer: "Most Americans fear that the affair has harmed national security.",
+    core: "fear that",
+    meaning: "担心……",
+    vocabulary: [
+      { word: "affair", ipa: "/əˈfer/", meaning: "婚外情；事件" },
+      { word: "harm", ipa: "/hɑːrm/", meaning: "损害" },
+      { word: "national security", ipa: "/ˌnæʃənəl sɪˈkjʊrəti/", meaning: "国家安全" }
+    ],
+    keywords: "多数美国人 most Americans · 担心 fear · 婚外情 the affair · 已损害 has harmed · 国家安全 national security",
+    frame: "Most Americans fear that ... has harmed ...",
+    note: "that引出宾语从句；现在完成时has harmed表示影响延续至今。",
+    analysis: "主句是Most Americans + fear；that从句是the affair + has harmed + national security。",
+    syntaxDiagram: { label: "句子结构图", note: "that宾语从句", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "Most Americans", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "fear", kind: "verb" }] },
+      { type: "object", mark: "O", label: "宾语", tokens: [{ text: "that ...", kind: "link" }] }
+    ], branches: [{ kind: "embedded", label: "that · 宾语从句", relation: "担心的内容", parts: [
+      { type: "subject", mark: "S", label: "从句主语", tokens: [{ text: "the affair", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "现在完成时", tokens: [{ text: "has harmed", kind: "verb" }] },
+      { type: "object", mark: "O", label: "宾语", tokens: [{ text: "national security", kind: "noun" }] }
+    ] }] },
+    grammarLinks: [{ label: "名词性从句", href: "/grammar/chapter-12.html#noun" }, { label: "完成时", href: "/grammar/chapter-15.html#perfect" }],
+    source: "A YouGov poll ... revealed that 54 percent of Americans thought that Jensen Huang’s affair ... has definitely or probably compromised U.S. national security."
+  },
+  {
+    chinese: "任何问责都可能让整个体系崩溃。",
+    answer: "Any accountability could cause the whole system to collapse.",
+    core: "cause ... to collapse",
+    meaning: "导致……崩溃",
+    vocabulary: [
+      { word: "accountability", ipa: "/əˌkaʊntəˈbɪləti/", meaning: "问责；责任制度" },
+      { word: "system", ipa: "/ˈsɪstəm/", meaning: "体系；系统" },
+      { word: "collapse", ipa: "/kəˈlæps/", meaning: "崩溃；倒塌" }
+    ],
+    keywords: "任何问责 any accountability · 可能 could · 导致 cause · 整个体系 the whole system · 崩溃 to collapse",
+    frame: "Any accountability could cause ... to collapse.",
+    note: "cause + 宾语 + to do表示导致某人或某物发生变化。",
+    analysis: "Any accountability是主语，could cause是谓语，the whole system是宾语，to collapse是宾补。",
+    syntaxDiagram: { label: "句子结构图", note: "cause + 宾语 + 不定式宾补", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "Any accountability", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "could cause", kind: "verb" }] },
+      { type: "object", mark: "O+C", label: "宾语 + 宾补", tokens: [{ text: "the whole system", kind: "noun" }, { text: "to collapse", kind: "marker" }] }
+    ] },
+    grammarLinks: [{ label: "宾语补足语", href: "/grammar/chapter-09.html#object-complement" }],
+    source: "Any bit of accountability or oversight could cause the whole thing to come crashing down."
+  }
+];
+
+const november24Exercises = [
+  {
+    chinese: "美国多个重要数字系统在几天内接连发生故障。",
+    answer: "Several important digital systems in America failed within a few days.",
+    core: "within a few days",
+    meaning: "在几天之内",
+    vocabulary: [
+      { word: "digital", ipa: "/ˈdɪdʒɪtəl/", meaning: "数字化的" },
+      { word: "system", ipa: "/ˈsɪstəm/", meaning: "系统" },
+      { word: "fail", ipa: "/feɪl/", meaning: "出故障；失灵" }
+    ],
+    keywords: "多个 several · 重要数字系统 important digital systems · 在美国 in America · 发生故障 failed · 几天内 within a few days",
+    frame: "Several ... systems in ... failed within ...",
+    note: "within表示不超过某个时间范围；failed用一般过去时概括已发生的故障。",
+    analysis: "主干是Several important digital systems（S）+ failed（V）；in America修饰systems，within...说明时间。",
+    syntaxDiagram: { label: "句子结构图", note: "简单句 · SV", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "Several important digital systems", kind: "noun" }, { text: "in America", kind: "marker" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "failed", kind: "verb" }] },
+      { type: "object", mark: "A", label: "时间", tokens: [{ text: "within a few days", kind: "noun" }] }
+    ] },
+    grammarLinks: [{ label: "五种基本句型", href: "/grammar/chapter-09.html#five" }],
+    source: "That has been the conclusion of many Americans, too, as they watch the digital world seemingly crumble around them in recent days."
+  },
+  {
+    chinese: "几乎没有证据表明黑客或失控的人工智能应对此负责。",
+    answer: "There is little evidence that hackers or wayward AI are to blame.",
+    core: "be to blame",
+    meaning: "应负责任",
+    vocabulary: [
+      { word: "evidence", ipa: "/ˈevɪdəns/", meaning: "证据" },
+      { word: "wayward", ipa: "/ˈweɪwərd/", meaning: "失控的；任性的" },
+      { word: "blame", ipa: "/bleɪm/", meaning: "责任；责怪" }
+    ],
+    keywords: "几乎没有证据 little evidence · 表明 that · 黑客 hackers · 失控的AI wayward AI · 应负责 are to blame",
+    frame: "There is little evidence that ... are to blame.",
+    note: "There is表示存在；that从句具体说明evidence的内容。",
+    analysis: "主句是There is little evidence；that同位语从句说明证据涉及什么，从句主干是hackers or wayward AI + are + to blame。",
+    syntaxDiagram: { label: "句子结构图", note: "that说明evidence的具体内容", parts: [
+      { type: "subject", mark: "S", label: "存在结构", tokens: [{ text: "There", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "is", kind: "verb" }] },
+      { type: "object", mark: "P", label: "存在内容", tokens: [{ text: "little evidence", kind: "noun" }, { text: "that ...", kind: "link" }] }
+    ], branches: [{ kind: "embedded", label: "that · 内容从句", relation: "解释 evidence", parts: [
+      { type: "subject", mark: "S", label: "并列主语", tokens: [{ text: "hackers or wayward AI", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "系动词", tokens: [{ text: "are", kind: "verb" }] },
+      { type: "object", mark: "P", label: "表语", tokens: [{ text: "to blame", kind: "marker" }] }
+    ] }] },
+    grammarLinks: [{ label: "名词性从句", href: "/grammar/chapter-12.html#noun" }],
+    source: "There is little evidence that malicious hackers or wayward AI are to blame."
+  },
+  {
+    chinese: "每起事故都与提高系统安全性的努力有关。",
+    answer: "Each incident involved an effort to make a system more secure.",
+    core: "make ... more secure",
+    meaning: "使……更加安全",
+    vocabulary: [
+      { word: "incident", ipa: "/ˈɪnsɪdənt/", meaning: "事故；事件" },
+      { word: "involve", ipa: "/ɪnˈvɑːlv/", meaning: "涉及；包含" },
+      { word: "secure", ipa: "/sɪˈkjʊr/", meaning: "安全的" }
+    ],
+    keywords: "每起事故 each incident · 涉及 involved · 努力 an effort · 使系统更安全 make a system more secure",
+    frame: "Each incident involved an effort to make ... more ...",
+    note: "to make...是不定式，后置说明effort的目标；make后接宾语和形容词宾补。",
+    analysis: "主干是Each incident + involved + an effort；to make...说明努力的内容，a system是make的宾语，more secure是宾补。",
+    syntaxDiagram: { label: "句子结构图", note: "不定式修饰 effort", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "Each incident", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "involved", kind: "verb" }] },
+      { type: "object", mark: "O", label: "宾语", tokens: [{ text: "an effort", kind: "noun" }] }
+    ], branches: [{ kind: "embedded", label: "INF · 不定式", relation: "说明 effort 的目标", parts: [
+      { type: "verb", mark: "V", label: "动作", tokens: [{ text: "to make", kind: "verb" }] },
+      { type: "object", mark: "O+C", label: "宾语 + 宾补", tokens: [{ text: "a system", kind: "noun" }, { text: "more secure", kind: "marker" }] }
+    ] }] },
+    grammarLinks: [{ label: "非谓语的岗位", href: "/grammar/chapter-14.html#jobs" }],
+    source: "Each of these cases involves an effort to make a system more secure."
+  },
+  {
+    chinese: "人工智能能够以前所未有的速度发现漏洞。",
+    answer: "AI can identify vulnerabilities at unprecedented speed.",
+    core: "at unprecedented speed",
+    meaning: "以前所未有的速度",
+    vocabulary: [
+      { word: "identify", ipa: "/aɪˈdentɪfaɪ/", meaning: "识别；发现" },
+      { word: "vulnerability", ipa: "/ˌvʌlnərəˈbɪləti/", meaning: "漏洞；弱点" },
+      { word: "unprecedented", ipa: "/ʌnˈpresɪdentɪd/", meaning: "前所未有的" }
+    ],
+    keywords: "人工智能 AI · 能够 can · 发现 identify · 漏洞 vulnerabilities · 以前所未有的速度 at unprecedented speed",
+    frame: "AI can identify ... at ... speed.",
+    note: "情态动词can后接动词原形；at...speed表示以某种速度。",
+    analysis: "AI是主语，can identify是谓语，vulnerabilities是宾语，at unprecedented speed是方式状语。",
+    syntaxDiagram: { label: "句子结构图", note: "简单句 · SVO", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "AI", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "情态谓语", tokens: [{ text: "can identify", kind: "verb" }] },
+      { type: "object", mark: "O", label: "宾语", tokens: [{ text: "vulnerabilities", kind: "noun" }] },
+      { type: "object", mark: "A", label: "方式", tokens: [{ text: "at unprecedented speed", kind: "marker" }] }
+    ] },
+    grammarLinks: [{ label: "情态动词", href: "/grammar/chapter-08.html#modal" }],
+    source: "AI is making it possible to identify vulnerabilities across enormous numbers of systems at unprecedented speed."
+  },
+  {
+    chinese: "大量快速的修补工作可能压垮技术团队。",
+    answer: "A large volume of rapid patching can overwhelm technical teams.",
+    core: "overwhelm a team",
+    meaning: "压垮一个团队",
+    vocabulary: [
+      { word: "volume", ipa: "/ˈvɑːljuːm/", meaning: "数量；规模" },
+      { word: "patching", ipa: "/ˈpætʃɪŋ/", meaning: "打补丁；修补" },
+      { word: "overwhelm", ipa: "/ˌoʊvərˈwelm/", meaning: "压垮；使应接不暇" }
+    ],
+    keywords: "大量 a large volume of · 快速修补 rapid patching · 可能 can · 压垮 overwhelm · 技术团队 technical teams",
+    frame: "A large volume of ... can overwhelm ...",
+    note: "volume是中心词，因此主语整体按单数理解；can后接overwhelm原形。",
+    analysis: "A large volume of rapid patching是主语，can overwhelm是谓语，technical teams是宾语。",
+    syntaxDiagram: { label: "句子结构图", note: "简单句 · SVO", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "A large volume of rapid patching", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "can overwhelm", kind: "verb" }] },
+      { type: "object", mark: "O", label: "宾语", tokens: [{ text: "technical teams", kind: "noun" }] }
+    ] },
+    grammarLinks: [{ label: "主谓一致", href: "/grammar/chapter-08.html#agreement" }],
+    source: "The sheer ‘volume and velocity’ of that effort can cause issues, he notes, overwhelming the teams that deal with vulnerabilities and patches."
+  },
+  {
+    chinese: "短期内故障可能增多，但长期来看代码会更安全。",
+    answer: "Outages may increase in the short term, but code will become safer in the long term.",
+    core: "in the short term",
+    meaning: "短期内",
+    vocabulary: [
+      { word: "outage", ipa: "/ˈaʊtɪdʒ/", meaning: "系统中断；停机" },
+      { word: "increase", ipa: "/ɪnˈkriːs/", meaning: "增加" },
+      { word: "long term", ipa: "/ˌlɔːŋ ˈtɜːrm/", meaning: "长期" }
+    ],
+    keywords: "故障 outages · 可能增多 may increase · 短期内 in the short term · 但 but · 代码 code · 会更安全 will become safer · 长期来看 in the long term",
+    frame: "... may ... in the short term, but ... will ... in the long term.",
+    note: "but连接短期风险与长期收益两个对比鲜明的分句。",
+    analysis: "分句A是Outages + may increase；分句B是code + will become + safer。两个时间短语形成对照。",
+    syntaxDiagram: { label: "句子结构图", note: "but连接短期与长期", mainLabel: "主句 A", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "Outages", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "may increase", kind: "verb" }] },
+      { type: "object", mark: "A", label: "时间", tokens: [{ text: "in the short term", kind: "marker" }] }
+    ], branches: [{ kind: "parallel", label: "主句 B", relation: "but · 转折对照", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "but", kind: "link" }, { text: "code", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "系动词", tokens: [{ text: "will become", kind: "verb" }] },
+      { type: "object", mark: "P+A", label: "表语 + 时间", tokens: [{ text: "safer", kind: "noun" }, { text: "in the long term", kind: "marker" }] }
+    ] }] },
+    grammarLinks: [{ label: "并列与转折", href: "/grammar/chapter-13.html#logic" }],
+    source: "Many vulnerabilities will have been ‘swept out’ in the coming months and years, he says, resulting in code that is ‘safer and more secure’."
+  }
+];
+
 const november23Exercises = [
   {
     chinese: "一份批评性报告导致AMD股价暴跌约7%。",
@@ -1258,6 +1548,22 @@ const november13Exercises = [
 ];
 
 const translationProcesses = {
+  "20261125": [
+    { grammar: "用一般过去时概括已完成的回归；after补充时间和压力背景。", words: "return to（重返）、pressure（压力）。", order: "先写黄仁勋作主语，再写returned to Nvidia，最后补after时间短语。" },
+    { grammar: "用SVO简单句；of短语后置修饰trajectory。", words: "reinstatement（复职）、trajectory（走势）。", order: "先写复职改变了走势，再补走势属于整个股票市场。" },
+    { grammar: "believe后接that宾语从句；depend on是固定搭配。", words: "supporters（支持者）、AI boom（AI热潮）、depend on（依赖）。", order: "先写支持者的看法，再在that从句中写热潮依赖谁。" },
+    { grammar: "want + 宾语 + to do表示希望某事继续。", words: "debt-laden（负债累累的）、continue（继续）。", order: "主语和want之后，先放AI boom，再用to continue补充希望的动作。" },
+    { grammar: "fear后接that从句；has harmed用现在完成时表示影响延续至今。", words: "affair（婚外情）、harm（损害）、national security（国家安全）。", order: "先写多数美国人的担忧，再写婚外情已经损害什么。" },
+    { grammar: "cause + 宾语 + to do表示导致某物发生变化。", words: "accountability（问责）、collapse（崩溃）。", order: "先写问责作主语，再用could cause接体系和to collapse。" }
+  ],
+  "20261124": [
+    { grammar: "一般过去时failed概括已发生的故障；within表示时间范围。", words: "digital systems（数字系统）、fail（失灵）。", order: "先放多个系统作主语，再写failed，最后补地点和时间。" },
+    { grammar: "There is表示存在；that从句解释evidence的内容。", words: "evidence（证据）、wayward AI（失控的AI）、be to blame（应负责）。", order: "先写几乎没有证据，再用that从句写谁应负责。" },
+    { grammar: "to make是不定式，修饰effort；make接宾语和形容词宾补。", words: "incident（事故）、involve（涉及）、secure（安全的）。", order: "先写每起事故涉及努力，再说明努力的目标。" },
+    { grammar: "can后接动词原形；at...speed表示方式。", words: "identify（识别）、vulnerability（漏洞）、unprecedented（前所未有的）。", order: "AI作主语，依次写能力、动作、对象和速度。" },
+    { grammar: "主语中心词volume是单数；can overwhelm构成情态谓语。", words: "volume（数量）、patching（修补）、overwhelm（压垮）。", order: "先写大量快速修补作主语，再写它可能压垮技术团队。" },
+    { grammar: "but连接两个并列分句，并用short term与long term形成对照。", words: "outage（故障）、increase（增加）、safer（更安全）。", order: "先写短期风险，再用but转向长期结果。" }
+  ],
   "20261123": [
     { grammar: "send + 宾语 + doing表示使某物进入某种状态。", words: "critical report（批评性报告）、shares（股价）、tumble（暴跌）。", order: "先写报告作主语，再用sent接AMD shares和tumbling，最后补幅度。" },
     { grammar: "whether引出宾语从句；could be supported使用被动语态。", words: "financial commitments（财务承诺）、cash（现金）、support（支撑）。", order: "先写The report questioned，再把能否被现金支撑放入whether从句。" },
@@ -2266,6 +2572,24 @@ const november3Exercises = [
 
 const issues = [
   {
+    date: "20261125",
+    displayDate: "2026.11.25",
+    title: "黄仁勋回归，<br>经济成为人质",
+    optionTitle: "黄仁勋回归，经济成为人质",
+    summary: "用6句话理解黄仁勋复职为何引爆股市，以及AI繁荣如何让问责变得困难。",
+    storageKey: "beibei-translation-20261125-v1",
+    exercises: november25Exercises
+  },
+  {
+    date: "20261124",
+    displayDate: "2026.11.24",
+    title: "系统宕机，<br>防御反成风险",
+    optionTitle: "系统宕机，防御反成风险",
+    summary: "用6句话梳理美国接连宕机的原因，以及AI加速修补为何会制造短期风险。",
+    storageKey: "beibei-translation-20261124-v1",
+    exercises: november24Exercises
+  },
+  {
     date: "20261123",
     displayDate: "2026.11.23",
     title: "做空来袭，<br>机会还是危机",
@@ -2430,6 +2754,17 @@ const issues = [
 ];
 
 const coreExamples = {
+  "return to": { sentence: "She returned to school after the holiday.", translation: "假期结束后，她回到了学校。" },
+  "change the trajectory of": { sentence: "One decision can change the trajectory of a life.", translation: "一个决定可能改变人生的轨迹。" },
+  "want ... to continue": { sentence: "We want the discussion to continue.", translation: "我们希望讨论继续下去。" },
+  "fear that": { sentence: "Many people fear that prices will rise again.", translation: "许多人担心物价会再次上涨。" },
+  "cause ... to collapse": { sentence: "The heavy rain caused the old wall to collapse.", translation: "大雨导致旧墙倒塌。" },
+  "within a few days": { sentence: "The package arrived within a few days.", translation: "包裹几天内就送到了。" },
+  "be to blame": { sentence: "No single person is to blame for the mistake.", translation: "没有任何一个人应该为这个错误独自负责。" },
+  "make ... more secure": { sentence: "A strong password makes your account more secure.", translation: "高强度密码能让你的账户更安全。" },
+  "at unprecedented speed": { sentence: "The city is changing at unprecedented speed.", translation: "这座城市正以前所未有的速度变化。" },
+  "overwhelm a team": { sentence: "Too many urgent tasks can overwhelm a small team.", translation: "太多紧急任务可能压垮一个小团队。" },
+  "in the short term": { sentence: "The change may be difficult in the short term.", translation: "短期内，这项改变可能会很困难。" },
   "send ... doing": { sentence: "The good news sent everyone smiling.", translation: "这个好消息让每个人都笑了起来。" },
   "question whether": { sentence: "Some parents question whether the change will help students.", translation: "一些家长质疑这项改变是否会帮助学生。" },
   "deserve scrutiny": { sentence: "Such a serious claim deserves careful scrutiny.", translation: "如此严肃的说法值得仔细审查。" },
