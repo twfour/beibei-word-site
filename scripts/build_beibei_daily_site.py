@@ -413,6 +413,28 @@ TRANSLATION_OVERRIDES_BY_DATE: dict[str, list[str]] = {
 # Tight source-text repairs for PDF page markers, broken hyphenation and
 # quotation marks that survive the generic paragraph cleanup.
 ORIGINAL_REPLACEMENTS_BY_DATE: dict[str, dict[str, str]] = {
+    "20261104": {
+        "campaigning time to other races": "campaigning time to other races.",
+    },
+    "20261114": {
+        "Two of the world’s most valuable companies have changed bosses in recent months.": (
+            "Two of the world’s most valuable companies have changed bosses in recent months. "
+            "They could hardly have done so more differently. At Apple, Tim Cook made way for John "
+            "Ternus in September under what the iPhone-maker called a “long-term succession plan”. "
+            "Nvidia’s succession plan lasted four days. Jensen Huang, the chip giant’s only boss in its "
+            "33-year history, never intended to leave. On November 8th he confessed to an affair; "
+            "on November 12th, after further revelations about his private life, he resigned."
+        ),
+    },
+    "20261118": {
+        " 4.": "",
+        " 6.": "",
+        " postprefix. /poʊst-/ occurring or existing after a particular event or period ": " ",
+        " populist n.adj. /ˈpɑːpjəlɪst/": "",
+    },
+    "20261120": {
+        " 《": "",
+    },
     "20261124": {
         "air- traffic": "air-traffic",
         "air -traffic": "air-traffic",
@@ -426,6 +448,16 @@ ORIGINAL_REPLACEMENTS_BY_DATE: dict[str, dict[str, str]] = {
         "not the case.) 12": "not the case.)",
         "continued 14 reliance": "continued reliance",
     },
+}
+
+ORIGINAL_TRAILING_CUTS_BY_DATE: dict[str, tuple[str, ...]] = {
+    # These two headings use compact/non-standard POS labels that can evade
+    # the generic vocabulary boundary patterns after PDF line normalization.
+    "20261118": (
+        " postprefix.",
+        " populist n.adj.",
+        " a politician who claims to represent",
+    ),
 }
 
 TITLE_VOCAB_TERMS_OVERRIDES_BY_DATE: dict[str, str] = {
@@ -2256,6 +2288,10 @@ VOCAB_FALSE_POSITIVES = {
 }
 
 VOCAB_FALSE_POSITIVES_BY_DATE: dict[str, set[str]] = {
+    # These strings are examples inside the preceding card, not headings for
+    # standalone vocabulary cards.
+    "20261002": {"fierce"},
+    "20261008": {"likened sb", "collaborative projects"},
     # 20261118 uses "air/naval/guerrilla warfare" as an example inside the
     # warfare card. In 20261121, by contrast, "air" is a real verb card.
     "20261118": {"air"},
@@ -3852,6 +3888,95 @@ def vocabulary_context(vocab: dict[str, str], paragraphs: list[dict[str, str]]) 
     return {}
 
 
+# Source-verified repairs found by the rolling 50-page audit.  They are kept
+# separate from the older one-off corrections so future audits can identify
+# which defects the regression checks are expected to prevent.
+AUDIT_VOCAB_CORRECTIONS_BY_DATE: dict[str, dict[str, dict[str, str]]] = {
+    "20261005": {
+        "prospectus": {
+            "example": "...a prospectus for a new issue of stock. ……新发行股票的招股说明书。",
+        },
+    },
+    "20261002": {
+        "determination": {
+            "example": "I admire her determination to get it right. 我赞赏她非把事情弄清楚的决心。",
+        },
+    },
+    "20261006": {
+        "case": {
+            "definition": "（在审判、讨论等中支持一方的）论据、理由、辩词",
+            "definition_en": "a set of facts or arguments that support one side in a trial or discussion",
+        },
+        "checks and balances": {
+            "definition": "制约与平衡；三权分立",
+            "definition_en": (
+                "influences in an organization or political system that keep it fair and prevent "
+                "a small group from holding all the power; the principle by which the President, "
+                "Congress and the Supreme Court each have some control over the others"
+            ),
+        },
+    },
+    "20261007": {
+        "in vitro fertilization": {
+            "definition": "试管内授精；体外授精（缩写：IVF）",
+            "definition_en": (
+                "a technique in which egg cells are fertilized outside the body and resulting "
+                "embryos are implanted into the uterus"
+            ),
+        },
+    },
+    "20261010": {
+        "spawn": {
+            "definition": "（鱼、蛙等）产卵；引发；导致",
+            "definition_en": "to lay eggs; to cause something to develop or be produced",
+        },
+    },
+    "20261020": {
+        "hooligan": {
+            "example": "...the problem of football hooligans. ……足球流氓的问题。",
+        },
+    },
+    "20261102": {
+        "unnoticed": {
+            "example": "His kindness did not go unnoticed by his staff. 他的厚道，员工们都看在眼里。",
+        },
+    },
+    "20261104": {
+        "intensify": {
+            "example": "Violence intensified during the night. 夜间暴力活动加剧了。",
+        },
+    },
+    "20261107": {
+        "matrix": {
+            "definition": "矩阵；（人或社会成长发展的）环境、体系",
+            "definition_en": (
+                "an arrangement of numbers or symbols in rows and columns; the social, political "
+                "or cultural situation from which a society or person develops"
+            ),
+        },
+    },
+    "20261113": {
+        "extramarital": {
+            "example": "an extramarital affair 婚外情",
+        },
+    },
+    "20261121": {
+        "fiscal": {
+            "example": "fiscal policies/reforms 财政政策／改革",
+        },
+    },
+    "20261125": {
+        "you might be forgiven for (thinking": {
+            "term": "you might be forgiven for thinking/assuming…",
+            "pos": "phr.",
+            "phonetic": "",
+            "definition": "你可能会以为……，这也情有可原；难怪你会……",
+            "definition_en": "used to say it would be understandable or reasonable for someone to think or assume something",
+        },
+    },
+}
+
+
 def extract_vocabulary(text: str, issue_date: str = "") -> list[dict[str, str]]:
     normalized = clean_text(lesson_body(text))
     items: list[dict[str, str]] = []
@@ -3882,6 +4007,7 @@ def extract_vocabulary(text: str, issue_date: str = "") -> list[dict[str, str]]:
         }
         item.update(VOCAB_CORRECTIONS.get(key, {}))
         item.update(VOCAB_CORRECTIONS_BY_DATE.get(issue_date, {}).get(key, {}))
+        item.update(AUDIT_VOCAB_CORRECTIONS_BY_DATE.get(issue_date, {}).get(key, {}))
         if suspicious_definition(item["definition"]):
             raise ValueError(
                 f"Suspicious vocabulary definition for {term!r}; "
@@ -3919,6 +4045,7 @@ def extract_vocabulary(text: str, issue_date: str = "") -> list[dict[str, str]]:
         }
         item.update(VOCAB_CORRECTIONS.get(key, {}))
         item.update(VOCAB_CORRECTIONS_BY_DATE.get(issue_date, {}).get(key, {}))
+        item.update(AUDIT_VOCAB_CORRECTIONS_BY_DATE.get(issue_date, {}).get(key, {}))
         if suspicious_definition(item["definition"]):
             raise ValueError(
                 f"Suspicious vocabulary definition for {term!r}; "
@@ -3957,6 +4084,7 @@ def extract_vocabulary(text: str, issue_date: str = "") -> list[dict[str, str]]:
         }
         item.update(VOCAB_CORRECTIONS.get(key, {}))
         item.update(VOCAB_CORRECTIONS_BY_DATE.get(issue_date, {}).get(key, {}))
+        item.update(AUDIT_VOCAB_CORRECTIONS_BY_DATE.get(issue_date, {}).get(key, {}))
         if suspicious_definition(item["definition"]):
             raise ValueError(
                 f"Suspicious vocabulary definition for {term!r}; "
@@ -3992,6 +4120,7 @@ def extract_vocabulary(text: str, issue_date: str = "") -> list[dict[str, str]]:
         }
         item.update(VOCAB_CORRECTIONS.get(key, {}))
         item.update(VOCAB_CORRECTIONS_BY_DATE.get(issue_date, {}).get(key, {}))
+        item.update(AUDIT_VOCAB_CORRECTIONS_BY_DATE.get(issue_date, {}).get(key, {}))
         if suspicious_definition(item["definition"]):
             raise ValueError(
                 f"Suspicious vocabulary definition for {term!r}; "
@@ -4008,6 +4137,9 @@ def extract_vocabulary(text: str, issue_date: str = "") -> list[dict[str, str]]:
         if key not in seen:
             items.append(addition.copy())
             seen.add(key)
+    audit_corrections = AUDIT_VOCAB_CORRECTIONS_BY_DATE.get(issue_date, {})
+    for item in items:
+        item.update(audit_corrections.get(item["term"].lower(), {}))
     return items
 
 
@@ -4156,7 +4288,69 @@ def clean_original_paragraph(value: str) -> str:
     return value
 
 
-def extract_paragraphs(raw: str, issue_date: str = "") -> list[dict[str, str]]:
+LAYOUT_TRANSLATION_PARAGRAPHS: dict[str, set[int]] = {
+    # These handouts place long notes/tables between paragraph translations.
+    # Reading all Chinese blocks globally shifts every later translation.  For
+    # the affected paragraphs, recover the Chinese block that is physically
+    # printed below that paragraph instead.
+    "20261002": set(range(1, 100)),
+    "20261006": set(range(1, 100)),
+    "20261007": set(range(1, 100)),
+    "20261008": set(range(1, 100)),
+    "20261010": set(range(1, 100)),
+    "20261013": set(range(1, 100)),
+    "20261019": set(range(1, 100)),
+    "20261020": set(range(1, 100)),
+    "20261029": set(range(1, 100)),
+    "20261102": set(range(1, 100)),
+    "20261104": set(range(1, 100)),
+}
+
+
+def layout_translations(path: Path, issue_date: str) -> dict[int, str]:
+    wanted = LAYOUT_TRANSLATION_PARAGRAPHS.get(issue_date, set())
+    if not wanted:
+        return {}
+    with pdfplumber.open(path) as pdf:
+        layout = "\n".join((page.extract_text(layout=True) or "") for page in pdf.pages)
+    markers = list(re.finditer(r"Para\.\s*(\d+)", layout))
+    recovered: dict[int, str] = {}
+    vocab_heading = re.compile(
+        rf"^[A-Za-z][A-Za-z0-9’'(),.\- /]+\s{POS_PATTERN}\.?(?:\s|/|$)",
+        re.I,
+    )
+    for index, marker in enumerate(markers):
+        number = int(marker.group(1))
+        if number not in wanted:
+            continue
+        end = markers[index + 1].start() if index + 1 < len(markers) else len(layout)
+        lines = layout[marker.end():end].splitlines()
+        translation_lines: list[str] = []
+        started = False
+        for raw_line in lines:
+            line = re.sub(r"\s+", " ", raw_line).strip()
+            if not line or "视频号：贝贝外刊" in line or "公众号：一起贝英语" in line:
+                continue
+            han_count = len(re.findall(r"[\u4e00-\u9fff]", line))
+            if not started:
+                if han_count >= 8:
+                    started = True
+                    translation_lines.append(line)
+                continue
+            if vocab_heading.match(line) or any(heading in line for heading in POST_READING_HEADINGS):
+                break
+            if han_count >= 2:
+                translation_lines.append(line)
+        translation = "".join(translation_lines)
+        translation = re.sub(r"(?<=[\u4e00-\u9fff])\s+(?=[\u4e00-\u9fff])", "", translation)
+        translation = re.sub(r"\s+", " ", translation).strip()
+        if len(re.findall(r"[\u4e00-\u9fff]", translation)) < 30:
+            raise ValueError(f"Could not recover layout translation for {issue_date} Para. {number}")
+        recovered[number] = translation
+    return recovered
+
+
+def extract_paragraphs(raw: str, issue_date: str = "", path: Path | None = None) -> list[dict[str, str]]:
     full_raw = raw
     raw = lesson_body(raw)
     matches = list(re.finditer(r"Para\.\s*(\d+)", raw))
@@ -4214,6 +4408,10 @@ def extract_paragraphs(raw: str, issue_date: str = "") -> list[dict[str, str]]:
         english_source = re.sub(r"^[^A-Za-zÀ-ÖØ-öø-ÿ“‘\"']+", "", english_source).strip()
         for source, replacement in ORIGINAL_REPLACEMENTS_BY_DATE.get(issue_date, {}).items():
             english_source = english_source.replace(source, replacement)
+        for marker in ORIGINAL_TRAILING_CUTS_BY_DATE.get(issue_date, ()):
+            marker_position = english_source.find(marker)
+            if marker_position >= 0:
+                english_source = english_source[:marker_position].rstrip()
         if not english_source:
             continue
         originals.append({
@@ -4234,6 +4432,11 @@ def extract_paragraphs(raw: str, issue_date: str = "") -> list[dict[str, str]]:
     translations = translation_candidates(translation_source)
     if issue_date in TRANSLATION_OVERRIDES_BY_DATE:
         translations = TRANSLATION_OVERRIDES_BY_DATE[issue_date]
+    if path is not None:
+        for paragraph_number, translation in layout_translations(path, issue_date).items():
+            while len(translations) < paragraph_number:
+                translations.append("")
+            translations[paragraph_number - 1] = translation
     if len(translations) < len(originals):
         analysis_start = next(
             (position for position in (full_raw.find(marker) for marker in ANALYSIS_HEADINGS) if position >= 0),
@@ -4614,7 +4817,7 @@ def read_article(path: Path, digest: str | None = None) -> Article:
         filename=path.name,
         pages=len(reader.pages),
         words=len(clean_text(raw).split()),
-        paragraphs=extract_paragraphs(raw, date),
+        paragraphs=extract_paragraphs(raw, date, path),
         vocabulary=extract_vocabulary(raw, date),
         analyses=extract_analyses(path),
         source_digest=digest or sha256(path),
