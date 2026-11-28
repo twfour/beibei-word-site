@@ -1,3 +1,291 @@
+const november27Exercises = [
+  {
+    chinese: "深圳峰会几乎没有取得成果，却释放了一个令人不安的信号。",
+    answer: "The Shenzhen summit achieved little, but it sent a sinister message.",
+    core: "send a message",
+    meaning: "释放信号；传递信息",
+    vocabulary: [
+      { word: "summit", ipa: "/ˈsʌmɪt/", meaning: "峰会" },
+      { word: "achieve", ipa: "/əˈtʃiːv/", meaning: "取得；实现" },
+      { word: "sinister", ipa: "/ˈsɪnɪstər/", meaning: "不祥的；令人不安的" }
+    ],
+    keywords: "深圳峰会 the Shenzhen summit · 几乎没有取得成果 achieved little · 但是 but · 释放了信号 sent a message · 令人不安的 sinister",
+    frame: "The ... achieved little, but it sent a ... message.",
+    note: "but连接两个转折分句；achieved和sent都用一般过去时描述峰会结果。",
+    analysis: "找谓语：achieved / sent，两套骨架。分句A是The Shenzhen summit（S）+ achieved（V）+ little（O）；分句B是it（S）+ sent（V）+ a sinister message（O）。but把‘成果很少’与‘信号强烈’连接成转折。",
+    syntaxDiagram: { label: "句子结构图", note: "but连接两个转折并列分句", mainLabel: "主句 A", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "The Shenzhen summit", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "achieved", kind: "verb" }] },
+      { type: "object", mark: "O", label: "宾语", tokens: [{ text: "little", kind: "noun" }] }
+    ], branches: [{ kind: "parallel", label: "主句 B", relation: "but · 转折", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "but", kind: "link" }, { text: "it", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "sent", kind: "verb" }] },
+      { type: "object", mark: "O", label: "宾语", tokens: [{ text: "a sinister message", kind: "noun" }] }
+    ] }] },
+    grammarLinks: [{ label: "并列与转折", href: "/grammar/chapter-13.html#logic" }, { label: "五种基本句型", href: "/grammar/chapter-09.html#five" }],
+    source: "Nothing of significance was agreed. But the meeting itself sent a sinister message."
+  },
+  {
+    chinese: "卡尼呼吁中等强国合作，摆脱对超级大国的危险依赖。",
+    answer: "Carney called on middle powers to work together and free themselves from dangerous dependence on great powers.",
+    core: "call on ... to ...",
+    meaning: "呼吁……做……",
+    vocabulary: [
+      { word: "middle power", ipa: "/ˌmɪdl ˈpaʊər/", meaning: "中等强国" },
+      { word: "dependence", ipa: "/dɪˈpendəns/", meaning: "依赖" },
+      { word: "free", ipa: "/friː/", meaning: "使摆脱" }
+    ],
+    keywords: "卡尼 Carney · 呼吁 called on · 中等强国 middle powers · 合作 work together · 摆脱 free themselves from · 危险依赖 dangerous dependence",
+    frame: "... called on ... to ... and ...",
+    note: "call on sb to do表示‘呼吁某人做某事’；work和free是由and连接的并列动作。",
+    analysis: "找完整谓语：called；to work和(to) free是并列不定式。主干是Carney（S）+ called on（V）+ middle powers（O）；两个不定式说明他呼吁它们做什么。",
+    syntaxDiagram: { label: "句子结构图", note: "call on + 宾语 + 并列不定式", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "Carney", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "called on", kind: "verb" }] },
+      { type: "object", mark: "O+C", label: "宾语 + 补充动作", tokens: [{ text: "middle powers", kind: "noun" }, { text: "to work together", kind: "marker" }, { text: "and free themselves from ...", kind: "marker" }] }
+    ] },
+    grammarLinks: [{ label: "非谓语的岗位", href: "/grammar/chapter-14.html#jobs" }, { label: "并列结构", href: "/grammar/chapter-13.html#parallel" }],
+    source: "Mark Carney ... used his landmark speech in Davos ... to appeal for ‘middle powers’ to work together — in an effort to free themselves from dangerous dependence on predatory great powers."
+  },
+  {
+    chinese: "加拿大正通过新的贸易与防务伙伴关系把这一计划变成现实。",
+    answer: "Canada is turning this plan into reality through new trade and defence partnerships.",
+    core: "turn ... into reality",
+    meaning: "把……变成现实",
+    vocabulary: [
+      { word: "reality", ipa: "/riˈæləti/", meaning: "现实" },
+      { word: "defence", ipa: "/dɪˈfens/", meaning: "防务；国防" },
+      { word: "partnership", ipa: "/ˈpɑːrtnərʃɪp/", meaning: "伙伴关系" }
+    ],
+    keywords: "加拿大 Canada · 正在把 is turning · 这项计划 this plan · 变成现实 into reality · 通过 through · 贸易与防务伙伴关系 trade and defence partnerships",
+    frame: "... is turning ... into reality through ...",
+    note: "turn sth into reality表示‘把某事变成现实’；through说明实现计划的方式。",
+    analysis: "这是SVO结构：Canada（S）+ is turning（V）+ this plan（O）。into reality补充变化结果，through...说明实现计划的途径。",
+    syntaxDiagram: { label: "句子结构图", note: "SVO · 结果与方式", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "Canada", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "is turning", kind: "verb" }] },
+      { type: "object", mark: "O+A", label: "宾语 + 补充", tokens: [{ text: "this plan", kind: "noun" }, { text: "into reality", kind: "marker" }, { text: "through new trade and defence partnerships", kind: "marker" }] }
+    ] },
+    grammarLinks: [{ label: "五种基本句型", href: "/grammar/chapter-09.html#five" }, { label: "介词短语", href: "/grammar/chapter-06.html#phrase" }],
+    source: "Since Davos, Carney has been busy trying to turn his middle powers plan into reality."
+  },
+  {
+    chinese: "中等强国仍然高度依赖美国技术和中国供应链。",
+    answer: "Middle powers still depend heavily on American technology and Chinese supply chains.",
+    core: "depend heavily on",
+    meaning: "高度依赖……",
+    vocabulary: [
+      { word: "heavily", ipa: "/ˈhevɪli/", meaning: "在很大程度上；严重地" },
+      { word: "technology", ipa: "/tekˈnɑːlədʒi/", meaning: "技术" },
+      { word: "supply chain", ipa: "/səˈplaɪ tʃeɪn/", meaning: "供应链" }
+    ],
+    keywords: "中等强国 middle powers · 仍然 still · 高度依赖 depend heavily on · 美国技术 American technology · 中国供应链 Chinese supply chains",
+    frame: "... still depend heavily on ... and ...",
+    note: "depend on是固定搭配；American technology和Chinese supply chains是并列宾语。",
+    analysis: "主干是Middle powers（S）+ depend（V）。heavily修饰依赖程度；on后接两个由and连接的并列对象。",
+    syntaxDiagram: { label: "句子结构图", note: "SV · 介词后接并列对象", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "Middle powers", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "still depend heavily on", kind: "verb" }] },
+      { type: "object", mark: "O", label: "介词宾语", tokens: [{ text: "American technology", kind: "noun" }, { text: "and Chinese supply chains", kind: "noun" }] }
+    ] },
+    grammarLinks: [{ label: "介词搭配", href: "/grammar/chapter-06.html#phrase" }, { label: "并列结构", href: "/grammar/chapter-13.html#parallel" }],
+    source: "Middle powers such as the Europeans, Canadians, Australians and others are already highly dependent on US technology."
+  },
+  {
+    chinese: "转向可再生能源可以减少对美国的依赖，却会造成对中国的依赖。",
+    answer: "Moving towards renewable energy can reduce dependence on the US but create dependence on China.",
+    core: "reduce dependence on",
+    meaning: "减少对……的依赖",
+    vocabulary: [
+      { word: "renewable", ipa: "/rɪˈnuːəbl/", meaning: "可再生的" },
+      { word: "reduce", ipa: "/rɪˈduːs/", meaning: "减少" },
+      { word: "create", ipa: "/kriˈeɪt/", meaning: "造成；产生" }
+    ],
+    keywords: "转向 moving towards · 可再生能源 renewable energy · 可以减少 can reduce · 对美国的依赖 dependence on the US · 却 but · 造成对中国的依赖 create dependence on China",
+    frame: "Moving towards ... can reduce ... but create ...",
+    note: "动名词短语作主语；can同时支配reduce和create两个由but连接的动作。",
+    analysis: "主语是Moving towards renewable energy。谓语是can reduce和(can) create，二者共用情态动词can；but突出摆脱一种依赖却产生另一种依赖。",
+    syntaxDiagram: { label: "句子结构图", note: "动名词主语 · but连接并列谓语", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "Moving towards renewable energy", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语 A", tokens: [{ text: "can reduce", kind: "verb" }] },
+      { type: "object", mark: "O", label: "宾语", tokens: [{ text: "dependence on the US", kind: "noun" }] }
+    ], branches: [{ kind: "parallel", label: "并列谓语 B", relation: "but · 转折", parts: [
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "but create", kind: "verb" }] },
+      { type: "object", mark: "O", label: "宾语", tokens: [{ text: "dependence on China", kind: "noun" }] }
+    ] }] },
+    grammarLinks: [{ label: "非谓语作主语", href: "/grammar/chapter-14.html#subject" }, { label: "并列与转折", href: "/grammar/chapter-13.html#logic" }],
+    source: "The best way of alleviating that dependence is to move towards renewable energy. But any such shift then creates a dependence on China."
+  },
+  {
+    chinese: "如果中等强国无法形成统一声音，它们就很难在谈判桌上占有一席之地。",
+    answer: "If middle powers cannot form a united voice, they will struggle to gain a seat at the table.",
+    core: "gain a seat at the table",
+    meaning: "在谈判或决策中占有一席之地",
+    vocabulary: [
+      { word: "united", ipa: "/juˈnaɪtɪd/", meaning: "统一的；团结的" },
+      { word: "struggle", ipa: "/ˈstrʌɡl/", meaning: "艰难地做；努力" },
+      { word: "gain", ipa: "/ɡeɪn/", meaning: "获得" }
+    ],
+    keywords: "如果 if · 中等强国 middle powers · 无法形成 cannot form · 统一声音 a united voice · 很难 will struggle to · 占有一席之地 gain a seat at the table",
+    frame: "If ... cannot form ..., they will struggle to gain ...",
+    note: "if从句用一般现在时表达条件，主句用will表示可能结果；struggle to do表示‘艰难地做某事’。",
+    analysis: "找谓语：cannot form / will struggle，两套骨架。if把middle powers cannot form a united voice标成条件状语从句；主句是they + will struggle，to gain...说明艰难完成的动作。",
+    syntaxDiagram: { label: "句子结构图", note: "if条件状语从句", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "they", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "will struggle", kind: "verb" }] },
+      { type: "object", mark: "C", label: "不定式补充", tokens: [{ text: "to gain a seat at the table", kind: "marker" }] }
+    ], branches: [{ kind: "embedded", label: "if · 条件从句", relation: "主句发生的条件", parts: [
+      { type: "subject", mark: "S", label: "从句主语", tokens: [{ text: "middle powers", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "cannot form", kind: "verb" }] },
+      { type: "object", mark: "O", label: "宾语", tokens: [{ text: "a united voice", kind: "noun" }] }
+    ] }] },
+    grammarLinks: [{ label: "条件状语从句", href: "/grammar/chapter-12.html#adverbial" }, { label: "非谓语的岗位", href: "/grammar/chapter-14.html#jobs" }],
+    source: "This kind of fractured representation makes it extremely difficult to create a coherent ‘middle power’ voice in international politics."
+  }
+];
+
+const november26Exercises = [
+  {
+    chinese: "随着世界步入2027年，市场观察人士比往常更加担忧。",
+    answer: "As the world heads into 2027, market-watchers are more worried than usual.",
+    core: "head into",
+    meaning: "进入；步入",
+    vocabulary: [
+      { word: "market-watcher", ipa: "/ˈmɑːrkɪt ˌwɑːtʃər/", meaning: "市场观察人士" },
+      { word: "worried", ipa: "/ˈwɜːrid/", meaning: "担忧的" },
+      { word: "usual", ipa: "/ˈjuːʒuəl/", meaning: "通常的；往常的" }
+    ],
+    keywords: "随着 as · 世界 the world · 步入2027年 heads into 2027 · 市场观察人士 market-watchers · 比往常更担忧 more worried than usual",
+    frame: "As ... heads into ..., ... are more ... than usual.",
+    note: "as引出时间状语从句；more worried than构成比较级。",
+    analysis: "找谓语：heads / are，两套骨架。主句是market-watchers（S）+ are（V）+ more worried（P）；as把the world heads into 2027标成时间状语从句。",
+    syntaxDiagram: { label: "句子结构图", note: "as时间状语从句 + 比较级", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "market-watchers", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "系动词", tokens: [{ text: "are", kind: "verb" }] },
+      { type: "object", mark: "P", label: "表语", tokens: [{ text: "more worried than usual", kind: "noun" }] }
+    ], branches: [{ kind: "embedded", label: "as · 时间从句", relation: "说明主句时间背景", parts: [
+      { type: "subject", mark: "S", label: "从句主语", tokens: [{ text: "the world", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "heads into", kind: "verb" }] },
+      { type: "object", mark: "O", label: "介词宾语", tokens: [{ text: "2027", kind: "noun" }] }
+    ] }] },
+    grammarLinks: [{ label: "状语从句", href: "/grammar/chapter-12.html#adverbial" }, { label: "程度与比较", href: "/grammar/chapter-07.html#degree" }],
+    source: "As the world heads into 2027 market-watchers are more worried than usual."
+  },
+  {
+    chinese: "能源冲击、贸易战和高利率可能不会引发下一场危机。",
+    answer: "Energy shocks, trade wars and high interest rates may not cause the next crisis.",
+    core: "cause a crisis",
+    meaning: "引发危机",
+    vocabulary: [
+      { word: "energy shock", ipa: "/ˈenərdʒi ʃɑːk/", meaning: "能源冲击" },
+      { word: "trade war", ipa: "/ˈtreɪd wɔːr/", meaning: "贸易战" },
+      { word: "interest rate", ipa: "/ˈɪntrəst reɪt/", meaning: "利率" }
+    ],
+    keywords: "能源冲击 energy shocks · 贸易战 trade wars · 高利率 high interest rates · 可能不会 may not · 引发 cause · 下一场危机 the next crisis",
+    frame: "..., ... and ... may not cause ...",
+    note: "三个名词短语构成并列主语；情态动词may后接not cause。",
+    analysis: "这是SVO结构。并列主语由energy shocks、trade wars和high interest rates组成；may not cause是谓语，the next crisis是宾语。",
+    syntaxDiagram: { label: "句子结构图", note: "并列主语 · SVO", parts: [
+      { type: "subject", mark: "S", label: "并列主语", tokens: [{ text: "Energy shocks, trade wars and high interest rates", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "may not cause", kind: "verb" }] },
+      { type: "object", mark: "O", label: "宾语", tokens: [{ text: "the next crisis", kind: "noun" }] }
+    ] },
+    grammarLinks: [{ label: "并列结构", href: "/grammar/chapter-13.html#parallel" }, { label: "情态动词", href: "/grammar/chapter-08.html#modal" }],
+    source: "Start by considering what probably won’t cause the next crisis."
+  },
+  {
+    chinese: "政府债务和人工智能可能是当今最大的经济风险。",
+    answer: "Government debt and artificial intelligence are probably today's biggest economic risks.",
+    core: "economic risk",
+    meaning: "经济风险",
+    vocabulary: [
+      { word: "government debt", ipa: "/ˈɡʌvərnmənt det/", meaning: "政府债务" },
+      { word: "artificial intelligence", ipa: "/ˌɑːrtɪfɪʃəl ɪnˈtelɪdʒəns/", meaning: "人工智能" },
+      { word: "economic", ipa: "/ˌiːkəˈnɑːmɪk/", meaning: "经济的" }
+    ],
+    keywords: "政府债务 government debt · 人工智能 artificial intelligence · 可能是 are probably · 当今最大的经济风险 today's biggest economic risks",
+    frame: "... and ... are probably today's biggest ...",
+    note: "两个名词由and连接作复数主语，因此系动词用are。",
+    analysis: "这是主系表结构：Government debt and artificial intelligence（S）+ are（V）+ today's biggest economic risks（P）。probably修饰判断语气。",
+    syntaxDiagram: { label: "句子结构图", note: "并列主语 · SVP", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "Government debt and artificial intelligence", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "系动词", tokens: [{ text: "are", kind: "verb" }] },
+      { type: "object", mark: "P", label: "表语", tokens: [{ text: "probably today's biggest economic risks", kind: "noun" }] }
+    ] },
+    grammarLinks: [{ label: "主系表", href: "/grammar/chapter-09.html#linking" }, { label: "主谓一致", href: "/grammar/chapter-08.html#agreement" }],
+    source: "Today’s biggest economic risks are probably government debt and artificial intelligence."
+  },
+  {
+    chinese: "人工智能交易程序可能引发一场突然的全球股市暴跌。",
+    answer: "AI trading programs could trigger a sudden global stock-market crash.",
+    core: "trigger a crash",
+    meaning: "引发暴跌；触发崩盘",
+    vocabulary: [
+      { word: "trigger", ipa: "/ˈtrɪɡər/", meaning: "触发；引发" },
+      { word: "sudden", ipa: "/ˈsʌdn/", meaning: "突然的" },
+      { word: "crash", ipa: "/kræʃ/", meaning: "暴跌；崩盘" }
+    ],
+    keywords: "人工智能交易程序 AI trading programs · 可能 could · 引发 trigger · 突然的 sudden · 全球股市暴跌 global stock-market crash",
+    frame: "... could trigger a sudden ... crash.",
+    note: "could表示可能性，后接动词原形trigger；多个形容词共同修饰crash。",
+    analysis: "这是标准SVO：AI trading programs（S）+ could trigger（V）+ a sudden global stock-market crash（O）。",
+    syntaxDiagram: { label: "句子结构图", note: "简单句 · SVO", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "AI trading programs", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "could trigger", kind: "verb" }] },
+      { type: "object", mark: "O", label: "宾语", tokens: [{ text: "a sudden global stock-market crash", kind: "noun" }] }
+    ] },
+    grammarLinks: [{ label: "五种基本句型", href: "/grammar/chapter-09.html#five" }, { label: "情态动词", href: "/grammar/chapter-08.html#modal" }],
+    source: "One scenario is 1987, when then-novel computerised trading techniques spurred a sharp, unexpected and global stock-market crash."
+  },
+  {
+    chinese: "许多人原以为人工智能会取代数百万白领，但这并没有发生。",
+    answer: "Many people expected AI to replace millions of white-collar workers, but this has not happened.",
+    core: "expect ... to ...",
+    meaning: "预期……会……",
+    vocabulary: [
+      { word: "replace", ipa: "/rɪˈpleɪs/", meaning: "取代" },
+      { word: "white-collar", ipa: "/ˌwaɪt ˈkɑːlər/", meaning: "白领的" },
+      { word: "happen", ipa: "/ˈhæpən/", meaning: "发生" }
+    ],
+    keywords: "许多人 many people · 原以为 expected · 人工智能 AI · 取代 replace · 数百万白领 millions of white-collar workers · 但这并未发生 but this has not happened",
+    frame: "Many people expected ... to ..., but this has not happened.",
+    note: "expect sb/sth to do表示‘预期……做……’；现在完成时has not happened表示截至现在仍未发生。",
+    analysis: "找谓语：expected / has not happened。分句A中AI是expected的宾语，to replace...是宾补；but连接分句B，this概括前面预期的事情。",
+    syntaxDiagram: { label: "句子结构图", note: "expect + 宾语 + 不定式宾补", mainLabel: "主句 A", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "Many people", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "expected", kind: "verb" }] },
+      { type: "object", mark: "O+C", label: "宾语 + 宾补", tokens: [{ text: "AI", kind: "noun" }, { text: "to replace millions of white-collar workers", kind: "marker" }] }
+    ], branches: [{ kind: "parallel", label: "主句 B", relation: "but · 现实转折", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "but", kind: "link" }, { text: "this", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "has not happened", kind: "verb" }] }
+    ] }] },
+    grammarLinks: [{ label: "宾语补足语", href: "/grammar/chapter-09.html#object-complement" }, { label: "完成时", href: "/grammar/chapter-15.html#perfect" }],
+    source: "Many people expected AI to have disrupted the labour market by now, with bots putting millions of office-based employees out of work."
+  },
+  {
+    chinese: "下一场经济危机很可能会呈现出独属于自己的形态。",
+    answer: "The next economic crash will probably have a form of its own.",
+    core: "of one's own",
+    meaning: "属于某人或某物自己的",
+    vocabulary: [
+      { word: "economic crash", ipa: "/ˌiːkəˈnɑːmɪk kræʃ/", meaning: "经济危机；经济崩盘" },
+      { word: "form", ipa: "/fɔːrm/", meaning: "形态；形式" },
+      { word: "own", ipa: "/oʊn/", meaning: "自己的" }
+    ],
+    keywords: "下一场经济危机 the next economic crash · 很可能 will probably · 呈现 have · 独属于自己的形态 a form of its own",
+    frame: "The next ... will probably have ... of its own.",
+    note: "of its own表示‘属于它自己的、独有的’；will probably have表达预测。",
+    analysis: "这是SVO结构：The next economic crash（S）+ will probably have（V）+ a form（O）；of its own后置修饰form。",
+    syntaxDiagram: { label: "句子结构图", note: "简单句 · 后置修饰", parts: [
+      { type: "subject", mark: "S", label: "主语", tokens: [{ text: "The next economic crash", kind: "noun" }] },
+      { type: "verb", mark: "V", label: "谓语", tokens: [{ text: "will probably have", kind: "verb" }] },
+      { type: "object", mark: "O", label: "宾语", tokens: [{ text: "a form", kind: "noun" }, { text: "of its own", kind: "marker" }] }
+    ] },
+    grammarLinks: [{ label: "五种基本句型", href: "/grammar/chapter-09.html#five" }, { label: "定语的位置", href: "/grammar/chapter-05.html#position" }],
+    source: "The chances are that the next crash ... will be its own creature entirely."
+  }
+];
+
 const november18Exercises = [
   {
     chinese: "中期选举尘埃落定后，接班特朗普的竞争将开始。",
@@ -1548,6 +1836,22 @@ const november13Exercises = [
 ];
 
 const translationProcesses = {
+  "20261127": [
+    { grammar: "用but连接两个过去时分句，形成‘成果少、信号强’的转折。", words: "summit（峰会）、achieve little（几乎没有成果）、sinister message（不祥信号）。", order: "先写峰会取得的成果，再用but转向它释放的信号。" },
+    { grammar: "call on + 宾语 + to do；两个动作由and并列。", words: "middle powers（中等强国）、work together（合作）、free...from...（使……摆脱……）。", order: "先写卡尼呼吁谁，再依次写合作和摆脱依赖两个目标。" },
+    { grammar: "用现在进行时表示正在推进；turn A into B表达变化结果。", words: "turn into reality（变成现实）、trade and defence partnerships（贸易与防务伙伴关系）。", order: "Canada作主语，接is turning和计划，再补结果与方式。" },
+    { grammar: "depend on是固定搭配；两个依赖对象由and并列。", words: "depend heavily on（高度依赖）、technology（技术）、supply chains（供应链）。", order: "先写中等强国仍然依赖，再列美国技术与中国供应链。" },
+    { grammar: "动名词短语作主语；can共用在reduce和create两个谓语前。", words: "renewable energy（可再生能源）、reduce dependence（减少依赖）、create dependence（造成依赖）。", order: "先写转向新能源，再用but对比减少美国依赖与增加中国依赖。" },
+    { grammar: "if从句用一般现在时，主句用will表示条件结果。", words: "form a united voice（形成统一声音）、struggle to（艰难地做）、a seat at the table（一席之地）。", order: "先写无法形成统一声音这一条件，再写争取谈判席位的结果。" }
+  ],
+  "20261126": [
+    { grammar: "as引出时间从句；主句用more...than构成比较级。", words: "head into（步入）、market-watcher（市场观察人士）、more worried than usual（比往常更担忧）。", order: "先用as交代进入2027年，再写市场人士的担忧变化。" },
+    { grammar: "三个名词短语并列作主语；may not后接动词原形。", words: "energy shock（能源冲击）、trade war（贸易战）、interest rate（利率）。", order: "先列三个传统风险，再写它们可能不会引发下一场危机。" },
+    { grammar: "两个名词由and并列作主语，系动词用are。", words: "government debt（政府债务）、artificial intelligence（人工智能）、economic risk（经济风险）。", order: "先列两个风险来源，再判断它们可能是当今最大的经济风险。" },
+    { grammar: "could表示可能性，后接trigger原形；句子采用SVO。", words: "trading program（交易程序）、trigger（引发）、stock-market crash（股市暴跌）。", order: "先写AI交易程序，再写可能引发的突然全球暴跌。" },
+    { grammar: "expect + 宾语 + to do；but后用现在完成时说明截至现在仍未发生。", words: "replace（取代）、white-collar worker（白领）、has not happened（尚未发生）。", order: "先写过去的就业预期，再用but转向现实结果。" },
+    { grammar: "will probably表达预测；of its own后置修饰form。", words: "economic crash（经济危机）、form（形态）、of its own（独有的）。", order: "先写下一场危机，再写它很可能拥有独特形态。" }
+  ],
   "20261125": [
     { grammar: "用一般过去时概括已完成的回归；after补充时间和压力背景。", words: "return to（重返）、pressure（压力）。", order: "先写黄仁勋作主语，再写returned to Nvidia，最后补after时间短语。" },
     { grammar: "用SVO简单句；of短语后置修饰trajectory。", words: "reinstatement（复职）、trajectory（走势）。", order: "先写复职改变了走势，再补走势属于整个股票市场。" },
@@ -2572,6 +2876,24 @@ const november3Exercises = [
 
 const issues = [
   {
+    date: "20261127",
+    displayDate: "2026.11.27",
+    title: "大国围桌，<br>中等强国突围",
+    optionTitle: "大国围桌，中等强国突围",
+    summary: "用6句话梳理中等强国为何要合作，以及技术、能源和外交分歧为何让突围十分困难。",
+    storageKey: "beibei-translation-20261127-v1",
+    exercises: november27Exercises
+  },
+  {
+    date: "20261126",
+    displayDate: "2026.11.26",
+    title: "旧风险退场，<br>新危机潜伏",
+    optionTitle: "旧风险退场，新危机潜伏",
+    summary: "用6句话理解传统冲击为何未必引发衰退，以及政府债务和AI可能怎样制造下一场危机。",
+    storageKey: "beibei-translation-20261126-v1",
+    exercises: november26Exercises
+  },
+  {
     date: "20261125",
     displayDate: "2026.11.25",
     title: "黄仁勋回归，<br>经济成为人质",
@@ -2754,6 +3076,18 @@ const issues = [
 ];
 
 const coreExamples = {
+  "send a message": { sentence: "Her calm reply sent a clear message to the team.", translation: "她冷静的回答向团队传递了一个清晰的信号。" },
+  "call on ... to ...": { sentence: "The teacher called on everyone to work together.", translation: "老师呼吁大家共同合作。" },
+  "turn ... into reality": { sentence: "Careful planning can turn an idea into reality.", translation: "周密的计划可以把想法变成现实。" },
+  "depend heavily on": { sentence: "The village depends heavily on tourism.", translation: "这个村庄高度依赖旅游业。" },
+  "reduce dependence on": { sentence: "Solar power can reduce our dependence on fossil fuels.", translation: "太阳能可以减少我们对化石燃料的依赖。" },
+  "gain a seat at the table": { sentence: "Young people want to gain a seat at the table.", translation: "年轻人希望在决策中占有一席之地。" },
+  "head into": { sentence: "The company is heading into a busy season.", translation: "这家公司即将进入繁忙季节。" },
+  "cause a crisis": { sentence: "A serious water shortage could cause a crisis.", translation: "严重缺水可能引发危机。" },
+  "economic risk": { sentence: "High debt is an economic risk for many countries.", translation: "高额债务是许多国家面临的经济风险。" },
+  "trigger a crash": { sentence: "Panic selling may trigger a market crash.", translation: "恐慌性抛售可能引发市场崩盘。" },
+  "expect ... to ...": { sentence: "We expect the train to arrive on time.", translation: "我们预计火车会准时到达。" },
+  "of one's own": { sentence: "She hopes to have a room of her own.", translation: "她希望拥有一间属于自己的房间。" },
   "return to": { sentence: "She returned to school after the holiday.", translation: "假期结束后，她回到了学校。" },
   "change the trajectory of": { sentence: "One decision can change the trajectory of a life.", translation: "一个决定可能改变人生的轨迹。" },
   "want ... to continue": { sentence: "We want the discussion to continue.", translation: "我们希望讨论继续下去。" },
